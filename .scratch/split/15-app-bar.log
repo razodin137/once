@@ -2483,3 +2483,17 @@ ok  	github.com/basecamp/once/internal/version	(cached)
  internal/docker/application.go | 26 ++++++++++++++++++++------
  1 file changed, 20 insertions(+), 6 deletions(-)
 > build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgit status --short; git add -A && git commit -q -m "split: 15-app-bar" && git log --oneline -1
+M internal/docker/application.go
+?? .scratch/split/15-app-bar.check
+?? .scratch/split/15-app-bar.diff
+?? .scratch/split/15-app-bar.log
+?? internal/docker/appbar.go
+?? internal/docker/appbar_test.go
+d9aa468 split: 15-app-bar
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+Added the served-page bar in `internal/docker/appbar.go`, injected by nginx `sub_filter` in `internal/docker/application.go:59` — 40px dark-glass strip, app name left, Back/Next/Contents/Drift/Reload/Hide right. Back/next/drift follow the running apps in host order; the served files are never rewritten.
+
+`make test` passes, `make lint` reports 0 issues. Committed as `d9aa468 split: 15-app-bar`.
+
+Scope note: this covers the static sites ONCE serves itself; pages from arbitrary app images are served by those containers, not by ONCE.

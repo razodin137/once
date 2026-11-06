@@ -1,2 +1,4 @@
- internal/docker/application.go | 26 ++++++++++++++++++++------
- 1 file changed, 20 insertions(+), 6 deletions(-)
+ .scratch/split/15-app-bar.check |  6 ++++--
+ .scratch/split/15-app-bar.diff  |  2 --
+ .scratch/split/15-app-bar.log   | 14 ++++++++++++++
+ 3 files changed, 18 insertions(+), 4 deletions(-)
