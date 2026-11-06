@@ -68,6 +68,70 @@ func TestBuildServedSite(t *testing.T) {
 	assert.Equal(t, os.FileMode(0o644), info.Mode().Perm())
 }
 
+func TestBuildServedSiteRendersMarkdown(t *testing.T) {
+	source := t.TempDir()
+	dest := filepath.Join(t.TempDir(), "site")
+
+	markdown := "# Guide\n\nSome **bold** text.\n\n| a | b |\n| - | - |\n| 1 | 2 |\n\n[Other](other.md)\n"
+	require.NoError(t, os.Mkdir(filepath.Join(source, "docs"), 0o755))
+	require.NoError(t, os.WriteFile(filepath.Join(source, "docs", "guide.md"), []byte(markdown), 0o644))
+	require.NoError(t, os.WriteFile(filepath.Join(source, "docs", "plain.md"), []byte("Just text."), 0o644))
+	require.NoError(t, os.WriteFile(filepath.Join(source, "docs", "notes.txt"), []byte("hi"), 0o644))
+
+	require.NoError(t, BuildServedSite(source, dest))
+
+	guide, err := os.ReadFile(filepath.Join(dest, "docs", "guide.md"))
+	require.NoError(t, err)
+	page := string(guide)
+
+	assert.Contains(t, page, "<title>Guide · ONCE</title>")
+	assert.Contains(t, page, `<h1 id="guide">Guide</h1>`)
+	assert.Contains(t, page, "<strong>bold</strong>")
+	assert.Contains(t, page, "<table>")
+	assert.Contains(t, page, `href="other.md"`)
+	assert.NotContains(t, page, "# Guide")
+
+	plain, err := os.ReadFile(filepath.Join(dest, "docs", "plain.md"))
+	require.NoError(t, err)
+	assert.Contains(t, string(plain), "<title>plain · ONCE</title>")
+
+	index, err := os.ReadFile(filepath.Join(dest, "docs", "index.html"))
+	require.NoError(t, err)
+	assert.Contains(t, string(index), `<a href="guide.md">guide.md</a>`)
+	assert.Contains(t, string(index), `<a href="plain.md">plain.md</a>`)
+}
+
+func TestBuildServedSiteMarkdownOnlyRoot(t *testing.T) {
+	source := t.TempDir()
+	dest := filepath.Join(t.TempDir(), "site")
+
+	require.NoError(t, os.WriteFile(filepath.Join(source, "b.md"), []byte("# Beta\n"), 0o644))
+	require.NoError(t, os.WriteFile(filepath.Join(source, "a.md"), []byte("# Alpha\n"), 0o644))
+
+	require.NoError(t, BuildServedSite(source, dest))
+
+	root, err := os.ReadFile(filepath.Join(dest, "index.html"))
+	require.NoError(t, err)
+	assert.Contains(t, string(root), `<h1 id="alpha">Alpha</h1>`)
+	assert.NotContains(t, string(root), "<table>")
+}
+
+func TestBuildServedSiteMarkdownOnlyFolder(t *testing.T) {
+	source := t.TempDir()
+	dest := filepath.Join(t.TempDir(), "site")
+
+	require.NoError(t, os.WriteFile(filepath.Join(source, "index.html"), []byte("home"), 0o644))
+	require.NoError(t, os.Mkdir(filepath.Join(source, "notes"), 0o755))
+	require.NoError(t, os.WriteFile(filepath.Join(source, "notes", "second.md"), []byte("# Second\n"), 0o644))
+	require.NoError(t, os.WriteFile(filepath.Join(source, "notes", "first.md"), []byte("# First\n"), 0o644))
+
+	require.NoError(t, BuildServedSite(source, dest))
+
+	notes, err := os.ReadFile(filepath.Join(dest, "notes", "index.html"))
+	require.NoError(t, err)
+	assert.Contains(t, string(notes), `<h1 id="first">First</h1>`)
+}
+
 func TestBuildServedSiteMissingSource(t *testing.T) {
 	err := BuildServedSite(filepath.Join(t.TempDir(), "missing"), filepath.Join(t.TempDir(), "site"))
 	assert.Error(t, err)

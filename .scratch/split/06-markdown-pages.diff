@@ -1,0 +1,7 @@
+ go.mod                                     |  1 +
+ go.sum                                     |  2 +
+ internal/docker/application.go             |  8 +++-
+ internal/docker/application_static_test.go |  5 ++-
+ internal/docker/site.go                    | 14 ++++++-
+ internal/docker/site_test.go               | 64 ++++++++++++++++++++++++++++++
+ 6 files changed, 90 insertions(+), 4 deletions(-)

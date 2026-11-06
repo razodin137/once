@@ -62,6 +62,12 @@ const staticNginxConfig = `server {
         access_log off;
         return 200 "ok";
     }
+    location ~* \.md$ {
+        root %s;
+        charset utf-8;
+        types { }
+        default_type text/html;
+    }
     location / {
         root %s;
         index index.html;
@@ -557,6 +563,6 @@ func (a *Application) containerConfig(env []string) *container.Config {
 // Helpers
 
 func staticNginxCommand() []string {
-	config := fmt.Sprintf(staticNginxConfig, HealthCheckPath, staticContentTarget)
+	config := fmt.Sprintf(staticNginxConfig, HealthCheckPath, staticContentTarget, staticContentTarget)
 	return []string{"sh", "-c", "cat > /etc/nginx/conf.d/default.conf <<'EOF'\n" + config + "EOF\nnginx -g 'daemon off;'\n"}
 }

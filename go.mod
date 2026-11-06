@@ -22,6 +22,7 @@ require (
 	github.com/shirou/gopsutil/v4 v4.26.8
 	github.com/spf13/cobra v1.10.2
 	github.com/stretchr/testify v1.12.1
+	github.com/yuin/goldmark v1.8.6
 )
 
 require (

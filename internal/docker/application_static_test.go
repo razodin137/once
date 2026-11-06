@@ -45,7 +45,10 @@ func TestContainerConfigStatic(t *testing.T) {
 	config := app.containerConfig(nil)
 
 	require.NotEmpty(t, config.Cmd)
-	assert.Contains(t, strings.Join(config.Cmd, " "), "location = /up")
+	configText := strings.Join(config.Cmd, " ")
+	assert.Contains(t, configText, "location = /up")
+	assert.Contains(t, configText, `location ~* \.md$`)
+	assert.Contains(t, configText, "default_type text/html")
 }
 
 func TestContainerConfigImage(t *testing.T) {

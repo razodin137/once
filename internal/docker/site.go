@@ -57,8 +57,10 @@ func RemoveServedCopy(path string) error {
 	return os.RemoveAll(path)
 }
 
-// BuildServedSite copies the folder at source into dest. Every folder in the
-// copy that has no index.html gets a generated contents page.
+// BuildServedSite copies the folder at source into dest. Markdown files are
+// rendered as HTML documents, and every folder in the copy that has no
+// index.html gets a generated contents page. A folder made up entirely of
+// Markdown documents opens its first one instead.
 func BuildServedSite(source, dest string) error {
 	root, err := filepath.EvalSymlinks(source)
 	if err != nil {
@@ -70,6 +72,10 @@ func BuildServedSite(source, dest string) error {
 	}
 
 	if err := copyTree(root, dest); err != nil {
+		return err
+	}
+
+	if err := renderMarkdownDocuments(root, dest); err != nil {
 		return err
 	}
 
@@ -183,6 +189,10 @@ func writeContentsPage(dir, rel, target string) error {
 	}
 
 	slices.SortFunc(entries, compareEntries)
+
+	if first, ok := firstMarkdownEntry(entries); ok {
+		return writeMarkdownPage(filepath.Join(dir, first.Name()), target)
+	}
 
 	page := contentsPage{
 		Name:    filepath.Base(dir),
