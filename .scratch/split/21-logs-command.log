@@ -1,0 +1,1348 @@
+[0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mls -la .opencode 2>/dev/null; ls -la ~/.config/opencode/command 2>/dev/null | head -50; find . -path ./node_modules -prune -o -name "*split*" -print 2>/dev/null | head -20
+./scripts/split-serial.sh
+./.scratch/split
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mls -la .scratch/split | head -50; echo ---; cat scripts/split-serial.sh
+total 2228
+drwxr-xr-x 1 mrjohn mrjohn   2648 Nov  6 18:58 .
+drwxr-xr-x 1 mrjohn mrjohn     10 Nov  6 18:58 ..
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:12 01-deploy-static-folder.check
+-rw-r--r-- 1 mrjohn mrjohn    191 Nov  6 18:12 01-deploy-static-folder.diff
+-rw-r--r-- 1 mrjohn mrjohn  29878 Nov  6 18:12 01-deploy-static-folder.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:15 02-serve-static-apps.check
+-rw-r--r-- 1 mrjohn mrjohn    177 Nov  6 18:15 02-serve-static-apps.diff
+-rw-r--r-- 1 mrjohn mrjohn  96981 Nov  6 18:15 02-serve-static-apps.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:18 03-redeploy-folder.check
+-rw-r--r-- 1 mrjohn mrjohn    258 Nov  6 18:18 03-redeploy-folder.diff
+-rw-r--r-- 1 mrjohn mrjohn  88725 Nov  6 18:18 03-redeploy-folder.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:20 04-stale-source-detection.check
+-rw-r--r-- 1 mrjohn mrjohn    475 Nov  6 18:20 04-stale-source-detection.diff
+-rw-r--r-- 1 mrjohn mrjohn  82455 Nov  6 18:20 04-stale-source-detection.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:22 05-folder-contents-fallback.check
+-rw-r--r-- 1 mrjohn mrjohn    308 Nov  6 18:22 05-folder-contents-fallback.diff
+-rw-r--r-- 1 mrjohn mrjohn 142626 Nov  6 18:22 05-folder-contents-fallback.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:24 06-markdown-pages.check
+-rw-r--r-- 1 mrjohn mrjohn    397 Nov  6 18:24 06-markdown-pages.diff
+-rw-r--r-- 1 mrjohn mrjohn  81696 Nov  6 18:24 06-markdown-pages.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:25 07-single-file-html-site.check
+-rw-r--r-- 1 mrjohn mrjohn    492 Nov  6 18:25 07-single-file-html-site.diff
+-rw-r--r-- 1 mrjohn mrjohn  89089 Nov  6 18:25 07-single-file-html-site.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:27 08-remove-static-app.check
+-rw-r--r-- 1 mrjohn mrjohn    241 Nov  6 18:27 08-remove-static-app.diff
+-rw-r--r-- 1 mrjohn mrjohn  73820 Nov  6 18:27 08-remove-static-app.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:31 09-contents-card.check
+-rw-r--r-- 1 mrjohn mrjohn    247 Nov  6 18:31 09-contents-card.diff
+-rw-r--r-- 1 mrjohn mrjohn 195996 Nov  6 18:31 09-contents-card.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:33 10-contents-screen.check
+-rw-r--r-- 1 mrjohn mrjohn    156 Nov  6 18:33 10-contents-screen.diff
+-rw-r--r-- 1 mrjohn mrjohn  62181 Nov  6 18:33 10-contents-screen.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:36 11-channels.check
+-rw-r--r-- 1 mrjohn mrjohn    270 Nov  6 18:36 11-channels.diff
+-rw-r--r-- 1 mrjohn mrjohn 210717 Nov  6 18:36 11-channels.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:39 12-channel-filter.check
+-rw-r--r-- 1 mrjohn mrjohn    374 Nov  6 18:39 12-channel-filter.diff
+-rw-r--r-- 1 mrjohn mrjohn  82391 Nov  6 18:39 12-channel-filter.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:41 13-favorites.check
+-rw-r--r-- 1 mrjohn mrjohn    546 Nov  6 18:41 13-favorites.diff
+-rw-r--r-- 1 mrjohn mrjohn 201662 Nov  6 18:41 13-favorites.log
+-rw-r--r-- 1 mrjohn mrjohn    784 Nov  6 18:43 14-drift.check
+-rw-r--r-- 1 mrjohn mrjohn    202 Nov  6 18:43 14-drift.diff
+-rw-r--r-- 1 mrjohn mrjohn  99813 Nov  6 18:43 14-drift.log
+-rw-r--r-- 1 mrjohn mrjohn    784 Nov  6 18:46 15-app-bar.check
+-rw-r--r-- 1 mrjohn mrjohn    190 Nov  6 18:46 15-app-bar.diff
+-rw-r--r-- 1 mrjohn mrjohn  88346 Nov  6 18:46 15-app-bar.log
+-rw-r--r-- 1 mrjohn mrjohn    784 Nov  6 18:51 16-bar-keys.check
+-rw-r--r-- 1 mrjohn mrjohn     76 Nov  6 18:51 16-bar-keys.diff
+---
+#!/usr/bin/env bash
+# Run the split prompts in prompt/ one at a time, each in a
+# fresh session, stopping at the first failure.
+#
+#   MODEL=ollama/deepseek-v4.1-flash:1017-cloud ./scripts/split-serial.sh
+#   MODEL=... FROM=8 TO=8 ./scripts/split-serial.sh    # one step only
+#   ONLY=11-state,07-remove,08-shell ./scripts/split-serial.sh   # explicit order
+#   COMMIT=0 ./scripts/split-serial.sh                 # leave commits alone
+#   CHECK_CMD='make test' ./scripts/split-serial.sh    # override the detected gate
+#
+# No --continue and no --session: that is what makes every step a fresh agent.
+# The tree must be clean before the loop starts, and every green step is
+# committed, so a bad step is one `git revert` away.
+
+set -uo pipefail
+
+ROOT=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
+LOGS="$ROOT/.scratch/split"
+MODEL=${MODEL:-ollama/deepseek-v4.1-flash:1017-cloud}
+FROM=${FROM:-1}
+TO=${TO:-99}
+COMMIT=${COMMIT:-1}
+ONLY=${ONLY:-}
+CHECK_CMD=${CHECK_CMD:-__detect__}
+
+mkdir -p "$LOGS"
+cd "$ROOT" || exit 1
+
+has_make_target() {
+  make -n "$1" >/dev/null 2>&1
+}
+
+detect_check() {
+  if [ "$CHECK_CMD" != "__detect__" ]; then
+    printf '%s\n' "$CHECK_CMD"
+  elif [ -f package.json ] && node -e \
+      'process.exit(require("./package.json").scripts?.check ? 0 : 1)' 2>/dev/null; then
+    printf 'npm run check\n'
+  elif [ -f Makefile ]; then
+    local check="" target
+    for target in test lint; do
+      if has_make_target "$target"; then
+        check="${check:+$check && }make $target"
+      fi
+    done
+    if [ -z "$check" ] && has_make_target check; then
+      check="make check"
+    fi
+    printf '%s\n' "$check"
+  fi
+}
+
+CHECK=$(detect_check)
+
+if [ -z "$CHECK" ]; then
+  echo "== no project check detected; set CHECK_CMD to gate each step" >&2
+else
+  echo "== check: $CHECK"
+fi
+
+if ! git diff --quiet || ! git diff --cached --quiet; then
+  echo "== tree is dirty; commit it before starting" >&2
+  exit 1
+fi
+
+if [ -n "$ONLY" ]; then
+  IFS=',' read -r -a files <<<"$ONLY"
+  for i in "${!files[@]}"; do
+    files[$i]="$ROOT/prompt/${files[$i]}.md"
+  done
+else
+  files=("$ROOT"/prompt/*.md)
+fi
+
+for path in "${files[@]}"; do
+  name=$(basename "$path" .md)
+  step=$((10#${name%%-*}))
+
+  if [ -z "$ONLY" ]; then
+    [ "$step" -lt "$FROM" ] && continue
+    [ "$step" -gt "$TO" ] && continue
+  fi
+
+  if [ ! -f "$path" ]; then
+    echo "== $name: no such command" >&2
+    exit 1
+  fi
+
+  blocked="$LOGS/BLOCKED-$name"
+  rm -f "$blocked"
+
+  echo "== $name"
+  opencode run -m "$MODEL" --auto --title "split $name" "/split/$name" 2>&1 \
+    | tee "$LOGS/$name.log"
+  status=${PIPESTATUS[0]}
+
+  if [ -f "$blocked" ]; then
+    echo "== $name: blocked, $(cat "$blocked")" >&2
+    exit 1
+  fi
+
+  if [ "$status" -ne 0 ]; then
+    echo "== $name: opencode exited $status, stopping" >&2
+    exit 1
+  fi
+
+  if [ -n "$CHECK" ] && ! eval "$CHECK" >"$LOGS/$name.check" 2>&1; then
+    echo "== $name: check failed ($CHECK), see $LOGS/$name.check" >&2
+    exit 1
+  fi
+
+  git diff --stat >"$LOGS/$name.diff"
+
+  if [ "$COMMIT" = "1" ]; then
+    git add -A
+    git commit -q -m "split: $name"
+  fi
+done
+
+echo "== finished"
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead prompt/21-logs-command.md 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgit log --oneline | head -30; echo ---; ls; echo ---; ls internal; echo ---; ls prompt
+3591731 split: 20-show-command
+598da78 split: 19-open-command
+e4ca439 split: 18-bar-hide
+c903ba8 split: 17-bar-cross-fade
+926c88b split: 16-bar-keys
+1b1f9fd split: 16-bar-keys
+d826067 split: 15-app-bar
+d9aa468 split: 15-app-bar
+2a8c584 split: 14-drift
+c9f069a split: 13-favorites
+f3b2a49 split: 12-channel-filter
+a8a3dc0 split: 11-channels
+115041b split: 10-contents-screen
+1c4fb9a split: 09-contents-card
+313f156 split: 08-remove-static-app
+91e0ada split: 07-single-file-html-site
+54ed0bf split: 06-markdown-pages
+ea29c59 split: 05-folder-contents-fallback
+3c926ed split: 04-stale-source-detection
+3b00d24 split: 03-redeploy-folder
+8021ade split: 02-serve-static-apps
+c279c61 split: 01-deploy-static-folder
+dd1ea52 split: 01-deploy-static-folder
+fe93045 starting the script: Prompting scripts for upgrading
+864ec7c Use strings.CutLast in cutLast (#118)
+---
+AGENTS.md
+bin
+cmd
+go.mod
+go.sum
+installer
+integration
+internal
+Makefile
+mise.toml
+MIT-LICENSE
+prompt
+prompt-v1
+README.md
+scripts
+---
+background
+browser
+command
+docker
+fsutil
+htmltext
+logging
+metrics
+mouse
+service
+system
+ui
+userstats
+version
+---
+00-overview.md
+01-deploy-static-folder.md
+02-serve-static-apps.md
+03-redeploy-folder.md
+04-stale-source-detection.md
+05-folder-contents-fallback.md
+06-markdown-pages.md
+07-single-file-html-site.md
+08-remove-static-app.md
+09-contents-card.md
+10-contents-screen.md
+11-channels.md
+12-channel-filter.md
+13-favorites.md
+14-drift.md
+15-app-bar.md
+16-bar-keys.md
+17-bar-cross-fade.md
+18-bar-hide.md
+19-open-command.md
+20-show-command.md
+21-logs-command.md
+22-status-command.md
+23-list-json.md
+24-restart-command.md
+25-update-all.md
+26-doctor-command.md
+27-backups-list.md
+28-screenshot-capture.md
+29-card-thumbnails.md
+30-route-map.md
+31-page-weight.md
+32-broken-links.md
+33-meta-preview.md
+34-deploy-diff.md
+35-promote-on-evidence.md
+36-error-capture.md
+37-dashboard-filter.md
+38-command-palette.md
+39-toasts.md
+40-chart-time-range.md
+41-compact-layout.md
+42-appearance-settings.md
+43-app-details-view.md
+44-mouse-on-cards.md
+45-incremental-render.md
+46-chart-performance.md
+47-single-stats-stream.md
+48-share-link.md
+49-status-page.md
+50-house-style-pass.md
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mls -R internal/command cmd | head -60; echo ---; cat prompt/20-show-command.md prompt/19-open-command.md prompt/08-remove-static-app.md
+cmd:
+once
+
+cmd/once:
+main.go
+
+internal/command:
+background.go
+background_install.go
+background_remove.go
+background_run.go
+backup.go
+cli_progress.go
+deploy.go
+deploy_test.go
+exec.go
+exec_test.go
+keys.go
+keys_reset.go
+keys_set.go
+list.go
+open.go
+open_test.go
+remove.go
+restore.go
+root.go
+root_test.go
+self_update.go
+settings_flags.go
+show.go
+show_test.go
+start.go
+stop.go
+teardown.go
+update.go
+update_test.go
+version.go
+---
+Your job is to go in and add `once show <host>` here to this Go CLI/TUI app.
+
+It fetches the app's page and prints it as text in the terminal: headings, links and forms, no markup. Useful when you only want to know what the page says.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+Your job is to go in and add `once open <host>` here to this Go CLI/TUI app.
+
+It prints the URL and opens it in the browser, and on its own it opens the contents page listing every app.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+Your job is to go in and make `once remove` clean up a folder app completely here to this Go CLI/TUI app.
+
+Removing already tears down an app container; it should also drop the served copy and any generated pages, and leave nothing behind on disk.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/command/show.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgrep -rn "logs\|Logs" internal --include=*.go -l | head -30
+internal/docker/errors.go
+internal/docker/logs.go
+internal/docker/logs_test.go
+internal/ui/app.go
+internal/ui/dashboard.go
+internal/ui/help_test.go
+internal/ui/logs.go
+internal/ui/logs_test.go
+internal/userstats/scraper.go
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/docker/logs.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/command/root.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/command/exec.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/ui/logs.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mls internal/docker; echo ---; sed -n 1,200p internal/docker/ring_buffer.go 2>/dev/null || grep -rn "type RingBuffer" internal/docker
+appbar.go
+appbar_test.go
+application_backup.go
+application_backup_test.go
+application.go
+application_settings.go
+application_settings_test.go
+application_static_test.go
+application_test.go
+channels.go
+channels_test.go
+container.go
+errors.go
+errors_test.go
+events.go
+helpers.go
+helpers_test.go
+logs.go
+logs_test.go
+markdown.go
+namespace.go
+namespace_test.go
+progress.go
+progress_test.go
+proxy.go
+proxy_test.go
+registry_auth.go
+registry_auth_test.go
+ring_buffer.go
+ring_buffer_test.go
+scraper.go
+scraper_test.go
+site.go
+site_test.go
+source.go
+source_test.go
+state.go
+state_test.go
+volume.go
+volume_test.go
+---
+package docker
+
+// RingBuffer is a fixed-size circular buffer. It is not thread-safe;
+// callers must synchronize access externally.
+type RingBuffer[T any] struct {
+	items []T
+	head  int
+	count int
+}
+
+func NewRingBuffer[T any](size int) *RingBuffer[T] {
+	return &RingBuffer[T]{
+		items: make([]T, size),
+	}
+}
+
+func (b *RingBuffer[T]) Add(item T) {
+	b.items[b.head] = item
+	b.head = (b.head + 1) % len(b.items)
+	if b.count < len(b.items) {
+		b.count++
+	}
+}
+
+func (b *RingBuffer[T]) Len() int {
+	return b.count
+}
+
+// FetchOldestFirst returns up to n items in chronological order (oldest first).
+func (b *RingBuffer[T]) FetchOldestFirst(n int) []T {
+	available := min(n, b.count)
+	if available == 0 {
+		return nil
+	}
+
+	result := make([]T, available)
+	startIdx := (b.head - b.count + len(b.items)) % len(b.items)
+	offset := b.count - available
+
+	for i := range available {
+		idx := (startIdx + offset + i) % len(b.items)
+		result[i] = b.items[idx]
+	}
+
+	return result
+}
+
+// FetchNewestFirst returns up to n items in reverse chronological order (newest first).
+func (b *RingBuffer[T]) FetchNewestFirst(n int) []T {
+	available := min(n, b.count)
+	if available == 0 {
+		return nil
+	}
+
+	result := make([]T, available)
+	for i := range available {
+		idx := (b.head - 1 - i + len(b.items)) % len(b.items)
+		result[i] = b.items[idx]
+	}
+
+	return result
+}
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/command/list.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/command/backup.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgrep -n "func (a \*Application) ContainerName\|func (a \*Application)" internal/docker/application.go | head -20; echo ---; sed -n 1,80p internal/docker/logs_test.go
+104:func (a *Application) ContainerName(ctx context.Context) (string, error) {
+123:func (a *Application) Volume(ctx context.Context) (*ApplicationVolume, error) {
+135:func (a *Application) URL() string {
+169:func (a *Application) Stop(ctx context.Context) error {
+179:func (a *Application) Start(ctx context.Context) error {
+189:func (a *Application) Exec(ctx context.Context, cmd []string) error {
+205:func (a *Application) Update(ctx context.Context, progress DeployProgressCallback) (bool, error) {
+229:func (a *Application) Deploy(ctx context.Context, progress DeployProgressCallback) error {
+249:func (a *Application) UpdateSettings(ctx context.Context, settings ApplicationSettings, progress DeployProgressCallback) error {
+266:func (a *Application) VerifyHTTPOrRemove(ctx context.Context) error {
+277:func (a *Application) Remove(ctx context.Context, removeData bool) error {
+285:func (a *Application) Destroy(ctx context.Context, destroyVolumes bool) error {
+326:func (a *Application) saveOperationResult(ctx context.Context, record func(*State)) {
+335:func (a *Application) pullImage(ctx context.Context, progress DeployProgressCallback) (bool, error) {
+356:func (a *Application) runningImageID(ctx context.Context) string {
+368:func (a *Application) deployWithVolume(ctx context.Context, vol *ApplicationVolume, progress DeployProgressCallback) error {
+446:func (a *Application) ensureKeys(vol *ApplicationVolume) error {
+460:func (a *Application) verifyHTTP(ctx context.Context) error {
+485:func (a *Application) removeContainersExcept(ctx context.Context, keep string) error {
+506:func (a *Application) volumeMounts(vol *ApplicationVolume) []mount.Mount {
+---
+package docker
+
+import (
+	"bytes"
+	"context"
+	"testing"
+
+	"github.com/moby/moby/api/types/container"
+	"github.com/moby/moby/client"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+)
+
+type mockLogsClient struct {
+	logs      string
+	isTTY     bool
+	delivered chan struct{}
+}
+
+func (m *mockLogsClient) ContainerLogs(ctx context.Context, containerName string, options client.ContainerLogsOptions) (client.ContainerLogsResult, error) {
+	return &notifyingReadCloser{
+		Reader:    bytes.NewReader([]byte(m.logs)),
+		delivered: m.delivered,
+	}, nil
+}
+
+func (m *mockLogsClient) ContainerInspect(ctx context.Context, containerID string, options client.ContainerInspectOptions) (client.ContainerInspectResult, error) {
+	return client.ContainerInspectResult{
+		Container: container.InspectResponse{
+			Config: &container.Config{Tty: m.isTTY},
+		},
+	}, nil
+}
+
+type notifyingReadCloser struct {
+	*bytes.Reader
+	delivered chan struct{}
+	notified  bool
+}
+
+func (r *notifyingReadCloser) Read(p []byte) (int, error) {
+	n, err := r.Reader.Read(p)
+	if !r.notified && r.delivered != nil && n > 0 {
+		r.notified = true
+		select {
+		case r.delivered <- struct{}{}:
+		default:
+		}
+	}
+	return n, err
+}
+
+func (r *notifyingReadCloser) Close() error {
+	return nil
+}
+
+func newTestLogStreamer(client logsClient, bufferSize int) *LogStreamer {
+	return &LogStreamer{
+		settings: LogStreamerSettings{BufferSize: bufferSize}.withDefaults(),
+		client:   client,
+		lines:    NewRingBuffer[LogLine](bufferSize),
+	}
+}
+
+func TestLogStreamerFetch(t *testing.T) {
+	s := newTestLogStreamer(nil, 10)
+
+	s.addLine(LogLine{Content: "line 1"})
+	s.addLine(LogLine{Content: "line 2"})
+	s.addLine(LogLine{Content: "line 3"})
+
+	lines := s.Fetch(10)
+	assert.Len(t, lines, 3)
+	assert.Equal(t, "line 1", lines[0].Content, "oldest line should be first")
+	assert.Equal(t, "line 3", lines[2].Content, "newest line should be last")
+}
+
+func TestLogStreamerFetchWithLimit(t *testing.T) {
+	s := newTestLogStreamer(nil, 10)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcat Makefile; echo ---; cat go.mod | head -10; echo ---; ls -a | grep -i golangci; cat .golangci.yml 2>/dev/null || cat .golangci.yaml 2>/dev/null
+.PHONY: build test integration lint lint-actions coverage dist test-release
+
+PLATFORMS = linux darwin
+ARCHITECTURES = amd64 arm64
+VERSION := $(shell git describe --tags --always)
+LDFLAGS := -ldflags "-s -w -X 'github.com/basecamp/once/internal/version.Version=$(VERSION)'"
+
+TEST_RELEASE_TAG = v0.0.1-test
+
+build:
+	CGO_ENABLED=0 go build -trimpath $(LDFLAGS) -o bin/ ./cmd/...
+
+build-all:
+	@for os in $(PLATFORMS); do \
+		for arch in $(ARCHITECTURES); do \
+			echo "Building for $$os/$$arch..."; \
+			CGO_ENABLED=0 GOOS=$$os GOARCH=$$arch go build -trimpath $(LDFLAGS) -o bin/$$os-$$arch/ ./cmd/...; \
+		done; \
+	done
+
+test:
+	go test ./internal/...
+
+integration:
+	go test -v -count=1 -parallel 16 -timeout 30m ./integration/...
+
+check:
+	go vet ./...
+	govulncheck ./...
+
+lint:
+	golangci-lint run
+
+lint-actions:
+	actionlint
+	zizmor .
+
+coverage:
+	go test -coverprofile=coverage.out ./internal/...
+	go tool cover -html=coverage.out
+
+dist: build-all
+	mkdir -p dist
+	@for os in $(PLATFORMS); do \
+		for arch in $(ARCHITECTURES); do \
+			cp bin/$$os-$$arch/once dist/once-$$os-$$arch; \
+		done; \
+	done
+	cd dist && sha256sum once-* > checksums.txt
+
+test-release:
+	-gh release delete $(TEST_RELEASE_TAG) --yes --cleanup-tag
+	git tag -f $(TEST_RELEASE_TAG)
+	git push origin $(TEST_RELEASE_TAG) --force
+---
+module github.com/basecamp/once
+
+go 1.27.0
+
+require (
+	charm.land/bubbles/v2 v2.2.1
+	charm.land/bubbletea/v2 v2.0.9
+	charm.land/lipgloss/v2 v2.0.6
+	github.com/axiomhq/hyperloglog v0.2.6
+	github.com/charmbracelet/colorprofile v0.4.3
+---
+.golangci.yml
+version: "2"
+
+formatters:
+  enable:
+    - gofmt
+    - gci
+  settings:
+    gci:
+      sections:
+        - standard
+        - default
+        - localmodule
+
+linters:
+  enable:
+    - modernize
+  disable:
+    - errcheck
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/command/show_test.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/docker/application.go [90m[offset=90, limit=60][0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0msed -n 1,120p internal/command/open_test.go; echo =====; grep -rn "WithClient\|NewNamespace(" internal/docker/namespace.go | head; echo =====; sed -n 1,80p internal/docker/namespace.go
+package command
+
+import (
+	"bytes"
+	"context"
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+
+	"github.com/basecamp/once/internal/docker"
+)
+
+func TestOpenPrintsAndOpensApplicationURL(t *testing.T) {
+	ns, err := docker.NewNamespace("test", docker.WithApplications(
+		docker.ApplicationSettings{Name: "myapp", Host: "myapp.localhost"},
+	))
+	require.NoError(t, err)
+
+	var opened string
+	o := newOpenCommand()
+	o.open = func(url string) error {
+		opened = url
+		return nil
+	}
+
+	var out bytes.Buffer
+	o.cmd.SetOut(&out)
+
+	err = o.run(context.Background(), ns, o.cmd, []string{"myapp.localhost"})
+	require.NoError(t, err)
+	assert.Equal(t, "http://myapp.localhost\n", out.String())
+	assert.Equal(t, "http://myapp.localhost", opened)
+}
+
+func TestOpenWithoutHostOpensTheDashboard(t *testing.T) {
+	ns, err := docker.NewNamespace("test")
+	require.NoError(t, err)
+
+	var launched *docker.Namespace
+	o := newOpenCommand()
+	o.openUI = func(got *docker.Namespace) error {
+		launched = got
+		return nil
+	}
+
+	err = o.run(context.Background(), ns, o.cmd, nil)
+	require.NoError(t, err)
+	assert.Same(t, ns, launched)
+}
+
+func TestOpenUnknownHost(t *testing.T) {
+	ns, err := docker.NewNamespace("test")
+	require.NoError(t, err)
+
+	o := newOpenCommand()
+	o.open = func(string) error {
+		t.Fatal("should not open the browser")
+		return nil
+	}
+
+	err = o.run(context.Background(), ns, o.cmd, []string{"missing.localhost"})
+	require.Error(t, err)
+	assert.Contains(t, err.Error(), `no application found at host "missing.localhost"`)
+}
+
+func TestOpenReturnsBrowserError(t *testing.T) {
+	ns, err := docker.NewNamespace("test", docker.WithApplications(
+		docker.ApplicationSettings{Name: "myapp", Host: "myapp.localhost"},
+	))
+	require.NoError(t, err)
+
+	o := newOpenCommand()
+	o.open = func(string) error { return assert.AnError }
+
+	err = o.run(context.Background(), ns, o.cmd, []string{"myapp.localhost"})
+	require.ErrorIs(t, err, assert.AnError)
+}
+=====
+39:func NewNamespace(name string, opts ...NamespaceOption) (*Namespace, error) {
+67:	ns, err := NewNamespace(name)
+=====
+package docker
+
+import (
+	"context"
+	"errors"
+	"fmt"
+	"io"
+	"log/slog"
+	"regexp"
+	"slices"
+	"strings"
+	"time"
+
+	"github.com/containerd/errdefs"
+	"github.com/moby/moby/client"
+)
+
+const DefaultNamespace = "once"
+
+var ErrInvalidNamespace = errors.New("invalid namespace: must contain only lowercase letters, digits, and hyphens, and must not start with a hyphen")
+
+type Namespace struct {
+	name         string
+	client       *client.Client
+	proxy        *Proxy
+	applications []*Application
+}
+
+type NamespaceOption func(*Namespace)
+
+func WithApplications(apps ...ApplicationSettings) NamespaceOption {
+	return func(ns *Namespace) {
+		for _, s := range apps {
+			ns.addApplication(s)
+		}
+	}
+}
+
+func NewNamespace(name string, opts ...NamespaceOption) (*Namespace, error) {
+	if name == "" {
+		name = DefaultNamespace
+	}
+
+	if !validNamespace.MatchString(name) {
+		return nil, fmt.Errorf("%w: %q", ErrInvalidNamespace, name)
+	}
+
+	c, err := client.New(client.FromEnv)
+	if err != nil {
+		return nil, err
+	}
+
+	ns := &Namespace{
+		name:   name,
+		client: c,
+	}
+	ns.proxy = NewProxy(ns)
+
+	for _, opt := range opts {
+		opt(ns)
+	}
+
+	return ns, nil
+}
+
+func RestoreNamespace(ctx context.Context, name string) (*Namespace, error) {
+	ns, err := NewNamespace(name)
+	if err != nil {
+		return nil, err
+	}
+
+	if err := ns.restoreState(ctx); err != nil {
+		return nil, err
+	}
+
+	return ns, nil
+}
+
+func (n *Namespace) Name() string {
+	return n.name
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/command/open.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead cmd/once/main.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/logs.go
+Index: internal/docker/logs.go
+===================================================================
+--- internal/docker/logs.go
++++ internal/docker/logs.go
+@@ -12,9 +12,9 @@
+ )
+ 
+ const (
+ 	DefaultLogBufferSize = 10000
+-	defaultTailLines     = "10000"
++	defaultTailLines     = 10000
+ 	scannerBufSize       = 64 * 1024
+ 	scannerMaxSize       = 1024 * 1024
+ )
+ 
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/logs.go
+Index: internal/docker/logs.go
+===================================================================
+--- internal/docker/logs.go
++++ internal/docker/logs.go
+@@ -24,14 +24,18 @@
+ }
+ 
+ type LogStreamerSettings struct {
+ 	BufferSize int
++	Tail       int
+ }
+ 
+ func (s LogStreamerSettings) withDefaults() LogStreamerSettings {
+ 	if s.BufferSize == 0 {
+ 		s.BufferSize = DefaultLogBufferSize
+ 	}
++	if s.Tail == 0 {
++		s.Tail = defaultTailLines
++	}
+ 	return s
+ }
+ 
+ type logsClient interface {
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/logs.go
+Index: internal/docker/logs.go
+===================================================================
+--- internal/docker/logs.go
++++ internal/docker/logs.go
+@@ -138,9 +138,9 @@
+ 	reader, err := s.client.ContainerLogs(ctx, containerName, client.ContainerLogsOptions{
+ 		ShowStdout: true,
+ 		ShowStderr: true,
+ 		Follow:     true,
+-		Tail:       defaultTailLines,
++		Tail:       strconv.Itoa(s.settings.Tail),
+ 	})
+ 	if err != nil {
+ 		return
+ 	}
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/logs.go
+Index: internal/docker/logs.go
+===================================================================
+--- internal/docker/logs.go
++++ internal/docker/logs.go
+@@ -3,8 +3,9 @@
+ import (
+ 	"bufio"
+ 	"context"
+ 	"io"
++	"strconv"
+ 	"sync"
+ 	"time"
+ 
+ 	"github.com/moby/moby/api/pkg/stdcopy"
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mWrite internal/command/logs.go
+Created file successfully: internal/command/logs.go
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/command/root.go
+Index: internal/command/root.go
+===================================================================
+--- internal/command/root.go
++++ internal/command/root.go
+@@ -44,8 +44,9 @@
+ 	r.cmd.AddCommand(newDeployCommand().cmd)
+ 	r.cmd.AddCommand(newExecCommand().cmd)
+ 	r.cmd.AddCommand(newKeysCommand().cmd)
+ 	r.cmd.AddCommand(newListCommand().cmd)
++	r.cmd.AddCommand(newLogsCommand().cmd)
+ 	r.cmd.AddCommand(newOpenCommand().cmd)
+ 	r.cmd.AddCommand(newRemoveCommand().cmd)
+ 	r.cmd.AddCommand(newRestoreCommand().cmd)
+ 	r.cmd.AddCommand(newShowCommand().cmd)
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mWrite internal/command/logs_test.go
+Created file successfully: internal/command/logs_test.go
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/logs_test.go
+Index: internal/docker/logs_test.go
+===================================================================
+--- internal/docker/logs_test.go
++++ internal/docker/logs_test.go
+@@ -14,11 +14,13 @@
+ type mockLogsClient struct {
+ 	logs      string
+ 	isTTY     bool
+ 	delivered chan struct{}
++	tail      string
+ }
+ 
+ func (m *mockLogsClient) ContainerLogs(ctx context.Context, containerName string, options client.ContainerLogsOptions) (client.ContainerLogsResult, error) {
++	m.tail = options.Tail
+ 	return &notifyingReadCloser{
+ 		Reader:    bytes.NewReader([]byte(m.logs)),
+ 		delivered: m.delivered,
+ 	}, nil
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0msed -n 80,260p internal/docker/logs_test.go
+func TestLogStreamerFetchWithLimit(t *testing.T) {
+	s := newTestLogStreamer(nil, 10)
+
+	for i := range 5 {
+		s.addLine(LogLine{Content: string(rune('a' + i))})
+	}
+
+	lines := s.Fetch(2)
+	assert.Len(t, lines, 2)
+	assert.Equal(t, "d", lines[0].Content)
+	assert.Equal(t, "e", lines[1].Content)
+}
+
+func TestLogStreamerFetchEmpty(t *testing.T) {
+	s := newTestLogStreamer(nil, 10)
+	assert.Nil(t, s.Fetch(10))
+}
+
+func TestLogStreamerRingBufferWrap(t *testing.T) {
+	s := newTestLogStreamer(nil, 3)
+
+	for i := range 5 {
+		s.addLine(LogLine{Content: string(rune('a' + i))})
+	}
+
+	lines := s.Fetch(10)
+	require.Len(t, lines, 3)
+	assert.Equal(t, "c", lines[0].Content)
+	assert.Equal(t, "d", lines[1].Content)
+	assert.Equal(t, "e", lines[2].Content)
+}
+
+func TestLogStreamerCount(t *testing.T) {
+	s := newTestLogStreamer(nil, 5)
+
+	assert.Equal(t, 0, s.Count())
+
+	s.addLine(LogLine{Content: "line 1"})
+	s.addLine(LogLine{Content: "line 2"})
+	assert.Equal(t, 2, s.Count())
+
+	for range 10 {
+		s.addLine(LogLine{Content: "more"})
+	}
+	assert.Equal(t, 5, s.Count(), "count should not exceed buffer size")
+}
+
+func TestLogStreamerVersion(t *testing.T) {
+	s := newTestLogStreamer(nil, 5)
+
+	assert.Equal(t, uint64(0), s.Version())
+
+	s.addLine(LogLine{Content: "line 1"})
+	assert.Equal(t, uint64(1), s.Version())
+
+	s.addLine(LogLine{Content: "line 2"})
+	s.addLine(LogLine{Content: "line 3"})
+	assert.Equal(t, uint64(3), s.Version())
+
+	// Version continues incrementing even after buffer wraps
+	for range 10 {
+		s.addLine(LogLine{Content: "more"})
+	}
+	assert.Equal(t, uint64(13), s.Version())
+}
+
+func TestLogStreamerStderrFlag(t *testing.T) {
+	s := newTestLogStreamer(nil, 10)
+
+	s.addLine(LogLine{Content: "stdout line", IsStderr: false})
+	s.addLine(LogLine{Content: "stderr line", IsStderr: true})
+	s.addLine(LogLine{Content: "another stdout", IsStderr: false})
+
+	lines := s.Fetch(10)
+	require.Len(t, lines, 3)
+	assert.False(t, lines[0].IsStderr)
+	assert.True(t, lines[1].IsStderr)
+	assert.False(t, lines[2].IsStderr)
+}
+
+func TestLogStreamerSettingsDefaults(t *testing.T) {
+	settings := LogStreamerSettings{}
+	settings = settings.withDefaults()
+	assert.Equal(t, DefaultLogBufferSize, settings.BufferSize)
+
+	custom := LogStreamerSettings{BufferSize: 500}
+	custom = custom.withDefaults()
+	assert.Equal(t, 500, custom.BufferSize)
+}
+
+func TestLogStreamerScanLinesTTY(t *testing.T) {
+	client := &mockLogsClient{
+		logs:  "line one\nline two\nline three\n",
+		isTTY: true,
+	}
+
+	s := newTestLogStreamer(client, 10)
+	s.streamLogs(context.Background(), "test-container")
+
+	lines := s.Fetch(10)
+	require.Len(t, lines, 3)
+	assert.Equal(t, "line one", lines[0].Content)
+	assert.Equal(t, "line two", lines[1].Content)
+	assert.Equal(t, "line three", lines[2].Content)
+}
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/logs_test.go
+Index: internal/docker/logs_test.go
+===================================================================
+--- internal/docker/logs_test.go
++++ internal/docker/logs_test.go
+@@ -160,14 +160,35 @@
+ func TestLogStreamerSettingsDefaults(t *testing.T) {
+ 	settings := LogStreamerSettings{}
+ 	settings = settings.withDefaults()
+ 	assert.Equal(t, DefaultLogBufferSize, settings.BufferSize)
++	assert.Equal(t, defaultTailLines, settings.Tail)
+ 
+-	custom := LogStreamerSettings{BufferSize: 500}
++	custom := LogStreamerSettings{BufferSize: 500, Tail: 25}
+ 	custom = custom.withDefaults()
+ 	assert.Equal(t, 500, custom.BufferSize)
++	assert.Equal(t, 25, custom.Tail)
+ }
+ 
++func TestLogStreamerUsesConfiguredTail(t *testing.T) {
++	client := &mockLogsClient{}
++
++	s := newTestLogStreamer(client, 10)
++	s.settings.Tail = 25
++	s.streamLogs(context.Background(), "test-container")
++
++	assert.Equal(t, "25", client.tail)
++}
++
++func TestLogStreamerUsesDefaultTail(t *testing.T) {
++	client := &mockLogsClient{}
++
++	s := newTestLogStreamer(client, 10)
++	s.streamLogs(context.Background(), "test-container")
++
++	assert.Equal(t, "10000", client.tail)
++}
++
+ func TestLogStreamerScanLinesTTY(t *testing.T) {
+ 	client := &mockLogsClient{
+ 		logs:  "line one\nline two\nline three\n",
+ 		isTTY: true,
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgofmt -l internal/command internal/docker; go build ./... && go test ./internal/docker/... ./internal/command/... 2>&1 | tail -30
+ok  	github.com/basecamp/once/internal/docker	0.405s
+ok  	github.com/basecamp/once/internal/command	0.111s
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mmake test 2>&1 | tail -30
+go test ./internal/...
+ok  	github.com/basecamp/once/internal/background	0.063s
+ok  	github.com/basecamp/once/internal/browser	(cached)
+ok  	github.com/basecamp/once/internal/command	(cached)
+ok  	github.com/basecamp/once/internal/docker	(cached)
+ok  	github.com/basecamp/once/internal/fsutil	(cached)
+ok  	github.com/basecamp/once/internal/htmltext	(cached)
+?   	github.com/basecamp/once/internal/logging	[no test files]
+ok  	github.com/basecamp/once/internal/metrics	0.053s
+ok  	github.com/basecamp/once/internal/mouse	(cached)
+?   	github.com/basecamp/once/internal/service	[no test files]
+ok  	github.com/basecamp/once/internal/system	(cached)
+ok  	github.com/basecamp/once/internal/ui	2.749s
+ok  	github.com/basecamp/once/internal/userstats	(cached)
+ok  	github.com/basecamp/once/internal/version	(cached)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mmake lint 2>&1 | tail -40
+golangci-lint run
+0 issues.
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgo run ./cmd/once logs --help 2>&1 | head -20; echo ---; go run ./cmd/once --help 2>&1 | grep -i logs
+Stream an application's logs
+
+Usage:
+  once logs <host> [flags]
+
+Flags:
+      --grep string   only show lines matching this regular expression
+  -h, --help          help for logs
+      --tail int      number of historical lines to show (default 100)
+
+Global Flags:
+  -n, --namespace string   namespace for containers (default "once")
+---
+  logs        Stream an application's logs
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/logs.go
+Index: internal/docker/logs.go
+===================================================================
+--- internal/docker/logs.go
++++ internal/docker/logs.go
+@@ -101,8 +101,22 @@
+ 	defer s.mu.RUnlock()
+ 	return s.lines.Len()
+ }
+ 
++// FetchSince returns the lines added after the given version, along with the
++// current version. Lines evicted from the buffer are not returned.
++func (s *LogStreamer) FetchSince(version uint64) ([]LogLine, uint64) {
++	s.mu.RLock()
++	defer s.mu.RUnlock()
++
++	if s.version <= version {
++		return nil, s.version
++	}
++
++	lines := s.lines.FetchOldestFirst(int(s.version - version))
++	return lines, s.version
++}
++
+ func (s *LogStreamer) Version() uint64 {
+ 	s.mu.RLock()
+ 	defer s.mu.RUnlock()
+ 	return s.version
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/command/logs.go
+Index: internal/command/logs.go
+===================================================================
+--- internal/command/logs.go
++++ internal/command/logs.go
+@@ -18,10 +18,9 @@
+ 
+ type logStream interface {
+ 	Start(ctx context.Context, containerName string)
+ 	Stop()
+-	Fetch(n int) []docker.LogLine
+-	Version() uint64
++	FetchSince(version uint64) ([]docker.LogLine, uint64)
+ }
+ 
+ type logsCommand struct {
+ 	cmd *cobra.Command
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/command/logs.go
+Index: internal/command/logs.go
+===================================================================
+--- internal/command/logs.go
++++ internal/command/logs.go
+@@ -117,14 +117,9 @@
+ 	return pattern, nil
+ }
+ 
+ func printLogLines(stdout, stderr io.Writer, streamer logStream, printed uint64, pattern *regexp.Regexp) uint64 {
+-	version := streamer.Version()
+-	if version <= printed {
+-		return printed
+-	}
+-
+-	lines := streamer.Fetch(int(version - printed))
++	lines, version := streamer.FetchSince(printed)
+ 	for _, line := range lines {
+ 		if pattern != nil && !pattern.MatchString(line.Content) {
+ 			continue
+ 		}
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/command/logs_test.go
+Index: internal/command/logs_test.go
+===================================================================
+--- internal/command/logs_test.go
++++ internal/command/logs_test.go
+@@ -31,15 +31,19 @@
+ func (f *fakeLogStream) Stop() {
+ 	f.stopped = true
+ }
+ 
+-func (f *fakeLogStream) Fetch(n int) []docker.LogLine {
+-	available := min(n, len(f.lines))
+-	return f.lines[len(f.lines)-available:]
+-}
++func (f *fakeLogStream) FetchSince(version uint64) ([]docker.LogLine, uint64) {
++	if f.version <= version {
++		return nil, f.version
++	}
+ 
+-func (f *fakeLogStream) Version() uint64 {
+-	return f.version
++	lines := f.lines
++	if pending := int(f.version - version); pending < len(lines) {
++		lines = lines[len(lines)-pending:]
++	}
++
++	return lines, f.version
+ }
+ 
+ func TestLogsStreamsApplicationLogs(t *testing.T) {
+ 	ns := logsTestNamespace(t)
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/logs_test.go
+Index: internal/docker/logs_test.go
+===================================================================
+--- internal/docker/logs_test.go
++++ internal/docker/logs_test.go
+@@ -142,8 +142,48 @@
+ 	}
+ 	assert.Equal(t, uint64(13), s.Version())
+ }
+ 
++func TestLogStreamerFetchSince(t *testing.T) {
++	s := newTestLogStreamer(nil, 10)
++
++	for _, text := range []string{"one", "two", "three"} {
++		s.addLine(LogLine{Content: text})
++	}
++
++	lines, version := s.FetchSince(0)
++	require.Len(t, lines, 3)
++	assert.Equal(t, "one", lines[0].Content)
++	assert.Equal(t, uint64(3), version)
++
++	lines, version = s.FetchSince(2)
++	require.Len(t, lines, 1)
++	assert.Equal(t, "three", lines[0].Content)
++	assert.Equal(t, uint64(3), version)
++
++	lines, version = s.FetchSince(3)
++	assert.Empty(t, lines)
++	assert.Equal(t, uint64(3), version)
++}
++
++func TestLogStreamerFetchSinceWrapped(t *testing.T) {
++	s := newTestLogStreamer(nil, 3)
++
++	for _, text := range []string{"one", "two", "three", "four", "five"} {
++		s.addLine(LogLine{Content: text})
++	}
++
++	lines, version := s.FetchSince(4)
++	require.Len(t, lines, 1)
++	assert.Equal(t, "five", lines[0].Content)
++	assert.Equal(t, uint64(5), version)
++
++	lines, version = s.FetchSince(0)
++	require.Len(t, lines, 3)
++	assert.Equal(t, "three", lines[0].Content)
++	assert.Equal(t, uint64(5), version)
++}
++
+ func TestLogStreamerStderrFlag(t *testing.T) {
+ 	s := newTestLogStreamer(nil, 10)
+ 
+ 	s.addLine(LogLine{Content: "stdout line", IsStderr: false})
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgofmt -l internal/command internal/docker; go test ./internal/docker/... ./internal/command/... 2>&1 | tail -20
+ok  	github.com/basecamp/once/internal/docker	0.181s
+ok  	github.com/basecamp/once/internal/command	0.016s
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mmake test 2>&1 | tail -20 && echo "=== LINT ===" && make lint 2>&1 | tail -5
+go test ./internal/...
+ok  	github.com/basecamp/once/internal/background	(cached)
+ok  	github.com/basecamp/once/internal/browser	(cached)
+ok  	github.com/basecamp/once/internal/command	(cached)
+ok  	github.com/basecamp/once/internal/docker	(cached)
+ok  	github.com/basecamp/once/internal/fsutil	(cached)
+ok  	github.com/basecamp/once/internal/htmltext	(cached)
+?   	github.com/basecamp/once/internal/logging	[no test files]
+ok  	github.com/basecamp/once/internal/metrics	(cached)
+ok  	github.com/basecamp/once/internal/mouse	(cached)
+?   	github.com/basecamp/once/internal/service	[no test files]
+ok  	github.com/basecamp/once/internal/system	(cached)
+ok  	github.com/basecamp/once/internal/ui	0.720s
+ok  	github.com/basecamp/once/internal/userstats	(cached)
+ok  	github.com/basecamp/once/internal/version	(cached)
+=== LINT ===
+golangci-lint run
+0 issues.
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+Added `once logs <host>` in `internal/command/logs.go`, registered in `internal/command/root.go`, reusing `docker.LogStreamer` (extended with configurable `Tail` and atomic `FetchSince`).
+
+Supports `--tail` (default 100), `--grep` (regex), follows the container, sends stderr to stderr, and exits 0 on Ctrl+C.
+
+Lint: `make lint` → `0 issues`. Tests: `make test` → all packages ok.

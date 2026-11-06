@@ -15,9 +15,11 @@ type mockLogsClient struct {
 	logs      string
 	isTTY     bool
 	delivered chan struct{}
+	tail      string
 }
 
 func (m *mockLogsClient) ContainerLogs(ctx context.Context, containerName string, options client.ContainerLogsOptions) (client.ContainerLogsResult, error) {
+	m.tail = options.Tail
 	return &notifyingReadCloser{
 		Reader:    bytes.NewReader([]byte(m.logs)),
 		delivered: m.delivered,
@@ -141,6 +143,46 @@ func TestLogStreamerVersion(t *testing.T) {
 	assert.Equal(t, uint64(13), s.Version())
 }
 
+func TestLogStreamerFetchSince(t *testing.T) {
+	s := newTestLogStreamer(nil, 10)
+
+	for _, text := range []string{"one", "two", "three"} {
+		s.addLine(LogLine{Content: text})
+	}
+
+	lines, version := s.FetchSince(0)
+	require.Len(t, lines, 3)
+	assert.Equal(t, "one", lines[0].Content)
+	assert.Equal(t, uint64(3), version)
+
+	lines, version = s.FetchSince(2)
+	require.Len(t, lines, 1)
+	assert.Equal(t, "three", lines[0].Content)
+	assert.Equal(t, uint64(3), version)
+
+	lines, version = s.FetchSince(3)
+	assert.Empty(t, lines)
+	assert.Equal(t, uint64(3), version)
+}
+
+func TestLogStreamerFetchSinceWrapped(t *testing.T) {
+	s := newTestLogStreamer(nil, 3)
+
+	for _, text := range []string{"one", "two", "three", "four", "five"} {
+		s.addLine(LogLine{Content: text})
+	}
+
+	lines, version := s.FetchSince(4)
+	require.Len(t, lines, 1)
+	assert.Equal(t, "five", lines[0].Content)
+	assert.Equal(t, uint64(5), version)
+
+	lines, version = s.FetchSince(0)
+	require.Len(t, lines, 3)
+	assert.Equal(t, "three", lines[0].Content)
+	assert.Equal(t, uint64(5), version)
+}
+
 func TestLogStreamerStderrFlag(t *testing.T) {
 	s := newTestLogStreamer(nil, 10)
 
@@ -159,10 +201,31 @@ func TestLogStreamerSettingsDefaults(t *testing.T) {
 	settings := LogStreamerSettings{}
 	settings = settings.withDefaults()
 	assert.Equal(t, DefaultLogBufferSize, settings.BufferSize)
+	assert.Equal(t, defaultTailLines, settings.Tail)
 
-	custom := LogStreamerSettings{BufferSize: 500}
+	custom := LogStreamerSettings{BufferSize: 500, Tail: 25}
 	custom = custom.withDefaults()
 	assert.Equal(t, 500, custom.BufferSize)
+	assert.Equal(t, 25, custom.Tail)
+}
+
+func TestLogStreamerUsesConfiguredTail(t *testing.T) {
+	client := &mockLogsClient{}
+
+	s := newTestLogStreamer(client, 10)
+	s.settings.Tail = 25
+	s.streamLogs(context.Background(), "test-container")
+
+	assert.Equal(t, "25", client.tail)
+}
+
+func TestLogStreamerUsesDefaultTail(t *testing.T) {
+	client := &mockLogsClient{}
+
+	s := newTestLogStreamer(client, 10)
+	s.streamLogs(context.Background(), "test-container")
+
+	assert.Equal(t, "10000", client.tail)
 }
 
 func TestLogStreamerScanLinesTTY(t *testing.T) {

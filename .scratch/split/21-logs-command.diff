@@ -1,0 +1,4 @@
+ internal/command/root.go     |  1 +
+ internal/docker/logs.go      | 23 ++++++++++++++--
+ internal/docker/logs_test.go | 65 +++++++++++++++++++++++++++++++++++++++++++-
+ 3 files changed, 86 insertions(+), 3 deletions(-)

@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"context"
 	"io"
+	"strconv"
 	"sync"
 	"time"
 
@@ -13,7 +14,7 @@ import (
 
 const (
 	DefaultLogBufferSize = 10000
-	defaultTailLines     = "10000"
+	defaultTailLines     = 10000
 	scannerBufSize       = 64 * 1024
 	scannerMaxSize       = 1024 * 1024
 )
@@ -25,11 +26,15 @@ type LogLine struct {
 
 type LogStreamerSettings struct {
 	BufferSize int
+	Tail       int
 }
 
 func (s LogStreamerSettings) withDefaults() LogStreamerSettings {
 	if s.BufferSize == 0 {
 		s.BufferSize = DefaultLogBufferSize
+	}
+	if s.Tail == 0 {
+		s.Tail = defaultTailLines
 	}
 	return s
 }
@@ -97,6 +102,20 @@ func (s *LogStreamer) Count() int {
 	return s.lines.Len()
 }
 
+// FetchSince returns the lines added after the given version, along with the
+// current version. Lines evicted from the buffer are not returned.
+func (s *LogStreamer) FetchSince(version uint64) ([]LogLine, uint64) {
+	s.mu.RLock()
+	defer s.mu.RUnlock()
+
+	if s.version <= version {
+		return nil, s.version
+	}
+
+	lines := s.lines.FetchOldestFirst(int(s.version - version))
+	return lines, s.version
+}
+
 func (s *LogStreamer) Version() uint64 {
 	s.mu.RLock()
 	defer s.mu.RUnlock()
@@ -135,7 +154,7 @@ func (s *LogStreamer) streamLogs(ctx context.Context, containerName string) {
 		ShowStdout: true,
 		ShowStderr: true,
 		Follow:     true,
-		Tail:       defaultTailLines,
+		Tail:       strconv.Itoa(s.settings.Tail),
 	})
 	if err != nil {
 		return

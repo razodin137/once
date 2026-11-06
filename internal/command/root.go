@@ -45,6 +45,7 @@ func NewRootCommand() *RootCommand {
 	r.cmd.AddCommand(newExecCommand().cmd)
 	r.cmd.AddCommand(newKeysCommand().cmd)
 	r.cmd.AddCommand(newListCommand().cmd)
+	r.cmd.AddCommand(newLogsCommand().cmd)
 	r.cmd.AddCommand(newOpenCommand().cmd)
 	r.cmd.AddCommand(newRemoveCommand().cmd)
 	r.cmd.AddCommand(newRestoreCommand().cmd)
