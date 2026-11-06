@@ -3,6 +3,8 @@ package docker
 import (
 	"crypto/rand"
 	"encoding/hex"
+	"path/filepath"
+	"regexp"
 	"strings"
 	"time"
 
@@ -10,6 +12,8 @@ import (
 )
 
 const streamRetryDelay = time.Second
+
+var pathSeparators = regexp.MustCompile(`[^a-z0-9]+`)
 
 func IsLocalhost(host string) bool {
 	return host == "localhost" || strings.HasSuffix(host, ".localhost")
@@ -23,6 +27,21 @@ func NameFromImageRef(imageRef string) string {
 	path := reference.Path(named)
 	parts := strings.Split(path, "/")
 	return parts[len(parts)-1]
+}
+
+func NameFromPath(path string) string {
+	name := pathSeparators.ReplaceAllString(strings.ToLower(filepath.Base(filepath.Clean(path))), "-")
+	name = strings.Trim(name, "-")
+
+	if name == "" {
+		return "site"
+	}
+
+	if len(name) > 63 {
+		name = strings.Trim(name[:63], "-")
+	}
+
+	return name
 }
 
 func ContainerRandomID() (string, error) {

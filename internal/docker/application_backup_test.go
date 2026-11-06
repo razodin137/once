@@ -105,8 +105,8 @@ func TestTrimBackups(t *testing.T) {
 		require.NoError(t, os.WriteFile(filepath.Join(dir, name), []byte("data"), 0644))
 	}
 
-	oldFile := fmt.Sprintf("myapp-%s.tar.gz", oldTime.Format("20060102-150405"))
-	recentFile := fmt.Sprintf("myapp-%s.tar.gz", recentTime.Format("20060102-150405"))
+	oldFile := fmt.Sprintf("myapp-%s.tar.gz", oldTime.UTC().Format("20060102-150405"))
+	recentFile := fmt.Sprintf("myapp-%s.tar.gz", recentTime.UTC().Format("20060102-150405"))
 	unrelatedFile := "notes.txt"
 
 	createFile(oldFile)

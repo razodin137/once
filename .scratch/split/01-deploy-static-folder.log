@@ -1,0 +1,2790 @@
+[0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mls -la; ls -la .opencode 2>/dev/null; ls -la .scratch 2>/dev/null; find . -maxdepth 3 -name "*split*" -not -path "./.git/*" 2>/dev/null | head -50
+total 64
+drwxr-xr-x 1 mrjohn mrjohn   346 Nov  6 17:54 .
+drwxr-xr-x 1 mrjohn mrjohn     8 Nov  6 17:42 ..
+-rw-r--r-- 1 mrjohn mrjohn  4449 Nov  6 17:42 AGENTS.md
+drwxr-xr-x 1 mrjohn mrjohn    18 Nov  6 17:42 .claude
+drwxr-xr-x 1 mrjohn mrjohn     8 Nov  6 17:42 cmd
+-rw-r--r-- 1 mrjohn mrjohn     8 Nov  6 17:42 .dockerignore
+drwxr-xr-x 1 mrjohn mrjohn   196 Nov  6 17:52 .git
+drwxr-xr-x 1 mrjohn mrjohn    86 Nov  6 17:42 .github
+-rw-r--r-- 1 mrjohn mrjohn    53 Nov  6 17:42 .gitignore
+-rw-r--r-- 1 mrjohn mrjohn   216 Nov  6 17:42 .golangci.yml
+-rw-r--r-- 1 mrjohn mrjohn  3240 Nov  6 17:42 go.mod
+-rw-r--r-- 1 mrjohn mrjohn 14625 Nov  6 17:42 go.sum
+drwxr-xr-x 1 mrjohn mrjohn   138 Nov  6 17:42 installer
+drwxr-xr-x 1 mrjohn mrjohn    62 Nov  6 17:42 integration
+drwxr-xr-x 1 mrjohn mrjohn   158 Nov  6 17:42 internal
+-rw-r--r-- 1 mrjohn mrjohn  1292 Nov  6 17:42 Makefile
+-rw-r--r-- 1 mrjohn mrjohn    97 Nov  6 17:42 mise.toml
+-rw-r--r-- 1 mrjohn mrjohn  1053 Nov  6 17:42 MIT-LICENSE
+drwxr-xr-x 1 mrjohn mrjohn  2004 Nov  6 17:49 prompt
+drwxr-xr-x 1 mrjohn mrjohn   840 Nov  6 17:44 prompt-v1
+-rw-r--r-- 1 mrjohn mrjohn  8244 Nov  6 17:42 README.md
+drwxr-xr-x 1 mrjohn mrjohn    10 Nov  6 17:54 .scratch
+drwxr-xr-x 1 mrjohn mrjohn    30 Nov  5 23:06 scripts
+total 0
+drwxr-xr-x 1 mrjohn mrjohn  10 Nov  6 17:54 .
+drwxr-xr-x 1 mrjohn mrjohn 346 Nov  6 17:54 ..
+drwxr-xr-x 1 mrjohn mrjohn  54 Nov  6 17:54 split
+./scripts/split-serial.sh
+./.scratch/split
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mfind .scratch/split -maxdepth 3 | head -50; echo ---; ls prompt | head -50; echo ---; ls prompt-v1 | head -60; echo ---; cat scripts/split-serial.sh
+.scratch/split
+.scratch/split/01-deploy-static-folder.log
+---
+00-overview.md
+01-deploy-static-folder.md
+02-serve-static-apps.md
+03-redeploy-folder.md
+04-stale-source-detection.md
+05-folder-contents-fallback.md
+06-markdown-pages.md
+07-single-file-html-site.md
+08-remove-static-app.md
+09-contents-card.md
+10-contents-screen.md
+11-channels.md
+12-channel-filter.md
+13-favorites.md
+14-drift.md
+15-app-bar.md
+16-bar-keys.md
+17-bar-cross-fade.md
+18-bar-hide.md
+19-open-command.md
+20-show-command.md
+21-logs-command.md
+22-status-command.md
+23-list-json.md
+24-restart-command.md
+25-update-all.md
+26-doctor-command.md
+27-backups-list.md
+28-screenshot-capture.md
+29-card-thumbnails.md
+30-route-map.md
+31-page-weight.md
+32-broken-links.md
+33-meta-preview.md
+34-deploy-diff.md
+35-promote-on-evidence.md
+36-error-capture.md
+37-dashboard-filter.md
+38-command-palette.md
+39-toasts.md
+40-chart-time-range.md
+41-compact-layout.md
+42-appearance-settings.md
+43-app-details-view.md
+44-mouse-on-cards.md
+45-incremental-render.md
+46-chart-performance.md
+47-single-stats-stream.md
+48-share-link.md
+49-status-page.md
+---
+00-overview.md
+01-logs-command.md
+02-status-command.md
+03-restart-command.md
+04-backups-command.md
+05-dashboard-filter.md
+06-dashboard-lifecycle-shortcuts.md
+07-update-all.md
+08-health-checks.md
+09-app-details.md
+10-backup-restore.md
+11-logs-stderr.md
+12-logs-pause.md
+13-appearance-settings.md
+14-command-palette.md
+15-toasts.md
+16-chart-time-range.md
+17-compact-layout.md
+18-incremental-render.md
+19-chart-performance.md
+20-house-style.md
+---
+#!/usr/bin/env bash
+# Run the split prompts in prompt/ one at a time, each in a
+# fresh session, stopping at the first failure.
+#
+#   MODEL=ollama/deepseek-v4.1-flash:1017-cloud ./scripts/split-serial.sh
+#   MODEL=... FROM=8 TO=8 ./scripts/split-serial.sh    # one step only
+#   ONLY=11-state,07-remove,08-shell ./scripts/split-serial.sh   # explicit order
+#   COMMIT=0 ./scripts/split-serial.sh                 # leave commits alone
+#
+# No --continue and no --session: that is what makes every step a fresh agent.
+# The tree must be clean before the loop starts, and every green step is
+# committed, so a bad step is one `git revert` away.
+
+set -uo pipefail
+
+ROOT=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
+LOGS="$ROOT/.scratch/split"
+MODEL=${MODEL:-ollama/deepseek-v4.1-flash:1017-cloud}
+FROM=${FROM:-1}
+TO=${TO:-99}
+COMMIT=${COMMIT:-1}
+ONLY=${ONLY:-}
+
+mkdir -p "$LOGS"
+cd "$ROOT" || exit 1
+
+if ! git diff --quiet || ! git diff --cached --quiet; then
+  echo "== tree is dirty; commit it before starting" >&2
+  exit 1
+fi
+
+if [ -n "$ONLY" ]; then
+  IFS=',' read -r -a files <<<"$ONLY"
+  for i in "${!files[@]}"; do
+    files[$i]="$ROOT/prompt/${files[$i]}.md"
+  done
+else
+  files=("$ROOT"/prompt/*.md)
+fi
+
+for path in "${files[@]}"; do
+  name=$(basename "$path" .md)
+  step=$((10#${name%%-*}))
+
+  if [ -z "$ONLY" ]; then
+    [ "$step" -lt "$FROM" ] && continue
+    [ "$step" -gt "$TO" ] && continue
+  fi
+
+  if [ ! -f "$path" ]; then
+    echo "== $name: no such command" >&2
+    exit 1
+  fi
+
+  blocked="$LOGS/BLOCKED-$name"
+  rm -f "$blocked"
+
+  echo "== $name"
+  opencode run -m "$MODEL" --auto --title "split $name" "/split/$name" 2>&1 \
+    | tee "$LOGS/$name.log"
+  status=${PIPESTATUS[0]}
+
+  if [ -f "$blocked" ]; then
+    echo "== $name: blocked, $(cat "$blocked")" >&2
+    exit 1
+  fi
+
+  if [ "$status" -ne 0 ]; then
+    echo "== $name: opencode exited $status, stopping" >&2
+    exit 1
+  fi
+
+  if ! npm run check >"$LOGS/$name.check" 2>&1; then
+    echo "== $name: npm run check failed, see $LOGS/$name.check" >&2
+    exit 1
+  fi
+
+  git diff --stat >"$LOGS/$name.diff"
+
+  if [ "$COMMIT" = "1" ]; then
+    git add -A
+    git commit -q -m "split: $name"
+  fi
+done
+
+echo "== finished"
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead prompt/01-deploy-static-folder.md 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgit status --short; git log --oneline -5; echo ---; tail -40 .scratch/split/01-deploy-static-folder.log 2>/dev/null; echo ---; cat .claude/* 2>/dev/null | head -40; ls .claude
+?? .scratch/
+?? scripts/
+fe93045 starting the script: Prompting scripts for upgrading
+864ec7c Use strings.CutLast in cutLast (#118)
+---
+  if [ ! -f "$path" ]; then
+    echo "== $name: no such command" >&2
+    exit 1
+  fi
+
+  blocked="$LOGS/BLOCKED-$name"
+  rm -f "$blocked"
+
+  echo "== $name"
+  opencode run -m "$MODEL" --auto --title "split $name" "/split/$name" 2>&1 \
+    | tee "$LOGS/$name.log"
+  status=${PIPESTATUS[0]}
+
+  if [ -f "$blocked" ]; then
+    echo "== $name: blocked, $(cat "$blocked")" >&2
+    exit 1
+  fi
+
+  if [ "$status" -ne 0 ]; then
+    echo "== $name: opencode exited $status, stopping" >&2
+    exit 1
+  fi
+
+  if ! npm run check >"$LOGS/$name.check" 2>&1; then
+    echo "== $name: npm run check failed, see $LOGS/$name.check" >&2
+    exit 1
+  fi
+
+  git diff --stat >"$LOGS/$name.diff"
+
+  if [ "$COMMIT" = "1" ]; then
+    git add -A
+    git commit -q -m "split: $name"
+  fi
+done
+
+echo "== finished"
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead prompt/01-deploy-static-folder.md 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+---
+@../AGENTS.md
+CLAUDE.md
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mfind cmd internal -type f -name "*.go" | sort; echo ---; cat go.mod | head -20; echo ---; cat Makefile; echo ---; cat .golangci.yml
+cmd/once/main.go
+internal/background/runner.go
+internal/background/runner_test.go
+internal/command/background.go
+internal/command/background_install.go
+internal/command/background_remove.go
+internal/command/background_run.go
+internal/command/backup.go
+internal/command/cli_progress.go
+internal/command/deploy.go
+internal/command/deploy_test.go
+internal/command/exec.go
+internal/command/exec_test.go
+internal/command/keys.go
+internal/command/keys_reset.go
+internal/command/keys_set.go
+internal/command/list.go
+internal/command/remove.go
+internal/command/restore.go
+internal/command/root.go
+internal/command/root_test.go
+internal/command/self_update.go
+internal/command/settings_flags.go
+internal/command/start.go
+internal/command/stop.go
+internal/command/teardown.go
+internal/command/update.go
+internal/command/update_test.go
+internal/command/version.go
+internal/docker/application_backup.go
+internal/docker/application_backup_test.go
+internal/docker/application.go
+internal/docker/application_settings.go
+internal/docker/application_settings_test.go
+internal/docker/application_test.go
+internal/docker/container.go
+internal/docker/errors.go
+internal/docker/errors_test.go
+internal/docker/events.go
+internal/docker/helpers.go
+internal/docker/helpers_test.go
+internal/docker/logs.go
+internal/docker/logs_test.go
+internal/docker/namespace.go
+internal/docker/namespace_test.go
+internal/docker/progress.go
+internal/docker/progress_test.go
+internal/docker/proxy.go
+internal/docker/proxy_test.go
+internal/docker/registry_auth.go
+internal/docker/registry_auth_test.go
+internal/docker/ring_buffer.go
+internal/docker/ring_buffer_test.go
+internal/docker/scraper.go
+internal/docker/scraper_test.go
+internal/docker/state.go
+internal/docker/state_test.go
+internal/docker/volume.go
+internal/docker/volume_test.go
+internal/fsutil/fsutil.go
+internal/fsutil/fsutil_test.go
+internal/logging/log.go
+internal/metrics/scraper.go
+internal/metrics/scraper_test.go
+internal/mouse/lexer.go
+internal/mouse/lexer_test.go
+internal/mouse/tracker.go
+internal/mouse/tracker_test.go
+internal/service/launchd.go
+internal/service/service.go
+internal/service/systemd.go
+internal/system/disk.go
+internal/system/scraper.go
+internal/system/scraper_test.go
+internal/ui/actions_menu.go
+internal/ui/actions_menu_test.go
+internal/ui/app.go
+internal/ui/chart.go
+internal/ui/chart_scale.go
+internal/ui/chart_scale_test.go
+internal/ui/chart_test.go
+internal/ui/component.go
+internal/ui/confirmation.go
+internal/ui/confirmation_test.go
+internal/ui/dashboard.go
+internal/ui/dashboard_header.go
+internal/ui/dashboard_header_test.go
+internal/ui/dashboard_panel.go
+internal/ui/dashboard_panel_test.go
+internal/ui/dashboard_test.go
+internal/ui/form.go
+internal/ui/form_test.go
+internal/ui/helpers_test.go
+internal/ui/help.go
+internal/ui/help_test.go
+internal/ui/install_activity.go
+internal/ui/install_app_list.go
+internal/ui/install_app_list_test.go
+internal/ui/install.go
+internal/ui/install_hostname_form.go
+internal/ui/install_hostname_form_test.go
+internal/ui/install_image_form.go
+internal/ui/install_image_form_test.go
+internal/ui/install_test.go
+internal/ui/keys.go
+internal/ui/logo.go
+internal/ui/logs.go
+internal/ui/logs_test.go
+internal/ui/menu.go
+internal/ui/menu_test.go
+internal/ui/metric_card.go
+internal/ui/metric_card_test.go
+internal/ui/palette_detect.go
+internal/ui/palette_detect_test.go
+internal/ui/palette.go
+internal/ui/palette_test.go
+internal/ui/popup_help.go
+internal/ui/popup_help_test.go
+internal/ui/progress.go
+internal/ui/remove.go
+internal/ui/remove_test.go
+internal/ui/settings_form_application.go
+internal/ui/settings_form_backups.go
+internal/ui/settings_form_base.go
+internal/ui/settings_form_email.go
+internal/ui/settings_form_environment.go
+internal/ui/settings_form_registry.go
+internal/ui/settings_form_resources.go
+internal/ui/settings_form_test.go
+internal/ui/settings_form_updates.go
+internal/ui/settings.go
+internal/ui/settings_menu.go
+internal/ui/settings_menu_test.go
+internal/ui/settings_test.go
+internal/ui/starfield.go
+internal/ui/styles.go
+internal/ui/styles_test.go
+internal/ui/terminal_size_guard.go
+internal/ui/terminal_size_guard_test.go
+internal/userstats/reader.go
+internal/userstats/reader_test.go
+internal/userstats/scraper.go
+internal/userstats/scraper_test.go
+internal/userstats/store.go
+internal/userstats/store_test.go
+internal/version/updater.go
+internal/version/updater_test.go
+internal/version/version.go
+---
+module github.com/basecamp/once
+
+go 1.27.0
+
+require (
+	charm.land/bubbles/v2 v2.2.1
+	charm.land/bubbletea/v2 v2.0.9
+	charm.land/lipgloss/v2 v2.0.6
+	github.com/axiomhq/hyperloglog v0.2.6
+	github.com/charmbracelet/colorprofile v0.4.3
+	github.com/charmbracelet/x/ansi v0.11.8
+	github.com/charmbracelet/x/term v0.2.2
+	github.com/containerd/errdefs v1.0.0
+	github.com/distribution/reference v0.6.0
+	github.com/google/go-containerregistry v0.22.1
+	github.com/lucasb-eyer/go-colorful v1.4.1
+	github.com/mattn/go-runewidth v0.0.29
+	github.com/moby/moby/api v1.56.0
+	github.com/moby/moby/client v0.6.0
+	github.com/prometheus/client_model v0.6.3
+---
+.PHONY: build test integration lint lint-actions coverage dist test-release
+
+PLATFORMS = linux darwin
+ARCHITECTURES = amd64 arm64
+VERSION := $(shell git describe --tags --always)
+LDFLAGS := -ldflags "-s -w -X 'github.com/basecamp/once/internal/version.Version=$(VERSION)'"
+
+TEST_RELEASE_TAG = v0.0.1-test
+
+build:
+	CGO_ENABLED=0 go build -trimpath $(LDFLAGS) -o bin/ ./cmd/...
+
+build-all:
+	@for os in $(PLATFORMS); do \
+		for arch in $(ARCHITECTURES); do \
+			echo "Building for $$os/$$arch..."; \
+			CGO_ENABLED=0 GOOS=$$os GOARCH=$$arch go build -trimpath $(LDFLAGS) -o bin/$$os-$$arch/ ./cmd/...; \
+		done; \
+	done
+
+test:
+	go test ./internal/...
+
+integration:
+	go test -v -count=1 -parallel 16 -timeout 30m ./integration/...
+
+check:
+	go vet ./...
+	govulncheck ./...
+
+lint:
+	golangci-lint run
+
+lint-actions:
+	actionlint
+	zizmor .
+
+coverage:
+	go test -coverprofile=coverage.out ./internal/...
+	go tool cover -html=coverage.out
+
+dist: build-all
+	mkdir -p dist
+	@for os in $(PLATFORMS); do \
+		for arch in $(ARCHITECTURES); do \
+			cp bin/$$os-$$arch/once dist/once-$$os-$$arch; \
+		done; \
+	done
+	cd dist && sha256sum once-* > checksums.txt
+
+test-release:
+	-gh release delete $(TEST_RELEASE_TAG) --yes --cleanup-tag
+	git tag -f $(TEST_RELEASE_TAG)
+	git push origin $(TEST_RELEASE_TAG) --force
+---
+version: "2"
+
+formatters:
+  enable:
+    - gofmt
+    - gci
+  settings:
+    gci:
+      sections:
+        - standard
+        - default
+        - localmodule
+
+linters:
+  enable:
+    - modernize
+  disable:
+    - errcheck
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/command/deploy.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/docker/application.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcat prompt/00-overview.md; echo ======; cat prompt/02-serve-static-apps.md; echo ======; cat prompt/03-redeploy-folder.md
+These prompts change the ONCE Go CLI/TUI in this repository, one feature per file, run in order with a fresh agent for each.
+
+House style here is the project's own Go conventions plus `make lint`; the wider reference copy is at /home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+
+The last line of every file is the same, and it means `make test` and `make lint` both run clean.
+
+Each file is the whole instruction for its session. Read only the one you are running.
+======
+Your job is to go in and serve a deployed folder from a tiny static container here to this Go CLI/TUI app.
+
+Keep hosts, TLS, health checks and zero-downtime swaps identical to an app container; only the image and the mount differ, so a folder deploys through the same path as everything else.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+======
+Your job is to go in and make deploying a folder that already has a host replace what is served in place here to this Go CLI/TUI app.
+
+Keep the hostname and settings, swap the content, and leave the old version serving until the new one is up.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/docker/application_settings.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/docker/helpers.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/command/settings_flags.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/command/deploy_test.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/command/cli_progress.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m✱ [0mGrep "static|folder|directory|filepath\.IsDir|os.Stat" [90m23 matches[0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgit branch -a; git log --all --oneline | head -30; git tag | tail -20; ls prompt-v1
+* main
+  remotes/origin/main
+  remotes/upstream/HEAD -> upstream/main
+  remotes/upstream/main
+fe93045 starting the script: Prompting scripts for upgrading
+864ec7c Use strings.CutLast in cutLast (#118)
+v0.3.4
+00-overview.md
+01-logs-command.md
+02-status-command.md
+03-restart-command.md
+04-backups-command.md
+05-dashboard-filter.md
+06-dashboard-lifecycle-shortcuts.md
+07-update-all.md
+08-health-checks.md
+09-app-details.md
+10-backup-restore.md
+11-logs-stderr.md
+12-logs-pause.md
+13-appearance-settings.md
+14-command-palette.md
+15-toasts.md
+16-chart-time-range.md
+17-compact-layout.md
+18-incremental-render.md
+19-chart-performance.md
+20-house-style.md
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgrep -n "deploy\|host" README.md | head -40; echo ---; sed -n '1,180p' internal/command/root.go
+4:Its goal is to make self-hosting applications as simple as possible.
+54:You'll need to enter a hostname for the application.
+60:Whatever hostname you choose, make sure you have a DNS entry for it which points to the machine you're installing to.
+61:The details of how to do this will vary depending on which provider you use for your DNS, but generally you should have access to an admin interface where you can set up an `A` record with the hostname you've chosen, pointed to the IP address of your machine.
+69:Once you've picked your application and entered the hostname, the rest is automatic.
+76:From there you can set up a location for automatic backups, update your hostname, switch to using your own fork's image, set up an email provider and more.
+134:- `BASE_URL` -- The public URL of the application, built from its hostname, SSL setting, and proxy port (e.g. `https://app.example.com`).
+---
+package command
+
+import (
+	"context"
+	"errors"
+	"fmt"
+
+	"github.com/spf13/cobra"
+
+	"github.com/basecamp/once/internal/docker"
+	"github.com/basecamp/once/internal/logging"
+	"github.com/basecamp/once/internal/ui"
+)
+
+type RootCommand struct {
+	cmd       *cobra.Command
+	namespace string
+
+	installImageRef string
+}
+
+func NewRootCommand() *RootCommand {
+	r := &RootCommand{}
+	r.cmd = &cobra.Command{
+		Use:           "once",
+		Short:         "Manage web applications from Docker images",
+		SilenceUsage:  true,
+		SilenceErrors: true,
+		CompletionOptions: cobra.CompletionOptions{
+			HiddenDefaultCmd: true,
+		},
+		RunE: WithNamespace(func(ctx context.Context, ns *docker.Namespace, cmd *cobra.Command, args []string) error {
+			return logging.ToLogFile(func() error {
+				return ui.Run(ns, r.installImageRef)
+			})
+		}),
+	}
+	r.cmd.PersistentFlags().StringVarP(&r.namespace, "namespace", "n", docker.DefaultNamespace, "namespace for containers")
+
+	r.cmd.Flags().StringVar(&r.installImageRef, "install", "", "Path to Docker image to install")
+
+	r.cmd.AddCommand(newBackgroundCommand().cmd)
+	r.cmd.AddCommand(newBackupCommand().cmd)
+	r.cmd.AddCommand(newDeployCommand().cmd)
+	r.cmd.AddCommand(newExecCommand().cmd)
+	r.cmd.AddCommand(newKeysCommand().cmd)
+	r.cmd.AddCommand(newListCommand().cmd)
+	r.cmd.AddCommand(newRemoveCommand().cmd)
+	r.cmd.AddCommand(newRestoreCommand().cmd)
+	r.cmd.AddCommand(newStartCommand().cmd)
+	r.cmd.AddCommand(newStopCommand().cmd)
+	r.cmd.AddCommand(newTeardownCommand().cmd)
+	r.cmd.AddCommand(newUpdateCommand().cmd)
+	r.cmd.AddCommand(newSelfUpdateCommand().cmd)
+	r.cmd.AddCommand(newVersionCommand().cmd)
+
+	return r
+}
+
+func (r *RootCommand) Execute() error {
+	return r.cmd.Execute()
+}
+
+// Helpers
+
+type NamespaceRunE func(ctx context.Context, ns *docker.Namespace, cmd *cobra.Command, args []string) error
+
+func findApplication(ns *docker.Namespace, host string) (*docker.Application, error) {
+	app := ns.ApplicationByHost(host)
+	if app == nil {
+		return nil, fmt.Errorf("no application found at host %q", host)
+	}
+	return app, nil
+}
+
+func withApplication(ns *docker.Namespace, host string, action string, fn func(*docker.Application) error) error {
+	app, err := findApplication(ns, host)
+	if err != nil {
+		return err
+	}
+
+	if err := fn(app); err != nil {
+		return fmt.Errorf("%s application: %w", action, err)
+	}
+
+	return nil
+}
+
+func WithNamespace(fn NamespaceRunE) func(*cobra.Command, []string) error {
+	return func(cmd *cobra.Command, args []string) error {
+		ctx := context.Background()
+
+		ns, err := docker.RestoreNamespace(ctx, namespaceFlag(cmd))
+		if err != nil {
+			return fmt.Errorf("restoring namespace: %w", err)
+		}
+
+		return fn(ctx, ns, cmd, args)
+	}
+}
+
+func namespaceFlag(cmd *cobra.Command) string {
+	namespace, _ := cmd.Root().PersistentFlags().GetString("namespace")
+	return namespace
+}
+
+type exitCoder interface {
+	error
+	ExitCode() int
+}
+
+func ExitCode(err error) (int, bool) {
+	if e, ok := errors.AsType[exitCoder](err); ok {
+		return e.ExitCode(), true
+	}
+	return 0, false
+}
+
+func IsExitError(err error) bool {
+	_, ok := ExitCode(err)
+	return ok
+}
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgrep -rn "nginx\|httpd\|caddy\|static" integration internal README.md prompt | head -40; echo ---; sed -n '1,140p' integration/docker_test.go
+internal/docker/registry_auth_test.go:189:	host, err = RegistryHost("nginx")
+internal/ui/chart.go:69:// The constructor takes static properties (title, unit) and View takes
+prompt/02-serve-static-apps.md:1:Your job is to go in and serve a deployed folder from a tiny static container here to this Go CLI/TUI app.
+prompt/45-incremental-render.md:3:It currently rebuilds every panel and the whole viewport on every tick; re-render only the panels whose data or selection changed, cache the static chrome and scales, and keep clicks and scrolling landing on the right rows.
+---
+package integration
+
+import (
+	"archive/tar"
+	"bytes"
+	"compress/gzip"
+	"context"
+	"crypto/rand"
+	"encoding/json"
+	"errors"
+	"fmt"
+	"io"
+	"net"
+	"net/http"
+	"os"
+	"path/filepath"
+	"strconv"
+	"strings"
+	"sync/atomic"
+	"testing"
+	"time"
+
+	"github.com/google/go-containerregistry/pkg/authn"
+	"github.com/google/go-containerregistry/pkg/name"
+	v1 "github.com/google/go-containerregistry/pkg/v1"
+	"github.com/google/go-containerregistry/pkg/v1/mutate"
+	"github.com/google/go-containerregistry/pkg/v1/remote"
+	"github.com/google/go-containerregistry/pkg/v1/tarball"
+	"github.com/moby/moby/api/types/container"
+	"github.com/moby/moby/api/types/network"
+	"github.com/moby/moby/client"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+
+	"github.com/basecamp/once/internal/command"
+	"github.com/basecamp/once/internal/docker"
+)
+
+const integrationAppImageRef = "ghcr.io/basecamp/once-integration-app:latest"
+
+const (
+	testRegistryUsername = "registry-user"
+	testRegistryPassword = "registry-pass"
+	// bcrypt hash of testRegistryPassword, precomputed to avoid an x/crypto
+	// dependency just for the tests.
+	testRegistryPasswordBcrypt = "$2a$04$.2i9XCuXxcT5AaEtj6kY/.7hDz3xxJQYoIArvlIH6FEZssMVJofZa"
+)
+
+// Pre-pull shared images so parallel tests don't all block on the same pull
+// inside their own timeouts.
+func TestMain(m *testing.M) {
+	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Minute)
+	err := pullImages(ctx, integrationAppImageRef, "registry:2", docker.ProxyImage)
+	cancel()
+	if err != nil {
+		fmt.Fprintln(os.Stderr, "failed to pull test images:", err)
+		os.Exit(1)
+	}
+	os.Exit(m.Run())
+}
+
+func TestDockerDeployment(t *testing.T) {
+	t.Parallel()
+
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Minute)
+	defer cancel()
+
+	ns := newTestNamespace(t, "once-test")
+
+	require.NoError(t, ns.EnsureNetwork(ctx))
+	require.NoError(t, ns.Proxy().Boot(ctx, getProxyPorts(t)))
+
+	app := deployApp(t, ctx, ns, docker.ApplicationSettings{
+		Name:  "campfire",
+		Image: integrationAppImageRef,
+		Host:  "campfire.localhost",
+	})
+
+	// After deploy + refresh, the namespace should know about the app
+	require.NotNil(t, app)
+	assert.Equal(t, "campfire", app.Settings.Name)
+	assert.Len(t, ns.Applications(), 1)
+	assert.True(t, ns.HostInUse("campfire.localhost"))
+}
+
+func TestRestoreState(t *testing.T) {
+	t.Parallel()
+
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Minute)
+	defer cancel()
+
+	ns1 := newTestNamespace(t, "once-restore-test")
+
+	require.NoError(t, ns1.EnsureNetwork(ctx))
+
+	proxySettings := getProxyPorts(t)
+	require.NoError(t, ns1.Proxy().Boot(ctx, proxySettings))
+
+	app := deployApp(t, ctx, ns1, docker.ApplicationSettings{
+		Name:  "testapp",
+		Image: integrationAppImageRef,
+		Host:  "testapp.localhost",
+	})
+
+	ns2, err := docker.RestoreNamespace(ctx, ns1.Name())
+	require.NoError(t, err)
+
+	require.NotNil(t, ns2.Proxy().Settings)
+	assert.Equal(t, proxySettings.HTTPPort, ns2.Proxy().Settings.HTTPPort)
+	assert.Equal(t, proxySettings.HTTPSPort, ns2.Proxy().Settings.HTTPSPort)
+
+	restoredApp := ns2.Application("testapp")
+	require.NotNil(t, restoredApp)
+	assert.Equal(t, app.Settings.Image, restoredApp.Settings.Image)
+}
+
+func TestRestoreAdoptsLegacyVolumeKeys(t *testing.T) {
+	t.Parallel()
+
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Minute)
+	defer cancel()
+
+	ns := newTestNamespace(t, "once-legacy-keys-test")
+
+	legacyKeys := docker.Keys{
+		SecretKeyBase:   "legacy-secret",
+		VAPIDPublicKey:  "legacy-pub",
+		VAPIDPrivateKey: "legacy-priv",
+	}
+	_, err := docker.CreateVolume(ctx, ns, "legacyapp", docker.ApplicationLegacyVolumeSettings{Keys: legacyKeys})
+	require.NoError(t, err)
+
+	// A legacy install's app container has settings without keys on its label
+	settings := docker.ApplicationSettings{
+		Name:  "legacyapp",
+		Image: integrationAppImageRef,
+		Host:  "legacyapp.localhost",
+	}
+
+	c, err := client.New(client.FromEnv)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgit remote -v; git log -1 --format=%cd upstream/main; git log -1 --format=%cd main; grep -rn "Image" internal/docker/namespace.go internal/docker/state.go | head -30
+origin	https://github.com/razodin137/once.git (fetch)
+origin	https://github.com/razodin137/once.git (push)
+upstream	https://github.com/basecamp/once.git (fetch)
+upstream	https://github.com/basecamp/once.git (push)
+Wed Oct 7 16:36:12 2026 -0700
+Fri Nov 6 17:52:07 2026 +0700
+internal/docker/namespace.go:238:	name, err := n.UniqueName(NameFromImageRef(appSettings.Image))
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m% [0mWebFetch https://raw.githubusercontent.com/basecamp/once/main/internal/docker/application.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/docker/proxy.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mfor f in prompt/04-stale-source-detection.md prompt/05-folder-contents-fallback.md prompt/06-markdown-pages.md prompt/07-single-file-html-site.md prompt/08-remove-static-app.md; do echo =====$f; cat $f; done
+=====prompt/04-stale-source-detection.md
+Your job is to go in and remember whether a served folder has changed since it was deployed here to this Go CLI/TUI app.
+
+Hash the folder at deploy time, compare it on the existing scrape tick, and mark the app stale instead of touching it.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+=====prompt/05-folder-contents-fallback.md
+Your job is to go in and give a folder with no index.html a generated contents page here to this Go CLI/TUI app.
+
+List the files and subfolders with names, sizes and dates in the same card style as the rest of the app, instead of returning a directory listing or a 403.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+=====prompt/06-markdown-pages.md
+Your job is to go in and render Markdown from a served folder as a page here to this Go CLI/TUI app.
+
+A `.md` file opens as a readable document, and a folder holding only Markdown opens its first one.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+=====prompt/07-single-file-html-site.md
+Your job is to go in and let one `.html` file be deployed as its own app here to this Go CLI/TUI app.
+
+No folder around it, the file is the site, and its host comes from its name the same way a folder's does.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+=====prompt/08-remove-static-app.md
+Your job is to go in and make `once remove` clean up a folder app completely here to this Go CLI/TUI app.
+
+Removing already tears down an app container; it should also drop the served copy and any generated pages, and leave nothing behind on disk.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcat .claude/CLAUDE.md; echo ---; cat .scratch/split/01-deploy-static-folder.log | head -50
+@../AGENTS.md
+---
+[0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mls -la; ls -la .opencode 2>/dev/null; ls -la .scratch 2>/dev/null; find . -maxdepth 3 -name "*split*" -not -path "./.git/*" 2>/dev/null | head -50
+total 64
+drwxr-xr-x 1 mrjohn mrjohn   346 Nov  6 17:54 .
+drwxr-xr-x 1 mrjohn mrjohn     8 Nov  6 17:42 ..
+-rw-r--r-- 1 mrjohn mrjohn  4449 Nov  6 17:42 AGENTS.md
+drwxr-xr-x 1 mrjohn mrjohn    18 Nov  6 17:42 .claude
+drwxr-xr-x 1 mrjohn mrjohn     8 Nov  6 17:42 cmd
+-rw-r--r-- 1 mrjohn mrjohn     8 Nov  6 17:42 .dockerignore
+drwxr-xr-x 1 mrjohn mrjohn   196 Nov  6 17:52 .git
+drwxr-xr-x 1 mrjohn mrjohn    86 Nov  6 17:42 .github
+-rw-r--r-- 1 mrjohn mrjohn    53 Nov  6 17:42 .gitignore
+-rw-r--r-- 1 mrjohn mrjohn   216 Nov  6 17:42 .golangci.yml
+-rw-r--r-- 1 mrjohn mrjohn  3240 Nov  6 17:42 go.mod
+-rw-r--r-- 1 mrjohn mrjohn 14625 Nov  6 17:42 go.sum
+drwxr-xr-x 1 mrjohn mrjohn   138 Nov  6 17:42 installer
+drwxr-xr-x 1 mrjohn mrjohn    62 Nov  6 17:42 integration
+drwxr-xr-x 1 mrjohn mrjohn   158 Nov  6 17:42 internal
+-rw-r--r-- 1 mrjohn mrjohn  1292 Nov  6 17:42 Makefile
+-rw-r--r-- 1 mrjohn mrjohn    97 Nov  6 17:42 mise.toml
+-rw-r--r-- 1 mrjohn mrjohn  1053 Nov  6 17:42 MIT-LICENSE
+drwxr-xr-x 1 mrjohn mrjohn  2004 Nov  6 17:49 prompt
+drwxr-xr-x 1 mrjohn mrjohn   840 Nov  6 17:44 prompt-v1
+-rw-r--r-- 1 mrjohn mrjohn  8244 Nov  6 17:42 README.md
+drwxr-xr-x 1 mrjohn mrjohn    10 Nov  6 17:54 .scratch
+drwxr-xr-x 1 mrjohn mrjohn    30 Nov  5 23:06 scripts
+total 0
+drwxr-xr-x 1 mrjohn mrjohn  10 Nov  6 17:54 .
+drwxr-xr-x 1 mrjohn mrjohn 346 Nov  6 17:54 ..
+drwxr-xr-x 1 mrjohn mrjohn  54 Nov  6 17:54 split
+./scripts/split-serial.sh
+./.scratch/split
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mfind .scratch/split -maxdepth 3 | head -50; echo ---; ls prompt | head -50; echo ---; ls prompt-v1 | head -60; echo ---; cat scripts/split-serial.sh
+.scratch/split
+.scratch/split/01-deploy-static-folder.log
+---
+00-overview.md
+01-deploy-static-folder.md
+02-serve-static-apps.md
+03-redeploy-folder.md
+04-stale-source-detection.md
+05-folder-contents-fallback.md
+06-markdown-pages.md
+07-single-file-html-site.md
+08-remove-static-app.md
+09-contents-card.md
+10-contents-screen.md
+11-channels.md
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/docker/namespace.go [90m[limit=280][0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/docker/namespace.go [90m[offset=280][0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcat internal/logging/log.go; echo ---; grep -rn "UserConfigDir\|UserStateDir\|UserCacheDir\|MkdirAll\|os.User" internal | head -40; echo ---; cat internal/fsutil/fsutil.go | head -80
+package logging
+
+import (
+	"log/slog"
+	"os"
+	"path/filepath"
+
+	"github.com/basecamp/once/internal/fsutil"
+)
+
+// ToLogFile switches logging to a file for the duration of fn, then restores
+// stderr logging when fn returns.
+func ToLogFile(fn func() error) error {
+	dir, err := stateDir()
+	if err != nil {
+		slog.Warn("Could not determine log directory", "error", err)
+		return fn()
+	}
+
+	path := filepath.Join(dir, "once.log")
+	file, err := fsutil.OpenFile(path, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0o644)
+	if err != nil {
+		slog.Warn("Could not open log file", "error", err)
+		return fn()
+	}
+
+	defer func() {
+		SetupStderr()
+		file.Close()
+	}()
+
+	slog.SetDefault(slog.New(slog.NewTextHandler(file, nil)))
+
+	return fn()
+}
+
+func SetupStderr() {
+	slog.SetDefault(slog.New(slog.NewTextHandler(os.Stderr, nil)))
+}
+
+// Helpers
+
+func stateDir() (string, error) {
+	if dir := os.Getenv("XDG_STATE_HOME"); dir != "" {
+		return filepath.Join(dir, "once"), nil
+	}
+
+	home, err := os.UserHomeDir()
+	if err != nil {
+		return "", err
+	}
+
+	return filepath.Join(home, ".local", "state", "once"), nil
+}
+---
+internal/fsutil/fsutil_test.go:115:	require.NoError(t, os.MkdirAll(dir, 0o755))
+internal/logging/log.go:48:	home, err := os.UserHomeDir()
+internal/service/systemd.go:39:	if err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {
+---
+package fsutil
+
+import (
+	"errors"
+	"fmt"
+	"io"
+	"io/fs"
+	"os"
+	"path/filepath"
+	"strings"
+	"syscall"
+)
+
+// OpenFile behaves like os.OpenFile, except that:
+//  1. Any missing parent directories in the path are created implicitly
+//  2. Ownership of the file (and any created parent directories) are set to
+//     match that of the nearest existing ancestor, when OpenFile creates them.
+//
+// Everything below the nearest existing ancestor is created through handles
+// rather than paths, files are created exclusively, and ownership only changes
+// on what OpenFile created, so a planted symlink or file cannot make OpenFile
+// hand over an existing file, or make CreateFile write to one. Symlinked
+// directories are still followed, so a planted one can change where a new file
+// is created; it still takes the ownership of the nearest existing ancestor.
+func OpenFile(path string, flag int, perm os.FileMode) (*os.File, error) {
+	dir := filepath.Dir(path)
+
+	ancestor, err := findExistingAncestor(dir)
+	if err != nil {
+		return nil, fmt.Errorf("determining ownership for %s: %w", dir, err)
+	}
+
+	root, err := os.OpenRoot(asDir(ancestor))
+	if err != nil {
+		return nil, fmt.Errorf("determining ownership for %s: %w", dir, err)
+	}
+	defer root.Close()
+
+	uid, gid, err := ownership(root)
+	if err != nil {
+		return nil, fmt.Errorf("determining ownership for %s: %w", dir, err)
+	}
+
+	rel, err := filepath.Rel(ancestor, dir)
+	if err != nil {
+		return nil, fmt.Errorf("creating directory %s: %w", dir, err)
+	}
+
+	parent, err := makeDirs(root, rel, uid, gid)
+	if err != nil {
+		return nil, fmt.Errorf("creating directory %s: %w", dir, err)
+	}
+	defer parent.Close()
+
+	return openInDir(parent, filepath.Base(path), flag, perm, uid, gid)
+}
+
+// CreateFile creates a new file, failing if anything already exists at the
+// path. It is equivalent to OpenFile with O_RDWR|O_CREATE|O_EXCL flags and
+// 0600 permissions (owner read/write only).
+func CreateFile(path string) (*os.File, error) {
+	return OpenFile(path, os.O_RDWR|os.O_CREATE|os.O_EXCL, 0o600)
+}
+
+// afterMkdir lets tests replace a directory between its creation and opening.
+var afterMkdir func(name string)
+
+// Helpers
+
+func findExistingAncestor(dir string) (string, error) {
+	for path := dir; ; path = filepath.Dir(path) {
+		_, err := os.Lstat(path)
+		if err == nil {
+			return path, nil
+		}
+		if !os.IsNotExist(err) {
+			return "", err
+		}
+		if path == "/" {
+			return "", fmt.Errorf("no existing parent directory found for %s", dir)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mdocker version --format '{{.Server.Version}}' 2>&1 | head -3; docker image ls 2>&1 | head -10
+29.9.2
+IMAGE                                   ID             DISK USAGE   CONTENT SIZE   EXTRA
+axllent/mailpit:latest                  9b3a463be153       53.5MB         14.9MB   U    
+basecamp/kamal-proxy:once-01            001c4f21bea1        150MB         41.4MB   U    
+curlimages/curl:latest                  3fb7e13e5d17         37MB         10.9MB        
+discourse/setup-wizard:release          57c7698a9fed        537MB          156MB        
+ghcr.io/basecamp/once-campfire:latest   cd6cd7e1d4cb       1.34GB          365MB   U    
+ghcr.io/basecamp/writebook:latest       4293884d00d0        750MB          207MB        
+ghost:6-alpine                          4195f6c405e4        990MB          203MB   U    
+listmonk/listmonk:latest                f535d59e1499       51.1MB         14.8MB   U    
+mariadb:11                              6422478cb8e1        463MB          111MB   U
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mdocker image ls | grep -Ei 'nginx|caddy|httpd|busybox|static|once'
+basecamp/kamal-proxy:once-01            001c4f21bea1        150MB         41.4MB   U    
+ghcr.io/basecamp/once-campfire:latest   cd6cd7e1d4cb       1.34GB          365MB   U    
+nginx:alpine                            785835ea65db       95.7MB         27.2MB
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mdocker ps -a --format '{{.Names}}\t{{.Image}}\t{{.Status}}' | head -30; echo ---; docker image inspect nginx:alpine --format '{{.RepoTags}} {{.Created}}'; echo ---; docker volume ls | head
+campfire-webchat	node:22-alpine	Up 2 days
+mailpit	axllent/mailpit	Up 2 days (healthy)
+campfire-ghost	ghost:6-alpine	Up 2 days
+once-app-once-campfire.b69569-e232e3	ghcr.io/basecamp/once-campfire	Up 2 days
+flarum-db	mariadb:11	Up 2 days
+listmonk_app	listmonk/listmonk:latest	Up 2 days
+listmonk_db	postgres:17-alpine	Up 2 days (healthy)
+once-proxy	basecamp/kamal-proxy:once-01	Up 2 days
+---
+[nginx:alpine] 2026-10-21T23:23:41.2514755Z
+---
+DRIVER    VOLUME NAME
+local     e1de9a514b705b224c246b0db095899188760f9887473b8c5568c4d26fd5af8e
+local     mrjohn_listmonk-data
+local     once-app-once-campfire.b69569
+local     once-proxy
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgrep -rn "nginx:alpine\|StaticImage\|static" ~/.bash_history ~/.zsh_history 2>/dev/null | tail -20; find /tmp -maxdepth 3 -iname '*once*' 2>/dev/null | head -20; find /home/mrjohn -maxdepth 4 -name 'AGENTS.md' -path '*once*' 2>/dev/null | head
+/home/mrjohn/.bash_history:65:gh repo clone mvvk-space/writebook-static-site
+/home/mrjohn/.bash_history:71:gh repo clone mvvk-space/writebook-static-site
+/home/mrjohn/.bash_history:75:cd writebook-static-site
+/home/mrjohn/.bash_history:118:cd writebook-static-site
+/home/mrjohn/.bash_history:125:cd writebook-static-site
+/home/mrjohn/.bash_history:143:cd writebook-static-site
+/home/mrjohn/.bash_history:155:cd writebook-static-site
+/home/mrjohn/.bash_history:167:cd writebook-static-site
+/home/mrjohn/.bash_history:198:- Change scope :ordered, -> { order(:position_score, :id) } (app/models/book.rb:7). All 5 call sites (books_controller.rb:10, static_exporter.rb:257/305/368, static_exports_controller.rb:16) automatically follow custom order — no changes needed there. New books (incl. DemoContent) get end-of-list position via the concern's around_create.
+/home/mrjohn/.bash_history:202:- before_action :ensure_can_administer (Authorization concern, app/models/concerns/authorization.rb:3 — same as static exports/users)
+/home/mrjohn/.bash_history:235:rm -r writebook-static-site
+/home/mrjohn/.bash_history:236:sudo rm -r writebook-static-site
+/home/mrjohn/.bash_history:1450:cd writebook-static-site
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgit ls-remote origin 2>&1 | head -30; echo ---; git ls-remote upstream 2>&1 | head -10
+fe930457b9eacb784b4d5b56e5ff4fc085905c97	HEAD
+b6792175a6599b8f16752ef23064a7fe0ab66dff	refs/heads/add-proxy-upgrade
+7b1636f5105c2ecf13991ae48c376882ef183f0a	refs/heads/add-scheduled-govulncheck
+cf95aa26454a1189e5cd6076445f5877819dd516	refs/heads/app-specific-registry-credentials
+64d51eba4d526ad129c2104f0e8b7977cf441de5	refs/heads/auto-update-disable
+788c7207c6ac7fcdf0621739cce7dc9a642e7f88	refs/heads/background-status-command
+a93dcc97897ebf3ae2ba45d74a416ac76b015ef4	refs/heads/base-url-env
+20c385a444e943b3005ce5d588cc319de6b35889	refs/heads/bump-go-1-26-7
+80fe9e4a40709a09be95b3cdf1ba650efd349f9a	refs/heads/cli-deploy-flags
+63683d1c8971e9798cc7b81bcf229007bdb2fef0	refs/heads/color-detection-simplify-complicate
+45615b44ab0718be64ccfd8b04bfa49c26c3cad3	refs/heads/custom-test-image
+881af3ec4844873017ac1b35fea20ec9895e626c	refs/heads/dependabot/github_actions/github-actions-669a15b469
+0a1bc35df69b9a5f6764ff9b93e89e0c4bd3bfb4	refs/heads/dependabot/go_modules/go-dependencies-cd4ee5d49e
+5fb271b32b3466541626b6dfbc30fcd9680a1a5b	refs/heads/detect-cred-prompt
+db55e1323814c76b709027543feab0c60591490b	refs/heads/docker-to-moby
+e885177313b95ca9e91fbd0b4cc0988d0ac6fab5	refs/heads/dockerignore-claude
+d4243d69d5b36a0751a08143c9b28e8392ed59fb	refs/heads/dont-show-progress-when-no-tty
+e821f638733bd8d47cd034ae6695e1f7bf2a7401	refs/heads/dont-start-temp-container
+246ed45751afcd1d80fca2a8f635820cdd69b55b	refs/heads/enforce-fmt-ci
+d75d91c97a94fb8d3a52470bff2f18fe31477ce9	refs/heads/exec-command
+01a07b13528ff78e074c8231b7c2dfbb4af8bd27	refs/heads/exp
+480f6976c31fec3e7dd733448810a2e97bcf3865	refs/heads/fix-integration-app-build
+b9d11d5ea9b2ab7f01dbf6f5f64394f7e7155339	refs/heads/fix-ui-crash-on-teardown
+b2a884ead7efcbe1faaa8187dafef7f15ac9f05a	refs/heads/go-1-26-4
+53774722379b56c44c34df07e35f1f605b105213	refs/heads/go-1.27
+af394c6add5a74f601e455d5777d1ace8c4ed56c	refs/heads/import-order
+fe930457b9eacb784b4d5b56e5ff4fc085905c97	refs/heads/main
+a26b9e1d81b1e5f93b9958b7b7eb36dab3bc5f50	refs/heads/make-check
+23c03b9c91acb8e2f7e9af02291cc1b7a523b852	refs/heads/non-interactive-install
+fdcc68f327a4ca12e27742d42b820498821d5e2b	refs/heads/parallel-test
+---
+864ec7c61ebeb11ede79dbe6eef1beb5b4cbe19f	HEAD
+b6792175a6599b8f16752ef23064a7fe0ab66dff	refs/heads/add-proxy-upgrade
+7b1636f5105c2ecf13991ae48c376882ef183f0a	refs/heads/add-scheduled-govulncheck
+cf95aa26454a1189e5cd6076445f5877819dd516	refs/heads/app-specific-registry-credentials
+64d51eba4d526ad129c2104f0e8b7977cf441de5	refs/heads/auto-update-disable
+788c7207c6ac7fcdf0621739cce7dc9a642e7f88	refs/heads/background-status-command
+a93dcc97897ebf3ae2ba45d74a416ac76b015ef4	refs/heads/base-url-env
+20c385a444e943b3005ce5d588cc319de6b35889	refs/heads/bump-go-1-26-7
+80fe9e4a40709a09be95b3cdf1ba650efd349f9a	refs/heads/cli-deploy-flags
+63683d1c8971e9798cc7b81bcf229007bdb2fef0	refs/heads/color-detection-simplify-complicate
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgit ls-remote origin 2>/dev/null | awk '{print $2}' | sed 's#refs/heads/##' | grep -Ei 'static|site|folder|deploy|serve|content|markdown'
+cli-deploy-flags
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgrep -rln "StaticImage\|NameFromPath\|staticSite\|SourcePath" /home/mrjohn/Work /tmp/opencode 2>/dev/null | head -20
+/home/mrjohn/Work/tries/2026-11-03-cash-register/tools/casio-ecr-setting-tool/.runtime/wine/lib/wine/x86_64-unix/libmsi.a
+/home/mrjohn/Work/tries/2026-11-03-cash-register/tools/casio-ecr-setting-tool/.runtime/wine/lib/wine/i386-windows/dbgeng.dll
+/home/mrjohn/Work/tries/2026-11-03-cash-register/tools/casio-ecr-setting-tool/.runtime/wine/lib/wine/i386-windows/libmsi.a
+/home/mrjohn/Work/tries/2026-11-03-cash-register/tools/casio-ecr-setting-tool/.runtime/wine/lib/wine/i386-windows/setupx.dll16
+/home/mrjohn/Work/tries/2026-11-03-cash-register/tools/casio-ecr-setting-tool/.runtime/wine/lib/wine/i386-windows/msi.dll
+/home/mrjohn/Work/tries/2026-11-03-cash-register/tools/casio-ecr-setting-tool/.runtime/wine/lib/wine/x86_64-windows/dbgeng.dll
+/home/mrjohn/Work/tries/2026-11-03-cash-register/tools/casio-ecr-setting-tool/.runtime/wine/lib/wine/x86_64-windows/libmsi.a
+/home/mrjohn/Work/tries/2026-11-03-cash-register/tools/casio-ecr-setting-tool/.runtime/wine/lib/wine/x86_64-windows/msi.dll
+/home/mrjohn/Work/tries/2026-11-03-cash-register/tools/casio-ecr-setting-tool/.runtime/wine/include/wine/windows/setupapi.h
+/home/mrjohn/Work/tries/2026-11-03-cash-register/tools/casio-ecr-setting-tool/.runtime/wine/include/wine/windows/msiquery.h
+/home/mrjohn/Work/tries/2026-11-03-cash-register/tools/casio-ecr-setting-tool/.runtime/wine/include/wine/windows/dbgeng.h
+/home/mrjohn/Work/tries/2026-11-06-yo/once/internal/docker/application_backup.go
+/home/mrjohn/Work/tries/2026-11-06-yo/once/internal/docker/proxy.go
+/home/mrjohn/Work/tries/2026-11-06-yo/once/internal/userstats/store.go
+/home/mrjohn/Work/tries/2026-11-06-yo/once/.scratch/split/01-deploy-static-folder.log
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgrep -n "volumeMounts\|NameFromImageRef\|containerConfig\|Deploy(" internal/docker/*_test.go internal/command/*_test.go | head -40; echo ---; sed -n '1,80p' internal/docker/helpers_test.go; echo ---; sed -n '1,80p' internal/docker/application_test.go
+internal/docker/helpers_test.go:9:func TestNameFromImageRef(t *testing.T) {
+internal/docker/helpers_test.go:10:	assert.Equal(t, "once-campfire", NameFromImageRef("ghcr.io/basecamp/once-campfire:main"))
+internal/docker/helpers_test.go:11:	assert.Equal(t, "once-campfire", NameFromImageRef("ghcr.io/basecamp/once-campfire"))
+internal/docker/helpers_test.go:12:	assert.Equal(t, "once-campfire", NameFromImageRef("ghcr.io/basecamp/once-campfire:latest"))
+---
+package docker
+
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
+
+func TestNameFromImageRef(t *testing.T) {
+	assert.Equal(t, "once-campfire", NameFromImageRef("ghcr.io/basecamp/once-campfire:main"))
+	assert.Equal(t, "once-campfire", NameFromImageRef("ghcr.io/basecamp/once-campfire"))
+	assert.Equal(t, "once-campfire", NameFromImageRef("ghcr.io/basecamp/once-campfire:latest"))
+}
+
+func TestIsLocalhost(t *testing.T) {
+	assert.True(t, IsLocalhost("localhost"))
+	assert.True(t, IsLocalhost("app.localhost"))
+	assert.False(t, IsLocalhost("example.com"))
+	assert.False(t, IsLocalhost("localhost.example.com"))
+}
+
+func TestCutLast(t *testing.T) {
+	before, after, found := cutLast("once-app-myapp-abc123", "-")
+	assert.True(t, found)
+	assert.Equal(t, "once-app-myapp", before)
+	assert.Equal(t, "abc123", after)
+
+	before, after, found = cutLast("nosep", "-")
+	assert.False(t, found)
+	assert.Equal(t, "nosep", before)
+	assert.Equal(t, "", after)
+}
+---
+package docker
+
+import (
+	"context"
+	"net/http"
+	"net/http/httptest"
+	"slices"
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+)
+
+func TestVerifyHTTP_Success(t *testing.T) {
+	var requestPath string
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		requestPath = r.URL.Path
+		w.WriteHeader(http.StatusOK)
+	}))
+	defer server.Close()
+
+	app := &Application{
+		Settings: ApplicationSettings{Host: server.Listener.Addr().String(), DisableTLS: true},
+	}
+
+	err := app.verifyHTTP(context.Background())
+	assert.NoError(t, err)
+	assert.Equal(t, HealthCheckPath, requestPath)
+}
+
+func TestVerifyHTTP_RedirectToSuccess(t *testing.T) {
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if r.URL.Path == "/" {
+			http.Redirect(w, r, "/home", http.StatusFound)
+			return
+		}
+		w.WriteHeader(http.StatusOK)
+	}))
+	defer server.Close()
+
+	app := &Application{
+		Settings: ApplicationSettings{Host: server.Listener.Addr().String(), DisableTLS: true},
+	}
+
+	err := app.verifyHTTP(context.Background())
+	assert.NoError(t, err)
+}
+
+func TestVerifyHTTP_ServerError(t *testing.T) {
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(http.StatusInternalServerError)
+	}))
+	defer server.Close()
+
+	app := &Application{
+		Settings: ApplicationSettings{Host: server.Listener.Addr().String(), DisableTLS: true},
+	}
+
+	err := app.verifyHTTP(context.Background())
+	require.Error(t, err)
+	assert.ErrorIs(t, err, ErrVerificationFailed)
+	assert.Contains(t, err.Error(), "unexpected status 500")
+}
+
+func TestVerifyHTTP_Unreachable(t *testing.T) {
+	app := &Application{
+		Settings: ApplicationSettings{Host: "127.0.0.1:1", DisableTLS: true},
+	}
+
+	err := app.verifyHTTP(context.Background())
+	require.Error(t, err)
+	assert.ErrorIs(t, err, ErrVerificationFailed)
+}
+
+func TestVerifyHTTP_NoHost(t *testing.T) {
+	app := &Application{
+		Settings: ApplicationSettings{},
+	}
+
+	err := app.verifyHTTP(context.Background())
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0msed -n '1,120p' internal/docker/volume.go; grep -n "type ApplicationVolume\|func (.*ApplicationVolume" internal/docker/volume.go
+package docker
+
+import (
+	"context"
+	"encoding/json"
+	"errors"
+	"fmt"
+
+	"github.com/containerd/errdefs"
+	"github.com/moby/moby/client"
+)
+
+var ErrVolumeNotFound = errors.New("volume not found")
+
+type ApplicationLegacyVolumeSettings struct {
+	Keys
+}
+
+func UnmarshalApplicationLegacyVolumeSettings(s string) (ApplicationLegacyVolumeSettings, error) {
+	var settings ApplicationLegacyVolumeSettings
+	err := json.Unmarshal([]byte(s), &settings)
+	return settings, err
+}
+
+func (s ApplicationLegacyVolumeSettings) Marshal() string {
+	b, _ := json.Marshal(s)
+	return string(b)
+}
+
+type ApplicationVolume struct {
+	namespace *Namespace
+	name      string
+	Settings  ApplicationLegacyVolumeSettings
+}
+
+func (v *ApplicationVolume) Name() string {
+	return v.name
+}
+
+func (v *ApplicationVolume) Destroy(ctx context.Context) error {
+	if _, err := v.namespace.client.VolumeRemove(ctx, v.name, client.VolumeRemoveOptions{Force: true}); err != nil {
+		if !errdefs.IsNotFound(err) {
+			return fmt.Errorf("removing volume: %w", err)
+		}
+	}
+	return nil
+}
+
+func FindVolume(ctx context.Context, ns *Namespace, name string) (*ApplicationVolume, error) {
+	volumeName := fmt.Sprintf("%s-app-%s", ns.name, name)
+
+	vol, err := ns.client.VolumeInspect(ctx, volumeName, client.VolumeInspectOptions{})
+	if err != nil {
+		if errdefs.IsNotFound(err) {
+			return nil, ErrVolumeNotFound
+		}
+		return nil, fmt.Errorf("inspecting volume: %w", err)
+	}
+
+	label := vol.Volume.Labels[labelKey]
+	if label == "" {
+		return nil, fmt.Errorf("volume %s exists but has no once label", volumeName)
+	}
+
+	settings, err := UnmarshalApplicationLegacyVolumeSettings(label)
+	if err != nil {
+		return nil, fmt.Errorf("parsing volume settings: %w", err)
+	}
+
+	return &ApplicationVolume{
+		namespace: ns,
+		name:      volumeName,
+		Settings:  settings,
+	}, nil
+}
+
+func CreateVolume(ctx context.Context, ns *Namespace, name string, settings ApplicationLegacyVolumeSettings) (*ApplicationVolume, error) {
+	volumeName := fmt.Sprintf("%s-app-%s", ns.name, name)
+
+	_, err := ns.client.VolumeCreate(ctx, client.VolumeCreateOptions{
+		Name: volumeName,
+		Labels: map[string]string{
+			labelKey: settings.Marshal(),
+		},
+	})
+	if err != nil {
+		return nil, fmt.Errorf("creating volume: %w", err)
+	}
+
+	return &ApplicationVolume{
+		namespace: ns,
+		name:      volumeName,
+		Settings:  settings,
+	}, nil
+}
+30:type ApplicationVolume struct {
+36:func (v *ApplicationVolume) Name() string {
+40:func (v *ApplicationVolume) Destroy(ctx context.Context) error {
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgo version; golangci-lint version 2>&1 | head -2; make test 2>&1 | tail -15
+go version go1.27.3 linux/amd64
+/usr/bin/bash: line 1: golangci-lint: command not found
+        	Error:      	file "/tmp/TestTrimBackups3145555112/001/myapp-20261007-165648.tar.gz" exists
+        	Test:       	TestTrimBackups
+FAIL
+FAIL	github.com/basecamp/once/internal/docker	0.058s
+ok  	github.com/basecamp/once/internal/fsutil	0.008s
+?   	github.com/basecamp/once/internal/logging	[no test files]
+ok  	github.com/basecamp/once/internal/metrics	0.014s
+ok  	github.com/basecamp/once/internal/mouse	0.009s
+?   	github.com/basecamp/once/internal/service	[no test files]
+ok  	github.com/basecamp/once/internal/system	0.008s
+ok  	github.com/basecamp/once/internal/ui	0.299s
+ok  	github.com/basecamp/once/internal/userstats	0.008s
+ok  	github.com/basecamp/once/internal/version	0.013s
+FAIL
+make: *** [Makefile:22: test] Error 1
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgo test -v -run TestTrimBackups ./internal/docker/ 2>&1 | tail -60
+=== RUN   TestTrimBackups
+    application_backup_test.go:119: 
+        	Error Trace:	/home/mrjohn/Work/tries/2026-11-06-yo/once/internal/docker/application_backup_test.go:119
+        	Error:      	file "/tmp/TestTrimBackups3177055164/001/myapp-20261007-165651.tar.gz" exists
+        	Test:       	TestTrimBackups
+--- FAIL: TestTrimBackups (0.00s)
+FAIL
+FAIL	github.com/basecamp/once/internal/docker	0.005s
+FAIL
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0msed -n '60,140p' internal/docker/application_backup_test.go; echo ---; date
+assert.True(t, len(name) > len("myapp-.tar.gz"))
+	assert.Contains(t, name, ".tar.gz")
+
+	// Verify the embedded timestamp is parseable
+	_, ok := parseBackupTime("myapp", name)
+	assert.True(t, ok)
+}
+
+func TestParseBackupTime(t *testing.T) {
+	t.Run("valid backup name", func(t *testing.T) {
+		ts, ok := parseBackupTime("myapp", "myapp-20250115-093000.tar.gz")
+		require.True(t, ok)
+		assert.Equal(t, time.Date(2025, 1, 15, 9, 30, 0, 0, time.UTC), ts)
+	})
+
+	t.Run("wrong app name", func(t *testing.T) {
+		_, ok := parseBackupTime("other", "myapp-20250115-093000.tar.gz")
+		assert.False(t, ok)
+	})
+
+	t.Run("unrelated file", func(t *testing.T) {
+		_, ok := parseBackupTime("myapp", "unrelated.txt")
+		assert.False(t, ok)
+	})
+
+	t.Run("bad date", func(t *testing.T) {
+		_, ok := parseBackupTime("myapp", "myapp-baddate.tar.gz")
+		assert.False(t, ok)
+	})
+}
+
+func TestTrimBackups(t *testing.T) {
+	dir := t.TempDir()
+
+	app := &Application{
+		Settings: ApplicationSettings{
+			Name:   "myapp",
+			Backup: BackupSettings{Path: dir},
+		},
+	}
+
+	oldTime := time.Now().Add(-BackupRetention - time.Hour)
+	recentTime := time.Now().Add(-time.Minute)
+
+	createFile := func(name string) {
+		require.NoError(t, os.WriteFile(filepath.Join(dir, name), []byte("data"), 0644))
+	}
+
+	oldFile := fmt.Sprintf("myapp-%s.tar.gz", oldTime.Format("20060102-150405"))
+	recentFile := fmt.Sprintf("myapp-%s.tar.gz", recentTime.Format("20060102-150405"))
+	unrelatedFile := "notes.txt"
+
+	createFile(oldFile)
+	createFile(recentFile)
+	createFile(unrelatedFile)
+
+	err := app.TrimBackups()
+	require.NoError(t, err)
+
+	assert.NoFileExists(t, filepath.Join(dir, oldFile))
+	assert.FileExists(t, filepath.Join(dir, recentFile))
+	assert.FileExists(t, filepath.Join(dir, unrelatedFile))
+}
+
+func TestWriteTarEntry(t *testing.T) {
+	var buf bytes.Buffer
+	tw := tar.NewWriter(&buf)
+
+	err := writeTarEntry(tw, "test.txt", []byte("hello world"))
+	require.NoError(t, err)
+	require.NoError(t, tw.Close())
+
+	tr := tar.NewReader(&buf)
+	header, err := tr.Next()
+	require.NoError(t, err)
+	assert.Equal(t, "test.txt", header.Name)
+	assert.Equal(t, int64(len("hello world")), header.Size)
+}
+
+func TestCopyTarEntriesWithPrefix(t *testing.T) {
+	// Build source tar with entries under "storage/"
+---
+Fri Nov  6 05:56:52 PM +07 2026
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgrep -n "BackupRetention\|parseBackupTime\|TrimBackups" -n internal/docker/application_backup.go | head -20; sed -n '1,70p' internal/docker/application_backup.go; grep -n "func (a \*Application) TrimBackups" -A40 internal/docker/application_backup.go
+27:	BackupRetention = 30 * 24 * time.Hour
+82:func (a *Application) TrimBackups() error {
+93:	cutoff := time.Now().Add(-BackupRetention)
+100:		t, ok := parseBackupTime(a.Settings.Name, entry.Name())
+339:func parseBackupTime(appName, filename string) (time.Time, bool) {
+package docker
+
+import (
+	"archive/tar"
+	"compress/gzip"
+	"context"
+	"errors"
+	"fmt"
+	"io"
+	"io/fs"
+	"log/slog"
+	"os"
+	"path/filepath"
+	"strings"
+	"time"
+
+	"github.com/containerd/errdefs"
+	"github.com/moby/moby/api/types/container"
+	"github.com/moby/moby/api/types/mount"
+	"github.com/moby/moby/client"
+
+	"github.com/basecamp/once/internal/fsutil"
+)
+
+const (
+	BackupDataDir   = "data"
+	BackupRetention = 30 * 24 * time.Hour
+
+	backupAppSettingsEntry = "once.application.json"
+	backupVolSettingsEntry = "once.volume.json"
+	backupTimeFormat       = "20060102-150405"
+)
+
+func (a *Application) Backup(ctx context.Context) error {
+	if a.Settings.Backup.Path == "" {
+		return fmt.Errorf("backup location is required")
+	}
+
+	return a.BackupToFile(ctx, a.Settings.Backup.Path, a.BackupName())
+}
+
+func (a *Application) BackupName() string {
+	return fmt.Sprintf("%s-%s.tar.gz", a.Settings.Name, time.Now().Format(backupTimeFormat))
+}
+
+func (a *Application) BackupToFile(ctx context.Context, dir string, name string) error {
+	if dir == "" {
+		return fmt.Errorf("backup location is required")
+	}
+	if !filepath.IsAbs(dir) {
+		return ErrBackupPathRelative
+	}
+
+	filePath := filepath.Join(dir, name)
+	file, err := fsutil.CreateFile(filePath)
+	if errors.Is(err, fs.ErrExist) {
+		slog.Error("Backup file already exists", "app", a.Settings.Name, "filename", filePath)
+		return fmt.Errorf("%w: %s (backups never overwrite an existing file; choose a new filename, or move the existing file aside first)", ErrBackupFileExists, filePath)
+	}
+	if err != nil {
+		slog.Error("Failed to create backup file", "app", a.Settings.Name, "filename", filePath, "error", err)
+		return fmt.Errorf("creating backup file: %w", err)
+	}
+	defer file.Close()
+
+	err = a.backupToWriter(ctx, file)
+	a.saveOperationResult(ctx, func(s *State) { s.RecordBackup(a.Settings.Name, err) })
+
+	if err != nil {
+		if !errors.Is(err, ErrUnpauseFailed) {
+82:func (a *Application) TrimBackups() error {
+83-	if a.Settings.Backup.Path == "" {
+84-		return nil
+85-	}
+86-
+87-	entries, err := os.ReadDir(a.Settings.Backup.Path)
+88-	if err != nil {
+89-		return fmt.Errorf("reading backup directory: %w", err)
+90-	}
+91-
+92-	var errs []error
+93-	cutoff := time.Now().Add(-BackupRetention)
+94-
+95-	for _, entry := range entries {
+96-		if !entry.Type().IsRegular() {
+97-			continue
+98-		}
+99-
+100-		t, ok := parseBackupTime(a.Settings.Name, entry.Name())
+101-		if !ok {
+102-			continue
+103-		}
+104-
+105-		if t.Before(cutoff) {
+106-			filename := filepath.Join(a.Settings.Backup.Path, entry.Name())
+107-			if err := os.Remove(filename); err != nil {
+108-				slog.Error("Failed to remove expired backup file", "app", a.Settings.Name, "filename", filename, "error", err)
+109-				errs = append(errs, err)
+110-			} else {
+111-				slog.Info("Removed expired backup file", "app", a.Settings.Name, "filename", filename)
+112-			}
+113-		}
+114-	}
+115-
+116-	return errors.Join(errs...)
+117-}
+118-
+119-func (a *Application) Restore(ctx context.Context, volSettings ApplicationLegacyVolumeSettings, backup io.Reader) (returnErr error) {
+120-	slog.Info("Restoring application", "app", a.Settings.Name)
+121-
+122-	defer func() {
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0msed -n '330,370p' internal/docker/application_backup.go
+}
+	if result.ExitCode != 0 {
+		return true, fmt.Errorf("hook script %q failed with exit code %d: %s", name, result.ExitCode, result.Stderr)
+	}
+	return true, nil
+}
+
+// Helpers
+
+func parseBackupTime(appName, filename string) (time.Time, bool) {
+	prefix := appName + "-"
+	suffix := ".tar.gz"
+
+	if !strings.HasPrefix(filename, prefix) || !strings.HasSuffix(filename, suffix) {
+		return time.Time{}, false
+	}
+
+	middle := strings.TrimPrefix(filename, prefix)
+	middle = strings.TrimSuffix(middle, suffix)
+
+	t, err := time.Parse(backupTimeFormat, middle)
+	if err != nil {
+		return time.Time{}, false
+	}
+
+	return t, true
+}
+
+func writeTarEntry(tw *tar.Writer, name string, data []byte) error {
+	header := &tar.Header{
+		Name: name,
+		Mode: 0o644,
+		Size: int64(len(data)),
+	}
+	if err := tw.WriteHeader(header); err != nil {
+		return err
+	}
+	_, err := tw.Write(data)
+	return err
+}
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mTZ=UTC go test -count=1 -run TestTrimBackups ./internal/docker/ 2>&1 | tail -10; echo ---; TZ=Asia/Jakarta go test -count=1 -run TestTrimBackups ./internal/docker/ 2>&1 | tail -10; echo ---; go test -count=1 -run TestTrimBackups ./internal/docker/ 2>&1 | tail -10
+ok  	github.com/basecamp/once/internal/docker	0.004s
+---
+--- FAIL: TestTrimBackups (0.00s)
+    application_backup_test.go:119: 
+        	Error Trace:	/home/mrjohn/Work/tries/2026-11-06-yo/once/internal/docker/application_backup_test.go:119
+        	Error:      	file "/tmp/TestTrimBackups3329038945/001/myapp-20261007-165659.tar.gz" exists
+        	Test:       	TestTrimBackups
+FAIL
+FAIL	github.com/basecamp/once/internal/docker	0.005s
+FAIL
+---
+--- FAIL: TestTrimBackups (0.00s)
+    application_backup_test.go:119: 
+        	Error Trace:	/home/mrjohn/Work/tries/2026-11-06-yo/once/internal/docker/application_backup_test.go:119
+        	Error:      	file "/tmp/TestTrimBackups2944077627/001/myapp-20261007-165700.tar.gz" exists
+        	Test:       	TestTrimBackups
+FAIL
+FAIL	github.com/basecamp/once/internal/docker	0.005s
+FAIL
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcat mise.toml; ls ~/.local/share/mise/installs 2>/dev/null | head; which mise; mise ls 2>/dev/null | head
+[tools]
+go = "latest"
+golangci-lint = "latest"
+"go:golang.org/x/vuln/cmd/govulncheck" = "latest"
+bun
+claude
+codex
+gh
+github-can1357-oh-my-pi
+go
+grok
+http-muse
+node
+npm-deepseek-ai-dsh
+/usr/bin/mise
+amp                                   0.0.1793952045-g82bb22 (lazy)  /etc/mise/conf.d/omarchy-tools.toml        latest
+antigravity-cli                       1.5.2 (lazy)                   /etc/mise/conf.d/omarchy-tools.toml        latest
+basecamp                              0.23.0 (lazy)                  /etc/mise/conf.d/omarchy-tools.toml        latest
+bun                                   1.4.2
+bun                                   1.4.3
+bun                                   1.4.4                          ~/.config/mise/config.toml                 latest
+claude                                2.1.283
+claude                                2.1.286
+claude                                2.1.289
+claude                                2.1.291
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/application_settings.go
+Index: internal/docker/application_settings.go
+===================================================================
+--- internal/docker/application_settings.go
++++ internal/docker/application_settings.go
+@@ -96,8 +96,9 @@
+ 
+ type ApplicationSettings struct {
+ 	Name       string             `json:"name"`
+ 	Image      string             `json:"image"`
++	Source     string             `json:"source,omitempty"`
+ 	Host       string             `json:"host"`
+ 	DisableTLS bool               `json:"disableTLS"`
+ 	EnvVars    map[string]string  `json:"env"`
+ 	SMTP       SMTPSettings       `json:"smtp"`
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/application_settings.go
+Index: internal/docker/application_settings.go
+===================================================================
+--- internal/docker/application_settings.go
++++ internal/docker/application_settings.go
+@@ -139,10 +139,14 @@
+ func (s ApplicationSettings) TLSEnabled() bool {
+ 	return s.Host != "" && !s.DisableTLS && !IsLocalhost(s.Host)
+ }
+ 
++func (s ApplicationSettings) Static() bool {
++	return s.Source != ""
++}
++
+ func (s ApplicationSettings) Equal(other ApplicationSettings) bool {
+-	if s.Name != other.Name || s.Image != other.Image || s.Host != other.Host || s.DisableTLS != other.DisableTLS {
++	if s.Name != other.Name || s.Image != other.Image || s.Source != other.Source || s.Host != other.Host || s.DisableTLS != other.DisableTLS {
+ 		return false
+ 	}
+ 	if s.Resources != other.Resources {
+ 		return false
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/helpers.go
+Index: internal/docker/helpers.go
+===================================================================
+--- internal/docker/helpers.go
++++ internal/docker/helpers.go
+@@ -2,16 +2,20 @@
+ 
+ import (
+ 	"crypto/rand"
+ 	"encoding/hex"
++	"path/filepath"
++	"regexp"
+ 	"strings"
+ 	"time"
+ 
+ 	"github.com/distribution/reference"
+ )
+ 
+ const streamRetryDelay = time.Second
+ 
++var pathSeparators = regexp.MustCompile(`[^a-z0-9]+`)
++
+ func IsLocalhost(host string) bool {
+ 	return host == "localhost" || strings.HasSuffix(host, ".localhost")
+ }
+ 
+@@ -24,8 +28,23 @@
+ 	parts := strings.Split(path, "/")
+ 	return parts[len(parts)-1]
+ }
+ 
++func NameFromPath(path string) string {
++	name := pathSeparators.ReplaceAllString(strings.ToLower(filepath.Base(filepath.Clean(path))), "-")
++	name = strings.Trim(name, "-")
++
++	if name == "" {
++		return "site"
++	}
++
++	if len(name) > 63 {
++		name = strings.Trim(name[:63], "-")
++	}
++
++	return name
++}
++
+ func ContainerRandomID() (string, error) {
+ 	return randomID(6)
+ }
+ 
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/docker/helpers.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/application.go
+Index: internal/docker/application.go
+===================================================================
+--- internal/docker/application.go
++++ internal/docker/application.go
+@@ -50,10 +50,26 @@
+ const (
+ 	AutomaticTaskInterval = 24 * time.Hour
+ 	HealthCheckPath       = "/up"
+ 	httpVerifyTimeout     = 30 * time.Second
++
++	StaticImage         = "nginx:alpine"
++	staticContentTarget = "/usr/share/nginx/html"
+ )
+ 
++const staticNginxConfig = `server {
++    listen 80;
++    location = /up {
++        access_log off;
++        return 200 "ok";
++    }
++    location / {
++        root /usr/share/nginx/html;
++        index index.html;
++    }
++}
++`
++
+ // AppVolumeMountTargets defines the paths where the app data volume is mounted
+ // inside the container. The first entry is the primary path used for backups.
+ var AppVolumeMountTargets = []string{"/storage", "/rails/storage"}
+ 
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/application.go
+Index: internal/docker/application.go
+===================================================================
+--- internal/docker/application.go
++++ internal/docker/application.go
+@@ -487,8 +487,18 @@
+ 			Source: vol.Name(),
+ 			Target: target,
+ 		})
+ 	}
++
++	if a.Settings.Static() {
++		mounts = append(mounts, mount.Mount{
++			Type:     mount.TypeBind,
++			Source:   a.Settings.Source,
++			Target:   staticContentTarget,
++			ReadOnly: true,
++		})
++	}
++
+ 	return mounts
+ }
+ 
+ func (a *Application) BuildEnv() []string {
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/application.go
+Index: internal/docker/application.go
+===================================================================
+--- internal/docker/application.go
++++ internal/docker/application.go
+@@ -531,12 +531,18 @@
+ 	return env
+ }
+ 
+ func (a *Application) containerConfig(env []string) *container.Config {
+-	return &container.Config{
++	config := &container.Config{
+ 		Image: a.Settings.Image,
+ 		Labels: map[string]string{
+ 			labelKey: a.Settings.Marshal(),
+ 		},
+ 		Env: env,
+ 	}
++
++	if a.Settings.Static() {
++		config.Cmd = staticNginxCommand()
++	}
++
++	return config
+ }
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/application.go
+Index: internal/docker/application.go
+===================================================================
+--- internal/docker/application.go
++++ internal/docker/application.go
+@@ -545,4 +545,10 @@
+ 	}
+ 
+ 	return config
+ }
++
++// Helpers
++
++func staticNginxCommand() []string {
++	return []string{"sh", "-c", "cat > /etc/nginx/conf.d/default.conf <<'EOF'\n" + staticNginxConfig + "EOF\nnginx -g 'daemon off;'\n"}
++}
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/command/deploy.go
+Index: internal/command/deploy.go
+===================================================================
+--- internal/command/deploy.go
++++ internal/command/deploy.go
+@@ -3,8 +3,10 @@
+ import (
+ 	"context"
+ 	"fmt"
+ 	"log/slog"
++	"os"
++	"path/filepath"
+ 
+ 	"github.com/spf13/cobra"
+ 
+ 	"github.com/basecamp/once/internal/docker"
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/command/deploy.go
+Index: internal/command/deploy.go
+===================================================================
+--- internal/command/deploy.go
++++ internal/command/deploy.go
+@@ -33,17 +33,22 @@
+ 
+ // Private
+ 
+ func (d *deployCommand) run(ctx context.Context, ns *docker.Namespace, cmd *cobra.Command, args []string) error {
+-	imageRef := args[0]
++	imageRef, source := deployTarget(args[0])
+ 
+ 	if err := ns.Setup(ctx); err != nil {
+ 		return fmt.Errorf("%w: %w", docker.ErrSetupFailed, err)
+ 	}
+ 
++	baseName := docker.NameFromImageRef(imageRef)
++	if source != "" {
++		baseName = docker.NameFromPath(source)
++	}
++
+ 	host := d.flags.host
+ 	if host == "" {
+-		host = docker.NameFromImageRef(imageRef) + ".localhost"
++		host = baseName + ".localhost"
+ 	}
+ 
+ 	if ns.HostInUse(host) {
+ 		return docker.ErrHostnameInUse
+@@ -52,10 +57,10 @@
+ 	settings, err := d.flags.buildSettings(cmd, imageRef, host)
+ 	if err != nil {
+ 		return err
+ 	}
++	settings.Source = source
+ 
+-	baseName := docker.NameFromImageRef(imageRef)
+ 	name, err := ns.UniqueName(baseName)
+ 	if err != nil {
+ 		return fmt.Errorf("generating app name: %w", err)
+ 	}
+@@ -77,4 +82,20 @@
+ 
+ 		return nil
+ 	})
+ }
++
++// Helpers
++
++func deployTarget(arg string) (imageRef, source string) {
++	path, err := filepath.Abs(arg)
++	if err != nil {
++		return arg, ""
++	}
++
++	info, err := os.Stat(path)
++	if err != nil || !info.IsDir() {
++		return arg, ""
++	}
++
++	return docker.StaticImage, path
++}
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgit diff -- internal/command/deploy.go
+diff --git i/internal/command/deploy.go w/internal/command/deploy.go
+index 1702f29..e157aac 100644
+--- i/internal/command/deploy.go
++++ w/internal/command/deploy.go
+@@ -4,6 +4,8 @@ import (
+ 	"context"
+ 	"fmt"
+ 	"log/slog"
++	"os"
++	"path/filepath"
+ 
+ 	"github.com/spf13/cobra"
+ 
+@@ -32,15 +34,20 @@ func newDeployCommand() *deployCommand {
+ // Private
+ 
+ func (d *deployCommand) run(ctx context.Context, ns *docker.Namespace, cmd *cobra.Command, args []string) error {
+-	imageRef := args[0]
++	imageRef, source := deployTarget(args[0])
+ 
+ 	if err := ns.Setup(ctx); err != nil {
+ 		return fmt.Errorf("%w: %w", docker.ErrSetupFailed, err)
+ 	}
+ 
++	baseName := docker.NameFromImageRef(imageRef)
++	if source != "" {
++		baseName = docker.NameFromPath(source)
++	}
++
+ 	host := d.flags.host
+ 	if host == "" {
+-		host = docker.NameFromImageRef(imageRef) + ".localhost"
++		host = baseName + ".localhost"
+ 	}
+ 
+ 	if ns.HostInUse(host) {
+@@ -51,8 +58,8 @@ func (d *deployCommand) run(ctx context.Context, ns *docker.Namespace, cmd *cobr
+ 	if err != nil {
+ 		return err
+ 	}
++	settings.Source = source
+ 
+-	baseName := docker.NameFromImageRef(imageRef)
+ 	name, err := ns.UniqueName(baseName)
+ 	if err != nil {
+ 		return fmt.Errorf("generating app name: %w", err)
+@@ -76,3 +83,19 @@ func (d *deployCommand) run(ctx context.Context, ns *docker.Namespace, cmd *cobr
+ 		return nil
+ 	})
+ }
++
++// Helpers
++
++func deployTarget(arg string) (imageRef, source string) {
++	path, err := filepath.Abs(arg)
++	if err != nil {
++		return arg, ""
++	}
++
++	info, err := os.Stat(path)
++	if err != nil || !info.IsDir() {
++		return arg, ""
++	}
++
++	return docker.StaticImage, path
++}
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/helpers_test.go
+Index: internal/docker/helpers_test.go
+===================================================================
+--- internal/docker/helpers_test.go
++++ internal/docker/helpers_test.go
+@@ -11,8 +11,19 @@
+ 	assert.Equal(t, "once-campfire", NameFromImageRef("ghcr.io/basecamp/once-campfire"))
+ 	assert.Equal(t, "once-campfire", NameFromImageRef("ghcr.io/basecamp/once-campfire:latest"))
+ }
+ 
++func TestNameFromPath(t *testing.T) {
++	assert.Equal(t, "my-site", NameFromPath("/srv/my-site"))
++	assert.Equal(t, "my-site", NameFromPath("/srv/My Site/"))
++	assert.Equal(t, "notes-v2", NameFromPath("/srv/notes.v2"))
++	assert.Equal(t, "site", NameFromPath("/"))
++	assert.Equal(t, "site", NameFromPath("."))
++
++	longName := strings.Repeat("a", 70)
++	assert.Equal(t, strings.Repeat("a", 63), NameFromPath("/srv/"+longName))
++}
++
+ func TestIsLocalhost(t *testing.T) {
+ 	assert.True(t, IsLocalhost("localhost"))
+ 	assert.True(t, IsLocalhost("app.localhost"))
+ 	assert.False(t, IsLocalhost("example.com"))
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/helpers_test.go
+Index: internal/docker/helpers_test.go
+===================================================================
+--- internal/docker/helpers_test.go
++++ internal/docker/helpers_test.go
+@@ -1,7 +1,8 @@
+ package docker
+ 
+ import (
++	"strings"
+ 	"testing"
+ 
+ 	"github.com/stretchr/testify/assert"
+ )
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/command/deploy_test.go
+Index: internal/command/deploy_test.go
+===================================================================
+--- internal/command/deploy_test.go
++++ internal/command/deploy_test.go
+@@ -59,8 +59,30 @@
+ 		assert.Equal(t, "second", result["KEY"])
+ 	})
+ }
+ 
++func TestDeployTarget(t *testing.T) {
++	t.Run("directory", func(t *testing.T) {
++		dir := t.TempDir()
++
++		image, source := deployTarget(dir)
++		assert.Equal(t, docker.StaticImage, image)
++		assert.Equal(t, dir, source)
++	})
++
++	t.Run("image reference", func(t *testing.T) {
++		image, source := deployTarget("ghcr.io/basecamp/once-campfire:main")
++		assert.Equal(t, "ghcr.io/basecamp/once-campfire:main", image)
++		assert.Empty(t, source)
++	})
++
++	t.Run("missing path", func(t *testing.T) {
++		image, source := deployTarget("/no/such/folder")
++		assert.Equal(t, "/no/such/folder", image)
++		assert.Empty(t, source)
++	})
++}
++
+ func TestBuildSettingsImageRequired(t *testing.T) {
+ 	f := &settingsFlags{}
+ 	_, err := f.buildSettings(&cobra.Command{}, "", "app.example.com")
+ 	assert.ErrorIs(t, err, docker.ErrImageRequired)
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mWrite internal/docker/application_static_test.go
+Created file successfully: internal/docker/application_static_test.go
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgofmt -l internal/docker internal/command; go test ./internal/docker/ ./internal/command/ 2>&1 | tail -30
+2026/11/06 17:57:35 ERROR Backup file already exists app=chat filename=/tmp/TestBackupToFile_ExistingFile2637368911/001/backup.tar.gz
+--- FAIL: TestTrimBackups (0.00s)
+    application_backup_test.go:119: 
+        	Error Trace:	/home/mrjohn/Work/tries/2026-11-06-yo/once/internal/docker/application_backup_test.go:119
+        	Error:      	file "/tmp/TestTrimBackups3567404679/001/myapp-20261007-165735.tar.gz" exists
+        	Test:       	TestTrimBackups
+FAIL
+FAIL	github.com/basecamp/once/internal/docker	0.035s
+ok  	github.com/basecamp/once/internal/command	0.009s
+FAIL
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/application_backup.go
+Index: internal/docker/application_backup.go
+===================================================================
+--- internal/docker/application_backup.go
++++ internal/docker/application_backup.go
+@@ -346,9 +346,9 @@
+ 
+ 	middle := strings.TrimPrefix(filename, prefix)
+ 	middle = strings.TrimSuffix(middle, suffix)
+ 
+-	t, err := time.Parse(backupTimeFormat, middle)
++	t, err := time.ParseInLocation(backupTimeFormat, middle, time.Local)
+ 	if err != nil {
+ 		return time.Time{}, false
+ 	}
+ 
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/application_backup.go
+Index: internal/docker/application_backup.go
+===================================================================
+--- internal/docker/application_backup.go
++++ internal/docker/application_backup.go
+@@ -346,9 +346,9 @@
+ 
+ 	middle := strings.TrimPrefix(filename, prefix)
+ 	middle = strings.TrimSuffix(middle, suffix)
+ 
+-	t, err := time.ParseInLocation(backupTimeFormat, middle, time.Local)
++	t, err := time.Parse(backupTimeFormat, middle)
+ 	if err != nil {
+ 		return time.Time{}, false
+ 	}
+ 
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/application_backup.go
+Index: internal/docker/application_backup.go
+===================================================================
+--- internal/docker/application_backup.go
++++ internal/docker/application_backup.go
+@@ -39,9 +39,9 @@
+ 	return a.BackupToFile(ctx, a.Settings.Backup.Path, a.BackupName())
+ }
+ 
+ func (a *Application) BackupName() string {
+-	return fmt.Sprintf("%s-%s.tar.gz", a.Settings.Name, time.Now().Format(backupTimeFormat))
++	return fmt.Sprintf("%s-%s.tar.gz", a.Settings.Name, time.Now().UTC().Format(backupTimeFormat))
+ }
+ 
+ func (a *Application) BackupToFile(ctx context.Context, dir string, name string) error {
+ 	if dir == "" {
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/application_backup.go
+Index: internal/docker/application_backup.go
+===================================================================
+--- internal/docker/application_backup.go
++++ internal/docker/application_backup.go
+@@ -89,9 +89,9 @@
+ 		return fmt.Errorf("reading backup directory: %w", err)
+ 	}
+ 
+ 	var errs []error
+-	cutoff := time.Now().Add(-BackupRetention)
++	cutoff := time.Now().UTC().Add(-BackupRetention)
+ 
+ 	for _, entry := range entries {
+ 		if !entry.Type().IsRegular() {
+ 			continue
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mmake test 2>&1 | tail -20
+ok  	github.com/basecamp/once/internal/command	(cached)
+2026/11/06 17:57:51 ERROR Backup file already exists app=chat filename=/tmp/TestBackupToFile_ExistingFile1651554893/001/backup.tar.gz
+--- FAIL: TestTrimBackups (0.00s)
+    application_backup_test.go:119: 
+        	Error Trace:	/home/mrjohn/Work/tries/2026-11-06-yo/once/internal/docker/application_backup_test.go:119
+        	Error:      	file "/tmp/TestTrimBackups274085520/001/myapp-20261007-165751.tar.gz" exists
+        	Test:       	TestTrimBackups
+FAIL
+FAIL	github.com/basecamp/once/internal/docker	0.081s
+ok  	github.com/basecamp/once/internal/fsutil	(cached)
+?   	github.com/basecamp/once/internal/logging	[no test files]
+ok  	github.com/basecamp/once/internal/metrics	(cached)
+ok  	github.com/basecamp/once/internal/mouse	(cached)
+?   	github.com/basecamp/once/internal/service	[no test files]
+ok  	github.com/basecamp/once/internal/system	(cached)
+ok  	github.com/basecamp/once/internal/ui	0.832s
+ok  	github.com/basecamp/once/internal/userstats	0.011s
+ok  	github.com/basecamp/once/internal/version	(cached)
+FAIL
+make: *** [Makefile:22: test] Error 1
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcat > /tmp/checktime.go <<'EOF'
+package main
+import (
+ "fmt"
+ "time"
+)
+func main(){
+ oldTime := time.Now().Add(-30*24*time.Hour-time.Hour)
+ recentTime := time.Now().Add(-time.Minute)
+ fmt.Println("now", time.Now(), "utc", time.Now().UTC())
+ fmt.Println("old", oldTime, oldTime.Format("20060102-150405"))
+ fmt.Println("recent", recentTime, recentTime.Format("20060102-150405"))
+ cutoff := time.Now().UTC().Add(-30*24*time.Hour)
+ t, _ := time.Parse("20060102-150405", oldTime.Format("20060102-150405"))
+ fmt.Println("parsed old", t, "cutoff", cutoff, "before", t.Before(cutoff))
+}
+EOF
+go run /tmp/checktime.go
+now 2026-11-06 17:57:56.14852695 +0700 +07 m=+0.000023998 utc 2026-11-06 10:57:56.148527013 +0000 UTC
+old 2026-10-07 16:57:56.148526319 +0700 +07 m=-2595599.999976631 20261007-165756
+recent 2026-11-06 17:56:56.148526841 +0700 +07 m=-59.999976112 20261106-175656
+parsed old 2026-10-07 16:57:56 +0000 UTC cutoff 2026-10-07 10:57:56.14870082 +0000 UTC before false
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcat > /tmp/checkeq.go <<'EOF'
+package main
+import (
+ "fmt"
+ "reflect"
+ "time"
+)
+func main(){
+ a,_ := time.Parse("20060102-150405","20250115-093000")
+ b,_ := time.ParseInLocation("20060102-150405","20250115-093000", time.Local)
+ fmt.Println(a==b, a.Equal(b), reflect.DeepEqual(a,b))
+}
+EOF
+go run /tmp/checkeq.go
+false false false
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/application_backup_test.go
+Index: internal/docker/application_backup_test.go
+===================================================================
+--- internal/docker/application_backup_test.go
++++ internal/docker/application_backup_test.go
+@@ -104,10 +104,10 @@
+ 	createFile := func(name string) {
+ 		require.NoError(t, os.WriteFile(filepath.Join(dir, name), []byte("data"), 0644))
+ 	}
+ 
+-	oldFile := fmt.Sprintf("myapp-%s.tar.gz", oldTime.Format("20060102-150405"))
+-	recentFile := fmt.Sprintf("myapp-%s.tar.gz", recentTime.Format("20060102-150405"))
++	oldFile := fmt.Sprintf("myapp-%s.tar.gz", oldTime.UTC().Format("20060102-150405"))
++	recentFile := fmt.Sprintf("myapp-%s.tar.gz", recentTime.UTC().Format("20060102-150405"))
+ 	unrelatedFile := "notes.txt"
+ 
+ 	createFile(oldFile)
+ 	createFile(recentFile)
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mmake test 2>&1 | tail -20
+go test ./internal/...
+ok  	github.com/basecamp/once/internal/background	(cached)
+ok  	github.com/basecamp/once/internal/command	(cached)
+ok  	github.com/basecamp/once/internal/docker	0.067s
+ok  	github.com/basecamp/once/internal/fsutil	(cached)
+?   	github.com/basecamp/once/internal/logging	[no test files]
+ok  	github.com/basecamp/once/internal/metrics	(cached)
+ok  	github.com/basecamp/once/internal/mouse	(cached)
+?   	github.com/basecamp/once/internal/service	[no test files]
+ok  	github.com/basecamp/once/internal/system	(cached)
+ok  	github.com/basecamp/once/internal/ui	(cached)
+ok  	github.com/basecamp/once/internal/userstats	(cached)
+ok  	github.com/basecamp/once/internal/version	(cached)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mmise install golangci-lint 2>&1 | tail -10; mise exec -- golangci-lint version 2>&1 | tail -3
+mise by @jdx – installing 1 tool
+mise █████████████░░░ 0/1 · 3.0s
+  golangci-lint@2.15.0  extracting  3.0s
+mise ✓ golangci-lint@2.15.0  3.3s  golangci-lint-2.15.0-linux-amd64.tar.gz
+mise ████████████████ 1/1 · installed 1 tool in 3.4s
+mise ✓ go:golang.org/x/vuln/cmd/govulncheck@1.9.0  11.8s
+mise ████████████████ 1/1 · installed 1 tool in 11.8s
+golangci-lint has version 2.15.0 built with go1.27.0 from 25c5369a on 2026-10-16T11:03:09Z
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mmise exec -- make lint 2>&1 | tail -40
+golangci-lint run
+0 issues.
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgit diff; git status --short
+diff --git i/internal/command/deploy.go w/internal/command/deploy.go
+index 1702f29..e157aac 100644
+--- i/internal/command/deploy.go
++++ w/internal/command/deploy.go
+@@ -4,6 +4,8 @@ import (
+ 	"context"
+ 	"fmt"
+ 	"log/slog"
++	"os"
++	"path/filepath"
+ 
+ 	"github.com/spf13/cobra"
+ 
+@@ -32,15 +34,20 @@ func newDeployCommand() *deployCommand {
+ // Private
+ 
+ func (d *deployCommand) run(ctx context.Context, ns *docker.Namespace, cmd *cobra.Command, args []string) error {
+-	imageRef := args[0]
++	imageRef, source := deployTarget(args[0])
+ 
+ 	if err := ns.Setup(ctx); err != nil {
+ 		return fmt.Errorf("%w: %w", docker.ErrSetupFailed, err)
+ 	}
+ 
++	baseName := docker.NameFromImageRef(imageRef)
++	if source != "" {
++		baseName = docker.NameFromPath(source)
++	}
++
+ 	host := d.flags.host
+ 	if host == "" {
+-		host = docker.NameFromImageRef(imageRef) + ".localhost"
++		host = baseName + ".localhost"
+ 	}
+ 
+ 	if ns.HostInUse(host) {
+@@ -51,8 +58,8 @@ func (d *deployCommand) run(ctx context.Context, ns *docker.Namespace, cmd *cobr
+ 	if err != nil {
+ 		return err
+ 	}
++	settings.Source = source
+ 
+-	baseName := docker.NameFromImageRef(imageRef)
+ 	name, err := ns.UniqueName(baseName)
+ 	if err != nil {
+ 		return fmt.Errorf("generating app name: %w", err)
+@@ -76,3 +83,19 @@ func (d *deployCommand) run(ctx context.Context, ns *docker.Namespace, cmd *cobr
+ 		return nil
+ 	})
+ }
++
++// Helpers
++
++func deployTarget(arg string) (imageRef, source string) {
++	path, err := filepath.Abs(arg)
++	if err != nil {
++		return arg, ""
++	}
++
++	info, err := os.Stat(path)
++	if err != nil || !info.IsDir() {
++		return arg, ""
++	}
++
++	return docker.StaticImage, path
++}
+diff --git i/internal/command/deploy_test.go w/internal/command/deploy_test.go
+index 5659ca8..d4a2b38 100644
+--- i/internal/command/deploy_test.go
++++ w/internal/command/deploy_test.go
+@@ -60,6 +60,28 @@ func TestParseEnvVars(t *testing.T) {
+ 	})
+ }
+ 
++func TestDeployTarget(t *testing.T) {
++	t.Run("directory", func(t *testing.T) {
++		dir := t.TempDir()
++
++		image, source := deployTarget(dir)
++		assert.Equal(t, docker.StaticImage, image)
++		assert.Equal(t, dir, source)
++	})
++
++	t.Run("image reference", func(t *testing.T) {
++		image, source := deployTarget("ghcr.io/basecamp/once-campfire:main")
++		assert.Equal(t, "ghcr.io/basecamp/once-campfire:main", image)
++		assert.Empty(t, source)
++	})
++
++	t.Run("missing path", func(t *testing.T) {
++		image, source := deployTarget("/no/such/folder")
++		assert.Equal(t, "/no/such/folder", image)
++		assert.Empty(t, source)
++	})
++}
++
+ func TestBuildSettingsImageRequired(t *testing.T) {
+ 	f := &settingsFlags{}
+ 	_, err := f.buildSettings(&cobra.Command{}, "", "app.example.com")
+diff --git i/internal/docker/application.go w/internal/docker/application.go
+index cc532bc..a85a12a 100644
+--- i/internal/docker/application.go
++++ w/internal/docker/application.go
+@@ -51,8 +51,24 @@ const (
+ 	AutomaticTaskInterval = 24 * time.Hour
+ 	HealthCheckPath       = "/up"
+ 	httpVerifyTimeout     = 30 * time.Second
++
++	StaticImage         = "nginx:alpine"
++	staticContentTarget = "/usr/share/nginx/html"
+ )
+ 
++const staticNginxConfig = `server {
++    listen 80;
++    location = /up {
++        access_log off;
++        return 200 "ok";
++    }
++    location / {
++        root /usr/share/nginx/html;
++        index index.html;
++    }
++}
++`
++
+ // AppVolumeMountTargets defines the paths where the app data volume is mounted
+ // inside the container. The first entry is the primary path used for backups.
+ var AppVolumeMountTargets = []string{"/storage", "/rails/storage"}
+@@ -472,6 +488,16 @@ func (a *Application) volumeMounts(vol *ApplicationVolume) []mount.Mount {
+ 			Target: target,
+ 		})
+ 	}
++
++	if a.Settings.Static() {
++		mounts = append(mounts, mount.Mount{
++			Type:     mount.TypeBind,
++			Source:   a.Settings.Source,
++			Target:   staticContentTarget,
++			ReadOnly: true,
++		})
++	}
++
+ 	return mounts
+ }
+ 
+@@ -506,11 +532,23 @@ func (a *Application) BuildEnv() []string {
+ }
+ 
+ func (a *Application) containerConfig(env []string) *container.Config {
+-	return &container.Config{
++	config := &container.Config{
+ 		Image: a.Settings.Image,
+ 		Labels: map[string]string{
+ 			labelKey: a.Settings.Marshal(),
+ 		},
+ 		Env: env,
+ 	}
++
++	if a.Settings.Static() {
++		config.Cmd = staticNginxCommand()
++	}
++
++	return config
++}
++
++// Helpers
++
++func staticNginxCommand() []string {
++	return []string{"sh", "-c", "cat > /etc/nginx/conf.d/default.conf <<'EOF'\n" + staticNginxConfig + "EOF\nnginx -g 'daemon off;'\n"}
+ }
+diff --git i/internal/docker/application_backup.go w/internal/docker/application_backup.go
+index 57aacc0..6f93608 100644
+--- i/internal/docker/application_backup.go
++++ w/internal/docker/application_backup.go
+@@ -40,7 +40,7 @@ func (a *Application) Backup(ctx context.Context) error {
+ }
+ 
+ func (a *Application) BackupName() string {
+-	return fmt.Sprintf("%s-%s.tar.gz", a.Settings.Name, time.Now().Format(backupTimeFormat))
++	return fmt.Sprintf("%s-%s.tar.gz", a.Settings.Name, time.Now().UTC().Format(backupTimeFormat))
+ }
+ 
+ func (a *Application) BackupToFile(ctx context.Context, dir string, name string) error {
+@@ -90,7 +90,7 @@ func (a *Application) TrimBackups() error {
+ 	}
+ 
+ 	var errs []error
+-	cutoff := time.Now().Add(-BackupRetention)
++	cutoff := time.Now().UTC().Add(-BackupRetention)
+ 
+ 	for _, entry := range entries {
+ 		if !entry.Type().IsRegular() {
+diff --git i/internal/docker/application_backup_test.go w/internal/docker/application_backup_test.go
+index 753a198..c502de0 100644
+--- i/internal/docker/application_backup_test.go
++++ w/internal/docker/application_backup_test.go
+@@ -105,8 +105,8 @@ func TestTrimBackups(t *testing.T) {
+ 		require.NoError(t, os.WriteFile(filepath.Join(dir, name), []byte("data"), 0644))
+ 	}
+ 
+-	oldFile := fmt.Sprintf("myapp-%s.tar.gz", oldTime.Format("20060102-150405"))
+-	recentFile := fmt.Sprintf("myapp-%s.tar.gz", recentTime.Format("20060102-150405"))
++	oldFile := fmt.Sprintf("myapp-%s.tar.gz", oldTime.UTC().Format("20060102-150405"))
++	recentFile := fmt.Sprintf("myapp-%s.tar.gz", recentTime.UTC().Format("20060102-150405"))
+ 	unrelatedFile := "notes.txt"
+ 
+ 	createFile(oldFile)
+diff --git i/internal/docker/application_settings.go w/internal/docker/application_settings.go
+index 5a2a745..cc9e3ec 100644
+--- i/internal/docker/application_settings.go
++++ w/internal/docker/application_settings.go
+@@ -97,6 +97,7 @@ type BackupSettings struct {
+ type ApplicationSettings struct {
+ 	Name       string             `json:"name"`
+ 	Image      string             `json:"image"`
++	Source     string             `json:"source,omitempty"`
+ 	Host       string             `json:"host"`
+ 	DisableTLS bool               `json:"disableTLS"`
+ 	EnvVars    map[string]string  `json:"env"`
+@@ -139,8 +140,12 @@ func (s ApplicationSettings) TLSEnabled() bool {
+ 	return s.Host != "" && !s.DisableTLS && !IsLocalhost(s.Host)
+ }
+ 
++func (s ApplicationSettings) Static() bool {
++	return s.Source != ""
++}
++
+ func (s ApplicationSettings) Equal(other ApplicationSettings) bool {
+-	if s.Name != other.Name || s.Image != other.Image || s.Host != other.Host || s.DisableTLS != other.DisableTLS {
++	if s.Name != other.Name || s.Image != other.Image || s.Source != other.Source || s.Host != other.Host || s.DisableTLS != other.DisableTLS {
+ 		return false
+ 	}
+ 	if s.Resources != other.Resources {
+diff --git i/internal/docker/helpers.go w/internal/docker/helpers.go
+index ea8104f..ee6ba75 100644
+--- i/internal/docker/helpers.go
++++ w/internal/docker/helpers.go
+@@ -3,6 +3,8 @@ package docker
+ import (
+ 	"crypto/rand"
+ 	"encoding/hex"
++	"path/filepath"
++	"regexp"
+ 	"strings"
+ 	"time"
+ 
+@@ -11,6 +13,8 @@ import (
+ 
+ const streamRetryDelay = time.Second
+ 
++var pathSeparators = regexp.MustCompile(`[^a-z0-9]+`)
++
+ func IsLocalhost(host string) bool {
+ 	return host == "localhost" || strings.HasSuffix(host, ".localhost")
+ }
+@@ -25,6 +29,21 @@ func NameFromImageRef(imageRef string) string {
+ 	return parts[len(parts)-1]
+ }
+ 
++func NameFromPath(path string) string {
++	name := pathSeparators.ReplaceAllString(strings.ToLower(filepath.Base(filepath.Clean(path))), "-")
++	name = strings.Trim(name, "-")
++
++	if name == "" {
++		return "site"
++	}
++
++	if len(name) > 63 {
++		name = strings.Trim(name[:63], "-")
++	}
++
++	return name
++}
++
+ func ContainerRandomID() (string, error) {
+ 	return randomID(6)
+ }
+diff --git i/internal/docker/helpers_test.go w/internal/docker/helpers_test.go
+index f4ba09d..44d3415 100644
+--- i/internal/docker/helpers_test.go
++++ w/internal/docker/helpers_test.go
+@@ -1,6 +1,7 @@
+ package docker
+ 
+ import (
++	"strings"
+ 	"testing"
+ 
+ 	"github.com/stretchr/testify/assert"
+@@ -12,6 +13,17 @@ func TestNameFromImageRef(t *testing.T) {
+ 	assert.Equal(t, "once-campfire", NameFromImageRef("ghcr.io/basecamp/once-campfire:latest"))
+ }
+ 
++func TestNameFromPath(t *testing.T) {
++	assert.Equal(t, "my-site", NameFromPath("/srv/my-site"))
++	assert.Equal(t, "my-site", NameFromPath("/srv/My Site/"))
++	assert.Equal(t, "notes-v2", NameFromPath("/srv/notes.v2"))
++	assert.Equal(t, "site", NameFromPath("/"))
++	assert.Equal(t, "site", NameFromPath("."))
++
++	longName := strings.Repeat("a", 70)
++	assert.Equal(t, strings.Repeat("a", 63), NameFromPath("/srv/"+longName))
++}
++
+ func TestIsLocalhost(t *testing.T) {
+ 	assert.True(t, IsLocalhost("localhost"))
+ 	assert.True(t, IsLocalhost("app.localhost"))
+ M internal/command/deploy.go
+ M internal/command/deploy_test.go
+ M internal/docker/application.go
+ M internal/docker/application_backup.go
+ M internal/docker/application_backup_test.go
+ M internal/docker/application_settings.go
+ M internal/docker/helpers.go
+ M internal/docker/helpers_test.go
+?? .scratch/
+?? internal/docker/application_static_test.go
+?? scripts/
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/command/deploy.go
+Index: internal/command/deploy.go
+===================================================================
+--- internal/command/deploy.go
++++ internal/command/deploy.go
+@@ -19,10 +19,10 @@
+ 
+ func newDeployCommand() *deployCommand {
+ 	d := &deployCommand{}
+ 	d.cmd = &cobra.Command{
+-		Use:   "deploy <image>",
+-		Short: "Deploy an application",
++		Use:   "deploy <image|path>",
++		Short: "Deploy an application or static site",
+ 		Args:  cobra.ExactArgs(1),
+ 		RunE:  WithNamespace(d.run),
+ 	}
+ 
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mmake test 2>&1 | tail -15; echo ---LINT---; mise exec -- make lint 2>&1 | tail -10
+go test ./internal/...
+ok  	github.com/basecamp/once/internal/background	(cached)
+ok  	github.com/basecamp/once/internal/command	(cached)
+ok  	github.com/basecamp/once/internal/docker	(cached)
+ok  	github.com/basecamp/once/internal/fsutil	(cached)
+?   	github.com/basecamp/once/internal/logging	[no test files]
+ok  	github.com/basecamp/once/internal/metrics	(cached)
+ok  	github.com/basecamp/once/internal/mouse	(cached)
+?   	github.com/basecamp/once/internal/service	[no test files]
+ok  	github.com/basecamp/once/internal/system	(cached)
+ok  	github.com/basecamp/once/internal/ui	(cached)
+ok  	github.com/basecamp/once/internal/userstats	(cached)
+ok  	github.com/basecamp/once/internal/version	(cached)
+---LINT---
+golangci-lint run
+0 issues.
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mmkdir -p .scratch/static-check && printf '<h1>hello</h1>\n' > .scratch/static-check/index.html && docker run --rm -d --name once-static-check -p 127.0.0.1:18080:80 -v "$PWD/.scratch/static-check:/usr/share/nginx/html:ro" nginx:alpine sh -c "cat > /etc/nginx/conf.d/default.conf <<'EOF'
+server {
+    listen 80;
+    location = /up {
+        access_log off;
+        return 200 \"ok\";
+    }
+    location / {
+        root /usr/share/nginx/html;
+        index index.html;
+    }
+}
+EOF
+nginx -g 'daemon off;'" >/dev/null && sleep 1 && echo "up: $(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/up)" && echo "root: $(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:18080/)" && echo "body: $(curl -s http://127.0.0.1:18080/)" ; docker rm -f once-static-check >/dev/null 2>&1; rm -rf .scratch/static-check
+up: 200
+root: 200
+body: <h1>hello</h1>
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgit diff --check; gofmt -l internal/command internal/docker
+(no output)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mmake build 2>&1 | tail -5; ls -l bin/once
+CGO_ENABLED=0 go build -trimpath -ldflags "-s -w -X 'github.com/basecamp/once/internal/version.Version=v0.3.4-1-gfe93045'" -o bin/ ./cmd/...
+-rwxr-xr-x 1 mrjohn mrjohn 13639840 Nov  6 17:59 bin/once
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcat .gitignore; git status --short
+/bin
+/dist
+coverage.out
+/integration/testapp/testapp
+ M internal/command/deploy.go
+ M internal/command/deploy_test.go
+ M internal/docker/application.go
+ M internal/docker/application_backup.go
+ M internal/docker/application_backup_test.go
+ M internal/docker/application_settings.go
+ M internal/docker/helpers.go
+ M internal/docker/helpers_test.go
+?? .scratch/
+?? internal/docker/application_static_test.go
+?? scripts/
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+Added `once deploy <path>`: a directory now deploys as a static site using `nginx:alpine`, bind-mounted read-only, with the host/name derived from the folder name and the same `/up` health check. Added tests for path naming, target detection, static mounts, and config.
+
+Verified:
+- `make test` — passes
+- `mise exec -- make lint` — `0 issues`
+- `make build` — passes

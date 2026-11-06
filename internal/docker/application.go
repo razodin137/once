@@ -51,7 +51,23 @@ const (
 	AutomaticTaskInterval = 24 * time.Hour
 	HealthCheckPath       = "/up"
 	httpVerifyTimeout     = 30 * time.Second
+
+	StaticImage         = "nginx:alpine"
+	staticContentTarget = "/usr/share/nginx/html"
 )
+
+const staticNginxConfig = `server {
+    listen 80;
+    location = /up {
+        access_log off;
+        return 200 "ok";
+    }
+    location / {
+        root /usr/share/nginx/html;
+        index index.html;
+    }
+}
+`
 
 // AppVolumeMountTargets defines the paths where the app data volume is mounted
 // inside the container. The first entry is the primary path used for backups.
@@ -472,6 +488,16 @@ func (a *Application) volumeMounts(vol *ApplicationVolume) []mount.Mount {
 			Target: target,
 		})
 	}
+
+	if a.Settings.Static() {
+		mounts = append(mounts, mount.Mount{
+			Type:     mount.TypeBind,
+			Source:   a.Settings.Source,
+			Target:   staticContentTarget,
+			ReadOnly: true,
+		})
+	}
+
 	return mounts
 }
 
@@ -506,11 +532,23 @@ func (a *Application) BuildEnv() []string {
 }
 
 func (a *Application) containerConfig(env []string) *container.Config {
-	return &container.Config{
+	config := &container.Config{
 		Image: a.Settings.Image,
 		Labels: map[string]string{
 			labelKey: a.Settings.Marshal(),
 		},
 		Env: env,
 	}
+
+	if a.Settings.Static() {
+		config.Cmd = staticNginxCommand()
+	}
+
+	return config
+}
+
+// Helpers
+
+func staticNginxCommand() []string {
+	return []string{"sh", "-c", "cat > /etc/nginx/conf.d/default.conf <<'EOF'\n" + staticNginxConfig + "EOF\nnginx -g 'daemon off;'\n"}
 }

@@ -40,7 +40,7 @@ func (a *Application) Backup(ctx context.Context) error {
 }
 
 func (a *Application) BackupName() string {
-	return fmt.Sprintf("%s-%s.tar.gz", a.Settings.Name, time.Now().Format(backupTimeFormat))
+	return fmt.Sprintf("%s-%s.tar.gz", a.Settings.Name, time.Now().UTC().Format(backupTimeFormat))
 }
 
 func (a *Application) BackupToFile(ctx context.Context, dir string, name string) error {
@@ -90,7 +90,7 @@ func (a *Application) TrimBackups() error {
 	}
 
 	var errs []error
-	cutoff := time.Now().Add(-BackupRetention)
+	cutoff := time.Now().UTC().Add(-BackupRetention)
 
 	for _, entry := range entries {
 		if !entry.Type().IsRegular() {

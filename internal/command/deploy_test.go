@@ -60,6 +60,28 @@ func TestParseEnvVars(t *testing.T) {
 	})
 }
 
+func TestDeployTarget(t *testing.T) {
+	t.Run("directory", func(t *testing.T) {
+		dir := t.TempDir()
+
+		image, source := deployTarget(dir)
+		assert.Equal(t, docker.StaticImage, image)
+		assert.Equal(t, dir, source)
+	})
+
+	t.Run("image reference", func(t *testing.T) {
+		image, source := deployTarget("ghcr.io/basecamp/once-campfire:main")
+		assert.Equal(t, "ghcr.io/basecamp/once-campfire:main", image)
+		assert.Empty(t, source)
+	})
+
+	t.Run("missing path", func(t *testing.T) {
+		image, source := deployTarget("/no/such/folder")
+		assert.Equal(t, "/no/such/folder", image)
+		assert.Empty(t, source)
+	})
+}
+
 func TestBuildSettingsImageRequired(t *testing.T) {
 	f := &settingsFlags{}
 	_, err := f.buildSettings(&cobra.Command{}, "", "app.example.com")
