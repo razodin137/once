@@ -1,0 +1,1460 @@
+[0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m✱ [0mGlob "**/split/**" [90m0 matches[0m
+[0m✱ [0mGlob ".opencode/**/*" [90m0 matches[0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mls -la /home/mrjohn/.config/opencode/ 2>/dev/null; echo ---; ls -la /home/mrjohn/.config/opencode/command 2>/dev/null; echo ---; ls -la .opencode 2>/dev/null; echo ---; ls
+total 52
+drwxr-xr-x 1 mrjohn mrjohn   336 Nov  6 19:03 .
+drwxr-xr-x 1 mrjohn mrjohn  1474 Nov  6 19:07 ..
+drwxr-xr-x 1 mrjohn mrjohn    56 Nov  2 23:17 agent
+drwxr-xr-x 1 mrjohn mrjohn    92 Nov  6 17:40 agents
+-rw-r--r-- 1 mrjohn mrjohn  2028 Nov  4 17:30 AGENTS.md
+-rw------- 1 mrjohn mrjohn   995 Nov  2 22:57 cli.json
+-rw-r--r-- 1 mrjohn mrjohn    63 Sep 28 14:58 .gitignore
+drwxr-xr-x 1 mrjohn mrjohn   584 Sep 28 14:58 node_modules
+-rw-r--r-- 1 mrjohn mrjohn   114 Nov  5 19:44 opencode.json
+-rw-r--r-- 1 mrjohn mrjohn    50 Sep 28 14:58 opencode.jsonc
+-rw-r--r-- 1 mrjohn mrjohn    95 Sep 28 17:17 opencode.json.tui-migration.bak
+-rw-r--r-- 1 mrjohn mrjohn    65 Sep 28 14:58 package.json
+-rw-r--r-- 1 mrjohn mrjohn 14633 Sep 28 14:58 package-lock.json
+drwxr-xr-x 1 mrjohn mrjohn    18 Nov  6 19:03 plan
+drwxr-xr-x 1 mrjohn mrjohn    30 Nov  6 18:06 scripts
+-rw------- 1 mrjohn mrjohn    64 Oct 15 22:57 service.json
+-rw-r--r-- 1 mrjohn mrjohn    68 Sep 28 17:17 tui.json
+---
+---
+---
+AGENTS.md
+bin
+cmd
+go.mod
+go.sum
+installer
+integration
+internal
+Makefile
+mise.toml
+MIT-LICENSE
+prompt
+prompt-v1
+README.md
+scripts
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mfind /home/mrjohn/.config/opencode/plan -type f | head -50; echo ---; find /home/mrjohn/.config/opencode/agent /home/mrjohn/.config/opencode/agents -type f | head
+/home/mrjohn/.config/opencode/plan/hearth.md
+---
+/home/mrjohn/.config/opencode/agent/shipper.md
+/home/mrjohn/.config/opencode/agent/shipper-caveman.md
+/home/mrjohn/.config/opencode/agents/build-house-style.md
+/home/mrjohn/.config/opencode/agents/plan-house-style-prompt.md
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mls -la prompt prompt-v1 2>/dev/null | head -60
+prompt:
+total 204
+drwxr-xr-x 1 mrjohn mrjohn 2004 Nov  6 17:49 .
+drwxr-xr-x 1 mrjohn mrjohn  352 Nov  6 17:59 ..
+-rw-r--r-- 1 mrjohn mrjohn  474 Nov  6 17:49 00-overview.md
+-rw-r--r-- 1 mrjohn mrjohn  422 Nov  6 17:49 01-deploy-static-folder.md
+-rw-r--r-- 1 mrjohn mrjohn  416 Nov  6 17:49 02-serve-static-apps.md
+-rw-r--r-- 1 mrjohn mrjohn  367 Nov  6 17:49 03-redeploy-folder.md
+-rw-r--r-- 1 mrjohn mrjohn  364 Nov  6 17:49 04-stale-source-detection.md
+-rw-r--r-- 1 mrjohn mrjohn  393 Nov  6 17:49 05-folder-contents-fallback.md
+-rw-r--r-- 1 mrjohn mrjohn  324 Nov  6 17:49 06-markdown-pages.md
+-rw-r--r-- 1 mrjohn mrjohn  332 Nov  6 17:49 07-single-file-html-site.md
+-rw-r--r-- 1 mrjohn mrjohn  371 Nov  6 17:49 08-remove-static-app.md
+-rw-r--r-- 1 mrjohn mrjohn  419 Nov  6 17:49 09-contents-card.md
+-rw-r--r-- 1 mrjohn mrjohn  392 Nov  6 17:49 10-contents-screen.md
+-rw-r--r-- 1 mrjohn mrjohn  363 Nov  6 17:49 11-channels.md
+-rw-r--r-- 1 mrjohn mrjohn  341 Nov  6 17:49 12-channel-filter.md
+-rw-r--r-- 1 mrjohn mrjohn  346 Nov  6 17:49 13-favorites.md
+-rw-r--r-- 1 mrjohn mrjohn  297 Nov  6 17:49 14-drift.md
+-rw-r--r-- 1 mrjohn mrjohn  400 Nov  6 17:49 15-app-bar.md
+-rw-r--r-- 1 mrjohn mrjohn  376 Nov  6 17:49 16-bar-keys.md
+-rw-r--r-- 1 mrjohn mrjohn  372 Nov  6 17:49 17-bar-cross-fade.md
+-rw-r--r-- 1 mrjohn mrjohn  356 Nov  6 17:49 18-bar-hide.md
+-rw-r--r-- 1 mrjohn mrjohn  309 Nov  6 17:49 19-open-command.md
+-rw-r--r-- 1 mrjohn mrjohn  358 Nov  6 17:49 20-show-command.md
+-rw-r--r-- 1 mrjohn mrjohn  379 Nov  6 17:49 21-logs-command.md
+-rw-r--r-- 1 mrjohn mrjohn  385 Nov  6 17:49 22-status-command.md
+-rw-r--r-- 1 mrjohn mrjohn  352 Nov  6 17:49 23-list-json.md
+-rw-r--r-- 1 mrjohn mrjohn  335 Nov  6 17:49 24-restart-command.md
+-rw-r--r-- 1 mrjohn mrjohn  360 Nov  6 17:49 25-update-all.md
+-rw-r--r-- 1 mrjohn mrjohn  351 Nov  6 17:49 26-doctor-command.md
+-rw-r--r-- 1 mrjohn mrjohn  346 Nov  6 17:49 27-backups-list.md
+-rw-r--r-- 1 mrjohn mrjohn  358 Nov  6 17:49 28-screenshot-capture.md
+-rw-r--r-- 1 mrjohn mrjohn  380 Nov  6 17:49 29-card-thumbnails.md
+-rw-r--r-- 1 mrjohn mrjohn  343 Nov  6 17:49 30-route-map.md
+-rw-r--r-- 1 mrjohn mrjohn  336 Nov  6 17:49 31-page-weight.md
+-rw-r--r-- 1 mrjohn mrjohn  349 Nov  6 17:49 32-broken-links.md
+-rw-r--r-- 1 mrjohn mrjohn  340 Nov  6 17:49 33-meta-preview.md
+-rw-r--r-- 1 mrjohn mrjohn  375 Nov  6 17:49 34-deploy-diff.md
+-rw-r--r-- 1 mrjohn mrjohn  379 Nov  6 17:49 35-promote-on-evidence.md
+-rw-r--r-- 1 mrjohn mrjohn  357 Nov  6 17:49 36-error-capture.md
+-rw-r--r-- 1 mrjohn mrjohn  398 Nov  6 17:49 37-dashboard-filter.md
+-rw-r--r-- 1 mrjohn mrjohn  403 Nov  6 17:49 38-command-palette.md
+-rw-r--r-- 1 mrjohn mrjohn  363 Nov  6 17:49 39-toasts.md
+-rw-r--r-- 1 mrjohn mrjohn  416 Nov  6 17:49 40-chart-time-range.md
+-rw-r--r-- 1 mrjohn mrjohn  414 Nov  6 17:49 41-compact-layout.md
+-rw-r--r-- 1 mrjohn mrjohn  393 Nov  6 17:49 42-appearance-settings.md
+-rw-r--r-- 1 mrjohn mrjohn  370 Nov  6 17:49 43-app-details-view.md
+-rw-r--r-- 1 mrjohn mrjohn  427 Nov  6 17:49 44-mouse-on-cards.md
+-rw-r--r-- 1 mrjohn mrjohn  442 Nov  6 17:49 45-incremental-render.md
+-rw-r--r-- 1 mrjohn mrjohn  435 Nov  6 17:49 46-chart-performance.md
+-rw-r--r-- 1 mrjohn mrjohn  363 Nov  6 17:49 47-single-stats-stream.md
+-rw-r--r-- 1 mrjohn mrjohn  349 Nov  6 17:49 48-share-link.md
+-rw-r--r-- 1 mrjohn mrjohn  385 Nov  6 17:49 49-status-page.md
+-rw-r--r-- 1 mrjohn mrjohn  453 Nov  6 17:49 50-house-style-pass.md
+
+prompt-v1:
+total 84
+drwxr-xr-x 1 mrjohn mrjohn 840 Nov  6 17:44 .
+drwxr-xr-x 1 mrjohn mrjohn 352 Nov  6 17:59 ..
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgrep -rl "split" /home/mrjohn/.config/opencode --include=*.md --include=*.json --include=*.js 2>/dev/null | grep -v node_modules | head; echo ---; cat /home/mrjohn/.config/opencode/opencode.json; echo ---; cat /home/mrjohn/.config/opencode/agents/*.md | head -60
+/home/mrjohn/.config/opencode/agents/plan-house-style-prompt.md
+---
+{
+  "$schema": "https://opencode.ai/config.json",
+  "default_agent": "build-house-style",
+  "autoupdate": false
+}
+---
+---
+description: Default coding agent plus the 37signals house style (razodin137/house-style fork) as the reference for quality code
+mode: primary
+---
+
+# PRIME DIRECTIVE — 37signals house style
+
+House style is the **first decision of every task, not a final check.** It shapes the first line of code you write. If you wrote code and only then thought about house style, you have already done it wrong. Re-read this section before your first edit in any session, and again before you hand anything back.
+
+This applies to every project, every file, every language — including repos that have not adopted it.
+
+## Where the rules live
+
+Reference clone on this machine (it carries the newest tool bumps; never fetch upstream):
+
+`/home/mrjohn/Work/tries/2026-11-03-house-style/house-style`
+
+Read the configs directly when a rule is unclear — they outrank the upstream README snippets:
+
+- `eslint-config/eslint.config.mjs`
+- `stylelint-config-scss/index.js`
+- `rubocop.yml` and `rubocop-ruby.yml`
+
+Never treat `basecamp/house-style` as the reference.
+
+## Adoption detection
+
+A project has adopted it when you find `@37signals/eslint-config`, `@37signals/stylelint-config-scss`, or `rubocop-37signals` in the Gemfile.
+
+- **Adopted** → follow the project's config and run its lint command.
+- **Not adopted** → still write to house style. Never invent a competing style.
+
+## The rules, inline — apply these without looking them up
+
+**JavaScript**
+
+- double quotes, never single
+- no semicolons
+- 2-space indent
+- no trailing commas
+- `const` by default; never `var`
+- spaces inside array brackets: `[ like, this ]`
+- no space before call or parameter parentheses
+- current ESLint (10+) on Node 20.19+
+
+**SCSS** — build on `stylelint-config-recommended-scss`; suppressions rare and justified.
+
+**Ruby** — `rubocop-37signals`; `rubocop.yml` for Rails apps, `rubocop-ruby.yml` otherwise; current RuboCop plugin system.
+
+**Tooling** — newest stable versions, pinned to match the clone.
+
+## What compliance looks like
+
+Bad — three violations in two lines:
+
+```
+function greet (name) {
+  return `Hello, ${name}`;
+}
+```
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mls -la; echo ---; cat opencode.json* 2>/dev/null; echo ---; find . -maxdepth 2 -name "*.json" -o -maxdepth 2 -name "*.jsonc" | head; echo ---; cat prompt/27-backups-list.md; echo ---; cat prompt/00-overview.md
+total 64
+drwxr-xr-x 1 mrjohn mrjohn   352 Nov  6 17:59 .
+drwxr-xr-x 1 mrjohn mrjohn    24 Nov  6 18:01 ..
+-rw-r--r-- 1 mrjohn mrjohn  4449 Nov  6 17:42 AGENTS.md
+drwxr-xr-x 1 mrjohn mrjohn     8 Nov  6 19:10 bin
+drwxr-xr-x 1 mrjohn mrjohn    18 Nov  6 17:42 .claude
+drwxr-xr-x 1 mrjohn mrjohn     8 Nov  6 17:42 cmd
+-rw-r--r-- 1 mrjohn mrjohn     8 Nov  6 17:42 .dockerignore
+drwxr-xr-x 1 mrjohn mrjohn   196 Nov  6 19:11 .git
+drwxr-xr-x 1 mrjohn mrjohn    86 Nov  6 17:42 .github
+-rw-r--r-- 1 mrjohn mrjohn    53 Nov  6 17:42 .gitignore
+-rw-r--r-- 1 mrjohn mrjohn   216 Nov  6 17:42 .golangci.yml
+-rw-r--r-- 1 mrjohn mrjohn  3299 Nov  6 18:57 go.mod
+-rw-r--r-- 1 mrjohn mrjohn 14945 Nov  6 18:56 go.sum
+drwxr-xr-x 1 mrjohn mrjohn   138 Nov  6 17:42 installer
+drwxr-xr-x 1 mrjohn mrjohn    62 Nov  6 17:42 integration
+drwxr-xr-x 1 mrjohn mrjohn   188 Nov  6 18:57 internal
+-rw-r--r-- 1 mrjohn mrjohn  1292 Nov  6 17:42 Makefile
+-rw-r--r-- 1 mrjohn mrjohn    97 Nov  6 17:42 mise.toml
+-rw-r--r-- 1 mrjohn mrjohn  1053 Nov  6 17:42 MIT-LICENSE
+drwxr-xr-x 1 mrjohn mrjohn  2004 Nov  6 17:49 prompt
+drwxr-xr-x 1 mrjohn mrjohn   840 Nov  6 17:44 prompt-v1
+-rw-r--r-- 1 mrjohn mrjohn  8244 Nov  6 17:42 README.md
+drwxr-xr-x 1 mrjohn mrjohn    10 Nov  6 18:58 .scratch
+drwxr-xr-x 1 mrjohn mrjohn    30 Nov  5 23:06 scripts
+---
+---
+---
+Your job is to go in and add `once backups <host>` here to this Go CLI/TUI app.
+
+Archives are already written into the configured directory; list them newest first with date, age and size, and make an empty result obvious.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+---
+These prompts change the ONCE Go CLI/TUI in this repository, one feature per file, run in order with a fresh agent for each.
+
+House style here is the project's own Go conventions plus `make lint`; the wider reference copy is at /home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+
+The last line of every file is the same, and it means `make test` and `make lint` both run clean.
+
+Each file is the whole instruction for its session. Read only the one you are running.
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mfind cmd internal -type f -name "*.go" | sort; echo ---; cat Makefile; echo ---; cat .golangci.yml
+cmd/once/main.go
+internal/background/runner.go
+internal/background/runner_test.go
+internal/browser/browser.go
+internal/browser/browser_test.go
+internal/command/background.go
+internal/command/background_install.go
+internal/command/background_remove.go
+internal/command/background_run.go
+internal/command/backup.go
+internal/command/cli_progress.go
+internal/command/deploy.go
+internal/command/deploy_test.go
+internal/command/doctor.go
+internal/command/doctor_test.go
+internal/command/exec.go
+internal/command/exec_test.go
+internal/command/keys.go
+internal/command/keys_reset.go
+internal/command/keys_set.go
+internal/command/list.go
+internal/command/list_test.go
+internal/command/logs.go
+internal/command/logs_test.go
+internal/command/open.go
+internal/command/open_test.go
+internal/command/remove.go
+internal/command/restart.go
+internal/command/restore.go
+internal/command/root.go
+internal/command/root_test.go
+internal/command/self_update.go
+internal/command/settings_flags.go
+internal/command/show.go
+internal/command/show_test.go
+internal/command/start.go
+internal/command/status.go
+internal/command/status_test.go
+internal/command/stop.go
+internal/command/teardown.go
+internal/command/update.go
+internal/command/update_test.go
+internal/command/version.go
+internal/docker/appbar.go
+internal/docker/appbar_test.go
+internal/docker/application_backup.go
+internal/docker/application_backup_test.go
+internal/docker/application.go
+internal/docker/application_settings.go
+internal/docker/application_settings_test.go
+internal/docker/application_static_test.go
+internal/docker/application_test.go
+internal/docker/channels.go
+internal/docker/channels_test.go
+internal/docker/container.go
+internal/docker/errors.go
+internal/docker/errors_test.go
+internal/docker/events.go
+internal/docker/helpers.go
+internal/docker/helpers_test.go
+internal/docker/logs.go
+internal/docker/logs_test.go
+internal/docker/markdown.go
+internal/docker/namespace.go
+internal/docker/namespace_test.go
+internal/docker/progress.go
+internal/docker/progress_test.go
+internal/docker/proxy.go
+internal/docker/proxy_test.go
+internal/docker/registry_auth.go
+internal/docker/registry_auth_test.go
+internal/docker/ring_buffer.go
+internal/docker/ring_buffer_test.go
+internal/docker/scraper.go
+internal/docker/scraper_test.go
+internal/docker/site.go
+internal/docker/site_test.go
+internal/docker/source.go
+internal/docker/source_test.go
+internal/docker/state.go
+internal/docker/state_test.go
+internal/docker/volume.go
+internal/docker/volume_test.go
+internal/fsutil/fsutil.go
+internal/fsutil/fsutil_test.go
+internal/htmltext/htmltext.go
+internal/htmltext/htmltext_test.go
+internal/logging/log.go
+internal/metrics/scraper.go
+internal/metrics/scraper_test.go
+internal/mouse/lexer.go
+internal/mouse/lexer_test.go
+internal/mouse/tracker.go
+internal/mouse/tracker_test.go
+internal/service/launchd.go
+internal/service/service.go
+internal/service/systemd.go
+internal/system/disk.go
+internal/system/scraper.go
+internal/system/scraper_test.go
+internal/ui/actions_menu.go
+internal/ui/actions_menu_test.go
+internal/ui/app.go
+internal/ui/channels.go
+internal/ui/chart.go
+internal/ui/chart_scale.go
+internal/ui/chart_scale_test.go
+internal/ui/chart_test.go
+internal/ui/component.go
+internal/ui/confirmation.go
+internal/ui/confirmation_test.go
+internal/ui/contents_card.go
+internal/ui/contents_card_test.go
+internal/ui/dashboard.go
+internal/ui/dashboard_header.go
+internal/ui/dashboard_header_test.go
+internal/ui/dashboard_panel.go
+internal/ui/dashboard_panel_test.go
+internal/ui/dashboard_test.go
+internal/ui/favorite.go
+internal/ui/form.go
+internal/ui/form_test.go
+internal/ui/helpers_test.go
+internal/ui/help.go
+internal/ui/help_test.go
+internal/ui/install_activity.go
+internal/ui/install_app_list.go
+internal/ui/install_app_list_test.go
+internal/ui/install.go
+internal/ui/install_hostname_form.go
+internal/ui/install_hostname_form_test.go
+internal/ui/install_image_form.go
+internal/ui/install_image_form_test.go
+internal/ui/install_test.go
+internal/ui/keys.go
+internal/ui/logo.go
+internal/ui/logs.go
+internal/ui/logs_test.go
+internal/ui/menu.go
+internal/ui/menu_test.go
+internal/ui/metric_card.go
+internal/ui/metric_card_test.go
+internal/ui/palette_detect.go
+internal/ui/palette_detect_test.go
+internal/ui/palette.go
+internal/ui/palette_test.go
+internal/ui/popup_help.go
+internal/ui/popup_help_test.go
+internal/ui/progress.go
+internal/ui/remove.go
+internal/ui/remove_test.go
+internal/ui/settings_form_application.go
+internal/ui/settings_form_backups.go
+internal/ui/settings_form_base.go
+internal/ui/settings_form_email.go
+internal/ui/settings_form_environment.go
+internal/ui/settings_form_registry.go
+internal/ui/settings_form_resources.go
+internal/ui/settings_form_test.go
+internal/ui/settings_form_updates.go
+internal/ui/settings.go
+internal/ui/settings_menu.go
+internal/ui/settings_menu_test.go
+internal/ui/settings_test.go
+internal/ui/starfield.go
+internal/ui/styles.go
+internal/ui/styles_test.go
+internal/ui/terminal_size_guard.go
+internal/ui/terminal_size_guard_test.go
+internal/userstats/reader.go
+internal/userstats/reader_test.go
+internal/userstats/scraper.go
+internal/userstats/scraper_test.go
+internal/userstats/store.go
+internal/userstats/store_test.go
+internal/version/updater.go
+internal/version/updater_test.go
+internal/version/version.go
+---
+.PHONY: build test integration lint lint-actions coverage dist test-release
+
+PLATFORMS = linux darwin
+ARCHITECTURES = amd64 arm64
+VERSION := $(shell git describe --tags --always)
+LDFLAGS := -ldflags "-s -w -X 'github.com/basecamp/once/internal/version.Version=$(VERSION)'"
+
+TEST_RELEASE_TAG = v0.0.1-test
+
+build:
+	CGO_ENABLED=0 go build -trimpath $(LDFLAGS) -o bin/ ./cmd/...
+
+build-all:
+	@for os in $(PLATFORMS); do \
+		for arch in $(ARCHITECTURES); do \
+			echo "Building for $$os/$$arch..."; \
+			CGO_ENABLED=0 GOOS=$$os GOARCH=$$arch go build -trimpath $(LDFLAGS) -o bin/$$os-$$arch/ ./cmd/...; \
+		done; \
+	done
+
+test:
+	go test ./internal/...
+
+integration:
+	go test -v -count=1 -parallel 16 -timeout 30m ./integration/...
+
+check:
+	go vet ./...
+	govulncheck ./...
+
+lint:
+	golangci-lint run
+
+lint-actions:
+	actionlint
+	zizmor .
+
+coverage:
+	go test -coverprofile=coverage.out ./internal/...
+	go tool cover -html=coverage.out
+
+dist: build-all
+	mkdir -p dist
+	@for os in $(PLATFORMS); do \
+		for arch in $(ARCHITECTURES); do \
+			cp bin/$$os-$$arch/once dist/once-$$os-$$arch; \
+		done; \
+	done
+	cd dist && sha256sum once-* > checksums.txt
+
+test-release:
+	-gh release delete $(TEST_RELEASE_TAG) --yes --cleanup-tag
+	git tag -f $(TEST_RELEASE_TAG)
+	git push origin $(TEST_RELEASE_TAG) --force
+---
+version: "2"
+
+formatters:
+  enable:
+    - gofmt
+    - gci
+  settings:
+    gci:
+      sections:
+        - standard
+        - default
+        - localmodule
+
+linters:
+  enable:
+    - modernize
+  disable:
+    - errcheck
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/command/backup.go 
+[0m→ [0mRead internal/command/restore.go 
+[0m→ [0mRead internal/docker/application_backup.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/command/root.go 
+[0m→ [0mRead internal/command/list.go 
+[0m→ [0mRead internal/command/show.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/command/list_test.go 
+[0m$ [0mgrep -n "Backup" internal/docker/application_settings.go | head -60; echo ---; grep -rn "Backup.Path\|Backup.Enabled\|type BackupSettings\|BackupName\|parseBackupTime" internal --include=*.go
+92:type BackupSettings struct {
+94:	AutoBackup bool   `json:"autoBackup,omitempty"`
+109:	Backup     BackupSettings     `json:"backup"`
+129:	if s.Backup.AutoBackup && s.Backup.Path == "" {
+130:		return ErrAutoBackupWithoutPath
+162:	if s.Backup != other.Backup {
+---
+internal/command/settings_flags.go:156:		s.Backup.Path = f.backupPath
+internal/command/update_test.go:120:		noPath.Backup.Path = ""
+internal/command/update_test.go:219:		assert.Equal(t, "/backups", result.Backup.Path)
+internal/docker/application_backup.go:35:	if a.Settings.Backup.Path == "" {
+internal/docker/application_backup.go:39:	return a.BackupToFile(ctx, a.Settings.Backup.Path, a.BackupName())
+internal/docker/application_backup.go:42:func (a *Application) BackupName() string {
+internal/docker/application_backup.go:83:	if a.Settings.Backup.Path == "" {
+internal/docker/application_backup.go:87:	entries, err := os.ReadDir(a.Settings.Backup.Path)
+internal/docker/application_backup.go:100:		t, ok := parseBackupTime(a.Settings.Name, entry.Name())
+internal/docker/application_backup.go:106:			filename := filepath.Join(a.Settings.Backup.Path, entry.Name())
+internal/docker/application_backup.go:339:func parseBackupTime(appName, filename string) (time.Time, bool) {
+internal/docker/application_backup_test.go:53:func TestBackupName(t *testing.T) {
+internal/docker/application_backup_test.go:58:	name := app.BackupName()
+internal/docker/application_backup_test.go:64:	_, ok := parseBackupTime("myapp", name)
+internal/docker/application_backup_test.go:70:		ts, ok := parseBackupTime("myapp", "myapp-20250115-093000.tar.gz")
+internal/docker/application_backup_test.go:76:		_, ok := parseBackupTime("other", "myapp-20250115-093000.tar.gz")
+internal/docker/application_backup_test.go:81:		_, ok := parseBackupTime("myapp", "unrelated.txt")
+internal/docker/application_backup_test.go:86:		_, ok := parseBackupTime("myapp", "myapp-baddate.tar.gz")
+internal/docker/application_settings.go:92:type BackupSettings struct {
+internal/docker/application_settings.go:129:	if s.Backup.AutoBackup && s.Backup.Path == "" {
+internal/docker/application_settings_test.go:314:	assert.Equal(t, "/backups", restored.Backup.Path)
+internal/ui/settings_form_backups.go:22:	pathField.SetValue(app.Settings.Backup.Path)
+internal/ui/settings_form_backups.go:44:		s.Backup.Path = f.TextField(backupsPathField).Value()
+internal/ui/settings_form_backups.go:64:	return app.BackupToFile(context.Background(), dir, app.BackupName())
+internal/ui/settings_form_test.go:450:	assert.Equal(t, "/my/backups", submitMsg.Settings.Backup.Path)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgit log --oneline -15; echo ---; cat internal/command/status.go; echo ---; cat internal/command/doctor.go | head -80
+7bb790e split: 26-doctor-command
+a300e9e split: 25-update-all
+b0719c4 split: 24-restart-command
+7471b8a split: 23-list-json
+de404e1 split: 22-status-command
+1a2ecf5 split: 21-logs-command
+3591731 split: 20-show-command
+598da78 split: 19-open-command
+e4ca439 split: 18-bar-hide
+c903ba8 split: 17-bar-cross-fade
+926c88b split: 16-bar-keys
+1b1f9fd split: 16-bar-keys
+d826067 split: 15-app-bar
+d9aa468 split: 15-app-bar
+2a8c584 split: 14-drift
+---
+package command
+
+import (
+	"context"
+	"encoding/json"
+	"fmt"
+	"io"
+	"time"
+
+	"github.com/spf13/cobra"
+
+	"github.com/basecamp/once/internal/docker"
+)
+
+type statusCommand struct {
+	cmd *cobra.Command
+
+	asJSON    bool
+	now       func() time.Time
+	loadState func(context.Context, *docker.Namespace) (*docker.State, error)
+}
+
+type statusReport struct {
+	Host          string           `json:"host"`
+	URL           string           `json:"url"`
+	Image         string           `json:"image"`
+	Source        string           `json:"source,omitempty"`
+	State         string           `json:"state"`
+	UptimeSeconds *int64           `json:"uptimeSeconds"`
+	RunningSince  *time.Time       `json:"runningSince,omitempty"`
+	Resources     statusResources  `json:"resources"`
+	LastUpdate    *statusOperation `json:"lastUpdate"`
+	LastBackup    *statusOperation `json:"lastBackup"`
+}
+
+type statusResources struct {
+	CPUs     int `json:"cpus"`
+	MemoryMB int `json:"memoryMB"`
+}
+
+type statusOperation struct {
+	At    time.Time `json:"at"`
+	Error string    `json:"error,omitempty"`
+}
+
+func newStatusCommand() *statusCommand {
+	s := &statusCommand{
+		now: time.Now,
+		loadState: func(ctx context.Context, ns *docker.Namespace) (*docker.State, error) {
+			return ns.LoadState(ctx)
+		},
+	}
+	s.cmd = &cobra.Command{
+		Use:   "status <host>",
+		Short: "Show an application's status",
+		Args:  cobra.ExactArgs(1),
+		RunE:  WithNamespace(s.run),
+	}
+	s.cmd.Flags().BoolVar(&s.asJSON, "json", false, "print the status as JSON")
+	return s
+}
+
+// Private
+
+func (s *statusCommand) run(ctx context.Context, ns *docker.Namespace, cmd *cobra.Command, args []string) error {
+	app, err := findApplication(ns, args[0])
+	if err != nil {
+		return err
+	}
+
+	state, err := s.loadState(ctx, ns)
+	if err != nil {
+		return fmt.Errorf("loading state: %w", err)
+	}
+
+	report := s.report(app, state)
+	if s.asJSON {
+		return json.NewEncoder(cmd.OutOrStdout()).Encode(report)
+	}
+
+	s.print(cmd.OutOrStdout(), report)
+	return nil
+}
+
+func (s *statusCommand) report(app *docker.Application, state *docker.State) statusReport {
+	report := statusReport{
+		Host:       app.Settings.Host,
+		URL:        app.URL(),
+		Image:      app.Settings.Image,
+		Source:     app.Settings.Source,
+		State:      "stopped",
+		Resources:  statusResources{CPUs: app.Settings.Resources.CPUs, MemoryMB: app.Settings.Resources.MemoryMB},
+		LastUpdate: statusOperationFrom(state.AppState(app.Settings.Name).LastUpdateResult()),
+		LastBackup: statusOperationFrom(state.AppState(app.Settings.Name).LastBackupResult()),
+	}
+
+	if app.Running {
+		report.State = "running"
+		if !app.RunningSince.IsZero() {
+			since := app.RunningSince
+			uptime := max(int64(s.now().Sub(since).Seconds()), 0)
+			report.RunningSince = &since
+			report.UptimeSeconds = &uptime
+		}
+	}
+
+	return report
+}
+
+func (s *statusCommand) print(w io.Writer, report statusReport) {
+	writeStatusLine(w, "Host:", report.Host)
+	writeStatusLine(w, "URL:", report.URL)
+	writeStatusLine(w, "Image:", report.Image)
+	if report.Source != "" {
+		writeStatusLine(w, "Source:", report.Source)
+	}
+	writeStatusLine(w, "State:", report.State)
+	writeStatusLine(w, "Uptime:", statusUptime(report))
+	writeStatusLine(w, "CPUs:", statusLimit(report.Resources.CPUs))
+	writeStatusLine(w, "Memory:", statusMemory(report.Resources.MemoryMB))
+	writeStatusLine(w, "Last update:", statusOperationText(report.LastUpdate))
+	writeStatusLine(w, "Last backup:", statusOperationText(report.LastBackup))
+}
+
+// Helpers
+
+func statusOperationFrom(result *docker.OperationResult) *statusOperation {
+	if result == nil {
+		return nil
+	}
+	return &statusOperation{At: result.At, Error: result.Error}
+}
+
+func writeStatusLine(w io.Writer, label, value string) {
+	fmt.Fprintf(w, "%-13s%s\n", label, value)
+}
+
+func statusUptime(report statusReport) string {
+	if report.UptimeSeconds == nil {
+		return "—"
+	}
+	return formatStatusDuration(time.Duration(*report.UptimeSeconds) * time.Second)
+}
+
+func statusLimit(value int) string {
+	if value == 0 {
+		return "unlimited"
+	}
+	return fmt.Sprint(value)
+}
+
+func statusMemory(memoryMB int) string {
+	if memoryMB == 0 {
+		return "unlimited"
+	}
+	return fmt.Sprintf("%d MB", memoryMB)
+}
+
+func statusOperationText(operation *statusOperation) string {
+	if operation == nil {
+		return "Never"
+	}
+
+	text := operation.At.Format("2 Jan 2006, 15:04")
+	if operation.Error != "" {
+		text += " (failed: " + operation.Error + ")"
+	}
+	return text
+}
+
+func formatStatusDuration(d time.Duration) string {
+	if d < time.Minute {
+		return fmt.Sprintf("%ds", int(d.Seconds()))
+	}
+	if d < time.Hour {
+		return fmt.Sprintf("%dm", int(d.Minutes()))
+	}
+	if d < 24*time.Hour {
+		hours := int(d.Hours())
+		mins := int(d.Minutes()) % 60
+		if mins == 0 {
+			return fmt.Sprintf("%dh", hours)
+		}
+		return fmt.Sprintf("%dh %dm", hours, mins)
+	}
+	days := int(d.Hours()) / 24
+	hours := int(d.Hours()) % 24
+	if hours == 0 {
+		return fmt.Sprintf("%dd", days)
+	}
+	return fmt.Sprintf("%dd %dh", days, hours)
+}
+---
+package command
+
+import (
+	"context"
+	"crypto/tls"
+	"errors"
+	"fmt"
+	"io"
+	"net"
+	"os"
+	"strconv"
+	"strings"
+	"time"
+
+	"github.com/spf13/cobra"
+
+	"github.com/basecamp/once/internal/docker"
+	"github.com/basecamp/once/internal/system"
+)
+
+const (
+	doctorCheckTimeout         = 5 * time.Second
+	doctorFreeDiskThreshold    = 5 << 30
+	doctorCertificateWarning   = 14 * 24 * time.Hour
+	doctorResultNameWidth      = 14
+	doctorResultStatusWidth    = 4
+	doctorDefaultDockerDataDir = "/var/lib/docker"
+)
+
+type doctorCommand struct {
+	cmd *cobra.Command
+
+	now               func() time.Time
+	newNamespace      func(string) (*docker.Namespace, error)
+	ping              func(context.Context, *docker.Namespace) error
+	refresh           func(context.Context, *docker.Namespace) error
+	proxyStatus       func(context.Context, *docker.Proxy) (docker.ProxyStatus, error)
+	portAvailable     func(int) bool
+	lookupHost        func(context.Context, string) ([]string, error)
+	certificateExpiry func(context.Context, string, int) (time.Time, error)
+	dockerRootDir     func(context.Context, *docker.Namespace) (string, error)
+	diskSpace         func(string) (system.DiskSpace, error)
+}
+
+type doctorResult struct {
+	name   string
+	ok     bool
+	detail string
+	fix    string
+}
+
+type doctorFailure struct {
+	count int
+}
+
+func newDoctorCommand() *doctorCommand {
+	d := &doctorCommand{
+		now: time.Now,
+		newNamespace: func(name string) (*docker.Namespace, error) {
+			return docker.NewNamespace(name)
+		},
+		ping: func(ctx context.Context, ns *docker.Namespace) error {
+			return ns.Ping(ctx)
+		},
+		refresh: func(ctx context.Context, ns *docker.Namespace) error {
+			return ns.Refresh(ctx)
+		},
+		proxyStatus: func(ctx context.Context, proxy *docker.Proxy) (docker.ProxyStatus, error) {
+			return proxy.Status(ctx)
+		},
+		portAvailable:     portAvailable,
+		lookupHost:        net.DefaultResolver.LookupHost,
+		certificateExpiry: certificateExpiry,
+		dockerRootDir: func(ctx context.Context, ns *docker.Namespace) (string, error) {
+			return ns.DockerRootDir(ctx)
+		},
+		diskSpace: system.DiskSpaceAt,
+	}
+
+	d.cmd = &cobra.Command{
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/docker/application_backup_test.go [90m[limit=110][0m
+[0m→ [0mRead internal/docker/application.go [90m[limit=120][0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgrep -rn "tabwriter\|text/tabwriter" internal --include=*.go | head; echo ---; grep -rn "Fprintf(w, \"%-" internal/command --include=*.go | head -20; echo ---; sed -n '1,60p' internal/ui/settings_form_backups.go
+---
+internal/command/status.go:135:	fmt.Fprintf(w, "%-13s%s\n", label, value)
+internal/command/doctor.go:361:		fmt.Fprintf(w, "%-*s  %-*s  %s\n", doctorResultStatusWidth, status, doctorResultNameWidth, result.name, detail)
+---
+package ui
+
+import (
+	"context"
+
+	tea "charm.land/bubbletea/v2"
+
+	"github.com/basecamp/once/internal/docker"
+)
+
+const (
+	backupsPathField = iota
+	backupsAutoBackupField
+)
+
+type SettingsFormBackups struct {
+	settingsFormBase
+}
+
+func NewSettingsFormBackups(app *docker.Application, lastResult *docker.OperationResult) SettingsFormBackups {
+	pathField := NewTextField("/path/to/backups")
+	pathField.SetValue(app.Settings.Backup.Path)
+
+	autoBackupField := NewCheckboxField("Automatically create backups", app.Settings.Backup.AutoBackup)
+
+	m := SettingsFormBackups{
+		title: "Backups",
+		form: NewForm("Done",
+			FormItem{Label: "Backup location", Field: pathField},
+			FormItem{Label: "Backups", Field: autoBackupField},
+		),
+		statusLine: func() string {
+			return formatOperationStatus("backup", lastResult)
+		},
+	}
+
+	m.form.SetActionButton("Run backup now", func() tea.Msg {
+		return settingsRunActionMsg{action: func() (string, error) {
+			return "Backup complete", runBackup(app, pathField.Value())
+		}}
+	})
+	m.form.OnSubmit(func(f *Form) tea.Cmd {
+		s := app.Settings
+		s.Backup.Path = f.TextField(backupsPathField).Value()
+		s.Backup.AutoBackup = f.CheckboxField(backupsAutoBackupField).Checked()
+		return func() tea.Msg { return SettingsSectionSubmitMsg{Settings: s} }
+	})
+	m.form.OnCancel(func(f *Form) tea.Cmd {
+		return func() tea.Msg { return SettingsSectionCancelMsg{} }
+	})
+
+	return m
+}
+
+func (m SettingsFormBackups) Update(msg tea.Msg) (SettingsSection, tea.Cmd) {
+	var cmd tea.Cmd
+	m.settingsFormBase, cmd = m.update(msg)
+	return m, cmd
+}
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgrep -rn "MB\|MiB\|formatSize\|human" internal/command internal/system internal/fsutil --include=*.go | head -30; echo ---; sed -n '330,380p' internal/command/doctor.go
+internal/command/deploy_test.go:186:		Resources:  docker.ContainerResources{CPUs: 2, MemoryMB: 1024},
+internal/command/deploy_test.go:217:		assert.Equal(t, 2048, result.Resources.MemoryMB)
+internal/command/settings_flags.go:44:	cmd.Flags().IntVar(&f.memory, "memory", 0, "memory limit in MB for the container")
+internal/command/settings_flags.go:78:			MemoryMB: f.memory,
+internal/command/settings_flags.go:147:		s.Resources.MemoryMB = f.memory
+internal/command/update_test.go:30:			MemoryMB: 1024,
+internal/command/update_test.go:59:		assert.Equal(t, 2048, result.Resources.MemoryMB)
+internal/command/update_test.go:79:		assert.Equal(t, existing.Resources.MemoryMB, result.Resources.MemoryMB)
+internal/command/status.go:38:	MemoryMB int `json:"memoryMB"`
+internal/command/status.go:92:		Resources:  statusResources{CPUs: app.Settings.Resources.CPUs, MemoryMB: app.Settings.Resources.MemoryMB},
+internal/command/status.go:120:	writeStatusLine(w, "Memory:", statusMemory(report.Resources.MemoryMB))
+internal/command/status.go:152:func statusMemory(memoryMB int) string {
+internal/command/status.go:153:	if memoryMB == 0 {
+internal/command/status.go:156:	return fmt.Sprintf("%d MB", memoryMB)
+internal/command/status_test.go:50:		"Memory:      1024 MB",
+internal/command/status_test.go:115:	assert.Equal(t, statusResources{CPUs: 2, MemoryMB: 1024}, report.Resources)
+internal/command/status_test.go:153:		Resources:  docker.ContainerResources{CPUs: 2, MemoryMB: 1024},
+internal/command/doctor.go:462:		return fmt.Sprintf("%.0fMB", float64(bytes)/mb)
+---
+	if days < 0 {
+		return doctorResult{
+			name:   "Certificates",
+			detail: fmt.Sprintf("%s expired %s", earliestHost, earliest.Format("2 Jan 2006")),
+			fix:    "Restart the proxy container so it can renew the certificate.",
+		}
+	}
+
+	if days < int(doctorCertificateWarning.Hours()/24) {
+		return doctorResult{
+			name:   "Certificates",
+			detail: detail,
+			fix:    "Restart the proxy container so it can renew the certificate.",
+		}
+	}
+
+	return doctorResult{name: "Certificates", ok: true, detail: detail}
+}
+
+func (d *doctorCommand) print(w io.Writer, results []doctorResult) {
+	for _, result := range results {
+		status := "PASS"
+		if !result.ok {
+			status = "FAIL"
+		}
+
+		detail := result.detail
+		if !result.ok && result.fix != "" {
+			detail += " (fix: " + result.fix + ")"
+		}
+
+		fmt.Fprintf(w, "%-*s  %-*s  %s\n", doctorResultStatusWidth, status, doctorResultNameWidth, result.name, detail)
+	}
+
+	failed := failedCheckCount(results)
+	if failed == 0 {
+		fmt.Fprintln(w, "\nAll checks passed.")
+	} else {
+		fmt.Fprintf(w, "\n%d check(s) failed.\n", failed)
+	}
+}
+
+// Helpers
+
+func unavailableCheckResults() []doctorResult {
+	names := []string{"Ports 80/443", "DNS", "Proxy", "Disk", "Certificates"}
+	results := make([]doctorResult, len(names))
+	for i, name := range names {
+		results[i] = doctorResult{
+			name:   name,
+			detail: "not checked because Docker is unavailable",
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/command/doctor.go [90m[offset=445, limit=30][0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgrep -rn "formatDoctorBytes" internal
+internal/command/doctor.go:268:	detail := fmt.Sprintf("%s free of %s (%s)", formatDoctorBytes(space.Free), formatDoctorBytes(space.Total), doctorDiskPercent(space))
+internal/command/doctor.go:448:func formatDoctorBytes(bytes uint64) string {
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgrep -rn "formatStatusDuration" internal
+internal/command/status.go:142:	return formatStatusDuration(time.Duration(*report.UptimeSeconds) * time.Second)
+internal/command/status.go:171:func formatStatusDuration(d time.Duration) string {
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgrep -n "backup\|restore\|status\|doctor" README.md | head -30
+6:As well as simplifying the initial setup, ONCE also provides automatic updates, backups, and system information.
+76:From there you can set up a location for automatic backups, update your hostname, switch to using your own fork's image, set up an email provider and more.
+109:Data in this volume persists across restarts, and is also the data that will be included in backups.
+116:- `/hooks/pre-backup` -- Because ONCE can't assume that it's safe to backup the files of an application while they are in use, it will try to call this hook before starting a backup so the application can do anything it needs to generate a "safe" copy of the data.
+117:If this script exists, and return success, ONCE assumes it's now safe to copy the files into the backup.
+119:This means backups are always consistent in either case, but the hook gives the app a way to avoid the paused container introducing latency to in-flight requests while the backup runs.
+120:An example of using `pre-backup` on a SQLite-based application would be to use SQLite's online backup feature to take a safe consistent copy of the database.
+122:- `/hooks/post-restore` -- The inverse of `pre-backup`, `post-restore` will be called after restoring the data from a backup, but before booting the application.
+123:If an application needs to do any cleanup, such as move or rename files generated during `pre-backup`, it can do it in this hook.
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/application_backup.go
+Index: internal/docker/application_backup.go
+===================================================================
+--- internal/docker/application_backup.go
++++ internal/docker/application_backup.go
+@@ -10,8 +10,9 @@
+ 	"io/fs"
+ 	"log/slog"
+ 	"os"
+ 	"path/filepath"
++	"slices"
+ 	"strings"
+ 	"time"
+ 
+ 	"github.com/containerd/errdefs"
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/application_backup.go
+Index: internal/docker/application_backup.go
+===================================================================
+--- internal/docker/application_backup.go
++++ internal/docker/application_backup.go
+@@ -43,8 +43,57 @@
+ func (a *Application) BackupName() string {
+ 	return fmt.Sprintf("%s-%s.tar.gz", a.Settings.Name, time.Now().UTC().Format(backupTimeFormat))
+ }
+ 
++type BackupArchive struct {
++	Filename string
++	Time     time.Time
++	Size     int64
++}
++
++func (a *Application) Backups() ([]BackupArchive, error) {
++	if a.Settings.Backup.Path == "" {
++		return nil, nil
++	}
++
++	entries, err := os.ReadDir(a.Settings.Backup.Path)
++	if errors.Is(err, fs.ErrNotExist) {
++		return nil, nil
++	}
++	if err != nil {
++		return nil, fmt.Errorf("reading backup directory: %w", err)
++	}
++
++	var backups []BackupArchive
++	for _, entry := range entries {
++		if !entry.Type().IsRegular() {
++			continue
++		}
++
++		t, ok := parseBackupTime(a.Settings.Name, entry.Name())
++		if !ok {
++			continue
++		}
++
++		info, err := entry.Info()
++		if err != nil {
++			return nil, fmt.Errorf("reading backup file %s: %w", entry.Name(), err)
++		}
++
++		backups = append(backups, BackupArchive{
++			Filename: entry.Name(),
++			Time:     t,
++			Size:     info.Size(),
++		})
++	}
++
++	slices.SortFunc(backups, func(x, y BackupArchive) int {
++		return y.Time.Compare(x.Time)
++	})
++
++	return backups, nil
++}
++
+ func (a *Application) BackupToFile(ctx context.Context, dir string, name string) error {
+ 	if dir == "" {
+ 		return fmt.Errorf("backup location is required")
+ 	}
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/application.go
+Index: internal/docker/application.go
+===================================================================
+--- internal/docker/application.go
++++ internal/docker/application.go
+@@ -93,8 +93,14 @@
+ 	RunningSince time.Time
+ 	DeployedAt   time.Time
+ }
+ 
++type BackupArchive struct {
++	Filename string
++	Time     time.Time
++	Size     int64
++}
++
+ func NewApplication(ns *Namespace, settings ApplicationSettings) *Application {
+ 	return &Application{
+ 		namespace: ns,
+ 		Settings:  settings,
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/application_backup.go
+Index: internal/docker/application_backup.go
+===================================================================
+--- internal/docker/application_backup.go
++++ internal/docker/application_backup.go
+@@ -31,8 +31,14 @@
+ 	backupVolSettingsEntry = "once.volume.json"
+ 	backupTimeFormat       = "20060102-150405"
+ )
+ 
++type BackupArchive struct {
++	Filename string
++	Time     time.Time
++	Size     int64
++}
++
+ func (a *Application) Backup(ctx context.Context) error {
+ 	if a.Settings.Backup.Path == "" {
+ 		return fmt.Errorf("backup location is required")
+ 	}
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/application.go
+Index: internal/docker/application.go
+===================================================================
+--- internal/docker/application.go
++++ internal/docker/application.go
+@@ -93,14 +93,8 @@
+ 	RunningSince time.Time
+ 	DeployedAt   time.Time
+ }
+ 
+-type BackupArchive struct {
+-	Filename string
+-	Time     time.Time
+-	Size     int64
+-}
+-
+ func NewApplication(ns *Namespace, settings ApplicationSettings) *Application {
+ 	return &Application{
+ 		namespace: ns,
+ 		Settings:  settings,
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mWrite internal/command/backups.go
+Created file successfully: internal/command/backups.go
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/command/root.go
+Index: internal/command/root.go
+===================================================================
+--- internal/command/root.go
++++ internal/command/root.go
+@@ -40,8 +40,9 @@
+ 	r.cmd.Flags().StringVar(&r.installImageRef, "install", "", "Path to Docker image to install")
+ 
+ 	r.cmd.AddCommand(newBackgroundCommand().cmd)
+ 	r.cmd.AddCommand(newBackupCommand().cmd)
++	r.cmd.AddCommand(newBackupsCommand().cmd)
+ 	r.cmd.AddCommand(newDeployCommand().cmd)
+ 	r.cmd.AddCommand(newDoctorCommand().cmd)
+ 	r.cmd.AddCommand(newExecCommand().cmd)
+ 	r.cmd.AddCommand(newKeysCommand().cmd)
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgrep -n "func NewNamespace\|WithApplications\|func (s ApplicationSettings) Validate" -A 30 internal/docker/namespace.go internal/docker/application_settings.go | head -80
+internal/docker/namespace.go:31:func WithApplications(apps ...ApplicationSettings) NamespaceOption {
+internal/docker/namespace.go-32-	return func(ns *Namespace) {
+internal/docker/namespace.go-33-		for _, s := range apps {
+internal/docker/namespace.go-34-			ns.addApplication(s)
+internal/docker/namespace.go-35-		}
+internal/docker/namespace.go-36-	}
+internal/docker/namespace.go-37-}
+internal/docker/namespace.go-38-
+internal/docker/namespace.go:39:func NewNamespace(name string, opts ...NamespaceOption) (*Namespace, error) {
+internal/docker/namespace.go-40-	if name == "" {
+internal/docker/namespace.go-41-		name = DefaultNamespace
+internal/docker/namespace.go-42-	}
+internal/docker/namespace.go-43-
+internal/docker/namespace.go-44-	if !validNamespace.MatchString(name) {
+internal/docker/namespace.go-45-		return nil, fmt.Errorf("%w: %q", ErrInvalidNamespace, name)
+internal/docker/namespace.go-46-	}
+internal/docker/namespace.go-47-
+internal/docker/namespace.go-48-	c, err := client.New(client.FromEnv)
+internal/docker/namespace.go-49-	if err != nil {
+internal/docker/namespace.go-50-		return nil, err
+internal/docker/namespace.go-51-	}
+internal/docker/namespace.go-52-
+internal/docker/namespace.go-53-	ns := &Namespace{
+internal/docker/namespace.go-54-		name:   name,
+internal/docker/namespace.go-55-		client: c,
+internal/docker/namespace.go-56-	}
+internal/docker/namespace.go-57-	ns.proxy = NewProxy(ns)
+internal/docker/namespace.go-58-
+internal/docker/namespace.go-59-	for _, opt := range opts {
+internal/docker/namespace.go-60-		opt(ns)
+internal/docker/namespace.go-61-	}
+internal/docker/namespace.go-62-
+internal/docker/namespace.go-63-	return ns, nil
+internal/docker/namespace.go-64-}
+internal/docker/namespace.go-65-
+internal/docker/namespace.go-66-func RestoreNamespace(ctx context.Context, name string) (*Namespace, error) {
+internal/docker/namespace.go-67-	ns, err := NewNamespace(name)
+internal/docker/namespace.go-68-	if err != nil {
+internal/docker/namespace.go-69-		return nil, err
+--
+internal/docker/application_settings.go:125:func (s ApplicationSettings) Validate() error {
+internal/docker/application_settings.go-126-	if s.Image == "" {
+internal/docker/application_settings.go-127-		return ErrImageRequired
+internal/docker/application_settings.go-128-	}
+internal/docker/application_settings.go-129-	if s.Backup.AutoBackup && s.Backup.Path == "" {
+internal/docker/application_settings.go-130-		return ErrAutoBackupWithoutPath
+internal/docker/application_settings.go-131-	}
+internal/docker/application_settings.go-132-	if s.Registry.Password != "" && s.Registry.Username == "" {
+internal/docker/application_settings.go-133-		return ErrRegistryPasswordWithoutUsername
+internal/docker/application_settings.go-134-	}
+internal/docker/application_settings.go-135-	if s.Registry.Username != "" && s.Registry.Password == "" {
+internal/docker/application_settings.go-136-		return ErrRegistryUsernameWithoutPassword
+internal/docker/application_settings.go-137-	}
+internal/docker/application_settings.go-138-	return nil
+internal/docker/application_settings.go-139-}
+internal/docker/application_settings.go-140-
+internal/docker/application_settings.go-141-func (s ApplicationSettings) TLSEnabled() bool {
+internal/docker/application_settings.go-142-	return s.Host != "" && !s.DisableTLS && !IsLocalhost(s.Host)
+internal/docker/application_settings.go-143-}
+internal/docker/application_settings.go-144-
+internal/docker/application_settings.go-145-func (s ApplicationSettings) Static() bool {
+internal/docker/application_settings.go-146-	return s.Source != ""
+internal/docker/application_settings.go-147-}
+internal/docker/application_settings.go-148-
+internal/docker/application_settings.go-149-func (s ApplicationSettings) Equal(other ApplicationSettings) bool {
+internal/docker/application_settings.go-150-	if s.Name != other.Name || s.Image != other.Image || s.Source != other.Source || s.SourceHash != other.SourceHash || s.ServedPath != other.ServedPath || s.Host != other.Host || s.DisableTLS != other.DisableTLS {
+internal/docker/application_settings.go-151-		return false
+internal/docker/application_settings.go-152-	}
+internal/docker/application_settings.go-153-	if s.Resources != other.Resources {
+internal/docker/application_settings.go-154-		return false
+internal/docker/application_settings.go-155-	}
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/application_backup_test.go
+Index: internal/docker/application_backup_test.go
+===================================================================
+--- internal/docker/application_backup_test.go
++++ internal/docker/application_backup_test.go
+@@ -87,8 +87,52 @@
+ 		assert.False(t, ok)
+ 	})
+ }
+ 
++func TestBackups(t *testing.T) {
++	dir := t.TempDir()
++	require.NoError(t, os.WriteFile(filepath.Join(dir, "myapp-20250101-090000.tar.gz"), []byte("old"), 0o644))
++	require.NoError(t, os.WriteFile(filepath.Join(dir, "myapp-20250201-090000.tar.gz"), []byte("newer!"), 0o644))
++	require.NoError(t, os.WriteFile(filepath.Join(dir, "notes.txt"), []byte("ignore"), 0o644))
++
++	app := &Application{
++		Settings: ApplicationSettings{
++			Name:   "myapp",
++			Backup: BackupSettings{Path: dir},
++		},
++	}
++
++	backups, err := app.Backups()
++	require.NoError(t, err)
++	require.Len(t, backups, 2)
++
++	assert.Equal(t, "myapp-20250201-090000.tar.gz", backups[0].Filename)
++	assert.Equal(t, time.Date(2025, 2, 1, 9, 0, 0, 0, time.UTC), backups[0].Time)
++	assert.Equal(t, int64(len("newer!")), backups[0].Size)
++	assert.Equal(t, "myapp-20250101-090000.tar.gz", backups[1].Filename)
++}
++
++func TestBackups_NoPath(t *testing.T) {
++	app := &Application{Settings: ApplicationSettings{Name: "myapp"}}
++
++	backups, err := app.Backups()
++	require.NoError(t, err)
++	assert.Empty(t, backups)
++}
++
++func TestBackups_MissingDirectory(t *testing.T) {
++	app := &Application{
++		Settings: ApplicationSettings{
++			Name:   "myapp",
++			Backup: BackupSettings{Path: filepath.Join(t.TempDir(), "missing")},
++		},
++	}
++
++	backups, err := app.Backups()
++	require.NoError(t, err)
++	assert.Empty(t, backups)
++}
++
+ func TestTrimBackups(t *testing.T) {
+ 	dir := t.TempDir()
+ 
+ 	app := &Application{
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mWrite internal/command/backups_test.go
+Created file successfully: internal/command/backups_test.go
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/command/backups_test.go
+Index: internal/command/backups_test.go
+===================================================================
+--- internal/command/backups_test.go
++++ internal/command/backups_test.go
+@@ -41,13 +41,13 @@
+ 	require.Len(t, lines, 2)
+ 
+ 	assert.Contains(t, lines[0], "myapp-20250201-090000.tar.gz")
+ 	assert.Contains(t, lines[0], "1 Feb 2025, 09:00")
+-	assert.Contains(t, lines[0], "28d")
++	assert.Contains(t, lines[0], "27d 15h")
+ 	assert.Contains(t, lines[0], "6 B")
+ 
+ 	assert.Contains(t, lines[1], "myapp-20250101-090000.tar.gz")
+-	assert.Contains(t, lines[1], "59d")
++	assert.Contains(t, lines[1], "58d 15h")
+ }
+ 
+ func TestBackupsEmptyDirectory(t *testing.T) {
+ 	dir := t.TempDir()
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgofmt -w internal/command/backups.go internal/command/backups_test.go internal/docker/application_backup.go internal/docker/application_backup_test.go && go build ./... && go test ./internal/command/... ./internal/docker/...
+# github.com/basecamp/once/internal/docker
+internal/docker/application_backup.go:53:6: BackupArchive redeclared in this block
+	internal/docker/application_backup.go:35:6: other declaration of BackupArchive
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/docker/application_backup.go [90m[offset=24, limit=40][0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/application_backup.go
+Index: internal/docker/application_backup.go
+===================================================================
+--- internal/docker/application_backup.go
++++ internal/docker/application_backup.go
+@@ -49,14 +49,8 @@
+ func (a *Application) BackupName() string {
+ 	return fmt.Sprintf("%s-%s.tar.gz", a.Settings.Name, time.Now().UTC().Format(backupTimeFormat))
+ }
+ 
+-type BackupArchive struct {
+-	Filename string
+-	Time     time.Time
+-	Size     int64
+-}
+-
+ func (a *Application) Backups() ([]BackupArchive, error) {
+ 	if a.Settings.Backup.Path == "" {
+ 		return nil, nil
+ 	}
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgofmt -w internal/docker/application_backup.go && go build ./... && go test ./internal/command/... ./internal/docker/...
+ok  	github.com/basecamp/once/internal/command	0.079s
+ok  	github.com/basecamp/once/internal/docker	0.178s
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mmake test && make lint
+go test ./internal/...
+ok  	github.com/basecamp/once/internal/background	0.030s
+ok  	github.com/basecamp/once/internal/browser	(cached)
+ok  	github.com/basecamp/once/internal/command	(cached)
+ok  	github.com/basecamp/once/internal/docker	(cached)
+ok  	github.com/basecamp/once/internal/fsutil	(cached)
+ok  	github.com/basecamp/once/internal/htmltext	(cached)
+?   	github.com/basecamp/once/internal/logging	[no test files]
+ok  	github.com/basecamp/once/internal/metrics	0.096s
+ok  	github.com/basecamp/once/internal/mouse	(cached)
+?   	github.com/basecamp/once/internal/service	[no test files]
+ok  	github.com/basecamp/once/internal/system	(cached)
+ok  	github.com/basecamp/once/internal/ui	2.253s
+ok  	github.com/basecamp/once/internal/userstats	(cached)
+ok  	github.com/basecamp/once/internal/version	(cached)
+golangci-lint run
+0 issues.
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgit diff --stat; echo ---; git diff -- internal/command/backups.go internal/command/root.go internal/docker/application_backup.go | sed -n '1,200p'
+internal/command/root.go                   |  1 +
+ internal/docker/application_backup.go      | 50 ++++++++++++++++++++++++++++++
+ internal/docker/application_backup_test.go | 44 ++++++++++++++++++++++++++
+ 3 files changed, 95 insertions(+)
+---
+diff --git i/internal/command/root.go w/internal/command/root.go
+index eeae8bd..01337ea 100644
+--- i/internal/command/root.go
++++ w/internal/command/root.go
+@@ -41,6 +41,7 @@ func NewRootCommand() *RootCommand {
+ 
+ 	r.cmd.AddCommand(newBackgroundCommand().cmd)
+ 	r.cmd.AddCommand(newBackupCommand().cmd)
++	r.cmd.AddCommand(newBackupsCommand().cmd)
+ 	r.cmd.AddCommand(newDeployCommand().cmd)
+ 	r.cmd.AddCommand(newDoctorCommand().cmd)
+ 	r.cmd.AddCommand(newExecCommand().cmd)
+diff --git i/internal/docker/application_backup.go w/internal/docker/application_backup.go
+index 6f93608..91aee04 100644
+--- i/internal/docker/application_backup.go
++++ w/internal/docker/application_backup.go
+@@ -11,6 +11,7 @@ import (
+ 	"log/slog"
+ 	"os"
+ 	"path/filepath"
++	"slices"
+ 	"strings"
+ 	"time"
+ 
+@@ -31,6 +32,12 @@ const (
+ 	backupTimeFormat       = "20060102-150405"
+ )
+ 
++type BackupArchive struct {
++	Filename string
++	Time     time.Time
++	Size     int64
++}
++
+ func (a *Application) Backup(ctx context.Context) error {
+ 	if a.Settings.Backup.Path == "" {
+ 		return fmt.Errorf("backup location is required")
+@@ -43,6 +50,49 @@ func (a *Application) BackupName() string {
+ 	return fmt.Sprintf("%s-%s.tar.gz", a.Settings.Name, time.Now().UTC().Format(backupTimeFormat))
+ }
+ 
++func (a *Application) Backups() ([]BackupArchive, error) {
++	if a.Settings.Backup.Path == "" {
++		return nil, nil
++	}
++
++	entries, err := os.ReadDir(a.Settings.Backup.Path)
++	if errors.Is(err, fs.ErrNotExist) {
++		return nil, nil
++	}
++	if err != nil {
++		return nil, fmt.Errorf("reading backup directory: %w", err)
++	}
++
++	var backups []BackupArchive
++	for _, entry := range entries {
++		if !entry.Type().IsRegular() {
++			continue
++		}
++
++		t, ok := parseBackupTime(a.Settings.Name, entry.Name())
++		if !ok {
++			continue
++		}
++
++		info, err := entry.Info()
++		if err != nil {
++			return nil, fmt.Errorf("reading backup file %s: %w", entry.Name(), err)
++		}
++
++		backups = append(backups, BackupArchive{
++			Filename: entry.Name(),
++			Time:     t,
++			Size:     info.Size(),
++		})
++	}
++
++	slices.SortFunc(backups, func(x, y BackupArchive) int {
++		return y.Time.Compare(x.Time)
++	})
++
++	return backups, nil
++}
++
+ func (a *Application) BackupToFile(ctx context.Context, dir string, name string) error {
+ 	if dir == "" {
+ 		return fmt.Errorf("backup location is required")
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgo vet ./internal/command/... ./internal/docker/...
+(no output)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+Implemented `once backups <host>`.
+
+- `internal/command/backups.go` — lists archives newest first as date, age, size, filename; prints a clear message when no location is configured or the directory is empty.
+- `internal/docker/application_backup.go` — new `Backups()` + `BackupArchive`, filtering to this app's archives and sorting by timestamp.
+- Registered in `root.go`; tests added for listing, empty, missing location, unknown host, size and age formatting.
+
+`make test` passes and `make lint` reports 0 issues.

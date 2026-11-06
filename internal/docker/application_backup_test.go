@@ -88,6 +88,50 @@ func TestParseBackupTime(t *testing.T) {
 	})
 }
 
+func TestBackups(t *testing.T) {
+	dir := t.TempDir()
+	require.NoError(t, os.WriteFile(filepath.Join(dir, "myapp-20250101-090000.tar.gz"), []byte("old"), 0o644))
+	require.NoError(t, os.WriteFile(filepath.Join(dir, "myapp-20250201-090000.tar.gz"), []byte("newer!"), 0o644))
+	require.NoError(t, os.WriteFile(filepath.Join(dir, "notes.txt"), []byte("ignore"), 0o644))
+
+	app := &Application{
+		Settings: ApplicationSettings{
+			Name:   "myapp",
+			Backup: BackupSettings{Path: dir},
+		},
+	}
+
+	backups, err := app.Backups()
+	require.NoError(t, err)
+	require.Len(t, backups, 2)
+
+	assert.Equal(t, "myapp-20250201-090000.tar.gz", backups[0].Filename)
+	assert.Equal(t, time.Date(2025, 2, 1, 9, 0, 0, 0, time.UTC), backups[0].Time)
+	assert.Equal(t, int64(len("newer!")), backups[0].Size)
+	assert.Equal(t, "myapp-20250101-090000.tar.gz", backups[1].Filename)
+}
+
+func TestBackups_NoPath(t *testing.T) {
+	app := &Application{Settings: ApplicationSettings{Name: "myapp"}}
+
+	backups, err := app.Backups()
+	require.NoError(t, err)
+	assert.Empty(t, backups)
+}
+
+func TestBackups_MissingDirectory(t *testing.T) {
+	app := &Application{
+		Settings: ApplicationSettings{
+			Name:   "myapp",
+			Backup: BackupSettings{Path: filepath.Join(t.TempDir(), "missing")},
+		},
+	}
+
+	backups, err := app.Backups()
+	require.NoError(t, err)
+	assert.Empty(t, backups)
+}
+
 func TestTrimBackups(t *testing.T) {
 	dir := t.TempDir()
 

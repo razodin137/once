@@ -11,6 +11,7 @@ import (
 	"log/slog"
 	"os"
 	"path/filepath"
+	"slices"
 	"strings"
 	"time"
 
@@ -31,6 +32,12 @@ const (
 	backupTimeFormat       = "20060102-150405"
 )
 
+type BackupArchive struct {
+	Filename string
+	Time     time.Time
+	Size     int64
+}
+
 func (a *Application) Backup(ctx context.Context) error {
 	if a.Settings.Backup.Path == "" {
 		return fmt.Errorf("backup location is required")
@@ -41,6 +48,49 @@ func (a *Application) Backup(ctx context.Context) error {
 
 func (a *Application) BackupName() string {
 	return fmt.Sprintf("%s-%s.tar.gz", a.Settings.Name, time.Now().UTC().Format(backupTimeFormat))
+}
+
+func (a *Application) Backups() ([]BackupArchive, error) {
+	if a.Settings.Backup.Path == "" {
+		return nil, nil
+	}
+
+	entries, err := os.ReadDir(a.Settings.Backup.Path)
+	if errors.Is(err, fs.ErrNotExist) {
+		return nil, nil
+	}
+	if err != nil {
+		return nil, fmt.Errorf("reading backup directory: %w", err)
+	}
+
+	var backups []BackupArchive
+	for _, entry := range entries {
+		if !entry.Type().IsRegular() {
+			continue
+		}
+
+		t, ok := parseBackupTime(a.Settings.Name, entry.Name())
+		if !ok {
+			continue
+		}
+
+		info, err := entry.Info()
+		if err != nil {
+			return nil, fmt.Errorf("reading backup file %s: %w", entry.Name(), err)
+		}
+
+		backups = append(backups, BackupArchive{
+			Filename: entry.Name(),
+			Time:     t,
+			Size:     info.Size(),
+		})
+	}
+
+	slices.SortFunc(backups, func(x, y BackupArchive) int {
+		return y.Time.Compare(x.Time)
+	})
+
+	return backups, nil
 }
 
 func (a *Application) BackupToFile(ctx context.Context, dir string, name string) error {
