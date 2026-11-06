@@ -32,14 +32,16 @@ type DashboardPanel struct {
 	scraper       *metrics.MetricsScraper
 	dockerScraper *docker.Scraper
 	userStats     *userstats.Reader
+	state         *docker.State
 }
 
-func NewDashboardPanel(app *docker.Application, scraper *metrics.MetricsScraper, dockerScraper *docker.Scraper, userStats *userstats.Reader) DashboardPanel {
+func NewDashboardPanel(app *docker.Application, scraper *metrics.MetricsScraper, dockerScraper *docker.Scraper, userStats *userstats.Reader, state *docker.State) DashboardPanel {
 	return DashboardPanel{
 		app:           *app,
 		scraper:       scraper,
 		dockerScraper: dockerScraper,
 		userStats:     userStats,
+		state:         state,
 	}
 }
 
@@ -65,7 +67,14 @@ func (p DashboardPanel) View(selected bool, toggling bool, showDetails bool, wid
 	name := lipgloss.NewStyle().Foreground(Colors.Border).Render("(" + docker.NameFromImageRef(p.app.Settings.Image) + ")")
 	badge := p.renderHealthBadge(cards)
 	left := badge + " " + url + " " + name
-	right := renderStateInfo(&p.app, toggling, p.stale())
+
+	chips := p.chips(cards, toggling)
+	right := renderChannelChips(chips)
+	for len(chips) > 1 && lipgloss.Width(left)+lipgloss.Width(right)+3 > innerWidth {
+		chips = chips[:len(chips)-1]
+		right = renderChannelChips(chips)
+	}
+
 	gap := max(innerWidth-2-lipgloss.Width(left)-lipgloss.Width(right), 1)
 	titleLine := " " + left + strings.Repeat(" ", gap) + right + " "
 
@@ -118,11 +127,54 @@ func (p DashboardPanel) Height(showDetails bool) int {
 
 // Private
 
+func (p DashboardPanel) chips(cards [3]MetricCard, toggling bool) []channelChip {
+	if toggling {
+		label := "starting..."
+		if p.app.Running {
+			label = "stopping..."
+		}
+		return []channelChip{{label: label, color: Colors.LightText}}
+	}
+
+	channels := p.app.Channels(docker.ChannelContext{
+		Now:        time.Now(),
+		Stale:      p.stale(),
+		Unhealthy:  p.unhealthy(cards),
+		LastBackup: p.lastBackup(),
+	})
+
+	chips := make([]channelChip, len(channels))
+	for i, c := range channels {
+		chips[i] = newChannelChip(c)
+	}
+	return chips
+}
+
 func (p DashboardPanel) stale() bool {
 	if p.dockerScraper == nil {
 		return false
 	}
 	return p.dockerScraper.Stale(p.app.Settings.Name)
+}
+
+func (p DashboardPanel) unhealthy(cards [3]MetricCard) bool {
+	if !p.app.Running {
+		return false
+	}
+
+	for _, c := range cards {
+		if c.Health() == healthError {
+			return true
+		}
+	}
+	return false
+}
+
+func (p DashboardPanel) lastBackup() *docker.OperationResult {
+	if p.state == nil {
+		return nil
+	}
+	return p.state.AppState(p.app.Settings.Name).LastBackupResult()
 }
 
 func (p DashboardPanel) renderHealthBadge(cards [3]MetricCard) string {
@@ -280,30 +332,6 @@ func (p DashboardPanel) fetchMetricsData() (requests, errors []float64) {
 }
 
 // Helpers
-
-func renderStateInfo(app *docker.Application, toggling, stale bool) string {
-	var status string
-	var statusColor color.Color
-	if toggling && app.Running {
-		status = "stopping..."
-		statusColor = Colors.LightText
-	} else if toggling {
-		status = "starting..."
-		statusColor = Colors.LightText
-	} else if stale {
-		status = "stale"
-		statusColor = Colors.Warning
-	} else if app.Running {
-		status = "running"
-		statusColor = Colors.Success
-	} else {
-		status = "stopped"
-		statusColor = Colors.LightText
-	}
-
-	stateStyle := lipgloss.NewStyle().Foreground(statusColor)
-	return stateStyle.Render(status)
-}
 
 func renderBar(current, peak, scaleMax float64, fillColor color.Color, width int) string {
 	if width <= 0 {

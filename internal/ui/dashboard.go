@@ -19,6 +19,8 @@ import (
 
 var dashboardShowDetails = true
 
+const stateRefreshInterval = time.Minute
+
 var dashboardKeys = struct {
 	Up       key.Binding
 	Down     key.Binding
@@ -59,6 +61,8 @@ type Dashboard struct {
 	progress      Progress
 	help          Help
 	overlay       Component
+	state         *docker.State
+	stateLoadedAt time.Time
 }
 
 type dashboardTickMsg struct{}
@@ -89,6 +93,8 @@ func NewDashboard(ns *docker.Namespace, apps []*docker.Application, selectedInde
 		hostname:      hostname,
 		progress:      NewProgress(0, Colors.Border),
 		help:          NewHelp(),
+		state:         loadState(ns),
+		stateLoadedAt: time.Now(),
 	}
 	d.buildPanels()
 	d.help.SetBindings(d.helpBindings())
@@ -218,6 +224,7 @@ func (m Dashboard) Update(msg tea.Msg) (Component, tea.Cmd) {
 		m.rebuildViewportContent()
 
 	case dashboardTickMsg:
+		m.refreshState()
 		m.rebuildViewportContent()
 		cmds = append(cmds, m.scheduleNextDashboardTick())
 
@@ -234,6 +241,8 @@ func (m Dashboard) Update(msg tea.Msg) (Component, tea.Cmd) {
 			previousName = m.apps[m.selectedIndex].Settings.Name
 		}
 		m.apps = m.namespace.Applications()
+		m.state = loadState(m.namespace)
+		m.stateLoadedAt = time.Now()
 		m.buildPanels()
 		newIndex := 0
 		for i, app := range m.apps {
@@ -320,15 +329,13 @@ func (m Dashboard) scheduleNextDashboardTick() tea.Cmd {
 }
 
 func (m Dashboard) lastBackupFor(app *docker.Application) *docker.OperationResult {
-	if m.namespace == nil {
+	state := m.state
+	if state == nil {
+		state = loadState(m.namespace)
+	}
+	if state == nil {
 		return nil
 	}
-
-	state, err := m.namespace.LoadState(context.Background())
-	if err != nil {
-		return nil
-	}
-
 	return state.AppState(app.Settings.Name).LastBackupResult()
 }
 
@@ -420,6 +427,30 @@ func (m *Dashboard) panelIndexAtY(y int) (int, bool) {
 func (m *Dashboard) buildPanels() {
 	m.panels = make([]DashboardPanel, len(m.apps))
 	for i, app := range m.apps {
-		m.panels[i] = NewDashboardPanel(app, m.scraper, m.dockerScraper, m.userStats)
+		m.panels[i] = NewDashboardPanel(app, m.scraper, m.dockerScraper, m.userStats, m.state)
 	}
+}
+
+func (m *Dashboard) refreshState() {
+	if time.Since(m.stateLoadedAt) < stateRefreshInterval {
+		return
+	}
+
+	m.state = loadState(m.namespace)
+	m.stateLoadedAt = time.Now()
+	m.buildPanels()
+}
+
+// Helpers
+
+func loadState(ns *docker.Namespace) *docker.State {
+	if ns == nil {
+		return nil
+	}
+
+	state, err := ns.LoadState(context.Background())
+	if err != nil {
+		return nil
+	}
+	return state
 }

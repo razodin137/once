@@ -1,0 +1,4 @@
+ internal/ui/dashboard.go            | 47 ++++++++++++++++++----
+ internal/ui/dashboard_panel.go      | 80 +++++++++++++++++++++++++------------
+ internal/ui/dashboard_panel_test.go | 63 ++++++++++++++++++++++++-----
+ 3 files changed, 145 insertions(+), 45 deletions(-)

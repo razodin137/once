@@ -3,6 +3,7 @@ package ui
 import (
 	"strings"
 	"testing"
+	"time"
 
 	"github.com/charmbracelet/x/ansi"
 	"github.com/stretchr/testify/assert"
@@ -17,7 +18,7 @@ func TestDashboardPanelViewRunningApp(t *testing.T) {
 	stripped := ansi.Strip(view)
 
 	assert.Contains(t, stripped, "app.example.com")
-	assert.Contains(t, stripped, "running")
+	assert.Contains(t, stripped, "[running]")
 }
 
 func TestDashboardPanelViewStoppedApp(t *testing.T) {
@@ -26,7 +27,44 @@ func TestDashboardPanelViewStoppedApp(t *testing.T) {
 	stripped := ansi.Strip(view)
 
 	assert.Contains(t, stripped, "app.example.com")
-	assert.Contains(t, stripped, "stopped")
+	assert.Contains(t, stripped, "[stopped]")
+}
+
+func TestDashboardPanelViewShowsNoBackupChip(t *testing.T) {
+	state := &docker.State{Apps: map[string]*docker.AppState{"test-app": {}}}
+	panel := testPanelWithState(true, state)
+	view := panel.View(false, false, true, 120, DashboardScales{})
+
+	assert.Contains(t, ansi.Strip(view), "[no backup]")
+}
+
+func TestDashboardPanelViewHidesBackupChipForASuccessfulBackup(t *testing.T) {
+	state := &docker.State{Apps: map[string]*docker.AppState{
+		"test-app": {LastBackup: docker.OperationResult{At: time.Now()}},
+	}}
+	panel := testPanelWithState(true, state)
+	view := panel.View(false, false, true, 120, DashboardScales{})
+
+	assert.NotContains(t, ansi.Strip(view), "[no backup]")
+}
+
+func TestDashboardPanelViewShowsIdleChip(t *testing.T) {
+	state := &docker.State{Apps: map[string]*docker.AppState{
+		"test-app": {LastBackup: docker.OperationResult{At: time.Now()}},
+	}}
+	panel := testPanelWithState(true, state)
+	panel.app.DeployedAt = time.Now().Add(-31 * 24 * time.Hour)
+	view := panel.View(false, false, true, 120, DashboardScales{})
+
+	assert.Contains(t, ansi.Strip(view), "[idle 30d]")
+}
+
+func TestDashboardPanelViewShowsDeployingChip(t *testing.T) {
+	panel := testPanel(true)
+	panel.app.DeployedAt = time.Now()
+	view := panel.View(false, false, true, 120, DashboardScales{})
+
+	assert.Contains(t, ansi.Strip(view), "[deploying]")
 }
 
 func TestDashboardPanelHeightRunning(t *testing.T) {
@@ -101,15 +139,14 @@ func TestDashboardPanelViewHasThreeLines(t *testing.T) {
 	assert.GreaterOrEqual(t, len(lines), 3)
 }
 
-func TestRenderStateInfo(t *testing.T) {
-	running := &docker.Application{Running: true}
-	stopped := &docker.Application{Running: false}
+func TestRenderChannelChips(t *testing.T) {
+	running := renderChannelChips([]channelChip{newChannelChip(docker.ChannelRunning)})
+	stopped := renderChannelChips([]channelChip{newChannelChip(docker.ChannelStopped)})
+	noBackup := renderChannelChips([]channelChip{newChannelChip(docker.ChannelNoBackup)})
 
-	assert.Contains(t, ansi.Strip(renderStateInfo(running, false, false)), "running")
-	assert.Contains(t, ansi.Strip(renderStateInfo(stopped, false, false)), "stopped")
-	assert.Contains(t, ansi.Strip(renderStateInfo(running, true, false)), "stopping...")
-	assert.Contains(t, ansi.Strip(renderStateInfo(stopped, true, false)), "starting...")
-	assert.Contains(t, ansi.Strip(renderStateInfo(running, false, true)), "stale")
+	assert.Contains(t, ansi.Strip(running), "[running]")
+	assert.Contains(t, ansi.Strip(stopped), "[stopped]")
+	assert.Contains(t, ansi.Strip(noBackup), "[no backup]")
 }
 
 func TestRenderBar(t *testing.T) {
@@ -127,6 +164,10 @@ func TestRenderBarZeroWidth(t *testing.T) {
 // Helpers
 
 func testPanel(running bool) DashboardPanel {
+	return testPanelWithState(running, nil)
+}
+
+func testPanelWithState(running bool, state *docker.State) DashboardPanel {
 	app := &docker.Application{
 		Running: running,
 		Settings: docker.ApplicationSettings{
@@ -138,5 +179,5 @@ func testPanel(running bool) DashboardPanel {
 	scraper := metrics.NewMetricsScraper(metrics.ScraperSettings{})
 	dockerScraper := &docker.Scraper{}
 
-	return NewDashboardPanel(app, scraper, dockerScraper, nil)
+	return NewDashboardPanel(app, scraper, dockerScraper, nil, state)
 }
