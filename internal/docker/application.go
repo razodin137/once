@@ -58,18 +58,21 @@ const (
 
 const staticNginxConfig = `server {
     listen 80;
-    location = %s {
+    sub_filter '</body>' '{{bar}}</body>';
+    sub_filter_once on;
+    sub_filter_types text/html;
+    location = {{health}} {
         access_log off;
         return 200 "ok";
     }
     location ~* \.md$ {
-        root %s;
+        root {{root}};
         charset utf-8;
         types { }
         default_type text/html;
     }
     location / {
-        root %s;
+        root {{root}};
         index index.html;
     }
 }
@@ -555,7 +558,7 @@ func (a *Application) containerConfig(env []string) *container.Config {
 	}
 
 	if a.Settings.Static() {
-		config.Cmd = staticNginxCommand()
+		config.Cmd = a.staticNginxCommand()
 	}
 
 	return config
@@ -563,7 +566,18 @@ func (a *Application) containerConfig(env []string) *container.Config {
 
 // Helpers
 
-func staticNginxCommand() []string {
-	config := fmt.Sprintf(staticNginxConfig, HealthCheckPath, staticContentTarget, staticContentTarget)
+func (a *Application) staticNginxCommand() []string {
+	config := strings.NewReplacer(
+		"{{bar}}", escapeNginxVariables(a.appBar()),
+		"{{health}}", HealthCheckPath,
+		"{{root}}", staticContentTarget,
+	).Replace(staticNginxConfig)
+
 	return []string{"sh", "-c", "cat > /etc/nginx/conf.d/default.conf <<'EOF'\n" + config + "EOF\nnginx -g 'daemon off;'\n"}
+}
+
+// escapeNginxVariables keeps nginx from expanding dollar signs in the bar, as
+// its single-quoted strings still interpolate variables.
+func escapeNginxVariables(text string) string {
+	return strings.ReplaceAll(text, "$", `\$`)
 }

@@ -1,0 +1,2 @@
+ internal/docker/application.go | 26 ++++++++++++++++++++------
+ 1 file changed, 20 insertions(+), 6 deletions(-)

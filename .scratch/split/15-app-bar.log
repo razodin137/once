@@ -1,0 +1,2485 @@
+[0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mls -la .opencode/command 2>/dev/null; ls -la ~/.config/opencode/command 2>/dev/null | head -50
+(no output)
+[0m$ [0mgit -C . log --oneline -5; git status --short | head -30
+2a8c584 split: 14-drift
+c9f069a split: 13-favorites
+f3b2a49 split: 12-channel-filter
+a8a3dc0 split: 11-channels
+115041b split: 10-contents-screen
+?? .scratch/split/15-app-bar.log
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mls -la .scratch/split/; cat .scratch/split/15-app-bar.log | head -60
+total 1648
+drwxr-xr-x 1 mrjohn mrjohn   1984 Nov  6 18:43 .
+drwxr-xr-x 1 mrjohn mrjohn     10 Nov  6 18:36 ..
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:12 01-deploy-static-folder.check
+-rw-r--r-- 1 mrjohn mrjohn    191 Nov  6 18:12 01-deploy-static-folder.diff
+-rw-r--r-- 1 mrjohn mrjohn  29878 Nov  6 18:12 01-deploy-static-folder.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:15 02-serve-static-apps.check
+-rw-r--r-- 1 mrjohn mrjohn    177 Nov  6 18:15 02-serve-static-apps.diff
+-rw-r--r-- 1 mrjohn mrjohn  96981 Nov  6 18:15 02-serve-static-apps.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:18 03-redeploy-folder.check
+-rw-r--r-- 1 mrjohn mrjohn    258 Nov  6 18:18 03-redeploy-folder.diff
+-rw-r--r-- 1 mrjohn mrjohn  88725 Nov  6 18:18 03-redeploy-folder.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:20 04-stale-source-detection.check
+-rw-r--r-- 1 mrjohn mrjohn    475 Nov  6 18:20 04-stale-source-detection.diff
+-rw-r--r-- 1 mrjohn mrjohn  82455 Nov  6 18:20 04-stale-source-detection.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:22 05-folder-contents-fallback.check
+-rw-r--r-- 1 mrjohn mrjohn    308 Nov  6 18:22 05-folder-contents-fallback.diff
+-rw-r--r-- 1 mrjohn mrjohn 142626 Nov  6 18:22 05-folder-contents-fallback.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:24 06-markdown-pages.check
+-rw-r--r-- 1 mrjohn mrjohn    397 Nov  6 18:24 06-markdown-pages.diff
+-rw-r--r-- 1 mrjohn mrjohn  81696 Nov  6 18:24 06-markdown-pages.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:25 07-single-file-html-site.check
+-rw-r--r-- 1 mrjohn mrjohn    492 Nov  6 18:25 07-single-file-html-site.diff
+-rw-r--r-- 1 mrjohn mrjohn  89089 Nov  6 18:25 07-single-file-html-site.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:27 08-remove-static-app.check
+-rw-r--r-- 1 mrjohn mrjohn    241 Nov  6 18:27 08-remove-static-app.diff
+-rw-r--r-- 1 mrjohn mrjohn  73820 Nov  6 18:27 08-remove-static-app.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:31 09-contents-card.check
+-rw-r--r-- 1 mrjohn mrjohn    247 Nov  6 18:31 09-contents-card.diff
+-rw-r--r-- 1 mrjohn mrjohn 195996 Nov  6 18:31 09-contents-card.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:33 10-contents-screen.check
+-rw-r--r-- 1 mrjohn mrjohn    156 Nov  6 18:33 10-contents-screen.diff
+-rw-r--r-- 1 mrjohn mrjohn  62181 Nov  6 18:33 10-contents-screen.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:36 11-channels.check
+-rw-r--r-- 1 mrjohn mrjohn    270 Nov  6 18:36 11-channels.diff
+-rw-r--r-- 1 mrjohn mrjohn 210717 Nov  6 18:36 11-channels.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:39 12-channel-filter.check
+-rw-r--r-- 1 mrjohn mrjohn    374 Nov  6 18:39 12-channel-filter.diff
+-rw-r--r-- 1 mrjohn mrjohn  82391 Nov  6 18:39 12-channel-filter.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:41 13-favorites.check
+-rw-r--r-- 1 mrjohn mrjohn    546 Nov  6 18:41 13-favorites.diff
+-rw-r--r-- 1 mrjohn mrjohn 201662 Nov  6 18:41 13-favorites.log
+-rw-r--r-- 1 mrjohn mrjohn    784 Nov  6 18:43 14-drift.check
+-rw-r--r-- 1 mrjohn mrjohn    202 Nov  6 18:43 14-drift.diff
+-rw-r--r-- 1 mrjohn mrjohn  99813 Nov  6 18:43 14-drift.log
+-rw-r--r-- 1 mrjohn mrjohn    476 Nov  6 18:43 15-app-bar.log
+[0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mls -la .opencode/command 2>/dev/null; ls -la ~/.config/opencode/command 2>/dev/null | head -50
+(no output)
+[0m$ [0mgit -C . log --oneline -5; git status --short | head -30
+2a8c584 split: 14-drift
+c9f069a split: 13-favorites
+f3b2a49 split: 12-channel-filter
+a8a3dc0 split: 11-channels
+115041b split: 10-contents-screen
+?? .scratch/split/15-app-bar.log
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgit show --stat HEAD; echo ---; git show --stat HEAD~1 | head -40
+commit 2a8c58461088c50f6da8ca4eb8b861a5c2594914
+Author: razodin137 <razodin137@gmail.com>
+Date:   Fri Nov 6 18:43:27 2026 +0700
+
+    split: 14-drift
+
+ .scratch/split/14-drift.check    |   16 +
+ .scratch/split/14-drift.diff     |    3 +
+ .scratch/split/14-drift.log      | 3043 ++++++++++++++++++++++++++++++++++++++
+ internal/browser/browser.go      |   20 +
+ internal/browser/browser_test.go |   11 +
+ internal/ui/dashboard.go         |   38 +-
+ internal/ui/dashboard_test.go    |   40 +
+ 7 files changed, 3170 insertions(+), 1 deletion(-)
+---
+commit c9f069abf48b001a3a189da060ec845cffeb9da0
+Author: razodin137 <razodin137@gmail.com>
+Date:   Fri Nov 6 18:41:37 2026 +0700
+
+    split: 13-favorites
+
+ .scratch/split/13-favorites.check   |   15 +
+ .scratch/split/13-favorites.diff    |    9 +
+ .scratch/split/13-favorites.log     | 6507 +++++++++++++++++++++++++++++++++++
+ internal/docker/state.go            |   13 +
+ internal/docker/state_test.go       |   31 +
+ internal/ui/contents_card.go        |   36 +-
+ internal/ui/contents_card_test.go   |   39 +-
+ internal/ui/dashboard.go            |   56 +-
+ internal/ui/dashboard_panel.go      |   11 +-
+ internal/ui/dashboard_panel_test.go |   14 +
+ internal/ui/dashboard_test.go       |   22 +
+ internal/ui/favorite.go             |   13 +
+ 12 files changed, 6753 insertions(+), 13 deletions(-)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mls; echo ---; cat .scratch/split/14-drift.diff; echo ---; cat .scratch/split/14-drift.check
+AGENTS.md
+bin
+cmd
+go.mod
+go.sum
+installer
+integration
+internal
+Makefile
+mise.toml
+MIT-LICENSE
+prompt
+prompt-v1
+README.md
+scripts
+---
+ internal/ui/dashboard.go      | 38 +++++++++++++++++++++++++++++++++++++-
+ internal/ui/dashboard_test.go | 40 ++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 77 insertions(+), 1 deletion(-)
+---
+go test ./internal/...
+ok  	github.com/basecamp/once/internal/background	(cached)
+ok  	github.com/basecamp/once/internal/browser	(cached)
+ok  	github.com/basecamp/once/internal/command	(cached)
+ok  	github.com/basecamp/once/internal/docker	0.033s
+ok  	github.com/basecamp/once/internal/fsutil	(cached)
+?   	github.com/basecamp/once/internal/logging	[no test files]
+ok  	github.com/basecamp/once/internal/metrics	0.009s
+ok  	github.com/basecamp/once/internal/mouse	(cached)
+?   	github.com/basecamp/once/internal/service	[no test files]
+ok  	github.com/basecamp/once/internal/system	(cached)
+ok  	github.com/basecamp/once/internal/ui	(cached)
+ok  	github.com/basecamp/once/internal/userstats	(cached)
+ok  	github.com/basecamp/once/internal/version	(cached)
+golangci-lint run
+0 issues.
+[0m$ [0mgrep -ril "app bar\|app-bar\|appbar" --include=*.md --include=*.go --include=*.txt . | head -20
+(no output)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgrep -rn "14-drift\|13-favorites\|12-channel-filter\|drift" prompt prompt-v1 README.md 2>/dev/null | head -30
+prompt/15-app-bar.md:3:Forty pixels tall, the app name on the left, then back, next, contents, drift, reload and hide. Dark glass over whatever the page is, and the page itself is never modified on disk.
+prompt/16-bar-keys.md:3:`/` menu, `[` back, `]` next, `C` contents, `R` drift, `Shift+R` reload, `H` hide, the same letters the TUI already uses so one set of habits works in both.
+[0m$ [0mls -la prompt prompt-v1 | head -60
+prompt:
+total 204
+drwxr-xr-x 1 mrjohn mrjohn 2004 Nov  6 17:49 .
+drwxr-xr-x 1 mrjohn mrjohn  352 Nov  6 17:59 ..
+-rw-r--r-- 1 mrjohn mrjohn  474 Nov  6 17:49 00-overview.md
+-rw-r--r-- 1 mrjohn mrjohn  422 Nov  6 17:49 01-deploy-static-folder.md
+-rw-r--r-- 1 mrjohn mrjohn  416 Nov  6 17:49 02-serve-static-apps.md
+-rw-r--r-- 1 mrjohn mrjohn  367 Nov  6 17:49 03-redeploy-folder.md
+-rw-r--r-- 1 mrjohn mrjohn  364 Nov  6 17:49 04-stale-source-detection.md
+-rw-r--r-- 1 mrjohn mrjohn  393 Nov  6 17:49 05-folder-contents-fallback.md
+-rw-r--r-- 1 mrjohn mrjohn  324 Nov  6 17:49 06-markdown-pages.md
+-rw-r--r-- 1 mrjohn mrjohn  332 Nov  6 17:49 07-single-file-html-site.md
+-rw-r--r-- 1 mrjohn mrjohn  371 Nov  6 17:49 08-remove-static-app.md
+-rw-r--r-- 1 mrjohn mrjohn  419 Nov  6 17:49 09-contents-card.md
+-rw-r--r-- 1 mrjohn mrjohn  392 Nov  6 17:49 10-contents-screen.md
+-rw-r--r-- 1 mrjohn mrjohn  363 Nov  6 17:49 11-channels.md
+-rw-r--r-- 1 mrjohn mrjohn  341 Nov  6 17:49 12-channel-filter.md
+-rw-r--r-- 1 mrjohn mrjohn  346 Nov  6 17:49 13-favorites.md
+-rw-r--r-- 1 mrjohn mrjohn  297 Nov  6 17:49 14-drift.md
+-rw-r--r-- 1 mrjohn mrjohn  400 Nov  6 17:49 15-app-bar.md
+-rw-r--r-- 1 mrjohn mrjohn  376 Nov  6 17:49 16-bar-keys.md
+-rw-r--r-- 1 mrjohn mrjohn  372 Nov  6 17:49 17-bar-cross-fade.md
+-rw-r--r-- 1 mrjohn mrjohn  356 Nov  6 17:49 18-bar-hide.md
+-rw-r--r-- 1 mrjohn mrjohn  309 Nov  6 17:49 19-open-command.md
+-rw-r--r-- 1 mrjohn mrjohn  358 Nov  6 17:49 20-show-command.md
+-rw-r--r-- 1 mrjohn mrjohn  379 Nov  6 17:49 21-logs-command.md
+-rw-r--r-- 1 mrjohn mrjohn  385 Nov  6 17:49 22-status-command.md
+-rw-r--r-- 1 mrjohn mrjohn  352 Nov  6 17:49 23-list-json.md
+-rw-r--r-- 1 mrjohn mrjohn  335 Nov  6 17:49 24-restart-command.md
+-rw-r--r-- 1 mrjohn mrjohn  360 Nov  6 17:49 25-update-all.md
+-rw-r--r-- 1 mrjohn mrjohn  351 Nov  6 17:49 26-doctor-command.md
+-rw-r--r-- 1 mrjohn mrjohn  346 Nov  6 17:49 27-backups-list.md
+-rw-r--r-- 1 mrjohn mrjohn  358 Nov  6 17:49 28-screenshot-capture.md
+-rw-r--r-- 1 mrjohn mrjohn  380 Nov  6 17:49 29-card-thumbnails.md
+-rw-r--r-- 1 mrjohn mrjohn  343 Nov  6 17:49 30-route-map.md
+-rw-r--r-- 1 mrjohn mrjohn  336 Nov  6 17:49 31-page-weight.md
+-rw-r--r-- 1 mrjohn mrjohn  349 Nov  6 17:49 32-broken-links.md
+-rw-r--r-- 1 mrjohn mrjohn  340 Nov  6 17:49 33-meta-preview.md
+-rw-r--r-- 1 mrjohn mrjohn  375 Nov  6 17:49 34-deploy-diff.md
+-rw-r--r-- 1 mrjohn mrjohn  379 Nov  6 17:49 35-promote-on-evidence.md
+-rw-r--r-- 1 mrjohn mrjohn  357 Nov  6 17:49 36-error-capture.md
+-rw-r--r-- 1 mrjohn mrjohn  398 Nov  6 17:49 37-dashboard-filter.md
+-rw-r--r-- 1 mrjohn mrjohn  403 Nov  6 17:49 38-command-palette.md
+-rw-r--r-- 1 mrjohn mrjohn  363 Nov  6 17:49 39-toasts.md
+-rw-r--r-- 1 mrjohn mrjohn  416 Nov  6 17:49 40-chart-time-range.md
+-rw-r--r-- 1 mrjohn mrjohn  414 Nov  6 17:49 41-compact-layout.md
+-rw-r--r-- 1 mrjohn mrjohn  393 Nov  6 17:49 42-appearance-settings.md
+-rw-r--r-- 1 mrjohn mrjohn  370 Nov  6 17:49 43-app-details-view.md
+-rw-r--r-- 1 mrjohn mrjohn  427 Nov  6 17:49 44-mouse-on-cards.md
+-rw-r--r-- 1 mrjohn mrjohn  442 Nov  6 17:49 45-incremental-render.md
+-rw-r--r-- 1 mrjohn mrjohn  435 Nov  6 17:49 46-chart-performance.md
+-rw-r--r-- 1 mrjohn mrjohn  363 Nov  6 17:49 47-single-stats-stream.md
+-rw-r--r-- 1 mrjohn mrjohn  349 Nov  6 17:49 48-share-link.md
+-rw-r--r-- 1 mrjohn mrjohn  385 Nov  6 17:49 49-status-page.md
+-rw-r--r-- 1 mrjohn mrjohn  453 Nov  6 17:49 50-house-style-pass.md
+
+prompt-v1:
+total 84
+drwxr-xr-x 1 mrjohn mrjohn 840 Nov  6 17:44 .
+drwxr-xr-x 1 mrjohn mrjohn 352 Nov  6 17:59 ..
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcat .scratch/split/14-drift.log | head -80
+[0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m✱ [0mGlob "**/*14*drift*" [90m1 match[0m
+[0m$ [0mls -la; ls -la .opencode 2>/dev/null; ls ~/.config/opencode/command 2>/dev/null
+total 64
+drwxr-xr-x 1 mrjohn mrjohn   352 Nov  6 17:59 .
+drwxr-xr-x 1 mrjohn mrjohn    24 Nov  6 18:01 ..
+-rw-r--r-- 1 mrjohn mrjohn  4449 Nov  6 17:42 AGENTS.md
+drwxr-xr-x 1 mrjohn mrjohn     8 Nov  6 17:59 bin
+drwxr-xr-x 1 mrjohn mrjohn    18 Nov  6 17:42 .claude
+drwxr-xr-x 1 mrjohn mrjohn     8 Nov  6 17:42 cmd
+-rw-r--r-- 1 mrjohn mrjohn     8 Nov  6 17:42 .dockerignore
+drwxr-xr-x 1 mrjohn mrjohn   196 Nov  6 18:41 .git
+drwxr-xr-x 1 mrjohn mrjohn    86 Nov  6 17:42 .github
+-rw-r--r-- 1 mrjohn mrjohn    53 Nov  6 17:42 .gitignore
+-rw-r--r-- 1 mrjohn mrjohn   216 Nov  6 17:42 .golangci.yml
+-rw-r--r-- 1 mrjohn mrjohn  3273 Nov  6 18:23 go.mod
+-rw-r--r-- 1 mrjohn mrjohn 14792 Nov  6 18:23 go.sum
+drwxr-xr-x 1 mrjohn mrjohn   138 Nov  6 17:42 installer
+drwxr-xr-x 1 mrjohn mrjohn    62 Nov  6 17:42 integration
+drwxr-xr-x 1 mrjohn mrjohn   158 Nov  6 17:42 internal
+-rw-r--r-- 1 mrjohn mrjohn  1292 Nov  6 17:42 Makefile
+-rw-r--r-- 1 mrjohn mrjohn    97 Nov  6 17:42 mise.toml
+-rw-r--r-- 1 mrjohn mrjohn  1053 Nov  6 17:42 MIT-LICENSE
+drwxr-xr-x 1 mrjohn mrjohn  2004 Nov  6 17:49 prompt
+drwxr-xr-x 1 mrjohn mrjohn   840 Nov  6 17:44 prompt-v1
+-rw-r--r-- 1 mrjohn mrjohn  8244 Nov  6 17:42 README.md
+drwxr-xr-x 1 mrjohn mrjohn    10 Nov  6 18:36 .scratch
+drwxr-xr-x 1 mrjohn mrjohn    30 Nov  5 23:06 scripts
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead prompt/14-drift.md 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcat .golangci.yml; echo ---; cat go.mod; echo ---; cat mise.toml
+version: "2"
+
+formatters:
+  enable:
+    - gofmt
+    - gci
+  settings:
+    gci:
+      sections:
+        - standard
+        - default
+        - localmodule
+
+linters:
+  enable:
+    - modernize
+  disable:
+    - errcheck
+---
+module github.com/basecamp/once
+
+go 1.27.0
+
+require (
+	charm.land/bubbles/v2 v2.2.1
+	charm.land/bubbletea/v2 v2.0.9
+	charm.land/lipgloss/v2 v2.0.6
+	github.com/axiomhq/hyperloglog v0.2.6
+	github.com/charmbracelet/colorprofile v0.4.3
+	github.com/charmbracelet/x/ansi v0.11.8
+	github.com/charmbracelet/x/term v0.2.2
+	github.com/containerd/errdefs v1.0.0
+	github.com/distribution/reference v0.6.0
+	github.com/google/go-containerregistry v0.22.1
+	github.com/lucasb-eyer/go-colorful v1.4.1
+	github.com/mattn/go-runewidth v0.0.29
+	github.com/moby/moby/api v1.56.0
+	github.com/moby/moby/client v0.6.0
+	github.com/prometheus/client_model v0.6.3
+	github.com/prometheus/common v0.71.0
+	github.com/shirou/gopsutil/v4 v4.26.8
+	github.com/spf13/cobra v1.10.2
+	github.com/stretchr/testify v1.12.1
+	github.com/yuin/goldmark v1.8.6
+)
+
+require (
+[0m$ [0mcat prompt/00-overview.md; echo ===; cat prompt/15-app-bar.md; echo ===; cat prompt/14-drift.md
+These prompts change the ONCE Go CLI/TUI in this repository, one feature per file, run in order with a fresh agent for each.
+
+House style here is the project's own Go conventions plus `make lint`; the wider reference copy is at /home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+
+The last line of every file is the same, and it means `make test` and `make lint` both run clean.
+
+Each file is the whole instruction for its session. Read only the one you are running.
+===
+Your job is to go in and inject a bar into every page ONCE serves here to this Go CLI/TUI app.
+
+Forty pixels tall, the app name on the left, then back, next, contents, drift, reload and hide. Dark glass over whatever the page is, and the page itself is never modified on disk.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+===
+Your job is to go in and add Drift here to this Go CLI/TUI app.
+
+`R` opens a random running app, never the one you are already on. No settings and no history, it just picks.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgrep -rn "proxy" --include=*.go internal | head -30; echo ===; grep -rn "func " internal/proxy/*.go 2>/dev/null | head -40
+internal/command/teardown.go:21:		Short: "Remove all applications and the proxy",
+internal/docker/application.go:146:	proxy := a.namespace.Proxy()
+internal/docker/application.go:147:	if proxy.Settings == nil {
+internal/docker/application.go:151:	port := proxy.Settings.HTTPPort
+internal/docker/application.go:153:		port = proxy.Settings.HTTPSPort
+internal/docker/application.go:272:		return fmt.Errorf("removing from proxy: %w", err)
+internal/docker/application.go:421:		return fmt.Errorf("registering with proxy: %w", err)
+internal/docker/application_test.go:85:	newAppWithProxy := func(host string, disableTLS bool, proxySettings *ProxySettings) *Application {
+internal/docker/application_test.go:87:		ns.proxy = &Proxy{Settings: proxySettings}
+internal/docker/application_test.go:104:	t.Run("nil proxy settings", func(t *testing.T) {
+internal/docker/application_test.go:106:		ns.proxy = &Proxy{}
+internal/docker/errors.go:19:		msg:         "proxy port conflict",
+internal/docker/namespace.go:25:	proxy        *Proxy
+internal/docker/namespace.go:57:	ns.proxy = NewProxy(ns)
+internal/docker/namespace.go:91:	return n.proxy
+internal/docker/namespace.go:147:	return n.proxy.Boot(ctx, ProxySettings{})
+internal/docker/namespace.go:175:	if err := n.proxy.Destroy(ctx); err != nil {
+internal/docker/namespace.go:221:	return n.proxy.LoadState(ctx)
+internal/docker/namespace.go:225:	return n.proxy.SaveState(ctx, state)
+internal/docker/namespace.go:294:	proxyPrefix := n.name + "-proxy"
+internal/docker/namespace.go:304:			if name == proxyPrefix {
+internal/docker/namespace.go:311:					n.proxy.Settings = &settings
+internal/docker/proxy.go:22:	ProxyImage = "basecamp/kamal-proxy:once-01"
+internal/docker/proxy.go:27:	stateFileDir  = "/home/kamal-proxy/.config/kamal-proxy"
+internal/docker/proxy.go:88:		return fmt.Errorf("inspecting proxy container: %w", err)
+internal/docker/proxy.go:93:		return fmt.Errorf("pulling proxy image: %w", err)
+internal/docker/proxy.go:107:			Cmd:   []string{"kamal-proxy", "run", "--metrics-port", fmt.Sprintf("%d", settings.MetricsPort)},
+internal/docker/proxy.go:129:					Target: "/home/kamal-proxy/.config/kamal-proxy",
+internal/docker/proxy.go:140:		return fmt.Errorf("creating proxy container: %w", err)
+internal/docker/proxy.go:145:			slog.Error("Port conflict starting proxy", "error", err)
+===
+[0m$ [0mfind internal -maxdepth 1 -type d | sort; echo ---; ls internal/proxy 2>/dev/null; echo ---; grep -rn "ReverseProxy\|httputil" --include=*.go internal | head -20
+internal
+internal/background
+internal/browser
+internal/command
+internal/docker
+internal/fsutil
+internal/logging
+internal/metrics
+internal/mouse
+internal/service
+internal/system
+internal/ui
+internal/userstats
+internal/version
+---
+---
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mls internal/*/ | head -100
+internal/background/:
+runner.go
+runner_test.go
+
+internal/browser/:
+browser.go
+browser_test.go
+
+internal/command/:
+background.go
+background_install.go
+background_remove.go
+background_run.go
+backup.go
+cli_progress.go
+deploy.go
+deploy_test.go
+exec.go
+exec_test.go
+keys.go
+keys_reset.go
+keys_set.go
+list.go
+remove.go
+restore.go
+root.go
+root_test.go
+self_update.go
+settings_flags.go
+start.go
+stop.go
+teardown.go
+update.go
+update_test.go
+version.go
+
+internal/docker/:
+application_backup.go
+application_backup_test.go
+application.go
+application_settings.go
+application_settings_test.go
+application_static_test.go
+application_test.go
+channels.go
+channels_test.go
+container.go
+errors.go
+errors_test.go
+events.go
+helpers.go
+helpers_test.go
+logs.go
+logs_test.go
+markdown.go
+namespace.go
+namespace_test.go
+progress.go
+progress_test.go
+proxy.go
+proxy_test.go
+registry_auth.go
+registry_auth_test.go
+ring_buffer.go
+ring_buffer_test.go
+scraper.go
+scraper_test.go
+site.go
+site_test.go
+source.go
+source_test.go
+state.go
+state_test.go
+volume.go
+volume_test.go
+
+internal/fsutil/:
+fsutil.go
+fsutil_test.go
+
+internal/logging/:
+log.go
+
+internal/metrics/:
+scraper.go
+scraper_test.go
+
+internal/mouse/:
+lexer.go
+lexer_test.go
+tracker.go
+tracker_test.go
+
+internal/service/:
+launchd.go
+service.go
+systemd.go
+
+internal/system/:
+disk.go
+[0m$ [0mgrep -rn "ListenAndServe\|http.Server\|http.Handler\|ServeHTTP\|net.Listen" --include=*.go . | head -30
+./installer/main.go:24:func withLogging(h http.HandlerFunc) http.HandlerFunc {
+./installer/main.go:29:		h.ServeHTTP(rl, r)
+./installer/main.go:77:func newInstallScriptHandler(template *template.Template) http.HandlerFunc {
+./installer/main.go:114:	log.Fatal(http.ListenAndServe(":"+port, nil))
+./installer/main_test.go:59:func testHandler() http.HandlerFunc {
+./installer/main_test.go:64:func serve(handler http.HandlerFunc, imageRef string) *httptest.ResponseRecorder {
+./integration/docker_test.go:1198:		listener, err := net.Listen("tcp", fmt.Sprintf(":%d", port))
+./integration/testapp/main.go:12:	log.Fatal(http.ListenAndServe(":80", nil))
+./internal/docker/application_test.go:16:	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+./internal/docker/application_test.go:32:	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+./internal/docker/application_test.go:50:	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+./internal/docker/errors_test.go:86:		listener, err := net.Listen("unix", socketPath)
+./internal/metrics/scraper_test.go:205:	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+./internal/metrics/scraper_test.go:255:	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+./internal/metrics/scraper_test.go:284:	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+./internal/metrics/scraper_test.go:299:	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {}))
+./internal/metrics/scraper_test.go:317:	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+./internal/version/updater_test.go:32:	assetSrv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+./internal/version/updater_test.go:78:	srv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+./internal/version/updater_test.go:90:	badSrv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+./internal/version/updater_test.go:132:	srv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+./internal/version/updater_test.go:151:	srv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgrep -rn "static\|Static" --include=*.go internal/docker | head -40
+internal/docker/application.go:55:	StaticImage         = "nginx:alpine-slim"
+internal/docker/application.go:56:	staticContentTarget = "/usr/share/nginx/html"
+internal/docker/application.go:59:const staticNginxConfig = `server {
+internal/docker/application.go:308:	if a.Settings.Static() || a.Settings.ServedPath != "" {
+internal/docker/application.go:505:	if a.Settings.Static() {
+internal/docker/application.go:510:			Target:   staticContentTarget,
+internal/docker/application.go:557:	if a.Settings.Static() {
+internal/docker/application.go:558:		config.Cmd = staticNginxCommand()
+internal/docker/application.go:566:func staticNginxCommand() []string {
+internal/docker/application.go:567:	config := fmt.Sprintf(staticNginxConfig, HealthCheckPath, staticContentTarget, staticContentTarget)
+internal/docker/application_settings.go:145:func (s ApplicationSettings) Static() bool {
+internal/docker/scraper.go:182:		if !settings.Static() || settings.SourceHash == "" {
+internal/docker/scraper_test.go:246:	settings := staticSettings(t, "site", dir)
+internal/docker/scraper_test.go:248:		containers: []container.Summary{staticContainer("site", settings)},
+internal/docker/scraper_test.go:269:	settings := staticSettings(t, "site", dir)
+internal/docker/scraper_test.go:274:		containers: []container.Summary{staticContainer("site", settings)},
+internal/docker/scraper_test.go:286:	settings := ApplicationSettings{Name: "site", Image: StaticImage, Source: t.TempDir(), Host: "site.localhost"}
+internal/docker/scraper_test.go:288:		containers: []container.Summary{staticContainer("site", settings)},
+internal/docker/scraper_test.go:335:func staticSettings(t *testing.T, name, dir string) ApplicationSettings {
+internal/docker/scraper_test.go:343:		Image:      StaticImage,
+internal/docker/scraper_test.go:350:func staticContainer(appName string, settings ApplicationSettings) container.Summary {
+internal/docker/application_static_test.go:12:func TestVolumeMountsStaticSource(t *testing.T) {
+internal/docker/application_static_test.go:24:		Target:   staticContentTarget,
+internal/docker/application_static_test.go:29:func TestVolumeMountsStaticSourceWithoutServedCopy(t *testing.T) {
+internal/docker/application_static_test.go:37:		Target:   staticContentTarget,
+internal/docker/application_static_test.go:42:func TestContainerConfigStatic(t *testing.T) {
+[0m$ [0msed -n 1,80p internal/docker/site.go; echo ===; sed -n 1,60p internal/docker/markdown.go; echo ===; sed -n 1,50p internal/docker/application_static_test.go
+package docker
+
+import (
+	"fmt"
+	"html/template"
+	"io"
+	"io/fs"
+	"net/url"
+	"os"
+	"path/filepath"
+	"slices"
+	"strings"
+)
+
+const (
+	siteIndexName = "index.html"
+	siteHTMLExt   = ".html"
+)
+
+// IsSiteFile reports whether path names a single HTML file that can be served
+// as a site in its own right.
+func IsSiteFile(path string) bool {
+	return strings.EqualFold(filepath.Ext(path), siteHTMLExt)
+}
+
+// ServeSite copies source into a fresh directory in the served site cache and
+// returns its path. Folders without an index.html get a generated contents
+// page in the copy, so the source is left untouched. A single HTML file is
+// served as the site's index.html.
+func ServeSite(name, source string) (string, error) {
+	dir, err := servedSiteDir(name)
+	if err != nil {
+		return "", err
+	}
+
+	if err := os.MkdirAll(dir, 0o755); err != nil {
+		return "", fmt.Errorf("creating served site directory: %w", err)
+	}
+
+	revision, err := randomID(8)
+	if err != nil {
+		return "", fmt.Errorf("generating served site id: %w", err)
+	}
+
+	dest := filepath.Join(dir, revision)
+	if err := BuildServedSite(source, dest); err != nil {
+		os.RemoveAll(dest)
+		return "", err
+	}
+
+	return dest, nil
+}
+
+// RemoveServedSite deletes every served copy belonging to name, along with any
+// generated pages, and prunes the site cache once it is empty.
+func RemoveServedSite(name string) error {
+	if name == "" {
+		return fmt.Errorf("served site name is required")
+	}
+
+	root, err := servedSiteRoot()
+	if err != nil {
+		return err
+	}
+
+	if err := os.RemoveAll(filepath.Join(root, "sites", name)); err != nil {
+		return err
+	}
+
+	removeIfEmpty(filepath.Join(root, "sites"))
+	removeIfEmpty(root)
+
+	return nil
+}
+
+// RemoveServedCopy deletes a single served copy, such as the previous version
+// of a site after a redeploy.
+func RemoveServedCopy(path string) error {
+	return os.RemoveAll(path)
+}
+===
+package docker
+
+import (
+	"bytes"
+	"fmt"
+	"html/template"
+	"io/fs"
+	"os"
+	"path/filepath"
+	"strings"
+
+	"github.com/yuin/goldmark"
+	"github.com/yuin/goldmark/ast"
+	"github.com/yuin/goldmark/extension"
+	"github.com/yuin/goldmark/parser"
+	goldmarkhtml "github.com/yuin/goldmark/renderer/html"
+	"github.com/yuin/goldmark/text"
+)
+
+const siteMarkdownExt = ".md"
+
+var markdownParser = goldmark.New(
+	goldmark.WithExtensions(extension.GFM),
+	goldmark.WithParserOptions(parser.WithAutoHeadingID()),
+	goldmark.WithRendererOptions(goldmarkhtml.WithUnsafe()),
+)
+
+// renderMarkdownDocuments rewrites every Markdown file in the served copy as a
+// rendered HTML document, keeping its path so links to the .md file still work.
+func renderMarkdownDocuments(root, dest string) error {
+	return filepath.WalkDir(root, func(path string, entry fs.DirEntry, err error) error {
+		if err != nil {
+			return err
+		}
+		if !isMarkdownEntry(entry) {
+			return nil
+		}
+
+		rel, err := filepath.Rel(root, path)
+		if err != nil {
+			return err
+		}
+
+		return writeMarkdownPage(path, filepath.Join(dest, rel))
+	})
+}
+
+// firstMarkdownEntry returns the first entry of a folder that holds nothing
+// but Markdown documents. Entries must already be in display order.
+func firstMarkdownEntry(entries []fs.DirEntry) (fs.DirEntry, bool) {
+	if len(entries) == 0 {
+		return nil, false
+	}
+
+	for _, entry := range entries {
+		if !isMarkdownEntry(entry) {
+			return nil, false
+		}
+	}
+
+===
+package docker
+
+import (
+	"strings"
+	"testing"
+
+	"github.com/moby/moby/api/types/mount"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+)
+
+func TestVolumeMountsStaticSource(t *testing.T) {
+	app := &Application{Settings: ApplicationSettings{
+		Source:     "/srv/my-site",
+		ServedPath: "/cache/once/sites/site.abc123/0123456789abcdef",
+	}}
+
+	mounts := app.volumeMounts(&ApplicationVolume{name: "once-app-my-site"})
+
+	assert.Len(t, mounts, len(AppVolumeMountTargets)+1)
+	assert.Contains(t, mounts, mount.Mount{
+		Type:     mount.TypeBind,
+		Source:   "/cache/once/sites/site.abc123/0123456789abcdef",
+		Target:   staticContentTarget,
+		ReadOnly: true,
+	})
+}
+
+func TestVolumeMountsStaticSourceWithoutServedCopy(t *testing.T) {
+	app := &Application{Settings: ApplicationSettings{Source: "/srv/my-site"}}
+
+	mounts := app.volumeMounts(&ApplicationVolume{name: "once-app-my-site"})
+
+	assert.Contains(t, mounts, mount.Mount{
+		Type:     mount.TypeBind,
+		Source:   "/srv/my-site",
+		Target:   staticContentTarget,
+		ReadOnly: true,
+	})
+}
+
+func TestContainerConfigStatic(t *testing.T) {
+	app := &Application{Settings: ApplicationSettings{Source: "/srv/my-site"}}
+
+	config := app.containerConfig(nil)
+
+	require.NotEmpty(t, config.Cmd)
+	configText := strings.Join(config.Cmd, " ")
+	assert.Contains(t, configText, "location = /up")
+	assert.Contains(t, configText, `location ~* \.md$`)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0msed -n 40,120p internal/docker/application.go; echo ...; sed -n 540,600p internal/docker/application.go
+ErrDeployFailed       = errors.New("deploy failed")
+	ErrVerificationFailed = &describedError{
+		msg:         "verification failed",
+		description: "The application couldn't be verified. Please check that you have a valid DNS record set up.",
+	}
+	ErrUnpauseFailed                   = errors.New("failed to unpause container after backup")
+	ErrRegistryPasswordWithoutUsername = errors.New("registry password requires a username")
+	ErrRegistryUsernameWithoutPassword = errors.New("registry username requires a password")
+)
+
+const (
+	AutomaticTaskInterval = 24 * time.Hour
+	HealthCheckPath       = "/up"
+	httpVerifyTimeout     = 30 * time.Second
+
+	StaticImage         = "nginx:alpine-slim"
+	staticContentTarget = "/usr/share/nginx/html"
+)
+
+const staticNginxConfig = `server {
+    listen 80;
+    location = %s {
+        access_log off;
+        return 200 "ok";
+    }
+    location ~* \.md$ {
+        root %s;
+        charset utf-8;
+        types { }
+        default_type text/html;
+    }
+    location / {
+        root %s;
+        index index.html;
+    }
+}
+`
+
+// AppVolumeMountTargets defines the paths where the app data volume is mounted
+// inside the container. The first entry is the primary path used for backups.
+var AppVolumeMountTargets = []string{"/storage", "/rails/storage"}
+
+type Application struct {
+	namespace    *Namespace
+	Settings     ApplicationSettings
+	Running      bool
+	RunningSince time.Time
+	DeployedAt   time.Time
+}
+
+func NewApplication(ns *Namespace, settings ApplicationSettings) *Application {
+	return &Application{
+		namespace: ns,
+		Settings:  settings,
+	}
+}
+
+func (a *Application) ContainerName(ctx context.Context) (string, error) {
+	containers, err := a.namespace.client.ContainerList(ctx, client.ContainerListOptions{All: true})
+	if err != nil {
+		return "", err
+	}
+
+	for _, c := range containers.Items {
+		if len(c.Names) == 0 {
+			continue
+		}
+		name := strings.TrimPrefix(c.Names[0], "/")
+		if a.namespace.containerAppName(name) == a.Settings.Name {
+			return name, nil
+		}
+	}
+
+	return "", fmt.Errorf("no container found for app %s", a.Settings.Name)
+}
+
+func (a *Application) Volume(ctx context.Context) (*ApplicationVolume, error) {
+	vol, err := FindVolume(ctx, a.namespace, a.Settings.Name)
+	if err == nil {
+		return vol, nil
+	}
+...
+
+	for k, v := range s.EnvVars {
+		env = append(env, k+"="+v)
+	}
+
+	return env
+}
+
+func (a *Application) containerConfig(env []string) *container.Config {
+	config := &container.Config{
+		Image: a.Settings.Image,
+		Labels: map[string]string{
+			labelKey: a.Settings.Marshal(),
+		},
+		Env: env,
+	}
+
+	if a.Settings.Static() {
+		config.Cmd = staticNginxCommand()
+	}
+
+	return config
+}
+
+// Helpers
+
+func staticNginxCommand() []string {
+	config := fmt.Sprintf(staticNginxConfig, HealthCheckPath, staticContentTarget, staticContentTarget)
+	return []string{"sh", "-c", "cat > /etc/nginx/conf.d/default.conf <<'EOF'\n" + config + "EOF\nnginx -g 'daemon off;'\n"}
+}
+[0m$ [0mfor f in 16-bar-keys 17-bar-cross-fade 18-bar-hide 19-open-command 09-contents-card 10-contents-screen; do echo "=== $f"; cat prompt/$f.md; done
+=== 16-bar-keys
+Your job is to go in and bind the bar to the same keys everywhere here to this Go CLI/TUI app.
+
+`/` menu, `[` back, `]` next, `C` contents, `R` drift, `Shift+R` reload, `H` hide, the same letters the TUI already uses so one set of habits works in both.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+=== 17-bar-cross-fade
+Your job is to go in and keep the bar still while content cross-fades between apps here to this Go CLI/TUI app.
+
+Moving to the next or previous app replaces the page under a bar that does not move or blink, and older browsers just replace the page.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+=== 18-bar-hide
+Your job is to go in and let the bar hide itself here to this Go CLI/TUI app.
+
+Scrolling down hides it, scrolling up brings it back, and while it is gone a small tab sits in the top right corner to bring it back with a click or `H`.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+=== 19-open-command
+Your job is to go in and add `once open <host>` here to this Go CLI/TUI app.
+
+It prints the URL and opens it in the browser, and on its own it opens the contents page listing every app.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+=== 09-contents-card
+Your job is to go in and add a contents card for one app here to this Go CLI/TUI app.
+
+Cream paper, a serif title, a stamp with the app's initials, then the facts: host, image or folder, uptime, last deploy, last backup. It is the card the rest of the interface is built around, so make it good.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+=== 10-contents-screen
+Your job is to go in and put the contents card on its own full-screen page in the TUI here to this Go CLI/TUI app.
+
+Opened from the selected dashboard panel, same words and facts as the web card, esc back to the dashboard, which already handles overlays and selection.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgrep -rln "Contents\|contents" --include=*.go internal cmd | head -20; echo ===; ls internal/ui
+internal/command/deploy.go
+internal/docker/application_backup.go
+internal/docker/site.go
+internal/ui/dashboard.go
+internal/ui/dashboard_test.go
+internal/ui/contents_card.go
+internal/ui/contents_card_test.go
+===
+actions_menu.go
+actions_menu_test.go
+app.go
+channels.go
+chart.go
+chart_scale.go
+chart_scale_test.go
+chart_test.go
+component.go
+confirmation.go
+confirmation_test.go
+contents_card.go
+contents_card_test.go
+dashboard.go
+dashboard_header.go
+dashboard_header_test.go
+dashboard_panel.go
+dashboard_panel_test.go
+dashboard_test.go
+favorite.go
+form.go
+form_test.go
+helpers_test.go
+help.go
+help_test.go
+install_activity.go
+install_app_list.go
+install_app_list_test.go
+install.go
+install_hostname_form.go
+install_hostname_form_test.go
+install_image_form.go
+install_image_form_test.go
+install_test.go
+keys.go
+logo.go
+logs.go
+logs_test.go
+menu.go
+menu_test.go
+metric_card.go
+metric_card_test.go
+palette_detect.go
+palette_detect_test.go
+palette.go
+palette_test.go
+popup_help.go
+popup_help_test.go
+progress.go
+remove.go
+remove_test.go
+settings_form_application.go
+settings_form_backups.go
+settings_form_base.go
+settings_form_email.go
+settings_form_environment.go
+settings_form_registry.go
+settings_form_resources.go
+settings_form_test.go
+settings_form_updates.go
+settings.go
+settings_menu.go
+settings_menu_test.go
+settings_test.go
+starfield.go
+styles.go
+styles_test.go
+terminal_size_guard.go
+terminal_size_guard_test.go
+[0m$ [0mgrep -rn "buildContentsPage\|contentsPage\|ContentsPage\|generated page\|renderContents" --include=*.go internal | head -20
+internal/docker/site.go:55:// generated pages, and prunes the site cache once it is empty.
+internal/docker/site.go:117:	return writeContentsPages(root, dest)
+internal/docker/site.go:195:func writeContentsPages(root, dest string) error {
+internal/docker/site.go:209:		return writeContentsPage(path, rel, filepath.Join(dest, rel, siteIndexName))
+internal/docker/site.go:218:type contentsPage struct {
+internal/docker/site.go:233:func writeContentsPage(dir, rel, target string) error {
+internal/docker/site.go:245:	page := contentsPage{
+internal/docker/site.go:333:var contentsTemplate = template.Must(template.New("contents").Parse(contentsPageHTML))
+internal/docker/site.go:335:const contentsPageHTML = `<!doctype html>
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/docker/site.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/docker/namespace.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0msed -n 1,200p internal/docker/application.go
+package docker
+
+import (
+	"cmp"
+	"context"
+	"errors"
+	"fmt"
+	"log/slog"
+	"net/http"
+	"strconv"
+	"strings"
+	"time"
+
+	"github.com/containerd/errdefs"
+	"github.com/moby/moby/api/types/container"
+	"github.com/moby/moby/api/types/mount"
+	"github.com/moby/moby/api/types/network"
+	"github.com/moby/moby/client"
+)
+
+var (
+	ErrApplicationExists     = errors.New("application already exists")
+	ErrHostnameInUse         = errors.New("hostname already in use")
+	ErrHostRequired          = errors.New("host is required")
+	ErrInvalidBackup         = errors.New("invalid backup archive")
+	ErrImageRequired         = errors.New("image is required")
+	ErrApplicationNotRunning = errors.New("the application is not running")
+	ErrBackupPathRelative    = errors.New("backup path must be absolute")
+	ErrBackupFileExists      = errors.New("backup file already exists")
+	ErrAutoBackupWithoutPath = errors.New("auto-backup requires a backup path")
+	ErrSetupFailed           = errors.New("setup failed")
+	ErrPullFailed            = &describedError{
+		msg:         "pull failed",
+		description: "Failed to download the application image. Check that the image name is correct and try again.",
+	}
+	ErrPullMaybeUnauthorized = &describedError{
+		msg:         "image missing or authentication required",
+		description: "Could not pull the image. The image may not exist, or it may require registry credentials.",
+	}
+	ErrDeployFailed       = errors.New("deploy failed")
+	ErrVerificationFailed = &describedError{
+		msg:         "verification failed",
+		description: "The application couldn't be verified. Please check that you have a valid DNS record set up.",
+	}
+	ErrUnpauseFailed                   = errors.New("failed to unpause container after backup")
+	ErrRegistryPasswordWithoutUsername = errors.New("registry password requires a username")
+	ErrRegistryUsernameWithoutPassword = errors.New("registry username requires a password")
+)
+
+const (
+	AutomaticTaskInterval = 24 * time.Hour
+	HealthCheckPath       = "/up"
+	httpVerifyTimeout     = 30 * time.Second
+
+	StaticImage         = "nginx:alpine-slim"
+	staticContentTarget = "/usr/share/nginx/html"
+)
+
+const staticNginxConfig = `server {
+    listen 80;
+    location = %s {
+        access_log off;
+        return 200 "ok";
+    }
+    location ~* \.md$ {
+        root %s;
+        charset utf-8;
+        types { }
+        default_type text/html;
+    }
+    location / {
+        root %s;
+        index index.html;
+    }
+}
+`
+
+// AppVolumeMountTargets defines the paths where the app data volume is mounted
+// inside the container. The first entry is the primary path used for backups.
+var AppVolumeMountTargets = []string{"/storage", "/rails/storage"}
+
+type Application struct {
+	namespace    *Namespace
+	Settings     ApplicationSettings
+	Running      bool
+	RunningSince time.Time
+	DeployedAt   time.Time
+}
+
+func NewApplication(ns *Namespace, settings ApplicationSettings) *Application {
+	return &Application{
+		namespace: ns,
+		Settings:  settings,
+	}
+}
+
+func (a *Application) ContainerName(ctx context.Context) (string, error) {
+	containers, err := a.namespace.client.ContainerList(ctx, client.ContainerListOptions{All: true})
+	if err != nil {
+		return "", err
+	}
+
+	for _, c := range containers.Items {
+		if len(c.Names) == 0 {
+			continue
+		}
+		name := strings.TrimPrefix(c.Names[0], "/")
+		if a.namespace.containerAppName(name) == a.Settings.Name {
+			return name, nil
+		}
+	}
+
+	return "", fmt.Errorf("no container found for app %s", a.Settings.Name)
+}
+
+func (a *Application) Volume(ctx context.Context) (*ApplicationVolume, error) {
+	vol, err := FindVolume(ctx, a.namespace, a.Settings.Name)
+	if err == nil {
+		return vol, nil
+	}
+	if !errors.Is(err, ErrVolumeNotFound) {
+		return nil, err
+	}
+
+	return CreateVolume(ctx, a.namespace, a.Settings.Name, ApplicationLegacyVolumeSettings{})
+}
+
+func (a *Application) URL() string {
+	if a.Settings.Host == "" {
+		return ""
+	}
+
+	scheme := "http"
+	defaultPort := 80
+	if a.Settings.TLSEnabled() {
+		scheme = "https"
+		defaultPort = 443
+	}
+
+	base := scheme + "://" + a.Settings.Host
+
+	if a.namespace == nil {
+		return base
+	}
+
+	proxy := a.namespace.Proxy()
+	if proxy.Settings == nil {
+		return base
+	}
+
+	port := proxy.Settings.HTTPPort
+	if a.Settings.TLSEnabled() {
+		port = proxy.Settings.HTTPSPort
+	}
+
+	if port != 0 && port != defaultPort {
+		return base + ":" + strconv.Itoa(port)
+	}
+	return base
+}
+
+func (a *Application) Stop(ctx context.Context) error {
+	name, err := a.ContainerName(ctx)
+	if err != nil {
+		return err
+	}
+
+	_, err = a.namespace.client.ContainerStop(ctx, name, client.ContainerStopOptions{})
+	return err
+}
+
+func (a *Application) Start(ctx context.Context) error {
+	name, err := a.ContainerName(ctx)
+	if err != nil {
+		return err
+	}
+
+	_, err = a.namespace.client.ContainerStart(ctx, name, client.ContainerStartOptions{})
+	return err
+}
+
+func (a *Application) Exec(ctx context.Context, cmd []string) error {
+	name, err := a.ContainerName(ctx)
+	if err != nil {
+		return err
+	}
+
+	if err := execAttachedInContainer(ctx, a.namespace.client, name, cmd); err != nil {
+		if errdefs.IsConflict(err) {
+			return ErrApplicationNotRunning
+		}
+		return err
+	}
+
+	return nil
+}
+
+func (a *Application) Update(ctx context.Context, progress DeployProgressCallback) (bool, error) {
+	changed, err := a.pullImage(ctx, progress)
+	if err != nil {
+[0m$ [0mls prompt-v1; echo ===; grep -ril "bar\|contents" prompt-v1 | head
+00-overview.md
+01-logs-command.md
+02-status-command.md
+03-restart-command.md
+04-backups-command.md
+05-dashboard-filter.md
+06-dashboard-lifecycle-shortcuts.md
+07-update-all.md
+08-health-checks.md
+09-app-details.md
+10-backup-restore.md
+11-logs-stderr.md
+12-logs-pause.md
+13-appearance-settings.md
+14-command-palette.md
+15-toasts.md
+16-chart-time-range.md
+17-compact-layout.md
+18-incremental-render.md
+19-chart-performance.md
+20-house-style.md
+===
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgrep -rn "ServedPath\|SourceHash" --include=*.go internal/docker | head -30
+internal/docker/application.go:308:	if a.Settings.Static() || a.Settings.ServedPath != "" {
+internal/docker/application.go:506:		source := cmp.Or(a.Settings.ServedPath, a.Settings.Source)
+internal/docker/application_settings.go:101:	SourceHash string             `json:"sourceHash,omitempty"`
+internal/docker/application_settings.go:102:	ServedPath string             `json:"servedPath,omitempty"`
+internal/docker/application_settings.go:150:	if s.Name != other.Name || s.Image != other.Image || s.Source != other.Source || s.SourceHash != other.SourceHash || s.ServedPath != other.ServedPath || s.Host != other.Host || s.DisableTLS != other.DisableTLS {
+internal/docker/scraper.go:182:		if !settings.Static() || settings.SourceHash == "" {
+internal/docker/scraper.go:187:		if err != nil || hash != settings.SourceHash {
+internal/docker/scraper_test.go:345:		SourceHash: hash,
+internal/docker/application_static_test.go:15:		ServedPath: "/cache/once/sites/site.abc123/0123456789abcdef",
+[0m$ [0mgrep -rn "once.local\|dashboard\b.*http\|http.*dashboard\|Contents" --include=*.go internal cmd | head -20; echo ===; sed -n 1,80p internal/command/list.go
+internal/docker/site.go:117:	return writeContentsPages(root, dest)
+internal/docker/site.go:195:func writeContentsPages(root, dest string) error {
+internal/docker/site.go:209:		return writeContentsPage(path, rel, filepath.Join(dest, rel, siteIndexName))
+internal/docker/site.go:233:func writeContentsPage(dir, rel, target string) error {
+internal/docker/site.go:438:    <p class="eyebrow">ONCE · Contents</p>
+internal/ui/dashboard.go:36:	Contents key.Binding
+internal/ui/dashboard.go:48:	Contents: WithHelp(NewKeyBinding("C"), "C", "contents"),
+internal/ui/dashboard.go:194:		if key.Matches(msg, dashboardKeys.Contents) && len(m.apps) > 0 {
+internal/ui/dashboard.go:196:			m.overlay = NewContentsCard(app, m.lastBackupFor(app), m.isFavorite(app.Settings.Name), m.width)
+internal/ui/dashboard.go:223:	case ContentsCardCloseMsg:
+internal/ui/dashboard.go:226:	case ContentsCardFavoriteMsg:
+internal/ui/dashboard.go:336:			dashboardKeys.Contents, dashboardKeys.Drift, dashboardKeys.Details,
+internal/ui/dashboard_test.go:104:func TestDashboard_ContentsCardOpensOnC(t *testing.T) {
+internal/ui/dashboard_test.go:113:	assert.IsType(t, ContentsCard{}, d.overlay)
+internal/ui/dashboard_test.go:115:	d, _ = updateDashboard(d, ContentsCardCloseMsg{})
+internal/ui/contents_card.go:33:type ContentsCardCloseMsg struct{}
+internal/ui/contents_card.go:35:type ContentsCardFavoriteMsg struct {
+internal/ui/contents_card.go:40:type ContentsCard struct {
+internal/ui/contents_card.go:48:func NewContentsCard(app *docker.Application, lastBackup *docker.OperationResult, favorite bool, width int) ContentsCard {
+internal/ui/contents_card.go:49:	return ContentsCard{
+===
+package command
+
+import (
+	"context"
+	"fmt"
+
+	"charm.land/lipgloss/v2"
+	"github.com/spf13/cobra"
+
+	"github.com/basecamp/once/internal/docker"
+)
+
+var hostStyle = lipgloss.NewStyle().Foreground(lipgloss.BrightBlue)
+
+type listCommand struct {
+	cmd *cobra.Command
+}
+
+func newListCommand() *listCommand {
+	l := &listCommand{}
+	l.cmd = &cobra.Command{
+		Use:     "list",
+		Aliases: []string{"ls"},
+		Short:   "List installed applications",
+		RunE:    WithNamespace(l.run),
+	}
+	return l
+}
+
+// Private
+
+func (l *listCommand) run(_ context.Context, ns *docker.Namespace, cmd *cobra.Command, args []string) error {
+	for _, app := range ns.Applications() {
+		status := "stopped"
+		if app.Running {
+			status = "running"
+		}
+
+		host := hostStyle.Hyperlink(app.URL()).Render(app.Settings.Host)
+
+		fmt.Printf("%s (%s)\n", host, status)
+	}
+
+	return nil
+}
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgrep -rn "staticNginxCommand\|staticNginxConfig\|containerConfig" --include=*.go internal | head -20
+internal/docker/application.go:59:const staticNginxConfig = `server {
+internal/docker/application.go:391:		Config:     a.containerConfig(env),
+internal/docker/application.go:548:func (a *Application) containerConfig(env []string) *container.Config {
+internal/docker/application.go:558:		config.Cmd = staticNginxCommand()
+internal/docker/application.go:566:func staticNginxCommand() []string {
+internal/docker/application.go:567:	config := fmt.Sprintf(staticNginxConfig, HealthCheckPath, staticContentTarget, staticContentTarget)
+internal/docker/application_static_test.go:45:	config := app.containerConfig(nil)
+internal/docker/application_static_test.go:57:	config := app.containerConfig(nil)
+[0m$ [0msed -n 480,545p internal/docker/application.go; echo ===; grep -rn "func (a \*Application) Deploy" -A 40 internal/docker/application.go | head -60
+for _, c := range containers.Items {
+		if len(c.Names) == 0 {
+			continue
+		}
+		name := strings.TrimPrefix(c.Names[0], "/")
+		if a.namespace.containerAppName(name) == a.Settings.Name && name != keep {
+			if _, err := a.namespace.client.ContainerRemove(ctx, c.ID, client.ContainerRemoveOptions{Force: true}); err != nil {
+				return err
+			}
+		}
+	}
+
+	return nil
+}
+
+func (a *Application) volumeMounts(vol *ApplicationVolume) []mount.Mount {
+	var mounts []mount.Mount
+	for _, target := range AppVolumeMountTargets {
+		mounts = append(mounts, mount.Mount{
+			Type:   mount.TypeVolume,
+			Source: vol.Name(),
+			Target: target,
+		})
+	}
+
+	if a.Settings.Static() {
+		source := cmp.Or(a.Settings.ServedPath, a.Settings.Source)
+		mounts = append(mounts, mount.Mount{
+			Type:     mount.TypeBind,
+			Source:   source,
+			Target:   staticContentTarget,
+			ReadOnly: true,
+		})
+	}
+
+	return mounts
+}
+
+func (a *Application) BuildEnv() []string {
+	s := a.Settings
+
+	env := []string{
+		"SECRET_KEY_BASE=" + s.Keys.SecretKeyBase,
+		"VAPID_PUBLIC_KEY=" + s.Keys.VAPIDPublicKey,
+		"VAPID_PRIVATE_KEY=" + s.Keys.VAPIDPrivateKey,
+	}
+
+	if !s.TLSEnabled() {
+		env = append(env, "DISABLE_SSL=true")
+	}
+
+	if s.Resources.CPUs > 0 {
+		env = append(env, "NUM_CPUS="+strconv.Itoa(s.Resources.CPUs))
+	}
+
+	if url := a.URL(); url != "" {
+		env = append(env, "BASE_URL="+url)
+	}
+
+	env = append(env, s.SMTP.BuildEnv()...)
+
+	for k, v := range s.EnvVars {
+		env = append(env, k+"="+v)
+	}
+
+	return env
+===
+222:func (a *Application) Deploy(ctx context.Context, progress DeployProgressCallback) error {
+223-	if a.Settings.Host == "" {
+224-		return ErrHostRequired
+225-	}
+226-
+227-	if _, err := a.pullImage(ctx, progress); err != nil {
+228-		return err
+229-	}
+230-
+231-	vol, err := a.Volume(ctx)
+232-	if err != nil {
+233-		return fmt.Errorf("getting volume: %w", err)
+234-	}
+235-
+236-	return a.deployWithVolume(ctx, vol, progress)
+237-}
+238-
+239-// UpdateSettings redeploys the app with the given settings. Unlike Deploy,
+240-// it never pulls, so the app is not updated even if its image tag has moved.
+241-// On failure, the previous settings are restored.
+242-func (a *Application) UpdateSettings(ctx context.Context, settings ApplicationSettings, progress DeployProgressCallback) error {
+243-	vol, err := a.Volume(ctx)
+244-	if err != nil {
+245-		return fmt.Errorf("getting volume: %w", err)
+246-	}
+247-
+248-	oldSettings := a.Settings
+249-	a.Settings = settings
+250-
+251-	if err := a.deployWithVolume(ctx, vol, progress); err != nil {
+252-		a.Settings = oldSettings
+253-		return err
+254-	}
+255-
+256-	return nil
+257-}
+258-
+259-func (a *Application) VerifyHTTPOrRemove(ctx context.Context) error {
+260-	if err := a.verifyHTTP(ctx); err != nil {
+261-		if cleanupErr := a.Remove(context.Background(), true); cleanupErr != nil {
+262-			slog.Error("Failed to clean up after verification failure", "app", a.Settings.Name, "error", cleanupErr)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/docker/application_static_test.go 
+[0m$ [0msed -n 1,60p internal/docker/application_settings.go; echo ...; sed -n 130,170p internal/docker/application_settings.go
+package docker
+
+import (
+	"crypto/ecdh"
+	"crypto/rand"
+	"encoding/base64"
+	"encoding/hex"
+	"encoding/json"
+	"fmt"
+	"strings"
+)
+
+type Keys struct {
+	SecretKeyBase   string `json:"secretKeyBase,omitempty"`
+	VAPIDPublicKey  string `json:"vapidPublicKey,omitempty"`
+	VAPIDPrivateKey string `json:"vapidPrivateKey,omitempty"`
+}
+
+func (k Keys) Empty() bool {
+	return k == Keys{}
+}
+
+func (k *Keys) SetVAPIDKey(privateKey string) error {
+	key, err := parseVAPIDPrivateKey(privateKey)
+	if err != nil {
+		return fmt.Errorf("invalid VAPID private key: %w", err)
+	}
+
+	k.VAPIDPublicKey = base64.RawURLEncoding.EncodeToString(key.PublicKey().Bytes())
+	k.VAPIDPrivateKey = base64.RawURLEncoding.EncodeToString(key.Bytes())
+
+	return nil
+}
+
+func (k *Keys) Regenerate(secretKeyBase, vapid bool) error {
+	if secretKeyBase {
+		skb, err := generateSecretKeyBase()
+		if err != nil {
+			return err
+		}
+		k.SecretKeyBase = skb
+	}
+
+	if vapid {
+		pub, priv, err := generateVAPIDKeyPair()
+		if err != nil {
+			return err
+		}
+		k.VAPIDPublicKey = pub
+		k.VAPIDPrivateKey = priv
+	}
+
+	return nil
+}
+
+type SMTPSettings struct {
+	Server   string `json:"server,omitempty"`
+	Port     string `json:"port,omitempty"`
+	Username string `json:"username,omitempty"`
+	Password string `json:"password,omitempty"`
+...
+		return ErrAutoBackupWithoutPath
+	}
+	if s.Registry.Password != "" && s.Registry.Username == "" {
+		return ErrRegistryPasswordWithoutUsername
+	}
+	if s.Registry.Username != "" && s.Registry.Password == "" {
+		return ErrRegistryUsernameWithoutPassword
+	}
+	return nil
+}
+
+func (s ApplicationSettings) TLSEnabled() bool {
+	return s.Host != "" && !s.DisableTLS && !IsLocalhost(s.Host)
+}
+
+func (s ApplicationSettings) Static() bool {
+	return s.Source != ""
+}
+
+func (s ApplicationSettings) Equal(other ApplicationSettings) bool {
+	if s.Name != other.Name || s.Image != other.Image || s.Source != other.Source || s.SourceHash != other.SourceHash || s.ServedPath != other.ServedPath || s.Host != other.Host || s.DisableTLS != other.DisableTLS {
+		return false
+	}
+	if s.Resources != other.Resources {
+		return false
+	}
+	if s.SMTP != other.SMTP {
+		return false
+	}
+	if s.AutoUpdate != other.AutoUpdate {
+		return false
+	}
+	if s.Backup != other.Backup {
+		return false
+	}
+	if s.Keys != other.Keys {
+		return false
+	}
+	if s.Registry != other.Registry {
+		return false
+	}
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0msed -n 1,120p internal/docker/application_test.go
+package docker
+
+import (
+	"context"
+	"net/http"
+	"net/http/httptest"
+	"slices"
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+)
+
+func TestVerifyHTTP_Success(t *testing.T) {
+	var requestPath string
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		requestPath = r.URL.Path
+		w.WriteHeader(http.StatusOK)
+	}))
+	defer server.Close()
+
+	app := &Application{
+		Settings: ApplicationSettings{Host: server.Listener.Addr().String(), DisableTLS: true},
+	}
+
+	err := app.verifyHTTP(context.Background())
+	assert.NoError(t, err)
+	assert.Equal(t, HealthCheckPath, requestPath)
+}
+
+func TestVerifyHTTP_RedirectToSuccess(t *testing.T) {
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if r.URL.Path == "/" {
+			http.Redirect(w, r, "/home", http.StatusFound)
+			return
+		}
+		w.WriteHeader(http.StatusOK)
+	}))
+	defer server.Close()
+
+	app := &Application{
+		Settings: ApplicationSettings{Host: server.Listener.Addr().String(), DisableTLS: true},
+	}
+
+	err := app.verifyHTTP(context.Background())
+	assert.NoError(t, err)
+}
+
+func TestVerifyHTTP_ServerError(t *testing.T) {
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(http.StatusInternalServerError)
+	}))
+	defer server.Close()
+
+	app := &Application{
+		Settings: ApplicationSettings{Host: server.Listener.Addr().String(), DisableTLS: true},
+	}
+
+	err := app.verifyHTTP(context.Background())
+	require.Error(t, err)
+	assert.ErrorIs(t, err, ErrVerificationFailed)
+	assert.Contains(t, err.Error(), "unexpected status 500")
+}
+
+func TestVerifyHTTP_Unreachable(t *testing.T) {
+	app := &Application{
+		Settings: ApplicationSettings{Host: "127.0.0.1:1", DisableTLS: true},
+	}
+
+	err := app.verifyHTTP(context.Background())
+	require.Error(t, err)
+	assert.ErrorIs(t, err, ErrVerificationFailed)
+}
+
+func TestVerifyHTTP_NoHost(t *testing.T) {
+	app := &Application{
+		Settings: ApplicationSettings{},
+	}
+
+	err := app.verifyHTTP(context.Background())
+	assert.NoError(t, err)
+}
+
+func TestURL(t *testing.T) {
+	newAppWithProxy := func(host string, disableTLS bool, proxySettings *ProxySettings) *Application {
+		ns := &Namespace{}
+		ns.proxy = &Proxy{Settings: proxySettings}
+		return &Application{
+			namespace: ns,
+			Settings:  ApplicationSettings{Host: host, DisableTLS: disableTLS},
+		}
+	}
+
+	t.Run("empty host", func(t *testing.T) {
+		app := &Application{Settings: ApplicationSettings{}}
+		assert.Equal(t, "", app.URL())
+	})
+
+	t.Run("nil namespace", func(t *testing.T) {
+		app := &Application{Settings: ApplicationSettings{Host: "app.example.com"}}
+		assert.Equal(t, "https://app.example.com", app.URL())
+	})
+
+	t.Run("nil proxy settings", func(t *testing.T) {
+		ns := &Namespace{}
+		ns.proxy = &Proxy{}
+		app := &Application{
+			namespace: ns,
+			Settings:  ApplicationSettings{Host: "app.localhost", DisableTLS: true},
+		}
+		assert.Equal(t, "http://app.localhost", app.URL())
+	})
+
+	t.Run("default HTTP port", func(t *testing.T) {
+		app := newAppWithProxy("app.localhost", true, &ProxySettings{HTTPPort: 80})
+		assert.Equal(t, "http://app.localhost", app.URL())
+	})
+
+	t.Run("custom HTTP port", func(t *testing.T) {
+		app := newAppWithProxy("app.localhost", true, &ProxySettings{HTTPPort: 8080})
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0msed -n 1,140p internal/command/deploy.go
+package command
+
+import (
+	"context"
+	"fmt"
+	"log/slog"
+	"os"
+	"path/filepath"
+
+	"github.com/spf13/cobra"
+
+	"github.com/basecamp/once/internal/docker"
+)
+
+type deployCommand struct {
+	cmd   *cobra.Command
+	flags settingsFlags
+}
+
+func newDeployCommand() *deployCommand {
+	d := &deployCommand{}
+	d.cmd = &cobra.Command{
+		Use:   "deploy <image|path>",
+		Short: "Deploy an application or static site",
+		Args:  cobra.ExactArgs(1),
+		RunE:  WithNamespace(d.run),
+	}
+
+	d.flags.register(d.cmd)
+
+	return d
+}
+
+// Private
+
+func (d *deployCommand) run(ctx context.Context, ns *docker.Namespace, cmd *cobra.Command, args []string) error {
+	imageRef, source := deployTarget(args[0])
+
+	if err := ns.Setup(ctx); err != nil {
+		return fmt.Errorf("%w: %w", docker.ErrSetupFailed, err)
+	}
+
+	baseName := docker.NameFromImageRef(imageRef)
+	if source != "" {
+		baseName = docker.NameFromPath(source)
+	}
+
+	host := d.flags.host
+	if host == "" {
+		host = baseName + ".localhost"
+	}
+
+	existing, err := siteToReplace(ns, host, source)
+	if err != nil {
+		return err
+	}
+	if existing != nil {
+		return d.redeploy(ctx, cmd, existing, imageRef, source)
+	}
+
+	settings, err := d.flags.buildSettings(cmd, imageRef, host)
+	if err != nil {
+		return err
+	}
+	settings.Source = source
+	settings, err = withSourceHash(settings, source)
+	if err != nil {
+		return err
+	}
+
+	name, err := ns.UniqueName(baseName)
+	if err != nil {
+		return fmt.Errorf("generating app name: %w", err)
+	}
+	settings.Name = name
+
+	if source != "" {
+		served, err := docker.ServeSite(name, source)
+		if err != nil {
+			return fmt.Errorf("preparing site contents: %w", err)
+		}
+		settings.ServedPath = served
+	}
+
+	app := docker.NewApplication(ns, settings)
+
+	return runWithProgress("Deploying "+host, func(progress docker.DeployProgressCallback) error {
+		if err := app.Deploy(ctx, progress); err != nil {
+			if cleanupErr := app.Destroy(context.Background(), true); cleanupErr != nil {
+				slog.Error("Failed to clean up after deploy failure", "app", name, "error", cleanupErr)
+			}
+			return fmt.Errorf("%w: %w", docker.ErrDeployFailed, err)
+		}
+
+		if err := app.VerifyHTTPOrRemove(ctx); err != nil {
+			return err
+		}
+
+		return nil
+	})
+}
+
+// redeploy replaces what an existing static site serves, keeping its host and
+// settings. A failed redeploy leaves the previous version in place, so unlike
+// a first deploy the app is never removed.
+func (d *deployCommand) redeploy(ctx context.Context, cmd *cobra.Command, app *docker.Application, image, source string) error {
+	settings, err := d.redeploySettings(cmd, app.Settings, image, source)
+	if err != nil {
+		return err
+	}
+
+	settings, err = withSourceHash(settings, source)
+	if err != nil {
+		return err
+	}
+
+	if source != "" {
+		served, err := docker.ServeSite(app.Settings.Name, source)
+		if err != nil {
+			return fmt.Errorf("preparing site contents: %w", err)
+		}
+		settings.ServedPath = served
+	}
+
+	oldSettings := app.Settings
+	app.Settings = settings
+
+	return runWithProgress("Deploying "+settings.Host, func(progress docker.DeployProgressCallback) error {
+		if err := app.Deploy(ctx, progress); err != nil {
+			app.Settings = oldSettings
+			removeServedCopy(settings.ServedPath)
+			return fmt.Errorf("%w: %w", docker.ErrDeployFailed, err)
+		}
+
+		if oldSettings.ServedPath != "" && oldSettings.ServedPath != settings.ServedPath {
+			removeServedCopy(oldSettings.ServedPath)
+		}
+
+		return nil
+	})
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgrep -rn "func WithNamespace" -A 40 internal/command/*.go
+internal/command/root.go:89:func WithNamespace(fn NamespaceRunE) func(*cobra.Command, []string) error {
+internal/command/root.go-90-	return func(cmd *cobra.Command, args []string) error {
+internal/command/root.go-91-		ctx := context.Background()
+internal/command/root.go-92-
+internal/command/root.go-93-		ns, err := docker.RestoreNamespace(ctx, namespaceFlag(cmd))
+internal/command/root.go-94-		if err != nil {
+internal/command/root.go-95-			return fmt.Errorf("restoring namespace: %w", err)
+internal/command/root.go-96-		}
+internal/command/root.go-97-
+internal/command/root.go-98-		return fn(ctx, ns, cmd, args)
+internal/command/root.go-99-	}
+internal/command/root.go-100-}
+internal/command/root.go-101-
+internal/command/root.go-102-func namespaceFlag(cmd *cobra.Command) string {
+internal/command/root.go-103-	namespace, _ := cmd.Root().PersistentFlags().GetString("namespace")
+internal/command/root.go-104-	return namespace
+internal/command/root.go-105-}
+internal/command/root.go-106-
+internal/command/root.go-107-type exitCoder interface {
+internal/command/root.go-108-	error
+internal/command/root.go-109-	ExitCode() int
+internal/command/root.go-110-}
+internal/command/root.go-111-
+internal/command/root.go-112-func ExitCode(err error) (int, bool) {
+internal/command/root.go-113-	if e, ok := errors.AsType[exitCoder](err); ok {
+internal/command/root.go-114-		return e.ExitCode(), true
+internal/command/root.go-115-	}
+internal/command/root.go-116-	return 0, false
+internal/command/root.go-117-}
+internal/command/root.go-118-
+internal/command/root.go-119-func IsExitError(err error) bool {
+internal/command/root.go-120-	_, ok := ExitCode(err)
+internal/command/root.go-121-	return ok
+internal/command/root.go-122-}
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mfor f in 20-show-command 21-logs-command 22-status-command 38-command-palette 43-app-details-view 49-status-page; do echo "=== $f"; cat prompt/$f.md; done
+=== 20-show-command
+Your job is to go in and add `once show <host>` here to this Go CLI/TUI app.
+
+It fetches the app's page and prints it as text in the terminal: headings, links and forms, no markup. Useful when you only want to know what the page says.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+=== 21-logs-command
+Your job is to go in and add `once logs <host>` here to this Go CLI/TUI app.
+
+Logs already stream inside the TUI through the existing log streamer; reuse it so the command follows the container, supports `--tail` and `--grep`, and exits cleanly on ctrl+c.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+=== 22-status-command
+Your job is to go in and add `once status <host>` here to this Go CLI/TUI app.
+
+The app already knows its URL, image, running state, uptime, resource limits and last update and backup results; show all of it in a readable block, with `--json` for the same data.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+=== 38-command-palette
+Your job is to go in and add a command palette here to this Go CLI/TUI app.
+
+`ctrl+p` opens a searchable list of the actions available on the current screen and runs the chosen one exactly as its key would. The menus and key bindings already exist; this is another way into them.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+=== 43-app-details-view
+Your job is to go in and give every app a details page here to this Go CLI/TUI app.
+
+Enter on a panel opens it: URL, image or folder, uptime, resource limits, last deploy, last backup, recent health and a screenshot. Esc returns to the dashboard.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+=== 49-status-page
+Your job is to go in and add a public status page here to this Go CLI/TUI app.
+
+Its own host, the same cream card style as everything else, listing only the apps you choose to publish with up or down, last deploy and nothing else. Calm enough to send as a link.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgrep -rn "staticNginx\|nginx" --include=*.go internal/docker/*_test.go | head -20
+internal/docker/registry_auth_test.go:189:	host, err = RegistryHost("nginx")
+[0m$ [0mdocker version --format '{{.Server.Version}}' 2>&1 | head -3
+29.9.2
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mtimeout 120 docker run --rm nginx:alpine-slim nginx -V 2>&1 | tr ' ' '\n' | grep -i "sub_module\|http_sub" 
+--with-http_sub_module
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mWrite internal/docker/appbar.go
+Created file successfully: internal/docker/appbar.go
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0msed -n 340,440p internal/docker/application.go
+pulledInspect, err := a.namespace.client.ImageInspect(ctx, a.Settings.Image)
+	if err != nil {
+		return false, fmt.Errorf("%w: inspecting image after pull: %w", ErrPullFailed, err)
+	}
+
+	return pulledInspect.ID != a.runningImageID(ctx), nil
+}
+
+func (a *Application) runningImageID(ctx context.Context) string {
+	name, err := a.ContainerName(ctx)
+	if err != nil {
+		return ""
+	}
+	info, err := a.namespace.client.ContainerInspect(ctx, name, client.ContainerInspectOptions{})
+	if err != nil {
+		return ""
+	}
+	return info.Container.Image
+}
+
+func (a *Application) deployWithVolume(ctx context.Context, vol *ApplicationVolume, progress DeployProgressCallback) error {
+	if progress != nil {
+		progress(DeployProgress{Stage: DeployStageStarting})
+	}
+
+	id, err := ContainerRandomID()
+	if err != nil {
+		return fmt.Errorf("generating container id: %w", err)
+	}
+
+	containerName := fmt.Sprintf("%s-app-%s-%s", a.namespace.name, a.Settings.Name, id)
+
+	if err := a.ensureKeys(vol); err != nil {
+		return err
+	}
+
+	env := a.BuildEnv()
+
+	hostConfig := &container.HostConfig{
+		RestartPolicy: container.RestartPolicy{Name: container.RestartPolicyAlways},
+		LogConfig:     ContainerLogConfig(),
+		Mounts:        a.volumeMounts(vol),
+	}
+	hostConfig.Resources = container.Resources{
+		Memory:   int64(a.Settings.Resources.MemoryMB) * 1024 * 1024,
+		NanoCPUs: int64(a.Settings.Resources.CPUs) * 1e9,
+	}
+
+	resp, err := a.namespace.client.ContainerCreate(ctx, client.ContainerCreateOptions{
+		Name:       containerName,
+		Config:     a.containerConfig(env),
+		HostConfig: hostConfig,
+		NetworkingConfig: &network.NetworkingConfig{
+			EndpointsConfig: map[string]*network.EndpointSettings{
+				a.namespace.name: {},
+			},
+		},
+	})
+	if err != nil {
+		return fmt.Errorf("creating container: %w", err)
+	}
+
+	if _, err := a.namespace.client.ContainerStart(ctx, resp.ID, client.ContainerStartOptions{}); err != nil {
+		a.namespace.client.ContainerRemove(ctx, resp.ID, client.ContainerRemoveOptions{Force: true})
+		return fmt.Errorf("starting container: %w", err)
+	}
+
+	shortContainerID := resp.ID[:12]
+
+	if err := a.namespace.Proxy().Deploy(ctx, DeployOptions{
+		AppName: a.Settings.Name,
+		Target:  shortContainerID,
+		Host:    a.Settings.Host,
+		TLS:     a.Settings.TLSEnabled(),
+	}); err != nil {
+		a.namespace.client.ContainerRemove(ctx, resp.ID, client.ContainerRemoveOptions{Force: true})
+		if strings.Contains(err.Error(), "target not healthy") || strings.Contains(err.Error(), "deploy timed out") {
+			slog.Error("Application failed to start", "app", a.Settings.Name, "error", err)
+			return ErrAppNotStarted
+		}
+		return fmt.Errorf("registering with proxy: %w", err)
+	}
+
+	if err := a.removeContainersExcept(ctx, containerName); err != nil {
+		return fmt.Errorf("removing old containers: %w", err)
+	}
+
+	if progress != nil {
+		progress(DeployProgress{Stage: DeployStageFinished})
+	}
+
+	return nil
+}
+
+func (a *Application) ensureKeys(vol *ApplicationVolume) error {
+	// Older installs may still have keys stored on the volume label
+	keys := cmp.Or(a.Settings.Keys, vol.Settings.Keys)
+
+	if keys.Empty() {
+		if err := keys.Regenerate(true, true); err != nil {
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/appbar.go
+Index: internal/docker/appbar.go
+===================================================================
+--- internal/docker/appbar.go
++++ internal/docker/appbar.go
+@@ -13,22 +13,20 @@
+ 	Contents string
+ 	Drift    []string
+ }
+ 
+-// AppBarHTML renders the bar injected over every page a static site serves.
+-// The markup carries its own styles and script, so the page on disk is never
+-// touched. It is embedded in the nginx config, which means the result must
+-// stay free of single quotes and nginx variables.
+-func (a *Application) AppBarHTML() string {
++// Private
++
++// appBar renders the bar injected over every page the site serves. The markup
++// carries its own styles and script, so the page on disk is never touched. It
++// is embedded in the nginx config, which means the result must stay free of
++// single quotes and nginx variables.
++func (a *Application) appBar() string {
+ 	var bar strings.Builder
+-	if err := appBarTemplate.Execute(&bar, a.appBarData()); err != nil {
+-		return ""
+-	}
++	_ = appBarTemplate.Execute(&bar, a.appBarData())
+ 	return bar.String()
+ }
+ 
+-// Private
+-
+ func (a *Application) appBarData() appBarData {
+ 	data := appBarData{
+ 		Name:     a.Settings.Name,
+ 		Contents: "/",
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/application.go
+Index: internal/docker/application.go
+===================================================================
+--- internal/docker/application.go
++++ internal/docker/application.go
+@@ -57,20 +57,23 @@
+ )
+ 
+ const staticNginxConfig = `server {
+     listen 80;
+-    location = %s {
++    sub_filter '</body>' '{{bar}}</body>';
++    sub_filter_once on;
++    sub_filter_types text/html;
++    location = {{health}} {
+         access_log off;
+         return 200 "ok";
+     }
+     location ~* \.md$ {
+-        root %s;
++        root {{root}};
+         charset utf-8;
+         types { }
+         default_type text/html;
+     }
+     location / {
+-        root %s;
++        root {{root}};
+         index index.html;
+     }
+ }
+ `
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/application.go
+Index: internal/docker/application.go
+===================================================================
+--- internal/docker/application.go
++++ internal/docker/application.go
+@@ -557,16 +557,27 @@
+ 		Env: env,
+ 	}
+ 
+ 	if a.Settings.Static() {
+-		config.Cmd = staticNginxCommand()
++		config.Cmd = a.staticNginxCommand()
+ 	}
+ 
+ 	return config
+ }
+ 
+ // Helpers
+ 
+-func staticNginxCommand() []string {
+-	config := fmt.Sprintf(staticNginxConfig, HealthCheckPath, staticContentTarget, staticContentTarget)
++func (a *Application) staticNginxCommand() []string {
++	config := strings.NewReplacer(
++		"{{bar}}", escapeNginxVariables(a.appBar()),
++		"{{health}}", HealthCheckPath,
++		"{{root}}", staticContentTarget,
++	).Replace(staticNginxConfig)
++
+ 	return []string{"sh", "-c", "cat > /etc/nginx/conf.d/default.conf <<'EOF'\n" + config + "EOF\nnginx -g 'daemon off;'\n"}
+ }
++
++// escapeNginxVariables keeps nginx from expanding dollar signs in the bar, as
++// its single-quoted strings still interpolate variables.
++func escapeNginxVariables(text string) string {
++	return strings.ReplaceAll(text, "$", `\$`)
++}
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0msed -n 1,40p internal/docker/appbar.go
+package docker
+
+import (
+	"html/template"
+	"strings"
+)
+
+// appBarData is everything the bar over a served page needs to know.
+type appBarData struct {
+	Name     string
+	Back     string
+	Next     string
+	Contents string
+	Drift    []string
+}
+
+// Private
+
+// appBar renders the bar injected over every page the site serves. The markup
+// carries its own styles and script, so the page on disk is never touched. It
+// is embedded in the nginx config, which means the result must stay free of
+// single quotes and nginx variables.
+func (a *Application) appBar() string {
+	var bar strings.Builder
+	_ = appBarTemplate.Execute(&bar, a.appBarData())
+	return bar.String()
+}
+
+func (a *Application) appBarData() appBarData {
+	data := appBarData{
+		Name:     a.Settings.Name,
+		Contents: "/",
+	}
+
+	back, next := a.neighborApps()
+	if back != nil {
+		data.Back = back.URL()
+	}
+	if next != nil {
+		data.Next = next.URL()
+[0m$ [0mgofmt -l internal/docker; go build ./... && go vet ./internal/docker
+(no output)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgrep -rn "^func " internal/docker/*_test.go | awk '{print $2}' | sort | uniq -d | head; echo ===; grep -rn "func .*Namespace.*\*Namespace\|func new.*App" internal/docker/*_test.go | head -20
+(m
+(r
+===
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mWrite internal/docker/appbar_test.go
+Created file successfully: internal/docker/appbar_test.go
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgo test ./internal/docker/ -run 'TestAppBar|TestStaticNginx' -v 2>&1 | tail -60
+=== RUN   TestAppBar
+--- PASS: TestAppBar (0.00s)
+=== RUN   TestAppBarWrapsNavigation
+--- PASS: TestAppBarWrapsNavigation (0.00s)
+=== RUN   TestAppBarWithoutSiblings
+--- PASS: TestAppBarWithoutSiblings (0.00s)
+=== RUN   TestAppBarIgnoresStoppedApps
+--- PASS: TestAppBarIgnoresStoppedApps (0.00s)
+=== RUN   TestAppBarDriftOffersEveryOtherApp
+--- PASS: TestAppBarDriftOffersEveryOtherApp (0.00s)
+=== RUN   TestAppBarCanBeEmbeddedInNginxConfig
+--- PASS: TestAppBarCanBeEmbeddedInNginxConfig (0.00s)
+=== RUN   TestStaticNginxCommandInjectsAppBar
+--- PASS: TestStaticNginxCommandInjectsAppBar (0.00s)
+=== RUN   TestStaticNginxCommandEscapesDollarSigns
+--- PASS: TestStaticNginxCommandEscapesDollarSigns (0.00s)
+PASS
+ok  	github.com/basecamp/once/internal/docker	0.006s
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mmkdir -p .scratch/nginx/html .scratch/nginx/conf
+cat > internal/docker/zz_dump_test.go <<'EOF'
+package docker
+
+import (
+	"os"
+	"strings"
+	"testing"
+)
+
+func TestDumpNginxConfig(t *testing.T) {
+	ns := namespaceWithApps(
+		ApplicationSettings{Name: "alpha", Host: "alpha.localhost"},
+		ApplicationSettings{Name: "gamma", Host: "gamma.localhost"},
+	)
+	app := NewApplication(ns, ApplicationSettings{Name: "beta", Host: "beta.localhost", Source: "/srv/site"})
+	cmd := app.staticNginxCommand()[2]
+	start := strings.Index(cmd, "EOF\n") + len("EOF\n")
+	end := strings.LastIndex(cmd, "EOF\n")
+	if err := os.WriteFile("../../.scratch/nginx/conf/default.conf", []byte(cmd[start:end]), 0o644); err != nil {
+		t.Fatal(err)
+	}
+}
+EOF
+cat > .scratch/nginx/html/index.html <<'EOF'
+<!doctype html>
+<html><head><title>demo</title></head><body><h1>Hello</h1></body></html>
+EOF
+go test ./internal/docker -run TestDumpNginxConfig -count=1 && head -8 .scratch/nginx/conf/default.conf
+--- FAIL: TestDumpNginxConfig (0.00s)
+panic: runtime error: slice bounds out of range [2503:2499] [recovered, repanicked]
+
+goroutine 8 [running]:
+testing.tRunner.func1.2({0x1199c28, 0x1187037bf728})
+	/home/mrjohn/.local/share/mise/installs/go/1.27.3/src/testing/testing.go:2125 +0x232
+testing.tRunner.func1()
+	/home/mrjohn/.local/share/mise/installs/go/1.27.3/src/testing/testing.go:2128 +0x329
+panic({0x1199c28?, 0x1187037bf728?})
+	/home/mrjohn/.local/share/mise/installs/go/1.27.3/src/runtime/panic.go:859 +0x125
+github.com/basecamp/once/internal/docker.TestDumpNginxConfig(0x11870390c908)
+	/home/mrjohn/Work/tries/2026-11-06-yo/once/internal/docker/zz_dump_test.go:18 +0x2a5
+testing.tRunner(0x11870390c908, 0x11d2098)
+	/home/mrjohn/.local/share/mise/installs/go/1.27.3/src/testing/testing.go:2195 +0xea
+created by testing.(*T).Run in goroutine 1
+	/home/mrjohn/.local/share/mise/installs/go/1.27.3/src/testing/testing.go:2260 +0x4d4
+FAIL	github.com/basecamp/once/internal/docker	0.008s
+FAIL
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcat > internal/docker/zz_dump_test.go <<'EOF'
+package docker
+
+import (
+	"os"
+	"strings"
+	"testing"
+)
+
+func TestDumpNginxConfig(t *testing.T) {
+	ns := namespaceWithApps(
+		ApplicationSettings{Name: "alpha", Host: "alpha.localhost"},
+		ApplicationSettings{Name: "gamma", Host: "gamma.localhost"},
+	)
+	app := NewApplication(ns, ApplicationSettings{Name: "beta", Host: "beta.localhost", Source: "/srv/site"})
+	cmd := app.staticNginxCommand()[2]
+	_, config, ok := strings.Cut(cmd, "EOF\n")
+	if !ok {
+		t.Fatal("no config")
+	}
+	config, _, ok = strings.Cut(config, "EOF\n")
+	if !ok {
+		t.Fatal("no end")
+	}
+	if err := os.WriteFile("../../.scratch/nginx/conf/default.conf", []byte(config), 0o644); err != nil {
+		t.Fatal(err)
+	}
+}
+EOF
+go test ./internal/docker -run TestDumpNginxConfig -count=1 && head -8 .scratch/nginx/conf/default.conf; echo ...; grep -c "sub_filter" .scratch/nginx/conf/default.conf
+--- FAIL: TestDumpNginxConfig (0.00s)
+    zz_dump_test.go:22: no end
+FAIL
+FAIL	github.com/basecamp/once/internal/docker	0.005s
+FAIL
+...
+grep: .scratch/nginx/conf/default.conf: No such file or directory
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcat > internal/docker/zz_dump_test.go <<'EOF'
+package docker
+
+import (
+	"os"
+	"testing"
+)
+
+func TestDumpNginxConfig(t *testing.T) {
+	ns := namespaceWithApps(
+		ApplicationSettings{Name: "alpha", Host: "alpha.localhost"},
+		ApplicationSettings{Name: "gamma", Host: "gamma.localhost"},
+	)
+	app := NewApplication(ns, ApplicationSettings{Name: "beta", Host: "beta.localhost", Source: "/srv/site"})
+	cmd := app.staticNginxCommand()[2]
+	if err := os.WriteFile("../../.scratch/nginx/full.txt", []byte(cmd), 0o644); err != nil {
+		t.Fatal(err)
+	}
+}
+EOF
+go test ./internal/docker -run TestDumpNginxConfig -count=1 && tail -c 120 .scratch/nginx/full.txt | cat -A | tail -5
+ok  	github.com/basecamp/once/internal/docker	0.005s
+        index index.html;$
+    }$
+}$
+EOF$
+nginx -g 'daemon off;'$
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcat > internal/docker/zz_dump_test.go <<'EOF'
+package docker
+
+import (
+	"os"
+	"strings"
+	"testing"
+)
+
+func TestDumpNginxConfig(t *testing.T) {
+	ns := namespaceWithApps(
+		ApplicationSettings{Name: "alpha", Host: "alpha.localhost"},
+		ApplicationSettings{Name: "gamma", Host: "gamma.localhost"},
+	)
+	app := NewApplication(ns, ApplicationSettings{Name: "beta", Host: "beta.localhost", Source: "/srv/site"})
+	cmd := app.staticNginxCommand()[2]
+	_, config, _ := strings.Cut(cmd, "<<'EOF'\n")
+	config, _, ok := strings.Cut(config, "EOF\nnginx ")
+	if !ok {
+		t.Fatal("no end")
+	}
+	if err := os.WriteFile("../../.scratch/nginx/conf/default.conf", []byte(config), 0o644); err != nil {
+		t.Fatal(err)
+	}
+}
+EOF
+go test ./internal/docker -run TestDumpNginxConfig -count=1 && head -6 .scratch/nginx/conf/default.conf
+ok  	github.com/basecamp/once/internal/docker	0.005s
+server {
+    listen 80;
+    sub_filter '</body>' '<div id="once-bar">
+<span class="once-bar-name">beta</span>
+<nav class="once-bar-nav">
+<a href="http://alpha.localhost" rel="prev">Back</a>
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd .scratch/nginx && mkdir -p html && printf 'no body here' > html/fragment.html && docker rm -f once-bar-check >/dev/null 2>&1; docker run -d --name once-bar-check -p 18080:80 -v "$PWD/conf/default.conf:/etc/nginx/conf.d/default.conf:ro" -v "$PWD/html:/usr/share/nginx/html:ro" nginx:alpine-slim >/dev/null && sleep 1 && echo "--- index:" && curl -s localhost:18080/ | grep -o 'once-bar\|beta\|>Back<' | sort | uniq -c && echo "--- fragment:" && curl -s localhost:18080/fragment.html && echo && echo "--- up:" && curl -s localhost:18080/up && echo && docker logs once-bar-check 2>&1 | tail -3; docker rm -f once-bar-check >/dev/null
+--- index:
+      1 >Back<
+      1 beta
+     14 once-bar
+--- fragment:
+no body here
+--- up:
+ok
+2026/11/06 11:46:15 [notice] 1#1: start worker process 32
+172.17.0.1 - - [06/Nov/2026:11:46:16 +0000] "GET / HTTP/1.1" 200 2137 "-" "curl/8.23.0" "-"
+172.17.0.1 - - [06/Nov/2026:11:46:16 +0000] "GET /fragment.html HTTP/1.1" 200 22 "-" "curl/8.23.0" "-"
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mrm -f internal/docker/zz_dump_test.go; rm -rf .scratch/nginx; gofmt -l . | head; make test 2>&1 | tail -25
+go test ./internal/...
+ok  	github.com/basecamp/once/internal/background	0.005s
+ok  	github.com/basecamp/once/internal/browser	(cached)
+ok  	github.com/basecamp/once/internal/command	0.007s
+ok  	github.com/basecamp/once/internal/docker	0.031s
+ok  	github.com/basecamp/once/internal/fsutil	(cached)
+?   	github.com/basecamp/once/internal/logging	[no test files]
+ok  	github.com/basecamp/once/internal/metrics	0.008s
+ok  	github.com/basecamp/once/internal/mouse	(cached)
+?   	github.com/basecamp/once/internal/service	[no test files]
+ok  	github.com/basecamp/once/internal/system	(cached)
+ok  	github.com/basecamp/once/internal/ui	0.287s
+ok  	github.com/basecamp/once/internal/userstats	0.007s
+ok  	github.com/basecamp/once/internal/version	(cached)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mmake lint 2>&1 | tail -20
+golangci-lint run
+0 issues.
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcat .scratch/split/13-favorites.diff; echo ===; cat .scratch/split/09-contents-card.diff; echo ===; cat .scratch/split/01-deploy-static-folder.diff
+internal/docker/state.go            | 13 +++++++++
+ internal/docker/state_test.go       | 31 ++++++++++++++++++++
+ internal/ui/contents_card.go        | 36 ++++++++++++++++++++++--
+ internal/ui/contents_card_test.go   | 39 ++++++++++++++++++++++----
+ internal/ui/dashboard.go            | 56 +++++++++++++++++++++++++++++++++++--
+ internal/ui/dashboard_panel.go      | 11 +++++++-
+ internal/ui/dashboard_panel_test.go | 14 ++++++++++
+ internal/ui/dashboard_test.go       | 22 +++++++++++++++
+ 8 files changed, 209 insertions(+), 13 deletions(-)
+===
+ internal/docker/application.go |  1 +
+ internal/docker/namespace.go   |  1 +
+ internal/ui/dashboard.go       | 28 +++++++++++++++++++++++++++-
+ internal/ui/dashboard_test.go  | 15 +++++++++++++++
+ 4 files changed, 44 insertions(+), 1 deletion(-)
+===
+ .scratch/split/01-deploy-static-folder.check |   23 +-
+ .scratch/split/01-deploy-static-folder.log   | 3086 +++++---------------------
+ 2 files changed, 628 insertions(+), 2481 deletions(-)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0msed -n 60,180p internal/docker/markdown.go
+return entries[0], true
+}
+
+// Helpers
+
+func isMarkdownEntry(entry fs.DirEntry) bool {
+	return entry.Type().IsRegular() && isMarkdownName(entry.Name())
+}
+
+func isMarkdownName(name string) bool {
+	return strings.EqualFold(filepath.Ext(name), siteMarkdownExt)
+}
+
+func writeMarkdownPage(source, target string) error {
+	content, err := os.ReadFile(source)
+	if err != nil {
+		return err
+	}
+
+	var body bytes.Buffer
+	if err := markdownParser.Convert(content, &body); err != nil {
+		return fmt.Errorf("rendering %s: %w", source, err)
+	}
+
+	page := markdownPage{
+		Title: markdownTitle(content, filepath.Base(source)),
+		Body:  template.HTML(body.String()),
+	}
+
+	file, err := os.OpenFile(target, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0o644)
+	if err != nil {
+		return err
+	}
+	defer file.Close()
+
+	return markdownTemplate.Execute(file, page)
+}
+
+func markdownTitle(content []byte, name string) string {
+	doc := markdownParser.Parser().Parse(text.NewReader(content))
+
+	title := markdownFirstHeading(doc, content)
+	if title == "" {
+		title = strings.TrimSuffix(name, filepath.Ext(name))
+	}
+
+	return title
+}
+
+func markdownFirstHeading(doc ast.Node, content []byte) string {
+	var heading ast.Node
+
+	ast.Walk(doc, func(node ast.Node, entering bool) (ast.WalkStatus, error) {
+		found, ok := node.(*ast.Heading)
+		if !ok || !entering || found.Level != 1 {
+			return ast.WalkContinue, nil
+		}
+
+		heading = found
+		return ast.WalkStop, nil
+	})
+
+	if heading == nil {
+		return ""
+	}
+
+	var title strings.Builder
+
+	ast.Walk(heading, func(node ast.Node, entering bool) (ast.WalkStatus, error) {
+		textNode, ok := node.(*ast.Text)
+		if !ok || !entering {
+			return ast.WalkContinue, nil
+		}
+
+		title.Write(textNode.Value(content))
+		return ast.WalkContinue, nil
+	})
+
+	return strings.TrimSpace(title.String())
+}
+
+type markdownPage struct {
+	Title string
+	Body  template.HTML
+}
+
+var markdownTemplate = template.Must(template.New("markdown").Parse(markdownPageHTML))
+
+const markdownPageHTML = `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{.Title}} · ONCE</title>
+<style>
+  :root {
+    color-scheme: light;
+    --paper: #f3ede1;
+    --card: #faf7f0;
+    --ink: #201d19;
+    --muted: #7d746a;
+    --rule: #ddd3c3;
+    --accent: #b4552f;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: clamp(1.5rem, 5vw, 4rem) 1.25rem;
+    background: var(--paper);
+    color: var(--ink);
+    font: 1rem/1.7 Georgia, "Iowan Old Style", "Times New Roman", serif;
+  }
+
+  main {
+    max-width: 46rem;
+    margin: 0 auto;
+    padding: clamp(1.5rem, 4vw, 2.75rem);
+    background: var(--card);
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0m{ go test ./internal/... ; golangci-lint run ; } > .scratch/split/15-app-bar.check 2>&1; cat .scratch/split/15-app-bar.check; git diff --stat > .scratch/split/15-app-bar.diff; cat .scratch/split/15-app-bar.diff
+ok  	github.com/basecamp/once/internal/background	(cached)
+ok  	github.com/basecamp/once/internal/browser	(cached)
+ok  	github.com/basecamp/once/internal/command	(cached)
+ok  	github.com/basecamp/once/internal/docker	(cached)
+ok  	github.com/basecamp/once/internal/fsutil	(cached)
+?   	github.com/basecamp/once/internal/logging	[no test files]
+ok  	github.com/basecamp/once/internal/metrics	(cached)
+ok  	github.com/basecamp/once/internal/mouse	(cached)
+?   	github.com/basecamp/once/internal/service	[no test files]
+ok  	github.com/basecamp/once/internal/system	(cached)
+ok  	github.com/basecamp/once/internal/ui	(cached)
+ok  	github.com/basecamp/once/internal/userstats	(cached)
+ok  	github.com/basecamp/once/internal/version	(cached)
+0 issues.
+ internal/docker/application.go | 26 ++++++++++++++++++++------
+ 1 file changed, 20 insertions(+), 6 deletions(-)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
