@@ -3373,3 +3373,9 @@ ok  	github.com/basecamp/once/internal/version	(cached)
 golangci-lint run
 0 issues.
 > build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && git add -A && git commit -q -m "split: 16-bar-keys" && git log --oneline -1 && git status --short
+1b1f9fd split: 16-bar-keys
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+Bound the bar keys in `internal/docker/appbar.go`: `/` menu, `[` back, `]` next, `C` contents, `R` drift, `Shift+R` reload, `H` hide, with a menu showing the hints.
+
+The bar moved to a served asset (`/__once/bar.js`) written into the site copy at deploy, because the inline markup outgrew nginx's 4 KB config-token limit. `make test` passes; `make lint` reports 0 issues. Committed as `1b1f9fd split: 16-bar-keys`.
