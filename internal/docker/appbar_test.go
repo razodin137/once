@@ -147,7 +147,7 @@ func TestAppBarCrossFadesContentUnderStillBar(t *testing.T) {
 
 	script := ns.Application("alpha").appBarScript()
 
-	assert.Contains(t, script, `node !== bar && node.tagName !== "SCRIPT"`)
+	assert.Contains(t, script, `node !== bar && node !== tab && node.tagName !== "SCRIPT"`)
 	assert.Contains(t, script, `node.style.transition = "opacity " + fadeDuration + "ms ease"`)
 	assert.Contains(t, script, `window.setTimeout(() => location.assign(href), fadeDuration)`)
 	assert.NotContains(t, script, "bar.style.opacity")
@@ -174,6 +174,42 @@ func TestAppBarCrossFadeFadesInAfterAppChange(t *testing.T) {
 	assert.Contains(t, script, `if (canFade && arrivedFromApp()) fadeIn(contentNodes())`)
 	assert.Contains(t, script, `document.referrer.indexOf(url + "/") === 0`)
 	assert.Contains(t, script, `if (event.persisted) contentNodes().forEach(clearFade)`)
+}
+
+func TestAppBarHidesOnScrollDownAndReturnsOnScrollUp(t *testing.T) {
+	ns := namespaceWithApps(ApplicationSettings{Name: "alpha", Host: "alpha.localhost"})
+
+	script := ns.Application("alpha").appBarScript()
+
+	assert.Contains(t, script, `window.addEventListener("scroll", () => {`)
+	assert.Contains(t, script, `if (scrollY <= 0) return setBarHidden(false)`)
+	assert.Contains(t, script, `if (delta > 4) setBarHidden(true)`)
+	assert.Contains(t, script, `else if (delta < -4) setBarHidden(false)`)
+	assert.Contains(t, script, `{ passive: true }`)
+}
+
+func TestAppBarLeavesTabToRestoreWhenHidden(t *testing.T) {
+	ns := namespaceWithApps(ApplicationSettings{Name: "alpha", Host: "alpha.localhost"})
+
+	script := ns.Application("alpha").appBarScript()
+
+	assert.Contains(t, script, `tab.id = "once-bar-tab"`)
+	assert.Contains(t, script, `tab.hidden = true`)
+	assert.Contains(t, script, `tab.hidden = !hidden`)
+	assert.Contains(t, script, `tab.addEventListener("click"`)
+	assert.Contains(t, script, `setBarHidden(false)`)
+	assert.Contains(t, script, `#once-bar-tab{position:fixed;top:0;right:1rem`)
+	assert.Contains(t, script, `#once-bar.once-bar-hidden{transform:translateY(-100%)}`)
+}
+
+func TestAppBarHideKeyTogglesInsteadOfSticking(t *testing.T) {
+	ns := namespaceWithApps(ApplicationSettings{Name: "alpha", Host: "alpha.localhost"})
+
+	script := ns.Application("alpha").appBarScript()
+
+	assert.Contains(t, script, `{"/":"menu","[":"back","]":"next","c":"contents","h":"hide"}`)
+	assert.Contains(t, script, `if (action === "hide") return setBarHidden(!barHidden)`)
+	assert.NotContains(t, script, "bar.hidden = true")
 }
 
 func TestStaticNginxCommandInjectsAppBar(t *testing.T) {

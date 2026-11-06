@@ -1,0 +1,1556 @@
+[0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m✱ [0mGlob "**/18-bar-hide*" [90m1 match[0m
+[0m$ [0mls -la; ls -la .opencode 2>/dev/null; ls -la .claude 2>/dev/null; ls -la ~/.config/opencode/command 2>/dev/null
+total 64
+drwxr-xr-x 1 mrjohn mrjohn   352 Nov  6 17:59 .
+drwxr-xr-x 1 mrjohn mrjohn    24 Nov  6 18:01 ..
+-rw-r--r-- 1 mrjohn mrjohn  4449 Nov  6 17:42 AGENTS.md
+drwxr-xr-x 1 mrjohn mrjohn     8 Nov  6 17:59 bin
+drwxr-xr-x 1 mrjohn mrjohn    18 Nov  6 17:42 .claude
+drwxr-xr-x 1 mrjohn mrjohn     8 Nov  6 17:42 cmd
+-rw-r--r-- 1 mrjohn mrjohn     8 Nov  6 17:42 .dockerignore
+drwxr-xr-x 1 mrjohn mrjohn   196 Nov  6 18:52 .git
+drwxr-xr-x 1 mrjohn mrjohn    86 Nov  6 17:42 .github
+-rw-r--r-- 1 mrjohn mrjohn    53 Nov  6 17:42 .gitignore
+-rw-r--r-- 1 mrjohn mrjohn   216 Nov  6 17:42 .golangci.yml
+-rw-r--r-- 1 mrjohn mrjohn  3273 Nov  6 18:23 go.mod
+-rw-r--r-- 1 mrjohn mrjohn 14792 Nov  6 18:23 go.sum
+drwxr-xr-x 1 mrjohn mrjohn   138 Nov  6 17:42 installer
+drwxr-xr-x 1 mrjohn mrjohn    62 Nov  6 17:42 integration
+drwxr-xr-x 1 mrjohn mrjohn   172 Nov  6 18:43 internal
+-rw-r--r-- 1 mrjohn mrjohn  1292 Nov  6 17:42 Makefile
+-rw-r--r-- 1 mrjohn mrjohn    97 Nov  6 17:42 mise.toml
+-rw-r--r-- 1 mrjohn mrjohn  1053 Nov  6 17:42 MIT-LICENSE
+drwxr-xr-x 1 mrjohn mrjohn  2004 Nov  6 17:49 prompt
+drwxr-xr-x 1 mrjohn mrjohn   840 Nov  6 17:44 prompt-v1
+-rw-r--r-- 1 mrjohn mrjohn  8244 Nov  6 17:42 README.md
+drwxr-xr-x 1 mrjohn mrjohn    10 Nov  6 18:51 .scratch
+drwxr-xr-x 1 mrjohn mrjohn    30 Nov  5 23:06 scripts
+total 4
+drwxr-xr-x 1 mrjohn mrjohn  18 Nov  6 17:42 .
+drwxr-xr-x 1 mrjohn mrjohn 352 Nov  6 17:59 ..
+-rw-r--r-- 1 mrjohn mrjohn  14 Nov  6 17:42 CLAUDE.md
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead prompt/18-bar-hide.md 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mls prompt | head -40; echo ---; find internal -maxdepth 2 -type f | sort
+00-overview.md
+01-deploy-static-folder.md
+02-serve-static-apps.md
+03-redeploy-folder.md
+04-stale-source-detection.md
+05-folder-contents-fallback.md
+06-markdown-pages.md
+07-single-file-html-site.md
+08-remove-static-app.md
+09-contents-card.md
+10-contents-screen.md
+11-channels.md
+12-channel-filter.md
+13-favorites.md
+14-drift.md
+15-app-bar.md
+16-bar-keys.md
+17-bar-cross-fade.md
+18-bar-hide.md
+19-open-command.md
+20-show-command.md
+21-logs-command.md
+22-status-command.md
+23-list-json.md
+24-restart-command.md
+25-update-all.md
+26-doctor-command.md
+27-backups-list.md
+28-screenshot-capture.md
+29-card-thumbnails.md
+30-route-map.md
+31-page-weight.md
+32-broken-links.md
+33-meta-preview.md
+34-deploy-diff.md
+35-promote-on-evidence.md
+36-error-capture.md
+37-dashboard-filter.md
+38-command-palette.md
+39-toasts.md
+---
+internal/background/runner.go
+internal/background/runner_test.go
+internal/browser/browser.go
+internal/browser/browser_test.go
+internal/command/background.go
+internal/command/background_install.go
+internal/command/background_remove.go
+internal/command/background_run.go
+internal/command/backup.go
+internal/command/cli_progress.go
+internal/command/deploy.go
+internal/command/deploy_test.go
+internal/command/exec.go
+internal/command/exec_test.go
+internal/command/keys.go
+internal/command/keys_reset.go
+internal/command/keys_set.go
+internal/command/list.go
+internal/command/remove.go
+internal/command/restore.go
+internal/command/root.go
+internal/command/root_test.go
+internal/command/self_update.go
+internal/command/settings_flags.go
+internal/command/start.go
+internal/command/stop.go
+internal/command/teardown.go
+internal/command/update.go
+internal/command/update_test.go
+internal/command/version.go
+internal/docker/appbar.go
+internal/docker/appbar_test.go
+internal/docker/application_backup.go
+internal/docker/application_backup_test.go
+internal/docker/application.go
+internal/docker/application_settings.go
+internal/docker/application_settings_test.go
+internal/docker/application_static_test.go
+internal/docker/application_test.go
+internal/docker/channels.go
+internal/docker/channels_test.go
+internal/docker/container.go
+internal/docker/errors.go
+internal/docker/errors_test.go
+internal/docker/events.go
+internal/docker/helpers.go
+internal/docker/helpers_test.go
+internal/docker/logs.go
+internal/docker/logs_test.go
+internal/docker/markdown.go
+internal/docker/namespace.go
+internal/docker/namespace_test.go
+internal/docker/progress.go
+internal/docker/progress_test.go
+internal/docker/proxy.go
+internal/docker/proxy_test.go
+internal/docker/registry_auth.go
+internal/docker/registry_auth_test.go
+internal/docker/ring_buffer.go
+internal/docker/ring_buffer_test.go
+internal/docker/scraper.go
+internal/docker/scraper_test.go
+internal/docker/site.go
+internal/docker/site_test.go
+internal/docker/source.go
+internal/docker/source_test.go
+internal/docker/state.go
+internal/docker/state_test.go
+internal/docker/volume.go
+internal/docker/volume_test.go
+internal/fsutil/fsutil.go
+internal/fsutil/fsutil_test.go
+internal/logging/log.go
+internal/metrics/scraper.go
+internal/metrics/scraper_test.go
+internal/mouse/lexer.go
+internal/mouse/lexer_test.go
+internal/mouse/tracker.go
+internal/mouse/tracker_test.go
+internal/service/launchd.go
+internal/service/service.go
+internal/service/systemd.go
+internal/system/disk.go
+internal/system/scraper.go
+internal/system/scraper_test.go
+internal/ui/actions_menu.go
+internal/ui/actions_menu_test.go
+internal/ui/app.go
+internal/ui/channels.go
+internal/ui/chart.go
+internal/ui/chart_scale.go
+internal/ui/chart_scale_test.go
+internal/ui/chart_test.go
+internal/ui/component.go
+internal/ui/confirmation.go
+internal/ui/confirmation_test.go
+internal/ui/contents_card.go
+internal/ui/contents_card_test.go
+internal/ui/dashboard.go
+internal/ui/dashboard_header.go
+internal/ui/dashboard_header_test.go
+internal/ui/dashboard_panel.go
+internal/ui/dashboard_panel_test.go
+internal/ui/dashboard_test.go
+internal/ui/favorite.go
+internal/ui/form.go
+internal/ui/form_test.go
+internal/ui/helpers_test.go
+internal/ui/help.go
+internal/ui/help_test.go
+internal/ui/install_activity.go
+internal/ui/install_app_list.go
+internal/ui/install_app_list_test.go
+internal/ui/install.go
+internal/ui/install_hostname_form.go
+internal/ui/install_hostname_form_test.go
+internal/ui/install_image_form.go
+internal/ui/install_image_form_test.go
+internal/ui/install_test.go
+internal/ui/keys.go
+internal/ui/logo.go
+internal/ui/logs.go
+internal/ui/logs_test.go
+internal/ui/menu.go
+internal/ui/menu_test.go
+internal/ui/metric_card.go
+internal/ui/metric_card_test.go
+internal/ui/palette_detect.go
+internal/ui/palette_detect_test.go
+internal/ui/palette.go
+internal/ui/palette_test.go
+internal/ui/popup_help.go
+internal/ui/popup_help_test.go
+internal/ui/progress.go
+internal/ui/remove.go
+internal/ui/remove_test.go
+internal/ui/settings_form_application.go
+internal/ui/settings_form_backups.go
+internal/ui/settings_form_base.go
+internal/ui/settings_form_email.go
+internal/ui/settings_form_environment.go
+internal/ui/settings_form_registry.go
+internal/ui/settings_form_resources.go
+internal/ui/settings_form_test.go
+internal/ui/settings_form_updates.go
+internal/ui/settings.go
+internal/ui/settings_menu.go
+internal/ui/settings_menu_test.go
+internal/ui/settings_test.go
+internal/ui/starfield.go
+internal/ui/styles.go
+internal/ui/styles_test.go
+internal/ui/terminal_size_guard.go
+internal/ui/terminal_size_guard_test.go
+internal/userstats/reader.go
+internal/userstats/reader_test.go
+internal/userstats/scraper.go
+internal/userstats/scraper_test.go
+internal/userstats/store.go
+internal/userstats/store_test.go
+internal/version/updater.go
+internal/version/updater_test.go
+internal/version/version.go
+[0m$ [0mcat Makefile; cat .golangci.yml; cat mise.toml
+.PHONY: build test integration lint lint-actions coverage dist test-release
+
+PLATFORMS = linux darwin
+ARCHITECTURES = amd64 arm64
+VERSION := $(shell git describe --tags --always)
+LDFLAGS := -ldflags "-s -w -X 'github.com/basecamp/once/internal/version.Version=$(VERSION)'"
+
+TEST_RELEASE_TAG = v0.0.1-test
+
+build:
+	CGO_ENABLED=0 go build -trimpath $(LDFLAGS) -o bin/ ./cmd/...
+
+build-all:
+	@for os in $(PLATFORMS); do \
+		for arch in $(ARCHITECTURES); do \
+			echo "Building for $$os/$$arch..."; \
+			CGO_ENABLED=0 GOOS=$$os GOARCH=$$arch go build -trimpath $(LDFLAGS) -o bin/$$os-$$arch/ ./cmd/...; \
+		done; \
+	done
+
+test:
+	go test ./internal/...
+
+integration:
+	go test -v -count=1 -parallel 16 -timeout 30m ./integration/...
+
+check:
+	go vet ./...
+	govulncheck ./...
+
+lint:
+	golangci-lint run
+
+lint-actions:
+	actionlint
+	zizmor .
+
+coverage:
+	go test -coverprofile=coverage.out ./internal/...
+	go tool cover -html=coverage.out
+
+dist: build-all
+	mkdir -p dist
+	@for os in $(PLATFORMS); do \
+		for arch in $(ARCHITECTURES); do \
+			cp bin/$$os-$$arch/once dist/once-$$os-$$arch; \
+		done; \
+	done
+	cd dist && sha256sum once-* > checksums.txt
+
+test-release:
+	-gh release delete $(TEST_RELEASE_TAG) --yes --cleanup-tag
+	git tag -f $(TEST_RELEASE_TAG)
+	git push origin $(TEST_RELEASE_TAG) --force
+version: "2"
+
+formatters:
+  enable:
+    - gofmt
+    - gci
+  settings:
+    gci:
+      sections:
+        - standard
+        - default
+        - localmodule
+
+linters:
+  enable:
+    - modernize
+  disable:
+    - errcheck
+[tools]
+go = "latest"
+golangci-lint = "latest"
+"go:golang.org/x/vuln/cmd/govulncheck" = "latest"
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcat internal/ui/appbar.go
+cat: internal/ui/appbar.go: No such file or directory
+[0m$ [0mcat prompt/15-app-bar.md; echo =====; cat prompt/16-bar-keys.md; echo =====; cat prompt/17-bar-cross-fade.md
+Your job is to go in and inject a bar into every page ONCE serves here to this Go CLI/TUI app.
+
+Forty pixels tall, the app name on the left, then back, next, contents, drift, reload and hide. Dark glass over whatever the page is, and the page itself is never modified on disk.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+=====
+Your job is to go in and bind the bar to the same keys everywhere here to this Go CLI/TUI app.
+
+`/` menu, `[` back, `]` next, `C` contents, `R` drift, `Shift+R` reload, `H` hide, the same letters the TUI already uses so one set of habits works in both.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+=====
+Your job is to go in and keep the bar still while content cross-fades between apps here to this Go CLI/TUI app.
+
+Moving to the next or previous app replaces the page under a bar that does not move or blink, and older browsers just replace the page.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcat internal/docker/appbar.go
+package docker
+
+import (
+	"encoding/json"
+	"os"
+	"path/filepath"
+	"strings"
+)
+
+const appBarScriptPath = "__once/bar.js"
+
+// appBarData is everything the bar over a served page needs to know.
+type appBarData struct {
+	Name     string   `json:"name"`
+	Back     string   `json:"back,omitempty"`
+	Next     string   `json:"next,omitempty"`
+	Contents string   `json:"contents"`
+	Drift    []string `json:"drift"`
+}
+
+// Private
+
+// appBar returns the tag that loads the bar for the served page. The bar
+// itself lives in a file inside the site copy, so its size is not limited by
+// the nginx config parser.
+func (a *Application) appBar() string {
+	return `<script src="/` + appBarScriptPath + `" defer></script>`
+}
+
+// writeAppBarScript writes the bar next to the served pages. The source folder
+// is never touched.
+func (a *Application) writeAppBarScript() error {
+	if a.Settings.ServedPath == "" {
+		return nil
+	}
+
+	path := filepath.Join(a.Settings.ServedPath, filepath.FromSlash(appBarScriptPath))
+	if err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {
+		return err
+	}
+
+	return os.WriteFile(path, []byte(a.appBarScript()), 0o644)
+}
+
+func (a *Application) appBarScript() string {
+	data, err := json.Marshal(a.appBarData())
+	if err != nil {
+		return ""
+	}
+	return strings.Replace(appBarScriptTemplate, "{{data}}", string(data), 1)
+}
+
+func (a *Application) appBarData() appBarData {
+	data := appBarData{
+		Name:     a.Settings.Name,
+		Contents: "/",
+		Drift:    []string{},
+	}
+
+	back, next := a.neighborApps()
+	if back != nil {
+		data.Back = back.URL()
+	}
+	if next != nil {
+		data.Next = next.URL()
+	}
+
+	for _, app := range a.runningSiblings() {
+		data.Drift = append(data.Drift, app.URL())
+	}
+
+	return data
+}
+
+// neighborApps returns the running apps either side of this one by host, so
+// back and next follow the same order as the dashboard. Either side wraps.
+func (a *Application) neighborApps() (back, next *Application) {
+	siblings := a.runningSiblings()
+	if len(siblings) == 0 {
+		return nil, nil
+	}
+
+	for _, app := range siblings {
+		if app.Settings.Host < a.Settings.Host {
+			back = app
+		} else if next == nil {
+			next = app
+		}
+	}
+
+	if back == nil {
+		back = siblings[len(siblings)-1]
+	}
+	if next == nil {
+		next = siblings[0]
+	}
+
+	return back, next
+}
+
+func (a *Application) runningSiblings() []*Application {
+	if a.namespace == nil {
+		return nil
+	}
+
+	var siblings []*Application
+	for _, app := range a.namespace.Applications() {
+		if app.Settings.Name == a.Settings.Name || app.Settings.Host == "" || !app.Running {
+			continue
+		}
+		siblings = append(siblings, app)
+	}
+
+	return siblings
+}
+
+// Helpers
+
+const appBarScriptTemplate = `(function () {
+  const data = {{data}}
+  const drift = data.drift || []
+  const links = {}
+
+  const bar = document.createElement("div")
+  bar.id = "once-bar"
+
+  const name = document.createElement("span")
+  name.className = "once-bar-name"
+  name.textContent = data.name
+  bar.appendChild(name)
+
+  const nav = document.createElement("nav")
+  nav.className = "once-bar-nav"
+  bar.appendChild(nav)
+
+  const menu = document.createElement("div")
+  menu.id = "once-bar-menu"
+  menu.hidden = true
+  bar.appendChild(menu)
+
+  const actions = []
+  if (data.back) actions.push(["back", "Back", "[", data.back])
+  if (data.next) actions.push(["next", "Next", "]", data.next])
+  actions.push(["contents", "Contents", "C", data.contents])
+  if (drift.length > 0) actions.push(["drift", "Drift", "R", "#"])
+  actions.push(["reload", "Reload", "shift R", "#"], ["hide", "Hide", "H", "#"])
+
+  actions.forEach(([action, label, key, href]) => {
+    for (const target of [nav, menu]) {
+      const link = document.createElement("a")
+      link.textContent = label
+      link.href = href
+      link.dataset.once = action
+      if (target === nav) links[action] = link
+      if (target === menu) {
+        const hint = document.createElement("kbd")
+        hint.textContent = key
+        link.appendChild(hint)
+      }
+      target.appendChild(link)
+    }
+  })
+
+  const toggle = document.createElement("a")
+  toggle.textContent = "Menu"
+  toggle.href = "#"
+  toggle.dataset.once = "menu"
+  toggle.setAttribute("aria-haspopup", "true")
+  toggle.setAttribute("aria-expanded", "false")
+  nav.appendChild(toggle)
+
+  const style = document.createElement("style")
+  style.textContent = ` + "`" + `
+#once-bar{position:fixed;top:0;right:0;left:0;z-index:2147483647;display:flex;align-items:center;gap:1.25rem;height:40px;padding:0 1rem;box-sizing:border-box;background:rgba(17,17,19,.72);border-bottom:1px solid rgba(255,255,255,.14);color:#f3ede1;font:500 11px/40px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.12em;text-transform:uppercase;-webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%)}
+#once-bar .once-bar-name{margin-right:auto;overflow:hidden;font-weight:600;letter-spacing:.16em;white-space:nowrap;text-overflow:ellipsis}
+#once-bar .once-bar-nav{display:flex;align-items:center;gap:1.15rem}
+#once-bar a{color:inherit;text-decoration:none;opacity:.7}
+#once-bar a:hover,#once-bar a:focus-visible{opacity:1}
+#once-bar a:focus-visible{outline:1px solid rgba(255,255,255,.5);outline-offset:2px}
+#once-bar-menu{position:absolute;top:calc(100% + 6px);right:1rem;display:grid;gap:.1rem;min-width:13rem;padding:.35rem;background:rgba(17,17,19,.9);border:1px solid rgba(255,255,255,.14);border-radius:6px;box-shadow:0 12px 32px rgba(0,0,0,.35);-webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%)}
+#once-bar-menu[hidden]{display:none}
+#once-bar-menu a{display:flex;align-items:center;justify-content:space-between;gap:2rem;padding:.45rem .6rem;font:inherit;letter-spacing:.12em;opacity:.8}
+#once-bar-menu a:hover,#once-bar-menu a:focus-visible{background:rgba(255,255,255,.08);opacity:1}
+#once-bar-menu kbd{font:inherit;letter-spacing:.08em;opacity:.55}
+@media (prefers-reduced-transparency:reduce){#once-bar,#once-bar-menu{background:rgba(17,17,19,.96);-webkit-backdrop-filter:none;backdrop-filter:none}}
+` + "`" + `
+
+  function setMenu(open) {
+    menu.hidden = !open
+    toggle.setAttribute("aria-expanded", open ? "true" : "false")
+  }
+
+  const reduceMotion = Boolean(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches)
+  const canFade = !reduceMotion && Boolean(window.CSS && window.CSS.supports && window.CSS.supports("transition", "opacity"))
+  const fadeDuration = 180
+
+  function contentNodes() {
+    return Array.from(document.body.children).filter((node) => node !== bar && node.tagName !== "SCRIPT")
+  }
+
+  function clearFade(node) {
+    node.style.transition = ""
+    node.style.opacity = ""
+  }
+
+  function fadeIn(nodes) {
+    nodes.forEach((node) => {
+      node.style.transition = "none"
+      node.style.opacity = "0"
+    })
+    void document.body.offsetWidth
+    nodes.forEach((node) => {
+      node.style.transition = "opacity " + fadeDuration + "ms ease"
+      node.style.opacity = "1"
+    })
+    window.setTimeout(() => nodes.forEach(clearFade), fadeDuration + 50)
+  }
+
+  function arrivedFromApp() {
+    if (!document.referrer) return false
+    const known = [data.back, data.next].concat(drift).filter((url) => url && url !== "#")
+    return known.some((url) => document.referrer === url || document.referrer.indexOf(url + "/") === 0)
+  }
+
+  function leave(href) {
+    if (!href || href === "#") return
+    const nodes = contentNodes()
+    if (!canFade || nodes.length === 0) return location.assign(href)
+    nodes.forEach((node) => {
+      node.style.transition = "opacity " + fadeDuration + "ms ease"
+      node.style.opacity = "0"
+    })
+    window.setTimeout(() => location.assign(href), fadeDuration)
+  }
+
+  function run(action) {
+    if (action === "menu") return setMenu(menu.hidden)
+    if (action === "hide") { setMenu(false); bar.hidden = true; return }
+    if (action === "reload") return location.reload()
+    if (action === "drift") {
+      if (drift.length > 0) leave(drift[Math.floor(Math.random() * drift.length)])
+      return
+    }
+    if (links[action]) leave(links[action].href)
+  }
+
+  bar.addEventListener("click", (event) => {
+    const action = event.target.closest?.("[data-once]")
+    if (!action) return
+    run(action.dataset.once)
+    event.preventDefault()
+  })
+
+  document.addEventListener("click", (event) => {
+    if (!event.target.closest?.("#once-bar")) setMenu(false)
+  })
+
+  document.addEventListener("keydown", (event) => {
+    if (event.ctrlKey || event.metaKey || event.altKey) return
+    if (event.target.closest?.("input, textarea, select, [contenteditable]")) return
+    if (event.key === "Escape") return setMenu(false)
+    if (event.key.toLowerCase() === "r") {
+      event.preventDefault()
+      return run(event.shiftKey ? "reload" : "drift")
+    }
+    const bindings = {"/":"menu","[":"back","]":"next","c":"contents","h":"hide"}
+    const action = bindings[event.key.toLowerCase()]
+    if (!action) return
+    event.preventDefault()
+    run(action)
+  })
+
+  document.head.appendChild(style)
+  document.body.appendChild(bar)
+
+  if (canFade && arrivedFromApp()) fadeIn(contentNodes())
+
+  window.addEventListener("pageshow", (event) => {
+    if (event.persisted) contentNodes().forEach(clearFade)
+  })
+})()
+`
+[0m$ [0mgrep -rn "hide\|Hide" internal/docker/appbar.go | head -50
+146:  actions.push(["reload", "Reload", "shift R", "#"], ["hide", "Hide", "H", "#"])
+238:    if (action === "hide") { setMenu(false); bar.hidden = true; return }
+266:    const bindings = {"/":"menu","[":"back","]":"next","c":"contents","h":"hide"}
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcat internal/docker/appbar_test.go
+package docker
+
+import (
+	"os"
+	"path/filepath"
+	"strings"
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+)
+
+func TestAppBarLoadsScriptFromServedCopy(t *testing.T) {
+	ns := namespaceWithApps(ApplicationSettings{Name: "only", Host: "only.localhost"})
+
+	tag := ns.Application("only").appBar()
+
+	assert.Equal(t, `<script src="/__once/bar.js" defer></script>`, tag)
+}
+
+func TestAppBarScriptCarriesNavigationData(t *testing.T) {
+	ns := namespaceWithApps(
+		ApplicationSettings{Name: "alpha", Host: "alpha.localhost"},
+		ApplicationSettings{Name: "beta", Host: "beta.localhost"},
+		ApplicationSettings{Name: "gamma", Host: "gamma.localhost"},
+	)
+
+	script := ns.Application("beta").appBarScript()
+
+	assert.Contains(t, script, `"name":"beta"`)
+	assert.Contains(t, script, `"back":"http://alpha.localhost"`)
+	assert.Contains(t, script, `"next":"http://gamma.localhost"`)
+	assert.Contains(t, script, `"contents":"/"`)
+	assert.Contains(t, script, `"drift":["http://alpha.localhost","http://gamma.localhost"]`)
+}
+
+func TestAppBarScriptWrapsNavigation(t *testing.T) {
+	ns := namespaceWithApps(
+		ApplicationSettings{Name: "beta", Host: "beta.localhost"},
+		ApplicationSettings{Name: "gamma", Host: "gamma.localhost"},
+	)
+	app := &Application{
+		namespace: ns,
+		Settings:  ApplicationSettings{Name: "alpha", Host: "alpha.localhost"},
+	}
+
+	script := app.appBarScript()
+
+	assert.Contains(t, script, `"back":"http://gamma.localhost"`)
+	assert.Contains(t, script, `"next":"http://beta.localhost"`)
+}
+
+func TestAppBarScriptWithoutSiblings(t *testing.T) {
+	ns := namespaceWithApps(ApplicationSettings{Name: "only", Host: "only.localhost"})
+
+	script := ns.Application("only").appBarScript()
+
+	assert.NotContains(t, script, `"back":`)
+	assert.NotContains(t, script, `"next":`)
+	assert.Contains(t, script, `"contents":"/"`)
+	assert.Contains(t, script, `"drift":[]`)
+}
+
+func TestAppBarScriptIgnoresStoppedApps(t *testing.T) {
+	ns := namespaceWithApps(
+		ApplicationSettings{Name: "alpha", Host: "alpha.localhost"},
+		ApplicationSettings{Name: "beta", Host: "beta.localhost"},
+		ApplicationSettings{Name: "gamma", Host: "gamma.localhost"},
+	)
+	ns.Application("alpha").Running = false
+	ns.Application("gamma").Running = false
+
+	script := ns.Application("beta").appBarScript()
+
+	assert.NotContains(t, script, "alpha.localhost")
+	assert.NotContains(t, script, "gamma.localhost")
+	assert.NotContains(t, script, `"back":`)
+	assert.Contains(t, script, `"drift":[]`)
+}
+
+func TestAppBarScriptBindsKeyboardShortcuts(t *testing.T) {
+	ns := namespaceWithApps(
+		ApplicationSettings{Name: "alpha", Host: "alpha.localhost"},
+		ApplicationSettings{Name: "beta", Host: "beta.localhost"},
+	)
+
+	script := ns.Application("beta").appBarScript()
+
+	assert.Contains(t, script, `{"/":"menu","[":"back","]":"next","c":"contents","h":"hide"}`)
+	assert.Contains(t, script, `event.shiftKey ? "reload" : "drift"`)
+	assert.Contains(t, script, `event.key === "Escape"`)
+	assert.Contains(t, script, `event.target.closest?.("input, textarea, select, [contenteditable]")`)
+}
+
+func TestAppBarScriptShowsShortcutHints(t *testing.T) {
+	ns := namespaceWithApps(
+		ApplicationSettings{Name: "alpha", Host: "alpha.localhost"},
+		ApplicationSettings{Name: "beta", Host: "beta.localhost"},
+	)
+
+	script := ns.Application("beta").appBarScript()
+
+	assert.Contains(t, script, `["back", "Back", "[", data.back]`)
+	assert.Contains(t, script, `["next", "Next", "]", data.next]`)
+	assert.Contains(t, script, `["contents", "Contents", "C", data.contents]`)
+	assert.Contains(t, script, `["drift", "Drift", "R", "#"]`)
+	assert.Contains(t, script, `["reload", "Reload", "shift R", "#"]`)
+	assert.Contains(t, script, `["hide", "Hide", "H", "#"]`)
+	assert.Contains(t, script, `toggle.setAttribute("aria-expanded"`)
+}
+
+func TestWriteAppBarScript(t *testing.T) {
+	ns := namespaceWithApps(
+		ApplicationSettings{Name: "alpha", Host: "alpha.localhost"},
+		ApplicationSettings{Name: "beta", Host: "beta.localhost"},
+	)
+	served := t.TempDir()
+	app := ns.Application("beta")
+	app.Settings.ServedPath = served
+
+	require.NoError(t, app.writeAppBarScript())
+
+	written, err := os.ReadFile(filepath.Join(served, appBarScriptPath))
+	require.NoError(t, err)
+	assert.Equal(t, app.appBarScript(), string(written))
+}
+
+func TestWriteAppBarScriptWithoutServedCopy(t *testing.T) {
+	app := &Application{Settings: ApplicationSettings{Name: "site", Source: "/srv/site"}}
+
+	assert.NoError(t, app.writeAppBarScript())
+}
+
+func TestAppBarScriptCanBeServedAsIs(t *testing.T) {
+	ns := namespaceWithApps(ApplicationSettings{Name: "alpha", Host: "alpha.localhost"})
+
+	script := ns.Application("alpha").appBarScript()
+
+	assert.NotContains(t, script, "{{")
+	assert.Contains(t, script, `document.body.appendChild(bar)`)
+	assert.Contains(t, script, "height:40px")
+	assert.Contains(t, script, "backdrop-filter:blur")
+}
+
+func TestAppBarCrossFadesContentUnderStillBar(t *testing.T) {
+	ns := namespaceWithApps(ApplicationSettings{Name: "alpha", Host: "alpha.localhost"})
+
+	script := ns.Application("alpha").appBarScript()
+
+	assert.Contains(t, script, `node !== bar && node.tagName !== "SCRIPT"`)
+	assert.Contains(t, script, `node.style.transition = "opacity " + fadeDuration + "ms ease"`)
+	assert.Contains(t, script, `window.setTimeout(() => location.assign(href), fadeDuration)`)
+	assert.NotContains(t, script, "bar.style.opacity")
+}
+
+func TestAppBarCrossFadeFallsBackWithoutTransitions(t *testing.T) {
+	ns := namespaceWithApps(ApplicationSettings{Name: "alpha", Host: "alpha.localhost"})
+
+	script := ns.Application("alpha").appBarScript()
+
+	assert.Contains(t, script, `(prefers-reduced-motion: reduce)`)
+	assert.Contains(t, script, `const canFade = !reduceMotion && Boolean(window.CSS`)
+	assert.Contains(t, script, `if (!canFade || nodes.length === 0) return location.assign(href)`)
+}
+
+func TestAppBarCrossFadeFadesInAfterAppChange(t *testing.T) {
+	ns := namespaceWithApps(
+		ApplicationSettings{Name: "alpha", Host: "alpha.localhost"},
+		ApplicationSettings{Name: "beta", Host: "beta.localhost"},
+	)
+
+	script := ns.Application("beta").appBarScript()
+
+	assert.Contains(t, script, `if (canFade && arrivedFromApp()) fadeIn(contentNodes())`)
+	assert.Contains(t, script, `document.referrer.indexOf(url + "/") === 0`)
+	assert.Contains(t, script, `if (event.persisted) contentNodes().forEach(clearFade)`)
+}
+
+func TestStaticNginxCommandInjectsAppBar(t *testing.T) {
+	ns := namespaceWithApps(ApplicationSettings{Name: "alpha", Host: "alpha.localhost"})
+	app := NewApplication(ns, ApplicationSettings{
+		Name:   "site",
+		Host:   "site.localhost",
+		Source: "/srv/site",
+	})
+
+	command := strings.Join(app.staticNginxCommand(), " ")
+
+	assert.Contains(t, command, `sub_filter '</body>' '<script src="/__once/bar.js" defer></script></body>'`)
+	assert.Contains(t, command, "sub_filter_types text/html")
+	assert.Contains(t, command, "location = /__once/bar.js")
+}
+
+func TestEscapeNginxVariables(t *testing.T) {
+	assert.Equal(t, `cost\$site`, escapeNginxVariables("cost$site"))
+}
+
+func namespaceWithApps(settings ...ApplicationSettings) *Namespace {
+	ns := &Namespace{proxy: &Proxy{}}
+	for _, s := range settings {
+		app := NewApplication(ns, s)
+		app.Running = true
+		ns.applications = append(ns.applications, app)
+	}
+	ns.sortApplications()
+	return ns
+}
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgit status --short; echo ---; ls -a | grep -E "eslint|stylelint|package|rubocop"; echo ---; grep -rn "eslint\|stylelint" --include="*.yml" --include="*.json" --include="*.toml" --include="Makefile" . -l 2>/dev/null | head
+?? .scratch/split/18-bar-hide.log
+---
+---
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcat .scratch/split/18-bar-hide.log 2>/dev/null | head -50; ls -la .scratch/split 2>/dev/null
+[0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m✱ [0mGlob "**/18-bar-hide*" [90m1 match[0m
+[0m$ [0mls -la; ls -la .opencode 2>/dev/null; ls -la .claude 2>/dev/null; ls -la ~/.config/opencode/command 2>/dev/null
+total 64
+drwxr-xr-x 1 mrjohn mrjohn   352 Nov  6 17:59 .
+drwxr-xr-x 1 mrjohn mrjohn    24 Nov  6 18:01 ..
+-rw-r--r-- 1 mrjohn mrjohn  4449 Nov  6 17:42 AGENTS.md
+drwxr-xr-x 1 mrjohn mrjohn     8 Nov  6 17:59 bin
+drwxr-xr-x 1 mrjohn mrjohn    18 Nov  6 17:42 .claude
+drwxr-xr-x 1 mrjohn mrjohn     8 Nov  6 17:42 cmd
+-rw-r--r-- 1 mrjohn mrjohn     8 Nov  6 17:42 .dockerignore
+drwxr-xr-x 1 mrjohn mrjohn   196 Nov  6 18:52 .git
+drwxr-xr-x 1 mrjohn mrjohn    86 Nov  6 17:42 .github
+-rw-r--r-- 1 mrjohn mrjohn    53 Nov  6 17:42 .gitignore
+-rw-r--r-- 1 mrjohn mrjohn   216 Nov  6 17:42 .golangci.yml
+-rw-r--r-- 1 mrjohn mrjohn  3273 Nov  6 18:23 go.mod
+-rw-r--r-- 1 mrjohn mrjohn 14792 Nov  6 18:23 go.sum
+drwxr-xr-x 1 mrjohn mrjohn   138 Nov  6 17:42 installer
+drwxr-xr-x 1 mrjohn mrjohn    62 Nov  6 17:42 integration
+drwxr-xr-x 1 mrjohn mrjohn   172 Nov  6 18:43 internal
+-rw-r--r-- 1 mrjohn mrjohn  1292 Nov  6 17:42 Makefile
+-rw-r--r-- 1 mrjohn mrjohn    97 Nov  6 17:42 mise.toml
+-rw-r--r-- 1 mrjohn mrjohn  1053 Nov  6 17:42 MIT-LICENSE
+drwxr-xr-x 1 mrjohn mrjohn  2004 Nov  6 17:49 prompt
+drwxr-xr-x 1 mrjohn mrjohn   840 Nov  6 17:44 prompt-v1
+-rw-r--r-- 1 mrjohn mrjohn  8244 Nov  6 17:42 README.md
+drwxr-xr-x 1 mrjohn mrjohn    10 Nov  6 18:51 .scratch
+drwxr-xr-x 1 mrjohn mrjohn    30 Nov  5 23:06 scripts
+total 4
+drwxr-xr-x 1 mrjohn mrjohn  18 Nov  6 17:42 .
+drwxr-xr-x 1 mrjohn mrjohn 352 Nov  6 17:59 ..
+-rw-r--r-- 1 mrjohn mrjohn  14 Nov  6 17:42 CLAUDE.md
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead prompt/18-bar-hide.md 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mls prompt | head -40; echo ---; find internal -maxdepth 2 -type f | sort
+00-overview.md
+01-deploy-static-folder.md
+02-serve-static-apps.md
+03-redeploy-folder.md
+04-stale-source-detection.md
+05-folder-contents-fallback.md
+06-markdown-pages.md
+07-single-file-html-site.md
+08-remove-static-app.md
+09-contents-card.md
+10-contents-screen.md
+11-channels.md
+12-channel-filter.md
+total 1952
+drwxr-xr-x 1 mrjohn mrjohn   2304 Nov  6 18:52 .
+drwxr-xr-x 1 mrjohn mrjohn     10 Nov  6 18:51 ..
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:12 01-deploy-static-folder.check
+-rw-r--r-- 1 mrjohn mrjohn    191 Nov  6 18:12 01-deploy-static-folder.diff
+-rw-r--r-- 1 mrjohn mrjohn  29878 Nov  6 18:12 01-deploy-static-folder.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:15 02-serve-static-apps.check
+-rw-r--r-- 1 mrjohn mrjohn    177 Nov  6 18:15 02-serve-static-apps.diff
+-rw-r--r-- 1 mrjohn mrjohn  96981 Nov  6 18:15 02-serve-static-apps.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:18 03-redeploy-folder.check
+-rw-r--r-- 1 mrjohn mrjohn    258 Nov  6 18:18 03-redeploy-folder.diff
+-rw-r--r-- 1 mrjohn mrjohn  88725 Nov  6 18:18 03-redeploy-folder.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:20 04-stale-source-detection.check
+-rw-r--r-- 1 mrjohn mrjohn    475 Nov  6 18:20 04-stale-source-detection.diff
+-rw-r--r-- 1 mrjohn mrjohn  82455 Nov  6 18:20 04-stale-source-detection.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:22 05-folder-contents-fallback.check
+-rw-r--r-- 1 mrjohn mrjohn    308 Nov  6 18:22 05-folder-contents-fallback.diff
+-rw-r--r-- 1 mrjohn mrjohn 142626 Nov  6 18:22 05-folder-contents-fallback.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:24 06-markdown-pages.check
+-rw-r--r-- 1 mrjohn mrjohn    397 Nov  6 18:24 06-markdown-pages.diff
+-rw-r--r-- 1 mrjohn mrjohn  81696 Nov  6 18:24 06-markdown-pages.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:25 07-single-file-html-site.check
+-rw-r--r-- 1 mrjohn mrjohn    492 Nov  6 18:25 07-single-file-html-site.diff
+-rw-r--r-- 1 mrjohn mrjohn  89089 Nov  6 18:25 07-single-file-html-site.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:27 08-remove-static-app.check
+-rw-r--r-- 1 mrjohn mrjohn    241 Nov  6 18:27 08-remove-static-app.diff
+-rw-r--r-- 1 mrjohn mrjohn  73820 Nov  6 18:27 08-remove-static-app.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:31 09-contents-card.check
+-rw-r--r-- 1 mrjohn mrjohn    247 Nov  6 18:31 09-contents-card.diff
+-rw-r--r-- 1 mrjohn mrjohn 195996 Nov  6 18:31 09-contents-card.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:33 10-contents-screen.check
+-rw-r--r-- 1 mrjohn mrjohn    156 Nov  6 18:33 10-contents-screen.diff
+-rw-r--r-- 1 mrjohn mrjohn  62181 Nov  6 18:33 10-contents-screen.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:36 11-channels.check
+-rw-r--r-- 1 mrjohn mrjohn    270 Nov  6 18:36 11-channels.diff
+-rw-r--r-- 1 mrjohn mrjohn 210717 Nov  6 18:36 11-channels.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:39 12-channel-filter.check
+-rw-r--r-- 1 mrjohn mrjohn    374 Nov  6 18:39 12-channel-filter.diff
+-rw-r--r-- 1 mrjohn mrjohn  82391 Nov  6 18:39 12-channel-filter.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:41 13-favorites.check
+-rw-r--r-- 1 mrjohn mrjohn    546 Nov  6 18:41 13-favorites.diff
+-rw-r--r-- 1 mrjohn mrjohn 201662 Nov  6 18:41 13-favorites.log
+-rw-r--r-- 1 mrjohn mrjohn    784 Nov  6 18:43 14-drift.check
+-rw-r--r-- 1 mrjohn mrjohn    202 Nov  6 18:43 14-drift.diff
+-rw-r--r-- 1 mrjohn mrjohn  99813 Nov  6 18:43 14-drift.log
+-rw-r--r-- 1 mrjohn mrjohn    784 Nov  6 18:46 15-app-bar.check
+-rw-r--r-- 1 mrjohn mrjohn    190 Nov  6 18:46 15-app-bar.diff
+-rw-r--r-- 1 mrjohn mrjohn  88346 Nov  6 18:46 15-app-bar.log
+-rw-r--r-- 1 mrjohn mrjohn    784 Nov  6 18:51 16-bar-keys.check
+-rw-r--r-- 1 mrjohn mrjohn     76 Nov  6 18:51 16-bar-keys.diff
+-rw-r--r-- 1 mrjohn mrjohn 137616 Nov  6 18:51 16-bar-keys.log
+-rw-r--r-- 1 mrjohn mrjohn    784 Nov  6 18:52 17-bar-cross-fade.check
+-rw-r--r-- 1 mrjohn mrjohn    196 Nov  6 18:52 17-bar-cross-fade.diff
+-rw-r--r-- 1 mrjohn mrjohn  30572 Nov  6 18:52 17-bar-cross-fade.log
+-rw-r--r-- 1 mrjohn mrjohn  28094 Nov  6 18:52 18-bar-hide.log
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcat .scratch/split/17-bar-cross-fade.check; echo ====; cat .scratch/split/16-bar-keys.check; echo ====; cat .scratch/split/15-app-bar.check
+go test ./internal/...
+ok  	github.com/basecamp/once/internal/background	(cached)
+ok  	github.com/basecamp/once/internal/browser	(cached)
+ok  	github.com/basecamp/once/internal/command	(cached)
+ok  	github.com/basecamp/once/internal/docker	0.028s
+ok  	github.com/basecamp/once/internal/fsutil	(cached)
+?   	github.com/basecamp/once/internal/logging	[no test files]
+ok  	github.com/basecamp/once/internal/metrics	0.006s
+ok  	github.com/basecamp/once/internal/mouse	(cached)
+?   	github.com/basecamp/once/internal/service	[no test files]
+ok  	github.com/basecamp/once/internal/system	(cached)
+ok  	github.com/basecamp/once/internal/ui	(cached)
+ok  	github.com/basecamp/once/internal/userstats	(cached)
+ok  	github.com/basecamp/once/internal/version	(cached)
+golangci-lint run
+0 issues.
+====
+go test ./internal/...
+ok  	github.com/basecamp/once/internal/background	(cached)
+ok  	github.com/basecamp/once/internal/browser	(cached)
+ok  	github.com/basecamp/once/internal/command	(cached)
+ok  	github.com/basecamp/once/internal/docker	0.026s
+ok  	github.com/basecamp/once/internal/fsutil	(cached)
+?   	github.com/basecamp/once/internal/logging	[no test files]
+ok  	github.com/basecamp/once/internal/metrics	0.006s
+ok  	github.com/basecamp/once/internal/mouse	(cached)
+?   	github.com/basecamp/once/internal/service	[no test files]
+ok  	github.com/basecamp/once/internal/system	(cached)
+ok  	github.com/basecamp/once/internal/ui	(cached)
+ok  	github.com/basecamp/once/internal/userstats	(cached)
+ok  	github.com/basecamp/once/internal/version	(cached)
+golangci-lint run
+0 issues.
+====
+go test ./internal/...
+ok  	github.com/basecamp/once/internal/background	(cached)
+ok  	github.com/basecamp/once/internal/browser	(cached)
+ok  	github.com/basecamp/once/internal/command	(cached)
+ok  	github.com/basecamp/once/internal/docker	0.026s
+ok  	github.com/basecamp/once/internal/fsutil	(cached)
+?   	github.com/basecamp/once/internal/logging	[no test files]
+ok  	github.com/basecamp/once/internal/metrics	0.006s
+ok  	github.com/basecamp/once/internal/mouse	(cached)
+?   	github.com/basecamp/once/internal/service	[no test files]
+ok  	github.com/basecamp/once/internal/system	(cached)
+ok  	github.com/basecamp/once/internal/ui	(cached)
+ok  	github.com/basecamp/once/internal/userstats	(cached)
+ok  	github.com/basecamp/once/internal/version	(cached)
+golangci-lint run
+0 issues.
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/appbar.go
+Index: internal/docker/appbar.go
+===================================================================
+--- internal/docker/appbar.go
++++ internal/docker/appbar.go
+@@ -137,8 +137,18 @@
+   menu.id = "once-bar-menu"
+   menu.hidden = true
+   bar.appendChild(menu)
+ 
++  const tab = document.createElement("a")
++  tab.id = "once-bar-tab"
++  tab.href = "#"
++  tab.textContent = data.name
++  tab.setAttribute("aria-label", "Show bar")
++  tab.hidden = true
++  const tabKey = document.createElement("kbd")
++  tabKey.textContent = "H"
++  tab.appendChild(tabKey)
++
+   const actions = []
+   if (data.back) actions.push(["back", "Back", "[", data.back])
+   if (data.next) actions.push(["next", "Next", "]", data.next])
+   actions.push(["contents", "Contents", "C", data.contents])
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/appbar.go
+Index: internal/docker/appbar.go
+===================================================================
+--- internal/docker/appbar.go
++++ internal/docker/appbar.go
+@@ -180,9 +180,10 @@
+   nav.appendChild(toggle)
+ 
+   const style = document.createElement("style")
+   style.textContent = ` + "`" + `
+-#once-bar{position:fixed;top:0;right:0;left:0;z-index:2147483647;display:flex;align-items:center;gap:1.25rem;height:40px;padding:0 1rem;box-sizing:border-box;background:rgba(17,17,19,.72);border-bottom:1px solid rgba(255,255,255,.14);color:#f3ede1;font:500 11px/40px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.12em;text-transform:uppercase;-webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%)}
++#once-bar{position:fixed;top:0;right:0;left:0;z-index:2147483647;display:flex;align-items:center;gap:1.25rem;height:40px;padding:0 1rem;box-sizing:border-box;background:rgba(17,17,19,.72);border-bottom:1px solid rgba(255,255,255,.14);color:#f3ede1;font:500 11px/40px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.12em;text-transform:uppercase;transition:transform 180ms ease;-webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%)}
++#once-bar.once-bar-hidden{transform:translateY(-100%)}
+ #once-bar .once-bar-name{margin-right:auto;overflow:hidden;font-weight:600;letter-spacing:.16em;white-space:nowrap;text-overflow:ellipsis}
+ #once-bar .once-bar-nav{display:flex;align-items:center;gap:1.15rem}
+ #once-bar a{color:inherit;text-decoration:none;opacity:.7}
+ #once-bar a:hover,#once-bar a:focus-visible{opacity:1}
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/appbar.go
+Index: internal/docker/appbar.go
+===================================================================
+--- internal/docker/appbar.go
++++ internal/docker/appbar.go
+@@ -192,9 +192,15 @@
+ #once-bar-menu[hidden]{display:none}
+ #once-bar-menu a{display:flex;align-items:center;justify-content:space-between;gap:2rem;padding:.45rem .6rem;font:inherit;letter-spacing:.12em;opacity:.8}
+ #once-bar-menu a:hover,#once-bar-menu a:focus-visible{background:rgba(255,255,255,.08);opacity:1}
+ #once-bar-menu kbd{font:inherit;letter-spacing:.08em;opacity:.55}
+-@media (prefers-reduced-transparency:reduce){#once-bar,#once-bar-menu{background:rgba(17,17,19,.96);-webkit-backdrop-filter:none;backdrop-filter:none}}
++#once-bar-tab{position:fixed;top:0;right:1rem;z-index:2147483647;display:flex;align-items:center;gap:.6rem;height:24px;padding:0 .7rem;box-sizing:border-box;background:rgba(17,17,19,.78);border:1px solid rgba(255,255,255,.14);border-top:0;border-radius:0 0 6px 6px;color:#f3ede1;font:500 10px/24px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;opacity:.85;-webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%)}
++#once-bar-tab:hover,#once-bar-tab:focus-visible{opacity:1}
++#once-bar-tab:focus-visible{outline:1px solid rgba(255,255,255,.5);outline-offset:2px}
++#once-bar-tab[hidden]{display:none}
++#once-bar-tab kbd{font:inherit;letter-spacing:.08em;opacity:.55}
++@media (prefers-reduced-transparency:reduce){#once-bar,#once-bar-menu,#once-bar-tab{background:rgba(17,17,19,.96);-webkit-backdrop-filter:none;backdrop-filter:none}}
++@media (prefers-reduced-motion:reduce){#once-bar{transition:none}}
+ ` + "`" + `
+ 
+   function setMenu(open) {
+     menu.hidden = !open
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/appbar.go
+Index: internal/docker/appbar.go
+===================================================================
+--- internal/docker/appbar.go
++++ internal/docker/appbar.go
+@@ -206,8 +206,18 @@
+     menu.hidden = !open
+     toggle.setAttribute("aria-expanded", open ? "true" : "false")
+   }
+ 
++  let barHidden = false
++
++  function setBarHidden(hidden) {
++    if (barHidden === hidden) return
++    barHidden = hidden
++    bar.classList.toggle("once-bar-hidden", hidden)
++    tab.hidden = !hidden
++    if (hidden) setMenu(false)
++  }
++
+   const reduceMotion = Boolean(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches)
+   const canFade = !reduceMotion && Boolean(window.CSS && window.CSS.supports && window.CSS.supports("transition", "opacity"))
+   const fadeDuration = 180
+ 
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/appbar.go
+Index: internal/docker/appbar.go
+===================================================================
+--- internal/docker/appbar.go
++++ internal/docker/appbar.go
+@@ -221,9 +221,9 @@
+   const canFade = !reduceMotion && Boolean(window.CSS && window.CSS.supports && window.CSS.supports("transition", "opacity"))
+   const fadeDuration = 180
+ 
+   function contentNodes() {
+-    return Array.from(document.body.children).filter((node) => node !== bar && node.tagName !== "SCRIPT")
++    return Array.from(document.body.children).filter((node) => node !== bar && node !== tab && node.tagName !== "SCRIPT")
+   }
+ 
+   function clearFade(node) {
+     node.style.transition = ""
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/appbar.go
+Index: internal/docker/appbar.go
+===================================================================
+--- internal/docker/appbar.go
++++ internal/docker/appbar.go
+@@ -261,9 +261,10 @@
+   }
+ 
+   function run(action) {
+     if (action === "menu") return setMenu(menu.hidden)
+-    if (action === "hide") { setMenu(false); bar.hidden = true; return }
++    if (action === "hide") return setBarHidden(!barHidden)
++    if (action === "show") return setBarHidden(false)
+     if (action === "reload") return location.reload()
+     if (action === "drift") {
+       if (drift.length > 0) leave(drift[Math.floor(Math.random() * drift.length)])
+       return
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/appbar.go
+Index: internal/docker/appbar.go
+===================================================================
+--- internal/docker/appbar.go
++++ internal/docker/appbar.go
+@@ -282,8 +282,24 @@
+   document.addEventListener("click", (event) => {
+     if (!event.target.closest?.("#once-bar")) setMenu(false)
+   })
+ 
++  tab.addEventListener("click", (event) => {
++    event.preventDefault()
++    setBarHidden(false)
++  })
++
++  let lastScrollY = window.scrollY || 0
++
++  window.addEventListener("scroll", () => {
++    const scrollY = window.scrollY || 0
++    const delta = scrollY - lastScrollY
++    lastScrollY = scrollY
++    if (scrollY <= 0) return setBarHidden(false)
++    if (delta > 4) setBarHidden(true)
++    else if (delta < -4) setBarHidden(false)
++  }, { passive: true })
++
+   document.addEventListener("keydown", (event) => {
+     if (event.ctrlKey || event.metaKey || event.altKey) return
+     if (event.target.closest?.("input, textarea, select, [contenteditable]")) return
+     if (event.key === "Escape") return setMenu(false)
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/appbar.go
+Index: internal/docker/appbar.go
+===================================================================
+--- internal/docker/appbar.go
++++ internal/docker/appbar.go
+@@ -315,8 +315,9 @@
+   })
+ 
+   document.head.appendChild(style)
+   document.body.appendChild(bar)
++  document.body.appendChild(tab)
+ 
+   if (canFade && arrivedFromApp()) fadeIn(contentNodes())
+ 
+   window.addEventListener("pageshow", (event) => {
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/appbar_test.go
+Index: internal/docker/appbar_test.go
+===================================================================
+--- internal/docker/appbar_test.go
++++ internal/docker/appbar_test.go
+@@ -146,9 +146,9 @@
+ 	ns := namespaceWithApps(ApplicationSettings{Name: "alpha", Host: "alpha.localhost"})
+ 
+ 	script := ns.Application("alpha").appBarScript()
+ 
+-	assert.Contains(t, script, `node !== bar && node.tagName !== "SCRIPT"`)
++	assert.Contains(t, script, `node !== bar && node !== tab && node.tagName !== "SCRIPT"`)
+ 	assert.Contains(t, script, `node.style.transition = "opacity " + fadeDuration + "ms ease"`)
+ 	assert.Contains(t, script, `window.setTimeout(() => location.assign(href), fadeDuration)`)
+ 	assert.NotContains(t, script, "bar.style.opacity")
+ }
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/appbar_test.go
+Index: internal/docker/appbar_test.go
+===================================================================
+--- internal/docker/appbar_test.go
++++ internal/docker/appbar_test.go
+@@ -175,8 +175,44 @@
+ 	assert.Contains(t, script, `document.referrer.indexOf(url + "/") === 0`)
+ 	assert.Contains(t, script, `if (event.persisted) contentNodes().forEach(clearFade)`)
+ }
+ 
++func TestAppBarHidesOnScrollDownAndReturnsOnScrollUp(t *testing.T) {
++	ns := namespaceWithApps(ApplicationSettings{Name: "alpha", Host: "alpha.localhost"})
++
++	script := ns.Application("alpha").appBarScript()
++
++	assert.Contains(t, script, `window.addEventListener("scroll", () => {`)
++	assert.Contains(t, script, `if (scrollY <= 0) return setBarHidden(false)`)
++	assert.Contains(t, script, `if (delta > 4) setBarHidden(true)`)
++	assert.Contains(t, script, `else if (delta < -4) setBarHidden(false)`)
++	assert.Contains(t, script, `{ passive: true }`)
++}
++
++func TestAppBarLeavesTabToRestoreWhenHidden(t *testing.T) {
++	ns := namespaceWithApps(ApplicationSettings{Name: "alpha", Host: "alpha.localhost"})
++
++	script := ns.Application("alpha").appBarScript()
++
++	assert.Contains(t, script, `tab.id = "once-bar-tab"`)
++	assert.Contains(t, script, `tab.hidden = true`)
++	assert.Contains(t, script, `tab.hidden = !hidden`)
++	assert.Contains(t, script, `tab.addEventListener("click"`)
++	assert.Contains(t, script, `setBarHidden(false)`)
++	assert.Contains(t, script, `#once-bar-tab{position:fixed;top:0;right:1rem`)
++	assert.Contains(t, script, `#once-bar.once-bar-hidden{transform:translateY(-100%)}`)
++}
++
++func TestAppBarHideKeyTogglesInsteadOfSticking(t *testing.T) {
++	ns := namespaceWithApps(ApplicationSettings{Name: "alpha", Host: "alpha.localhost"})
++
++	script := ns.Application("alpha").appBarScript()
++
++	assert.Contains(t, script, `{"/":"menu","[":"back","]":"next","c":"contents","h":"hide"}`)
++	assert.Contains(t, script, `if (action === "hide") return setBarHidden(!barHidden)`)
++	assert.NotContains(t, script, "bar.hidden = true")
++}
++
+ func TestStaticNginxCommandInjectsAppBar(t *testing.T) {
+ 	ns := namespaceWithApps(ApplicationSettings{Name: "alpha", Host: "alpha.localhost"})
+ 	app := NewApplication(ns, ApplicationSettings{
+ 		Name:   "site",
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgofmt -l internal/docker/appbar.go internal/docker/appbar_test.go; go test ./internal/docker/... 2>&1 | tail -20
+ok  	github.com/basecamp/once/internal/docker	0.027s
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mmake lint 2>&1 | tail -20
+golangci-lint run
+0 issues.
+[0m$ [0mmake test 2>&1 | tail -25
+go test ./internal/...
+ok  	github.com/basecamp/once/internal/background	0.022s
+ok  	github.com/basecamp/once/internal/browser	(cached)
+ok  	github.com/basecamp/once/internal/command	(cached)
+ok  	github.com/basecamp/once/internal/docker	(cached)
+ok  	github.com/basecamp/once/internal/fsutil	(cached)
+?   	github.com/basecamp/once/internal/logging	[no test files]
+ok  	github.com/basecamp/once/internal/metrics	0.011s
+ok  	github.com/basecamp/once/internal/mouse	(cached)
+?   	github.com/basecamp/once/internal/service	[no test files]
+ok  	github.com/basecamp/once/internal/system	(cached)
+ok  	github.com/basecamp/once/internal/ui	0.227s
+ok  	github.com/basecamp/once/internal/userstats	(cached)
+ok  	github.com/basecamp/once/internal/version	(cached)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/appbar.go
+Index: internal/docker/appbar.go
+===================================================================
+--- internal/docker/appbar.go
++++ internal/docker/appbar.go
+@@ -140,9 +140,9 @@
+ 
+   const tab = document.createElement("a")
+   tab.id = "once-bar-tab"
+   tab.href = "#"
+-  tab.textContent = data.name
++  tab.textContent = "Once"
+   tab.setAttribute("aria-label", "Show bar")
+   tab.hidden = true
+   const tabKey = document.createElement("kbd")
+   tabKey.textContent = "H"
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0msed -n 120,300p internal/docker/appbar.go
+const data = {{data}}
+  const drift = data.drift || []
+  const links = {}
+
+  const bar = document.createElement("div")
+  bar.id = "once-bar"
+
+  const name = document.createElement("span")
+  name.className = "once-bar-name"
+  name.textContent = data.name
+  bar.appendChild(name)
+
+  const nav = document.createElement("nav")
+  nav.className = "once-bar-nav"
+  bar.appendChild(nav)
+
+  const menu = document.createElement("div")
+  menu.id = "once-bar-menu"
+  menu.hidden = true
+  bar.appendChild(menu)
+
+  const tab = document.createElement("a")
+  tab.id = "once-bar-tab"
+  tab.href = "#"
+  tab.textContent = "Once"
+  tab.setAttribute("aria-label", "Show bar")
+  tab.hidden = true
+  const tabKey = document.createElement("kbd")
+  tabKey.textContent = "H"
+  tab.appendChild(tabKey)
+
+  const actions = []
+  if (data.back) actions.push(["back", "Back", "[", data.back])
+  if (data.next) actions.push(["next", "Next", "]", data.next])
+  actions.push(["contents", "Contents", "C", data.contents])
+  if (drift.length > 0) actions.push(["drift", "Drift", "R", "#"])
+  actions.push(["reload", "Reload", "shift R", "#"], ["hide", "Hide", "H", "#"])
+
+  actions.forEach(([action, label, key, href]) => {
+    for (const target of [nav, menu]) {
+      const link = document.createElement("a")
+      link.textContent = label
+      link.href = href
+      link.dataset.once = action
+      if (target === nav) links[action] = link
+      if (target === menu) {
+        const hint = document.createElement("kbd")
+        hint.textContent = key
+        link.appendChild(hint)
+      }
+      target.appendChild(link)
+    }
+  })
+
+  const toggle = document.createElement("a")
+  toggle.textContent = "Menu"
+  toggle.href = "#"
+  toggle.dataset.once = "menu"
+  toggle.setAttribute("aria-haspopup", "true")
+  toggle.setAttribute("aria-expanded", "false")
+  nav.appendChild(toggle)
+
+  const style = document.createElement("style")
+  style.textContent = ` + "`" + `
+#once-bar{position:fixed;top:0;right:0;left:0;z-index:2147483647;display:flex;align-items:center;gap:1.25rem;height:40px;padding:0 1rem;box-sizing:border-box;background:rgba(17,17,19,.72);border-bottom:1px solid rgba(255,255,255,.14);color:#f3ede1;font:500 11px/40px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.12em;text-transform:uppercase;transition:transform 180ms ease;-webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%)}
+#once-bar.once-bar-hidden{transform:translateY(-100%)}
+#once-bar .once-bar-name{margin-right:auto;overflow:hidden;font-weight:600;letter-spacing:.16em;white-space:nowrap;text-overflow:ellipsis}
+#once-bar .once-bar-nav{display:flex;align-items:center;gap:1.15rem}
+#once-bar a{color:inherit;text-decoration:none;opacity:.7}
+#once-bar a:hover,#once-bar a:focus-visible{opacity:1}
+#once-bar a:focus-visible{outline:1px solid rgba(255,255,255,.5);outline-offset:2px}
+#once-bar-menu{position:absolute;top:calc(100% + 6px);right:1rem;display:grid;gap:.1rem;min-width:13rem;padding:.35rem;background:rgba(17,17,19,.9);border:1px solid rgba(255,255,255,.14);border-radius:6px;box-shadow:0 12px 32px rgba(0,0,0,.35);-webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%)}
+#once-bar-menu[hidden]{display:none}
+#once-bar-menu a{display:flex;align-items:center;justify-content:space-between;gap:2rem;padding:.45rem .6rem;font:inherit;letter-spacing:.12em;opacity:.8}
+#once-bar-menu a:hover,#once-bar-menu a:focus-visible{background:rgba(255,255,255,.08);opacity:1}
+#once-bar-menu kbd{font:inherit;letter-spacing:.08em;opacity:.55}
+#once-bar-tab{position:fixed;top:0;right:1rem;z-index:2147483647;display:flex;align-items:center;gap:.6rem;height:24px;padding:0 .7rem;box-sizing:border-box;background:rgba(17,17,19,.78);border:1px solid rgba(255,255,255,.14);border-top:0;border-radius:0 0 6px 6px;color:#f3ede1;font:500 10px/24px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;opacity:.85;-webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%)}
+#once-bar-tab:hover,#once-bar-tab:focus-visible{opacity:1}
+#once-bar-tab:focus-visible{outline:1px solid rgba(255,255,255,.5);outline-offset:2px}
+#once-bar-tab[hidden]{display:none}
+#once-bar-tab kbd{font:inherit;letter-spacing:.08em;opacity:.55}
+@media (prefers-reduced-transparency:reduce){#once-bar,#once-bar-menu,#once-bar-tab{background:rgba(17,17,19,.96);-webkit-backdrop-filter:none;backdrop-filter:none}}
+@media (prefers-reduced-motion:reduce){#once-bar{transition:none}}
+` + "`" + `
+
+  function setMenu(open) {
+    menu.hidden = !open
+    toggle.setAttribute("aria-expanded", open ? "true" : "false")
+  }
+
+  let barHidden = false
+
+  function setBarHidden(hidden) {
+    if (barHidden === hidden) return
+    barHidden = hidden
+    bar.classList.toggle("once-bar-hidden", hidden)
+    tab.hidden = !hidden
+    if (hidden) setMenu(false)
+  }
+
+  const reduceMotion = Boolean(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches)
+  const canFade = !reduceMotion && Boolean(window.CSS && window.CSS.supports && window.CSS.supports("transition", "opacity"))
+  const fadeDuration = 180
+
+  function contentNodes() {
+    return Array.from(document.body.children).filter((node) => node !== bar && node !== tab && node.tagName !== "SCRIPT")
+  }
+
+  function clearFade(node) {
+    node.style.transition = ""
+    node.style.opacity = ""
+  }
+
+  function fadeIn(nodes) {
+    nodes.forEach((node) => {
+      node.style.transition = "none"
+      node.style.opacity = "0"
+    })
+    void document.body.offsetWidth
+    nodes.forEach((node) => {
+      node.style.transition = "opacity " + fadeDuration + "ms ease"
+      node.style.opacity = "1"
+    })
+    window.setTimeout(() => nodes.forEach(clearFade), fadeDuration + 50)
+  }
+
+  function arrivedFromApp() {
+    if (!document.referrer) return false
+    const known = [data.back, data.next].concat(drift).filter((url) => url && url !== "#")
+    return known.some((url) => document.referrer === url || document.referrer.indexOf(url + "/") === 0)
+  }
+
+  function leave(href) {
+    if (!href || href === "#") return
+    const nodes = contentNodes()
+    if (!canFade || nodes.length === 0) return location.assign(href)
+    nodes.forEach((node) => {
+      node.style.transition = "opacity " + fadeDuration + "ms ease"
+      node.style.opacity = "0"
+    })
+    window.setTimeout(() => location.assign(href), fadeDuration)
+  }
+
+  function run(action) {
+    if (action === "menu") return setMenu(menu.hidden)
+    if (action === "hide") return setBarHidden(!barHidden)
+    if (action === "show") return setBarHidden(false)
+    if (action === "reload") return location.reload()
+    if (action === "drift") {
+      if (drift.length > 0) leave(drift[Math.floor(Math.random() * drift.length)])
+      return
+    }
+    if (links[action]) leave(links[action].href)
+  }
+
+  bar.addEventListener("click", (event) => {
+    const action = event.target.closest?.("[data-once]")
+    if (!action) return
+    run(action.dataset.once)
+    event.preventDefault()
+  })
+
+  document.addEventListener("click", (event) => {
+    if (!event.target.closest?.("#once-bar")) setMenu(false)
+  })
+
+  tab.addEventListener("click", (event) => {
+    event.preventDefault()
+    setBarHidden(false)
+  })
+
+  let lastScrollY = window.scrollY || 0
+
+  window.addEventListener("scroll", () => {
+    const scrollY = window.scrollY || 0
+    const delta = scrollY - lastScrollY
+    lastScrollY = scrollY
+    if (scrollY <= 0) return setBarHidden(false)
+    if (delta > 4) setBarHidden(true)
+    else if (delta < -4) setBarHidden(false)
+  }, { passive: true })
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/appbar.go
+Index: internal/docker/appbar.go
+===================================================================
+--- internal/docker/appbar.go
++++ internal/docker/appbar.go
+@@ -262,9 +262,8 @@
+ 
+   function run(action) {
+     if (action === "menu") return setMenu(menu.hidden)
+     if (action === "hide") return setBarHidden(!barHidden)
+-    if (action === "show") return setBarHidden(false)
+     if (action === "reload") return location.reload()
+     if (action === "drift") {
+       if (drift.length > 0) leave(drift[Math.floor(Math.random() * drift.length)])
+       return
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mmkdir -p .scratch/bar && cat > internal/docker/zz_tmp_dump_test.go <<'EOF'
+package docker
+
+import (
+	"os"
+	"testing"
+)
+
+func TestZZDumpBarScript(t *testing.T) {
+	ns := namespaceWithApps(ApplicationSettings{Name: "alpha", Host: "alpha.localhost"})
+	if err := os.WriteFile("../../.scratch/bar/bar.js", []byte(ns.Application("alpha").appBarScript()), 0o644); err != nil {
+		t.Fatal(err)
+	}
+}
+EOF
+go test ./internal/docker/ -run TestZZDumpBarScript -count=1 && node --check .scratch/bar/bar.js && echo "JS OK"; rm internal/docker/zz_tmp_dump_test.go
+ok  	github.com/basecamp/once/internal/docker	0.005s
+JS OK
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mrm -rf .scratch/bar; make test 2>&1 | tail -16; echo "--- lint ---"; make lint 2>&1 | tail -5
+go test ./internal/...
+ok  	github.com/basecamp/once/internal/background	0.006s
+ok  	github.com/basecamp/once/internal/browser	(cached)
+ok  	github.com/basecamp/once/internal/command	(cached)
+ok  	github.com/basecamp/once/internal/docker	0.041s
+ok  	github.com/basecamp/once/internal/fsutil	(cached)
+?   	github.com/basecamp/once/internal/logging	[no test files]
+ok  	github.com/basecamp/once/internal/metrics	(cached)
+ok  	github.com/basecamp/once/internal/mouse	(cached)
+?   	github.com/basecamp/once/internal/service	[no test files]
+ok  	github.com/basecamp/once/internal/system	(cached)
+ok  	github.com/basecamp/once/internal/ui	0.235s
+ok  	github.com/basecamp/once/internal/userstats	(cached)
+ok  	github.com/basecamp/once/internal/version	(cached)
+--- lint ---
+golangci-lint run
+0 issues.
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgit status --short; git diff --stat
+M internal/docker/appbar.go
+ M internal/docker/appbar_test.go
+?? .scratch/split/18-bar-hide.log
+ internal/docker/appbar.go      | 52 ++++++++++++++++++++++++++++++++++++++----
+ internal/docker/appbar_test.go | 38 +++++++++++++++++++++++++++++-
+ 2 files changed, 85 insertions(+), 5 deletions(-)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+Implemented the auto-hiding bar in `internal/docker/appbar.go`:
+
+- Scroll down past a small delta hides the bar (slides up); scrolling up — or returning to the top — brings it back.
+- While hidden, a small "Once" tab with an `H` hint sits fixed in the top right; clicking it or pressing `H` restores the bar.
+- `H` now toggles instead of permanently hiding, and the tab is excluded from the content cross-fade.
+- Respects `prefers-reduced-motion` and `prefers-reduced-transparency`.
+
+Tests added for the scroll behavior, restore tab, and toggle key in `internal/docker/appbar_test.go`.
+
+Verification:
+- `go test ./internal/...` — pass
+- `golangci-lint run` — `0 issues`

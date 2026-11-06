@@ -138,6 +138,16 @@ const appBarScriptTemplate = `(function () {
   menu.hidden = true
   bar.appendChild(menu)
 
+  const tab = document.createElement("a")
+  tab.id = "once-bar-tab"
+  tab.href = "#"
+  tab.textContent = "Once"
+  tab.setAttribute("aria-label", "Show bar")
+  tab.hidden = true
+  const tabKey = document.createElement("kbd")
+  tabKey.textContent = "H"
+  tab.appendChild(tabKey)
+
   const actions = []
   if (data.back) actions.push(["back", "Back", "[", data.back])
   if (data.next) actions.push(["next", "Next", "]", data.next])
@@ -171,7 +181,8 @@ const appBarScriptTemplate = `(function () {
 
   const style = document.createElement("style")
   style.textContent = ` + "`" + `
-#once-bar{position:fixed;top:0;right:0;left:0;z-index:2147483647;display:flex;align-items:center;gap:1.25rem;height:40px;padding:0 1rem;box-sizing:border-box;background:rgba(17,17,19,.72);border-bottom:1px solid rgba(255,255,255,.14);color:#f3ede1;font:500 11px/40px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.12em;text-transform:uppercase;-webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%)}
+#once-bar{position:fixed;top:0;right:0;left:0;z-index:2147483647;display:flex;align-items:center;gap:1.25rem;height:40px;padding:0 1rem;box-sizing:border-box;background:rgba(17,17,19,.72);border-bottom:1px solid rgba(255,255,255,.14);color:#f3ede1;font:500 11px/40px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.12em;text-transform:uppercase;transition:transform 180ms ease;-webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%)}
+#once-bar.once-bar-hidden{transform:translateY(-100%)}
 #once-bar .once-bar-name{margin-right:auto;overflow:hidden;font-weight:600;letter-spacing:.16em;white-space:nowrap;text-overflow:ellipsis}
 #once-bar .once-bar-nav{display:flex;align-items:center;gap:1.15rem}
 #once-bar a{color:inherit;text-decoration:none;opacity:.7}
@@ -182,7 +193,13 @@ const appBarScriptTemplate = `(function () {
 #once-bar-menu a{display:flex;align-items:center;justify-content:space-between;gap:2rem;padding:.45rem .6rem;font:inherit;letter-spacing:.12em;opacity:.8}
 #once-bar-menu a:hover,#once-bar-menu a:focus-visible{background:rgba(255,255,255,.08);opacity:1}
 #once-bar-menu kbd{font:inherit;letter-spacing:.08em;opacity:.55}
-@media (prefers-reduced-transparency:reduce){#once-bar,#once-bar-menu{background:rgba(17,17,19,.96);-webkit-backdrop-filter:none;backdrop-filter:none}}
+#once-bar-tab{position:fixed;top:0;right:1rem;z-index:2147483647;display:flex;align-items:center;gap:.6rem;height:24px;padding:0 .7rem;box-sizing:border-box;background:rgba(17,17,19,.78);border:1px solid rgba(255,255,255,.14);border-top:0;border-radius:0 0 6px 6px;color:#f3ede1;font:500 10px/24px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;opacity:.85;-webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%)}
+#once-bar-tab:hover,#once-bar-tab:focus-visible{opacity:1}
+#once-bar-tab:focus-visible{outline:1px solid rgba(255,255,255,.5);outline-offset:2px}
+#once-bar-tab[hidden]{display:none}
+#once-bar-tab kbd{font:inherit;letter-spacing:.08em;opacity:.55}
+@media (prefers-reduced-transparency:reduce){#once-bar,#once-bar-menu,#once-bar-tab{background:rgba(17,17,19,.96);-webkit-backdrop-filter:none;backdrop-filter:none}}
+@media (prefers-reduced-motion:reduce){#once-bar{transition:none}}
 ` + "`" + `
 
   function setMenu(open) {
@@ -190,12 +207,22 @@ const appBarScriptTemplate = `(function () {
     toggle.setAttribute("aria-expanded", open ? "true" : "false")
   }
 
+  let barHidden = false
+
+  function setBarHidden(hidden) {
+    if (barHidden === hidden) return
+    barHidden = hidden
+    bar.classList.toggle("once-bar-hidden", hidden)
+    tab.hidden = !hidden
+    if (hidden) setMenu(false)
+  }
+
   const reduceMotion = Boolean(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches)
   const canFade = !reduceMotion && Boolean(window.CSS && window.CSS.supports && window.CSS.supports("transition", "opacity"))
   const fadeDuration = 180
 
   function contentNodes() {
-    return Array.from(document.body.children).filter((node) => node !== bar && node.tagName !== "SCRIPT")
+    return Array.from(document.body.children).filter((node) => node !== bar && node !== tab && node.tagName !== "SCRIPT")
   }
 
   function clearFade(node) {
@@ -235,7 +262,7 @@ const appBarScriptTemplate = `(function () {
 
   function run(action) {
     if (action === "menu") return setMenu(menu.hidden)
-    if (action === "hide") { setMenu(false); bar.hidden = true; return }
+    if (action === "hide") return setBarHidden(!barHidden)
     if (action === "reload") return location.reload()
     if (action === "drift") {
       if (drift.length > 0) leave(drift[Math.floor(Math.random() * drift.length)])
@@ -255,6 +282,22 @@ const appBarScriptTemplate = `(function () {
     if (!event.target.closest?.("#once-bar")) setMenu(false)
   })
 
+  tab.addEventListener("click", (event) => {
+    event.preventDefault()
+    setBarHidden(false)
+  })
+
+  let lastScrollY = window.scrollY || 0
+
+  window.addEventListener("scroll", () => {
+    const scrollY = window.scrollY || 0
+    const delta = scrollY - lastScrollY
+    lastScrollY = scrollY
+    if (scrollY <= 0) return setBarHidden(false)
+    if (delta > 4) setBarHidden(true)
+    else if (delta < -4) setBarHidden(false)
+  }, { passive: true })
+
   document.addEventListener("keydown", (event) => {
     if (event.ctrlKey || event.metaKey || event.altKey) return
     if (event.target.closest?.("input, textarea, select, [contenteditable]")) return
@@ -272,6 +315,7 @@ const appBarScriptTemplate = `(function () {
 
   document.head.appendChild(style)
   document.body.appendChild(bar)
+  document.body.appendChild(tab)
 
   if (canFade && arrivedFromApp()) fadeIn(contentNodes())
 

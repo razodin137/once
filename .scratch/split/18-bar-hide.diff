@@ -1,0 +1,3 @@
+ internal/docker/appbar.go      | 52 ++++++++++++++++++++++++++++++++++++++----
+ internal/docker/appbar_test.go | 38 +++++++++++++++++++++++++++++-
+ 2 files changed, 85 insertions(+), 5 deletions(-)
