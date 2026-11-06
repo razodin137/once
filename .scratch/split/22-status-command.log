@@ -1,0 +1,1537 @@
+[0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mls -la /home/mrjohn/.config/opencode/command 2>/dev/null; ls -la /home/mrjohn/.config/opencode 2>/dev/null | head -40
+total 52
+drwxr-xr-x 1 mrjohn mrjohn   328 Nov  6 18:06 .
+drwxr-xr-x 1 mrjohn mrjohn  1464 Oct 27 23:00 ..
+drwxr-xr-x 1 mrjohn mrjohn    56 Nov  2 23:17 agent
+drwxr-xr-x 1 mrjohn mrjohn    92 Nov  6 17:40 agents
+-rw-r--r-- 1 mrjohn mrjohn  2028 Nov  4 17:30 AGENTS.md
+-rw------- 1 mrjohn mrjohn   995 Nov  2 22:57 cli.json
+-rw-r--r-- 1 mrjohn mrjohn    63 Sep 28 14:58 .gitignore
+drwxr-xr-x 1 mrjohn mrjohn   584 Sep 28 14:58 node_modules
+-rw-r--r-- 1 mrjohn mrjohn   114 Nov  5 19:44 opencode.json
+-rw-r--r-- 1 mrjohn mrjohn    50 Sep 28 14:58 opencode.jsonc
+-rw-r--r-- 1 mrjohn mrjohn    95 Sep 28 17:17 opencode.json.tui-migration.bak
+-rw-r--r-- 1 mrjohn mrjohn    65 Sep 28 14:58 package.json
+-rw-r--r-- 1 mrjohn mrjohn 14633 Sep 28 14:58 package-lock.json
+drwxr-xr-x 1 mrjohn mrjohn    30 Nov  6 18:06 scripts
+-rw------- 1 mrjohn mrjohn    64 Oct 15 22:57 service.json
+-rw-r--r-- 1 mrjohn mrjohn    68 Sep 28 17:17 tui.json
+[0m$ [0mls -la; ls -la .opencode 2>/dev/null; find . -path ./node_modules -prune -o -name "*status-command*" -print 2>/dev/null | head -50
+total 64
+drwxr-xr-x 1 mrjohn mrjohn   352 Nov  6 17:59 .
+drwxr-xr-x 1 mrjohn mrjohn    24 Nov  6 18:01 ..
+-rw-r--r-- 1 mrjohn mrjohn  4449 Nov  6 17:42 AGENTS.md
+drwxr-xr-x 1 mrjohn mrjohn     8 Nov  6 17:59 bin
+drwxr-xr-x 1 mrjohn mrjohn    18 Nov  6 17:42 .claude
+drwxr-xr-x 1 mrjohn mrjohn     8 Nov  6 17:42 cmd
+-rw-r--r-- 1 mrjohn mrjohn     8 Nov  6 17:42 .dockerignore
+drwxr-xr-x 1 mrjohn mrjohn   196 Nov  6 19:01 .git
+drwxr-xr-x 1 mrjohn mrjohn    86 Nov  6 17:42 .github
+-rw-r--r-- 1 mrjohn mrjohn    53 Nov  6 17:42 .gitignore
+-rw-r--r-- 1 mrjohn mrjohn   216 Nov  6 17:42 .golangci.yml
+-rw-r--r-- 1 mrjohn mrjohn  3299 Nov  6 18:57 go.mod
+-rw-r--r-- 1 mrjohn mrjohn 14945 Nov  6 18:56 go.sum
+drwxr-xr-x 1 mrjohn mrjohn   138 Nov  6 17:42 installer
+drwxr-xr-x 1 mrjohn mrjohn    62 Nov  6 17:42 integration
+drwxr-xr-x 1 mrjohn mrjohn   188 Nov  6 18:57 internal
+-rw-r--r-- 1 mrjohn mrjohn  1292 Nov  6 17:42 Makefile
+-rw-r--r-- 1 mrjohn mrjohn    97 Nov  6 17:42 mise.toml
+-rw-r--r-- 1 mrjohn mrjohn  1053 Nov  6 17:42 MIT-LICENSE
+drwxr-xr-x 1 mrjohn mrjohn  2004 Nov  6 17:49 prompt
+drwxr-xr-x 1 mrjohn mrjohn   840 Nov  6 17:44 prompt-v1
+-rw-r--r-- 1 mrjohn mrjohn  8244 Nov  6 17:42 README.md
+drwxr-xr-x 1 mrjohn mrjohn    10 Nov  6 18:58 .scratch
+drwxr-xr-x 1 mrjohn mrjohn    30 Nov  5 23:06 scripts
+./prompt-v1/02-status-command.md
+./prompt/22-status-command.md
+./.scratch/split/22-status-command.log
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead prompt/22-status-command.md 
+[0m$ [0mls -la .scratch .scratch/split; cat .scratch/split/22-status-command.log
+.scratch:
+total 0
+drwxr-xr-x 1 mrjohn mrjohn   10 Nov  6 18:58 .
+drwxr-xr-x 1 mrjohn mrjohn  352 Nov  6 17:59 ..
+drwxr-xr-x 1 mrjohn mrjohn 2772 Nov  6 19:01 split
+
+.scratch/split:
+total 2276
+drwxr-xr-x 1 mrjohn mrjohn   2772 Nov  6 19:01 .
+drwxr-xr-x 1 mrjohn mrjohn     10 Nov  6 18:58 ..
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:12 01-deploy-static-folder.check
+-rw-r--r-- 1 mrjohn mrjohn    191 Nov  6 18:12 01-deploy-static-folder.diff
+-rw-r--r-- 1 mrjohn mrjohn  29878 Nov  6 18:12 01-deploy-static-folder.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:15 02-serve-static-apps.check
+-rw-r--r-- 1 mrjohn mrjohn    177 Nov  6 18:15 02-serve-static-apps.diff
+-rw-r--r-- 1 mrjohn mrjohn  96981 Nov  6 18:15 02-serve-static-apps.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:18 03-redeploy-folder.check
+-rw-r--r-- 1 mrjohn mrjohn    258 Nov  6 18:18 03-redeploy-folder.diff
+-rw-r--r-- 1 mrjohn mrjohn  88725 Nov  6 18:18 03-redeploy-folder.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:20 04-stale-source-detection.check
+-rw-r--r-- 1 mrjohn mrjohn    475 Nov  6 18:20 04-stale-source-detection.diff
+-rw-r--r-- 1 mrjohn mrjohn  82455 Nov  6 18:20 04-stale-source-detection.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:22 05-folder-contents-fallback.check
+-rw-r--r-- 1 mrjohn mrjohn    308 Nov  6 18:22 05-folder-contents-fallback.diff
+-rw-r--r-- 1 mrjohn mrjohn 142626 Nov  6 18:22 05-folder-contents-fallback.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:24 06-markdown-pages.check
+-rw-r--r-- 1 mrjohn mrjohn    397 Nov  6 18:24 06-markdown-pages.diff
+-rw-r--r-- 1 mrjohn mrjohn  81696 Nov  6 18:24 06-markdown-pages.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:25 07-single-file-html-site.check
+-rw-r--r-- 1 mrjohn mrjohn    492 Nov  6 18:25 07-single-file-html-site.diff
+-rw-r--r-- 1 mrjohn mrjohn  89089 Nov  6 18:25 07-single-file-html-site.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:27 08-remove-static-app.check
+-rw-r--r-- 1 mrjohn mrjohn    241 Nov  6 18:27 08-remove-static-app.diff
+-rw-r--r-- 1 mrjohn mrjohn  73820 Nov  6 18:27 08-remove-static-app.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:31 09-contents-card.check
+-rw-r--r-- 1 mrjohn mrjohn    247 Nov  6 18:31 09-contents-card.diff
+-rw-r--r-- 1 mrjohn mrjohn 195996 Nov  6 18:31 09-contents-card.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:33 10-contents-screen.check
+-rw-r--r-- 1 mrjohn mrjohn    156 Nov  6 18:33 10-contents-screen.diff
+-rw-r--r-- 1 mrjohn mrjohn  62181 Nov  6 18:33 10-contents-screen.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:36 11-channels.check
+-rw-r--r-- 1 mrjohn mrjohn    270 Nov  6 18:36 11-channels.diff
+-rw-r--r-- 1 mrjohn mrjohn 210717 Nov  6 18:36 11-channels.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:39 12-channel-filter.check
+-rw-r--r-- 1 mrjohn mrjohn    374 Nov  6 18:39 12-channel-filter.diff
+-rw-r--r-- 1 mrjohn mrjohn  82391 Nov  6 18:39 12-channel-filter.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:41 13-favorites.check
+-rw-r--r-- 1 mrjohn mrjohn    546 Nov  6 18:41 13-favorites.diff
+-rw-r--r-- 1 mrjohn mrjohn 201662 Nov  6 18:41 13-favorites.log
+-rw-r--r-- 1 mrjohn mrjohn    784 Nov  6 18:43 14-drift.check
+-rw-r--r-- 1 mrjohn mrjohn    202 Nov  6 18:43 14-drift.diff
+-rw-r--r-- 1 mrjohn mrjohn  99813 Nov  6 18:43 14-drift.log
+-rw-r--r-- 1 mrjohn mrjohn    784 Nov  6 18:46 15-app-bar.check
+-rw-r--r-- 1 mrjohn mrjohn    190 Nov  6 18:46 15-app-bar.diff
+-rw-r--r-- 1 mrjohn mrjohn  88346 Nov  6 18:46 15-app-bar.log
+-rw-r--r-- 1 mrjohn mrjohn    784 Nov  6 18:51 16-bar-keys.check
+-rw-r--r-- 1 mrjohn mrjohn     76 Nov  6 18:51 16-bar-keys.diff
+-rw-r--r-- 1 mrjohn mrjohn 137616 Nov  6 18:51 16-bar-keys.log
+-rw-r--r-- 1 mrjohn mrjohn    784 Nov  6 18:52 17-bar-cross-fade.check
+-rw-r--r-- 1 mrjohn mrjohn    196 Nov  6 18:52 17-bar-cross-fade.diff
+-rw-r--r-- 1 mrjohn mrjohn  30572 Nov  6 18:52 17-bar-cross-fade.log
+-rw-r--r-- 1 mrjohn mrjohn    784 Nov  6 18:53 18-bar-hide.check
+-rw-r--r-- 1 mrjohn mrjohn    199 Nov  6 18:53 18-bar-hide.diff
+-rw-r--r-- 1 mrjohn mrjohn  61322 Nov  6 18:53 18-bar-hide.log
+-rw-r--r-- 1 mrjohn mrjohn    782 Nov  6 18:55 19-open-command.check
+-rw-r--r-- 1 mrjohn mrjohn     64 Nov  6 18:55 19-open-command.diff
+-rw-r--r-- 1 mrjohn mrjohn 155047 Nov  6 18:55 19-open-command.log
+-rw-r--r-- 1 mrjohn mrjohn    839 Nov  6 18:58 20-show-command.check
+-rw-r--r-- 1 mrjohn mrjohn    131 Nov  6 18:58 20-show-command.diff
+-rw-r--r-- 1 mrjohn mrjohn  63408 Nov  6 18:58 20-show-command.log
+-rw-r--r-- 1 mrjohn mrjohn    839 Nov  6 19:01 21-logs-command.check
+-rw-r--r-- 1 mrjohn mrjohn    220 Nov  6 19:01 21-logs-command.diff
+-rw-r--r-- 1 mrjohn mrjohn  40220 Nov  6 19:01 21-logs-command.log
+-rw-r--r-- 1 mrjohn mrjohn   2728 Nov  6 19:01 22-status-command.log
+[0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mls -la /home/mrjohn/.config/opencode/command 2>/dev/null; ls -la /home/mrjohn/.config/opencode 2>/dev/null | head -40
+total 52
+drwxr-xr-x 1 mrjohn mrjohn   328 Nov  6 18:06 .
+drwxr-xr-x 1 mrjohn mrjohn  1464 Oct 27 23:00 ..
+drwxr-xr-x 1 mrjohn mrjohn    56 Nov  2 23:17 agent
+drwxr-xr-x 1 mrjohn mrjohn    92 Nov  6 17:40 agents
+-rw-r--r-- 1 mrjohn mrjohn  2028 Nov  4 17:30 AGENTS.md
+-rw------- 1 mrjohn mrjohn   995 Nov  2 22:57 cli.json
+-rw-r--r-- 1 mrjohn mrjohn    63 Sep 28 14:58 .gitignore
+drwxr-xr-x 1 mrjohn mrjohn   584 Sep 28 14:58 node_modules
+-rw-r--r-- 1 mrjohn mrjohn   114 Nov  5 19:44 opencode.json
+-rw-r--r-- 1 mrjohn mrjohn    50 Sep 28 14:58 opencode.jsonc
+-rw-r--r-- 1 mrjohn mrjohn    95 Sep 28 17:17 opencode.json.tui-migration.bak
+-rw-r--r-- 1 mrjohn mrjohn    65 Sep 28 14:58 package.json
+-rw-r--r-- 1 mrjohn mrjohn 14633 Sep 28 14:58 package-lock.json
+drwxr-xr-x 1 mrjohn mrjohn    30 Nov  6 18:06 scripts
+-rw------- 1 mrjohn mrjohn    64 Oct 15 22:57 service.json
+-rw-r--r-- 1 mrjohn mrjohn    68 Sep 28 17:17 tui.json
+[0m$ [0mls -la; ls -la .opencode 2>/dev/null; find . -path ./node_modules -prune -o -name "*status-command*" -print 2>/dev/null | head -50
+total 64
+drwxr-xr-x 1 mrjohn mrjohn   352 Nov  6 17:59 .
+drwxr-xr-x 1 mrjohn mrjohn    24 Nov  6 18:01 ..
+-rw-r--r-- 1 mrjohn mrjohn  4449 Nov  6 17:42 AGENTS.md
+drwxr-xr-x 1 mrjohn mrjohn     8 Nov  6 17:59 bin
+drwxr-xr-x 1 mrjohn mrjohn    18 Nov  6 17:42 .claude
+drwxr-xr-x 1 mrjohn mrjohn     8 Nov  6 17:42 cmd
+-rw-r--r-- 1 mrjohn mrjohn     8 Nov  6 17:42 .dockerignore
+drwxr-xr-x 1 mrjohn mrjohn   196 Nov  6 19:01 .git
+drwxr-xr-x 1 mrjohn mrjohn    86 Nov  6 17:42 .github
+-rw-r--r-- 1 mrjohn mrjohn    53 Nov  6 17:42 .gitignore
+-rw-r--r-- 1 mrjohn mrjohn   216 Nov  6 17:42 .golangci.yml
+-rw-r--r-- 1 mrjohn mrjohn  3299 Nov  6 18:57 go.mod
+-rw-r--r-- 1 mrjohn mrjohn 14945 Nov  6 18:56 go.sum
+drwxr-xr-x 1 mrjohn mrjohn   138 Nov  6 17:42 installer
+drwxr-xr-x 1 mrjohn mrjohn    62 Nov  6 17:42 integration
+drwxr-xr-x 1 mrjohn mrjohn   188 Nov  6 18:57 internal
+-rw-r--r-- 1 mrjohn mrjohn  1292 Nov  6 17:42 Makefile
+-rw-r--r-- 1 mrjohn mrjohn    97 Nov  6 17:42 mise.toml
+-rw-r--r-- 1 mrjohn mrjohn  1053 Nov  6 17:42 MIT-LICENSE
+drwxr-xr-x 1 mrjohn mrjohn  2004 Nov  6 17:49 prompt
+drwxr-xr-x 1 mrjohn mrjohn   840 Nov  6 17:44 prompt-v1
+-rw-r--r-- 1 mrjohn mrjohn  8244 Nov  6 17:42 README.md
+drwxr-xr-x 1 mrjohn mrjohn    10 Nov  6 18:58 .scratch
+drwxr-xr-x 1 mrjohn mrjohn    30 Nov  5 23:06 scripts
+./prompt-v1/02-status-command.md
+./prompt/22-status-command.md
+./.scratch/split/22-status-command.log
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead prompt/22-status-command.md
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcat .scratch/split/21-logs-command.check; echo ---; cat .scratch/split/20-show-command.check; echo ---; cat .scratch/split/21-logs-command.diff; echo ---; cat .scratch/split/22-status-command.log | tail -20
+go test ./internal/...
+ok  	github.com/basecamp/once/internal/background	(cached)
+ok  	github.com/basecamp/once/internal/browser	(cached)
+ok  	github.com/basecamp/once/internal/command	0.026s
+ok  	github.com/basecamp/once/internal/docker	0.068s
+ok  	github.com/basecamp/once/internal/fsutil	(cached)
+ok  	github.com/basecamp/once/internal/htmltext	(cached)
+?   	github.com/basecamp/once/internal/logging	[no test files]
+ok  	github.com/basecamp/once/internal/metrics	0.014s
+ok  	github.com/basecamp/once/internal/mouse	(cached)
+?   	github.com/basecamp/once/internal/service	[no test files]
+ok  	github.com/basecamp/once/internal/system	(cached)
+ok  	github.com/basecamp/once/internal/ui	(cached)
+ok  	github.com/basecamp/once/internal/userstats	(cached)
+ok  	github.com/basecamp/once/internal/version	(cached)
+golangci-lint run
+0 issues.
+---
+go test ./internal/...
+ok  	github.com/basecamp/once/internal/background	(cached)
+ok  	github.com/basecamp/once/internal/browser	(cached)
+ok  	github.com/basecamp/once/internal/command	0.053s
+ok  	github.com/basecamp/once/internal/docker	0.124s
+ok  	github.com/basecamp/once/internal/fsutil	(cached)
+ok  	github.com/basecamp/once/internal/htmltext	(cached)
+?   	github.com/basecamp/once/internal/logging	[no test files]
+ok  	github.com/basecamp/once/internal/metrics	0.042s
+ok  	github.com/basecamp/once/internal/mouse	(cached)
+?   	github.com/basecamp/once/internal/service	[no test files]
+ok  	github.com/basecamp/once/internal/system	(cached)
+ok  	github.com/basecamp/once/internal/ui	(cached)
+ok  	github.com/basecamp/once/internal/userstats	(cached)
+ok  	github.com/basecamp/once/internal/version	(cached)
+golangci-lint run
+0 issues.
+---
+ internal/command/root.go     |  1 +
+ internal/docker/logs.go      | 23 ++++++++++++++--
+ internal/docker/logs_test.go | 65 +++++++++++++++++++++++++++++++++++++++++++-
+ 3 files changed, 86 insertions(+), 3 deletions(-)
+---
+-rw-r--r-- 1 mrjohn mrjohn   216 Nov  6 17:42 .golangci.yml
+-rw-r--r-- 1 mrjohn mrjohn  3299 Nov  6 18:57 go.mod
+-rw-r--r-- 1 mrjohn mrjohn 14945 Nov  6 18:56 go.sum
+drwxr-xr-x 1 mrjohn mrjohn   138 Nov  6 17:42 installer
+drwxr-xr-x 1 mrjohn mrjohn    62 Nov  6 17:42 integration
+drwxr-xr-x 1 mrjohn mrjohn   188 Nov  6 18:57 internal
+-rw-r--r-- 1 mrjohn mrjohn  1292 Nov  6 17:42 Makefile
+-rw-r--r-- 1 mrjohn mrjohn    97 Nov  6 17:42 mise.toml
+-rw-r--r-- 1 mrjohn mrjohn  1053 Nov  6 17:42 MIT-LICENSE
+drwxr-xr-x 1 mrjohn mrjohn  2004 Nov  6 17:49 prompt
+drwxr-xr-x 1 mrjohn mrjohn   840 Nov  6 17:44 prompt-v1
+-rw-r--r-- 1 mrjohn mrjohn  8244 Nov  6 17:42 README.md
+drwxr-xr-x 1 mrjohn mrjohn    10 Nov  6 18:58 .scratch
+drwxr-xr-x 1 mrjohn mrjohn    30 Nov  5 23:06 scripts
+./prompt-v1/02-status-command.md
+./prompt/22-status-command.md
+./.scratch/split/22-status-command.log
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead prompt/22-status-command.md
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; ls prompt; echo ---; cat .scratch/split/14-drift.check 2>/dev/null; echo ---; git log --oneline -15
+00-overview.md
+01-deploy-static-folder.md
+02-serve-static-apps.md
+03-redeploy-folder.md
+04-stale-source-detection.md
+05-folder-contents-fallback.md
+06-markdown-pages.md
+07-single-file-html-site.md
+08-remove-static-app.md
+09-contents-card.md
+10-contents-screen.md
+11-channels.md
+12-channel-filter.md
+13-favorites.md
+14-drift.md
+15-app-bar.md
+16-bar-keys.md
+17-bar-cross-fade.md
+18-bar-hide.md
+19-open-command.md
+20-show-command.md
+21-logs-command.md
+22-status-command.md
+23-list-json.md
+24-restart-command.md
+25-update-all.md
+26-doctor-command.md
+27-backups-list.md
+28-screenshot-capture.md
+29-card-thumbnails.md
+30-route-map.md
+31-page-weight.md
+32-broken-links.md
+33-meta-preview.md
+34-deploy-diff.md
+35-promote-on-evidence.md
+36-error-capture.md
+37-dashboard-filter.md
+38-command-palette.md
+39-toasts.md
+40-chart-time-range.md
+41-compact-layout.md
+42-appearance-settings.md
+43-app-details-view.md
+44-mouse-on-cards.md
+45-incremental-render.md
+46-chart-performance.md
+47-single-stats-stream.md
+48-share-link.md
+49-status-page.md
+50-house-style-pass.md
+---
+go test ./internal/...
+ok  	github.com/basecamp/once/internal/background	(cached)
+ok  	github.com/basecamp/once/internal/browser	(cached)
+ok  	github.com/basecamp/once/internal/command	(cached)
+ok  	github.com/basecamp/once/internal/docker	0.033s
+ok  	github.com/basecamp/once/internal/fsutil	(cached)
+?   	github.com/basecamp/once/internal/logging	[no test files]
+ok  	github.com/basecamp/once/internal/metrics	0.009s
+ok  	github.com/basecamp/once/internal/mouse	(cached)
+?   	github.com/basecamp/once/internal/service	[no test files]
+ok  	github.com/basecamp/once/internal/system	(cached)
+ok  	github.com/basecamp/once/internal/ui	(cached)
+ok  	github.com/basecamp/once/internal/userstats	(cached)
+ok  	github.com/basecamp/once/internal/version	(cached)
+golangci-lint run
+0 issues.
+---
+1a2ecf5 split: 21-logs-command
+3591731 split: 20-show-command
+598da78 split: 19-open-command
+e4ca439 split: 18-bar-hide
+c903ba8 split: 17-bar-cross-fade
+926c88b split: 16-bar-keys
+1b1f9fd split: 16-bar-keys
+d826067 split: 15-app-bar
+d9aa468 split: 15-app-bar
+2a8c584 split: 14-drift
+c9f069a split: 13-favorites
+f3b2a49 split: 12-channel-filter
+a8a3dc0 split: 11-channels
+115041b split: 10-contents-screen
+1c4fb9a split: 09-contents-card
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; cat prompt/20-show-command.md; echo =====; cat prompt/21-logs-command.md; echo =====; cat prompt/23-list-json.md
+Your job is to go in and add `once show <host>` here to this Go CLI/TUI app.
+
+It fetches the app's page and prints it as text in the terminal: headings, links and forms, no markup. Useful when you only want to know what the page says.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+=====
+Your job is to go in and add `once logs <host>` here to this Go CLI/TUI app.
+
+Logs already stream inside the TUI through the existing log streamer; reuse it so the command follows the container, supports `--tail` and `--grep`, and exits cleanly on ctrl+c.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+=====
+Your job is to go in and add `--json` to `once list` here to this Go CLI/TUI app.
+
+Stable field names, one array, every app with host, image or folder, state and channel chips, so a script can read it without scraping the table.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; find internal -type f | sort; echo ---; cat Makefile; echo ---; cat .golangci.yml
+internal/background/runner.go
+internal/background/runner_test.go
+internal/browser/browser.go
+internal/browser/browser_test.go
+internal/command/background.go
+internal/command/background_install.go
+internal/command/background_remove.go
+internal/command/background_run.go
+internal/command/backup.go
+internal/command/cli_progress.go
+internal/command/deploy.go
+internal/command/deploy_test.go
+internal/command/exec.go
+internal/command/exec_test.go
+internal/command/keys.go
+internal/command/keys_reset.go
+internal/command/keys_set.go
+internal/command/list.go
+internal/command/logs.go
+internal/command/logs_test.go
+internal/command/open.go
+internal/command/open_test.go
+internal/command/remove.go
+internal/command/restore.go
+internal/command/root.go
+internal/command/root_test.go
+internal/command/self_update.go
+internal/command/settings_flags.go
+internal/command/show.go
+internal/command/show_test.go
+internal/command/start.go
+internal/command/stop.go
+internal/command/teardown.go
+internal/command/update.go
+internal/command/update_test.go
+internal/command/version.go
+internal/docker/appbar.go
+internal/docker/appbar_test.go
+internal/docker/application_backup.go
+internal/docker/application_backup_test.go
+internal/docker/application.go
+internal/docker/application_settings.go
+internal/docker/application_settings_test.go
+internal/docker/application_static_test.go
+internal/docker/application_test.go
+internal/docker/channels.go
+internal/docker/channels_test.go
+internal/docker/container.go
+internal/docker/errors.go
+internal/docker/errors_test.go
+internal/docker/events.go
+internal/docker/helpers.go
+internal/docker/helpers_test.go
+internal/docker/logs.go
+internal/docker/logs_test.go
+internal/docker/markdown.go
+internal/docker/namespace.go
+internal/docker/namespace_test.go
+internal/docker/progress.go
+internal/docker/progress_test.go
+internal/docker/proxy.go
+internal/docker/proxy_test.go
+internal/docker/registry_auth.go
+internal/docker/registry_auth_test.go
+internal/docker/ring_buffer.go
+internal/docker/ring_buffer_test.go
+internal/docker/scraper.go
+internal/docker/scraper_test.go
+internal/docker/site.go
+internal/docker/site_test.go
+internal/docker/source.go
+internal/docker/source_test.go
+internal/docker/state.go
+internal/docker/state_test.go
+internal/docker/volume.go
+internal/docker/volume_test.go
+internal/fsutil/fsutil.go
+internal/fsutil/fsutil_test.go
+internal/htmltext/htmltext.go
+internal/htmltext/htmltext_test.go
+internal/logging/log.go
+internal/metrics/scraper.go
+internal/metrics/scraper_test.go
+internal/mouse/lexer.go
+internal/mouse/lexer_test.go
+internal/mouse/tracker.go
+internal/mouse/tracker_test.go
+internal/service/launchd.go
+internal/service/service.go
+internal/service/systemd.go
+internal/system/disk.go
+internal/system/scraper.go
+internal/system/scraper_test.go
+internal/ui/actions_menu.go
+internal/ui/actions_menu_test.go
+internal/ui/app.go
+internal/ui/channels.go
+internal/ui/chart.go
+internal/ui/chart_scale.go
+internal/ui/chart_scale_test.go
+internal/ui/chart_test.go
+internal/ui/component.go
+internal/ui/confirmation.go
+internal/ui/confirmation_test.go
+internal/ui/contents_card.go
+internal/ui/contents_card_test.go
+internal/ui/dashboard.go
+internal/ui/dashboard_header.go
+internal/ui/dashboard_header_test.go
+internal/ui/dashboard_panel.go
+internal/ui/dashboard_panel_test.go
+internal/ui/dashboard_test.go
+internal/ui/favorite.go
+internal/ui/form.go
+internal/ui/form_test.go
+internal/ui/helpers_test.go
+internal/ui/help.go
+internal/ui/help_test.go
+internal/ui/install_activity.go
+internal/ui/install_app_list.go
+internal/ui/install_app_list_test.go
+internal/ui/install.go
+internal/ui/install_hostname_form.go
+internal/ui/install_hostname_form_test.go
+internal/ui/install_image_form.go
+internal/ui/install_image_form_test.go
+internal/ui/install_test.go
+internal/ui/keys.go
+internal/ui/logo.go
+internal/ui/logs.go
+internal/ui/logs_test.go
+internal/ui/menu.go
+internal/ui/menu_test.go
+internal/ui/metric_card.go
+internal/ui/metric_card_test.go
+internal/ui/palette_detect.go
+internal/ui/palette_detect_test.go
+internal/ui/palette.go
+internal/ui/palette_test.go
+internal/ui/popup_help.go
+internal/ui/popup_help_test.go
+internal/ui/progress.go
+internal/ui/remove.go
+internal/ui/remove_test.go
+internal/ui/settings_form_application.go
+internal/ui/settings_form_backups.go
+internal/ui/settings_form_base.go
+internal/ui/settings_form_email.go
+internal/ui/settings_form_environment.go
+internal/ui/settings_form_registry.go
+internal/ui/settings_form_resources.go
+internal/ui/settings_form_test.go
+internal/ui/settings_form_updates.go
+internal/ui/settings.go
+internal/ui/settings_menu.go
+internal/ui/settings_menu_test.go
+internal/ui/settings_test.go
+internal/ui/starfield.go
+internal/ui/styles.go
+internal/ui/styles_test.go
+internal/ui/terminal_size_guard.go
+internal/ui/terminal_size_guard_test.go
+internal/userstats/reader.go
+internal/userstats/reader_test.go
+internal/userstats/scraper.go
+internal/userstats/scraper_test.go
+internal/userstats/store.go
+internal/userstats/store_test.go
+internal/version/updater.go
+internal/version/updater_test.go
+internal/version/version.go
+---
+.PHONY: build test integration lint lint-actions coverage dist test-release
+
+PLATFORMS = linux darwin
+ARCHITECTURES = amd64 arm64
+VERSION := $(shell git describe --tags --always)
+LDFLAGS := -ldflags "-s -w -X 'github.com/basecamp/once/internal/version.Version=$(VERSION)'"
+
+TEST_RELEASE_TAG = v0.0.1-test
+
+build:
+	CGO_ENABLED=0 go build -trimpath $(LDFLAGS) -o bin/ ./cmd/...
+
+build-all:
+	@for os in $(PLATFORMS); do \
+		for arch in $(ARCHITECTURES); do \
+			echo "Building for $$os/$$arch..."; \
+			CGO_ENABLED=0 GOOS=$$os GOARCH=$$arch go build -trimpath $(LDFLAGS) -o bin/$$os-$$arch/ ./cmd/...; \
+		done; \
+	done
+
+test:
+	go test ./internal/...
+
+integration:
+	go test -v -count=1 -parallel 16 -timeout 30m ./integration/...
+
+check:
+	go vet ./...
+	govulncheck ./...
+
+lint:
+	golangci-lint run
+
+lint-actions:
+	actionlint
+	zizmor .
+
+coverage:
+	go test -coverprofile=coverage.out ./internal/...
+	go tool cover -html=coverage.out
+
+dist: build-all
+	mkdir -p dist
+	@for os in $(PLATFORMS); do \
+		for arch in $(ARCHITECTURES); do \
+			cp bin/$$os-$$arch/once dist/once-$$os-$$arch; \
+		done; \
+	done
+	cd dist && sha256sum once-* > checksums.txt
+
+test-release:
+	-gh release delete $(TEST_RELEASE_TAG) --yes --cleanup-tag
+	git tag -f $(TEST_RELEASE_TAG)
+	git push origin $(TEST_RELEASE_TAG) --force
+---
+version: "2"
+
+formatters:
+  enable:
+    - gofmt
+    - gci
+  settings:
+    gci:
+      sections:
+        - standard
+        - default
+        - localmodule
+
+linters:
+  enable:
+    - modernize
+  disable:
+    - errcheck
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/command/list.go 
+[0m→ [0mRead internal/command/root.go 
+[0m→ [0mRead internal/command/logs.go 
+[0m→ [0mRead internal/command/show.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/docker/application.go 
+[0m→ [0mRead internal/docker/application_settings.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/docker/state.go 
+[0m→ [0mRead internal/docker/scraper.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/docker/namespace.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; cat internal/command/root_test.go; echo ---; cat internal/command/logs_test.go | head -80; echo ---; cat cmd/once/main.go 2>/dev/null || ls cmd
+package command
+
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+
+	"github.com/basecamp/once/internal/docker"
+)
+
+func TestWithApplicationFound(t *testing.T) {
+	ns, err := docker.NewNamespace("test", docker.WithApplications(
+		docker.ApplicationSettings{Name: "myapp", Host: "myapp.localhost"},
+	))
+	require.NoError(t, err)
+
+	var called bool
+	err = withApplication(ns, "myapp.localhost", "testing", func(app *docker.Application) error {
+		called = true
+		assert.Equal(t, "myapp", app.Settings.Name)
+		return nil
+	})
+
+	require.NoError(t, err)
+	assert.True(t, called)
+}
+
+func TestWithApplicationNotFound(t *testing.T) {
+	ns, err := docker.NewNamespace("test")
+	require.NoError(t, err)
+
+	err = withApplication(ns, "missing.localhost", "testing", func(app *docker.Application) error {
+		t.Fatal("should not be called")
+		return nil
+	})
+
+	require.Error(t, err)
+	assert.Contains(t, err.Error(), `no application found at host "missing.localhost"`)
+}
+
+func TestWithApplicationError(t *testing.T) {
+	ns, err := docker.NewNamespace("test", docker.WithApplications(
+		docker.ApplicationSettings{Name: "myapp", Host: "myapp.localhost"},
+	))
+	require.NoError(t, err)
+
+	err = withApplication(ns, "myapp.localhost", "starting", func(app *docker.Application) error {
+		return assert.AnError
+	})
+
+	require.Error(t, err)
+	assert.Contains(t, err.Error(), "starting application")
+}
+---
+package command
+
+import (
+	"bytes"
+	"context"
+	"io"
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+
+	"github.com/basecamp/once/internal/docker"
+)
+
+type fakeLogStream struct {
+	lines   []docker.LogLine
+	version uint64
+	started string
+	stopped bool
+	onStart func()
+}
+
+func (f *fakeLogStream) Start(_ context.Context, containerName string) {
+	f.started = containerName
+	f.version = uint64(len(f.lines))
+	if f.onStart != nil {
+		f.onStart()
+	}
+}
+
+func (f *fakeLogStream) Stop() {
+	f.stopped = true
+}
+
+func (f *fakeLogStream) FetchSince(version uint64) ([]docker.LogLine, uint64) {
+	if f.version <= version {
+		return nil, f.version
+	}
+
+	lines := f.lines
+	if pending := int(f.version - version); pending < len(lines) {
+		lines = lines[len(lines)-pending:]
+	}
+
+	return lines, f.version
+}
+
+func TestLogsStreamsApplicationLogs(t *testing.T) {
+	ns := logsTestNamespace(t)
+	stream := &fakeLogStream{lines: []docker.LogLine{
+		{Content: "hello"},
+		{Content: "uh oh", IsStderr: true},
+	}}
+
+	l := newLogsCommand()
+	var settings docker.LogStreamerSettings
+	l.containerName = func(context.Context, *docker.Application) (string, error) {
+		return "once-app-myapp-abc", nil
+	}
+	l.newStreamer = func(_ *docker.Namespace, s docker.LogStreamerSettings) logStream {
+		settings = s
+		return stream
+	}
+
+	ctx, cancel := context.WithCancel(context.Background())
+	stream.onStart = cancel
+
+	var stdout, stderr bytes.Buffer
+	l.cmd.SetOut(&stdout)
+	l.cmd.SetErr(&stderr)
+
+	err := l.run(ctx, ns, l.cmd, []string{"myapp.localhost"})
+	require.NoError(t, err)
+
+	assert.Equal(t, "hello\n", stdout.String())
+	assert.Equal(t, "uh oh\n", stderr.String())
+	assert.Equal(t, "once-app-myapp-abc", stream.started)
+	assert.True(t, stream.stopped)
+	assert.Equal(t, 100, settings.Tail)
+}
+---
+package main
+
+import (
+	"fmt"
+	"os"
+
+	"github.com/basecamp/once/internal/command"
+	"github.com/basecamp/once/internal/docker"
+	"github.com/basecamp/once/internal/logging"
+)
+
+func main() {
+	logging.SetupStderr()
+
+	if err := command.NewRootCommand().Execute(); err != nil {
+		if code, ok := command.ExitCode(err); ok {
+			os.Exit(code)
+		}
+		fmt.Fprintln(os.Stderr, "Error:", docker.ErrorMessage(err))
+		os.Exit(1)
+	}
+}
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; grep -rn "RunningSince\|Uptime\|uptime" internal | head -40; echo ---; grep -rn "Resources\." internal/ui internal/command | head -30; echo ---; cat internal/command/show_test.go
+internal/docker/application.go:93:	RunningSince time.Time
+internal/docker/namespace.go:330:								app.RunningSince = t
+internal/docker/channels.go:74:	since := a.RunningSince
+internal/docker/channels_test.go:97:		app.RunningSince = now.Add(-24 * time.Hour)
+internal/ui/contents_card.go:172:		c.uptimeFact(),
+internal/ui/contents_card.go:209:func (c ContentsCard) uptimeFact() contentsFact {
+internal/ui/contents_card.go:213:	if c.app.RunningSince.IsZero() {
+internal/ui/contents_card.go:217:	return contentsFact{label: "UPTIME", value: formatDuration(time.Since(c.app.RunningSince))}
+internal/ui/contents_card_test.go:19:		RunningSince: time.Now().Add(-2 * time.Hour),
+---
+internal/ui/dashboard_panel.go:242:	if c := p.app.Settings.Resources.CPUs; c > 0 {
+internal/ui/dashboard_panel.go:249:	if mb := p.app.Settings.Resources.MemoryMB; mb > 0 {
+internal/ui/settings_form_resources.go:24:	if settings.Resources.CPUs != 0 {
+internal/ui/settings_form_resources.go:25:		cpuField.SetValue(strconv.Itoa(settings.Resources.CPUs))
+internal/ui/settings_form_resources.go:31:	if settings.Resources.MemoryMB != 0 {
+internal/ui/settings_form_resources.go:32:		memoryField.SetValue(strconv.Itoa(settings.Resources.MemoryMB))
+internal/ui/settings_form_resources.go:45:		s.Resources.CPUs, _ = strconv.Atoi(f.TextField(resourcesCPUField).Value())
+internal/ui/settings_form_resources.go:46:		s.Resources.MemoryMB, _ = strconv.Atoi(f.TextField(resourcesMemoryField).Value())
+internal/ui/settings_form_test.go:359:	assert.Equal(t, 2, submitMsg.Settings.Resources.CPUs)
+internal/ui/settings_form_test.go:360:	assert.Equal(t, 1024, submitMsg.Settings.Resources.MemoryMB)
+internal/ui/settings_form_test.go:375:	assert.Equal(t, 0, submitMsg.Settings.Resources.CPUs)
+internal/ui/settings_form_test.go:376:	assert.Equal(t, 0, submitMsg.Settings.Resources.MemoryMB)
+internal/command/deploy_test.go:217:		assert.Equal(t, 2048, result.Resources.MemoryMB)
+internal/command/deploy_test.go:218:		assert.Equal(t, existing.Resources.CPUs, result.Resources.CPUs)
+internal/command/settings_flags.go:144:		s.Resources.CPUs = f.cpus
+internal/command/settings_flags.go:147:		s.Resources.MemoryMB = f.memory
+internal/command/update_test.go:59:		assert.Equal(t, 2048, result.Resources.MemoryMB)
+internal/command/update_test.go:60:		assert.Equal(t, existing.Resources.CPUs, result.Resources.CPUs)
+internal/command/update_test.go:74:		assert.Equal(t, 4, result.Resources.CPUs)
+internal/command/update_test.go:79:		assert.Equal(t, existing.Resources.MemoryMB, result.Resources.MemoryMB)
+---
+package command
+
+import (
+	"bytes"
+	"context"
+	"io"
+	"net/http"
+	"net/http/httptest"
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+
+	"github.com/basecamp/once/internal/docker"
+)
+
+func TestShowPrintsApplicationPageAsText(t *testing.T) {
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		assert.Equal(t, "/", r.URL.Path)
+		w.Header().Set("Content-Type", "text/html; charset=utf-8")
+		io.WriteString(w, `<h1>Hello</h1><p>Visit <a href="/about">about</a></p>`)
+	}))
+	defer server.Close()
+
+	ns := showNamespace(t, server)
+	s := showCommandFor(t)
+
+	var out bytes.Buffer
+	s.cmd.SetOut(&out)
+
+	err := s.run(context.Background(), ns, s.cmd, []string{server.Listener.Addr().String()})
+	require.NoError(t, err)
+	assert.Equal(t, "Hello\n\nVisit about <"+server.URL+"/about>\n", out.String())
+}
+
+func TestShowUnknownHost(t *testing.T) {
+	ns, err := docker.NewNamespace("test")
+	require.NoError(t, err)
+
+	s := showCommandFor(t)
+
+	err = s.run(context.Background(), ns, s.cmd, []string{"missing.localhost"})
+	require.Error(t, err)
+	assert.Contains(t, err.Error(), `no application found at host "missing.localhost"`)
+}
+
+func TestShowUnreachableApplication(t *testing.T) {
+	server := httptest.NewServer(http.HandlerFunc(func(http.ResponseWriter, *http.Request) {}))
+	server.Close()
+
+	ns := showNamespace(t, server)
+	s := showCommandFor(t)
+
+	err := s.run(context.Background(), ns, s.cmd, []string{server.Listener.Addr().String()})
+	require.Error(t, err)
+	assert.Contains(t, err.Error(), "fetching http://"+server.Listener.Addr().String())
+}
+
+func TestShowApplicationErrorStatus(t *testing.T) {
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, _ *http.Request) {
+		w.WriteHeader(http.StatusServiceUnavailable)
+	}))
+	defer server.Close()
+
+	ns := showNamespace(t, server)
+	s := showCommandFor(t)
+
+	err := s.run(context.Background(), ns, s.cmd, []string{server.Listener.Addr().String()})
+	require.Error(t, err)
+	assert.Contains(t, err.Error(), "503 Service Unavailable")
+}
+
+func TestShowRejectsNonTextPage(t *testing.T) {
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, _ *http.Request) {
+		w.Header().Set("Content-Type", "image/png")
+	}))
+	defer server.Close()
+
+	ns := showNamespace(t, server)
+	s := showCommandFor(t)
+
+	err := s.run(context.Background(), ns, s.cmd, []string{server.Listener.Addr().String()})
+	require.Error(t, err)
+	assert.Contains(t, err.Error(), `unexpected content type "image/png"`)
+}
+
+// Helpers
+
+func showNamespace(t *testing.T, server *httptest.Server) *docker.Namespace {
+	t.Helper()
+
+	ns, err := docker.NewNamespace("test", docker.WithApplications(
+		docker.ApplicationSettings{
+			Name:       "myapp",
+			Host:       server.Listener.Addr().String(),
+			DisableTLS: true,
+		},
+	))
+	require.NoError(t, err)
+
+	return ns
+}
+
+func showCommandFor(t *testing.T) *showCommand {
+	t.Helper()
+
+	s := newShowCommand()
+	s.cmd.SetOut(io.Discard)
+
+	return s
+}
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; grep -rn "formatDuration" internal/ui/contents_card.go; sed -n '280,340p' internal/ui/contents_card.go; echo ---; sed -n '1,80p' internal/docker/channels.go
+217:	return contentsFact{label: "UPTIME", value: formatDuration(time.Since(c.app.RunningSince))}
+	padding := paper.Render(strings.Repeat(" ", contentsCardPadding))
+
+	framed := make([]string, 0, len(lines)+2)
+	framed = append(framed, border.Render("╭"+strings.Repeat("─", inner+2*contentsCardPadding)+"╮"))
+	for _, line := range lines {
+		if gap := inner - ansi.StringWidth(line); gap > 0 {
+			line += paper.Render(strings.Repeat(" ", gap))
+		}
+		framed = append(framed, border.Render("│")+padding+line+padding+border.Render("│"))
+	}
+	framed = append(framed, border.Render("╰"+strings.Repeat("─", inner+2*contentsCardPadding)+"╯"))
+
+	return strings.Join(framed, "\n")
+}
+
+// Helpers
+
+func contentsStyle(fg color.Color) lipgloss.Style {
+	return lipgloss.NewStyle().Foreground(fg).Background(contentsPaper)
+}
+
+func contentsCell(s string, width int, style lipgloss.Style) string {
+	s = ansi.Truncate(s, width, "…")
+	if gap := width - ansi.StringWidth(s); gap > 0 {
+		s += strings.Repeat(" ", gap)
+	}
+
+	return style.Render(s)
+}
+
+func formatContentsTime(t time.Time) string {
+	if t.IsZero() {
+		return "—"
+	}
+	return t.Format("2 Jan 2006, 15:04")
+}
+
+func firstRune(s string) string {
+	for _, r := range s {
+		return string(r)
+	}
+	return ""
+}
+---
+package docker
+
+import "time"
+
+type Channel string
+
+const (
+	ChannelRunning   Channel = "running"
+	ChannelStopped   Channel = "stopped"
+	ChannelDeploying Channel = "deploying"
+	ChannelStale     Channel = "stale"
+	ChannelUnhealthy Channel = "unhealthy"
+	ChannelNoBackup  Channel = "no-backup"
+	ChannelIdle      Channel = "idle"
+)
+
+const (
+	deployingWindow = 30 * time.Second
+	idleAfter       = 30 * 24 * time.Hour
+)
+
+type ChannelContext struct {
+	Now        time.Time
+	Stale      bool
+	Unhealthy  bool
+	LastBackup *OperationResult
+}
+
+func (a *Application) Channels(ctx ChannelContext) []Channel {
+	now := ctx.Now
+	if now.IsZero() {
+		now = time.Now()
+	}
+
+	deploying := a.deploying(now)
+
+	channels := make([]Channel, 0, 5)
+	switch {
+	case deploying:
+		channels = append(channels, ChannelDeploying)
+	case a.Running:
+		channels = append(channels, ChannelRunning)
+	default:
+		channels = append(channels, ChannelStopped)
+	}
+
+	if ctx.Stale {
+		channels = append(channels, ChannelStale)
+	}
+	if a.Running && !deploying && ctx.Unhealthy {
+		channels = append(channels, ChannelUnhealthy)
+	}
+	if noBackup(ctx.LastBackup) {
+		channels = append(channels, ChannelNoBackup)
+	}
+	if a.idle(now) {
+		channels = append(channels, ChannelIdle)
+	}
+
+	return channels
+}
+
+// Private
+
+func (a *Application) deploying(now time.Time) bool {
+	return !a.DeployedAt.IsZero() && now.Sub(a.DeployedAt) < deployingWindow
+}
+
+func (a *Application) idle(now time.Time) bool {
+	if !a.Running {
+		return false
+	}
+
+	since := a.RunningSince
+	if since.IsZero() {
+		since = a.DeployedAt
+	}
+	return !since.IsZero() && now.Sub(since) >= idleAfter
+}
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; sed -n '150,280p' internal/ui/contents_card.go; echo ---; sed -n '220,270p' internal/ui/dashboard_panel.go; echo ---; grep -rn "func formatDuration\|func format" internal/ui | head -20
+initials := c.initials()
+	center := func(s string) string {
+		gap := max(4-lipgloss.Width(s), 0)
+		left := gap / 2
+		return strings.Repeat(" ", left) + s + strings.Repeat(" ", gap-left)
+	}
+
+	style := contentsStyle(contentsAccent).Bold(true)
+	return strings.Join([]string{
+		style.Render("╔════╗"),
+		style.Render("║" + center(initials) + "║"),
+		style.Render("╚════╝"),
+	}, "\n")
+}
+
+func (c ContentsCard) factLines(inner int) []string {
+	const labelWidth = 13
+	valueWidth := max(inner-labelWidth, 8)
+
+	facts := []contentsFact{
+		{label: "HOST", value: c.host()},
+		c.sourceFact(),
+		c.uptimeFact(),
+		{label: "LAST DEPLOY", value: formatContentsTime(c.app.DeployedAt)},
+		c.backupFact(),
+	}
+
+	lines := make([]string, len(facts))
+	for i, fact := range facts {
+		valueStyle := contentsStyle(contentsInk)
+		switch {
+		case fact.accent:
+			valueStyle = contentsStyle(contentsAccent)
+		case fact.muted:
+			valueStyle = contentsStyle(contentsMuted)
+		}
+
+		lines[i] = contentsCell(fact.label, labelWidth, contentsStyle(contentsMuted)) +
+			contentsCell(fact.value, valueWidth, valueStyle)
+	}
+
+	return lines
+}
+
+func (c ContentsCard) host() string {
+	if c.app.Settings.Host == "" {
+		return "—"
+	}
+	return c.app.Settings.Host
+}
+
+func (c ContentsCard) sourceFact() contentsFact {
+	if c.app.Settings.Source != "" {
+		return contentsFact{label: "FOLDER", value: c.app.Settings.Source}
+	}
+
+	return contentsFact{label: "IMAGE", value: c.app.Settings.Image}
+}
+
+func (c ContentsCard) uptimeFact() contentsFact {
+	if !c.app.Running {
+		return contentsFact{label: "UPTIME", value: "stopped", muted: true}
+	}
+	if c.app.RunningSince.IsZero() {
+		return contentsFact{label: "UPTIME", value: "running"}
+	}
+
+	return contentsFact{label: "UPTIME", value: formatDuration(time.Since(c.app.RunningSince))}
+}
+
+func (c ContentsCard) backupFact() contentsFact {
+	if c.lastBackup == nil || c.lastBackup.At.IsZero() {
+		return contentsFact{label: "LAST BACKUP", value: "Never", muted: true}
+	}
+
+	fact := contentsFact{label: "LAST BACKUP", value: formatContentsTime(c.lastBackup.At)}
+	if c.lastBackup.Error != "" {
+		fact.value += " · failed"
+		fact.accent = true
+	}
+
+	return fact
+}
+
+func (c ContentsCard) displayName() string {
+	words := c.nameWords()
+	if len(words) == 0 {
+		return "App"
+	}
+
+	for i, word := range words {
+		runes := []rune(word)
+		runes[0] = unicode.ToUpper(runes[0])
+		words[i] = string(runes)
+	}
+
+	return strings.Join(words, " ")
+}
+
+func (c ContentsCard) initials() string {
+	words := c.nameWords()
+	if len(words) == 0 {
+		return "?"
+	}
+
+	if len(words) > 1 {
+		return strings.ToUpper(firstRune(words[0]) + firstRune(words[1]))
+	}
+
+	runes := []rune(words[0])
+	if len(runes) == 1 {
+		return strings.ToUpper(string(runes))
+	}
+
+	return strings.ToUpper(string(runes[:2]))
+}
+
+func (c ContentsCard) nameWords() []string {
+	name := strings.NewReplacer("-", " ", "_", " ", ".", " ").Replace(c.app.Settings.Name)
+	return strings.Fields(name)
+}
+
+func (c ContentsCard) contentWidth() int {
+	width := min(contentsCardMaxWidth, c.width-2)
+	return max(width-2*contentsCardPadding, 24)
+}
+
+func (c ContentsCard) frame(lines []string, inner int) string {
+	border := contentsStyle(contentsRule)
+	paper := contentsStyle(contentsPaper)
+	padding := paper.Render(strings.Repeat(" ", contentsCardPadding))
+---
+	metricWidth := func(i int) int {
+		if i < metricRem {
+			return metricBase + 1
+		}
+		return metricBase
+	}
+
+	visitsCard := p.renderVisitsCard(visitsWidth)
+	cpuCard := cards[0].View(metricWidth(0))
+	memCard := cards[1].View(metricWidth(1))
+	trafficCard := cards[2].View(metricWidth(2))
+
+	return lipgloss.JoinHorizontal(lipgloss.Top,
+		visitsCard, " ", cpuCard, " ", memCard, " ", trafficCard)
+}
+
+func (p DashboardPanel) buildMetricCards(scales DashboardScales) [3]MetricCard {
+	cpuData, memData := p.fetchDockerData()
+	reqData, errData := p.fetchMetricsData()
+
+	cpuScale := scales.CPU
+	cpuLimit := ""
+	if c := p.app.Settings.Resources.CPUs; c > 0 {
+		cpuScale = ChartScale{max: float64(c) * 100}
+		cpuLimit = UnitPercent.Format(float64(c) * 100)
+	}
+
+	memScale := scales.Memory
+	memLimit := ""
+	if mb := p.app.Settings.Resources.MemoryMB; mb > 0 {
+		memScale = ChartScale{max: float64(mb) * 1024 * 1024}
+		memLimit = UnitBytes.Format(float64(mb) * 1024 * 1024)
+	}
+
+	currentReq := lastValue(reqData)
+	currentErr := lastValue(errData)
+	errPct := 0.0
+	if currentReq > 0 {
+		errPct = currentErr / currentReq * 100
+	}
+
+	return [3]MetricCard{
+		NewMetricCard("CPU", cpuData, cpuScale, UnitPercent, cpuLimit, defaultWarningPct, defaultErrorPct),
+		NewMetricCard("Memory", memData, memScale, UnitBytes, memLimit, defaultWarningPct, defaultErrorPct),
+		NewTrafficCard(reqData, errData, scales.Traffic, errPct, trafficWarningPct, trafficErrorPct),
+	}
+}
+
+func (p DashboardPanel) renderVisitsCard(width int) string {
+	inner := width - 2 // left + right border
+
+---
+internal/ui/dashboard_header.go:149:func formatDiskSize(bytes uint64) string {
+internal/ui/dashboard_panel.go:423:func formatDuration(d time.Duration) string {
+internal/ui/settings.go:307:func formatOperationStatus(label string, result *docker.OperationResult) string {
+internal/ui/settings.go:321:func formatTimeAgo(d time.Duration) string {
+internal/ui/styles.go:191:func formatValueLine(valueStr, limitLabel string, inner int) string {
+internal/ui/contents_card.go:310:func formatContentsTime(t time.Time) string {
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; sed -n '415,445p' internal/ui/dashboard_panel.go; echo ---; sed -n '295,335p' internal/ui/settings.go; echo ---; sed -n '1,60p' internal/command/open.go; echo ---; cat internal/command/stop.go
+func lastValue(data []float64) float64 {
+	if len(data) == 0 {
+		return 0
+	}
+	return data[len(data)-1]
+}
+
+func formatDuration(d time.Duration) string {
+	if d < time.Minute {
+		return fmt.Sprintf("%ds", int(d.Seconds()))
+	}
+	if d < time.Hour {
+		return fmt.Sprintf("%dm", int(d.Minutes()))
+	}
+	if d < 24*time.Hour {
+		hours := int(d.Hours())
+		mins := int(d.Minutes()) % 60
+		if mins == 0 {
+			return fmt.Sprintf("%dh", hours)
+		}
+		return fmt.Sprintf("%dh %dm", hours, mins)
+	}
+	days := int(d.Hours()) / 24
+	hours := int(d.Hours()) % 24
+	if hours == 0 {
+		return fmt.Sprintf("%dd", days)
+	}
+	return fmt.Sprintf("%dd %dh", days, hours)
+}
+---
+	return lipgloss.JoinVertical(lipgloss.Left, statusLine, buttonView)
+}
+
+func (m Settings) runDeploy() tea.Cmd {
+	return func() tea.Msg {
+		err := m.app.Deploy(context.Background(), nil)
+		return settingsDeployFinishedMsg{err: err}
+	}
+}
+
+// Helpers
+
+func formatOperationStatus(label string, result *docker.OperationResult) string {
+	if result == nil {
+		return ""
+	}
+
+	timeAgo := formatTimeAgo(time.Since(result.At))
+
+	if result.Error != "" {
+		return fmt.Sprintf("Last %s %s (failed: %s)", label, timeAgo, result.Error)
+	}
+
+	return fmt.Sprintf("Last %s %s", label, timeAgo)
+}
+
+func formatTimeAgo(d time.Duration) string {
+	switch {
+	case d < time.Minute:
+		return "just now"
+	case d < time.Hour:
+		m := int(d.Minutes())
+		if m == 1 {
+			return "1 minute ago"
+		}
+		return fmt.Sprintf("%d minutes ago", m)
+	case d < 24*time.Hour:
+		h := int(d.Hours())
+		if h == 1 {
+			return "1 hour ago"
+		}
+---
+package command
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/spf13/cobra"
+
+	"github.com/basecamp/once/internal/browser"
+	"github.com/basecamp/once/internal/docker"
+	"github.com/basecamp/once/internal/logging"
+	"github.com/basecamp/once/internal/ui"
+)
+
+type openCommand struct {
+	cmd    *cobra.Command
+	open   func(string) error
+	openUI func(*docker.Namespace) error
+}
+
+func newOpenCommand() *openCommand {
+	o := &openCommand{
+		open: browser.Open,
+		openUI: func(ns *docker.Namespace) error {
+			return logging.ToLogFile(func() error {
+				return ui.Run(ns, "")
+			})
+		},
+	}
+	o.cmd = &cobra.Command{
+		Use:   "open [host]",
+		Short: "Open an application or the dashboard",
+		Args:  cobra.MaximumNArgs(1),
+		RunE:  WithNamespace(o.run),
+	}
+	return o
+}
+
+// Private
+
+func (o *openCommand) run(_ context.Context, ns *docker.Namespace, cmd *cobra.Command, args []string) error {
+	if len(args) == 0 {
+		return o.openUI(ns)
+	}
+
+	app, err := findApplication(ns, args[0])
+	if err != nil {
+		return err
+	}
+
+	url := app.URL()
+	fmt.Fprintln(cmd.OutOrStdout(), url)
+
+	return o.open(url)
+}
+---
+package command
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/spf13/cobra"
+
+	"github.com/basecamp/once/internal/docker"
+)
+
+type stopCommand struct {
+	cmd *cobra.Command
+}
+
+func newStopCommand() *stopCommand {
+	s := &stopCommand{}
+	s.cmd = &cobra.Command{
+		Use:   "stop <host>",
+		Short: "Stop an application",
+		Args:  cobra.ExactArgs(1),
+		RunE:  WithNamespace(s.run),
+	}
+	return s
+}
+
+// Private
+
+func (s *stopCommand) run(ctx context.Context, ns *docker.Namespace, cmd *cobra.Command, args []string) error {
+	host := args[0]
+
+	err := withApplication(ns, host, "stopping", func(app *docker.Application) error {
+		return app.Stop(ctx)
+	})
+	if err != nil {
+		return err
+	}
+
+	fmt.Printf("Stopped %s\n", host)
+	return nil
+}
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; grep -n "func (p \*Proxy) LoadState\|func LoadState\|func (p \*Proxy) SaveState" -A 40 internal/docker/proxy.go
+233:func (p *Proxy) LoadState(ctx context.Context) (*State, error) {
+234-	containerName := p.containerName()
+235-
+236-	res, err := p.namespace.client.CopyFromContainer(ctx, containerName, client.CopyFromContainerOptions{SourcePath: stateFilePath})
+237-	if err != nil {
+238-		// Return empty state when the file doesn't exist yet (first boot)
+239-		if errdefs.IsNotFound(err) {
+240-			return &State{}, nil
+241-		}
+242-		return nil, fmt.Errorf("copying state from container: %w", err)
+243-	}
+244-	defer res.Content.Close()
+245-
+246-	tr := tar.NewReader(res.Content)
+247-	if _, err := tr.Next(); err != nil {
+248-		return nil, fmt.Errorf("reading state tar: %w", err)
+249-	}
+250-
+251-	var state State
+252-	if err := json.NewDecoder(tr).Decode(&state); err != nil {
+253-		return nil, fmt.Errorf("decoding state: %w", err)
+254-	}
+255-
+256-	return &state, nil
+257-}
+258-
+259:func (p *Proxy) SaveState(ctx context.Context, state *State) error {
+260-	containerName := p.containerName()
+261-
+262-	data, err := json.MarshalIndent(state, "", "  ")
+263-	if err != nil {
+264-		return fmt.Errorf("marshaling state: %w", err)
+265-	}
+266-
+267-	var buf bytes.Buffer
+268-	tw := tar.NewWriter(&buf)
+269-
+270-	header := &tar.Header{
+271-		Name: stateFileName,
+272-		Mode: 0o644,
+273-		Size: int64(len(data)),
+274-	}
+275-	if err := tw.WriteHeader(header); err != nil {
+276-		return fmt.Errorf("writing tar header: %w", err)
+277-	}
+278-	if _, err := tw.Write(data); err != nil {
+279-		return fmt.Errorf("writing tar data: %w", err)
+280-	}
+281-	if err := tw.Close(); err != nil {
+282-		return fmt.Errorf("closing tar writer: %w", err)
+283-	}
+284-
+285-	if _, err := p.namespace.client.CopyToContainer(ctx, containerName, client.CopyToContainerOptions{DestinationPath: stateFileDir, Content: &buf}); err != nil {
+286-		return fmt.Errorf("copying state to container: %w", err)
+287-	}
+288-
+289-	return nil
+290-}
+291-
+292-func (p *Proxy) ExecOutput(ctx context.Context, cmd []string) (string, error) {
+293-	result, err := execInContainer(ctx, p.namespace.client, p.containerName(), cmd)
+294-	if err != nil {
+295-		return "", err
+296-	}
+297-	if result.ExitCode != 0 {
+298-		return result.Stdout + result.Stderr, fmt.Errorf("exec failed with exit code %d", result.ExitCode)
+299-	}
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mWrite internal/command/status.go
+Created file successfully: internal/command/status.go
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/command/root.go
+Index: internal/command/root.go
+===================================================================
+--- internal/command/root.go
++++ internal/command/root.go
+@@ -50,8 +50,9 @@
+ 	r.cmd.AddCommand(newRemoveCommand().cmd)
+ 	r.cmd.AddCommand(newRestoreCommand().cmd)
+ 	r.cmd.AddCommand(newShowCommand().cmd)
+ 	r.cmd.AddCommand(newStartCommand().cmd)
++	r.cmd.AddCommand(newStatusCommand().cmd)
+ 	r.cmd.AddCommand(newStopCommand().cmd)
+ 	r.cmd.AddCommand(newTeardownCommand().cmd)
+ 	r.cmd.AddCommand(newUpdateCommand().cmd)
+ 	r.cmd.AddCommand(newSelfUpdateCommand().cmd)
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mWrite internal/command/status_test.go
+Created file successfully: internal/command/status_test.go
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; make test 2>&1 | tail -30
+go test ./internal/...
+ok  	github.com/basecamp/once/internal/background	(cached)
+ok  	github.com/basecamp/once/internal/browser	(cached)
+ok  	github.com/basecamp/once/internal/command	0.133s
+ok  	github.com/basecamp/once/internal/docker	0.258s
+ok  	github.com/basecamp/once/internal/fsutil	(cached)
+ok  	github.com/basecamp/once/internal/htmltext	(cached)
+?   	github.com/basecamp/once/internal/logging	[no test files]
+ok  	github.com/basecamp/once/internal/metrics	0.051s
+ok  	github.com/basecamp/once/internal/mouse	(cached)
+?   	github.com/basecamp/once/internal/service	[no test files]
+ok  	github.com/basecamp/once/internal/system	(cached)
+ok  	github.com/basecamp/once/internal/ui	(cached)
+ok  	github.com/basecamp/once/internal/userstats	(cached)
+ok  	github.com/basecamp/once/internal/version	(cached)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; make lint 2>&1 | tail -30
+golangci-lint run
+0 issues.
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; gofmt -l internal/command/status.go internal/command/status_test.go internal/command/root.go; golangci-lint fmt --diff 2>&1 | head -40
+(no output)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; go run ./cmd/once status --help 2>&1 | head -20
+Show an application's status
+
+Usage:
+  once status <host> [flags]
+
+Flags:
+  -h, --help   help for status
+      --json   print the status as JSON
+
+Global Flags:
+  -n, --namespace string   namespace for containers (default "once")
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+Added `once status <host>` with `--json`.
+
+- `internal/command/status.go` — report with host, URL, image/source, state, uptime, CPU/memory limits, and last update/backup results (including failures).
+- `internal/command/root.go:53` — registered the command.
+- `internal/command/status_test.go` — human-readable and JSON output, running/stopped, with/without history.
+
+Lint: `make lint` (golangci-lint) → 0 issues. Tests: `make test` → all packages pass.
