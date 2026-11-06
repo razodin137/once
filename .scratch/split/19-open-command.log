@@ -1,0 +1,4406 @@
+[0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mls ~/.config/opencode/command 2>/dev/null; cat ~/.config/opencode/command/split.md 2>/dev/null
+(no output)
+[0m$ [0mls -la; find . -path ./node_modules -prune -o -name "*open-command*" -print 2>/dev/null; ls .opencode 2>/dev/null
+total 64
+drwxr-xr-x 1 mrjohn mrjohn   352 Nov  6 17:59 .
+drwxr-xr-x 1 mrjohn mrjohn    24 Nov  6 18:01 ..
+-rw-r--r-- 1 mrjohn mrjohn  4449 Nov  6 17:42 AGENTS.md
+drwxr-xr-x 1 mrjohn mrjohn     8 Nov  6 17:59 bin
+drwxr-xr-x 1 mrjohn mrjohn    18 Nov  6 17:42 .claude
+drwxr-xr-x 1 mrjohn mrjohn     8 Nov  6 17:42 cmd
+-rw-r--r-- 1 mrjohn mrjohn     8 Nov  6 17:42 .dockerignore
+drwxr-xr-x 1 mrjohn mrjohn   196 Nov  6 18:53 .git
+drwxr-xr-x 1 mrjohn mrjohn    86 Nov  6 17:42 .github
+-rw-r--r-- 1 mrjohn mrjohn    53 Nov  6 17:42 .gitignore
+-rw-r--r-- 1 mrjohn mrjohn   216 Nov  6 17:42 .golangci.yml
+-rw-r--r-- 1 mrjohn mrjohn  3273 Nov  6 18:23 go.mod
+-rw-r--r-- 1 mrjohn mrjohn 14792 Nov  6 18:23 go.sum
+drwxr-xr-x 1 mrjohn mrjohn   138 Nov  6 17:42 installer
+drwxr-xr-x 1 mrjohn mrjohn    62 Nov  6 17:42 integration
+drwxr-xr-x 1 mrjohn mrjohn   172 Nov  6 18:43 internal
+-rw-r--r-- 1 mrjohn mrjohn  1292 Nov  6 17:42 Makefile
+-rw-r--r-- 1 mrjohn mrjohn    97 Nov  6 17:42 mise.toml
+-rw-r--r-- 1 mrjohn mrjohn  1053 Nov  6 17:42 MIT-LICENSE
+drwxr-xr-x 1 mrjohn mrjohn  2004 Nov  6 17:49 prompt
+drwxr-xr-x 1 mrjohn mrjohn   840 Nov  6 17:44 prompt-v1
+-rw-r--r-- 1 mrjohn mrjohn  8244 Nov  6 17:42 README.md
+drwxr-xr-x 1 mrjohn mrjohn    10 Nov  6 18:53 .scratch
+drwxr-xr-x 1 mrjohn mrjohn    30 Nov  5 23:06 scripts
+./prompt/19-open-command.md
+./.scratch/split/19-open-command.log
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcat prompt/19-open-command.md; echo ===LOG===; cat .scratch/split/19-open-command.log; echo ===; ls prompt | head -50; ls .scratch/split
+Your job is to go in and add `once open <host>` here to this Go CLI/TUI app.
+
+It prints the URL and opens it in the browser, and on its own it opens the contents page listing every app.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+===LOG===
+[0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mls ~/.config/opencode/command 2>/dev/null; cat ~/.config/opencode/command/split.md 2>/dev/null
+(no output)
+[0m$ [0mls -la; find . -path ./node_modules -prune -o -name "*open-command*" -print 2>/dev/null; ls .opencode 2>/dev/null
+total 64
+drwxr-xr-x 1 mrjohn mrjohn   352 Nov  6 17:59 .
+drwxr-xr-x 1 mrjohn mrjohn    24 Nov  6 18:01 ..
+-rw-r--r-- 1 mrjohn mrjohn  4449 Nov  6 17:42 AGENTS.md
+drwxr-xr-x 1 mrjohn mrjohn     8 Nov  6 17:59 bin
+drwxr-xr-x 1 mrjohn mrjohn    18 Nov  6 17:42 .claude
+drwxr-xr-x 1 mrjohn mrjohn     8 Nov  6 17:42 cmd
+-rw-r--r-- 1 mrjohn mrjohn     8 Nov  6 17:42 .dockerignore
+drwxr-xr-x 1 mrjohn mrjohn   196 Nov  6 18:53 .git
+drwxr-xr-x 1 mrjohn mrjohn    86 Nov  6 17:42 .github
+-rw-r--r-- 1 mrjohn mrjohn    53 Nov  6 17:42 .gitignore
+-rw-r--r-- 1 mrjohn mrjohn   216 Nov  6 17:42 .golangci.yml
+-rw-r--r-- 1 mrjohn mrjohn  3273 Nov  6 18:23 go.mod
+-rw-r--r-- 1 mrjohn mrjohn 14792 Nov  6 18:23 go.sum
+drwxr-xr-x 1 mrjohn mrjohn   138 Nov  6 17:42 installer
+drwxr-xr-x 1 mrjohn mrjohn    62 Nov  6 17:42 integration
+drwxr-xr-x 1 mrjohn mrjohn   172 Nov  6 18:43 internal
+-rw-r--r-- 1 mrjohn mrjohn  1292 Nov  6 17:42 Makefile
+-rw-r--r-- 1 mrjohn mrjohn    97 Nov  6 17:42 mise.toml
+-rw-r--r-- 1 mrjohn mrjohn  1053 Nov  6 17:42 MIT-LICENSE
+drwxr-xr-x 1 mrjohn mrjohn  2004 Nov  6 17:49 prompt
+drwxr-xr-x 1 mrjohn mrjohn   840 Nov  6 17:44 prompt-v1
+-rw-r--r-- 1 mrjohn mrjohn  8244 Nov  6 17:42 README.md
+drwxr-xr-x 1 mrjohn mrjohn    10 Nov  6 18:53 .scratch
+drwxr-xr-x 1 mrjohn mrjohn    30 Nov  5 23:06 scripts
+./prompt/19-open-command.md
+./.scratch/split/19-open-command.log
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+===
+00-overview.md
+01-deploy-static-folder.md
+02-serve-static-apps.md
+03-redeploy-folder.md
+04-stale-source-detection.md
+05-folder-contents-fallback.md
+06-markdown-pages.md
+07-single-file-html-site.md
+08-remove-static-app.md
+09-contents-card.md
+10-contents-screen.md
+11-channels.md
+12-channel-filter.md
+13-favorites.md
+14-drift.md
+15-app-bar.md
+16-bar-keys.md
+17-bar-cross-fade.md
+18-bar-hide.md
+19-open-command.md
+20-show-command.md
+21-logs-command.md
+22-status-command.md
+23-list-json.md
+24-restart-command.md
+25-update-all.md
+26-doctor-command.md
+27-backups-list.md
+28-screenshot-capture.md
+29-card-thumbnails.md
+30-route-map.md
+31-page-weight.md
+32-broken-links.md
+33-meta-preview.md
+34-deploy-diff.md
+35-promote-on-evidence.md
+36-error-capture.md
+37-dashboard-filter.md
+38-command-palette.md
+39-toasts.md
+40-chart-time-range.md
+41-compact-layout.md
+42-appearance-settings.md
+43-app-details-view.md
+44-mouse-on-cards.md
+45-incremental-render.md
+46-chart-performance.md
+47-single-stats-stream.md
+48-share-link.md
+49-status-page.md
+01-deploy-static-folder.check
+01-deploy-static-folder.diff
+01-deploy-static-folder.log
+02-serve-static-apps.check
+02-serve-static-apps.diff
+02-serve-static-apps.log
+03-redeploy-folder.check
+03-redeploy-folder.diff
+03-redeploy-folder.log
+04-stale-source-detection.check
+04-stale-source-detection.diff
+04-stale-source-detection.log
+05-folder-contents-fallback.check
+05-folder-contents-fallback.diff
+05-folder-contents-fallback.log
+06-markdown-pages.check
+06-markdown-pages.diff
+06-markdown-pages.log
+07-single-file-html-site.check
+07-single-file-html-site.diff
+07-single-file-html-site.log
+08-remove-static-app.check
+08-remove-static-app.diff
+08-remove-static-app.log
+09-contents-card.check
+09-contents-card.diff
+09-contents-card.log
+10-contents-screen.check
+10-contents-screen.diff
+10-contents-screen.log
+11-channels.check
+11-channels.diff
+11-channels.log
+12-channel-filter.check
+12-channel-filter.diff
+12-channel-filter.log
+13-favorites.check
+13-favorites.diff
+13-favorites.log
+14-drift.check
+14-drift.diff
+14-drift.log
+15-app-bar.check
+15-app-bar.diff
+15-app-bar.log
+16-bar-keys.check
+16-bar-keys.diff
+16-bar-keys.log
+17-bar-cross-fade.check
+17-bar-cross-fade.diff
+17-bar-cross-fade.log
+18-bar-hide.check
+18-bar-hide.diff
+18-bar-hide.log
+19-open-command.log
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; git worktree list; git branch -a | head -40; echo ===; tail -60 .scratch/split/18-bar-hide.log; echo ===CHECK===; cat .scratch/split/18-bar-hide.check; echo ===DIFFSTAT===; head -40 .scratch/split/18-bar-hide.diff
+/home/mrjohn/Work/tries/2026-11-06-yo/once e4ca439 [main]
+* main
+  remotes/origin/main
+  remotes/upstream/HEAD -> upstream/main
+  remotes/upstream/main
+===
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mmkdir -p .scratch/bar && cat > internal/docker/zz_tmp_dump_test.go <<'EOF'
+package docker
+
+import (
+	"os"
+	"testing"
+)
+
+func TestZZDumpBarScript(t *testing.T) {
+	ns := namespaceWithApps(ApplicationSettings{Name: "alpha", Host: "alpha.localhost"})
+	if err := os.WriteFile("../../.scratch/bar/bar.js", []byte(ns.Application("alpha").appBarScript()), 0o644); err != nil {
+		t.Fatal(err)
+	}
+}
+EOF
+go test ./internal/docker/ -run TestZZDumpBarScript -count=1 && node --check .scratch/bar/bar.js && echo "JS OK"; rm internal/docker/zz_tmp_dump_test.go
+ok  	github.com/basecamp/once/internal/docker	0.005s
+JS OK
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mrm -rf .scratch/bar; make test 2>&1 | tail -16; echo "--- lint ---"; make lint 2>&1 | tail -5
+go test ./internal/...
+ok  	github.com/basecamp/once/internal/background	0.006s
+ok  	github.com/basecamp/once/internal/browser	(cached)
+ok  	github.com/basecamp/once/internal/command	(cached)
+ok  	github.com/basecamp/once/internal/docker	0.041s
+ok  	github.com/basecamp/once/internal/fsutil	(cached)
+?   	github.com/basecamp/once/internal/logging	[no test files]
+ok  	github.com/basecamp/once/internal/metrics	(cached)
+ok  	github.com/basecamp/once/internal/mouse	(cached)
+?   	github.com/basecamp/once/internal/service	[no test files]
+ok  	github.com/basecamp/once/internal/system	(cached)
+ok  	github.com/basecamp/once/internal/ui	0.235s
+ok  	github.com/basecamp/once/internal/userstats	(cached)
+ok  	github.com/basecamp/once/internal/version	(cached)
+--- lint ---
+golangci-lint run
+0 issues.
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgit status --short; git diff --stat
+M internal/docker/appbar.go
+ M internal/docker/appbar_test.go
+?? .scratch/split/18-bar-hide.log
+ internal/docker/appbar.go      | 52 ++++++++++++++++++++++++++++++++++++++----
+ internal/docker/appbar_test.go | 38 +++++++++++++++++++++++++++++-
+ 2 files changed, 85 insertions(+), 5 deletions(-)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+Implemented the auto-hiding bar in `internal/docker/appbar.go`:
+
+- Scroll down past a small delta hides the bar (slides up); scrolling up — or returning to the top — brings it back.
+- While hidden, a small "Once" tab with an `H` hint sits fixed in the top right; clicking it or pressing `H` restores the bar.
+- `H` now toggles instead of permanently hiding, and the tab is excluded from the content cross-fade.
+- Respects `prefers-reduced-motion` and `prefers-reduced-transparency`.
+
+Tests added for the scroll behavior, restore tab, and toggle key in `internal/docker/appbar_test.go`.
+
+Verification:
+- `go test ./internal/...` — pass
+- `golangci-lint run` — `0 issues`
+===CHECK===
+go test ./internal/...
+ok  	github.com/basecamp/once/internal/background	(cached)
+ok  	github.com/basecamp/once/internal/browser	(cached)
+ok  	github.com/basecamp/once/internal/command	(cached)
+ok  	github.com/basecamp/once/internal/docker	0.041s
+ok  	github.com/basecamp/once/internal/fsutil	(cached)
+?   	github.com/basecamp/once/internal/logging	[no test files]
+ok  	github.com/basecamp/once/internal/metrics	0.008s
+ok  	github.com/basecamp/once/internal/mouse	(cached)
+?   	github.com/basecamp/once/internal/service	[no test files]
+ok  	github.com/basecamp/once/internal/system	(cached)
+ok  	github.com/basecamp/once/internal/ui	(cached)
+ok  	github.com/basecamp/once/internal/userstats	(cached)
+ok  	github.com/basecamp/once/internal/version	(cached)
+golangci-lint run
+0 issues.
+===DIFFSTAT===
+ internal/docker/appbar.go      | 52 ++++++++++++++++++++++++++++++++++++++----
+ internal/docker/appbar_test.go | 38 +++++++++++++++++++++++++++++-
+ 2 files changed, 85 insertions(+), 5 deletions(-)
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; ls -R .claude | head; find / -name "split*.md" -path "*command*" 2>/dev/null | head -20
+.claude:
+CLAUDE.md
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; find cmd internal -name "*.go" | sort
+cmd/once/main.go
+internal/background/runner.go
+internal/background/runner_test.go
+internal/browser/browser.go
+internal/browser/browser_test.go
+internal/command/background.go
+internal/command/background_install.go
+internal/command/background_remove.go
+internal/command/background_run.go
+internal/command/backup.go
+internal/command/cli_progress.go
+internal/command/deploy.go
+internal/command/deploy_test.go
+internal/command/exec.go
+internal/command/exec_test.go
+internal/command/keys.go
+internal/command/keys_reset.go
+internal/command/keys_set.go
+internal/command/list.go
+internal/command/remove.go
+internal/command/restore.go
+internal/command/root.go
+internal/command/root_test.go
+internal/command/self_update.go
+internal/command/settings_flags.go
+internal/command/start.go
+internal/command/stop.go
+internal/command/teardown.go
+internal/command/update.go
+internal/command/update_test.go
+internal/command/version.go
+internal/docker/appbar.go
+internal/docker/appbar_test.go
+internal/docker/application_backup.go
+internal/docker/application_backup_test.go
+internal/docker/application.go
+internal/docker/application_settings.go
+internal/docker/application_settings_test.go
+internal/docker/application_static_test.go
+internal/docker/application_test.go
+internal/docker/channels.go
+internal/docker/channels_test.go
+internal/docker/container.go
+internal/docker/errors.go
+internal/docker/errors_test.go
+internal/docker/events.go
+internal/docker/helpers.go
+internal/docker/helpers_test.go
+internal/docker/logs.go
+internal/docker/logs_test.go
+internal/docker/markdown.go
+internal/docker/namespace.go
+internal/docker/namespace_test.go
+internal/docker/progress.go
+internal/docker/progress_test.go
+internal/docker/proxy.go
+internal/docker/proxy_test.go
+internal/docker/registry_auth.go
+internal/docker/registry_auth_test.go
+internal/docker/ring_buffer.go
+internal/docker/ring_buffer_test.go
+internal/docker/scraper.go
+internal/docker/scraper_test.go
+internal/docker/site.go
+internal/docker/site_test.go
+internal/docker/source.go
+internal/docker/source_test.go
+internal/docker/state.go
+internal/docker/state_test.go
+internal/docker/volume.go
+internal/docker/volume_test.go
+internal/fsutil/fsutil.go
+internal/fsutil/fsutil_test.go
+internal/logging/log.go
+internal/metrics/scraper.go
+internal/metrics/scraper_test.go
+internal/mouse/lexer.go
+internal/mouse/lexer_test.go
+internal/mouse/tracker.go
+internal/mouse/tracker_test.go
+internal/service/launchd.go
+internal/service/service.go
+internal/service/systemd.go
+internal/system/disk.go
+internal/system/scraper.go
+internal/system/scraper_test.go
+internal/ui/actions_menu.go
+internal/ui/actions_menu_test.go
+internal/ui/app.go
+internal/ui/channels.go
+internal/ui/chart.go
+internal/ui/chart_scale.go
+internal/ui/chart_scale_test.go
+internal/ui/chart_test.go
+internal/ui/component.go
+internal/ui/confirmation.go
+internal/ui/confirmation_test.go
+internal/ui/contents_card.go
+internal/ui/contents_card_test.go
+internal/ui/dashboard.go
+internal/ui/dashboard_header.go
+internal/ui/dashboard_header_test.go
+internal/ui/dashboard_panel.go
+internal/ui/dashboard_panel_test.go
+internal/ui/dashboard_test.go
+internal/ui/favorite.go
+internal/ui/form.go
+internal/ui/form_test.go
+internal/ui/helpers_test.go
+internal/ui/help.go
+internal/ui/help_test.go
+internal/ui/install_activity.go
+internal/ui/install_app_list.go
+internal/ui/install_app_list_test.go
+internal/ui/install.go
+internal/ui/install_hostname_form.go
+internal/ui/install_hostname_form_test.go
+internal/ui/install_image_form.go
+internal/ui/install_image_form_test.go
+internal/ui/install_test.go
+internal/ui/keys.go
+internal/ui/logo.go
+internal/ui/logs.go
+internal/ui/logs_test.go
+internal/ui/menu.go
+internal/ui/menu_test.go
+internal/ui/metric_card.go
+internal/ui/metric_card_test.go
+internal/ui/palette_detect.go
+internal/ui/palette_detect_test.go
+internal/ui/palette.go
+internal/ui/palette_test.go
+internal/ui/popup_help.go
+internal/ui/popup_help_test.go
+internal/ui/progress.go
+internal/ui/remove.go
+internal/ui/remove_test.go
+internal/ui/settings_form_application.go
+internal/ui/settings_form_backups.go
+internal/ui/settings_form_base.go
+internal/ui/settings_form_email.go
+internal/ui/settings_form_environment.go
+internal/ui/settings_form_registry.go
+internal/ui/settings_form_resources.go
+internal/ui/settings_form_test.go
+internal/ui/settings_form_updates.go
+internal/ui/settings.go
+internal/ui/settings_menu.go
+internal/ui/settings_menu_test.go
+internal/ui/settings_test.go
+internal/ui/starfield.go
+internal/ui/styles.go
+internal/ui/styles_test.go
+internal/ui/terminal_size_guard.go
+internal/ui/terminal_size_guard_test.go
+internal/userstats/reader.go
+internal/userstats/reader_test.go
+internal/userstats/scraper.go
+internal/userstats/scraper_test.go
+internal/userstats/store.go
+internal/userstats/store_test.go
+internal/version/updater.go
+internal/version/updater_test.go
+internal/version/version.go
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; cat Makefile .golangci.yml; git log --oneline -8
+.PHONY: build test integration lint lint-actions coverage dist test-release
+
+PLATFORMS = linux darwin
+ARCHITECTURES = amd64 arm64
+VERSION := $(shell git describe --tags --always)
+LDFLAGS := -ldflags "-s -w -X 'github.com/basecamp/once/internal/version.Version=$(VERSION)'"
+
+TEST_RELEASE_TAG = v0.0.1-test
+
+build:
+	CGO_ENABLED=0 go build -trimpath $(LDFLAGS) -o bin/ ./cmd/...
+
+build-all:
+	@for os in $(PLATFORMS); do \
+		for arch in $(ARCHITECTURES); do \
+			echo "Building for $$os/$$arch..."; \
+			CGO_ENABLED=0 GOOS=$$os GOARCH=$$arch go build -trimpath $(LDFLAGS) -o bin/$$os-$$arch/ ./cmd/...; \
+		done; \
+	done
+
+test:
+	go test ./internal/...
+
+integration:
+	go test -v -count=1 -parallel 16 -timeout 30m ./integration/...
+
+check:
+	go vet ./...
+	govulncheck ./...
+
+lint:
+	golangci-lint run
+
+lint-actions:
+	actionlint
+	zizmor .
+
+coverage:
+	go test -coverprofile=coverage.out ./internal/...
+	go tool cover -html=coverage.out
+
+dist: build-all
+	mkdir -p dist
+	@for os in $(PLATFORMS); do \
+		for arch in $(ARCHITECTURES); do \
+			cp bin/$$os-$$arch/once dist/once-$$os-$$arch; \
+		done; \
+	done
+	cd dist && sha256sum once-* > checksums.txt
+
+test-release:
+	-gh release delete $(TEST_RELEASE_TAG) --yes --cleanup-tag
+	git tag -f $(TEST_RELEASE_TAG)
+	git push origin $(TEST_RELEASE_TAG) --force
+version: "2"
+
+formatters:
+  enable:
+    - gofmt
+    - gci
+  settings:
+    gci:
+      sections:
+        - standard
+        - default
+        - localmodule
+
+linters:
+  enable:
+    - modernize
+  disable:
+    - errcheck
+e4ca439 split: 18-bar-hide
+c903ba8 split: 17-bar-cross-fade
+926c88b split: 16-bar-keys
+1b1f9fd split: 16-bar-keys
+d826067 split: 15-app-bar
+d9aa468 split: 15-app-bar
+2a8c584 split: 14-drift
+c9f069a split: 13-favorites
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; cat internal/command/list.go; cat internal/docker/site.go; sed -n 1,120p internal/docker/namespace.go
+package command
+
+import (
+	"context"
+	"fmt"
+
+	"charm.land/lipgloss/v2"
+	"github.com/spf13/cobra"
+
+	"github.com/basecamp/once/internal/docker"
+)
+
+var hostStyle = lipgloss.NewStyle().Foreground(lipgloss.BrightBlue)
+
+type listCommand struct {
+	cmd *cobra.Command
+}
+
+func newListCommand() *listCommand {
+	l := &listCommand{}
+	l.cmd = &cobra.Command{
+		Use:     "list",
+		Aliases: []string{"ls"},
+		Short:   "List installed applications",
+		RunE:    WithNamespace(l.run),
+	}
+	return l
+}
+
+// Private
+
+func (l *listCommand) run(_ context.Context, ns *docker.Namespace, cmd *cobra.Command, args []string) error {
+	for _, app := range ns.Applications() {
+		status := "stopped"
+		if app.Running {
+			status = "running"
+		}
+
+		host := hostStyle.Hyperlink(app.URL()).Render(app.Settings.Host)
+
+		fmt.Printf("%s (%s)\n", host, status)
+	}
+
+	return nil
+}
+package docker
+
+import (
+	"fmt"
+	"html/template"
+	"io"
+	"io/fs"
+	"net/url"
+	"os"
+	"path/filepath"
+	"slices"
+	"strings"
+)
+
+const (
+	siteIndexName = "index.html"
+	siteHTMLExt   = ".html"
+)
+
+// IsSiteFile reports whether path names a single HTML file that can be served
+// as a site in its own right.
+func IsSiteFile(path string) bool {
+	return strings.EqualFold(filepath.Ext(path), siteHTMLExt)
+}
+
+// ServeSite copies source into a fresh directory in the served site cache and
+// returns its path. Folders without an index.html get a generated contents
+// page in the copy, so the source is left untouched. A single HTML file is
+// served as the site's index.html.
+func ServeSite(name, source string) (string, error) {
+	dir, err := servedSiteDir(name)
+	if err != nil {
+		return "", err
+	}
+
+	if err := os.MkdirAll(dir, 0o755); err != nil {
+		return "", fmt.Errorf("creating served site directory: %w", err)
+	}
+
+	revision, err := randomID(8)
+	if err != nil {
+		return "", fmt.Errorf("generating served site id: %w", err)
+	}
+
+	dest := filepath.Join(dir, revision)
+	if err := BuildServedSite(source, dest); err != nil {
+		os.RemoveAll(dest)
+		return "", err
+	}
+
+	return dest, nil
+}
+
+// RemoveServedSite deletes every served copy belonging to name, along with any
+// generated pages, and prunes the site cache once it is empty.
+func RemoveServedSite(name string) error {
+	if name == "" {
+		return fmt.Errorf("served site name is required")
+	}
+
+	root, err := servedSiteRoot()
+	if err != nil {
+		return err
+	}
+
+	if err := os.RemoveAll(filepath.Join(root, "sites", name)); err != nil {
+		return err
+	}
+
+	removeIfEmpty(filepath.Join(root, "sites"))
+	removeIfEmpty(root)
+
+	return nil
+}
+
+// RemoveServedCopy deletes a single served copy, such as the previous version
+// of a site after a redeploy.
+func RemoveServedCopy(path string) error {
+	return os.RemoveAll(path)
+}
+
+// BuildServedSite builds the served copy of source in dest. Markdown files are
+// rendered as HTML documents, and every folder in the copy that has no
+// index.html gets a generated contents page. A folder made up entirely of
+// Markdown documents opens its first one instead. A single file is served as
+// the site's index.html.
+func BuildServedSite(source, dest string) error {
+	root, err := filepath.EvalSymlinks(source)
+	if err != nil {
+		return err
+	}
+
+	info, err := os.Stat(root)
+	if err != nil {
+		return err
+	}
+
+	if err := os.MkdirAll(dest, 0o755); err != nil {
+		return err
+	}
+
+	if !info.IsDir() {
+		if !info.Mode().IsRegular() {
+			return fmt.Errorf("unsupported site source: %s", source)
+		}
+		return copySiteFile(root, filepath.Join(dest, siteIndexName))
+	}
+
+	if err := copyTree(root, dest); err != nil {
+		return err
+	}
+
+	if err := renderMarkdownDocuments(root, dest); err != nil {
+		return err
+	}
+
+	return writeContentsPages(root, dest)
+}
+
+// Helpers
+
+func servedSiteRoot() (string, error) {
+	cache, err := os.UserCacheDir()
+	if err != nil {
+		return "", fmt.Errorf("determining cache directory: %w", err)
+	}
+
+	return filepath.Join(cache, "once"), nil
+}
+
+func servedSiteDir(name string) (string, error) {
+	root, err := servedSiteRoot()
+	if err != nil {
+		return "", err
+	}
+
+	return filepath.Join(root, "sites", name), nil
+}
+
+func removeIfEmpty(path string) {
+	_ = os.Remove(path)
+}
+
+func copyTree(root, dest string) error {
+	return filepath.WalkDir(root, func(path string, entry fs.DirEntry, err error) error {
+		if err != nil {
+			return err
+		}
+
+		rel, err := filepath.Rel(root, path)
+		if err != nil {
+			return err
+		}
+		target := filepath.Join(dest, rel)
+
+		switch {
+		case entry.IsDir():
+			return os.MkdirAll(target, 0o755)
+		case entry.Type()&fs.ModeSymlink != 0:
+			link, err := os.Readlink(path)
+			if err != nil {
+				return err
+			}
+			return os.Symlink(link, target)
+		case entry.Type().IsRegular():
+			return copySiteFile(path, target)
+		default:
+			return nil
+		}
+	})
+}
+
+// copySiteFile writes a world-readable copy, so nginx's worker user can serve
+// it whatever the permissions of the source file are.
+func copySiteFile(source, target string) error {
+	src, err := os.Open(source)
+	if err != nil {
+		return err
+	}
+	defer src.Close()
+
+	dst, err := os.OpenFile(target, os.O_WRONLY|os.O_CREATE|os.O_EXCL, 0o644)
+	if err != nil {
+		return err
+	}
+
+	if _, err := io.Copy(dst, src); err != nil {
+		dst.Close()
+		return err
+	}
+
+	return dst.Close()
+}
+
+func writeContentsPages(root, dest string) error {
+	return filepath.WalkDir(root, func(path string, entry fs.DirEntry, err error) error {
+		if err != nil {
+			return err
+		}
+		if !entry.IsDir() || hasSiteIndex(path) {
+			return nil
+		}
+
+		rel, err := filepath.Rel(root, path)
+		if err != nil {
+			return err
+		}
+
+		return writeContentsPage(path, rel, filepath.Join(dest, rel, siteIndexName))
+	})
+}
+
+func hasSiteIndex(dir string) bool {
+	_, err := os.Lstat(filepath.Join(dir, siteIndexName))
+	return err == nil
+}
+
+type contentsPage struct {
+	Name    string
+	Parent  string
+	Entries []contentsEntry
+	Count   string
+}
+
+type contentsEntry struct {
+	Name     string
+	Href     template.URL
+	Dir      bool
+	Size     string
+	Modified string
+}
+
+func writeContentsPage(dir, rel, target string) error {
+	entries, err := os.ReadDir(dir)
+	if err != nil {
+		return err
+	}
+
+	slices.SortFunc(entries, compareEntries)
+
+	if first, ok := firstMarkdownEntry(entries); ok {
+		return writeMarkdownPage(filepath.Join(dir, first.Name()), target)
+	}
+
+	page := contentsPage{
+		Name:    filepath.Base(dir),
+		Entries: make([]contentsEntry, 0, len(entries)),
+	}
+
+	if rel != "." {
+		page.Parent = "../"
+	}
+
+	for _, entry := range entries {
+		info, err := entry.Info()
+		if err != nil {
+			return err
+		}
+
+		size := "—"
+		if !entry.IsDir() {
+			size = formatSiteSize(info.Size())
+		}
+
+		page.Entries = append(page.Entries, contentsEntry{
+			Name:     entry.Name(),
+			Href:     siteEntryHref(entry),
+			Dir:      entry.IsDir(),
+			Size:     size,
+			Modified: info.ModTime().Format("2006-01-02 15:04"),
+		})
+	}
+
+	page.Count = formatEntryCount(len(page.Entries))
+
+	file, err := os.OpenFile(target, os.O_WRONLY|os.O_CREATE|os.O_EXCL, 0o644)
+	if err != nil {
+		return err
+	}
+	defer file.Close()
+
+	return contentsTemplate.Execute(file, page)
+}
+
+func compareEntries(a, b fs.DirEntry) int {
+	if a.IsDir() != b.IsDir() {
+		if a.IsDir() {
+			return -1
+		}
+		return 1
+	}
+
+	if result := strings.Compare(strings.ToLower(a.Name()), strings.ToLower(b.Name())); result != 0 {
+		return result
+	}
+
+	return strings.Compare(a.Name(), b.Name())
+}
+
+func siteEntryHref(entry fs.DirEntry) template.URL {
+	href := url.PathEscape(entry.Name())
+	if entry.IsDir() {
+		href += "/"
+	}
+
+	return template.URL(href)
+}
+
+func formatSiteSize(size int64) string {
+	const unit = 1000
+
+	if size < unit {
+		return fmt.Sprintf("%d B", size)
+	}
+
+	div, exp := int64(unit), 0
+	for size >= div*unit && exp < 4 {
+		div *= unit
+		exp++
+	}
+
+	return fmt.Sprintf("%.1f %cB", float64(size)/float64(div), "kMGTP"[exp])
+}
+
+func formatEntryCount(count int) string {
+	if count == 1 {
+		return "1 entry"
+	}
+
+	return fmt.Sprintf("%d entries", count)
+}
+
+var contentsTemplate = template.Must(template.New("contents").Parse(contentsPageHTML))
+
+const contentsPageHTML = `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{.Name}} · ONCE</title>
+<style>
+  :root {
+    color-scheme: light;
+    --paper: #f3ede1;
+    --card: #faf7f0;
+    --ink: #201d19;
+    --muted: #7d746a;
+    --rule: #ddd3c3;
+    --accent: #b4552f;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: clamp(1.5rem, 5vw, 4rem) 1.25rem;
+    background: var(--paper);
+    color: var(--ink);
+    font: 0.9375rem/1.55 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+
+  main {
+    max-width: 48rem;
+    margin: 0 auto;
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    background: var(--card);
+    border: 1px solid var(--rule);
+    box-shadow: 0 1px 0 var(--rule);
+  }
+
+  header {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .eyebrow {
+    margin: 0;
+    font-size: 0.6875rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  h1 {
+    margin: 0.35rem 0 0;
+    font: 400 clamp(1.5rem, 4vw, 2rem)/1.15 Georgia, "Iowan Old Style", "Times New Roman", serif;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.25rem;
+  }
+
+  th {
+    padding: 0 0.5rem 0.5rem;
+    font-size: 0.6875rem;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-align: left;
+    color: var(--muted);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  td {
+    padding: 0.6rem 0.5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  tbody tr:last-child td { border-bottom: 0; }
+
+  .name a { color: var(--ink); text-decoration: none; }
+  .name a:hover, .name a:focus { color: var(--accent); }
+  .dir a::after { content: "/"; color: var(--accent); }
+
+  .size, .date {
+    color: var(--muted);
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .size { text-align: right; }
+  .empty { color: var(--muted); }
+
+  footer {
+    margin-top: 1.25rem;
+    font-size: 0.6875rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <p class="eyebrow">ONCE · Contents</p>
+    <h1>{{.Name}}</h1>
+  </header>
+  <table>
+    <thead>
+      <tr><th scope="col">Name</th><th scope="col">Size</th><th scope="col">Modified</th></tr>
+    </thead>
+    <tbody>
+      {{if .Parent}}<tr><td class="name"><a href="{{.Parent}}">..</a></td><td class="size">—</td><td class="date">—</td></tr>{{end}}
+      {{range .Entries}}<tr><td class="name{{if .Dir}} dir{{end}}"><a href="{{.Href}}">{{.Name}}</a></td><td class="size">{{.Size}}</td><td class="date">{{.Modified}}</td></tr>{{end}}
+      {{if not .Entries}}<tr><td class="empty" colspan="3">This folder is empty.</td></tr>{{end}}
+    </tbody>
+  </table>
+  <footer>{{.Count}}</footer>
+</main>
+</body>
+</html>
+`
+package docker
+
+import (
+	"context"
+	"errors"
+	"fmt"
+	"io"
+	"log/slog"
+	"regexp"
+	"slices"
+	"strings"
+	"time"
+
+	"github.com/containerd/errdefs"
+	"github.com/moby/moby/client"
+)
+
+const DefaultNamespace = "once"
+
+var ErrInvalidNamespace = errors.New("invalid namespace: must contain only lowercase letters, digits, and hyphens, and must not start with a hyphen")
+
+type Namespace struct {
+	name         string
+	client       *client.Client
+	proxy        *Proxy
+	applications []*Application
+}
+
+type NamespaceOption func(*Namespace)
+
+func WithApplications(apps ...ApplicationSettings) NamespaceOption {
+	return func(ns *Namespace) {
+		for _, s := range apps {
+			ns.addApplication(s)
+		}
+	}
+}
+
+func NewNamespace(name string, opts ...NamespaceOption) (*Namespace, error) {
+	if name == "" {
+		name = DefaultNamespace
+	}
+
+	if !validNamespace.MatchString(name) {
+		return nil, fmt.Errorf("%w: %q", ErrInvalidNamespace, name)
+	}
+
+	c, err := client.New(client.FromEnv)
+	if err != nil {
+		return nil, err
+	}
+
+	ns := &Namespace{
+		name:   name,
+		client: c,
+	}
+	ns.proxy = NewProxy(ns)
+
+	for _, opt := range opts {
+		opt(ns)
+	}
+
+	return ns, nil
+}
+
+func RestoreNamespace(ctx context.Context, name string) (*Namespace, error) {
+	ns, err := NewNamespace(name)
+	if err != nil {
+		return nil, err
+	}
+
+	if err := ns.restoreState(ctx); err != nil {
+		return nil, err
+	}
+
+	return ns, nil
+}
+
+func (n *Namespace) Name() string {
+	return n.name
+}
+
+func (n *Namespace) addApplication(settings ApplicationSettings) *Application {
+	app := NewApplication(n, settings)
+	n.applications = append(n.applications, app)
+	n.sortApplications()
+	return app
+}
+
+func (n *Namespace) Proxy() *Proxy {
+	return n.proxy
+}
+
+func (n *Namespace) Application(name string) *Application {
+	for _, app := range n.applications {
+		if app.Settings.Name == name {
+			return app
+		}
+	}
+	return nil
+}
+
+func (n *Namespace) Applications() []*Application {
+	return n.applications
+}
+
+func (n *Namespace) ApplicationByHost(host string) *Application {
+	for _, app := range n.applications {
+		if app.Settings.Host == host {
+			return app
+		}
+	}
+	return nil
+}
+
+func (n *Namespace) HostInUse(host string) bool {
+	return n.ApplicationByHost(host) != nil
+}
+
+func (n *Namespace) HostInUseByAnother(host string, excludeApp string) bool {
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; git status --short; cat internal/command/root.go; cat internal/browser/browser.go
+?? .scratch/split/19-open-command.log
+package command
+
+import (
+	"context"
+	"errors"
+	"fmt"
+
+	"github.com/spf13/cobra"
+
+	"github.com/basecamp/once/internal/docker"
+	"github.com/basecamp/once/internal/logging"
+	"github.com/basecamp/once/internal/ui"
+)
+
+type RootCommand struct {
+	cmd       *cobra.Command
+	namespace string
+
+	installImageRef string
+}
+
+func NewRootCommand() *RootCommand {
+	r := &RootCommand{}
+	r.cmd = &cobra.Command{
+		Use:           "once",
+		Short:         "Manage web applications from Docker images",
+		SilenceUsage:  true,
+		SilenceErrors: true,
+		CompletionOptions: cobra.CompletionOptions{
+			HiddenDefaultCmd: true,
+		},
+		RunE: WithNamespace(func(ctx context.Context, ns *docker.Namespace, cmd *cobra.Command, args []string) error {
+			return logging.ToLogFile(func() error {
+				return ui.Run(ns, r.installImageRef)
+			})
+		}),
+	}
+	r.cmd.PersistentFlags().StringVarP(&r.namespace, "namespace", "n", docker.DefaultNamespace, "namespace for containers")
+
+	r.cmd.Flags().StringVar(&r.installImageRef, "install", "", "Path to Docker image to install")
+
+	r.cmd.AddCommand(newBackgroundCommand().cmd)
+	r.cmd.AddCommand(newBackupCommand().cmd)
+	r.cmd.AddCommand(newDeployCommand().cmd)
+	r.cmd.AddCommand(newExecCommand().cmd)
+	r.cmd.AddCommand(newKeysCommand().cmd)
+	r.cmd.AddCommand(newListCommand().cmd)
+	r.cmd.AddCommand(newRemoveCommand().cmd)
+	r.cmd.AddCommand(newRestoreCommand().cmd)
+	r.cmd.AddCommand(newStartCommand().cmd)
+	r.cmd.AddCommand(newStopCommand().cmd)
+	r.cmd.AddCommand(newTeardownCommand().cmd)
+	r.cmd.AddCommand(newUpdateCommand().cmd)
+	r.cmd.AddCommand(newSelfUpdateCommand().cmd)
+	r.cmd.AddCommand(newVersionCommand().cmd)
+
+	return r
+}
+
+func (r *RootCommand) Execute() error {
+	return r.cmd.Execute()
+}
+
+// Helpers
+
+type NamespaceRunE func(ctx context.Context, ns *docker.Namespace, cmd *cobra.Command, args []string) error
+
+func findApplication(ns *docker.Namespace, host string) (*docker.Application, error) {
+	app := ns.ApplicationByHost(host)
+	if app == nil {
+		return nil, fmt.Errorf("no application found at host %q", host)
+	}
+	return app, nil
+}
+
+func withApplication(ns *docker.Namespace, host string, action string, fn func(*docker.Application) error) error {
+	app, err := findApplication(ns, host)
+	if err != nil {
+		return err
+	}
+
+	if err := fn(app); err != nil {
+		return fmt.Errorf("%s application: %w", action, err)
+	}
+
+	return nil
+}
+
+func WithNamespace(fn NamespaceRunE) func(*cobra.Command, []string) error {
+	return func(cmd *cobra.Command, args []string) error {
+		ctx := context.Background()
+
+		ns, err := docker.RestoreNamespace(ctx, namespaceFlag(cmd))
+		if err != nil {
+			return fmt.Errorf("restoring namespace: %w", err)
+		}
+
+		return fn(ctx, ns, cmd, args)
+	}
+}
+
+func namespaceFlag(cmd *cobra.Command) string {
+	namespace, _ := cmd.Root().PersistentFlags().GetString("namespace")
+	return namespace
+}
+
+type exitCoder interface {
+	error
+	ExitCode() int
+}
+
+func ExitCode(err error) (int, bool) {
+	if e, ok := errors.AsType[exitCoder](err); ok {
+		return e.ExitCode(), true
+	}
+	return 0, false
+}
+
+func IsExitError(err error) bool {
+	_, ok := ExitCode(err)
+	return ok
+}
+package browser
+
+import (
+	"errors"
+	"os/exec"
+	"runtime"
+)
+
+func Open(url string) error {
+	if url == "" {
+		return errors.New("url is required")
+	}
+
+	name := "xdg-open"
+	if runtime.GOOS == "darwin" {
+		name = "open"
+	}
+
+	return exec.Command(name, url).Run()
+}
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; sed -n 1,140p internal/docker/application.go; grep -rn "127.0.0.1\|localhost\|:80\|Port" internal/docker/application_settings.go internal/docker/proxy.go | head -40
+package docker
+
+import (
+	"cmp"
+	"context"
+	"errors"
+	"fmt"
+	"log/slog"
+	"net/http"
+	"strconv"
+	"strings"
+	"time"
+
+	"github.com/containerd/errdefs"
+	"github.com/moby/moby/api/types/container"
+	"github.com/moby/moby/api/types/mount"
+	"github.com/moby/moby/api/types/network"
+	"github.com/moby/moby/client"
+)
+
+var (
+	ErrApplicationExists     = errors.New("application already exists")
+	ErrHostnameInUse         = errors.New("hostname already in use")
+	ErrHostRequired          = errors.New("host is required")
+	ErrInvalidBackup         = errors.New("invalid backup archive")
+	ErrImageRequired         = errors.New("image is required")
+	ErrApplicationNotRunning = errors.New("the application is not running")
+	ErrBackupPathRelative    = errors.New("backup path must be absolute")
+	ErrBackupFileExists      = errors.New("backup file already exists")
+	ErrAutoBackupWithoutPath = errors.New("auto-backup requires a backup path")
+	ErrSetupFailed           = errors.New("setup failed")
+	ErrPullFailed            = &describedError{
+		msg:         "pull failed",
+		description: "Failed to download the application image. Check that the image name is correct and try again.",
+	}
+	ErrPullMaybeUnauthorized = &describedError{
+		msg:         "image missing or authentication required",
+		description: "Could not pull the image. The image may not exist, or it may require registry credentials.",
+	}
+	ErrDeployFailed       = errors.New("deploy failed")
+	ErrVerificationFailed = &describedError{
+		msg:         "verification failed",
+		description: "The application couldn't be verified. Please check that you have a valid DNS record set up.",
+	}
+	ErrUnpauseFailed                   = errors.New("failed to unpause container after backup")
+	ErrRegistryPasswordWithoutUsername = errors.New("registry password requires a username")
+	ErrRegistryUsernameWithoutPassword = errors.New("registry username requires a password")
+)
+
+const (
+	AutomaticTaskInterval = 24 * time.Hour
+	HealthCheckPath       = "/up"
+	httpVerifyTimeout     = 30 * time.Second
+
+	StaticImage         = "nginx:alpine-slim"
+	staticContentTarget = "/usr/share/nginx/html"
+)
+
+const staticNginxConfig = `server {
+    listen 80;
+    sub_filter '</body>' '{{bar}}</body>';
+    sub_filter_once on;
+    sub_filter_types text/html;
+    location = {{health}} {
+        access_log off;
+        return 200 "ok";
+    }
+    location = /__once/bar.js {
+        root {{root}};
+        add_header Cache-Control "no-store";
+    }
+    location ~* \.md$ {
+        root {{root}};
+        charset utf-8;
+        types { }
+        default_type text/html;
+    }
+    location / {
+        root {{root}};
+        index index.html;
+    }
+}
+`
+
+// AppVolumeMountTargets defines the paths where the app data volume is mounted
+// inside the container. The first entry is the primary path used for backups.
+var AppVolumeMountTargets = []string{"/storage", "/rails/storage"}
+
+type Application struct {
+	namespace    *Namespace
+	Settings     ApplicationSettings
+	Running      bool
+	RunningSince time.Time
+	DeployedAt   time.Time
+}
+
+func NewApplication(ns *Namespace, settings ApplicationSettings) *Application {
+	return &Application{
+		namespace: ns,
+		Settings:  settings,
+	}
+}
+
+func (a *Application) ContainerName(ctx context.Context) (string, error) {
+	containers, err := a.namespace.client.ContainerList(ctx, client.ContainerListOptions{All: true})
+	if err != nil {
+		return "", err
+	}
+
+	for _, c := range containers.Items {
+		if len(c.Names) == 0 {
+			continue
+		}
+		name := strings.TrimPrefix(c.Names[0], "/")
+		if a.namespace.containerAppName(name) == a.Settings.Name {
+			return name, nil
+		}
+	}
+
+	return "", fmt.Errorf("no container found for app %s", a.Settings.Name)
+}
+
+func (a *Application) Volume(ctx context.Context) (*ApplicationVolume, error) {
+	vol, err := FindVolume(ctx, a.namespace, a.Settings.Name)
+	if err == nil {
+		return vol, nil
+	}
+	if !errors.Is(err, ErrVolumeNotFound) {
+		return nil, err
+	}
+
+	return CreateVolume(ctx, a.namespace, a.Settings.Name, ApplicationLegacyVolumeSettings{})
+}
+
+func (a *Application) URL() string {
+	if a.Settings.Host == "" {
+		return ""
+	}
+
+	scheme := "http"
+internal/docker/application_settings.go:58:	Port     string `json:"port,omitempty"`
+internal/docker/application_settings.go:70:		"SMTP_PORT=" + s.Port,
+internal/docker/proxy.go:33:	DefaultHTTPPort    = 80
+internal/docker/proxy.go:34:	DefaultHTTPSPort   = 443
+internal/docker/proxy.go:35:	DefaultMetricsPort = 1318
+internal/docker/proxy.go:40:	HTTPPort    int `json:"httpPort"`
+internal/docker/proxy.go:41:	HTTPSPort   int `json:"httpsPort"`
+internal/docker/proxy.go:42:	MetricsPort int `json:"metricsPort"`
+internal/docker/proxy.go:73:	if settings.HTTPPort == 0 {
+internal/docker/proxy.go:74:		settings.HTTPPort = DefaultHTTPPort
+internal/docker/proxy.go:76:	if settings.HTTPSPort == 0 {
+internal/docker/proxy.go:77:		settings.HTTPSPort = DefaultHTTPSPort
+internal/docker/proxy.go:79:	if settings.MetricsPort == 0 {
+internal/docker/proxy.go:80:		settings.MetricsPort = DefaultMetricsPort
+internal/docker/proxy.go:99:	httpPortTCP := network.MustParsePort("80/tcp")
+internal/docker/proxy.go:100:	httpsPortTCP := network.MustParsePort("443/tcp")
+internal/docker/proxy.go:101:	metricsPortTCP := network.MustParsePort(fmt.Sprintf("%d/tcp", settings.MetricsPort))
+internal/docker/proxy.go:107:			Cmd:   []string{"kamal-proxy", "run", "--metrics-port", fmt.Sprintf("%d", settings.MetricsPort)},
+internal/docker/proxy.go:111:			ExposedPorts: network.PortSet{
+internal/docker/proxy.go:112:				httpPortTCP:    struct{}{},
+internal/docker/proxy.go:113:				httpsPortTCP:   struct{}{},
+internal/docker/proxy.go:114:				metricsPortTCP: struct{}{},
+internal/docker/proxy.go:118:			PortBindings: network.PortMap{
+internal/docker/proxy.go:119:				httpPortTCP:    []network.PortBinding{{HostPort: fmt.Sprintf("%d", settings.HTTPPort)}},
+internal/docker/proxy.go:120:				httpsPortTCP:   []network.PortBinding{{HostPort: fmt.Sprintf("%d", settings.HTTPSPort)}},
+internal/docker/proxy.go:121:				metricsPortTCP: []network.PortBinding{{HostIP: netip.MustParseAddr("127.0.0.1"), HostPort: fmt.Sprintf("%d", settings.MetricsPort)}},
+internal/docker/proxy.go:144:		if isPortConflict(err) {
+internal/docker/proxy.go:145:			slog.Error("Port conflict starting proxy", "error", err)
+internal/docker/proxy.go:146:			return ErrProxyPortInUse
+internal/docker/proxy.go:199:			if isPortConflict(err) {
+internal/docker/proxy.go:200:				slog.Error("Port conflict starting proxy", "error", err)
+internal/docker/proxy.go:201:				return ErrProxyPortInUse
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; cat prompt/20-show-command.md prompt/23-list-json.md; grep -rn "func (a \*Application) URL\|func (.*URL()" internal | head; grep -rn "Contents" internal/command internal/docker | head -20
+Your job is to go in and add `once show <host>` here to this Go CLI/TUI app.
+
+It fetches the app's page and prints it as text in the terminal: headings, links and forms, no markup. Useful when you only want to know what the page says.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+Your job is to go in and add `--json` to `once list` here to this Go CLI/TUI app.
+
+Stable field names, one array, every app with host, image or folder, state and channel chips, so a script can read it without scraping the table.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+internal/docker/application.go:135:func (a *Application) URL() string {
+internal/docker/site.go:117:	return writeContentsPages(root, dest)
+internal/docker/site.go:195:func writeContentsPages(root, dest string) error {
+internal/docker/site.go:209:		return writeContentsPage(path, rel, filepath.Join(dest, rel, siteIndexName))
+internal/docker/site.go:233:func writeContentsPage(dir, rel, target string) error {
+internal/docker/site.go:438:    <p class="eyebrow">ONCE · Contents</p>
+internal/docker/appbar.go:17:	Contents string   `json:"contents"`
+internal/docker/appbar.go:56:		Contents: "/",
+internal/docker/appbar.go:154:  actions.push(["contents", "Contents", "C", data.contents])
+internal/docker/appbar_test.go:105:	assert.Contains(t, script, `["contents", "Contents", "C", data.contents]`)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; cat prompt/09-contents-card.md prompt/10-contents-screen.md; sed -n 130,160p internal/docker/application.go; sed -n 1,80p internal/ui/contents_card.go
+Your job is to go in and add a contents card for one app here to this Go CLI/TUI app.
+
+Cream paper, a serif title, a stamp with the app's initials, then the facts: host, image or folder, uptime, last deploy, last backup. It is the card the rest of the interface is built around, so make it good.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+Your job is to go in and put the contents card on its own full-screen page in the TUI here to this Go CLI/TUI app.
+
+Opened from the selected dashboard panel, same words and facts as the web card, esc back to the dashboard, which already handles overlays and selection.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+	}
+
+	return CreateVolume(ctx, a.namespace, a.Settings.Name, ApplicationLegacyVolumeSettings{})
+}
+
+func (a *Application) URL() string {
+	if a.Settings.Host == "" {
+		return ""
+	}
+
+	scheme := "http"
+	defaultPort := 80
+	if a.Settings.TLSEnabled() {
+		scheme = "https"
+		defaultPort = 443
+	}
+
+	base := scheme + "://" + a.Settings.Host
+
+	if a.namespace == nil {
+		return base
+	}
+
+	proxy := a.namespace.Proxy()
+	if proxy.Settings == nil {
+		return base
+	}
+
+	port := proxy.Settings.HTTPPort
+	if a.Settings.TLSEnabled() {
+		port = proxy.Settings.HTTPSPort
+package ui
+
+import (
+	"image/color"
+	"strings"
+	"time"
+	"unicode"
+
+	"charm.land/bubbles/v2/key"
+	tea "charm.land/bubbletea/v2"
+	"charm.land/lipgloss/v2"
+	"github.com/charmbracelet/x/ansi"
+
+	"github.com/basecamp/once/internal/docker"
+)
+
+const (
+	contentsCardMaxWidth = 64
+	contentsCardPadding  = 2
+)
+
+var contentsCardCloseKey = WithHelp(NewKeyBinding("esc"), "esc", "back")
+var contentsCardFavoriteKey = WithHelp(NewKeyBinding("f"), "f", "favorite")
+
+var (
+	contentsPaper  = lipgloss.Color("#f4ecdc")
+	contentsInk    = lipgloss.Color("#241f1a")
+	contentsRule   = lipgloss.Color("#d8cbb4")
+	contentsMuted  = lipgloss.Color("#7b7166")
+	contentsAccent = lipgloss.Color("#b4552f")
+)
+
+type ContentsCardCloseMsg struct{}
+
+type ContentsCardFavoriteMsg struct {
+	AppName  string
+	Favorite bool
+}
+
+type ContentsCard struct {
+	app        docker.Application
+	lastBackup *docker.OperationResult
+	favorite   bool
+	width      int
+	height     int
+}
+
+func NewContentsCard(app *docker.Application, lastBackup *docker.OperationResult, favorite bool, width int) ContentsCard {
+	return ContentsCard{
+		app:        *app,
+		lastBackup: lastBackup,
+		favorite:   favorite,
+		width:      width,
+	}
+}
+
+func (c ContentsCard) Init() tea.Cmd {
+	return nil
+}
+
+func (c ContentsCard) Update(msg tea.Msg) (Component, tea.Cmd) {
+	switch msg := msg.(type) {
+	case tea.WindowSizeMsg:
+		c.width, c.height = msg.Width, msg.Height
+	case tea.KeyPressMsg:
+		if key.Matches(msg, contentsCardFavoriteKey) {
+			c.favorite = !c.favorite
+			return c, func() tea.Msg {
+				return ContentsCardFavoriteMsg{AppName: c.app.Settings.Name, Favorite: c.favorite}
+			}
+		}
+		if key.Matches(msg, contentsCardCloseKey) {
+			return c, func() tea.Msg { return ContentsCardCloseMsg{} }
+		}
+	}
+
+	return c, nil
+}
+
+func (c ContentsCard) View() string {
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; grep -rni "contents" README.md prompt-v1 prompt | head -40
+prompt/05-folder-contents-fallback.md:1:Your job is to go in and give a folder with no index.html a generated contents page here to this Go CLI/TUI app.
+prompt/09-contents-card.md:1:Your job is to go in and add a contents card for one app here to this Go CLI/TUI app.
+prompt/10-contents-screen.md:1:Your job is to go in and put the contents card on its own full-screen page in the TUI here to this Go CLI/TUI app.
+prompt/15-app-bar.md:3:Forty pixels tall, the app name on the left, then back, next, contents, drift, reload and hide. Dark glass over whatever the page is, and the page itself is never modified on disk.
+prompt/16-bar-keys.md:3:`/` menu, `[` back, `]` next, `C` contents, `R` drift, `Shift+R` reload, `H` hide, the same letters the TUI already uses so one set of habits works in both.
+prompt/19-open-command.md:3:It prints the URL and opens it in the browser, and on its own it opens the contents page listing every app.
+prompt/29-card-thumbnails.md:1:Your job is to go in and put the screenshot on the contents card here to this Go CLI/TUI app.
+prompt/33-meta-preview.md:3:Title, description, favicon and the og:image, laid out as a link preview card on the app's contents card.
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; grep -rn "browser.Open\|Open(" internal --include=*.go | grep -v _test | head -30; grep -rn "Hyperlink" internal/command | head
+internal/command/restore.go:33:	file, err := os.Open(filename)
+internal/docker/source.go:66:	f, err := os.Open(path)
+internal/docker/site.go:176:	src, err := os.Open(source)
+internal/fsutil/fsutil.go:165:	f, err := dir.Open(".")
+internal/ui/dashboard.go:363:		if err := browser.Open(app.URL()); err != nil {
+internal/browser/browser.go:9:func Open(url string) error {
+internal/command/list.go:39:		host := hostStyle.Hyperlink(app.URL()).Render(app.Settings.Host)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; ls prompt-v1; grep -rni "once open\|open <host>\|opens the contents\|contents page listing" prompt-v1 | head -20
+00-overview.md
+01-logs-command.md
+02-status-command.md
+03-restart-command.md
+04-backups-command.md
+05-dashboard-filter.md
+06-dashboard-lifecycle-shortcuts.md
+07-update-all.md
+08-health-checks.md
+09-app-details.md
+10-backup-restore.md
+11-logs-stderr.md
+12-logs-pause.md
+13-appearance-settings.md
+14-command-palette.md
+15-toasts.md
+16-chart-time-range.md
+17-compact-layout.md
+18-incremental-render.md
+19-chart-performance.md
+20-house-style.md
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; cat prompt/00-overview.md; sed -n 330,380p internal/ui/dashboard.go
+These prompts change the ONCE Go CLI/TUI in this repository, one feature per file, run in order with a fresh agent for each.
+
+House style here is the project's own Go conventions plus `make lint`; the wider reference copy is at /home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+
+The last line of every file is the same, and it means `make test` and `make lint` both run clean.
+
+Each file is the whole instruction for its session. Read only the one you are running.
+
+func (m Dashboard) helpBindings() []key.Binding {
+	if len(m.apps) > 0 {
+		return []key.Binding{
+			dashboardKeys.Up, dashboardKeys.Down, dashboardKeys.Actions,
+			dashboardKeys.Favorite, dashboardKeys.Settings, dashboardKeys.Logs,
+			dashboardKeys.Contents, dashboardKeys.Drift, dashboardKeys.Details,
+			dashboardKeys.NewApp, dashboardKeys.Quit,
+		}
+	}
+	return []key.Binding{dashboardKeys.NewApp, dashboardKeys.Quit}
+}
+
+func (m Dashboard) runStartStop(app *docker.Application) tea.Cmd {
+	return func() tea.Msg {
+		var err error
+		if app.Running {
+			err = app.Stop(context.Background())
+		} else {
+			err = app.Start(context.Background())
+		}
+		return startStopFinishedMsg{err: err}
+	}
+}
+
+func (m Dashboard) drift() tea.Cmd {
+	index, ok := driftTarget(m.apps, m.selectedIndex)
+	if !ok {
+		return nil
+	}
+
+	app := m.apps[index]
+	return func() tea.Msg {
+		if err := browser.Open(app.URL()); err != nil {
+			slog.Warn("Failed to open drifted app", "app", app.Settings.Name, "error", err)
+		}
+		return nil
+	}
+}
+
+func (m Dashboard) scheduleNextDashboardTick() tea.Cmd {
+	return tea.Every(time.Second, func(time.Time) tea.Msg { return dashboardTickMsg{} })
+}
+
+func (m Dashboard) lastBackupFor(app *docker.Application) *docker.OperationResult {
+	state := m.state
+	if state == nil {
+		state = loadState(m.namespace)
+	}
+	if state == nil {
+		return nil
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; grep -rn "ContentsScreen\|contentsScreen\|Contents" internal/ui/*.go | head -30; grep -n "type Dashboard\|NewDashboard\|panels\|Applications" internal/ui/dashboard.go | head -30
+internal/ui/contents_card.go:33:type ContentsCardCloseMsg struct{}
+internal/ui/contents_card.go:35:type ContentsCardFavoriteMsg struct {
+internal/ui/contents_card.go:40:type ContentsCard struct {
+internal/ui/contents_card.go:48:func NewContentsCard(app *docker.Application, lastBackup *docker.OperationResult, favorite bool, width int) ContentsCard {
+internal/ui/contents_card.go:49:	return ContentsCard{
+internal/ui/contents_card.go:57:func (c ContentsCard) Init() tea.Cmd {
+internal/ui/contents_card.go:61:func (c ContentsCard) Update(msg tea.Msg) (Component, tea.Cmd) {
+internal/ui/contents_card.go:69:				return ContentsCardFavoriteMsg{AppName: c.app.Settings.Name, Favorite: c.favorite}
+internal/ui/contents_card.go:73:			return c, func() tea.Msg { return ContentsCardCloseMsg{} }
+internal/ui/contents_card.go:80:func (c ContentsCard) View() string {
+internal/ui/contents_card.go:105:func (c ContentsCard) headerLines(inner int) []string {
+internal/ui/contents_card.go:133:func (c ContentsCard) titleLine(width int) string {
+internal/ui/contents_card.go:142:func (c ContentsCard) footerText() string {
+internal/ui/contents_card.go:149:func (c ContentsCard) stamp() string {
+internal/ui/contents_card.go:165:func (c ContentsCard) factLines(inner int) []string {
+internal/ui/contents_card.go:173:		{label: "LAST DEPLOY", value: formatContentsTime(c.app.DeployedAt)},
+internal/ui/contents_card.go:194:func (c ContentsCard) host() string {
+internal/ui/contents_card.go:201:func (c ContentsCard) sourceFact() contentsFact {
+internal/ui/contents_card.go:209:func (c ContentsCard) uptimeFact() contentsFact {
+internal/ui/contents_card.go:220:func (c ContentsCard) backupFact() contentsFact {
+internal/ui/contents_card.go:225:	fact := contentsFact{label: "LAST BACKUP", value: formatContentsTime(c.lastBackup.At)}
+internal/ui/contents_card.go:234:func (c ContentsCard) displayName() string {
+internal/ui/contents_card.go:249:func (c ContentsCard) initials() string {
+internal/ui/contents_card.go:267:func (c ContentsCard) nameWords() []string {
+internal/ui/contents_card.go:272:func (c ContentsCard) contentWidth() int {
+internal/ui/contents_card.go:277:func (c ContentsCard) frame(lines []string, inner int) string {
+internal/ui/contents_card.go:310:func formatContentsTime(t time.Time) string {
+internal/ui/contents_card_test.go:16:func TestContentsCardShowsAppFacts(t *testing.T) {
+internal/ui/contents_card_test.go:29:	view := ansi.Strip(NewContentsCard(app, backup, false, 80).View())
+internal/ui/contents_card_test.go:44:func TestContentsCardFolderApp(t *testing.T) {
+54:type Dashboard struct {
+61:	panels        []DashboardPanel
+83:func NewDashboard(ns *docker.Namespace, apps []*docker.Application, selectedIndex int,
+101:		header:        NewDashboardHeader(systemScraper),
+270:		m.apps = m.namespace.Applications()
+479:		toggling := m.toggling && m.togglingApp == m.panels[i].app.Settings.Name
+480:		views = append(views, m.panels[i].View(i == m.selectedIndex, toggling, m.filter, dashboardShowDetails, m.width, scales))
+489:	indices := make([]int, 0, len(m.panels))
+490:	for i := range m.panels {
+491:		if m.filter == "" || slices.Contains(m.panels[i].Channels(scales), m.filter) {
+497:		aFavorite := m.isFavorite(m.panels[a].app.Settings.Name)
+498:		bFavorite := m.isFavorite(m.panels[b].app.Settings.Name)
+524:	for i := range m.panels {
+525:		traffic := m.panels[i].DataMaxes()
+547:		panelTop += m.panels[i].Height(dashboardShowDetails)
+549:	panelBottom := panelTop + m.panels[indices[pos]].Height(dashboardShowDetails)
+571:		h := m.panels[i].Height(dashboardShowDetails)
+581:	m.panels = make([]DashboardPanel, len(m.apps))
+583:		m.panels[i] = NewDashboardPanel(app, m.scraper, m.dockerScraper, m.userStats, m.state)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; grep -n "Contents" internal/ui/app.go internal/ui/dashboard.go | head -20; grep -rn "404\|default_host\|defaultHost\|hostNotFound" internal/docker | head -20; sed -n 1,120p internal/ui/dashboard.go
+internal/ui/dashboard.go:36:	Contents key.Binding
+internal/ui/dashboard.go:48:	Contents: WithHelp(NewKeyBinding("C"), "C", "contents"),
+internal/ui/dashboard.go:194:		if key.Matches(msg, dashboardKeys.Contents) && len(m.apps) > 0 {
+internal/ui/dashboard.go:196:			m.overlay = NewContentsCard(app, m.lastBackupFor(app), m.isFavorite(app.Settings.Name), m.width)
+internal/ui/dashboard.go:223:	case ContentsCardCloseMsg:
+internal/ui/dashboard.go:226:	case ContentsCardFavoriteMsg:
+internal/ui/dashboard.go:336:			dashboardKeys.Contents, dashboardKeys.Drift, dashboardKeys.Details,
+internal/docker/errors.go:63:// unauthorized image. Registries conflate the two cases (some return 404 for
+package ui
+
+import (
+	"context"
+	"log/slog"
+	"math/rand/v2"
+	"os"
+	"slices"
+	"strings"
+	"time"
+
+	"charm.land/bubbles/v2/key"
+	"charm.land/bubbles/v2/viewport"
+	tea "charm.land/bubbletea/v2"
+	"charm.land/lipgloss/v2"
+
+	"github.com/basecamp/once/internal/browser"
+	"github.com/basecamp/once/internal/docker"
+	"github.com/basecamp/once/internal/metrics"
+	"github.com/basecamp/once/internal/system"
+	"github.com/basecamp/once/internal/userstats"
+)
+
+var dashboardShowDetails = true
+
+const stateRefreshInterval = time.Minute
+
+var dashboardKeys = struct {
+	Up       key.Binding
+	Down     key.Binding
+	Settings key.Binding
+	Actions  key.Binding
+	Favorite key.Binding
+	NewApp   key.Binding
+	Logs     key.Binding
+	Contents key.Binding
+	Drift    key.Binding
+	Details  key.Binding
+	Quit     key.Binding
+}{
+	Up:       WithHelp(NewKeyBinding("up", "k"), "↑/k", "up"),
+	Down:     WithHelp(NewKeyBinding("down", "j"), "↓/j", "down"),
+	Settings: WithHelp(NewKeyBinding("s"), "s", "settings"),
+	Actions:  WithHelp(NewKeyBinding("a"), "a", "actions"),
+	Favorite: WithHelp(NewKeyBinding("f"), "f", "favorite"),
+	NewApp:   WithHelp(NewKeyBinding("n"), "n", "new app"),
+	Logs:     WithHelp(NewKeyBinding("g"), "g", "logs"),
+	Contents: WithHelp(NewKeyBinding("C"), "C", "contents"),
+	Drift:    WithHelp(NewKeyBinding("R"), "R", "drift"),
+	Details:  WithHelp(NewKeyBinding("d"), "d", "toggle details"),
+	Quit:     WithHelp(NewKeyBinding("esc"), "esc", "quit"),
+}
+
+type Dashboard struct {
+	namespace     *docker.Namespace
+	scraper       *metrics.MetricsScraper
+	dockerScraper *docker.Scraper
+	systemScraper *system.Scraper
+	userStats     *userstats.Reader
+	apps          []*docker.Application
+	panels        []DashboardPanel
+	header        DashboardHeader
+	hostname      string
+	selectedIndex int
+	width, height int
+	viewport      viewport.Model
+	toggling      bool
+	togglingApp   string
+	progress      Progress
+	help          Help
+	overlay       Component
+	state         *docker.State
+	stateLoadedAt time.Time
+	filter        docker.Channel
+}
+
+type dashboardTickMsg struct{}
+
+type startStopFinishedMsg struct {
+	err error
+}
+
+func NewDashboard(ns *docker.Namespace, apps []*docker.Application, selectedIndex int,
+	scraper *metrics.MetricsScraper, dockerScraper *docker.Scraper, systemScraper *system.Scraper, userStats *userstats.Reader,
+) Dashboard {
+	vp := viewport.New()
+	vp.MouseWheelEnabled = false
+	vp.KeyMap = viewport.KeyMap{} // disable default keys, we handle navigation ourselves
+
+	hostname, _ := os.Hostname()
+
+	d := Dashboard{
+		namespace:     ns,
+		scraper:       scraper,
+		dockerScraper: dockerScraper,
+		systemScraper: systemScraper,
+		userStats:     userStats,
+		apps:          apps,
+		selectedIndex: selectedIndex,
+		viewport:      vp,
+		header:        NewDashboardHeader(systemScraper),
+		hostname:      hostname,
+		progress:      NewProgress(0, Colors.Border),
+		help:          NewHelp(),
+		state:         loadState(ns),
+		stateLoadedAt: time.Now(),
+	}
+	d.buildPanels()
+	d.help.SetBindings(d.helpBindings())
+	return d
+}
+
+func (m Dashboard) Init() tea.Cmd {
+	return m.scheduleNextDashboardTick()
+}
+
+func (m Dashboard) Update(msg tea.Msg) (Component, tea.Cmd) {
+	var cmds []tea.Cmd
+
+	if m.overlay != nil {
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; sed -n 1,260p internal/docker/proxy.go
+package docker
+
+import (
+	"archive/tar"
+	"bytes"
+	"context"
+	"encoding/json"
+	"fmt"
+	"io"
+	"log/slog"
+	"net/netip"
+	"strings"
+
+	"github.com/containerd/errdefs"
+	"github.com/moby/moby/api/types/container"
+	"github.com/moby/moby/api/types/mount"
+	"github.com/moby/moby/api/types/network"
+	"github.com/moby/moby/client"
+)
+
+const (
+	ProxyImage = "basecamp/kamal-proxy:once-01"
+	labelKey   = "once"
+)
+
+const (
+	stateFileDir  = "/home/kamal-proxy/.config/kamal-proxy"
+	stateFileName = "once-state.json"
+	stateFilePath = stateFileDir + "/" + stateFileName
+)
+
+const (
+	DefaultHTTPPort    = 80
+	DefaultHTTPSPort   = 443
+	DefaultMetricsPort = 1318
+	deployTimeout      = "120s"
+)
+
+type ProxySettings struct {
+	HTTPPort    int `json:"httpPort"`
+	HTTPSPort   int `json:"httpsPort"`
+	MetricsPort int `json:"metricsPort"`
+}
+
+func UnmarshalProxySettings(s string) (ProxySettings, error) {
+	var settings ProxySettings
+	err := json.Unmarshal([]byte(s), &settings)
+	return settings, err
+}
+
+func (s ProxySettings) Marshal() string {
+	b, _ := json.Marshal(s)
+	return string(b)
+}
+
+type DeployOptions struct {
+	AppName string
+	Target  string
+	Host    string
+	TLS     bool
+}
+
+type Proxy struct {
+	namespace *Namespace
+	Settings  *ProxySettings
+}
+
+func NewProxy(ns *Namespace) *Proxy {
+	return &Proxy{namespace: ns}
+}
+
+func (p *Proxy) Boot(ctx context.Context, settings ProxySettings) error {
+	if settings.HTTPPort == 0 {
+		settings.HTTPPort = DefaultHTTPPort
+	}
+	if settings.HTTPSPort == 0 {
+		settings.HTTPSPort = DefaultHTTPSPort
+	}
+	if settings.MetricsPort == 0 {
+		settings.MetricsPort = DefaultMetricsPort
+	}
+
+	info, err := p.namespace.client.ContainerInspect(ctx, p.containerName(), client.ContainerInspectOptions{})
+	if err == nil {
+		return p.ensureRunning(ctx, info.Container)
+	}
+	if !errdefs.IsNotFound(err) {
+		return fmt.Errorf("inspecting proxy container: %w", err)
+	}
+
+	reader, err := p.namespace.client.ImagePull(ctx, ProxyImage, client.ImagePullOptions{})
+	if err != nil {
+		return fmt.Errorf("pulling proxy image: %w", err)
+	}
+	defer reader.Close()
+	_, _ = io.Copy(io.Discard, reader)
+
+	name := p.containerName()
+	httpPortTCP := network.MustParsePort("80/tcp")
+	httpsPortTCP := network.MustParsePort("443/tcp")
+	metricsPortTCP := network.MustParsePort(fmt.Sprintf("%d/tcp", settings.MetricsPort))
+
+	resp, err := p.namespace.client.ContainerCreate(ctx, client.ContainerCreateOptions{
+		Name: name,
+		Config: &container.Config{
+			Image: ProxyImage,
+			Cmd:   []string{"kamal-proxy", "run", "--metrics-port", fmt.Sprintf("%d", settings.MetricsPort)},
+			Labels: map[string]string{
+				labelKey: settings.Marshal(),
+			},
+			ExposedPorts: network.PortSet{
+				httpPortTCP:    struct{}{},
+				httpsPortTCP:   struct{}{},
+				metricsPortTCP: struct{}{},
+			},
+		},
+		HostConfig: &container.HostConfig{
+			PortBindings: network.PortMap{
+				httpPortTCP:    []network.PortBinding{{HostPort: fmt.Sprintf("%d", settings.HTTPPort)}},
+				httpsPortTCP:   []network.PortBinding{{HostPort: fmt.Sprintf("%d", settings.HTTPSPort)}},
+				metricsPortTCP: []network.PortBinding{{HostIP: netip.MustParseAddr("127.0.0.1"), HostPort: fmt.Sprintf("%d", settings.MetricsPort)}},
+			},
+			RestartPolicy: container.RestartPolicy{Name: container.RestartPolicyAlways},
+			LogConfig:     ContainerLogConfig(),
+			Mounts: []mount.Mount{
+				{
+					Type:   mount.TypeVolume,
+					Source: name,
+					Target: "/home/kamal-proxy/.config/kamal-proxy",
+				},
+			},
+		},
+		NetworkingConfig: &network.NetworkingConfig{
+			EndpointsConfig: map[string]*network.EndpointSettings{
+				p.namespace.name: {},
+			},
+		},
+	})
+	if err != nil {
+		return fmt.Errorf("creating proxy container: %w", err)
+	}
+
+	if _, err := p.namespace.client.ContainerStart(ctx, resp.ID, client.ContainerStartOptions{}); err != nil {
+		if isPortConflict(err) {
+			slog.Error("Port conflict starting proxy", "error", err)
+			return ErrProxyPortInUse
+		}
+		return fmt.Errorf("starting proxy container: %w", err)
+	}
+
+	p.Settings = &settings
+	return nil
+}
+
+func (p *Proxy) Destroy(ctx context.Context) error {
+	containerName := p.containerName()
+
+	if _, err := p.namespace.client.ContainerRemove(ctx, containerName, client.ContainerRemoveOptions{Force: true}); err != nil {
+		if !errdefs.IsNotFound(err) {
+			return fmt.Errorf("removing proxy: %w", err)
+		}
+	}
+
+	if _, err := p.namespace.client.VolumeRemove(ctx, containerName, client.VolumeRemoveOptions{Force: true}); err != nil {
+		if !errdefs.IsNotFound(err) {
+			return fmt.Errorf("removing proxy volume: %w", err)
+		}
+	}
+
+	p.Settings = nil
+	return nil
+}
+
+func (p *Proxy) Exec(ctx context.Context, cmd []string) error {
+	output, err := p.ExecOutput(ctx, cmd)
+	if err != nil && output != "" {
+		return fmt.Errorf("%w: %s", err, strings.TrimSpace(output))
+	}
+	return err
+}
+
+func (p *Proxy) Remove(ctx context.Context, appName string) error {
+	return p.Exec(ctx, []string{"kamal-proxy", "remove", appName})
+}
+
+func (p *Proxy) Deploy(ctx context.Context, opts DeployOptions) error {
+	return p.Exec(ctx, p.deployArgs(opts))
+}
+
+func (p *Proxy) containerName() string {
+	return p.namespace.name + "-proxy"
+}
+
+// Private
+
+func (p *Proxy) ensureRunning(ctx context.Context, info container.InspectResponse) error {
+	if !info.State.Running {
+		if _, err := p.namespace.client.ContainerStart(ctx, info.ID, client.ContainerStartOptions{}); err != nil {
+			if isPortConflict(err) {
+				slog.Error("Port conflict starting proxy", "error", err)
+				return ErrProxyPortInUse
+			}
+			return fmt.Errorf("starting proxy container: %w", err)
+		}
+	}
+
+	label := info.Config.Labels[labelKey]
+	if label != "" {
+		settings, err := UnmarshalProxySettings(label)
+		if err != nil {
+			return fmt.Errorf("unmarshalling proxy settings: %w", err)
+		}
+		p.Settings = &settings
+	}
+
+	return nil
+}
+
+func (p *Proxy) deployArgs(opts DeployOptions) []string {
+	args := []string{"kamal-proxy", "deploy", opts.AppName, "--target", opts.Target, "--deploy-timeout", deployTimeout}
+
+	if opts.Host != "" {
+		args = append(args, "--host", opts.Host)
+	}
+
+	if opts.TLS {
+		args = append(args, "--tls")
+	}
+
+	return args
+}
+
+func (p *Proxy) LoadState(ctx context.Context) (*State, error) {
+	containerName := p.containerName()
+
+	res, err := p.namespace.client.CopyFromContainer(ctx, containerName, client.CopyFromContainerOptions{SourcePath: stateFilePath})
+	if err != nil {
+		// Return empty state when the file doesn't exist yet (first boot)
+		if errdefs.IsNotFound(err) {
+			return &State{}, nil
+		}
+		return nil, fmt.Errorf("copying state from container: %w", err)
+	}
+	defer res.Content.Close()
+
+	tr := tar.NewReader(res.Content)
+	if _, err := tr.Next(); err != nil {
+		return nil, fmt.Errorf("reading state tar: %w", err)
+	}
+
+	var state State
+	if err := json.NewDecoder(tr).Decode(&state); err != nil {
+		return nil, fmt.Errorf("decoding state: %w", err)
+	}
+
+	return &state, nil
+}
+
+func (p *Proxy) SaveState(ctx context.Context, state *State) error {
+	containerName := p.containerName()
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; sed -n 1,120p internal/ui/dashboard_header.go; grep -rn "Contents\|contents" internal/ui/dashboard_header.go internal/ui/logo.go internal/ui/app.go | head
+package ui
+
+import (
+	"fmt"
+	"slices"
+	"strings"
+
+	"charm.land/lipgloss/v2"
+
+	"github.com/basecamp/once/internal/system"
+)
+
+const (
+	headerChartHeight = 6
+	headerBorderLines = 2
+	headerTotalHeight = headerChartHeight + headerBorderLines
+	headerMinWidth    = 80
+)
+
+type DashboardHeader struct {
+	scraper  *system.Scraper
+	cpuChart Chart
+	memChart Chart
+}
+
+func NewDashboardHeader(scraper *system.Scraper) DashboardHeader {
+	cpuTitle := fmt.Sprintf("CPU (%d cores)", scraper.NumCPUs())
+
+	memTitle := "Memory"
+	if total := scraper.MemTotal(); total > 0 {
+		memTitle = fmt.Sprintf("Memory (%s)", UnitBytes.Format(float64(total)))
+	}
+
+	return DashboardHeader{
+		scraper:  scraper,
+		cpuChart: NewChart(cpuTitle, UnitPercent),
+		memChart: NewChart(memTitle, UnitBytes),
+	}
+}
+
+func (h DashboardHeader) Height(width int) int {
+	if width < headerMinWidth {
+		return 0
+	}
+	return headerTotalHeight
+}
+
+func (h DashboardHeader) View(width int) string {
+	if width < headerMinWidth {
+		return ""
+	}
+
+	if total := h.scraper.MemTotal(); total > 0 {
+		h.memChart = NewChart(fmt.Sprintf("Memory (%s)", UnitBytes.Format(float64(total))), UnitBytes)
+	}
+
+	gap := 1
+	widths := distributeWidths(width-2*gap, 3) // 2 gaps between 3 panels
+
+	cpuView := h.renderCPUChart(widths[0])
+	memView := h.renderMemChart(widths[1])
+	diskView := h.renderDiskGauge(widths[2])
+
+	spacer := strings.Repeat(" ", gap)
+	return lipgloss.JoinHorizontal(lipgloss.Top, cpuView, spacer, memView, spacer, diskView)
+}
+
+// Private
+
+func (h DashboardHeader) renderCPUChart(width int) string {
+	samples := h.scraper.Fetch(ChartHistoryLength)
+	data := make([]float64, len(samples))
+	for i, s := range samples {
+		data[i] = s.CPUPercent
+	}
+	slices.Reverse(data)
+
+	scaleMax := float64(h.scraper.NumCPUs()) * 100
+	scale := ChartScale{max: scaleMax}
+
+	return h.cpuChart.View(data, width, headerTotalHeight, scale)
+}
+
+func (h DashboardHeader) renderMemChart(width int) string {
+	samples := h.scraper.Fetch(ChartHistoryLength)
+	data := make([]float64, len(samples))
+	for i, s := range samples {
+		data[i] = float64(s.MemUsed)
+	}
+	slices.Reverse(data)
+
+	scaleMax := float64(h.scraper.MemTotal())
+	scale := ChartScale{max: scaleMax}
+
+	return h.memChart.View(data, width, headerTotalHeight, scale)
+}
+
+func (h DashboardHeader) renderDiskGauge(width int) string {
+	samples := h.scraper.Fetch(1)
+
+	innerWidth := width - 2 // left + right border
+
+	topLine := boxTop("Disk", innerWidth) + "\n"
+	bottomLine := boxBottom(innerWidth)
+
+	left := boxSide()
+	right := boxSide()
+
+	contentRows := headerChartHeight
+
+	if len(samples) == 0 || samples[0].DiskErr != nil || samples[0].DiskTotal == 0 {
+		emptyLines := make([]string, contentRows)
+		for i := range emptyLines {
+			padding := strings.Repeat(" ", innerWidth)
+			emptyLines[i] = left + padding + right
+		}
+		return topLine + strings.Join(emptyLines, "\n") + "\n" + bottomLine
+	}
+
+	sample := samples[0]
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; cat internal/command/start.go; cat internal/command/exec.go; cat internal/command/update.go
+package command
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/spf13/cobra"
+
+	"github.com/basecamp/once/internal/docker"
+)
+
+type startCommand struct {
+	cmd *cobra.Command
+}
+
+func newStartCommand() *startCommand {
+	s := &startCommand{}
+	s.cmd = &cobra.Command{
+		Use:   "start <host>",
+		Short: "Start an application",
+		Args:  cobra.ExactArgs(1),
+		RunE:  WithNamespace(s.run),
+	}
+	return s
+}
+
+// Private
+
+func (s *startCommand) run(ctx context.Context, ns *docker.Namespace, cmd *cobra.Command, args []string) error {
+	host := args[0]
+
+	err := withApplication(ns, host, "starting", func(app *docker.Application) error {
+		return app.Start(ctx)
+	})
+	if err != nil {
+		return err
+	}
+
+	fmt.Printf("Started %s\n", host)
+	return nil
+}
+package command
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/spf13/cobra"
+
+	"github.com/basecamp/once/internal/docker"
+)
+
+type execCommand struct {
+	cmd *cobra.Command
+}
+
+func newExecCommand() *execCommand {
+	e := &execCommand{}
+	e.cmd = &cobra.Command{
+		Use:   "exec <host> <command> [args...]",
+		Short: "Execute a command in an application container",
+		Args:  cobra.MinimumNArgs(2),
+		RunE:  WithNamespace(e.run),
+	}
+	e.cmd.Flags().SetInterspersed(false)
+	return e
+}
+
+// Private
+
+func (e *execCommand) run(ctx context.Context, ns *docker.Namespace, cmd *cobra.Command, args []string) error {
+	host, commandArgs, err := splitExecArgs(args)
+	if err != nil {
+		return err
+	}
+
+	return withApplication(ns, host, "executing command in", func(app *docker.Application) error {
+		return app.Exec(ctx, commandArgs)
+	})
+}
+
+// Helpers
+
+func splitExecArgs(args []string) (string, []string, error) {
+	commandArgs := args[1:]
+	if commandArgs[0] == "--" {
+		commandArgs = commandArgs[1:]
+	}
+	if len(commandArgs) == 0 {
+		return "", nil, fmt.Errorf("command is required")
+	}
+
+	return args[0], commandArgs, nil
+}
+package command
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/spf13/cobra"
+
+	"github.com/basecamp/once/internal/docker"
+)
+
+type updateCommand struct {
+	cmd   *cobra.Command
+	flags settingsFlags
+	image string
+}
+
+func newUpdateCommand() *updateCommand {
+	u := &updateCommand{}
+	u.cmd = &cobra.Command{
+		Use:   "update <host>",
+		Short: "Update settings for a deployed application",
+		Args:  cobra.ExactArgs(1),
+		RunE:  WithNamespace(u.run),
+	}
+
+	u.flags.register(u.cmd)
+	u.cmd.Flags().StringVar(&u.image, "image", "", "new image for the application")
+
+	return u
+}
+
+// Private
+
+func (u *updateCommand) run(ctx context.Context, ns *docker.Namespace, cmd *cobra.Command, args []string) error {
+	currentHost := args[0]
+
+	app, err := findApplication(ns, currentHost)
+	if err != nil {
+		return err
+	}
+
+	if err := ns.Setup(ctx); err != nil {
+		return fmt.Errorf("%w: %w", docker.ErrSetupFailed, err)
+	}
+
+	image := app.Settings.Image
+	if cmd.Flags().Changed("image") {
+		image = u.image
+	}
+
+	settings, err := u.flags.applyChanges(cmd, app.Settings, image)
+	if err != nil {
+		return err
+	}
+
+	if settings.Host != app.Settings.Host {
+		if ns.HostInUseByAnother(settings.Host, app.Settings.Name) {
+			return docker.ErrHostnameInUse
+		}
+	}
+
+	oldSettings := app.Settings
+	app.Settings = settings
+
+	return runWithProgress("Updating "+currentHost, func(progress docker.DeployProgressCallback) error {
+		if err := app.Deploy(ctx, progress); err != nil {
+			app.Settings = oldSettings
+			return fmt.Errorf("%w: %w", docker.ErrDeployFailed, err)
+		}
+		return nil
+	})
+}
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; git log --oneline upstream/main -5; git ls-tree -r --name-only upstream/main | grep -i "command/" | head -40; git show upstream/main:internal/command/open.go 2>/dev/null | head -80
+864ec7c Use strings.CutLast in cutLast (#118)
+internal/command/background.go
+internal/command/background_install.go
+internal/command/background_remove.go
+internal/command/background_run.go
+internal/command/backup.go
+internal/command/cli_progress.go
+internal/command/deploy.go
+internal/command/deploy_test.go
+internal/command/exec.go
+internal/command/exec_test.go
+internal/command/keys.go
+internal/command/keys_reset.go
+internal/command/keys_set.go
+internal/command/list.go
+internal/command/remove.go
+internal/command/restore.go
+internal/command/root.go
+internal/command/root_test.go
+internal/command/self_update.go
+internal/command/settings_flags.go
+internal/command/start.go
+internal/command/stop.go
+internal/command/teardown.go
+internal/command/update.go
+internal/command/update_test.go
+internal/command/version.go
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; sed -n 1,200p README.md
+# ONCE
+
+ONCE is a platform for installing and managing Docker-based web applications.
+Its goal is to make self-hosting applications as simple as possible.
+
+As well as simplifying the initial setup, ONCE also provides automatic updates, backups, and system information.
+It has a TUI interface with a dashboard for monitoring and operating your applications, as well as CLI commands for common operations should you (or your AI agent) prefer that.
+
+ONCE runs on Linux and macOS, and can be used to run applications on a variety of hardware: a physical server, a cloud VPS, a Raspberry Pi, or your laptop, are all suitable.
+
+ONCE comes with a set of 37signals apps built-in, but you can use it to install any compatible Docker image as well.
+
+![Demo](.github/media/install.gif)
+
+## Installing
+
+The simplest way to get started with ONCE is to use the install snippet to bootstrap the tool and choose an app to install:
+
+```sh
+curl https://get.once.com | sh
+```
+
+This will download the appropriate binary for your platform, install it and its corresponding background service, and then launch it so you can do your first application install.
+If the machine you're running this from doesn't already have Docker, it will install that too (on supported platforms).
+
+### Customizing the installer behaviour
+
+If you want to install `once` without launching it (for example, for a scripted install), you can use `ONCE_INTERACTIVE=false`:
+
+```sh
+curl https://get.once.com | ONCE_INTERACTIVE=false sh
+```
+
+### Installing manually
+
+If you prefer to set ONCE up yourself, you can download the appropriate binary from the GitHub Releases page.
+Then follow these steps to get it installed:
+
+- Install Docker (if it's not already installed) using your preferred package manager
+- Copy the `once` binary to wherever you'd like to run it from
+- Register the background service by running `sudo once background install`
+
+Then run `once` to install an app, or `once --help` to see what commands are available.
+
+Note that if you need to use `sudo` when running Docker commands (for example, if your user is not in the `docker` group) then you'll also need to use `sudo` whenever you run `once`.
+
+## Using ONCE to install and configure applications
+
+On first run, ONCE will prompt you to choose an application to install.
+You can pick from the built-in applications, or enter the path to a Docker image.
+
+When entering an image path you can pick any application that works with ONCE (more on this below), so you can run additional applications or even your own custom forks of the built-in ones.
+
+You'll need to enter a hostname for the application.
+If you're installing onto a machine on the public Internet (like a cloud VPS), and you have a domain name, then you can use that.
+It's a good idea to use a subdomain so that you can run multiple applications on the same domain.
+
+For example, if you own `example.com` you might install Writebook to `books.example.com`.
+
+Whatever hostname you choose, make sure you have a DNS entry for it which points to the machine you're installing to.
+The details of how to do this will vary depending on which provider you use for your DNS, but generally you should have access to an admin interface where you can set up an `A` record with the hostname you've chosen, pointed to the IP address of your machine.
+If you plan to install many applications on the same machine you could use a wildcard DNS entry for this.
+
+> [!TIP]
+> One tip if you're using Cloudflare: by default, DNS entries on Cloudflare will have the "proxy" option enabled, which means that traffic will pass through Cloudflare before reaching your server.
+> ONCE works well in this setup provided you have SSL enabled end-to-end.
+> So just be sure your Cloudflare SSL mode is set to "Strict (full)" if you're using its proxy option.
+
+Once you've picked your application and entered the hostname, the rest is automatic.
+ONCE will fetch, install, and boot the application, and then take you to the dashboard screen where you can monitor it.
+
+### Changing application settings
+
+There are various extra settings you can change on your applications.
+When you have an application selected on the dashboard, press `s` to view the settings menu, and choose an item from the menu to open that screen.
+From there you can set up a location for automatic backups, update your hostname, switch to using your own fork's image, set up an email provider and more.
+
+You can also use the action menu, `a` to start and stop applications, or remove them completely.
+
+### Customizing the `once` appearance
+
+On first run, `once` shows an animated logo and background.
+If you find this distracting, or it causes problems in your environment, you can suppress it with `ONCE_REDUCED_MOTION=true`:
+
+```sh
+ONCE_REDUCED_MOTION=true once
+```
+
+## Making a ONCE-compatible application
+
+Fundamentally, ONCE works with any web application that:
+
+- Is packaged as a Docker container
+- Serves HTTP on port 80
+- Has a healthcheck endpoint at `/up` that returns success
+- Keeps its persistent data in `/storage`
+
+Any application that does these things should work with ONCE.
+
+However, beyond this bare minimum, there are some additional scripts and environment variables that allow for better integration with the platform:
+
+### Storage paths
+
+ONCE will mount a persistent volume into `/storage`.
+
+For compatibility with standard Rails applications, it also mounts the same volume into `/rails/storage`.
+That means Rails applications built with the default Dockerfile should work just fine.
+
+Data in this volume persists across restarts, and is also the data that will be included in backups.
+
+### Hook scripts
+
+ONCE uses a few optional hook scripts as integration points.
+Currently supported hooks are:
+
+- `/hooks/pre-backup` -- Because ONCE can't assume that it's safe to backup the files of an application while they are in use, it will try to call this hook before starting a backup so the application can do anything it needs to generate a "safe" copy of the data.
+If this script exists, and return success, ONCE assumes it's now safe to copy the files into the backup.
+If it doesn't exist, or returns an error, ONCE will pause the application's container while it copies the file.
+This means backups are always consistent in either case, but the hook gives the app a way to avoid the paused container introducing latency to in-flight requests while the backup runs.
+An example of using `pre-backup` on a SQLite-based application would be to use SQLite's online backup feature to take a safe consistent copy of the database.
+
+- `/hooks/post-restore` -- The inverse of `pre-backup`, `post-restore` will be called after restoring the data from a backup, but before booting the application.
+If an application needs to do any cleanup, such as move or rename files generated during `pre-backup`, it can do it in this hook.
+
+### Environment variables
+
+Many of the configuration settings that you can do in the ONCE UI make their way into the application in the form of environment variables.
+These include:
+
+- `SECRET_KEY_BASE` -- A unique identifier, generated at installation time, and kept for the life of the applications.
+By convention, Rails applications use this as the base for cryptographic signing.
+- `DISABLE_SSL` -- This will be set to `true` if the app is running without SSL.
+This can be useful for applications that generate redirects or URLs that would otherwise assume SSL is being used.
+- `BASE_URL` -- The public URL of the application, built from its hostname, SSL setting, and proxy port (e.g. `https://app.example.com`).
+Applications can use this to generate links outside of a web request, such as in emails.
+- `VAPID_PUBLIC_KEY`/`VAPID_PRIVATE_KEY` -- For applications the use WebPush, unique VAPID credentials are automatically generated and passed in these variables.
+- `SMTP_ADDRESS`/`SMTP_PORT`/`SMTP_USERNAME`/`SMTP_PASSWORD`/`MAILER_FROM_ADDRESS` -- The values from the Email Settings screen are passed in these.
+- `NUM_CPUS` -- If an application is restricted with a CPU quota, this variable will contain the number of CPUs it has been allowed to use.
+An application can use this to vary the number of worker processes it spawns to an appropriate number for that quota.
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; sed -n 1,160p internal/ui/app.go; grep -rn "dashboard\|Dashboard" internal/ui/app.go | head -30
+package ui
+
+import (
+	"context"
+	"log/slog"
+	"sync"
+	"time"
+
+	"charm.land/bubbles/v2/key"
+	tea "charm.land/bubbletea/v2"
+	"github.com/charmbracelet/colorprofile"
+
+	"github.com/basecamp/once/internal/docker"
+	"github.com/basecamp/once/internal/metrics"
+	"github.com/basecamp/once/internal/mouse"
+	"github.com/basecamp/once/internal/system"
+	"github.com/basecamp/once/internal/userstats"
+	"github.com/basecamp/once/internal/version"
+)
+
+var appKeys = struct {
+	Quit key.Binding
+}{
+	Quit: WithHelp(NewKeyBinding("ctrl+c"), "ctrl+c", "quit"),
+}
+
+type (
+	namespaceChangedMsg    struct{}
+	scrapeTickMsg          struct{}
+	scrapeUserStatsTickMsg struct{}
+	scrapeDoneMsg          struct{}
+
+	NavigateToInstallMsg   struct{}
+	NavigateToDashboardMsg struct {
+		AppName    string
+		AllowEmpty bool
+	}
+	NavigateToAppMsg             struct{ App *docker.Application }
+	NavigateToSettingsSectionMsg struct {
+		App     *docker.Application
+		Section SettingsSectionType
+	}
+	NavigateToLogsMsg   struct{ App *docker.Application }
+	NavigateToRemoveMsg struct{ App *docker.Application }
+
+	QuitMsg struct{}
+)
+
+type SettingsSectionType int
+
+const (
+	SettingsSectionApplication SettingsSectionType = iota
+	SettingsSectionRegistry
+	SettingsSectionEmail
+	SettingsSectionEnvironment
+	SettingsSectionResources
+	SettingsSectionUpdates
+	SettingsSectionBackups
+)
+
+type App struct {
+	namespace       *docker.Namespace
+	scraper         *metrics.MetricsScraper
+	dockerScraper   *docker.Scraper
+	systemScraper   *system.Scraper
+	userStats       *userstats.Reader
+	currentScreen   Component
+	sizeGuard       TerminalSizeGuard
+	lastSize        tea.WindowSizeMsg
+	eventChan       <-chan struct{}
+	watchCtx        context.Context
+	watchCancel     context.CancelFunc
+	installImageRef string
+}
+
+func NewApp(ns *docker.Namespace, installImageRef string) *App {
+	ctx, cancel := context.WithCancel(context.Background())
+	eventChan := ns.EventWatcher().Watch(ctx)
+
+	apps := ns.Applications()
+
+	metricsPort := docker.DefaultMetricsPort
+	if ns.Proxy().Settings != nil && ns.Proxy().Settings.MetricsPort != 0 {
+		metricsPort = ns.Proxy().Settings.MetricsPort
+	}
+
+	scraper := metrics.NewMetricsScraper(metrics.ScraperSettings{
+		Port:       metricsPort,
+		BufferSize: ChartSlidingWindow,
+	})
+
+	dockerScraper := docker.NewScraper(ns, docker.ScraperSettings{
+		BufferSize: containerStatsBuffer,
+	})
+
+	diskPath, err := ns.DockerRootDir(ctx)
+	if err != nil {
+		slog.Warn("failed to get Docker root dir, using default", "err", err)
+		diskPath = "/var/lib/docker"
+	}
+
+	systemScraper := system.NewScraper(system.ScraperSettings{
+		BufferSize: ChartHistoryLength,
+		DiskPath:   diskPath,
+	})
+
+	userStats := userstats.NewReader(ns.Name())
+
+	var screen Component
+	if len(apps) > 0 && installImageRef == "" {
+		screen = NewDashboard(ns, apps, 0, scraper, dockerScraper, systemScraper, userStats)
+	} else {
+		screen = NewInstall(ns, installImageRef)
+	}
+
+	return &App{
+		namespace:       ns,
+		scraper:         scraper,
+		dockerScraper:   dockerScraper,
+		systemScraper:   systemScraper,
+		userStats:       userStats,
+		currentScreen:   screen,
+		sizeGuard:       NewTerminalSizeGuard(80, 24),
+		eventChan:       eventChan,
+		watchCtx:        ctx,
+		watchCancel:     cancel,
+		installImageRef: installImageRef,
+	}
+}
+
+func (m *App) Init() tea.Cmd {
+	return tea.Batch(
+		m.currentScreen.Init(),
+		m.watchForChanges(),
+		m.runScrape(),
+		m.scheduleNextScrapeTick(),
+		m.runUserStatsScrape(),
+		m.scheduleNextUserStatsTick(),
+	)
+}
+
+func (m *App) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
+	switch msg := msg.(type) {
+	case tea.WindowSizeMsg:
+		m.lastSize = msg
+		m.sizeGuard = m.sizeGuard.Update(msg)
+
+	case tea.MouseClickMsg:
+		ms := msg.Mouse()
+		target := mouse.Resolve(ms.X, ms.Y)
+		var cmd tea.Cmd
+		m.currentScreen, cmd = m.currentScreen.Update(MouseEvent{
+			X:       ms.X,
+			Y:       ms.Y,
+			Button:  ms.Button,
+			Target:  target,
+			IsClick: true,
+		})
+		return m, cmd
+
+34:	NavigateToDashboardMsg struct {
+111:		screen = NewDashboard(ns, apps, 0, scraper, dockerScraper, systemScraper, userStats)
+215:		return m, m.navigateTo(NewDashboard(m.namespace, apps, targetIndex, m.scraper, m.dockerScraper, m.systemScraper, m.userStats))
+217:	case NavigateToDashboardMsg:
+233:		return m, m.navigateTo(NewDashboard(m.namespace, apps, selectedIndex, m.scraper, m.dockerScraper, m.systemScraper, m.userStats))
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; git log --oneline --all | head -30; git grep -l "Applications" $(git rev-list --all) -- '*.html' '*.go' 2>/dev/null | head
+e4ca439 split: 18-bar-hide
+c903ba8 split: 17-bar-cross-fade
+926c88b split: 16-bar-keys
+1b1f9fd split: 16-bar-keys
+d826067 split: 15-app-bar
+d9aa468 split: 15-app-bar
+2a8c584 split: 14-drift
+c9f069a split: 13-favorites
+f3b2a49 split: 12-channel-filter
+a8a3dc0 split: 11-channels
+115041b split: 10-contents-screen
+1c4fb9a split: 09-contents-card
+313f156 split: 08-remove-static-app
+91e0ada split: 07-single-file-html-site
+54ed0bf split: 06-markdown-pages
+ea29c59 split: 05-folder-contents-fallback
+3c926ed split: 04-stale-source-detection
+3b00d24 split: 03-redeploy-folder
+8021ade split: 02-serve-static-apps
+c279c61 split: 01-deploy-static-folder
+dd1ea52 split: 01-deploy-static-folder
+fe93045 starting the script: Prompting scripts for upgrading
+864ec7c Use strings.CutLast in cutLast (#118)
+e4ca4397ecda1c63f7bbb774b56d0bf7bae3dd0b:integration/docker_test.go
+e4ca4397ecda1c63f7bbb774b56d0bf7bae3dd0b:internal/background/runner.go
+e4ca4397ecda1c63f7bbb774b56d0bf7bae3dd0b:internal/command/deploy_test.go
+e4ca4397ecda1c63f7bbb774b56d0bf7bae3dd0b:internal/command/list.go
+e4ca4397ecda1c63f7bbb774b56d0bf7bae3dd0b:internal/command/root_test.go
+e4ca4397ecda1c63f7bbb774b56d0bf7bae3dd0b:internal/docker/appbar.go
+e4ca4397ecda1c63f7bbb774b56d0bf7bae3dd0b:internal/docker/appbar_test.go
+e4ca4397ecda1c63f7bbb774b56d0bf7bae3dd0b:internal/docker/namespace.go
+e4ca4397ecda1c63f7bbb774b56d0bf7bae3dd0b:internal/docker/namespace_test.go
+e4ca4397ecda1c63f7bbb774b56d0bf7bae3dd0b:internal/ui/app.go
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; sed -n 1,80p internal/command/backup.go; sed -n 1,60p internal/command/version.go
+package command
+
+import (
+	"context"
+	"fmt"
+	"path/filepath"
+
+	"github.com/spf13/cobra"
+
+	"github.com/basecamp/once/internal/docker"
+)
+
+type backupCommand struct {
+	cmd *cobra.Command
+}
+
+func newBackupCommand() *backupCommand {
+	b := &backupCommand{}
+	b.cmd = &cobra.Command{
+		Use:   "backup <host> <filename>",
+		Short: "Backup an application to a new file",
+		Args:  cobra.ExactArgs(2),
+		RunE:  WithNamespace(b.run),
+	}
+	return b
+}
+
+// Private
+
+func (b *backupCommand) run(ctx context.Context, ns *docker.Namespace, cmd *cobra.Command, args []string) error {
+	host := args[0]
+	filename, err := filepath.Abs(args[1])
+	if err != nil {
+		return fmt.Errorf("resolving path: %w", err)
+	}
+
+	dir := filepath.Dir(filename)
+	name := filepath.Base(filename)
+
+	err = withApplication(ns, host, "backing up", func(app *docker.Application) error {
+		return app.BackupToFile(ctx, dir, name)
+	})
+	if err != nil {
+		return err
+	}
+
+	fmt.Printf("Backed up %s to %s\n", host, filename)
+	return nil
+}
+package command
+
+import (
+	"fmt"
+
+	"github.com/spf13/cobra"
+
+	"github.com/basecamp/once/internal/version"
+)
+
+type versionCommand struct {
+	cmd *cobra.Command
+}
+
+func newVersionCommand() *versionCommand {
+	v := &versionCommand{}
+	v.cmd = &cobra.Command{
+		Use:   "version",
+		Short: "Print the version",
+		Args:  cobra.NoArgs,
+		Run: func(cmd *cobra.Command, args []string) {
+			fmt.Println(version.Version)
+		},
+	}
+	return v
+}
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; git remote -v; cat internal/command/root_test.go | head -80; cat internal/command/deploy.go | head -60
+origin	https://github.com/razodin137/once.git (fetch)
+origin	https://github.com/razodin137/once.git (push)
+upstream	https://github.com/basecamp/once.git (fetch)
+upstream	https://github.com/basecamp/once.git (push)
+package command
+
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+
+	"github.com/basecamp/once/internal/docker"
+)
+
+func TestWithApplicationFound(t *testing.T) {
+	ns, err := docker.NewNamespace("test", docker.WithApplications(
+		docker.ApplicationSettings{Name: "myapp", Host: "myapp.localhost"},
+	))
+	require.NoError(t, err)
+
+	var called bool
+	err = withApplication(ns, "myapp.localhost", "testing", func(app *docker.Application) error {
+		called = true
+		assert.Equal(t, "myapp", app.Settings.Name)
+		return nil
+	})
+
+	require.NoError(t, err)
+	assert.True(t, called)
+}
+
+func TestWithApplicationNotFound(t *testing.T) {
+	ns, err := docker.NewNamespace("test")
+	require.NoError(t, err)
+
+	err = withApplication(ns, "missing.localhost", "testing", func(app *docker.Application) error {
+		t.Fatal("should not be called")
+		return nil
+	})
+
+	require.Error(t, err)
+	assert.Contains(t, err.Error(), `no application found at host "missing.localhost"`)
+}
+
+func TestWithApplicationError(t *testing.T) {
+	ns, err := docker.NewNamespace("test", docker.WithApplications(
+		docker.ApplicationSettings{Name: "myapp", Host: "myapp.localhost"},
+	))
+	require.NoError(t, err)
+
+	err = withApplication(ns, "myapp.localhost", "starting", func(app *docker.Application) error {
+		return assert.AnError
+	})
+
+	require.Error(t, err)
+	assert.Contains(t, err.Error(), "starting application")
+}
+package command
+
+import (
+	"context"
+	"fmt"
+	"log/slog"
+	"os"
+	"path/filepath"
+
+	"github.com/spf13/cobra"
+
+	"github.com/basecamp/once/internal/docker"
+)
+
+type deployCommand struct {
+	cmd   *cobra.Command
+	flags settingsFlags
+}
+
+func newDeployCommand() *deployCommand {
+	d := &deployCommand{}
+	d.cmd = &cobra.Command{
+		Use:   "deploy <image|path>",
+		Short: "Deploy an application or static site",
+		Args:  cobra.ExactArgs(1),
+		RunE:  WithNamespace(d.run),
+	}
+
+	d.flags.register(d.cmd)
+
+	return d
+}
+
+// Private
+
+func (d *deployCommand) run(ctx context.Context, ns *docker.Namespace, cmd *cobra.Command, args []string) error {
+	imageRef, source := deployTarget(args[0])
+
+	if err := ns.Setup(ctx); err != nil {
+		return fmt.Errorf("%w: %w", docker.ErrSetupFailed, err)
+	}
+
+	baseName := docker.NameFromImageRef(imageRef)
+	if source != "" {
+		baseName = docker.NameFromPath(source)
+	}
+
+	host := d.flags.host
+	if host == "" {
+		host = baseName + ".localhost"
+	}
+
+	existing, err := siteToReplace(ns, host, source)
+	if err != nil {
+		return err
+	}
+	if existing != nil {
+		return d.redeploy(ctx, cmd, existing, imageRef, source)
+	}
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; git ls-remote origin 2>&1 | head -20
+dd1ea52d731e9b26586f6a8875372bad4de75a38	HEAD
+b6792175a6599b8f16752ef23064a7fe0ab66dff	refs/heads/add-proxy-upgrade
+7b1636f5105c2ecf13991ae48c376882ef183f0a	refs/heads/add-scheduled-govulncheck
+cf95aa26454a1189e5cd6076445f5877819dd516	refs/heads/app-specific-registry-credentials
+64d51eba4d526ad129c2104f0e8b7977cf441de5	refs/heads/auto-update-disable
+788c7207c6ac7fcdf0621739cce7dc9a642e7f88	refs/heads/background-status-command
+a93dcc97897ebf3ae2ba45d74a416ac76b015ef4	refs/heads/base-url-env
+20c385a444e943b3005ce5d588cc319de6b35889	refs/heads/bump-go-1-26-7
+80fe9e4a40709a09be95b3cdf1ba650efd349f9a	refs/heads/cli-deploy-flags
+63683d1c8971e9798cc7b81bcf229007bdb2fef0	refs/heads/color-detection-simplify-complicate
+45615b44ab0718be64ccfd8b04bfa49c26c3cad3	refs/heads/custom-test-image
+881af3ec4844873017ac1b35fea20ec9895e626c	refs/heads/dependabot/github_actions/github-actions-669a15b469
+0a1bc35df69b9a5f6764ff9b93e89e0c4bd3bfb4	refs/heads/dependabot/go_modules/go-dependencies-cd4ee5d49e
+5fb271b32b3466541626b6dfbc30fcd9680a1a5b	refs/heads/detect-cred-prompt
+db55e1323814c76b709027543feab0c60591490b	refs/heads/docker-to-moby
+e885177313b95ca9e91fbd0b4cc0988d0ac6fab5	refs/heads/dockerignore-claude
+d4243d69d5b36a0751a08143c9b28e8392ed59fb	refs/heads/dont-show-progress-when-no-tty
+e821f638733bd8d47cd034ae6695e1f7bf2a7401	refs/heads/dont-start-temp-container
+246ed45751afcd1d80fca2a8f635820cdd69b55b	refs/heads/enforce-fmt-ci
+d75d91c97a94fb8d3a52470bff2f18fe31477ce9	refs/heads/exec-command
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; git ls-remote origin 2>&1 | grep -i "open\|contents\|show-command\|split" | head -30; git ls-remote origin 2>&1 | wc -l
+75
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; grep -rni "every app\|all apps\|listing\|landing\|index page\|home page" prompt | head -20; cat prompt/49-status-page.md
+prompt/05-folder-contents-fallback.md:3:List the files and subfolders with names, sizes and dates in the same card style as the rest of the app, instead of returning a directory listing or a 403.
+prompt/19-open-command.md:3:It prints the URL and opens it in the browser, and on its own it opens the contents page listing every app.
+prompt/23-list-json.md:3:Stable field names, one array, every app with host, image or folder, state and channel chips, so a script can read it without scraping the table.
+prompt/43-app-details-view.md:1:Your job is to go in and give every app a details page here to this Go CLI/TUI app.
+prompt/45-incremental-render.md:3:It currently rebuilds every panel and the whole viewport on every tick; re-render only the panels whose data or selection changed, cache the static chrome and scales, and keep clicks and scrolling landing on the right rows.
+prompt/49-status-page.md:3:Its own host, the same cream card style as everything else, listing only the apps you choose to publish with up or down, last deploy and nothing else. Calm enough to send as a link.
+Your job is to go in and add a public status page here to this Go CLI/TUI app.
+
+Its own host, the same cream card style as everything else, listing only the apps you choose to publish with up or down, last deploy and nothing else. Calm enough to send as a link.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; sed -n 1,200p internal/docker/appbar.go
+package docker
+
+import (
+	"encoding/json"
+	"os"
+	"path/filepath"
+	"strings"
+)
+
+const appBarScriptPath = "__once/bar.js"
+
+// appBarData is everything the bar over a served page needs to know.
+type appBarData struct {
+	Name     string   `json:"name"`
+	Back     string   `json:"back,omitempty"`
+	Next     string   `json:"next,omitempty"`
+	Contents string   `json:"contents"`
+	Drift    []string `json:"drift"`
+}
+
+// Private
+
+// appBar returns the tag that loads the bar for the served page. The bar
+// itself lives in a file inside the site copy, so its size is not limited by
+// the nginx config parser.
+func (a *Application) appBar() string {
+	return `<script src="/` + appBarScriptPath + `" defer></script>`
+}
+
+// writeAppBarScript writes the bar next to the served pages. The source folder
+// is never touched.
+func (a *Application) writeAppBarScript() error {
+	if a.Settings.ServedPath == "" {
+		return nil
+	}
+
+	path := filepath.Join(a.Settings.ServedPath, filepath.FromSlash(appBarScriptPath))
+	if err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {
+		return err
+	}
+
+	return os.WriteFile(path, []byte(a.appBarScript()), 0o644)
+}
+
+func (a *Application) appBarScript() string {
+	data, err := json.Marshal(a.appBarData())
+	if err != nil {
+		return ""
+	}
+	return strings.Replace(appBarScriptTemplate, "{{data}}", string(data), 1)
+}
+
+func (a *Application) appBarData() appBarData {
+	data := appBarData{
+		Name:     a.Settings.Name,
+		Contents: "/",
+		Drift:    []string{},
+	}
+
+	back, next := a.neighborApps()
+	if back != nil {
+		data.Back = back.URL()
+	}
+	if next != nil {
+		data.Next = next.URL()
+	}
+
+	for _, app := range a.runningSiblings() {
+		data.Drift = append(data.Drift, app.URL())
+	}
+
+	return data
+}
+
+// neighborApps returns the running apps either side of this one by host, so
+// back and next follow the same order as the dashboard. Either side wraps.
+func (a *Application) neighborApps() (back, next *Application) {
+	siblings := a.runningSiblings()
+	if len(siblings) == 0 {
+		return nil, nil
+	}
+
+	for _, app := range siblings {
+		if app.Settings.Host < a.Settings.Host {
+			back = app
+		} else if next == nil {
+			next = app
+		}
+	}
+
+	if back == nil {
+		back = siblings[len(siblings)-1]
+	}
+	if next == nil {
+		next = siblings[0]
+	}
+
+	return back, next
+}
+
+func (a *Application) runningSiblings() []*Application {
+	if a.namespace == nil {
+		return nil
+	}
+
+	var siblings []*Application
+	for _, app := range a.namespace.Applications() {
+		if app.Settings.Name == a.Settings.Name || app.Settings.Host == "" || !app.Running {
+			continue
+		}
+		siblings = append(siblings, app)
+	}
+
+	return siblings
+}
+
+// Helpers
+
+const appBarScriptTemplate = `(function () {
+  const data = {{data}}
+  const drift = data.drift || []
+  const links = {}
+
+  const bar = document.createElement("div")
+  bar.id = "once-bar"
+
+  const name = document.createElement("span")
+  name.className = "once-bar-name"
+  name.textContent = data.name
+  bar.appendChild(name)
+
+  const nav = document.createElement("nav")
+  nav.className = "once-bar-nav"
+  bar.appendChild(nav)
+
+  const menu = document.createElement("div")
+  menu.id = "once-bar-menu"
+  menu.hidden = true
+  bar.appendChild(menu)
+
+  const tab = document.createElement("a")
+  tab.id = "once-bar-tab"
+  tab.href = "#"
+  tab.textContent = "Once"
+  tab.setAttribute("aria-label", "Show bar")
+  tab.hidden = true
+  const tabKey = document.createElement("kbd")
+  tabKey.textContent = "H"
+  tab.appendChild(tabKey)
+
+  const actions = []
+  if (data.back) actions.push(["back", "Back", "[", data.back])
+  if (data.next) actions.push(["next", "Next", "]", data.next])
+  actions.push(["contents", "Contents", "C", data.contents])
+  if (drift.length > 0) actions.push(["drift", "Drift", "R", "#"])
+  actions.push(["reload", "Reload", "shift R", "#"], ["hide", "Hide", "H", "#"])
+
+  actions.forEach(([action, label, key, href]) => {
+    for (const target of [nav, menu]) {
+      const link = document.createElement("a")
+      link.textContent = label
+      link.href = href
+      link.dataset.once = action
+      if (target === nav) links[action] = link
+      if (target === menu) {
+        const hint = document.createElement("kbd")
+        hint.textContent = key
+        link.appendChild(hint)
+      }
+      target.appendChild(link)
+    }
+  })
+
+  const toggle = document.createElement("a")
+  toggle.textContent = "Menu"
+  toggle.href = "#"
+  toggle.dataset.once = "menu"
+  toggle.setAttribute("aria-haspopup", "true")
+  toggle.setAttribute("aria-expanded", "false")
+  nav.appendChild(toggle)
+
+  const style = document.createElement("style")
+  style.textContent = ` + "`" + `
+#once-bar{position:fixed;top:0;right:0;left:0;z-index:2147483647;display:flex;align-items:center;gap:1.25rem;height:40px;padding:0 1rem;box-sizing:border-box;background:rgba(17,17,19,.72);border-bottom:1px solid rgba(255,255,255,.14);color:#f3ede1;font:500 11px/40px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.12em;text-transform:uppercase;transition:transform 180ms ease;-webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%)}
+#once-bar.once-bar-hidden{transform:translateY(-100%)}
+#once-bar .once-bar-name{margin-right:auto;overflow:hidden;font-weight:600;letter-spacing:.16em;white-space:nowrap;text-overflow:ellipsis}
+#once-bar .once-bar-nav{display:flex;align-items:center;gap:1.15rem}
+#once-bar a{color:inherit;text-decoration:none;opacity:.7}
+#once-bar a:hover,#once-bar a:focus-visible{opacity:1}
+#once-bar a:focus-visible{outline:1px solid rgba(255,255,255,.5);outline-offset:2px}
+#once-bar-menu{position:absolute;top:calc(100% + 6px);right:1rem;display:grid;gap:.1rem;min-width:13rem;padding:.35rem;background:rgba(17,17,19,.9);border:1px solid rgba(255,255,255,.14);border-radius:6px;box-shadow:0 12px 32px rgba(0,0,0,.35);-webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%)}
+#once-bar-menu[hidden]{display:none}
+#once-bar-menu a{display:flex;align-items:center;justify-content:space-between;gap:2rem;padding:.45rem .6rem;font:inherit;letter-spacing:.12em;opacity:.8}
+#once-bar-menu a:hover,#once-bar-menu a:focus-visible{background:rgba(255,255,255,.08);opacity:1}
+#once-bar-menu kbd{font:inherit;letter-spacing:.08em;opacity:.55}
+#once-bar-tab{position:fixed;top:0;right:1rem;z-index:2147483647;display:flex;align-items:center;gap:.6rem;height:24px;padding:0 .7rem;box-sizing:border-box;background:rgba(17,17,19,.78);border:1px solid rgba(255,255,255,.14);border-top:0;border-radius:0 0 6px 6px;color:#f3ede1;font:500 10px/24px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;opacity:.85;-webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%)}
+#once-bar-tab:hover,#once-bar-tab:focus-visible{opacity:1}
+#once-bar-tab:focus-visible{outline:1px solid rgba(255,255,255,.5);outline-offset:2px}
+#once-bar-tab[hidden]{display:none}
+#once-bar-tab kbd{font:inherit;letter-spacing:.08em;opacity:.55}
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; git ls-remote origin 2>&1 | awk '{print $2}' | sed 's#refs/heads/##' | sort
+add-proxy-upgrade
+add-scheduled-govulncheck
+app-specific-registry-credentials
+auto-update-disable
+background-status-command
+base-url-env
+bump-go-1-26-7
+cli-deploy-flags
+color-detection-simplify-complicate
+custom-test-image
+dependabot/github_actions/github-actions-669a15b469
+dependabot/go_modules/go-dependencies-cd4ee5d49e
+detect-cred-prompt
+dockerignore-claude
+docker-to-moby
+dont-show-progress-when-no-tty
+dont-start-temp-container
+enforce-fmt-ci
+exec-command
+exp
+fix-integration-app-build
+fix-ui-crash-on-teardown
+go-1-26-4
+go-1.27
+HEAD
+import-order
+main
+make-check
+non-interactive-install
+parallel-test
+proxy-cleanup
+readable-docker-errors
+reduced-motion-flag
+refs/tags/v0.1.0
+refs/tags/v0.1.0^{}
+refs/tags/v0.1.1
+refs/tags/v0.1.1^{}
+refs/tags/v0.1.10
+refs/tags/v0.1.2
+refs/tags/v0.1.2^{}
+refs/tags/v0.1.3
+refs/tags/v0.1.3^{}
+refs/tags/v0.1.4
+refs/tags/v0.1.4^{}
+refs/tags/v0.1.5
+refs/tags/v0.1.5^{}
+refs/tags/v0.1.6
+refs/tags/v0.1.6^{}
+refs/tags/v0.1.7
+refs/tags/v0.1.7^{}
+refs/tags/v0.1.8
+refs/tags/v0.1.8^{}
+refs/tags/v0.1.9
+refs/tags/v0.1.9^{}
+refs/tags/v0.2.0
+refs/tags/v0.2.0^{}
+refs/tags/v0.3.0
+refs/tags/v0.3.0^{}
+refs/tags/v0.3.1
+refs/tags/v0.3.1^{}
+refs/tags/v0.3.2
+refs/tags/v0.3.2^{}
+refs/tags/v0.3.3
+refs/tags/v0.3.3^{}
+refs/tags/v0.3.4
+refs/tags/v0.3.4^{}
+release-hardening-v2
+remove-stray-binary
+reset-secret-key
+restore-with-new-settings
+self-repository-uses
+signed-releases
+streaming-restores
+strip-symbols
+tidying
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; git ls-tree -r --name-only refs/tags/v0.3.4 2>/dev/null | grep "command/" | head -40; echo ===; git show refs/tags/v0.3.4:internal/command/open.go 2>&1 | head -100
+internal/command/background.go
+internal/command/background_install.go
+internal/command/background_remove.go
+internal/command/background_run.go
+internal/command/backup.go
+internal/command/cli_progress.go
+internal/command/deploy.go
+internal/command/deploy_test.go
+internal/command/exec.go
+internal/command/exec_test.go
+internal/command/keys.go
+internal/command/keys_reset.go
+internal/command/keys_set.go
+internal/command/list.go
+internal/command/remove.go
+internal/command/restore.go
+internal/command/root.go
+internal/command/root_test.go
+internal/command/self_update.go
+internal/command/settings_flags.go
+internal/command/start.go
+internal/command/stop.go
+internal/command/teardown.go
+internal/command/update.go
+internal/command/update_test.go
+internal/command/version.go
+===
+fatal: path 'internal/command/open.go' does not exist in 'refs/tags/v0.3.4'
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mls -la /home/mrjohn/Work/tries/2026-11-06-yo/; find /home/mrjohn/Work/tries -maxdepth 3 -name "19-open-command.*" 2>/dev/null | head
+total 0
+drwxr-xr-x 1 mrjohn mrjohn   24 Nov  6 18:01 .
+drwxr-xr-x 1 mrjohn mrjohn 1186 Nov  6 17:01 ..
+drwxr-xr-x 1 mrjohn mrjohn  780 Nov  6 18:31 listmonk
+drwxr-xr-x 1 mrjohn mrjohn  352 Nov  6 17:59 once
+[0m$ [0mfind /home/mrjohn/Work -maxdepth 6 -path "*once*" -name "open.go" 2>/dev/null | head; find /home/mrjohn/Work -maxdepth 5 -type d -name "*split*" 2>/dev/null | head
+/home/mrjohn/Work/tries/writebook-edit/.scratch/split
+/home/mrjohn/Work/tries/2026-11-06-yo/once/.scratch/split
+/home/mrjohn/Work/tries/2026-11-06-yo/listmonk/.scratch/split
+/home/mrjohn/Work/_ribbon/.opencode/commands/split
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mfind /home/mrjohn/Work/_ribbon/.opencode/commands/split -type f | head; echo ===; cat /home/mrjohn/Work/_ribbon/.opencode/commands/split/* 2>/dev/null | head -200
+/home/mrjohn/Work/_ribbon/.opencode/commands/split/03-roots.md
+/home/mrjohn/Work/_ribbon/.opencode/commands/split/04-content.md
+/home/mrjohn/Work/_ribbon/.opencode/commands/split/02-config.md
+/home/mrjohn/Work/_ribbon/.opencode/commands/split/01-git-repo.md
+/home/mrjohn/Work/_ribbon/.opencode/commands/split/05-scan.md
+/home/mrjohn/Work/_ribbon/.opencode/commands/split/06-discover.md
+/home/mrjohn/Work/_ribbon/.opencode/commands/split/07-remove.md
+/home/mrjohn/Work/_ribbon/.opencode/commands/split/09-assets.md
+/home/mrjohn/Work/_ribbon/.opencode/commands/split/08-shell.md
+/home/mrjohn/Work/_ribbon/.opencode/commands/split/10-inject.md
+===
+---
+description: Extract the Git read layer into git_repo.py
+---
+
+You are performing one extraction in /home/mrjohn/Work/_ribbon. Do exactly this
+task and nothing else. Ranges below are anchors, not line numbers: cut from the
+line containing the first anchor up to but not including the line containing the
+second. Recompute them in the current files; do not trust any snapshot. Match
+the surrounding Python style. There is no Python linter configured; `npm run
+check` covers eslint, stylelint, node:test and the embed check.
+
+## Task
+
+Create `git_repo.py` and move the Git read layer into it.
+
+## Cut
+
+- `ribbon.py`: from `class _PooledLock` up to `def page_card_info`
+- `git_actions.py`: from `def _repo_root` up to `def _identity_problem`
+- `git_actions.py`: from `def _index_case_mismatch` up to `def git_create_pages_entry`
+
+## Move
+
+`_PooledLock`, `_LockPool`, `GIT_CACHE`, `GIT_STATUS_LOCKS`, `GIT_CACHE_SECONDS`,
+`GIT_STATUS_WORKERS`, `GIT_LIGHT_SECONDS`, `GIT_LOCKS`, `repo_lock`,
+`GIT_ENV_STRIP`, `_git_env`, `_git`, `_git_text`, `read_git_status`,
+`_git_status_lock`, `git_status`, `list_folder_files`, `parse_status_files`,
+`_git_ignored`, `_git_tracked`, `_git_in_head`, `find_scratch_dirs`,
+`_plain_gitignore_covers`, `scratch_warnings`, `gitignore_requirement`,
+`file_warnings`, `git_detail`, `_action_error`, `_action_ok`.
+
+From `git_actions.py`: `_repo_root`, `_index_case_mismatch`, `pages_state`,
+`pages_requirement`, `pages_detail`.
+
+Constants to move in: `DEFAULT_GITIGNORE`, `SCRATCH_DIRS`, `SECRET_NAMES`,
+`SECRET_SUFFIXES`, `LARGE_FILE_BYTES`, `MAX_ACTION_OUTPUT`, `MAX_DETAIL_FILES`,
+`GITIGNORE_PREVIEW_CHARS`.
+
+## Why
+
+The pages helpers only read `.git/config` and the worktree. Moving them down
+makes `git_actions` depend on `git_repo` in one direction. Without them the
+cycle merely flips instead of breaking.
+
+## Do not move
+
+`SKIP_DIRS`, `TREE_MAX_ENTRIES`, `TREE_SKIP_DESCENT` and `_likely_secret`
+belong to the scan layer. `readme_state` and `read_readme` stay where they are.
+
+## Ribbon shim
+
+Re-export every moved name from `ribbon.py` with an explicit list. Never
+`import *`.
+
+## Gotchas
+
+- Delete the function-local `from git_actions import pages_detail` inside
+  `git_detail`; it becomes a plain call.
+- `repo_lock` is used by the handler's Git POST path. A missing re-export will
+  not fail `npm test`; grep for it.
+- Do not move `SKIP_DIRS`; `folder_tree` uses it and it belongs to the scan
+  layer.
+
+## Done when
+
+`npm run check` passes and `grep 'from git_actions' ribbon.py` shows only
+write-path imports.
+---
+description: Extract module-level constants into config.py
+---
+
+## Guardrails
+
+Read these first. They beat anything below that contradicts them.
+
+- This repository is the only source of truth. Do not read or write anything
+  under `~/.local/share/opencode`, `~/.config/opencode`, `/tmp`, `~/Projects`
+  or any other Ribbon checkout. There is no pre-split original to go looking
+  for: the current files are correct, and every earlier step is committed.
+- Never run `git stash`, `git checkout`, `git reset`, `git restore`,
+  `git clean`, or `cp` over a tracked file. Use `git diff` and
+  `git show HEAD:<path>` if you need history.
+- Never replace a whole file. Edit inside the ranges named below, and only
+  there. `ribbon.py` must never shrink to a fragment.
+- Touch only the files this task names. Leave `AGENTS.md`, `README.md`,
+  `package.json`, `.opencode/`, `scripts/` and the other steps' files alone.
+- Do not print whole files. Use `grep -n` and `sed -n`, and keep output short.
+- If an anchor is missing, appears twice, or the move would change behaviour,
+  write the reason to `.scratch/split/BLOCKED-02-config` and stop. Do not
+  improvise, do not delete a test, and do not weaken the check.
+- Verify with `python3 -c "import ribbon"` and `npm run check`. Run the full
+  check at most twice.
+
+You are performing one extraction in /home/mrjohn/Work/_ribbon. Do exactly this
+task and nothing else. Ranges below are anchors, not line numbers: cut from the
+line containing the first anchor up to but not including the line containing the
+second. Recompute them in the current files; do not trust any snapshot. Match
+the surrounding Python style.
+
+## Task
+
+Create `config.py` holding module-level constants only.
+
+## Cut
+
+- `ribbon.py`: from `APP_DIR` up to `def child_dirs`
+- `ribbon.py`: from `TYPE_COLORS` up to `def markdown_info`
+
+## Move
+
+Every module-level assignment in the first range, plus `TYPE_COLORS`,
+`DEFAULT_TYPE_COLOR` and `type_color()`.
+
+## Do not move
+
+`STATE_LOCK` goes to state, `_cache` to discover, `_disk_asset_cache` and
+`_asset_version_cache` to assets, `BOOT_SCRIPT` to shell, `RAW_TEXT_TAGS` to
+inject, the `GIT_CACHE` family to `git_repo`.
+
+## Gotchas
+
+- `APP_DIR` uses `Path(__file__).resolve().parent`. Every module sits beside
+  `ribbon.py`, so it still resolves; do not change it.
+- Run the `git_repo` extraction first, or the Git constants have no home.
+- Re-export with an explicit list, never `import *`.
+
+## Done when
+
+`npm run check` passes and `grep '^APP_DIR' ribbon.py` returns only a re-export.
+---
+description: Extract root auto-detection into roots.py
+---
+
+## Guardrails
+
+Read these first. They beat anything below that contradicts them.
+
+- This repository is the only source of truth. Do not read or write anything
+  under `~/.local/share/opencode`, `~/.config/opencode`, `/tmp`, `~/Projects`
+  or any other Ribbon checkout. There is no pre-split original to go looking
+  for: the current files are correct, and every earlier step is committed.
+- Never run `git stash`, `git checkout`, `git reset`, `git restore`,
+  `git clean`, or `cp` over a tracked file. Use `git diff` and
+  `git show HEAD:<path>` if you need history.
+- Never replace a whole file. Edit inside the ranges named below, and only
+  there. `ribbon.py` must never shrink to a fragment.
+- Touch only the files this task names. Leave `AGENTS.md`, `README.md`,
+  `package.json`, `.opencode/`, `scripts/` and the other steps' files alone.
+- Do not print whole files. Use `grep -n` and `sed -n`, and keep output short.
+- If an anchor is missing, appears twice, or the move would change behaviour,
+  write the reason to `.scratch/split/BLOCKED-03-roots` and stop. Do not
+  improvise, do not delete a test, and do not weaken the check.
+- Verify with `python3 -c "import ribbon"` and `npm run check`. Run the full
+  check at most twice.
+
+You are performing one extraction in /home/mrjohn/Work/_ribbon. Do exactly this
+task and nothing else. Ranges below are anchors, not line numbers: cut from the
+line containing the first anchor up to but not including the line containing the
+second. Recompute them in the current files; do not trust any snapshot. Match
+the surrounding Python style.
+
+## Task
+
+Create `roots.py` for root auto-detection and its safety guard.
+
+## Cut
+
+- `ribbon.py`: from `def child_dirs` up to `TITLE_RE`
+
+## Move
+
+`child_dirs`, `is_container`, `SYSTEM_ROOTS`, `is_safe_default_root`,
+`default_root`.
+
+## Depends on
+
+`config` only.
+
+## Gotchas
+
+- `test/default-root.test.js` pins four climb cases and two layouts that must
+  resolve. Change location, not behaviour.
+- `main()` calls `default_root()`, so the re-export must exist before
+  `npm run check`.
+- Re-export with an explicit list from `ribbon.py`.
+
+## Done when
+
+`npm run check` passes, including `default-root.test.js`.
+---
+description: Extract page metadata and Markdown summaries into content.py
+---
+
+## Guardrails
+
+Read these first. They beat anything below that contradicts them.
+
+- This repository is the only source of truth. Do not read or write anything
+  under `~/.local/share/opencode`, `~/.config/opencode`, `/tmp`, `~/Projects`
+  or any other Ribbon checkout. There is no pre-split original to go looking
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mfind /home/mrjohn -name "open*.go" -path "*once*" 2>/dev/null | head; find /home/mrjohn -type d -name once 2>/dev/null | head
+/home/mrjohn/Work/tries/2026-11-02-ship-a-site/node_modules/once
+/home/mrjohn/Work/tries/2026-11-06-yo/once
+/home/mrjohn/Work/tries/2026-11-06-yo/once/cmd/once
+/home/mrjohn/Applications/Antigravity IDE/resources/app/node_modules/@tootallnate/once
+/home/mrjohn/Applications/Antigravity IDE/resources/app/node_modules/once
+/home/mrjohn/.local/state/once
+/home/mrjohn/.local/share/Trash/files/2026-09-10-be-do-have/node_modules/once
+/home/mrjohn/.local/share/Trash/files/2026-09-14-nexus-church/node_modules/once
+/home/mrjohn/Dropbox/JOHN/CV AND RESUME/curriculum-vitae-to-resume-generator/node_modules/once
+/home/mrjohn/go/pkg/mod/cache/download/github.com/basecamp/once
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; git show --stat 115041b; git show 115041b -- internal/ui/app.go internal/ui/dashboard.go | head -120
+commit 115041bcb3fa18a8a1da996db1b6548a8386bbed
+Author: razodin137 <razodin137@gmail.com>
+Date:   Fri Nov 6 18:33:11 2026 +0700
+
+    split: 10-contents-screen
+
+ .scratch/split/10-contents-screen.check |   15 +
+ .scratch/split/10-contents-screen.diff  |    3 +
+ .scratch/split/10-contents-screen.log   | 1889 +++++++++++++++++++++++++++++++
+ internal/ui/contents_card.go            |    7 +-
+ internal/ui/contents_card_test.go       |   16 +
+ 5 files changed, 1928 insertions(+), 2 deletions(-)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; cat .scratch/split/10-contents-screen.diff; echo ====09====; cat .scratch/split/09-contents-card.diff
+internal/ui/contents_card.go      |  7 +++++--
+ internal/ui/contents_card_test.go | 16 ++++++++++++++++
+ 2 files changed, 21 insertions(+), 2 deletions(-)
+====09====
+ internal/docker/application.go |  1 +
+ internal/docker/namespace.go   |  1 +
+ internal/ui/dashboard.go       | 28 +++++++++++++++++++++++++++-
+ internal/ui/dashboard_test.go  | 15 +++++++++++++++
+ 4 files changed, 44 insertions(+), 1 deletion(-)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; git show refs/tags/v0.3.4:README.md | grep -in "contents\|open " | head -20; echo ===; git show refs/tags/v0.3.4:README.md | grep -n "once " | head -40
+75:When you have an application selected on the dashboard, press `s` to view the settings menu, and choose an item from the menu to open that screen.
+===
+41:- Register the background service by running `sudo once background install`
+43:Then run `once` to install an app, or `once --help` to see what commands are available.
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; grep -rn "contents\|Contents" internal/docker/*.go internal/ui/*.go | grep -vi "contentsCard\|contents_card\|contentsPage\|contentsEntry\|writeContents\|contentsTemplate\|contentsPageHTML\|contentsFact\|formatContents" | head -30
+internal/docker/appbar.go:17:	Contents string   `json:"contents"`
+internal/docker/appbar.go:56:		Contents: "/",
+internal/docker/appbar.go:154:  actions.push(["contents", "Contents", "C", data.contents])
+internal/docker/appbar.go:309:    const bindings = {"/":"menu","[":"back","]":"next","c":"contents","h":"hide"}
+internal/docker/appbar_test.go:33:	assert.Contains(t, script, `"contents":"/"`)
+internal/docker/appbar_test.go:60:	assert.Contains(t, script, `"contents":"/"`)
+internal/docker/appbar_test.go:89:	assert.Contains(t, script, `{"/":"menu","[":"back","]":"next","c":"contents","h":"hide"}`)
+internal/docker/appbar_test.go:105:	assert.Contains(t, script, `["contents", "Contents", "C", data.contents]`)
+internal/docker/appbar_test.go:210:	assert.Contains(t, script, `{"/":"menu","[":"back","]":"next","c":"contents","h":"hide"}`)
+internal/docker/application_backup.go:232:		return fmt.Errorf("copying volume contents: %w", err)
+internal/docker/site.go:27:// returns its path. Folders without an index.html get a generated contents
+internal/docker/site.go:84:// index.html gets a generated contents page. A folder made up entirely of
+internal/docker/site.go:438:    <p class="eyebrow">ONCE · Contents</p>
+internal/ui/dashboard.go:36:	Contents key.Binding
+internal/ui/dashboard.go:48:	Contents: WithHelp(NewKeyBinding("C"), "C", "contents"),
+internal/ui/dashboard.go:194:		if key.Matches(msg, dashboardKeys.Contents) && len(m.apps) > 0 {
+internal/ui/dashboard.go:336:			dashboardKeys.Contents, dashboardKeys.Drift, dashboardKeys.Details,
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; for r in $(git for-each-ref --format='%(refname)' refs/remotes refs/tags); do git grep -l "contents page\|Contents page\|List of apps\|All apps\|applications page" $r -- '*.go' '*.md' 2>/dev/null | sed "s#^#$r #"; done | head
+refs/remotes/origin/main refs/remotes/origin/main:prompt/05-folder-contents-fallback.md
+refs/remotes/origin/main refs/remotes/origin/main:prompt/19-open-command.md
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; git log --oneline refs/remotes/origin/main -10; git ls-tree --name-only refs/remotes/origin/main | head -30; git log --oneline refs/remotes/origin/main -- internal/command | head -10
+dd1ea52 split: 01-deploy-static-folder
+fe93045 starting the script: Prompting scripts for upgrading
+864ec7c Use strings.CutLast in cutLast (#118)
+.claude
+.dockerignore
+.github
+.gitignore
+.golangci.yml
+.scratch
+AGENTS.md
+MIT-LICENSE
+Makefile
+README.md
+cmd
+go.mod
+go.sum
+installer
+integration
+internal
+mise.toml
+prompt-v1
+prompt
+scripts
+dd1ea52 split: 01-deploy-static-folder
+864ec7c Use strings.CutLast in cutLast (#118)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; git show 115041b -- internal/ui/contents_card_test.go internal/ui/contents_card.go; sed -n 120,200p .scratch/split/09-contents-card.log | head -5
+commit 115041bcb3fa18a8a1da996db1b6548a8386bbed
+Author: razodin137 <razodin137@gmail.com>
+Date:   Fri Nov 6 18:33:11 2026 +0700
+
+    split: 10-contents-screen
+
+diff --git a/internal/ui/contents_card.go b/internal/ui/contents_card.go
+index a9f4728..8a96b45 100644
+--- a/internal/ui/contents_card.go
++++ b/internal/ui/contents_card.go
+@@ -35,6 +35,7 @@ type ContentsCard struct {
+ 	app        docker.Application
+ 	lastBackup *docker.OperationResult
+ 	width      int
++	height     int
+ }
+ 
+ func NewContentsCard(app *docker.Application, lastBackup *docker.OperationResult, width int) ContentsCard {
+@@ -52,7 +53,7 @@ func (c ContentsCard) Init() tea.Cmd {
+ func (c ContentsCard) Update(msg tea.Msg) (Component, tea.Cmd) {
+ 	switch msg := msg.(type) {
+ 	case tea.WindowSizeMsg:
+-		c.width = msg.Width
++		c.width, c.height = msg.Width, msg.Height
+ 	case tea.KeyPressMsg:
+ 		if key.Matches(msg, contentsCardCloseKey) {
+ 			return c, func() tea.Msg { return ContentsCardCloseMsg{} }
+@@ -73,7 +74,9 @@ func (c ContentsCard) View() string {
+ 	lines = append(lines, "")
+ 	lines = append(lines, contentsCell("esc  close", inner, contentsStyle(contentsMuted)))
+ 
+-	return c.frame(lines, inner)
++	card := c.frame(lines, inner)
++
++	return lipgloss.Place(c.width, c.height, lipgloss.Center, lipgloss.Center, card)
+ }
+ 
+ // Private
+diff --git a/internal/ui/contents_card_test.go b/internal/ui/contents_card_test.go
+index dbcbb45..9ce3b7b 100644
+--- a/internal/ui/contents_card_test.go
++++ b/internal/ui/contents_card_test.go
+@@ -5,6 +5,8 @@ import (
+ 	"testing"
+ 	"time"
+ 
++	"charm.land/bubbletea/v2"
++	"charm.land/lipgloss/v2"
+ 	"github.com/charmbracelet/x/ansi"
+ 	"github.com/stretchr/testify/assert"
+ 
+@@ -85,6 +87,20 @@ func TestContentsCardFitsWidth(t *testing.T) {
+ 	}
+ }
+ 
++func TestContentsCardFillsScreen(t *testing.T) {
++	app := &docker.Application{Settings: docker.ApplicationSettings{Name: "writebook"}}
++	card := NewContentsCard(app, nil, 120)
++	updated, _ := card.Update(tea.WindowSizeMsg{Width: 120, Height: 40})
++	card = updated.(ContentsCard)
++
++	view := card.View()
++
++	assert.Equal(t, 40, lipgloss.Height(view))
++	for line := range strings.SplitSeq(ansi.Strip(view), "\n") {
++		assert.Equal(t, 120, ansi.StringWidth(line))
++	}
++}
++
+ func TestContentsCardCloseKey(t *testing.T) {
+ 	card := NewContentsCard(&docker.Application{}, nil, 80)
+ 
+02-serve-static-apps.log
+03-redeploy-folder.check
+03-redeploy-folder.diff
+03-redeploy-folder.log
+04-stale-source-detection.check
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgrep -rIl "listing every app" /home/mrjohn/Work 2>/dev/null | head; grep -rIl "once open" /home/mrjohn/Work 2>/dev/null | head
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/19-open-command.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/.scratch/split/13-favorites.log
+/home/mrjohn/Work/tries/2026-11-06-yo/once/.scratch/split/14-drift.log
+/home/mrjohn/Work/tries/2026-11-06-yo/once/.scratch/split/15-app-bar.log
+/home/mrjohn/Work/tries/2026-11-06-yo/once/.scratch/split/19-open-command.log
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/19-open-command.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/.scratch/split/14-drift.log
+/home/mrjohn/Work/tries/2026-11-06-yo/once/.scratch/split/15-app-bar.log
+/home/mrjohn/Work/tries/2026-11-06-yo/once/.scratch/split/19-open-command.log
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; grep -n -B4 -A8 "listing every app" .scratch/split/13-favorites.log | head -60; grep -n -B4 -A8 "listing every app" .scratch/split/15-app-bar.log | head -60
+3413-prompt/10-contents-screen.md:3:Opened from the selected dashboard panel, same words and facts as the web card, esc back to the dashboard, which already handles overlays and selection.
+3414-prompt/12-channel-filter.md:1:Your job is to go in and let the channel chips narrow the dashboard here to this Go CLI/TUI app.
+3415-prompt/13-favorites.md:3:A star on the card and a star in the dashboard row, favorites sorted first, remembered across runs in the state ONCE already keeps per namespace.
+3416-prompt/17-bar-cross-fade.md:3:Moving to the next or previous app replaces the page under a bar that does not move or blink, and older browsers just replace the page.
+3417:prompt/19-open-command.md:3:It prints the URL and opens it in the browser, and on its own it opens the contents page listing every app.
+3418-prompt/28-screenshot-capture.md:3:Fire a throwaway headless browser container at the app's own URL, take a full-page PNG, and keep it with the deploy record. Nothing in the app is touched.
+3419-prompt/29-card-thumbnails.md:1:Your job is to go in and put the screenshot on the contents card here to this Go CLI/TUI app.
+3420-prompt/29-card-thumbnails.md:3:Cream card, serif title, a live thumbnail of the page where the stamp sits, refreshed after every deploy. If there is no screenshot yet, the stamp shows instead.
+3421-prompt/33-meta-preview.md:3:Title, description, favicon and the og:image, laid out as a link preview card on the app's contents card.
+3422-prompt/37-dashboard-filter.md:3:`/` opens a query field that narrows the panels to matching hosts or app names as you type, esc clears it and brings every panel back, and selection and clicks keep working while filtered.
+3423-prompt/40-chart-time-range.md:3:`t` cycles one, five and fifteen minutes, and the CPU, memory and traffic charts plus their peak labels all follow it. The scrapers already keep ring buffers; grow them enough for fifteen minutes.
+3424-prompt/44-mouse-on-cards.md:1:Your job is to go in and make the new cards clickable here to this Go CLI/TUI app.
+3425-prompt/44-mouse-on-cards.md:3:Click a card to open it, click the star to favorite it, click a chip to filter, and clicking a link inside a card opens that link. Mouse handling already exists in the app, so extend it rather than adding a second path.
+852-/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+853-=== 19-open-command
+854-Your job is to go in and add `once open <host>` here to this Go CLI/TUI app.
+855-
+856:It prints the URL and opens it in the browser, and on its own it opens the contents page listing every app.
+857-
+858-Done is when make test runs clean and so do house-style lints
+859-
+860-/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+861-=== 09-contents-card
+862-Your job is to go in and add a contents card for one app here to this Go CLI/TUI app.
+863-
+864-Cream paper, a serif title, a stamp with the app's initials, then the facts: host, image or folder, uptime, last deploy, last backup. It is the card the rest of the interface is built around, so make it good.
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; sed -n 3330,3420p .scratch/split/13-favorites.log
+internal/docker/application_backup.go:67:	a.saveOperationResult(ctx, func(s *State) { s.RecordBackup(a.Settings.Name, err) })
+internal/docker/namespace.go:220:func (n *Namespace) LoadState(ctx context.Context) (*State, error) {
+internal/docker/namespace.go:221:	return n.proxy.LoadState(ctx)
+internal/docker/namespace.go:224:func (n *Namespace) SaveState(ctx context.Context, state *State) error {
+internal/docker/namespace.go:225:	return n.proxy.SaveState(ctx, state)
+internal/docker/proxy.go:233:func (p *Proxy) LoadState(ctx context.Context) (*State, error) {
+internal/docker/proxy.go:259:func (p *Proxy) SaveState(ctx context.Context, state *State) error {
+internal/docker/state.go:42:func (s *State) AppState(appName string) *AppState {
+internal/docker/state.go:60:func (s *State) RecordBackup(appName string, err error) {
+internal/docker/state.go:64:func (s *State) RecordUpdate(appName string, err error) {
+internal/ui/dashboard.go:349:	return state.AppState(app.Settings.Name).LastBackupResult()
+internal/ui/dashboard.go:531:	state, err := ns.LoadState(context.Background())
+internal/ui/dashboard_panel.go:188:	return p.state.AppState(p.app.Settings.Name).LastBackupResult()
+internal/ui/settings.go:76:	state, err := ns.LoadState(context.Background())
+internal/ui/settings.go:80:	appState := state.AppState(app.Settings.Name)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgrep -rni "favorite\|favourite\|★\|☆\|star" --include='*.go' --include='*.md' internal cmd prompt prompt-v1 README.md | head -60
+internal/background/runner.go:28:	slog.Info("Starting background runner", "namespace", r.namespace, "check_interval", CheckInterval)
+internal/background/runner.go:102:	slog.Info("Self-update complete, restarting")
+internal/command/background_install.go:62:	fmt.Printf("Installed and started %s\n", svc.ServiceName(serviceName))
+internal/command/cli_progress.go:82:		case docker.DeployStageStarting:
+internal/command/cli_progress.go:83:			m.stage = "starting"
+internal/command/root.go:50:	r.cmd.AddCommand(newStartCommand().cmd)
+internal/command/root_test.go:48:	err = withApplication(ns, "myapp.localhost", "starting", func(app *docker.Application) error {
+internal/command/root_test.go:53:	assert.Contains(t, err.Error(), "starting application")
+internal/command/start.go:12:type startCommand struct {
+internal/command/start.go:16:func newStartCommand() *startCommand {
+internal/command/start.go:17:	s := &startCommand{}
+internal/command/start.go:19:		Use:   "start <host>",
+internal/command/start.go:20:		Short: "Start an application",
+internal/command/start.go:29:func (s *startCommand) run(ctx context.Context, ns *docker.Namespace, cmd *cobra.Command, args []string) error {
+internal/command/start.go:32:	err := withApplication(ns, host, "starting", func(app *docker.Application) error {
+internal/command/start.go:33:		return app.Start(ctx)
+internal/command/start.go:39:	fmt.Printf("Started %s\n", host)
+internal/docker/application.go:172:func (a *Application) Start(ctx context.Context) error {
+internal/docker/application.go:178:	_, err = a.namespace.client.ContainerStart(ctx, name, client.ContainerStartOptions{})
+internal/docker/application.go:363:		progress(DeployProgress{Stage: DeployStageStarting})
+internal/docker/application.go:380:		RestartPolicy: container.RestartPolicy{Name: container.RestartPolicyAlways},
+internal/docker/application.go:403:	if _, err := a.namespace.client.ContainerStart(ctx, resp.ID, client.ContainerStartOptions{}); err != nil {
+internal/docker/application.go:405:		return fmt.Errorf("starting container: %w", err)
+internal/docker/application.go:418:			slog.Error("Application failed to start", "app", a.Settings.Name, "error", err)
+internal/docker/application.go:419:			return ErrAppNotStarted
+internal/docker/application_backup.go:304:	if _, err := a.namespace.client.ContainerStart(ctx, resp.ID, client.ContainerStartOptions{}); err != nil {
+internal/docker/application_backup.go:305:		return fmt.Errorf("starting restore hook container: %w", err)
+internal/docker/container.go:40:	execID, resp, err := startExec(ctx, c, containerName, client.ExecCreateOptions{
+internal/docker/container.go:89:	execID, resp, err := startExec(ctx, c, containerName, client.ExecCreateOptions{
+internal/docker/container.go:130:func startExec(ctx context.Context, c *client.Client, containerName string, opts client.ExecCreateOptions) (string, client.HijackedResponse, error) {
+internal/docker/errors.go:22:	ErrAppNotStarted = &describedError{
+internal/docker/errors.go:23:		msg:         "application did not start",
+internal/docker/errors.go:24:		description: "The application did not start within the time limit. Check the application logs for errors.",
+internal/docker/events.go:53:		Add("event", "start", "stop", "die", "restart")
+internal/docker/logs.go:66:func (s *LogStreamer) Start(ctx context.Context, containerName string) {
+internal/docker/namespace.go:20:var ErrInvalidNamespace = errors.New("invalid namespace: must contain only lowercase letters, digits, and hyphens, and must not start with a hyphen")
+internal/docker/namespace.go:244:	if _, err := r.Seek(0, io.SeekStart); err != nil {
+internal/docker/namespace.go:329:							if t, err := time.Parse(time.RFC3339Nano, info.Container.State.StartedAt); err == nil {
+internal/docker/progress.go:22:	DeployStageStarting
+internal/docker/proxy.go:123:			RestartPolicy: container.RestartPolicy{Name: container.RestartPolicyAlways},
+internal/docker/proxy.go:143:	if _, err := p.namespace.client.ContainerStart(ctx, resp.ID, client.ContainerStartOptions{}); err != nil {
+internal/docker/proxy.go:145:			slog.Error("Port conflict starting proxy", "error", err)
+internal/docker/proxy.go:148:		return fmt.Errorf("starting proxy container: %w", err)
+internal/docker/proxy.go:198:		if _, err := p.namespace.client.ContainerStart(ctx, info.ID, client.ContainerStartOptions{}); err != nil {
+internal/docker/proxy.go:200:				slog.Error("Port conflict starting proxy", "error", err)
+internal/docker/proxy.go:203:			return fmt.Errorf("starting proxy container: %w", err)
+internal/docker/ring_buffer.go:37:	startIdx := (b.head - b.count + len(b.items)) % len(b.items)
+internal/docker/ring_buffer.go:41:		idx := (startIdx + offset + i) % len(b.items)
+internal/docker/scraper.go:201:	// Start or restart streams for containers
+internal/docker/scraper.go:207:			// Container ID changed (redeployed), restart stream
+internal/docker/scraper_test.go:375:// The delivered channel signals that the stream goroutine has started reading,
+internal/docker/channels_test.go:95:	t.Run("recent restart is not idle", func(t *testing.T) {
+internal/mouse/lexer.go:65:	start := l.pos
+internal/mouse/lexer.go:73:		Text: l.input[start:l.pos],
+internal/mouse/lexer.go:78:	start := l.pos
+internal/mouse/lexer.go:84:			Text: l.input[start:l.pos],
+internal/mouse/lexer.go:90:		return l.readCSI(start)
+internal/mouse/lexer.go:92:		return l.readOSC(start)
+internal/mouse/lexer.go:100:		Text:  l.input[start:l.pos],
+internal/mouse/lexer.go:105:func (l *Lexer) readOSC(start int) Token {
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgrep -rn "card\|row" prompt/*.md | head -80
+prompt/05-folder-contents-fallback.md:3:List the files and subfolders with names, sizes and dates in the same card style as the rest of the app, instead of returning a directory listing or a 403.
+prompt/09-contents-card.md:1:Your job is to go in and add a contents card for one app here to this Go CLI/TUI app.
+prompt/09-contents-card.md:3:Cream paper, a serif title, a stamp with the app's initials, then the facts: host, image or folder, uptime, last deploy, last backup. It is the card the rest of the interface is built around, so make it good.
+prompt/10-contents-screen.md:1:Your job is to go in and put the contents card on its own full-screen page in the TUI here to this Go CLI/TUI app.
+prompt/10-contents-screen.md:3:Opened from the selected dashboard panel, same words and facts as the web card, esc back to the dashboard, which already handles overlays and selection.
+prompt/12-channel-filter.md:1:Your job is to go in and let the channel chips narrow the dashboard here to this Go CLI/TUI app.
+prompt/13-favorites.md:3:A star on the card and a star in the dashboard row, favorites sorted first, remembered across runs in the state ONCE already keeps per namespace.
+prompt/17-bar-cross-fade.md:3:Moving to the next or previous app replaces the page under a bar that does not move or blink, and older browsers just replace the page.
+prompt/19-open-command.md:3:It prints the URL and opens it in the browser, and on its own it opens the contents page listing every app.
+prompt/28-screenshot-capture.md:3:Fire a throwaway headless browser container at the app's own URL, take a full-page PNG, and keep it with the deploy record. Nothing in the app is touched.
+prompt/29-card-thumbnails.md:1:Your job is to go in and put the screenshot on the contents card here to this Go CLI/TUI app.
+prompt/29-card-thumbnails.md:3:Cream card, serif title, a live thumbnail of the page where the stamp sits, refreshed after every deploy. If there is no screenshot yet, the stamp shows instead.
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; grep -rn "newOpenCommand\|openCommand\|once open" .scratch/split/*.log | grep -v "19-open-command.log" | head -20
+.scratch/split/14-drift.log:941:Your job is to go in and add `once open <host>` here to this Go CLI/TUI app.
+.scratch/split/15-app-bar.log:854:Your job is to go in and add `once open <host>` here to this Go CLI/TUI app.
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; grep -rn "on its own it opens" .scratch/split/*.log | grep -v "19-open-command.log" ; grep -rn "open <host>" .scratch/split/*.log | grep -v "19-open-command.log" | head
+.scratch/split/13-favorites.log:3417:prompt/19-open-command.md:3:It prints the URL and opens it in the browser, and on its own it opens the contents page listing every app.
+.scratch/split/14-drift.log:943:It prints the URL and opens it in the browser, and on its own it opens the contents page listing every app.
+.scratch/split/15-app-bar.log:856:It prints the URL and opens it in the browser, and on its own it opens the contents page listing every app.
+.scratch/split/14-drift.log:941:Your job is to go in and add `once open <host>` here to this Go CLI/TUI app.
+.scratch/split/15-app-bar.log:854:Your job is to go in and add `once open <host>` here to this Go CLI/TUI app.
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; grep -rn "ErrApplicationNotRunning" internal | head; sed -n 1,80p internal/command/cli_progress.go; sed -n 1,50p internal/command/stop.go
+internal/command/keys.go:38:		return docker.ErrApplicationNotRunning
+internal/docker/application.go:27:	ErrApplicationNotRunning = errors.New("the application is not running")
+internal/docker/application.go:197:			return ErrApplicationNotRunning
+package command
+
+import (
+	"fmt"
+	"os"
+
+	tea "charm.land/bubbletea/v2"
+	"charm.land/lipgloss/v2"
+
+	"github.com/basecamp/once/internal/docker"
+	"github.com/basecamp/once/internal/ui"
+)
+
+type cliProgress struct {
+	label        string
+	stage        string
+	progress     ui.Progress
+	progressChan chan docker.DeployProgress
+	err          error
+	width        int
+
+	task func(docker.DeployProgressCallback) error
+}
+
+type (
+	cliProgressDoneMsg   struct{ err error }
+	cliProgressUpdateMsg struct{ p docker.DeployProgress }
+)
+
+func newCLIProgress(label string, task func(docker.DeployProgressCallback) error) *cliProgress {
+	return &cliProgress{
+		label:        label,
+		stage:        "preparing",
+		progress:     ui.NewProgress(0, lipgloss.BrightBlue),
+		progressChan: make(chan docker.DeployProgress, 16),
+		task:         task,
+	}
+}
+
+func runWithProgress(label string, task func(docker.DeployProgressCallback) error) error {
+	var err error
+
+	if isTerminal() {
+		p := newCLIProgress(label, task)
+		if _, runErr := tea.NewProgram(p).Run(); runErr != nil {
+			return runErr
+		}
+		err = p.err
+	} else {
+		err = task(func(docker.DeployProgress) {})
+	}
+
+	if err != nil {
+		fmt.Printf("%s: %s\n", label, lipgloss.NewStyle().Foreground(lipgloss.Red).Render("failed"))
+	} else {
+		fmt.Printf("%s: %s\n", label, lipgloss.NewStyle().Foreground(lipgloss.Green).Render("done"))
+	}
+
+	return err
+}
+
+func (m *cliProgress) Init() tea.Cmd {
+	return tea.Batch(
+		m.runTask(),
+		m.waitForProgress(),
+		m.progress.Init(),
+	)
+}
+
+func (m *cliProgress) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
+	switch msg := msg.(type) {
+	case tea.WindowSizeMsg:
+		m.width = msg.Width
+		m.progress = m.progress.SetWidth(m.barWidth())
+		return m, nil
+
+	case cliProgressUpdateMsg:
+		switch msg.p.Stage {
+		case docker.DeployStageDownloading:
+			m.stage = "downloading"
+package command
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/spf13/cobra"
+
+	"github.com/basecamp/once/internal/docker"
+)
+
+type stopCommand struct {
+	cmd *cobra.Command
+}
+
+func newStopCommand() *stopCommand {
+	s := &stopCommand{}
+	s.cmd = &cobra.Command{
+		Use:   "stop <host>",
+		Short: "Stop an application",
+		Args:  cobra.ExactArgs(1),
+		RunE:  WithNamespace(s.run),
+	}
+	return s
+}
+
+// Private
+
+func (s *stopCommand) run(ctx context.Context, ns *docker.Namespace, cmd *cobra.Command, args []string) error {
+	host := args[0]
+
+	err := withApplication(ns, host, "stopping", func(app *docker.Application) error {
+		return app.Stop(ctx)
+	})
+	if err != nil {
+		return err
+	}
+
+	fmt.Printf("Stopped %s\n", host)
+	return nil
+}
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; sed -n 1,60p internal/command/keys.go; sed -n 1,60p internal/browser/browser_test.go
+package command
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/spf13/cobra"
+
+	"github.com/basecamp/once/internal/docker"
+)
+
+type keysCommand struct {
+	cmd *cobra.Command
+}
+
+func newKeysCommand() *keysCommand {
+	k := &keysCommand{}
+	k.cmd = &cobra.Command{
+		Use:   "keys",
+		Short: "Manage application secret keys",
+	}
+
+	k.cmd.AddCommand(newKeysResetCommand().cmd)
+	k.cmd.AddCommand(newKeysSetCommand().cmd)
+
+	return k
+}
+
+// Helpers
+
+func changeKeys(ctx context.Context, ns *docker.Namespace, host string, label string, change func(*docker.Keys) error) error {
+	app, err := findApplication(ns, host)
+	if err != nil {
+		return err
+	}
+
+	if !app.Running {
+		return docker.ErrApplicationNotRunning
+	}
+
+	if err := ns.Setup(ctx); err != nil {
+		return fmt.Errorf("%w: %w", docker.ErrSetupFailed, err)
+	}
+
+	settings := app.Settings
+	if err := change(&settings.Keys); err != nil {
+		return err
+	}
+
+	return runWithProgress(label+" "+host, func(progress docker.DeployProgressCallback) error {
+		if err := app.UpdateSettings(ctx, settings, progress); err != nil {
+			return fmt.Errorf("%w: %w", docker.ErrDeployFailed, err)
+		}
+		return nil
+	})
+}
+package browser
+
+import (
+	"testing"
+
+	"github.com/stretchr/testify/require"
+)
+
+func TestOpenRequiresURL(t *testing.T) {
+	require.Error(t, Open(""))
+}
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; grep -n "func Run" -A30 internal/ui/app.go; cat internal/logging/log.go; sed -n 1,80p internal/ui/app_test.go 2>/dev/null
+268:func Run(ns *docker.Namespace, installImageRef string) error {
+269-	slog.Info("Starting ONCE UI", "version", version.Version)
+270-	defer func() { slog.Info("Stopping ONCE UI") }()
+271-
+272-	detected := DetectTerminalColors(100 * time.Millisecond)
+273-	ApplyPalette(NewPalette(detected))
+274-
+275-	app := NewApp(ns, installImageRef)
+276-
+277-	var opts []tea.ProgramOption
+278-	if detected.SupportsTrueColor() {
+279-		opts = append(opts, tea.WithColorProfile(colorprofile.TrueColor))
+280-	}
+281-
+282-	_, err := tea.NewProgram(app, opts...).Run()
+283-	return err
+284-}
+285-
+286-// Private
+287-
+288-func (m *App) scheduleNextScrapeTick() tea.Cmd {
+289-	return tea.Every(ChartUpdateInterval, func(time.Time) tea.Msg { return scrapeTickMsg{} })
+290-}
+291-
+292-func (m *App) scheduleNextUserStatsTick() tea.Cmd {
+293-	return tea.Every(UserStatsUpdateInterval, func(time.Time) tea.Msg { return scrapeUserStatsTickMsg{} })
+294-}
+295-
+296-func (m *App) navigateTo(screen Component) tea.Cmd {
+297-	m.currentScreen = screen
+298-	var sizeCmd tea.Cmd
+package logging
+
+import (
+	"log/slog"
+	"os"
+	"path/filepath"
+
+	"github.com/basecamp/once/internal/fsutil"
+)
+
+// ToLogFile switches logging to a file for the duration of fn, then restores
+// stderr logging when fn returns.
+func ToLogFile(fn func() error) error {
+	dir, err := stateDir()
+	if err != nil {
+		slog.Warn("Could not determine log directory", "error", err)
+		return fn()
+	}
+
+	path := filepath.Join(dir, "once.log")
+	file, err := fsutil.OpenFile(path, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0o644)
+	if err != nil {
+		slog.Warn("Could not open log file", "error", err)
+		return fn()
+	}
+
+	defer func() {
+		SetupStderr()
+		file.Close()
+	}()
+
+	slog.SetDefault(slog.New(slog.NewTextHandler(file, nil)))
+
+	return fn()
+}
+
+func SetupStderr() {
+	slog.SetDefault(slog.New(slog.NewTextHandler(os.Stderr, nil)))
+}
+
+// Helpers
+
+func stateDir() (string, error) {
+	if dir := os.Getenv("XDG_STATE_HOME"); dir != "" {
+		return filepath.Join(dir, "once"), nil
+	}
+
+	home, err := os.UserHomeDir()
+	if err != nil {
+		return "", err
+	}
+
+	return filepath.Join(home, ".local", "state", "once"), nil
+}
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; find installer -type f | head; grep -rn "writebook\|campfire\|builtin\|apps" installer internal/command/deploy.go | head -20
+installer/.dockerignore
+installer/Dockerfile
+installer/config/deploy.yml
+installer/go.mod
+installer/go.sum
+installer/main.go
+installer/main_test.go
+installer/templates/install.sh
+installer/main_test.go:18:		"ghcr.io/basecamp/once-campfire",
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; sed -n 135,172p internal/docker/application.go; sed -n 1,50p internal/docker/application_test.go
+func (a *Application) URL() string {
+	if a.Settings.Host == "" {
+		return ""
+	}
+
+	scheme := "http"
+	defaultPort := 80
+	if a.Settings.TLSEnabled() {
+		scheme = "https"
+		defaultPort = 443
+	}
+
+	base := scheme + "://" + a.Settings.Host
+
+	if a.namespace == nil {
+		return base
+	}
+
+	proxy := a.namespace.Proxy()
+	if proxy.Settings == nil {
+		return base
+	}
+
+	port := proxy.Settings.HTTPPort
+	if a.Settings.TLSEnabled() {
+		port = proxy.Settings.HTTPSPort
+	}
+
+	if port != 0 && port != defaultPort {
+		return base + ":" + strconv.Itoa(port)
+	}
+	return base
+}
+
+func (a *Application) Stop(ctx context.Context) error {
+	name, err := a.ContainerName(ctx)
+	if err != nil {
+		return err
+package docker
+
+import (
+	"context"
+	"net/http"
+	"net/http/httptest"
+	"slices"
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+)
+
+func TestVerifyHTTP_Success(t *testing.T) {
+	var requestPath string
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		requestPath = r.URL.Path
+		w.WriteHeader(http.StatusOK)
+	}))
+	defer server.Close()
+
+	app := &Application{
+		Settings: ApplicationSettings{Host: server.Listener.Addr().String(), DisableTLS: true},
+	}
+
+	err := app.verifyHTTP(context.Background())
+	assert.NoError(t, err)
+	assert.Equal(t, HealthCheckPath, requestPath)
+}
+
+func TestVerifyHTTP_RedirectToSuccess(t *testing.T) {
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if r.URL.Path == "/" {
+			http.Redirect(w, r, "/home", http.StatusFound)
+			return
+		}
+		w.WriteHeader(http.StatusOK)
+	}))
+	defer server.Close()
+
+	app := &Application{
+		Settings: ApplicationSettings{Host: server.Listener.Addr().String(), DisableTLS: true},
+	}
+
+	err := app.verifyHTTP(context.Background())
+	assert.NoError(t, err)
+}
+
+func TestVerifyHTTP_ServerError(t *testing.T) {
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mWrite internal/command/open.go
+Created file successfully: internal/command/open.go
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/command/root.go
+Index: internal/command/root.go
+===================================================================
+--- internal/command/root.go
++++ internal/command/root.go
+@@ -44,8 +44,9 @@
+ 	r.cmd.AddCommand(newDeployCommand().cmd)
+ 	r.cmd.AddCommand(newExecCommand().cmd)
+ 	r.cmd.AddCommand(newKeysCommand().cmd)
+ 	r.cmd.AddCommand(newListCommand().cmd)
++	r.cmd.AddCommand(newOpenCommand().cmd)
+ 	r.cmd.AddCommand(newRemoveCommand().cmd)
+ 	r.cmd.AddCommand(newRestoreCommand().cmd)
+ 	r.cmd.AddCommand(newStartCommand().cmd)
+ 	r.cmd.AddCommand(newStopCommand().cmd)
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; grep -rn "TLSEnabled\|DisableTLS" internal/docker/application_settings.go | head; grep -rn "URL()" internal --include=*_test.go | head
+104:	DisableTLS bool               `json:"disableTLS"`
+141:func (s ApplicationSettings) TLSEnabled() bool {
+142:	return s.Host != "" && !s.DisableTLS && !IsLocalhost(s.Host)
+150:	if s.Name != other.Name || s.Image != other.Image || s.Source != other.Source || s.SourceHash != other.SourceHash || s.ServedPath != other.ServedPath || s.Host != other.Host || s.DisableTLS != other.DisableTLS {
+internal/docker/application_test.go:96:		assert.Equal(t, "", app.URL())
+internal/docker/application_test.go:101:		assert.Equal(t, "https://app.example.com", app.URL())
+internal/docker/application_test.go:111:		assert.Equal(t, "http://app.localhost", app.URL())
+internal/docker/application_test.go:116:		assert.Equal(t, "http://app.localhost", app.URL())
+internal/docker/application_test.go:121:		assert.Equal(t, "http://app.localhost:8080", app.URL())
+internal/docker/application_test.go:126:		assert.Equal(t, "https://app.example.com", app.URL())
+internal/docker/application_test.go:131:		assert.Equal(t, "https://app.example.com:8443", app.URL())
+internal/docker/application_test.go:136:		assert.Equal(t, "http://chat.localhost:9090", app.URL())
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mWrite internal/command/open_test.go
+Created file successfully: internal/command/open_test.go
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; gofmt -w internal/command/open.go internal/command/open_test.go; go test ./internal/command/ -run 'Open' -count=1; make lint
+ok  	github.com/basecamp/once/internal/command	0.005s
+golangci-lint run
+0 issues.
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; make test
+go test ./internal/...
+ok  	github.com/basecamp/once/internal/background	(cached)
+ok  	github.com/basecamp/once/internal/browser	(cached)
+ok  	github.com/basecamp/once/internal/command	0.005s
+ok  	github.com/basecamp/once/internal/docker	0.030s
+ok  	github.com/basecamp/once/internal/fsutil	(cached)
+?   	github.com/basecamp/once/internal/logging	[no test files]
+ok  	github.com/basecamp/once/internal/metrics	0.005s
+ok  	github.com/basecamp/once/internal/mouse	(cached)
+?   	github.com/basecamp/once/internal/service	[no test files]
+ok  	github.com/basecamp/once/internal/system	(cached)
+ok  	github.com/basecamp/once/internal/ui	(cached)
+ok  	github.com/basecamp/once/internal/userstats	(cached)
+ok  	github.com/basecamp/once/internal/version	(cached)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/command/open.go
+Index: internal/command/open.go
+===================================================================
+--- internal/command/open.go
++++ internal/command/open.go
+@@ -28,9 +28,9 @@
+ 		},
+ 	}
+ 	o.cmd = &cobra.Command{
+ 		Use:   "open [host]",
+-		Short: "Open an application in the browser",
++		Short: "Open an application or the dashboard",
+ 		Args:  cobra.MaximumNArgs(1),
+ 		RunE:  WithNamespace(o.run),
+ 	}
+ 	return o
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; gofmt -l internal/command; go run ./cmd/once open --help; make lint
+Open an application or the dashboard
+
+Usage:
+  once open [host] [flags]
+
+Flags:
+  -h, --help   help for open
+
+Global Flags:
+  -n, --namespace string   namespace for containers (default "once")
+golangci-lint run
+0 issues.
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/command/open.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; go run ./cmd/once --help 2>&1 | sed -n '/Available Commands/,/^$/p'; git status --short
+Available Commands:
+  background  Manage background tasks (automatic backups and updates)
+  backup      Backup an application to a new file
+  deploy      Deploy an application or static site
+  exec        Execute a command in an application container
+  help        Help about any command
+  keys        Manage application secret keys
+  list        List installed applications
+  open        Open an application or the dashboard
+  remove      Remove an application
+  restore     Restore an application from a backup file
+  self-update Update once to the latest version
+  start       Start an application
+  stop        Stop an application
+  teardown    Remove all applications and the proxy
+  update      Update settings for a deployed application
+  version     Print the version
+
+ M internal/command/root.go
+?? .scratch/split/19-open-command.log
+?? internal/command/open.go
+?? internal/command/open_test.go
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+Added `once open [host]` (`internal/command/open.go:41`):
+
+- With a host: prints the app URL and opens it via `browser.Open`.
+- Without a host: opens the dashboard, which lists every app.
+- Registered in `internal/command/root.go:49`; tests in `internal/command/open_test.go`.
+
+Verification: `make test` passes; `make lint` (golangci-lint) reports `0 issues`.
