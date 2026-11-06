@@ -1,0 +1,17 @@
+go test ./internal/...
+ok  	github.com/basecamp/once/internal/background	(cached)
+ok  	github.com/basecamp/once/internal/browser	(cached)
+ok  	github.com/basecamp/once/internal/command	0.034s
+ok  	github.com/basecamp/once/internal/docker	0.075s
+ok  	github.com/basecamp/once/internal/fsutil	(cached)
+ok  	github.com/basecamp/once/internal/htmltext	(cached)
+?   	github.com/basecamp/once/internal/logging	[no test files]
+ok  	github.com/basecamp/once/internal/metrics	0.015s
+ok  	github.com/basecamp/once/internal/mouse	(cached)
+?   	github.com/basecamp/once/internal/service	[no test files]
+ok  	github.com/basecamp/once/internal/system	(cached)
+ok  	github.com/basecamp/once/internal/ui	(cached)
+ok  	github.com/basecamp/once/internal/userstats	(cached)
+ok  	github.com/basecamp/once/internal/version	(cached)
+golangci-lint run
+0 issues.

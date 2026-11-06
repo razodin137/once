@@ -1,0 +1,2 @@
+ internal/command/list.go | 84 ++++++++++++++++++++++++++++++++++++++++++------
+ 1 file changed, 75 insertions(+), 9 deletions(-)
