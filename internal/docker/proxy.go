@@ -9,6 +9,7 @@ import (
 	"io"
 	"log/slog"
 	"net/netip"
+	"strconv"
 	"strings"
 
 	"github.com/containerd/errdefs"
@@ -63,6 +64,12 @@ type DeployOptions struct {
 type Proxy struct {
 	namespace *Namespace
 	Settings  *ProxySettings
+}
+
+type ProxyStatus struct {
+	Exists         bool
+	Running        bool
+	PublishedPorts map[int]bool
 }
 
 func NewProxy(ns *Namespace) *Proxy {
@@ -185,6 +192,36 @@ func (p *Proxy) Remove(ctx context.Context, appName string) error {
 
 func (p *Proxy) Deploy(ctx context.Context, opts DeployOptions) error {
 	return p.Exec(ctx, p.deployArgs(opts))
+}
+
+func (p *Proxy) Status(ctx context.Context) (ProxyStatus, error) {
+	info, err := p.namespace.client.ContainerInspect(ctx, p.containerName(), client.ContainerInspectOptions{})
+	if err != nil {
+		if errdefs.IsNotFound(err) {
+			return ProxyStatus{}, nil
+		}
+		return ProxyStatus{}, fmt.Errorf("inspecting proxy container: %w", err)
+	}
+
+	status := ProxyStatus{
+		Exists:         true,
+		PublishedPorts: make(map[int]bool),
+	}
+	if info.Container.State != nil {
+		status.Running = info.Container.State.Running
+	}
+	if info.Container.NetworkSettings != nil {
+		for _, bindings := range info.Container.NetworkSettings.Ports {
+			for _, binding := range bindings {
+				port, err := strconv.Atoi(binding.HostPort)
+				if err == nil && port > 0 {
+					status.PublishedPorts[port] = true
+				}
+			}
+		}
+	}
+
+	return status, nil
 }
 
 func (p *Proxy) containerName() string {

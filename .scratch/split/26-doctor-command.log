@@ -1,0 +1,5893 @@
+[0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m✱ [0mGlob "**/*26-doctor*" [90m1 match[0m
+[0m✱ [0mGlob "**/split/**" [90m0 matches[0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead prompt/26-doctor-command.md 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && ls -la && cat go.mod && find . -type f -name '*.go' | head -100
+total 64
+drwxr-xr-x 1 mrjohn mrjohn   352 Nov  6 17:59 .
+drwxr-xr-x 1 mrjohn mrjohn    24 Nov  6 18:01 ..
+-rw-r--r-- 1 mrjohn mrjohn  4449 Nov  6 17:42 AGENTS.md
+drwxr-xr-x 1 mrjohn mrjohn     8 Nov  6 17:59 bin
+drwxr-xr-x 1 mrjohn mrjohn    18 Nov  6 17:42 .claude
+drwxr-xr-x 1 mrjohn mrjohn     8 Nov  6 17:42 cmd
+-rw-r--r-- 1 mrjohn mrjohn     8 Nov  6 17:42 .dockerignore
+drwxr-xr-x 1 mrjohn mrjohn   196 Nov  6 19:07 .git
+drwxr-xr-x 1 mrjohn mrjohn    86 Nov  6 17:42 .github
+-rw-r--r-- 1 mrjohn mrjohn    53 Nov  6 17:42 .gitignore
+-rw-r--r-- 1 mrjohn mrjohn   216 Nov  6 17:42 .golangci.yml
+-rw-r--r-- 1 mrjohn mrjohn  3299 Nov  6 18:57 go.mod
+-rw-r--r-- 1 mrjohn mrjohn 14945 Nov  6 18:56 go.sum
+drwxr-xr-x 1 mrjohn mrjohn   138 Nov  6 17:42 installer
+drwxr-xr-x 1 mrjohn mrjohn    62 Nov  6 17:42 integration
+drwxr-xr-x 1 mrjohn mrjohn   188 Nov  6 18:57 internal
+-rw-r--r-- 1 mrjohn mrjohn  1292 Nov  6 17:42 Makefile
+-rw-r--r-- 1 mrjohn mrjohn    97 Nov  6 17:42 mise.toml
+-rw-r--r-- 1 mrjohn mrjohn  1053 Nov  6 17:42 MIT-LICENSE
+drwxr-xr-x 1 mrjohn mrjohn  2004 Nov  6 17:49 prompt
+drwxr-xr-x 1 mrjohn mrjohn   840 Nov  6 17:44 prompt-v1
+-rw-r--r-- 1 mrjohn mrjohn  8244 Nov  6 17:42 README.md
+drwxr-xr-x 1 mrjohn mrjohn    10 Nov  6 18:58 .scratch
+drwxr-xr-x 1 mrjohn mrjohn    30 Nov  5 23:06 scripts
+module github.com/basecamp/once
+
+go 1.27.0
+
+require (
+	charm.land/bubbles/v2 v2.2.1
+	charm.land/bubbletea/v2 v2.0.9
+	charm.land/lipgloss/v2 v2.0.6
+	github.com/axiomhq/hyperloglog v0.2.6
+	github.com/charmbracelet/colorprofile v0.4.3
+	github.com/charmbracelet/x/ansi v0.11.8
+	github.com/charmbracelet/x/term v0.2.2
+	github.com/containerd/errdefs v1.0.0
+	github.com/distribution/reference v0.6.0
+	github.com/google/go-containerregistry v0.22.1
+	github.com/lucasb-eyer/go-colorful v1.4.1
+	github.com/mattn/go-runewidth v0.0.29
+	github.com/moby/moby/api v1.56.0
+	github.com/moby/moby/client v0.6.0
+	github.com/prometheus/client_model v0.6.3
+	github.com/prometheus/common v0.71.0
+	github.com/shirou/gopsutil/v4 v4.26.8
+	github.com/spf13/cobra v1.10.2
+	github.com/stretchr/testify v1.12.1
+	github.com/yuin/goldmark v1.8.6
+	golang.org/x/net v0.58.0
+)
+
+require (
+	github.com/Microsoft/go-winio v0.6.2 // indirect
+	github.com/atotto/clipboard v0.1.4 // indirect
+	github.com/cespare/xxhash/v2 v2.3.0 // indirect
+	github.com/charmbracelet/ultraviolet v0.0.0-20260811164956-006e29f97886 // indirect
+	github.com/charmbracelet/x/termios v0.1.1 // indirect
+	github.com/charmbracelet/x/windows v0.2.2 // indirect
+	github.com/clipperhouse/displaywidth v0.11.0 // indirect
+	github.com/clipperhouse/uax29/v2 v2.7.0 // indirect
+	github.com/containerd/errdefs/pkg v0.3.0 // indirect
+	github.com/dgryski/go-metro v0.0.0-20250106013310-edb8663e5e33 // indirect
+	github.com/docker/cli v29.7.2+incompatible // indirect
+	github.com/docker/docker-credential-helpers v0.9.8 // indirect
+	github.com/docker/go-connections v0.7.0 // indirect
+	github.com/docker/go-units v0.5.0 // indirect
+	github.com/ebitengine/purego v0.10.2 // indirect
+	github.com/felixge/httpsnoop v1.1.0 // indirect
+	github.com/go-logr/logr v1.4.3 // indirect
+	github.com/go-logr/stdr v1.2.2 // indirect
+	github.com/go-ole/go-ole v1.3.0 // indirect
+	github.com/inconshreveable/mousetrap v1.1.0 // indirect
+	github.com/kamstrup/intmap v0.5.2 // indirect
+	github.com/klauspost/compress v1.19.2 // indirect
+	github.com/lufia/plan9stats v0.0.0-20260330125221-c963978e514e // indirect
+	github.com/moby/docker-image-spec v1.3.1 // indirect
+	github.com/muesli/cancelreader v0.2.2 // indirect
+	github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822 // indirect
+	github.com/opencontainers/go-digest v1.0.0 // indirect
+	github.com/opencontainers/image-spec v1.1.1 // indirect
+	github.com/power-devops/perfstat v0.0.0-20240221224432-82ca36839d55 // indirect
+	github.com/rivo/uniseg v0.4.7 // indirect
+	github.com/sirupsen/logrus v1.9.4 // indirect
+	github.com/spf13/pflag v1.0.10 // indirect
+	github.com/tklauser/go-sysconf v0.4.0 // indirect
+	github.com/tklauser/numcpus v0.12.0 // indirect
+	github.com/xo/terminfo v0.0.0-20220910002029-abceb7e1c41e // indirect
+	github.com/yusufpapurcu/wmi v1.2.4 // indirect
+	go.opentelemetry.io/auto/sdk v1.2.1 // indirect
+	go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.69.0 // indirect
+	go.opentelemetry.io/otel v1.44.0 // indirect
+	go.opentelemetry.io/otel/metric v1.44.0 // indirect
+	go.opentelemetry.io/otel/trace v1.44.0 // indirect
+	go.yaml.in/yaml/v3 v3.0.5 // indirect
+	golang.org/x/sync v0.22.0 // indirect
+	golang.org/x/sys v0.47.0 // indirect
+	google.golang.org/protobuf v1.36.12 // indirect
+)
+./cmd/once/main.go
+./installer/main.go
+./installer/main_test.go
+./integration/docker_test.go
+./integration/testapp/main.go
+./integration/ui_test.go
+./internal/background/runner.go
+./internal/background/runner_test.go
+./internal/command/background.go
+./internal/command/background_install.go
+./internal/command/background_remove.go
+./internal/command/background_run.go
+./internal/command/backup.go
+./internal/command/cli_progress.go
+./internal/command/deploy.go
+./internal/command/deploy_test.go
+./internal/command/exec.go
+./internal/command/exec_test.go
+./internal/command/keys.go
+./internal/command/keys_reset.go
+./internal/command/keys_set.go
+./internal/command/list.go
+./internal/command/remove.go
+./internal/command/restore.go
+./internal/command/root.go
+./internal/command/root_test.go
+./internal/command/self_update.go
+./internal/command/settings_flags.go
+./internal/command/start.go
+./internal/command/stop.go
+./internal/command/teardown.go
+./internal/command/update.go
+./internal/command/update_test.go
+./internal/command/version.go
+./internal/command/open.go
+./internal/command/open_test.go
+./internal/command/show.go
+./internal/command/show_test.go
+./internal/command/logs.go
+./internal/command/logs_test.go
+./internal/command/status.go
+./internal/command/status_test.go
+./internal/command/list_test.go
+./internal/command/restart.go
+./internal/docker/application.go
+./internal/docker/application_backup.go
+./internal/docker/application_backup_test.go
+./internal/docker/application_settings.go
+./internal/docker/application_settings_test.go
+./internal/docker/application_test.go
+./internal/docker/container.go
+./internal/docker/errors.go
+./internal/docker/errors_test.go
+./internal/docker/events.go
+./internal/docker/helpers.go
+./internal/docker/helpers_test.go
+./internal/docker/logs.go
+./internal/docker/logs_test.go
+./internal/docker/namespace.go
+./internal/docker/namespace_test.go
+./internal/docker/progress.go
+./internal/docker/progress_test.go
+./internal/docker/proxy.go
+./internal/docker/proxy_test.go
+./internal/docker/registry_auth.go
+./internal/docker/registry_auth_test.go
+./internal/docker/ring_buffer.go
+./internal/docker/ring_buffer_test.go
+./internal/docker/scraper.go
+./internal/docker/scraper_test.go
+./internal/docker/state.go
+./internal/docker/state_test.go
+./internal/docker/volume.go
+./internal/docker/volume_test.go
+./internal/docker/application_static_test.go
+./internal/docker/source.go
+./internal/docker/source_test.go
+./internal/docker/site.go
+./internal/docker/site_test.go
+./internal/docker/markdown.go
+./internal/docker/channels.go
+./internal/docker/channels_test.go
+./internal/docker/appbar.go
+./internal/docker/appbar_test.go
+./internal/fsutil/fsutil.go
+./internal/fsutil/fsutil_test.go
+./internal/logging/log.go
+./internal/metrics/scraper.go
+./internal/metrics/scraper_test.go
+./internal/mouse/lexer.go
+./internal/mouse/lexer_test.go
+./internal/mouse/tracker.go
+./internal/mouse/tracker_test.go
+./internal/service/launchd.go
+./internal/service/service.go
+./internal/service/systemd.go
+./internal/system/disk.go
+./internal/system/scraper.go
+./internal/system/scraper_test.go
+./internal/ui/actions_menu.go
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && cat internal/command/root.go && echo ===== && cat internal/command/status.go && echo ===== && cat internal/command/list.go
+package command
+
+import (
+	"context"
+	"errors"
+	"fmt"
+
+	"github.com/spf13/cobra"
+
+	"github.com/basecamp/once/internal/docker"
+	"github.com/basecamp/once/internal/logging"
+	"github.com/basecamp/once/internal/ui"
+)
+
+type RootCommand struct {
+	cmd       *cobra.Command
+	namespace string
+
+	installImageRef string
+}
+
+func NewRootCommand() *RootCommand {
+	r := &RootCommand{}
+	r.cmd = &cobra.Command{
+		Use:           "once",
+		Short:         "Manage web applications from Docker images",
+		SilenceUsage:  true,
+		SilenceErrors: true,
+		CompletionOptions: cobra.CompletionOptions{
+			HiddenDefaultCmd: true,
+		},
+		RunE: WithNamespace(func(ctx context.Context, ns *docker.Namespace, cmd *cobra.Command, args []string) error {
+			return logging.ToLogFile(func() error {
+				return ui.Run(ns, r.installImageRef)
+			})
+		}),
+	}
+	r.cmd.PersistentFlags().StringVarP(&r.namespace, "namespace", "n", docker.DefaultNamespace, "namespace for containers")
+
+	r.cmd.Flags().StringVar(&r.installImageRef, "install", "", "Path to Docker image to install")
+
+	r.cmd.AddCommand(newBackgroundCommand().cmd)
+	r.cmd.AddCommand(newBackupCommand().cmd)
+	r.cmd.AddCommand(newDeployCommand().cmd)
+	r.cmd.AddCommand(newExecCommand().cmd)
+	r.cmd.AddCommand(newKeysCommand().cmd)
+	r.cmd.AddCommand(newListCommand().cmd)
+	r.cmd.AddCommand(newLogsCommand().cmd)
+	r.cmd.AddCommand(newOpenCommand().cmd)
+	r.cmd.AddCommand(newRemoveCommand().cmd)
+	r.cmd.AddCommand(newRestartCommand().cmd)
+	r.cmd.AddCommand(newRestoreCommand().cmd)
+	r.cmd.AddCommand(newShowCommand().cmd)
+	r.cmd.AddCommand(newStartCommand().cmd)
+	r.cmd.AddCommand(newStatusCommand().cmd)
+	r.cmd.AddCommand(newStopCommand().cmd)
+	r.cmd.AddCommand(newTeardownCommand().cmd)
+	r.cmd.AddCommand(newUpdateCommand().cmd)
+	r.cmd.AddCommand(newSelfUpdateCommand().cmd)
+	r.cmd.AddCommand(newVersionCommand().cmd)
+
+	return r
+}
+
+func (r *RootCommand) Execute() error {
+	return r.cmd.Execute()
+}
+
+// Helpers
+
+type NamespaceRunE func(ctx context.Context, ns *docker.Namespace, cmd *cobra.Command, args []string) error
+
+func findApplication(ns *docker.Namespace, host string) (*docker.Application, error) {
+	app := ns.ApplicationByHost(host)
+	if app == nil {
+		return nil, fmt.Errorf("no application found at host %q", host)
+	}
+	return app, nil
+}
+
+func withApplication(ns *docker.Namespace, host string, action string, fn func(*docker.Application) error) error {
+	app, err := findApplication(ns, host)
+	if err != nil {
+		return err
+	}
+
+	if err := fn(app); err != nil {
+		return fmt.Errorf("%s application: %w", action, err)
+	}
+
+	return nil
+}
+
+func WithNamespace(fn NamespaceRunE) func(*cobra.Command, []string) error {
+	return func(cmd *cobra.Command, args []string) error {
+		ctx := context.Background()
+
+		ns, err := docker.RestoreNamespace(ctx, namespaceFlag(cmd))
+		if err != nil {
+			return fmt.Errorf("restoring namespace: %w", err)
+		}
+
+		return fn(ctx, ns, cmd, args)
+	}
+}
+
+func namespaceFlag(cmd *cobra.Command) string {
+	namespace, _ := cmd.Root().PersistentFlags().GetString("namespace")
+	return namespace
+}
+
+type exitCoder interface {
+	error
+	ExitCode() int
+}
+
+func ExitCode(err error) (int, bool) {
+	if e, ok := errors.AsType[exitCoder](err); ok {
+		return e.ExitCode(), true
+	}
+	return 0, false
+}
+
+func IsExitError(err error) bool {
+	_, ok := ExitCode(err)
+	return ok
+}
+=====
+package command
+
+import (
+	"context"
+	"encoding/json"
+	"fmt"
+	"io"
+	"time"
+
+	"github.com/spf13/cobra"
+
+	"github.com/basecamp/once/internal/docker"
+)
+
+type statusCommand struct {
+	cmd *cobra.Command
+
+	asJSON    bool
+	now       func() time.Time
+	loadState func(context.Context, *docker.Namespace) (*docker.State, error)
+}
+
+type statusReport struct {
+	Host          string           `json:"host"`
+	URL           string           `json:"url"`
+	Image         string           `json:"image"`
+	Source        string           `json:"source,omitempty"`
+	State         string           `json:"state"`
+	UptimeSeconds *int64           `json:"uptimeSeconds"`
+	RunningSince  *time.Time       `json:"runningSince,omitempty"`
+	Resources     statusResources  `json:"resources"`
+	LastUpdate    *statusOperation `json:"lastUpdate"`
+	LastBackup    *statusOperation `json:"lastBackup"`
+}
+
+type statusResources struct {
+	CPUs     int `json:"cpus"`
+	MemoryMB int `json:"memoryMB"`
+}
+
+type statusOperation struct {
+	At    time.Time `json:"at"`
+	Error string    `json:"error,omitempty"`
+}
+
+func newStatusCommand() *statusCommand {
+	s := &statusCommand{
+		now: time.Now,
+		loadState: func(ctx context.Context, ns *docker.Namespace) (*docker.State, error) {
+			return ns.LoadState(ctx)
+		},
+	}
+	s.cmd = &cobra.Command{
+		Use:   "status <host>",
+		Short: "Show an application's status",
+		Args:  cobra.ExactArgs(1),
+		RunE:  WithNamespace(s.run),
+	}
+	s.cmd.Flags().BoolVar(&s.asJSON, "json", false, "print the status as JSON")
+	return s
+}
+
+// Private
+
+func (s *statusCommand) run(ctx context.Context, ns *docker.Namespace, cmd *cobra.Command, args []string) error {
+	app, err := findApplication(ns, args[0])
+	if err != nil {
+		return err
+	}
+
+	state, err := s.loadState(ctx, ns)
+	if err != nil {
+		return fmt.Errorf("loading state: %w", err)
+	}
+
+	report := s.report(app, state)
+	if s.asJSON {
+		return json.NewEncoder(cmd.OutOrStdout()).Encode(report)
+	}
+
+	s.print(cmd.OutOrStdout(), report)
+	return nil
+}
+
+func (s *statusCommand) report(app *docker.Application, state *docker.State) statusReport {
+	report := statusReport{
+		Host:       app.Settings.Host,
+		URL:        app.URL(),
+		Image:      app.Settings.Image,
+		Source:     app.Settings.Source,
+		State:      "stopped",
+		Resources:  statusResources{CPUs: app.Settings.Resources.CPUs, MemoryMB: app.Settings.Resources.MemoryMB},
+		LastUpdate: statusOperationFrom(state.AppState(app.Settings.Name).LastUpdateResult()),
+		LastBackup: statusOperationFrom(state.AppState(app.Settings.Name).LastBackupResult()),
+	}
+
+	if app.Running {
+		report.State = "running"
+		if !app.RunningSince.IsZero() {
+			since := app.RunningSince
+			uptime := max(int64(s.now().Sub(since).Seconds()), 0)
+			report.RunningSince = &since
+			report.UptimeSeconds = &uptime
+		}
+	}
+
+	return report
+}
+
+func (s *statusCommand) print(w io.Writer, report statusReport) {
+	writeStatusLine(w, "Host:", report.Host)
+	writeStatusLine(w, "URL:", report.URL)
+	writeStatusLine(w, "Image:", report.Image)
+	if report.Source != "" {
+		writeStatusLine(w, "Source:", report.Source)
+	}
+	writeStatusLine(w, "State:", report.State)
+	writeStatusLine(w, "Uptime:", statusUptime(report))
+	writeStatusLine(w, "CPUs:", statusLimit(report.Resources.CPUs))
+	writeStatusLine(w, "Memory:", statusMemory(report.Resources.MemoryMB))
+	writeStatusLine(w, "Last update:", statusOperationText(report.LastUpdate))
+	writeStatusLine(w, "Last backup:", statusOperationText(report.LastBackup))
+}
+
+// Helpers
+
+func statusOperationFrom(result *docker.OperationResult) *statusOperation {
+	if result == nil {
+		return nil
+	}
+	return &statusOperation{At: result.At, Error: result.Error}
+}
+
+func writeStatusLine(w io.Writer, label, value string) {
+	fmt.Fprintf(w, "%-13s%s\n", label, value)
+}
+
+func statusUptime(report statusReport) string {
+	if report.UptimeSeconds == nil {
+		return "—"
+	}
+	return formatStatusDuration(time.Duration(*report.UptimeSeconds) * time.Second)
+}
+
+func statusLimit(value int) string {
+	if value == 0 {
+		return "unlimited"
+	}
+	return fmt.Sprint(value)
+}
+
+func statusMemory(memoryMB int) string {
+	if memoryMB == 0 {
+		return "unlimited"
+	}
+	return fmt.Sprintf("%d MB", memoryMB)
+}
+
+func statusOperationText(operation *statusOperation) string {
+	if operation == nil {
+		return "Never"
+	}
+
+	text := operation.At.Format("2 Jan 2006, 15:04")
+	if operation.Error != "" {
+		text += " (failed: " + operation.Error + ")"
+	}
+	return text
+}
+
+func formatStatusDuration(d time.Duration) string {
+	if d < time.Minute {
+		return fmt.Sprintf("%ds", int(d.Seconds()))
+	}
+	if d < time.Hour {
+		return fmt.Sprintf("%dm", int(d.Minutes()))
+	}
+	if d < 24*time.Hour {
+		hours := int(d.Hours())
+		mins := int(d.Minutes()) % 60
+		if mins == 0 {
+			return fmt.Sprintf("%dh", hours)
+		}
+		return fmt.Sprintf("%dh %dm", hours, mins)
+	}
+	days := int(d.Hours()) / 24
+	hours := int(d.Hours()) % 24
+	if hours == 0 {
+		return fmt.Sprintf("%dd", days)
+	}
+	return fmt.Sprintf("%dd %dh", days, hours)
+}
+=====
+package command
+
+import (
+	"context"
+	"encoding/json"
+	"fmt"
+	"io"
+	"time"
+
+	"charm.land/lipgloss/v2"
+	"github.com/spf13/cobra"
+
+	"github.com/basecamp/once/internal/docker"
+)
+
+var hostStyle = lipgloss.NewStyle().Foreground(lipgloss.BrightBlue)
+
+type listCommand struct {
+	cmd *cobra.Command
+
+	asJSON    bool
+	now       func() time.Time
+	loadState func(context.Context, *docker.Namespace) (*docker.State, error)
+}
+
+type listApp struct {
+	Host     string           `json:"host"`
+	Image    string           `json:"image,omitempty"`
+	Folder   string           `json:"folder,omitempty"`
+	State    string           `json:"state"`
+	Channels []docker.Channel `json:"channels"`
+}
+
+func newListCommand() *listCommand {
+	l := &listCommand{
+		now: time.Now,
+		loadState: func(ctx context.Context, ns *docker.Namespace) (*docker.State, error) {
+			return ns.LoadState(ctx)
+		},
+	}
+	l.cmd = &cobra.Command{
+		Use:     "list",
+		Aliases: []string{"ls"},
+		Short:   "List installed applications",
+		RunE:    WithNamespace(l.run),
+	}
+	l.cmd.Flags().BoolVar(&l.asJSON, "json", false, "print the applications as JSON")
+	return l
+}
+
+// Private
+
+func (l *listCommand) run(ctx context.Context, ns *docker.Namespace, cmd *cobra.Command, args []string) error {
+	w := cmd.OutOrStdout()
+
+	if l.asJSON {
+		return l.writeJSON(ctx, ns, w)
+	}
+
+	for _, app := range ns.Applications() {
+		host := hostStyle.Hyperlink(app.URL()).Render(app.Settings.Host)
+		fmt.Fprintf(w, "%s (%s)\n", host, appState(app))
+	}
+
+	return nil
+}
+
+func (l *listCommand) writeJSON(ctx context.Context, ns *docker.Namespace, w io.Writer) error {
+	state, err := l.loadState(ctx, ns)
+	if err != nil {
+		return fmt.Errorf("loading state: %w", err)
+	}
+	if state == nil {
+		state = &docker.State{}
+	}
+
+	apps := make([]listApp, len(ns.Applications()))
+	for i, app := range ns.Applications() {
+		apps[i] = l.listApp(app, state)
+	}
+
+	return json.NewEncoder(w).Encode(apps)
+}
+
+func (l *listCommand) listApp(app *docker.Application, state *docker.State) listApp {
+	entry := listApp{
+		Host:  app.Settings.Host,
+		Image: app.Settings.Image,
+		State: appState(app),
+		Channels: app.Channels(docker.ChannelContext{
+			Now:        l.now(),
+			LastBackup: state.AppState(app.Settings.Name).LastBackupResult(),
+		}),
+	}
+
+	if app.Settings.Source != "" {
+		entry.Image = ""
+		entry.Folder = app.Settings.Source
+	}
+
+	return entry
+}
+
+// Helpers
+
+func appState(app *docker.Application) string {
+	if app.Running {
+		return "running"
+	}
+	return "stopped"
+}
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && ls prompt && echo ==== && cat Makefile .golangci.yml
+00-overview.md
+01-deploy-static-folder.md
+02-serve-static-apps.md
+03-redeploy-folder.md
+04-stale-source-detection.md
+05-folder-contents-fallback.md
+06-markdown-pages.md
+07-single-file-html-site.md
+08-remove-static-app.md
+09-contents-card.md
+10-contents-screen.md
+11-channels.md
+12-channel-filter.md
+13-favorites.md
+14-drift.md
+15-app-bar.md
+16-bar-keys.md
+17-bar-cross-fade.md
+18-bar-hide.md
+19-open-command.md
+20-show-command.md
+21-logs-command.md
+22-status-command.md
+23-list-json.md
+24-restart-command.md
+25-update-all.md
+26-doctor-command.md
+27-backups-list.md
+28-screenshot-capture.md
+29-card-thumbnails.md
+30-route-map.md
+31-page-weight.md
+32-broken-links.md
+33-meta-preview.md
+34-deploy-diff.md
+35-promote-on-evidence.md
+36-error-capture.md
+37-dashboard-filter.md
+38-command-palette.md
+39-toasts.md
+40-chart-time-range.md
+41-compact-layout.md
+42-appearance-settings.md
+43-app-details-view.md
+44-mouse-on-cards.md
+45-incremental-render.md
+46-chart-performance.md
+47-single-stats-stream.md
+48-share-link.md
+49-status-page.md
+50-house-style-pass.md
+====
+.PHONY: build test integration lint lint-actions coverage dist test-release
+
+PLATFORMS = linux darwin
+ARCHITECTURES = amd64 arm64
+VERSION := $(shell git describe --tags --always)
+LDFLAGS := -ldflags "-s -w -X 'github.com/basecamp/once/internal/version.Version=$(VERSION)'"
+
+TEST_RELEASE_TAG = v0.0.1-test
+
+build:
+	CGO_ENABLED=0 go build -trimpath $(LDFLAGS) -o bin/ ./cmd/...
+
+build-all:
+	@for os in $(PLATFORMS); do \
+		for arch in $(ARCHITECTURES); do \
+			echo "Building for $$os/$$arch..."; \
+			CGO_ENABLED=0 GOOS=$$os GOARCH=$$arch go build -trimpath $(LDFLAGS) -o bin/$$os-$$arch/ ./cmd/...; \
+		done; \
+	done
+
+test:
+	go test ./internal/...
+
+integration:
+	go test -v -count=1 -parallel 16 -timeout 30m ./integration/...
+
+check:
+	go vet ./...
+	govulncheck ./...
+
+lint:
+	golangci-lint run
+
+lint-actions:
+	actionlint
+	zizmor .
+
+coverage:
+	go test -coverprofile=coverage.out ./internal/...
+	go tool cover -html=coverage.out
+
+dist: build-all
+	mkdir -p dist
+	@for os in $(PLATFORMS); do \
+		for arch in $(ARCHITECTURES); do \
+			cp bin/$$os-$$arch/once dist/once-$$os-$$arch; \
+		done; \
+	done
+	cd dist && sha256sum once-* > checksums.txt
+
+test-release:
+	-gh release delete $(TEST_RELEASE_TAG) --yes --cleanup-tag
+	git tag -f $(TEST_RELEASE_TAG)
+	git push origin $(TEST_RELEASE_TAG) --force
+version: "2"
+
+formatters:
+  enable:
+    - gofmt
+    - gci
+  settings:
+    gci:
+      sections:
+        - standard
+        - default
+        - localmodule
+
+linters:
+  enable:
+    - modernize
+  disable:
+    - errcheck
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && cat prompt/00-overview.md && echo ==== && sed -n 1,200p internal/docker/namespace.go && echo ==== && sed -n 1,240p internal/docker/proxy.go
+These prompts change the ONCE Go CLI/TUI in this repository, one feature per file, run in order with a fresh agent for each.
+
+House style here is the project's own Go conventions plus `make lint`; the wider reference copy is at /home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+
+The last line of every file is the same, and it means `make test` and `make lint` both run clean.
+
+Each file is the whole instruction for its session. Read only the one you are running.
+====
+package docker
+
+import (
+	"context"
+	"errors"
+	"fmt"
+	"io"
+	"log/slog"
+	"regexp"
+	"slices"
+	"strings"
+	"time"
+
+	"github.com/containerd/errdefs"
+	"github.com/moby/moby/client"
+)
+
+const DefaultNamespace = "once"
+
+var ErrInvalidNamespace = errors.New("invalid namespace: must contain only lowercase letters, digits, and hyphens, and must not start with a hyphen")
+
+type Namespace struct {
+	name         string
+	client       *client.Client
+	proxy        *Proxy
+	applications []*Application
+}
+
+type NamespaceOption func(*Namespace)
+
+func WithApplications(apps ...ApplicationSettings) NamespaceOption {
+	return func(ns *Namespace) {
+		for _, s := range apps {
+			ns.addApplication(s)
+		}
+	}
+}
+
+func NewNamespace(name string, opts ...NamespaceOption) (*Namespace, error) {
+	if name == "" {
+		name = DefaultNamespace
+	}
+
+	if !validNamespace.MatchString(name) {
+		return nil, fmt.Errorf("%w: %q", ErrInvalidNamespace, name)
+	}
+
+	c, err := client.New(client.FromEnv)
+	if err != nil {
+		return nil, err
+	}
+
+	ns := &Namespace{
+		name:   name,
+		client: c,
+	}
+	ns.proxy = NewProxy(ns)
+
+	for _, opt := range opts {
+		opt(ns)
+	}
+
+	return ns, nil
+}
+
+func RestoreNamespace(ctx context.Context, name string) (*Namespace, error) {
+	ns, err := NewNamespace(name)
+	if err != nil {
+		return nil, err
+	}
+
+	if err := ns.restoreState(ctx); err != nil {
+		return nil, err
+	}
+
+	return ns, nil
+}
+
+func (n *Namespace) Name() string {
+	return n.name
+}
+
+func (n *Namespace) addApplication(settings ApplicationSettings) *Application {
+	app := NewApplication(n, settings)
+	n.applications = append(n.applications, app)
+	n.sortApplications()
+	return app
+}
+
+func (n *Namespace) Proxy() *Proxy {
+	return n.proxy
+}
+
+func (n *Namespace) Application(name string) *Application {
+	for _, app := range n.applications {
+		if app.Settings.Name == name {
+			return app
+		}
+	}
+	return nil
+}
+
+func (n *Namespace) Applications() []*Application {
+	return n.applications
+}
+
+func (n *Namespace) ApplicationByHost(host string) *Application {
+	for _, app := range n.applications {
+		if app.Settings.Host == host {
+			return app
+		}
+	}
+	return nil
+}
+
+func (n *Namespace) HostInUse(host string) bool {
+	return n.ApplicationByHost(host) != nil
+}
+
+func (n *Namespace) HostInUseByAnother(host string, excludeApp string) bool {
+	for _, app := range n.applications {
+		if app.Settings.Host == host && app.Settings.Name != excludeApp {
+			return true
+		}
+	}
+	return false
+}
+
+func (n *Namespace) UniqueName(base string) (string, error) {
+	for {
+		id, err := randomID(6)
+		if err != nil {
+			return "", err
+		}
+		candidate := fmt.Sprintf("%s.%s", base, id)
+		if n.Application(candidate) == nil {
+			return candidate, nil
+		}
+	}
+}
+
+func (n *Namespace) Setup(ctx context.Context) error {
+	if err := n.EnsureNetwork(ctx); err != nil {
+		return err
+	}
+
+	return n.proxy.Boot(ctx, ProxySettings{})
+}
+
+func (n *Namespace) EnsureNetwork(ctx context.Context) error {
+	networks, err := n.client.NetworkList(ctx, client.NetworkListOptions{})
+	if err != nil {
+		return err
+	}
+
+	for _, net := range networks.Items {
+		if net.Name == n.name {
+			return nil
+		}
+	}
+
+	_, err = n.client.NetworkCreate(ctx, n.name, client.NetworkCreateOptions{
+		Driver: "bridge",
+	})
+	return err
+}
+
+func (n *Namespace) Teardown(ctx context.Context, destroyVolumes bool) error {
+	for _, app := range n.applications {
+		if err := app.Destroy(ctx, destroyVolumes); err != nil {
+			return err
+		}
+	}
+
+	if err := n.proxy.Destroy(ctx); err != nil {
+		return err
+	}
+
+	if _, err := n.client.NetworkRemove(ctx, n.name, client.NetworkRemoveOptions{}); err != nil && !errdefs.IsNotFound(err) {
+		return err
+	}
+	return nil
+}
+
+func (n *Namespace) Refresh(ctx context.Context) error {
+	n.applications = nil
+	return n.restoreState(ctx)
+}
+
+func (n *Namespace) DockerRootDir(ctx context.Context) (string, error) {
+	info, err := n.client.Info(ctx, client.InfoOptions{})
+	if err != nil {
+		return "", err
+	}
+	return info.Info.DockerRootDir, nil
+}
+
+func (n *Namespace) EventWatcher() *EventWatcher {
+	return NewEventWatcher(n.client, n.name)
+}
+====
+package docker
+
+import (
+	"archive/tar"
+	"bytes"
+	"context"
+	"encoding/json"
+	"fmt"
+	"io"
+	"log/slog"
+	"net/netip"
+	"strings"
+
+	"github.com/containerd/errdefs"
+	"github.com/moby/moby/api/types/container"
+	"github.com/moby/moby/api/types/mount"
+	"github.com/moby/moby/api/types/network"
+	"github.com/moby/moby/client"
+)
+
+const (
+	ProxyImage = "basecamp/kamal-proxy:once-01"
+	labelKey   = "once"
+)
+
+const (
+	stateFileDir  = "/home/kamal-proxy/.config/kamal-proxy"
+	stateFileName = "once-state.json"
+	stateFilePath = stateFileDir + "/" + stateFileName
+)
+
+const (
+	DefaultHTTPPort    = 80
+	DefaultHTTPSPort   = 443
+	DefaultMetricsPort = 1318
+	deployTimeout      = "120s"
+)
+
+type ProxySettings struct {
+	HTTPPort    int `json:"httpPort"`
+	HTTPSPort   int `json:"httpsPort"`
+	MetricsPort int `json:"metricsPort"`
+}
+
+func UnmarshalProxySettings(s string) (ProxySettings, error) {
+	var settings ProxySettings
+	err := json.Unmarshal([]byte(s), &settings)
+	return settings, err
+}
+
+func (s ProxySettings) Marshal() string {
+	b, _ := json.Marshal(s)
+	return string(b)
+}
+
+type DeployOptions struct {
+	AppName string
+	Target  string
+	Host    string
+	TLS     bool
+}
+
+type Proxy struct {
+	namespace *Namespace
+	Settings  *ProxySettings
+}
+
+func NewProxy(ns *Namespace) *Proxy {
+	return &Proxy{namespace: ns}
+}
+
+func (p *Proxy) Boot(ctx context.Context, settings ProxySettings) error {
+	if settings.HTTPPort == 0 {
+		settings.HTTPPort = DefaultHTTPPort
+	}
+	if settings.HTTPSPort == 0 {
+		settings.HTTPSPort = DefaultHTTPSPort
+	}
+	if settings.MetricsPort == 0 {
+		settings.MetricsPort = DefaultMetricsPort
+	}
+
+	info, err := p.namespace.client.ContainerInspect(ctx, p.containerName(), client.ContainerInspectOptions{})
+	if err == nil {
+		return p.ensureRunning(ctx, info.Container)
+	}
+	if !errdefs.IsNotFound(err) {
+		return fmt.Errorf("inspecting proxy container: %w", err)
+	}
+
+	reader, err := p.namespace.client.ImagePull(ctx, ProxyImage, client.ImagePullOptions{})
+	if err != nil {
+		return fmt.Errorf("pulling proxy image: %w", err)
+	}
+	defer reader.Close()
+	_, _ = io.Copy(io.Discard, reader)
+
+	name := p.containerName()
+	httpPortTCP := network.MustParsePort("80/tcp")
+	httpsPortTCP := network.MustParsePort("443/tcp")
+	metricsPortTCP := network.MustParsePort(fmt.Sprintf("%d/tcp", settings.MetricsPort))
+
+	resp, err := p.namespace.client.ContainerCreate(ctx, client.ContainerCreateOptions{
+		Name: name,
+		Config: &container.Config{
+			Image: ProxyImage,
+			Cmd:   []string{"kamal-proxy", "run", "--metrics-port", fmt.Sprintf("%d", settings.MetricsPort)},
+			Labels: map[string]string{
+				labelKey: settings.Marshal(),
+			},
+			ExposedPorts: network.PortSet{
+				httpPortTCP:    struct{}{},
+				httpsPortTCP:   struct{}{},
+				metricsPortTCP: struct{}{},
+			},
+		},
+		HostConfig: &container.HostConfig{
+			PortBindings: network.PortMap{
+				httpPortTCP:    []network.PortBinding{{HostPort: fmt.Sprintf("%d", settings.HTTPPort)}},
+				httpsPortTCP:   []network.PortBinding{{HostPort: fmt.Sprintf("%d", settings.HTTPSPort)}},
+				metricsPortTCP: []network.PortBinding{{HostIP: netip.MustParseAddr("127.0.0.1"), HostPort: fmt.Sprintf("%d", settings.MetricsPort)}},
+			},
+			RestartPolicy: container.RestartPolicy{Name: container.RestartPolicyAlways},
+			LogConfig:     ContainerLogConfig(),
+			Mounts: []mount.Mount{
+				{
+					Type:   mount.TypeVolume,
+					Source: name,
+					Target: "/home/kamal-proxy/.config/kamal-proxy",
+				},
+			},
+		},
+		NetworkingConfig: &network.NetworkingConfig{
+			EndpointsConfig: map[string]*network.EndpointSettings{
+				p.namespace.name: {},
+			},
+		},
+	})
+	if err != nil {
+		return fmt.Errorf("creating proxy container: %w", err)
+	}
+
+	if _, err := p.namespace.client.ContainerStart(ctx, resp.ID, client.ContainerStartOptions{}); err != nil {
+		if isPortConflict(err) {
+			slog.Error("Port conflict starting proxy", "error", err)
+			return ErrProxyPortInUse
+		}
+		return fmt.Errorf("starting proxy container: %w", err)
+	}
+
+	p.Settings = &settings
+	return nil
+}
+
+func (p *Proxy) Destroy(ctx context.Context) error {
+	containerName := p.containerName()
+
+	if _, err := p.namespace.client.ContainerRemove(ctx, containerName, client.ContainerRemoveOptions{Force: true}); err != nil {
+		if !errdefs.IsNotFound(err) {
+			return fmt.Errorf("removing proxy: %w", err)
+		}
+	}
+
+	if _, err := p.namespace.client.VolumeRemove(ctx, containerName, client.VolumeRemoveOptions{Force: true}); err != nil {
+		if !errdefs.IsNotFound(err) {
+			return fmt.Errorf("removing proxy volume: %w", err)
+		}
+	}
+
+	p.Settings = nil
+	return nil
+}
+
+func (p *Proxy) Exec(ctx context.Context, cmd []string) error {
+	output, err := p.ExecOutput(ctx, cmd)
+	if err != nil && output != "" {
+		return fmt.Errorf("%w: %s", err, strings.TrimSpace(output))
+	}
+	return err
+}
+
+func (p *Proxy) Remove(ctx context.Context, appName string) error {
+	return p.Exec(ctx, []string{"kamal-proxy", "remove", appName})
+}
+
+func (p *Proxy) Deploy(ctx context.Context, opts DeployOptions) error {
+	return p.Exec(ctx, p.deployArgs(opts))
+}
+
+func (p *Proxy) containerName() string {
+	return p.namespace.name + "-proxy"
+}
+
+// Private
+
+func (p *Proxy) ensureRunning(ctx context.Context, info container.InspectResponse) error {
+	if !info.State.Running {
+		if _, err := p.namespace.client.ContainerStart(ctx, info.ID, client.ContainerStartOptions{}); err != nil {
+			if isPortConflict(err) {
+				slog.Error("Port conflict starting proxy", "error", err)
+				return ErrProxyPortInUse
+			}
+			return fmt.Errorf("starting proxy container: %w", err)
+		}
+	}
+
+	label := info.Config.Labels[labelKey]
+	if label != "" {
+		settings, err := UnmarshalProxySettings(label)
+		if err != nil {
+			return fmt.Errorf("unmarshalling proxy settings: %w", err)
+		}
+		p.Settings = &settings
+	}
+
+	return nil
+}
+
+func (p *Proxy) deployArgs(opts DeployOptions) []string {
+	args := []string{"kamal-proxy", "deploy", opts.AppName, "--target", opts.Target, "--deploy-timeout", deployTimeout}
+
+	if opts.Host != "" {
+		args = append(args, "--host", opts.Host)
+	}
+
+	if opts.TLS {
+		args = append(args, "--tls")
+	}
+
+	return args
+}
+
+func (p *Proxy) LoadState(ctx context.Context) (*State, error) {
+	containerName := p.containerName()
+
+	res, err := p.namespace.client.CopyFromContainer(ctx, containerName, client.CopyFromContainerOptions{SourcePath: stateFilePath})
+	if err != nil {
+		// Return empty state when the file doesn't exist yet (first boot)
+		if errdefs.IsNotFound(err) {
+			return &State{}, nil
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && sed -n 1,220p internal/docker/state.go && echo ==== && cat internal/system/disk.go && echo ==== && sed -n 1,160p internal/docker/application.go
+package docker
+
+import "time"
+
+type State struct {
+	Apps           map[string]*AppState `json:"apps"`
+	LastSelfUpdate OperationResult      `json:"lastSelfUpdate"`
+}
+
+type AppState struct {
+	Favorite   bool            `json:"favorite,omitempty"`
+	LastBackup OperationResult `json:"lastBackup"`
+	LastUpdate OperationResult `json:"lastUpdate"`
+}
+
+func (as *AppState) LastBackupResult() *OperationResult {
+	if as == nil || as.LastBackup.At.IsZero() {
+		return nil
+	}
+	return &as.LastBackup
+}
+
+func (as *AppState) LastUpdateResult() *OperationResult {
+	if as == nil || as.LastUpdate.At.IsZero() {
+		return nil
+	}
+	return &as.LastUpdate
+}
+
+type OperationResult struct {
+	At    time.Time `json:"at"`
+	Error string    `json:"error"`
+}
+
+func (s *State) BackupDue(appName string) bool {
+	return s.operationDue(appName, func(as *AppState) OperationResult { return as.LastBackup })
+}
+
+func (s *State) UpdateDue(appName string) bool {
+	return s.operationDue(appName, func(as *AppState) OperationResult { return as.LastUpdate })
+}
+
+func (s *State) AppState(appName string) *AppState {
+	if s.Apps == nil {
+		return nil
+	}
+	return s.Apps[appName]
+}
+
+func (s *State) IsFavorite(appName string) bool {
+	if s == nil {
+		return false
+	}
+	app, ok := s.Apps[appName]
+	return ok && app.Favorite
+}
+
+func (s *State) SetFavorite(appName string, favorite bool) {
+	s.ensureApp(appName).Favorite = favorite
+}
+
+func (s *State) SelfUpdateDue() bool {
+	if s.LastSelfUpdate.At.IsZero() {
+		return true
+	}
+	return s.LastSelfUpdate.Error != "" || time.Since(s.LastSelfUpdate.At) >= AutomaticTaskInterval
+}
+
+func (s *State) RecordSelfUpdate(err error) {
+	s.LastSelfUpdate = newResult(err)
+}
+
+func (s *State) RecordBackup(appName string, err error) {
+	s.ensureApp(appName).LastBackup = newResult(err)
+}
+
+func (s *State) RecordUpdate(appName string, err error) {
+	s.ensureApp(appName).LastUpdate = newResult(err)
+}
+
+// Private
+
+func (s *State) operationDue(appName string, getResult func(*AppState) OperationResult) bool {
+	app, ok := s.Apps[appName]
+	if !ok {
+		return true
+	}
+
+	result := getResult(app)
+	if result.At.IsZero() {
+		return true
+	}
+
+	return result.Error != "" || time.Since(result.At) >= AutomaticTaskInterval
+}
+
+func (s *State) ensureApp(appName string) *AppState {
+	if s.Apps == nil {
+		s.Apps = make(map[string]*AppState)
+	}
+
+	app, ok := s.Apps[appName]
+	if !ok {
+		app = &AppState{}
+		s.Apps[appName] = app
+	}
+
+	return app
+}
+
+// Helpers
+
+func newResult(err error) OperationResult {
+	r := OperationResult{At: time.Now()}
+	if err != nil {
+		r.Error = ErrorMessage(err)
+	}
+	return r
+}
+====
+package system
+
+import "syscall"
+
+func statDisk(path string) (total, used, free uint64, err error) {
+	var stat syscall.Statfs_t
+	if err = syscall.Statfs(path, &stat); err != nil {
+		return
+	}
+
+	total = stat.Blocks * uint64(stat.Bsize)
+	free = stat.Bfree * uint64(stat.Bsize)
+	used = total - free
+	return
+}
+====
+package docker
+
+import (
+	"cmp"
+	"context"
+	"errors"
+	"fmt"
+	"log/slog"
+	"net/http"
+	"strconv"
+	"strings"
+	"time"
+
+	"github.com/containerd/errdefs"
+	"github.com/moby/moby/api/types/container"
+	"github.com/moby/moby/api/types/mount"
+	"github.com/moby/moby/api/types/network"
+	"github.com/moby/moby/client"
+)
+
+var (
+	ErrApplicationExists     = errors.New("application already exists")
+	ErrHostnameInUse         = errors.New("hostname already in use")
+	ErrHostRequired          = errors.New("host is required")
+	ErrInvalidBackup         = errors.New("invalid backup archive")
+	ErrImageRequired         = errors.New("image is required")
+	ErrApplicationNotRunning = errors.New("the application is not running")
+	ErrBackupPathRelative    = errors.New("backup path must be absolute")
+	ErrBackupFileExists      = errors.New("backup file already exists")
+	ErrAutoBackupWithoutPath = errors.New("auto-backup requires a backup path")
+	ErrSetupFailed           = errors.New("setup failed")
+	ErrPullFailed            = &describedError{
+		msg:         "pull failed",
+		description: "Failed to download the application image. Check that the image name is correct and try again.",
+	}
+	ErrPullMaybeUnauthorized = &describedError{
+		msg:         "image missing or authentication required",
+		description: "Could not pull the image. The image may not exist, or it may require registry credentials.",
+	}
+	ErrDeployFailed       = errors.New("deploy failed")
+	ErrVerificationFailed = &describedError{
+		msg:         "verification failed",
+		description: "The application couldn't be verified. Please check that you have a valid DNS record set up.",
+	}
+	ErrUnpauseFailed                   = errors.New("failed to unpause container after backup")
+	ErrRegistryPasswordWithoutUsername = errors.New("registry password requires a username")
+	ErrRegistryUsernameWithoutPassword = errors.New("registry username requires a password")
+)
+
+const (
+	AutomaticTaskInterval = 24 * time.Hour
+	HealthCheckPath       = "/up"
+	httpVerifyTimeout     = 30 * time.Second
+
+	StaticImage         = "nginx:alpine-slim"
+	staticContentTarget = "/usr/share/nginx/html"
+)
+
+const staticNginxConfig = `server {
+    listen 80;
+    sub_filter '</body>' '{{bar}}</body>';
+    sub_filter_once on;
+    sub_filter_types text/html;
+    location = {{health}} {
+        access_log off;
+        return 200 "ok";
+    }
+    location = /__once/bar.js {
+        root {{root}};
+        add_header Cache-Control "no-store";
+    }
+    location ~* \.md$ {
+        root {{root}};
+        charset utf-8;
+        types { }
+        default_type text/html;
+    }
+    location / {
+        root {{root}};
+        index index.html;
+    }
+}
+`
+
+// AppVolumeMountTargets defines the paths where the app data volume is mounted
+// inside the container. The first entry is the primary path used for backups.
+var AppVolumeMountTargets = []string{"/storage", "/rails/storage"}
+
+type Application struct {
+	namespace    *Namespace
+	Settings     ApplicationSettings
+	Running      bool
+	RunningSince time.Time
+	DeployedAt   time.Time
+}
+
+func NewApplication(ns *Namespace, settings ApplicationSettings) *Application {
+	return &Application{
+		namespace: ns,
+		Settings:  settings,
+	}
+}
+
+func (a *Application) ContainerName(ctx context.Context) (string, error) {
+	containers, err := a.namespace.client.ContainerList(ctx, client.ContainerListOptions{All: true})
+	if err != nil {
+		return "", err
+	}
+
+	for _, c := range containers.Items {
+		if len(c.Names) == 0 {
+			continue
+		}
+		name := strings.TrimPrefix(c.Names[0], "/")
+		if a.namespace.containerAppName(name) == a.Settings.Name {
+			return name, nil
+		}
+	}
+
+	return "", fmt.Errorf("no container found for app %s", a.Settings.Name)
+}
+
+func (a *Application) Volume(ctx context.Context) (*ApplicationVolume, error) {
+	vol, err := FindVolume(ctx, a.namespace, a.Settings.Name)
+	if err == nil {
+		return vol, nil
+	}
+	if !errors.Is(err, ErrVolumeNotFound) {
+		return nil, err
+	}
+
+	return CreateVolume(ctx, a.namespace, a.Settings.Name, ApplicationLegacyVolumeSettings{})
+}
+
+func (a *Application) URL() string {
+	if a.Settings.Host == "" {
+		return ""
+	}
+
+	scheme := "http"
+	defaultPort := 80
+	if a.Settings.TLSEnabled() {
+		scheme = "https"
+		defaultPort = 443
+	}
+
+	base := scheme + "://" + a.Settings.Host
+
+	if a.namespace == nil {
+		return base
+	}
+
+	proxy := a.namespace.Proxy()
+	if proxy.Settings == nil {
+		return base
+	}
+
+	port := proxy.Settings.HTTPPort
+	if a.Settings.TLSEnabled() {
+		port = proxy.Settings.HTTPSPort
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && sed -n 200,420p internal/docker/proxy.go && echo ==== && sed -n 160,420p internal/docker/application.go
+slog.Error("Port conflict starting proxy", "error", err)
+				return ErrProxyPortInUse
+			}
+			return fmt.Errorf("starting proxy container: %w", err)
+		}
+	}
+
+	label := info.Config.Labels[labelKey]
+	if label != "" {
+		settings, err := UnmarshalProxySettings(label)
+		if err != nil {
+			return fmt.Errorf("unmarshalling proxy settings: %w", err)
+		}
+		p.Settings = &settings
+	}
+
+	return nil
+}
+
+func (p *Proxy) deployArgs(opts DeployOptions) []string {
+	args := []string{"kamal-proxy", "deploy", opts.AppName, "--target", opts.Target, "--deploy-timeout", deployTimeout}
+
+	if opts.Host != "" {
+		args = append(args, "--host", opts.Host)
+	}
+
+	if opts.TLS {
+		args = append(args, "--tls")
+	}
+
+	return args
+}
+
+func (p *Proxy) LoadState(ctx context.Context) (*State, error) {
+	containerName := p.containerName()
+
+	res, err := p.namespace.client.CopyFromContainer(ctx, containerName, client.CopyFromContainerOptions{SourcePath: stateFilePath})
+	if err != nil {
+		// Return empty state when the file doesn't exist yet (first boot)
+		if errdefs.IsNotFound(err) {
+			return &State{}, nil
+		}
+		return nil, fmt.Errorf("copying state from container: %w", err)
+	}
+	defer res.Content.Close()
+
+	tr := tar.NewReader(res.Content)
+	if _, err := tr.Next(); err != nil {
+		return nil, fmt.Errorf("reading state tar: %w", err)
+	}
+
+	var state State
+	if err := json.NewDecoder(tr).Decode(&state); err != nil {
+		return nil, fmt.Errorf("decoding state: %w", err)
+	}
+
+	return &state, nil
+}
+
+func (p *Proxy) SaveState(ctx context.Context, state *State) error {
+	containerName := p.containerName()
+
+	data, err := json.MarshalIndent(state, "", "  ")
+	if err != nil {
+		return fmt.Errorf("marshaling state: %w", err)
+	}
+
+	var buf bytes.Buffer
+	tw := tar.NewWriter(&buf)
+
+	header := &tar.Header{
+		Name: stateFileName,
+		Mode: 0o644,
+		Size: int64(len(data)),
+	}
+	if err := tw.WriteHeader(header); err != nil {
+		return fmt.Errorf("writing tar header: %w", err)
+	}
+	if _, err := tw.Write(data); err != nil {
+		return fmt.Errorf("writing tar data: %w", err)
+	}
+	if err := tw.Close(); err != nil {
+		return fmt.Errorf("closing tar writer: %w", err)
+	}
+
+	if _, err := p.namespace.client.CopyToContainer(ctx, containerName, client.CopyToContainerOptions{DestinationPath: stateFileDir, Content: &buf}); err != nil {
+		return fmt.Errorf("copying state to container: %w", err)
+	}
+
+	return nil
+}
+
+func (p *Proxy) ExecOutput(ctx context.Context, cmd []string) (string, error) {
+	result, err := execInContainer(ctx, p.namespace.client, p.containerName(), cmd)
+	if err != nil {
+		return "", err
+	}
+	if result.ExitCode != 0 {
+		return result.Stdout + result.Stderr, fmt.Errorf("exec failed with exit code %d", result.ExitCode)
+	}
+	return result.Stdout, nil
+}
+====
+		port = proxy.Settings.HTTPSPort
+	}
+
+	if port != 0 && port != defaultPort {
+		return base + ":" + strconv.Itoa(port)
+	}
+	return base
+}
+
+func (a *Application) Stop(ctx context.Context) error {
+	name, err := a.ContainerName(ctx)
+	if err != nil {
+		return err
+	}
+
+	_, err = a.namespace.client.ContainerStop(ctx, name, client.ContainerStopOptions{})
+	return err
+}
+
+func (a *Application) Start(ctx context.Context) error {
+	name, err := a.ContainerName(ctx)
+	if err != nil {
+		return err
+	}
+
+	_, err = a.namespace.client.ContainerStart(ctx, name, client.ContainerStartOptions{})
+	return err
+}
+
+func (a *Application) Restart(ctx context.Context) error {
+	if err := a.Stop(ctx); err != nil {
+		return err
+	}
+
+	return a.Start(ctx)
+}
+
+func (a *Application) Exec(ctx context.Context, cmd []string) error {
+	name, err := a.ContainerName(ctx)
+	if err != nil {
+		return err
+	}
+
+	if err := execAttachedInContainer(ctx, a.namespace.client, name, cmd); err != nil {
+		if errdefs.IsConflict(err) {
+			return ErrApplicationNotRunning
+		}
+		return err
+	}
+
+	return nil
+}
+
+func (a *Application) Update(ctx context.Context, progress DeployProgressCallback) (bool, error) {
+	changed, err := a.pullImage(ctx, progress)
+	if err != nil {
+		a.saveOperationResult(ctx, func(s *State) { s.RecordUpdate(a.Settings.Name, err) })
+		return false, err
+	}
+
+	if !changed {
+		a.saveOperationResult(ctx, func(s *State) { s.RecordUpdate(a.Settings.Name, nil) })
+		return false, nil
+	}
+
+	vol, err := a.Volume(ctx)
+	if err != nil {
+		err = fmt.Errorf("getting volume: %w", err)
+		a.saveOperationResult(ctx, func(s *State) { s.RecordUpdate(a.Settings.Name, err) })
+		return false, err
+	}
+
+	err = a.deployWithVolume(ctx, vol, progress)
+	a.saveOperationResult(ctx, func(s *State) { s.RecordUpdate(a.Settings.Name, err) })
+	return true, err
+}
+
+func (a *Application) Deploy(ctx context.Context, progress DeployProgressCallback) error {
+	if a.Settings.Host == "" {
+		return ErrHostRequired
+	}
+
+	if _, err := a.pullImage(ctx, progress); err != nil {
+		return err
+	}
+
+	vol, err := a.Volume(ctx)
+	if err != nil {
+		return fmt.Errorf("getting volume: %w", err)
+	}
+
+	return a.deployWithVolume(ctx, vol, progress)
+}
+
+// UpdateSettings redeploys the app with the given settings. Unlike Deploy,
+// it never pulls, so the app is not updated even if its image tag has moved.
+// On failure, the previous settings are restored.
+func (a *Application) UpdateSettings(ctx context.Context, settings ApplicationSettings, progress DeployProgressCallback) error {
+	vol, err := a.Volume(ctx)
+	if err != nil {
+		return fmt.Errorf("getting volume: %w", err)
+	}
+
+	oldSettings := a.Settings
+	a.Settings = settings
+
+	if err := a.deployWithVolume(ctx, vol, progress); err != nil {
+		a.Settings = oldSettings
+		return err
+	}
+
+	return nil
+}
+
+func (a *Application) VerifyHTTPOrRemove(ctx context.Context) error {
+	if err := a.verifyHTTP(ctx); err != nil {
+		if cleanupErr := a.Remove(context.Background(), true); cleanupErr != nil {
+			slog.Error("Failed to clean up after verification failure", "app", a.Settings.Name, "error", cleanupErr)
+		}
+		return err
+	}
+
+	return nil
+}
+
+func (a *Application) Remove(ctx context.Context, removeData bool) error {
+	if err := a.namespace.Proxy().Remove(ctx, a.Settings.Name); err != nil {
+		return fmt.Errorf("removing from proxy: %w", err)
+	}
+
+	return a.Destroy(ctx, removeData)
+}
+
+func (a *Application) Destroy(ctx context.Context, destroyVolumes bool) error {
+	containers, err := a.namespace.client.ContainerList(ctx, client.ContainerListOptions{All: true})
+	if err != nil {
+		return err
+	}
+
+	for _, c := range containers.Items {
+		for _, name := range c.Names {
+			name = strings.TrimPrefix(name, "/")
+			if a.namespace.containerAppName(name) == a.Settings.Name {
+				if _, err := a.namespace.client.ContainerRemove(ctx, c.ID, client.ContainerRemoveOptions{Force: true}); err != nil {
+					return fmt.Errorf("removing container: %w", err)
+				}
+				break
+			}
+		}
+	}
+
+	if destroyVolumes {
+		vol, err := FindVolume(ctx, a.namespace, a.Settings.Name)
+		if err != nil && !errors.Is(err, ErrVolumeNotFound) {
+			return fmt.Errorf("getting volume: %w", err)
+		}
+		if vol != nil {
+			if err := vol.Destroy(ctx); err != nil {
+				return err
+			}
+		}
+	}
+
+	if a.Settings.Static() || a.Settings.ServedPath != "" {
+		if err := RemoveServedSite(a.Settings.Name); err != nil {
+			return fmt.Errorf("removing served site: %w", err)
+		}
+	}
+
+	return nil
+}
+
+// Private
+
+func (a *Application) saveOperationResult(ctx context.Context, record func(*State)) {
+	state, err := a.namespace.LoadState(ctx)
+	if err != nil {
+		return
+	}
+	record(state)
+	a.namespace.SaveState(ctx, state)
+}
+
+func (a *Application) pullImage(ctx context.Context, progress DeployProgressCallback) (bool, error) {
+	opts := client.ImagePullOptions{RegistryAuth: registryAuthFor(a.Settings)}
+	reader, err := a.namespace.client.ImagePull(ctx, a.Settings.Image, opts)
+	if err != nil {
+		return false, wrapPullError(err)
+	}
+	defer reader.Close()
+
+	tracker := newPullProgressTracker(progress)
+	if err := tracker.Track(reader); err != nil {
+		return false, wrapPullError(err)
+	}
+
+	pulledInspect, err := a.namespace.client.ImageInspect(ctx, a.Settings.Image)
+	if err != nil {
+		return false, fmt.Errorf("%w: inspecting image after pull: %w", ErrPullFailed, err)
+	}
+
+	return pulledInspect.ID != a.runningImageID(ctx), nil
+}
+
+func (a *Application) runningImageID(ctx context.Context) string {
+	name, err := a.ContainerName(ctx)
+	if err != nil {
+		return ""
+	}
+	info, err := a.namespace.client.ContainerInspect(ctx, name, client.ContainerInspectOptions{})
+	if err != nil {
+		return ""
+	}
+	return info.Container.Image
+}
+
+func (a *Application) deployWithVolume(ctx context.Context, vol *ApplicationVolume, progress DeployProgressCallback) error {
+	if progress != nil {
+		progress(DeployProgress{Stage: DeployStageStarting})
+	}
+
+	id, err := ContainerRandomID()
+	if err != nil {
+		return fmt.Errorf("generating container id: %w", err)
+	}
+
+	containerName := fmt.Sprintf("%s-app-%s-%s", a.namespace.name, a.Settings.Name, id)
+
+	if err := a.ensureKeys(vol); err != nil {
+		return err
+	}
+
+	if err := a.writeAppBarScript(); err != nil {
+		return fmt.Errorf("writing app bar: %w", err)
+	}
+
+	env := a.BuildEnv()
+
+	hostConfig := &container.HostConfig{
+		RestartPolicy: container.RestartPolicy{Name: container.RestartPolicyAlways},
+		LogConfig:     ContainerLogConfig(),
+		Mounts:        a.volumeMounts(vol),
+	}
+	hostConfig.Resources = container.Resources{
+		Memory:   int64(a.Settings.Resources.MemoryMB) * 1024 * 1024,
+		NanoCPUs: int64(a.Settings.Resources.CPUs) * 1e9,
+	}
+
+	resp, err := a.namespace.client.ContainerCreate(ctx, client.ContainerCreateOptions{
+		Name:       containerName,
+		Config:     a.containerConfig(env),
+		HostConfig: hostConfig,
+		NetworkingConfig: &network.NetworkingConfig{
+			EndpointsConfig: map[string]*network.EndpointSettings{
+				a.namespace.name: {},
+			},
+		},
+	})
+	if err != nil {
+		return fmt.Errorf("creating container: %w", err)
+	}
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && cat internal/system/scraper.go && echo ==== && grep -R "Disk\|disk" -n internal | head -60 && echo ==== && grep -R "TLS\|tls\|cert" -n internal/docker internal/command | head -80
+package system
+
+import (
+	"context"
+	"log/slog"
+	"os"
+	"sync"
+
+	"github.com/shirou/gopsutil/v4/cpu"
+	"github.com/shirou/gopsutil/v4/mem"
+)
+
+type Sample struct {
+	CPUPercent float64
+	NumCPUs    int
+	MemTotal   uint64
+	MemUsed    uint64
+	DiskTotal  uint64
+	DiskFree   uint64
+	DiskUsed   uint64
+	DiskErr    error
+}
+
+const defaultBufferSize = 200
+
+type ScraperSettings struct {
+	BufferSize   int
+	DiskPath     string
+	DiskFallback string
+}
+
+func (s ScraperSettings) withDefaults() ScraperSettings {
+	if s.BufferSize == 0 {
+		s.BufferSize = defaultBufferSize
+	}
+	if s.DiskFallback == "" {
+		s.DiskFallback = "/"
+	}
+	return s
+}
+
+type Scraper struct {
+	settings    ScraperSettings
+	mu          sync.RWMutex
+	samples     []Sample
+	head, count int
+	numCPUs     int
+	memTotal    uint64
+}
+
+func NewScraper(settings ScraperSettings) *Scraper {
+	settings = settings.withDefaults()
+
+	numCPUs, err := cpu.Counts(true)
+	if err != nil {
+		slog.Warn("failed to get CPU count, defaulting to 1", "err", err)
+		numCPUs = 1
+	}
+
+	return &Scraper{
+		settings: settings,
+		samples:  make([]Sample, settings.BufferSize),
+		numCPUs:  numCPUs,
+	}
+}
+
+func (s *Scraper) NumCPUs() int {
+	return s.numCPUs
+}
+
+func (s *Scraper) MemTotal() uint64 {
+	return s.memTotal
+}
+
+func (s *Scraper) Fetch(n int) []Sample {
+	s.mu.RLock()
+	defer s.mu.RUnlock()
+
+	available := min(n, s.count)
+	result := make([]Sample, available)
+	for i := range available {
+		idx := (s.head - 1 - i + len(s.samples)) % len(s.samples)
+		result[i] = s.samples[idx]
+	}
+	return result
+}
+
+func (s *Scraper) Scrape(ctx context.Context) {
+	sample := Sample{
+		NumCPUs: s.numCPUs,
+	}
+
+	percents, err := cpu.PercentWithContext(ctx, 0, false)
+	if err == nil && len(percents) > 0 {
+		sample.CPUPercent = percents[0] * float64(s.numCPUs)
+	}
+
+	if vmStat, err := mem.VirtualMemoryWithContext(ctx); err == nil {
+		sample.MemTotal = vmStat.Total
+		sample.MemUsed = vmStat.Used
+		if s.memTotal == 0 {
+			s.memTotal = vmStat.Total
+		}
+	}
+
+	diskPath := s.diskPath()
+	if diskPath != "" {
+		total, used, free, err := statDisk(diskPath)
+		sample.DiskTotal = total
+		sample.DiskUsed = used
+		sample.DiskFree = free
+		sample.DiskErr = err
+	}
+
+	s.mu.Lock()
+	s.samples[s.head] = sample
+	s.head = (s.head + 1) % len(s.samples)
+	if s.count < len(s.samples) {
+		s.count++
+	}
+	s.mu.Unlock()
+}
+
+// Private
+
+func (s *Scraper) diskPath() string {
+	if s.settings.DiskPath != "" {
+		if _, err := os.Stat(s.settings.DiskPath); err == nil {
+			return s.settings.DiskPath
+		}
+	}
+	return s.settings.DiskFallback
+}
+====
+internal/command/status_test.go:29:				Error: "disk full",
+internal/command/status_test.go:52:		"Last backup: 5 Nov 2026, 09:00 (failed: disk full)",
+internal/docker/state_test.go:39:			"myapp": {LastBackup: OperationResult{At: time.Now().Add(-time.Second), Error: "disk full"}},
+internal/docker/state_test.go:78:		s.RecordBackup("myapp", errors.New("disk full"))
+internal/docker/state_test.go:80:		assert.Equal(t, "disk full", s.Apps["myapp"].LastBackup.Error)
+internal/docker/channels_test.go:72:		failed := &OperationResult{At: now.Add(-time.Hour), Error: "disk full"}
+internal/system/disk.go:5:func statDisk(path string) (total, used, free uint64, err error) {
+internal/system/scraper.go:18:	DiskTotal  uint64
+internal/system/scraper.go:19:	DiskFree   uint64
+internal/system/scraper.go:20:	DiskUsed   uint64
+internal/system/scraper.go:21:	DiskErr    error
+internal/system/scraper.go:28:	DiskPath     string
+internal/system/scraper.go:29:	DiskFallback string
+internal/system/scraper.go:36:	if s.DiskFallback == "" {
+internal/system/scraper.go:37:		s.DiskFallback = "/"
+internal/system/scraper.go:106:	diskPath := s.diskPath()
+internal/system/scraper.go:107:	if diskPath != "" {
+internal/system/scraper.go:108:		total, used, free, err := statDisk(diskPath)
+internal/system/scraper.go:109:		sample.DiskTotal = total
+internal/system/scraper.go:110:		sample.DiskUsed = used
+internal/system/scraper.go:111:		sample.DiskFree = free
+internal/system/scraper.go:112:		sample.DiskErr = err
+internal/system/scraper.go:126:func (s *Scraper) diskPath() string {
+internal/system/scraper.go:127:	if s.settings.DiskPath != "" {
+internal/system/scraper.go:128:		if _, err := os.Stat(s.settings.DiskPath); err == nil {
+internal/system/scraper.go:129:			return s.settings.DiskPath
+internal/system/scraper.go:132:	return s.settings.DiskFallback
+internal/system/scraper_test.go:61:		DiskFallback: "/",
+internal/system/scraper_test.go:73:		DiskFallback: "/",
+internal/system/scraper_test.go:84:func TestDiskPathFallback(t *testing.T) {
+internal/system/scraper_test.go:87:			DiskPath:     "/nonexistent/path/for/test",
+internal/system/scraper_test.go:88:			DiskFallback: "/",
+internal/system/scraper_test.go:91:	assert.Equal(t, "/", s.diskPath())
+internal/system/scraper_test.go:94:func TestDiskPathPrimary(t *testing.T) {
+internal/system/scraper_test.go:97:			DiskPath:     "/",
+internal/system/scraper_test.go:98:			DiskFallback: "/tmp",
+internal/system/scraper_test.go:101:	assert.Equal(t, "/", s.diskPath())
+internal/system/scraper_test.go:109:		DiskFallback: "/",
+internal/ui/app.go:96:	diskPath, err := ns.DockerRootDir(ctx)
+internal/ui/app.go:99:		diskPath = "/var/lib/docker"
+internal/ui/app.go:104:		DiskPath:   diskPath,
+internal/ui/dashboard_header.go:62:	diskView := h.renderDiskGauge(widths[2])
+internal/ui/dashboard_header.go:65:	return lipgloss.JoinHorizontal(lipgloss.Top, cpuView, spacer, memView, spacer, diskView)
+internal/ui/dashboard_header.go:98:func (h DashboardHeader) renderDiskGauge(width int) string {
+internal/ui/dashboard_header.go:103:	topLine := boxTop("Disk", innerWidth) + "\n"
+internal/ui/dashboard_header.go:111:	if len(samples) == 0 || samples[0].DiskErr != nil || samples[0].DiskTotal == 0 {
+internal/ui/dashboard_header.go:121:	pct := float64(sample.DiskUsed) / float64(sample.DiskTotal) * 100
+internal/ui/dashboard_header.go:125:	pctLine := formatValueLine(fmt.Sprintf("  %.0f%% used", pct), formatDiskSize(sample.DiskTotal)+" ", innerWidth)
+internal/ui/dashboard_header.go:126:	detailLine := fmt.Sprintf("  %s used, %s free", formatDiskSize(sample.DiskUsed), formatDiskSize(sample.DiskFree))
+internal/ui/dashboard_header.go:149:func formatDiskSize(bytes uint64) string {
+internal/ui/dashboard_header_test.go:27:	assert.Contains(t, view, "Disk")
+internal/ui/dashboard_header_test.go:30:func TestDashboardHeader_WithDiskData(t *testing.T) {
+internal/ui/dashboard_header_test.go:33:		DiskFallback: "/",
+internal/ui/dashboard_header_test.go:46:		DiskFallback: "/",
+internal/ui/dashboard_header_test.go:55:func TestFormatDiskSize(t *testing.T) {
+internal/ui/dashboard_header_test.go:56:	assert.Equal(t, "500KB", formatDiskSize(500_000))
+internal/ui/dashboard_header_test.go:57:	assert.Equal(t, "50MB", formatDiskSize(50_000_000))
+internal/ui/dashboard_header_test.go:58:	assert.Equal(t, "500GB", formatDiskSize(500_000_000_000))
+internal/ui/dashboard_header_test.go:59:	assert.Equal(t, "1.0TB", formatDiskSize(1_000_000_000_000))
+internal/ui/dashboard_header_test.go:60:	assert.Equal(t, "2.5TB", formatDiskSize(2_500_000_000_000))
+====
+internal/docker/application.go:142:	if a.Settings.TLSEnabled() {
+internal/docker/application.go:159:	if a.Settings.TLSEnabled() {
+internal/docker/application.go:433:		TLS:     a.Settings.TLSEnabled(),
+internal/docker/application.go:546:	if !s.TLSEnabled() {
+internal/docker/application_settings.go:104:	DisableTLS bool               `json:"disableTLS"`
+internal/docker/application_settings.go:141:func (s ApplicationSettings) TLSEnabled() bool {
+internal/docker/application_settings.go:142:	return s.Host != "" && !s.DisableTLS && !IsLocalhost(s.Host)
+internal/docker/application_settings.go:150:	if s.Name != other.Name || s.Image != other.Image || s.Source != other.Source || s.SourceHash != other.SourceHash || s.ServedPath != other.ServedPath || s.Host != other.Host || s.DisableTLS != other.DisableTLS {
+internal/docker/application_test.go:23:		Settings: ApplicationSettings{Host: server.Listener.Addr().String(), DisableTLS: true},
+internal/docker/application_test.go:42:		Settings: ApplicationSettings{Host: server.Listener.Addr().String(), DisableTLS: true},
+internal/docker/application_test.go:56:		Settings: ApplicationSettings{Host: server.Listener.Addr().String(), DisableTLS: true},
+internal/docker/application_test.go:67:		Settings: ApplicationSettings{Host: "127.0.0.1:1", DisableTLS: true},
+internal/docker/application_test.go:85:	newAppWithProxy := func(host string, disableTLS bool, proxySettings *ProxySettings) *Application {
+internal/docker/application_test.go:90:			Settings:  ApplicationSettings{Host: host, DisableTLS: disableTLS},
+internal/docker/application_test.go:109:			Settings:  ApplicationSettings{Host: "app.localhost", DisableTLS: true},
+internal/docker/application_test.go:134:	t.Run("localhost disables TLS", func(t *testing.T) {
+internal/docker/proxy.go:60:	TLS     bool
+internal/docker/proxy.go:226:	if opts.TLS {
+internal/docker/proxy.go:227:		args = append(args, "--tls")
+internal/docker/proxy_test.go:39:	t.Run("with TLS", func(t *testing.T) {
+internal/docker/proxy_test.go:40:		args := proxy.deployArgs(DeployOptions{AppName: "chat", Target: "localhost:3000", TLS: true})
+internal/docker/proxy_test.go:42:		assert.Contains(t, args, "--tls")
+internal/docker/proxy_test.go:45:	t.Run("with host and TLS", func(t *testing.T) {
+internal/docker/proxy_test.go:50:			TLS:     true,
+internal/docker/proxy_test.go:58:			"--tls",
+internal/command/deploy_test.go:184:		DisableTLS: false,
+internal/command/deploy_test.go:200:		assert.Equal(t, existing.DisableTLS, result.DisableTLS)
+internal/command/settings_flags.go:16:	disableTLS   bool
+internal/command/settings_flags.go:36:	cmd.Flags().BoolVar(&f.disableTLS, "disable-tls", false, "disable TLS for this application")
+internal/command/settings_flags.go:67:		DisableTLS: f.disableTLS,
+internal/command/settings_flags.go:118:	if cmd.Flags().Changed("disable-tls") {
+internal/command/settings_flags.go:119:		s.DisableTLS = f.disableTLS
+internal/command/update_test.go:19:		DisableTLS: false,
+internal/command/show_test.go:96:			DisableTLS: true,
+internal/command/status_test.go:152:		DisableTLS: true,
+internal/command/status_test.go:167:		DisableTLS: true,
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && cat internal/command/version.go internal/command/show.go internal/command/restart.go internal/command/teardown.go && echo ==== && cat prompt/22-status-command.md prompt/25-update-all.md
+package command
+
+import (
+	"fmt"
+
+	"github.com/spf13/cobra"
+
+	"github.com/basecamp/once/internal/version"
+)
+
+type versionCommand struct {
+	cmd *cobra.Command
+}
+
+func newVersionCommand() *versionCommand {
+	v := &versionCommand{}
+	v.cmd = &cobra.Command{
+		Use:   "version",
+		Short: "Print the version",
+		Args:  cobra.NoArgs,
+		Run: func(cmd *cobra.Command, args []string) {
+			fmt.Println(version.Version)
+		},
+	}
+	return v
+}
+package command
+
+import (
+	"context"
+	"fmt"
+	"net/http"
+	"strings"
+	"time"
+
+	"github.com/spf13/cobra"
+
+	"github.com/basecamp/once/internal/docker"
+	"github.com/basecamp/once/internal/htmltext"
+)
+
+const showTimeout = 15 * time.Second
+
+type showCommand struct {
+	cmd    *cobra.Command
+	client *http.Client
+}
+
+func newShowCommand() *showCommand {
+	s := &showCommand{
+		client: &http.Client{Timeout: showTimeout},
+	}
+	s.cmd = &cobra.Command{
+		Use:   "show <host>",
+		Short: "Print an application's page as text",
+		Args:  cobra.ExactArgs(1),
+		RunE:  WithNamespace(s.run),
+	}
+	return s
+}
+
+// Private
+
+func (s *showCommand) run(ctx context.Context, ns *docker.Namespace, cmd *cobra.Command, args []string) error {
+	app, err := findApplication(ns, args[0])
+	if err != nil {
+		return err
+	}
+
+	page, err := s.page(ctx, app.URL())
+	if err != nil {
+		return err
+	}
+
+	fmt.Fprint(cmd.OutOrStdout(), page)
+
+	return nil
+}
+
+func (s *showCommand) page(ctx context.Context, pageURL string) (string, error) {
+	req, err := http.NewRequestWithContext(ctx, http.MethodGet, pageURL, nil)
+	if err != nil {
+		return "", fmt.Errorf("fetching %s: %w", pageURL, err)
+	}
+	req.Header.Set("User-Agent", "once")
+
+	resp, err := s.client.Do(req)
+	if err != nil {
+		return "", fmt.Errorf("fetching %s: %w", pageURL, err)
+	}
+	defer resp.Body.Close()
+
+	if resp.StatusCode < 200 || resp.StatusCode > 299 {
+		return "", fmt.Errorf("fetching %s: %s", pageURL, resp.Status)
+	}
+
+	if contentType := resp.Header.Get("Content-Type"); !isTextual(contentType) {
+		return "", fmt.Errorf("fetching %s: unexpected content type %q", pageURL, contentType)
+	}
+
+	page, err := htmltext.Render(resp.Body, resp.Request.URL)
+	if err != nil {
+		return "", fmt.Errorf("fetching %s: %w", pageURL, err)
+	}
+
+	return page, nil
+}
+
+// Helpers
+
+func isTextual(contentType string) bool {
+	return contentType == "" ||
+		strings.HasPrefix(contentType, "text/") ||
+		strings.Contains(contentType, "html")
+}
+package command
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/spf13/cobra"
+
+	"github.com/basecamp/once/internal/docker"
+)
+
+type restartCommand struct {
+	cmd *cobra.Command
+}
+
+func newRestartCommand() *restartCommand {
+	r := &restartCommand{}
+	r.cmd = &cobra.Command{
+		Use:   "restart <host>",
+		Short: "Restart an application",
+		Args:  cobra.ExactArgs(1),
+		RunE:  WithNamespace(r.run),
+	}
+	return r
+}
+
+// Private
+
+func (r *restartCommand) run(ctx context.Context, ns *docker.Namespace, cmd *cobra.Command, args []string) error {
+	host := args[0]
+
+	err := withApplication(ns, host, "restarting", func(app *docker.Application) error {
+		return app.Restart(ctx)
+	})
+	if err != nil {
+		return err
+	}
+
+	fmt.Printf("Restarted %s\n", host)
+	return nil
+}
+package command
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/spf13/cobra"
+
+	"github.com/basecamp/once/internal/docker"
+)
+
+type teardownCommand struct {
+	cmd        *cobra.Command
+	removeData bool
+}
+
+func newTeardownCommand() *teardownCommand {
+	t := &teardownCommand{}
+	t.cmd = &cobra.Command{
+		Use:   "teardown",
+		Short: "Remove all applications and the proxy",
+		RunE:  WithNamespace(t.run),
+	}
+	t.cmd.Flags().BoolVar(&t.removeData, "remove-data", false, "Also remove application data volumes")
+	return t
+}
+
+// Private
+
+func (t *teardownCommand) run(ctx context.Context, ns *docker.Namespace, cmd *cobra.Command, args []string) error {
+	if err := ns.Teardown(ctx, t.removeData); err != nil {
+		return fmt.Errorf("teardown failed: %w", err)
+	}
+
+	fmt.Println("Teardown complete")
+	return nil
+}
+====
+Your job is to go in and add `once status <host>` here to this Go CLI/TUI app.
+
+The app already knows its URL, image, running state, uptime, resource limits and last update and backup results; show all of it in a readable block, with `--json` for the same data.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+Your job is to go in and add an update-all action here to this Go CLI/TUI app.
+
+For each app it checks for a newer image and redeploys only when there is one, naming the app being updated as it goes, and reusing the per-app update path.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && grep -R "func (n \*Namespace)\|func (p \*Proxy)\|type Proxy\|type Namespace" -n internal/docker/*.go && echo ==== && cat internal/docker/errors.go && echo ==== && cat internal/docker/helpers.go
+internal/docker/namespace.go:22:type Namespace struct {
+internal/docker/namespace.go:29:type NamespaceOption func(*Namespace)
+internal/docker/namespace.go:79:func (n *Namespace) Name() string {
+internal/docker/namespace.go:83:func (n *Namespace) addApplication(settings ApplicationSettings) *Application {
+internal/docker/namespace.go:90:func (n *Namespace) Proxy() *Proxy {
+internal/docker/namespace.go:94:func (n *Namespace) Application(name string) *Application {
+internal/docker/namespace.go:103:func (n *Namespace) Applications() []*Application {
+internal/docker/namespace.go:107:func (n *Namespace) ApplicationByHost(host string) *Application {
+internal/docker/namespace.go:116:func (n *Namespace) HostInUse(host string) bool {
+internal/docker/namespace.go:120:func (n *Namespace) HostInUseByAnother(host string, excludeApp string) bool {
+internal/docker/namespace.go:129:func (n *Namespace) UniqueName(base string) (string, error) {
+internal/docker/namespace.go:142:func (n *Namespace) Setup(ctx context.Context) error {
+internal/docker/namespace.go:150:func (n *Namespace) EnsureNetwork(ctx context.Context) error {
+internal/docker/namespace.go:168:func (n *Namespace) Teardown(ctx context.Context, destroyVolumes bool) error {
+internal/docker/namespace.go:185:func (n *Namespace) Refresh(ctx context.Context) error {
+internal/docker/namespace.go:190:func (n *Namespace) DockerRootDir(ctx context.Context) (string, error) {
+internal/docker/namespace.go:198:func (n *Namespace) EventWatcher() *EventWatcher {
+internal/docker/namespace.go:202:func (n *Namespace) ApplicationExists(ctx context.Context, name string) (bool, error) {
+internal/docker/namespace.go:220:func (n *Namespace) LoadState(ctx context.Context) (*State, error) {
+internal/docker/namespace.go:224:func (n *Namespace) SaveState(ctx context.Context, state *State) error {
+internal/docker/namespace.go:228:func (n *Namespace) Restore(ctx context.Context, r io.ReadSeeker) (*Application, error) {
+internal/docker/namespace.go:269:func (n *Namespace) containerAppName(containerName string) string {
+internal/docker/namespace.go:288:func (n *Namespace) restoreState(ctx context.Context) error {
+internal/docker/namespace.go:362:func (n *Namespace) sortApplications() {
+internal/docker/proxy.go:39:type ProxySettings struct {
+internal/docker/proxy.go:63:type Proxy struct {
+internal/docker/proxy.go:72:func (p *Proxy) Boot(ctx context.Context, settings ProxySettings) error {
+internal/docker/proxy.go:155:func (p *Proxy) Destroy(ctx context.Context) error {
+internal/docker/proxy.go:174:func (p *Proxy) Exec(ctx context.Context, cmd []string) error {
+internal/docker/proxy.go:182:func (p *Proxy) Remove(ctx context.Context, appName string) error {
+internal/docker/proxy.go:186:func (p *Proxy) Deploy(ctx context.Context, opts DeployOptions) error {
+internal/docker/proxy.go:190:func (p *Proxy) containerName() string {
+internal/docker/proxy.go:196:func (p *Proxy) ensureRunning(ctx context.Context, info container.InspectResponse) error {
+internal/docker/proxy.go:219:func (p *Proxy) deployArgs(opts DeployOptions) []string {
+internal/docker/proxy.go:233:func (p *Proxy) LoadState(ctx context.Context) (*State, error) {
+internal/docker/proxy.go:259:func (p *Proxy) SaveState(ctx context.Context, state *State) error {
+internal/docker/proxy.go:292:func (p *Proxy) ExecOutput(ctx context.Context, cmd []string) (string, error) {
+====
+package docker
+
+import (
+	"errors"
+	"fmt"
+	"strings"
+
+	"github.com/containerd/errdefs"
+	"github.com/moby/moby/client"
+)
+
+type DescribedError interface {
+	error
+	Description() string
+}
+
+var (
+	ErrProxyPortInUse = &describedError{
+		msg:         "proxy port conflict",
+		description: "Something else is using the web ports on this machine. You'll need to stop that service, and then try deploying again.",
+	}
+	ErrAppNotStarted = &describedError{
+		msg:         "application did not start",
+		description: "The application did not start within the time limit. Check the application logs for errors.",
+	}
+	ErrDockerPermissionDenied = &describedError{
+		msg:         "permission denied connecting to Docker",
+		description: "Permission denied when connecting to the Docker socket. Run with `sudo`, or add yourself to the `docker` group.",
+	}
+	ErrDockerNotRunning = &describedError{
+		msg:         "cannot connect to Docker",
+		description: "Could not connect to Docker. Make sure Docker is installed and the Docker daemon is running.",
+	}
+)
+
+func ErrorMessage(err error) string {
+	if de, ok := errors.AsType[DescribedError](err); ok {
+		return de.Description()
+	}
+	return err.Error()
+}
+
+// Private
+
+type describedError struct {
+	msg         string
+	description string
+}
+
+func (e *describedError) Error() string       { return e.msg }
+func (e *describedError) Description() string { return e.description }
+
+// Helpers
+
+func wrapPullError(err error) error {
+	if pullErrorMayNeedAuth(err) {
+		return fmt.Errorf("%w: %w: %w", ErrPullMaybeUnauthorized, ErrPullFailed, err)
+	}
+	return fmt.Errorf("%w: %w", ErrPullFailed, err)
+}
+
+// pullErrorMayNeedAuth reports whether a pull failure looks like a missing or
+// unauthorized image. Registries conflate the two cases (some return 404 for
+// private images to hide their existence), so this is deliberately broad.
+func pullErrorMayNeedAuth(err error) bool {
+	if errdefs.IsUnauthorized(err) || errdefs.IsPermissionDenied(err) || errdefs.IsNotFound(err) {
+		return true
+	}
+	msg := strings.ToLower(err.Error())
+	for _, fragment := range []string{
+		"unauthorized",
+		"authentication required",
+		"denied",
+		"no basic auth credentials",
+		"forbidden",
+		"not found",
+		"manifest unknown",
+		"name unknown",
+		"repository does not exist",
+	} {
+		if strings.Contains(msg, fragment) {
+			return true
+		}
+	}
+	return false
+}
+
+func isPortConflict(err error) bool {
+	if err == nil {
+		return false
+	}
+	msg := err.Error()
+	return strings.Contains(msg, "bind: address already in use") ||
+		strings.Contains(msg, "port is already allocated")
+}
+
+func connectionError(err error) error {
+	switch {
+	case err == nil:
+		return nil
+	case client.IsErrConnectionFailed(err):
+		if strings.Contains(err.Error(), "permission denied") {
+			return fmt.Errorf("%w: %w", ErrDockerPermissionDenied, err)
+		}
+		return fmt.Errorf("%w: %w", ErrDockerNotRunning, err)
+	default:
+		return err
+	}
+}
+====
+package docker
+
+import (
+	"crypto/rand"
+	"encoding/hex"
+	"path/filepath"
+	"regexp"
+	"strings"
+	"time"
+
+	"github.com/distribution/reference"
+)
+
+const streamRetryDelay = time.Second
+
+var pathSeparators = regexp.MustCompile(`[^a-z0-9]+`)
+
+func IsLocalhost(host string) bool {
+	return host == "localhost" || strings.HasSuffix(host, ".localhost")
+}
+
+func NameFromImageRef(imageRef string) string {
+	named, err := reference.ParseNormalizedNamed(imageRef)
+	if err != nil {
+		return imageRef
+	}
+	path := reference.Path(named)
+	parts := strings.Split(path, "/")
+	return parts[len(parts)-1]
+}
+
+func NameFromPath(path string) string {
+	base := filepath.Base(filepath.Clean(path))
+	if ext := filepath.Ext(base); strings.EqualFold(ext, siteHTMLExt) {
+		base = strings.TrimSuffix(base, ext)
+	}
+
+	name := pathSeparators.ReplaceAllString(strings.ToLower(base), "-")
+	name = strings.Trim(name, "-")
+
+	if name == "" {
+		return "site"
+	}
+
+	if len(name) > 63 {
+		name = strings.Trim(name[:63], "-")
+	}
+
+	return name
+}
+
+func ContainerRandomID() (string, error) {
+	return randomID(6)
+}
+
+func randomID(length int) (string, error) {
+	bytes := make([]byte, length)
+	if _, err := rand.Read(bytes); err != nil {
+		return "", err
+	}
+	return hex.EncodeToString(bytes)[:length], nil
+}
+
+// cutLast splits s around the last occurrence of sep, like strings.Cut but
+// from the right.
+func cutLast(s, sep string) (before, after string, found bool) {
+	return strings.CutLast(s, sep)
+}
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && sed -n 1,220p internal/docker/application_settings.go && echo ==== && sed -n 1,180p internal/docker/site.go && echo ==== && sed -n 1,160p internal/docker/application_backup.go
+package docker
+
+import (
+	"crypto/ecdh"
+	"crypto/rand"
+	"encoding/base64"
+	"encoding/hex"
+	"encoding/json"
+	"fmt"
+	"strings"
+)
+
+type Keys struct {
+	SecretKeyBase   string `json:"secretKeyBase,omitempty"`
+	VAPIDPublicKey  string `json:"vapidPublicKey,omitempty"`
+	VAPIDPrivateKey string `json:"vapidPrivateKey,omitempty"`
+}
+
+func (k Keys) Empty() bool {
+	return k == Keys{}
+}
+
+func (k *Keys) SetVAPIDKey(privateKey string) error {
+	key, err := parseVAPIDPrivateKey(privateKey)
+	if err != nil {
+		return fmt.Errorf("invalid VAPID private key: %w", err)
+	}
+
+	k.VAPIDPublicKey = base64.RawURLEncoding.EncodeToString(key.PublicKey().Bytes())
+	k.VAPIDPrivateKey = base64.RawURLEncoding.EncodeToString(key.Bytes())
+
+	return nil
+}
+
+func (k *Keys) Regenerate(secretKeyBase, vapid bool) error {
+	if secretKeyBase {
+		skb, err := generateSecretKeyBase()
+		if err != nil {
+			return err
+		}
+		k.SecretKeyBase = skb
+	}
+
+	if vapid {
+		pub, priv, err := generateVAPIDKeyPair()
+		if err != nil {
+			return err
+		}
+		k.VAPIDPublicKey = pub
+		k.VAPIDPrivateKey = priv
+	}
+
+	return nil
+}
+
+type SMTPSettings struct {
+	Server   string `json:"server,omitempty"`
+	Port     string `json:"port,omitempty"`
+	Username string `json:"username,omitempty"`
+	Password string `json:"password,omitempty"`
+	From     string `json:"from,omitempty"`
+}
+
+func (s SMTPSettings) BuildEnv() []string {
+	if s.Server == "" {
+		return nil
+	}
+	return []string{
+		"SMTP_ADDRESS=" + s.Server,
+		"SMTP_PORT=" + s.Port,
+		"SMTP_USERNAME=" + s.Username,
+		"SMTP_PASSWORD=" + s.Password,
+		"MAILER_FROM_ADDRESS=" + s.From,
+	}
+}
+
+type RegistrySettings struct {
+	Host     string `json:"host,omitempty"`
+	Username string `json:"username,omitempty"`
+	Password string `json:"password,omitempty"`
+}
+
+func (r RegistrySettings) Empty() bool {
+	return r == RegistrySettings{}
+}
+
+type ContainerResources struct {
+	CPUs     int `json:"cpus,omitempty"`
+	MemoryMB int `json:"memoryMB,omitempty"`
+}
+
+type BackupSettings struct {
+	Path       string `json:"path,omitempty"`
+	AutoBackup bool   `json:"autoBackup,omitempty"`
+}
+
+type ApplicationSettings struct {
+	Name       string             `json:"name"`
+	Image      string             `json:"image"`
+	Source     string             `json:"source,omitempty"`
+	SourceHash string             `json:"sourceHash,omitempty"`
+	ServedPath string             `json:"servedPath,omitempty"`
+	Host       string             `json:"host"`
+	DisableTLS bool               `json:"disableTLS"`
+	EnvVars    map[string]string  `json:"env"`
+	SMTP       SMTPSettings       `json:"smtp"`
+	Resources  ContainerResources `json:"resources"`
+	AutoUpdate bool               `json:"autoUpdate"`
+	Backup     BackupSettings     `json:"backup"`
+	Keys       Keys               `json:"keys"`
+	Registry   RegistrySettings   `json:"registry"`
+}
+
+func UnmarshalApplicationSettings(s string) (ApplicationSettings, error) {
+	var settings ApplicationSettings
+	err := json.Unmarshal([]byte(s), &settings)
+	return settings, err
+}
+
+func (s ApplicationSettings) Marshal() string {
+	b, _ := json.Marshal(s)
+	return string(b)
+}
+
+func (s ApplicationSettings) Validate() error {
+	if s.Image == "" {
+		return ErrImageRequired
+	}
+	if s.Backup.AutoBackup && s.Backup.Path == "" {
+		return ErrAutoBackupWithoutPath
+	}
+	if s.Registry.Password != "" && s.Registry.Username == "" {
+		return ErrRegistryPasswordWithoutUsername
+	}
+	if s.Registry.Username != "" && s.Registry.Password == "" {
+		return ErrRegistryUsernameWithoutPassword
+	}
+	return nil
+}
+
+func (s ApplicationSettings) TLSEnabled() bool {
+	return s.Host != "" && !s.DisableTLS && !IsLocalhost(s.Host)
+}
+
+func (s ApplicationSettings) Static() bool {
+	return s.Source != ""
+}
+
+func (s ApplicationSettings) Equal(other ApplicationSettings) bool {
+	if s.Name != other.Name || s.Image != other.Image || s.Source != other.Source || s.SourceHash != other.SourceHash || s.ServedPath != other.ServedPath || s.Host != other.Host || s.DisableTLS != other.DisableTLS {
+		return false
+	}
+	if s.Resources != other.Resources {
+		return false
+	}
+	if s.SMTP != other.SMTP {
+		return false
+	}
+	if s.AutoUpdate != other.AutoUpdate {
+		return false
+	}
+	if s.Backup != other.Backup {
+		return false
+	}
+	if s.Keys != other.Keys {
+		return false
+	}
+	if s.Registry != other.Registry {
+		return false
+	}
+	if len(s.EnvVars) != len(other.EnvVars) {
+		return false
+	}
+	for k, v := range s.EnvVars {
+		if other.EnvVars[k] != v {
+			return false
+		}
+	}
+	return true
+}
+
+// Helpers
+
+func generateSecretKeyBase() (string, error) {
+	bytes := make([]byte, 32)
+	if _, err := rand.Read(bytes); err != nil {
+		return "", err
+	}
+	return hex.EncodeToString(bytes), nil
+}
+
+func generateVAPIDKeyPair() (publicKey, privateKey string, err error) {
+	key, err := ecdh.P256().GenerateKey(rand.Reader)
+	if err != nil {
+		return "", "", err
+	}
+
+	privateKey = base64.RawURLEncoding.EncodeToString(key.Bytes())
+	publicKey = base64.RawURLEncoding.EncodeToString(key.PublicKey().Bytes())
+
+	return publicKey, privateKey, nil
+}
+
+// parseVAPIDPrivateKey accepts any common base64 dialect (url-safe or
+// standard, padded or not) of a raw P-256 private key.
+func parseVAPIDPrivateKey(s string) (*ecdh.PrivateKey, error) {
+	s = strings.TrimSpace(s)
+	s = strings.NewReplacer("+", "-", "/", "_").Replace(s)
+	s = strings.TrimRight(s, "=")
+
+	bytes, err := base64.RawURLEncoding.DecodeString(s)
+	if err != nil {
+		return nil, err
+	}
+
+	return ecdh.P256().NewPrivateKey(bytes)
+}
+====
+package docker
+
+import (
+	"fmt"
+	"html/template"
+	"io"
+	"io/fs"
+	"net/url"
+	"os"
+	"path/filepath"
+	"slices"
+	"strings"
+)
+
+const (
+	siteIndexName = "index.html"
+	siteHTMLExt   = ".html"
+)
+
+// IsSiteFile reports whether path names a single HTML file that can be served
+// as a site in its own right.
+func IsSiteFile(path string) bool {
+	return strings.EqualFold(filepath.Ext(path), siteHTMLExt)
+}
+
+// ServeSite copies source into a fresh directory in the served site cache and
+// returns its path. Folders without an index.html get a generated contents
+// page in the copy, so the source is left untouched. A single HTML file is
+// served as the site's index.html.
+func ServeSite(name, source string) (string, error) {
+	dir, err := servedSiteDir(name)
+	if err != nil {
+		return "", err
+	}
+
+	if err := os.MkdirAll(dir, 0o755); err != nil {
+		return "", fmt.Errorf("creating served site directory: %w", err)
+	}
+
+	revision, err := randomID(8)
+	if err != nil {
+		return "", fmt.Errorf("generating served site id: %w", err)
+	}
+
+	dest := filepath.Join(dir, revision)
+	if err := BuildServedSite(source, dest); err != nil {
+		os.RemoveAll(dest)
+		return "", err
+	}
+
+	return dest, nil
+}
+
+// RemoveServedSite deletes every served copy belonging to name, along with any
+// generated pages, and prunes the site cache once it is empty.
+func RemoveServedSite(name string) error {
+	if name == "" {
+		return fmt.Errorf("served site name is required")
+	}
+
+	root, err := servedSiteRoot()
+	if err != nil {
+		return err
+	}
+
+	if err := os.RemoveAll(filepath.Join(root, "sites", name)); err != nil {
+		return err
+	}
+
+	removeIfEmpty(filepath.Join(root, "sites"))
+	removeIfEmpty(root)
+
+	return nil
+}
+
+// RemoveServedCopy deletes a single served copy, such as the previous version
+// of a site after a redeploy.
+func RemoveServedCopy(path string) error {
+	return os.RemoveAll(path)
+}
+
+// BuildServedSite builds the served copy of source in dest. Markdown files are
+// rendered as HTML documents, and every folder in the copy that has no
+// index.html gets a generated contents page. A folder made up entirely of
+// Markdown documents opens its first one instead. A single file is served as
+// the site's index.html.
+func BuildServedSite(source, dest string) error {
+	root, err := filepath.EvalSymlinks(source)
+	if err != nil {
+		return err
+	}
+
+	info, err := os.Stat(root)
+	if err != nil {
+		return err
+	}
+
+	if err := os.MkdirAll(dest, 0o755); err != nil {
+		return err
+	}
+
+	if !info.IsDir() {
+		if !info.Mode().IsRegular() {
+			return fmt.Errorf("unsupported site source: %s", source)
+		}
+		return copySiteFile(root, filepath.Join(dest, siteIndexName))
+	}
+
+	if err := copyTree(root, dest); err != nil {
+		return err
+	}
+
+	if err := renderMarkdownDocuments(root, dest); err != nil {
+		return err
+	}
+
+	return writeContentsPages(root, dest)
+}
+
+// Helpers
+
+func servedSiteRoot() (string, error) {
+	cache, err := os.UserCacheDir()
+	if err != nil {
+		return "", fmt.Errorf("determining cache directory: %w", err)
+	}
+
+	return filepath.Join(cache, "once"), nil
+}
+
+func servedSiteDir(name string) (string, error) {
+	root, err := servedSiteRoot()
+	if err != nil {
+		return "", err
+	}
+
+	return filepath.Join(root, "sites", name), nil
+}
+
+func removeIfEmpty(path string) {
+	_ = os.Remove(path)
+}
+
+func copyTree(root, dest string) error {
+	return filepath.WalkDir(root, func(path string, entry fs.DirEntry, err error) error {
+		if err != nil {
+			return err
+		}
+
+		rel, err := filepath.Rel(root, path)
+		if err != nil {
+			return err
+		}
+		target := filepath.Join(dest, rel)
+
+		switch {
+		case entry.IsDir():
+			return os.MkdirAll(target, 0o755)
+		case entry.Type()&fs.ModeSymlink != 0:
+			link, err := os.Readlink(path)
+			if err != nil {
+				return err
+			}
+			return os.Symlink(link, target)
+		case entry.Type().IsRegular():
+			return copySiteFile(path, target)
+		default:
+			return nil
+		}
+	})
+}
+
+// copySiteFile writes a world-readable copy, so nginx's worker user can serve
+// it whatever the permissions of the source file are.
+func copySiteFile(source, target string) error {
+	src, err := os.Open(source)
+	if err != nil {
+		return err
+	}
+	defer src.Close()
+====
+package docker
+
+import (
+	"archive/tar"
+	"compress/gzip"
+	"context"
+	"errors"
+	"fmt"
+	"io"
+	"io/fs"
+	"log/slog"
+	"os"
+	"path/filepath"
+	"strings"
+	"time"
+
+	"github.com/containerd/errdefs"
+	"github.com/moby/moby/api/types/container"
+	"github.com/moby/moby/api/types/mount"
+	"github.com/moby/moby/client"
+
+	"github.com/basecamp/once/internal/fsutil"
+)
+
+const (
+	BackupDataDir   = "data"
+	BackupRetention = 30 * 24 * time.Hour
+
+	backupAppSettingsEntry = "once.application.json"
+	backupVolSettingsEntry = "once.volume.json"
+	backupTimeFormat       = "20060102-150405"
+)
+
+func (a *Application) Backup(ctx context.Context) error {
+	if a.Settings.Backup.Path == "" {
+		return fmt.Errorf("backup location is required")
+	}
+
+	return a.BackupToFile(ctx, a.Settings.Backup.Path, a.BackupName())
+}
+
+func (a *Application) BackupName() string {
+	return fmt.Sprintf("%s-%s.tar.gz", a.Settings.Name, time.Now().UTC().Format(backupTimeFormat))
+}
+
+func (a *Application) BackupToFile(ctx context.Context, dir string, name string) error {
+	if dir == "" {
+		return fmt.Errorf("backup location is required")
+	}
+	if !filepath.IsAbs(dir) {
+		return ErrBackupPathRelative
+	}
+
+	filePath := filepath.Join(dir, name)
+	file, err := fsutil.CreateFile(filePath)
+	if errors.Is(err, fs.ErrExist) {
+		slog.Error("Backup file already exists", "app", a.Settings.Name, "filename", filePath)
+		return fmt.Errorf("%w: %s (backups never overwrite an existing file; choose a new filename, or move the existing file aside first)", ErrBackupFileExists, filePath)
+	}
+	if err != nil {
+		slog.Error("Failed to create backup file", "app", a.Settings.Name, "filename", filePath, "error", err)
+		return fmt.Errorf("creating backup file: %w", err)
+	}
+	defer file.Close()
+
+	err = a.backupToWriter(ctx, file)
+	a.saveOperationResult(ctx, func(s *State) { s.RecordBackup(a.Settings.Name, err) })
+
+	if err != nil {
+		if !errors.Is(err, ErrUnpauseFailed) {
+			os.Remove(filePath)
+		}
+		slog.Error("Backup failed", "app", a.Settings.Name, "filename", filePath, "error", err)
+		return err
+	}
+
+	slog.Info("Created backup file", "app", a.Settings.Name, "filename", filePath)
+
+	return nil
+}
+
+func (a *Application) TrimBackups() error {
+	if a.Settings.Backup.Path == "" {
+		return nil
+	}
+
+	entries, err := os.ReadDir(a.Settings.Backup.Path)
+	if err != nil {
+		return fmt.Errorf("reading backup directory: %w", err)
+	}
+
+	var errs []error
+	cutoff := time.Now().UTC().Add(-BackupRetention)
+
+	for _, entry := range entries {
+		if !entry.Type().IsRegular() {
+			continue
+		}
+
+		t, ok := parseBackupTime(a.Settings.Name, entry.Name())
+		if !ok {
+			continue
+		}
+
+		if t.Before(cutoff) {
+			filename := filepath.Join(a.Settings.Backup.Path, entry.Name())
+			if err := os.Remove(filename); err != nil {
+				slog.Error("Failed to remove expired backup file", "app", a.Settings.Name, "filename", filename, "error", err)
+				errs = append(errs, err)
+			} else {
+				slog.Info("Removed expired backup file", "app", a.Settings.Name, "filename", filename)
+			}
+		}
+	}
+
+	return errors.Join(errs...)
+}
+
+func (a *Application) Restore(ctx context.Context, volSettings ApplicationLegacyVolumeSettings, backup io.Reader) (returnErr error) {
+	slog.Info("Restoring application", "app", a.Settings.Name)
+
+	defer func() {
+		if returnErr != nil {
+			slog.Error("Restore failed", "app", a.Settings.Name, "error", returnErr)
+		} else {
+			slog.Info("Restored application", "app", a.Settings.Name)
+		}
+	}()
+
+	if _, err := a.pullImage(ctx, nil); err != nil {
+		return err
+	}
+
+	vol, err := CreateVolume(ctx, a.namespace, a.Settings.Name, volSettings)
+	if err != nil {
+		return fmt.Errorf("creating volume: %w", err)
+	}
+
+	if err := a.ensureKeys(vol); err != nil {
+		vol.Destroy(ctx)
+		return err
+	}
+
+	if err := a.populateVolume(ctx, vol, backup); err != nil {
+		vol.Destroy(ctx)
+		return fmt.Errorf("populating volume: %w", err)
+	}
+
+	if err := a.runRestoreHook(ctx, vol); err != nil {
+		vol.Destroy(ctx)
+		return fmt.Errorf("running post-restore hook: %w", err)
+	}
+
+	if err := a.deployWithVolume(ctx, vol, nil); err != nil {
+		vol.Destroy(ctx)
+		return err
+	}
+
+	return nil
+}
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && grep -R "Ping\|ServerVersion\|Info(ctx" -n . --include='*.go' | head -40 && grep -R "func (.*Client) Ping\|Ping(ctx" $(go env GOMODCACHE)/github.com/moby/moby/client@v0.6.0/*.go | head -20
+./internal/docker/errors_test.go:75:		_, err = c.Ping(context.Background(), client.PingOptions{})
+./internal/docker/namespace.go:191:	info, err := n.client.Info(ctx, client.InfoOptions{})
+/home/mrjohn/go/pkg/mod/github.com/moby/moby/client@v0.6.0/client.go:	_, err := cli.Ping(ctx, PingOptions{
+/home/mrjohn/go/pkg/mod/github.com/moby/moby/client@v0.6.0/client_interfaces.go:	Ping(ctx context.Context, options PingOptions) (PingResult, error)
+/home/mrjohn/go/pkg/mod/github.com/moby/moby/client@v0.6.0/ping.go:func (cli *Client) Ping(ctx context.Context, options PingOptions) (PingResult, error) {
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && ls internal/ui && grep -R "Settings" -n internal/ui | head -60
+actions_menu.go
+actions_menu_test.go
+app.go
+channels.go
+chart.go
+chart_scale.go
+chart_scale_test.go
+chart_test.go
+component.go
+confirmation.go
+confirmation_test.go
+contents_card.go
+contents_card_test.go
+dashboard.go
+dashboard_header.go
+dashboard_header_test.go
+dashboard_panel.go
+dashboard_panel_test.go
+dashboard_test.go
+favorite.go
+form.go
+form_test.go
+helpers_test.go
+help.go
+help_test.go
+install_activity.go
+install_app_list.go
+install_app_list_test.go
+install.go
+install_hostname_form.go
+install_hostname_form_test.go
+install_image_form.go
+install_image_form_test.go
+install_test.go
+keys.go
+logo.go
+logs.go
+logs_test.go
+menu.go
+menu_test.go
+metric_card.go
+metric_card_test.go
+palette_detect.go
+palette_detect_test.go
+palette.go
+palette_test.go
+popup_help.go
+popup_help_test.go
+progress.go
+remove.go
+remove_test.go
+settings_form_application.go
+settings_form_backups.go
+settings_form_base.go
+settings_form_email.go
+settings_form_environment.go
+settings_form_registry.go
+settings_form_resources.go
+settings_form_test.go
+settings_form_updates.go
+settings.go
+settings_menu.go
+settings_menu_test.go
+settings_test.go
+starfield.go
+styles.go
+styles_test.go
+terminal_size_guard.go
+terminal_size_guard_test.go
+internal/ui/app.go:39:	NavigateToSettingsSectionMsg struct {
+internal/ui/app.go:41:		Section SettingsSectionType
+internal/ui/app.go:49:type SettingsSectionType int
+internal/ui/app.go:52:	SettingsSectionApplication SettingsSectionType = iota
+internal/ui/app.go:53:	SettingsSectionRegistry
+internal/ui/app.go:54:	SettingsSectionEmail
+internal/ui/app.go:55:	SettingsSectionEnvironment
+internal/ui/app.go:56:	SettingsSectionResources
+internal/ui/app.go:57:	SettingsSectionUpdates
+internal/ui/app.go:58:	SettingsSectionBackups
+internal/ui/app.go:83:	if ns.Proxy().Settings != nil && ns.Proxy().Settings.MetricsPort != 0 {
+internal/ui/app.go:84:		metricsPort = ns.Proxy().Settings.MetricsPort
+internal/ui/app.go:87:	scraper := metrics.NewMetricsScraper(metrics.ScraperSettings{
+internal/ui/app.go:92:	dockerScraper := docker.NewScraper(ns, docker.ScraperSettings{
+internal/ui/app.go:102:	systemScraper := system.NewScraper(system.ScraperSettings{
+internal/ui/app.go:210:			if app.Settings.Name == msg.App.Settings.Name {
+internal/ui/app.go:228:			if app.Settings.Name == msg.AppName {
+internal/ui/app.go:235:	case NavigateToSettingsSectionMsg:
+internal/ui/app.go:236:		return m, m.navigateTo(NewSettings(m.namespace, msg.App, msg.Section))
+internal/ui/dashboard.go:31:	Settings  key.Binding
+internal/ui/dashboard.go:44:	Settings:  WithHelp(NewKeyBinding("s"), "s", "settings"),
+internal/ui/dashboard.go:183:		if key.Matches(msg, dashboardKeys.Settings) && len(m.apps) > 0 {
+internal/ui/dashboard.go:185:			m.overlay = NewSettingsMenu(app)
+internal/ui/dashboard.go:202:			m.toggleFavorite(m.apps[m.selectedIndex].Settings.Name)
+internal/ui/dashboard.go:210:			m.overlay = NewContentsCard(app, m.lastBackupFor(app), m.isFavorite(app.Settings.Name), m.width)
+internal/ui/dashboard.go:225:	case SettingsMenuCloseMsg:
+internal/ui/dashboard.go:228:	case SettingsMenuSelectMsg:
+internal/ui/dashboard.go:231:			return NavigateToSettingsSectionMsg{App: msg.app, Section: msg.section}
+internal/ui/dashboard.go:249:			m.togglingApp = app.Settings.Name
+internal/ui/dashboard.go:292:			previousName = m.apps[m.selectedIndex].Settings.Name
+internal/ui/dashboard.go:300:			if app.Settings.Name == previousName {
+internal/ui/dashboard.go:359:			dashboardKeys.Favorite, dashboardKeys.Settings, dashboardKeys.Logs,
+internal/ui/dashboard.go:407:	m.updatingApp = app.Settings.Host
+internal/ui/dashboard.go:443:			slog.Warn("Failed to open drifted app", "app", app.Settings.Name, "error", err)
+internal/ui/dashboard.go:461:	return state.AppState(app.Settings.Name).LastBackupResult()
+internal/ui/dashboard.go:570:	case m.updating && m.updatingApp == app.Settings.Host:
+internal/ui/dashboard.go:572:	case m.toggling && m.togglingApp == app.Settings.Name && app.Running:
+internal/ui/dashboard.go:574:	case m.toggling && m.togglingApp == app.Settings.Name:
+internal/ui/dashboard.go:590:		aFavorite := m.isFavorite(m.panels[a].app.Settings.Name)
+internal/ui/dashboard.go:591:		bFavorite := m.isFavorite(m.panels[b].app.Settings.Name)
+internal/ui/dashboard_header_test.go:31:	s := system.NewScraper(system.ScraperSettings{
+internal/ui/dashboard_header_test.go:44:	s := system.NewScraper(system.ScraperSettings{
+internal/ui/dashboard_header_test.go:66:	s := system.NewScraper(system.ScraperSettings{BufferSize: 10})
+internal/ui/dashboard_panel.go:66:	url := Styles.Title.Hyperlink(p.app.URL()).Render(p.app.Settings.Host)
+internal/ui/dashboard_panel.go:67:	name := lipgloss.NewStyle().Foreground(Colors.Border).Render("(" + docker.NameFromImageRef(p.app.Settings.Image) + ")")
+internal/ui/dashboard_panel.go:169:	return p.dockerScraper.Stale(p.app.Settings.Name)
+internal/ui/dashboard_panel.go:189:	return p.state.AppState(p.app.Settings.Name).LastBackupResult()
+internal/ui/dashboard_panel.go:193:	return p.state.IsFavorite(p.app.Settings.Name)
+internal/ui/dashboard_panel.go:238:	if c := p.app.Settings.Resources.CPUs; c > 0 {
+internal/ui/dashboard_panel.go:245:	if mb := p.app.Settings.Resources.MemoryMB; mb > 0 {
+internal/ui/dashboard_panel.go:272:		stats := p.userStats.Fetch(p.app.Settings.Name)
+internal/ui/dashboard_panel.go:325:	samples := p.dockerScraper.Fetch(p.app.Settings.Name, containerStatsBuffer)
+internal/ui/dashboard_panel.go:338:	samples := p.scraper.Fetch(p.app.Settings.Name, ChartSlidingWindow)
+internal/ui/dashboard_test.go:156:		updated = append(updated, app.Settings.Name)
+internal/ui/dashboard_test.go:224:func TestDashboard_SettingsMenuStillWorks(t *testing.T) {
+internal/ui/dashboard_test.go:441:	scraper := metrics.NewMetricsScraper(metrics.ScraperSettings{})
+internal/ui/dashboard_test.go:443:	systemScraper := system.NewScraper(system.ScraperSettings{BufferSize: 10})
+internal/ui/dashboard_test.go:452:		Settings: docker.ApplicationSettings{
+internal/ui/dashboard_test.go:461:		Settings: docker.ApplicationSettings{
+internal/ui/install.go:56:	registry       docker.RegistrySettings
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && grep -R "HTTPPort\|HTTPSPort\|ProxySettings" -n internal | head -80 && echo ==== && grep -R "certificate\|Certificate\|Cert" -n internal integration | head -60 && echo ==== && grep -R "net.Lookup\|LookupHost\|LookupIP\|Resolver\|dns" -n internal | head -60
+internal/docker/application.go:158:	port := proxy.Settings.HTTPPort
+internal/docker/application.go:160:		port = proxy.Settings.HTTPSPort
+internal/docker/application_test.go:85:	newAppWithProxy := func(host string, disableTLS bool, proxySettings *ProxySettings) *Application {
+internal/docker/application_test.go:115:		app := newAppWithProxy("app.localhost", true, &ProxySettings{HTTPPort: 80})
+internal/docker/application_test.go:120:		app := newAppWithProxy("app.localhost", true, &ProxySettings{HTTPPort: 8080})
+internal/docker/application_test.go:125:		app := newAppWithProxy("app.example.com", false, &ProxySettings{HTTPSPort: 443})
+internal/docker/application_test.go:130:		app := newAppWithProxy("app.example.com", false, &ProxySettings{HTTPSPort: 8443})
+internal/docker/application_test.go:135:		app := newAppWithProxy("chat.localhost", false, &ProxySettings{HTTPPort: 9090})
+internal/docker/namespace.go:147:	return n.proxy.Boot(ctx, ProxySettings{})
+internal/docker/namespace.go:307:					settings, err := UnmarshalProxySettings(label)
+internal/docker/proxy.go:33:	DefaultHTTPPort    = 80
+internal/docker/proxy.go:34:	DefaultHTTPSPort   = 443
+internal/docker/proxy.go:39:type ProxySettings struct {
+internal/docker/proxy.go:40:	HTTPPort    int `json:"httpPort"`
+internal/docker/proxy.go:41:	HTTPSPort   int `json:"httpsPort"`
+internal/docker/proxy.go:45:func UnmarshalProxySettings(s string) (ProxySettings, error) {
+internal/docker/proxy.go:46:	var settings ProxySettings
+internal/docker/proxy.go:51:func (s ProxySettings) Marshal() string {
+internal/docker/proxy.go:65:	Settings  *ProxySettings
+internal/docker/proxy.go:72:func (p *Proxy) Boot(ctx context.Context, settings ProxySettings) error {
+internal/docker/proxy.go:73:	if settings.HTTPPort == 0 {
+internal/docker/proxy.go:74:		settings.HTTPPort = DefaultHTTPPort
+internal/docker/proxy.go:76:	if settings.HTTPSPort == 0 {
+internal/docker/proxy.go:77:		settings.HTTPSPort = DefaultHTTPSPort
+internal/docker/proxy.go:119:				httpPortTCP:    []network.PortBinding{{HostPort: fmt.Sprintf("%d", settings.HTTPPort)}},
+internal/docker/proxy.go:120:				httpsPortTCP:   []network.PortBinding{{HostPort: fmt.Sprintf("%d", settings.HTTPSPort)}},
+internal/docker/proxy.go:209:		settings, err := UnmarshalProxySettings(label)
+====
+====
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && sed -n 280,380p internal/docker/namespace.go && echo ==== && sed -n 1,120p internal/docker/helpers_test.go && sed -n 1,120p internal/docker/errors_test.go
+// Private
+
+type appCandidate struct {
+	app     *Application
+	created int64
+}
+
+func (n *Namespace) restoreState(ctx context.Context) error {
+	containers, err := n.client.ContainerList(ctx, client.ContainerListOptions{All: true})
+	if err != nil {
+		return connectionError(err)
+	}
+
+	proxyPrefix := n.name + "-proxy"
+	appPrefix := n.name + "-app-"
+
+	// Use a map to deduplicate apps by name, preferring the most recently created container
+	appsByName := make(map[string]appCandidate)
+
+	for _, c := range containers.Items {
+		for _, name := range c.Names {
+			name = strings.TrimPrefix(name, "/")
+
+			if name == proxyPrefix {
+				label := c.Labels[labelKey]
+				if label != "" {
+					settings, err := UnmarshalProxySettings(label)
+					if err != nil {
+						return err
+					}
+					n.proxy.Settings = &settings
+				}
+				break
+			}
+
+			if strings.HasPrefix(name, appPrefix) {
+				label := c.Labels[labelKey]
+				if label != "" {
+					settings, err := UnmarshalApplicationSettings(label)
+					if err != nil {
+						return err
+					}
+					app := NewApplication(n, settings)
+					app.Running = c.State == "running"
+					app.DeployedAt = time.Unix(c.Created, 0)
+					if app.Running {
+						info, err := n.client.ContainerInspect(ctx, c.ID, client.ContainerInspectOptions{})
+						if err == nil && info.Container.State != nil {
+							if t, err := time.Parse(time.RFC3339Nano, info.Container.State.StartedAt); err == nil {
+								app.RunningSince = t
+							}
+						}
+					}
+
+					existing, found := appsByName[settings.Name]
+					if !found || c.Created > existing.created {
+						appsByName[settings.Name] = appCandidate{app: app, created: c.Created}
+					}
+				}
+				break
+			}
+		}
+	}
+
+	for _, candidate := range appsByName {
+		app := candidate.app
+
+		// Older installs may still have keys stored on the volume label
+		if app.Settings.Keys.Empty() {
+			if vol, err := FindVolume(ctx, n, app.Settings.Name); err == nil {
+				app.Settings.Keys = vol.Settings.Keys
+			}
+		}
+
+		n.applications = append(n.applications, app)
+	}
+
+	n.sortApplications()
+	return nil
+}
+
+func (n *Namespace) sortApplications() {
+	slices.SortFunc(n.applications, func(a, b *Application) int {
+		return strings.Compare(a.Settings.Host, b.Settings.Host)
+	})
+}
+
+// Helpers
+
+var validNamespace = regexp.MustCompile(`^[a-z0-9][a-z0-9-]*$`)
+====
+package docker
+
+import (
+	"strings"
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
+
+func TestNameFromImageRef(t *testing.T) {
+	assert.Equal(t, "once-campfire", NameFromImageRef("ghcr.io/basecamp/once-campfire:main"))
+	assert.Equal(t, "once-campfire", NameFromImageRef("ghcr.io/basecamp/once-campfire"))
+	assert.Equal(t, "once-campfire", NameFromImageRef("ghcr.io/basecamp/once-campfire:latest"))
+}
+
+func TestNameFromPath(t *testing.T) {
+	assert.Equal(t, "my-site", NameFromPath("/srv/my-site"))
+	assert.Equal(t, "my-site", NameFromPath("/srv/My Site/"))
+	assert.Equal(t, "notes-v2", NameFromPath("/srv/notes.v2"))
+	assert.Equal(t, "my-site", NameFromPath("/srv/my-site.html"))
+	assert.Equal(t, "my-site", NameFromPath("/srv/My Site.HTML"))
+	assert.Equal(t, "notes-v2", NameFromPath("/srv/notes.v2.html"))
+	assert.Equal(t, "site", NameFromPath("/"))
+	assert.Equal(t, "site", NameFromPath("."))
+
+	longName := strings.Repeat("a", 70)
+	assert.Equal(t, strings.Repeat("a", 63), NameFromPath("/srv/"+longName))
+}
+
+func TestIsLocalhost(t *testing.T) {
+	assert.True(t, IsLocalhost("localhost"))
+	assert.True(t, IsLocalhost("app.localhost"))
+	assert.False(t, IsLocalhost("example.com"))
+	assert.False(t, IsLocalhost("localhost.example.com"))
+}
+
+func TestCutLast(t *testing.T) {
+	before, after, found := cutLast("once-app-myapp-abc123", "-")
+	assert.True(t, found)
+	assert.Equal(t, "once-app-myapp", before)
+	assert.Equal(t, "abc123", after)
+
+	before, after, found = cutLast("nosep", "-")
+	assert.False(t, found)
+	assert.Equal(t, "nosep", before)
+	assert.Equal(t, "", after)
+}
+package docker
+
+import (
+	"context"
+	"errors"
+	"fmt"
+	"net"
+	"os"
+	"path/filepath"
+	"testing"
+
+	"github.com/containerd/errdefs"
+	"github.com/moby/moby/client"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+)
+
+func TestIsPortConflict(t *testing.T) {
+	assert.True(t, isPortConflict(errors.New("Ports are not available: listen tcp :80: bind: address already in use")))
+	assert.True(t, isPortConflict(errors.New("driver failed programming external connectivity: port is already allocated")))
+	assert.False(t, isPortConflict(errors.New("something else went wrong")))
+	assert.False(t, isPortConflict(nil))
+}
+
+func TestErrorMessage(t *testing.T) {
+	t.Run("returns description for described error", func(t *testing.T) {
+		assert.Equal(t, ErrProxyPortInUse.Description(), ErrorMessage(ErrProxyPortInUse))
+	})
+
+	t.Run("returns description for wrapped described error", func(t *testing.T) {
+		wrapped := fmt.Errorf("setup failed: %w", ErrProxyPortInUse)
+		assert.Equal(t, ErrProxyPortInUse.Description(), ErrorMessage(wrapped))
+	})
+
+	t.Run("returns Error for plain error", func(t *testing.T) {
+		err := errors.New("something broke")
+		assert.Equal(t, "something broke", ErrorMessage(err))
+	})
+}
+
+func TestWrapPullError(t *testing.T) {
+	authLike := func(t *testing.T, err error) {
+		t.Helper()
+		wrapped := wrapPullError(err)
+		assert.ErrorIs(t, wrapped, ErrPullMaybeUnauthorized)
+		assert.ErrorIs(t, wrapped, ErrPullFailed)
+		assert.Equal(t, ErrPullMaybeUnauthorized.Description(), ErrorMessage(wrapped))
+	}
+
+	t.Run("registry stream messages", func(t *testing.T) {
+		authLike(t, errors.New("unauthorized: authentication required"))
+		authLike(t, errors.New("pull access denied for private/app, repository does not exist or may require 'docker login'"))
+		authLike(t, errors.New("no basic auth credentials"))
+		authLike(t, errors.New("manifest unknown: manifest unknown"))
+	})
+
+	t.Run("typed daemon errors", func(t *testing.T) {
+		authLike(t, errdefs.ErrUnauthenticated)
+		authLike(t, errdefs.ErrPermissionDenied)
+		authLike(t, errdefs.ErrNotFound)
+	})
+
+	t.Run("other errors stay generic", func(t *testing.T) {
+		wrapped := wrapPullError(errors.New("dial tcp: connection refused"))
+		assert.ErrorIs(t, wrapped, ErrPullFailed)
+		assert.NotErrorIs(t, wrapped, ErrPullMaybeUnauthorized)
+		assert.Equal(t, ErrPullFailed.Description(), ErrorMessage(wrapped))
+	})
+}
+
+func TestConnectionError(t *testing.T) {
+	pingError := func(t *testing.T, socketPath string) error {
+		c, err := client.New(client.WithHost("unix://" + socketPath))
+		require.NoError(t, err)
+		_, err = c.Ping(context.Background(), client.PingOptions{})
+		require.Error(t, err)
+		return err
+	}
+
+	t.Run("permission denied", func(t *testing.T) {
+		if os.Getuid() == 0 {
+			t.Skip("root can always connect to the socket")
+		}
+
+		socketPath := filepath.Join(t.TempDir(), "docker.sock")
+		listener, err := net.Listen("unix", socketPath)
+		require.NoError(t, err)
+		defer listener.Close()
+		require.NoError(t, os.Chmod(socketPath, 0))
+
+		err = connectionError(pingError(t, socketPath))
+		assert.ErrorIs(t, err, ErrDockerPermissionDenied)
+		assert.Equal(t, ErrDockerPermissionDenied.Description(), ErrorMessage(err))
+	})
+
+	t.Run("daemon not running", func(t *testing.T) {
+		socketPath := filepath.Join(t.TempDir(), "missing.sock")
+
+		err := connectionError(pingError(t, socketPath))
+		assert.ErrorIs(t, err, ErrDockerNotRunning)
+		assert.Equal(t, ErrDockerNotRunning.Description(), ErrorMessage(err))
+	})
+
+	t.Run("passes through other errors", func(t *testing.T) {
+		assert.Equal(t, assert.AnError, connectionError(assert.AnError))
+		assert.NoError(t, connectionError(nil))
+	})
+}
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && grep -R "doctor\|PASS\|FAIL\|✓\|✗" -n . --include='*.go' --include='*.md' | head -60 && echo ==== && ls prompt-v1 && sed -n 1,200p prompt-v1/00-overview.md 2>/dev/null
+./README.md:137:- `SMTP_ADDRESS`/`SMTP_PORT`/`SMTP_USERNAME`/`SMTP_PASSWORD`/`MAILER_FROM_ADDRESS` -- The values from the Email Settings screen are passed in these.
+./integration/docker_test.go:1445:			"REGISTRY_AUTH_HTPASSWD_REALM=test-registry",
+./integration/docker_test.go:1446:			"REGISTRY_AUTH_HTPASSWD_PATH=/auth/htpasswd",
+./internal/docker/application_settings.go:72:		"SMTP_PASSWORD=" + s.Password,
+./internal/docker/application_test.go:156:	assert.Contains(t, env, "SMTP_PASSWORD=secret")
+./internal/ui/form.go:156:		return "[✓] " + f.label
+./internal/ui/form_test.go:136:	assert.Equal(t, "[✓] TLS", field.View())
+./internal/ui/form_test.go:156:	assert.Equal(t, "[✓] TLS", field.View())
+./internal/ui/settings_form_test.go:97:	assert.Equal(t, "[✓] Enabled", form.form.CheckboxField(appTLSField).View())
+./internal/ui/settings_form_test.go:104:	assert.Equal(t, "[✓] Enabled", form.form.CheckboxField(appTLSField).View())
+./prompt/26-doctor-command.md:1:Your job is to go in and add `once doctor` here to this Go CLI/TUI app.
+====
+00-overview.md
+01-logs-command.md
+02-status-command.md
+03-restart-command.md
+04-backups-command.md
+05-dashboard-filter.md
+06-dashboard-lifecycle-shortcuts.md
+07-update-all.md
+08-health-checks.md
+09-app-details.md
+10-backup-restore.md
+11-logs-stderr.md
+12-logs-pause.md
+13-appearance-settings.md
+14-command-palette.md
+15-toasts.md
+16-chart-time-range.md
+17-compact-layout.md
+18-incremental-render.md
+19-chart-performance.md
+20-house-style.md
+These prompts change the ONCE Go CLI/TUI in this repository, one feature per file, run in order with a fresh agent for each.
+
+House style here is the project's own Go conventions plus `make lint`; the wider reference copy is at /home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+
+The done line in every file means `make test` and `make lint` both run clean.
+
+Each file is the whole instruction for its session.
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && sed -n 420,640p internal/docker/application.go && echo ==== && cat internal/docker/source.go | head -100 && echo ==== && grep -R "Lookup\|Resolve\|verify" -n internal/docker internal/command | head -60
+}
+
+	if _, err := a.namespace.client.ContainerStart(ctx, resp.ID, client.ContainerStartOptions{}); err != nil {
+		a.namespace.client.ContainerRemove(ctx, resp.ID, client.ContainerRemoveOptions{Force: true})
+		return fmt.Errorf("starting container: %w", err)
+	}
+
+	shortContainerID := resp.ID[:12]
+
+	if err := a.namespace.Proxy().Deploy(ctx, DeployOptions{
+		AppName: a.Settings.Name,
+		Target:  shortContainerID,
+		Host:    a.Settings.Host,
+		TLS:     a.Settings.TLSEnabled(),
+	}); err != nil {
+		a.namespace.client.ContainerRemove(ctx, resp.ID, client.ContainerRemoveOptions{Force: true})
+		if strings.Contains(err.Error(), "target not healthy") || strings.Contains(err.Error(), "deploy timed out") {
+			slog.Error("Application failed to start", "app", a.Settings.Name, "error", err)
+			return ErrAppNotStarted
+		}
+		return fmt.Errorf("registering with proxy: %w", err)
+	}
+
+	if err := a.removeContainersExcept(ctx, containerName); err != nil {
+		return fmt.Errorf("removing old containers: %w", err)
+	}
+
+	if progress != nil {
+		progress(DeployProgress{Stage: DeployStageFinished})
+	}
+
+	return nil
+}
+
+func (a *Application) ensureKeys(vol *ApplicationVolume) error {
+	// Older installs may still have keys stored on the volume label
+	keys := cmp.Or(a.Settings.Keys, vol.Settings.Keys)
+
+	if keys.Empty() {
+		if err := keys.Regenerate(true, true); err != nil {
+			return fmt.Errorf("generating keys: %w", err)
+		}
+	}
+
+	a.Settings.Keys = keys
+	return nil
+}
+
+func (a *Application) verifyHTTP(ctx context.Context) error {
+	url := a.URL()
+	if url == "" {
+		return nil
+	}
+
+	client := &http.Client{Timeout: httpVerifyTimeout}
+	req, err := http.NewRequestWithContext(ctx, http.MethodGet, url+HealthCheckPath, nil)
+	if err != nil {
+		return fmt.Errorf("%w: %w", ErrVerificationFailed, err)
+	}
+
+	resp, err := client.Do(req)
+	if err != nil {
+		return fmt.Errorf("%w: %w", ErrVerificationFailed, err)
+	}
+	defer resp.Body.Close()
+
+	if resp.StatusCode < 200 || resp.StatusCode > 299 {
+		return fmt.Errorf("%w: unexpected status %d from %s", ErrVerificationFailed, resp.StatusCode, url)
+	}
+
+	return nil
+}
+
+func (a *Application) removeContainersExcept(ctx context.Context, keep string) error {
+	containers, err := a.namespace.client.ContainerList(ctx, client.ContainerListOptions{All: true})
+	if err != nil {
+		return err
+	}
+
+	for _, c := range containers.Items {
+		if len(c.Names) == 0 {
+			continue
+		}
+		name := strings.TrimPrefix(c.Names[0], "/")
+		if a.namespace.containerAppName(name) == a.Settings.Name && name != keep {
+			if _, err := a.namespace.client.ContainerRemove(ctx, c.ID, client.ContainerRemoveOptions{Force: true}); err != nil {
+				return err
+			}
+		}
+	}
+
+	return nil
+}
+
+func (a *Application) volumeMounts(vol *ApplicationVolume) []mount.Mount {
+	var mounts []mount.Mount
+	for _, target := range AppVolumeMountTargets {
+		mounts = append(mounts, mount.Mount{
+			Type:   mount.TypeVolume,
+			Source: vol.Name(),
+			Target: target,
+		})
+	}
+
+	if a.Settings.Static() {
+		source := cmp.Or(a.Settings.ServedPath, a.Settings.Source)
+		mounts = append(mounts, mount.Mount{
+			Type:     mount.TypeBind,
+			Source:   source,
+			Target:   staticContentTarget,
+			ReadOnly: true,
+		})
+	}
+
+	return mounts
+}
+
+func (a *Application) BuildEnv() []string {
+	s := a.Settings
+
+	env := []string{
+		"SECRET_KEY_BASE=" + s.Keys.SecretKeyBase,
+		"VAPID_PUBLIC_KEY=" + s.Keys.VAPIDPublicKey,
+		"VAPID_PRIVATE_KEY=" + s.Keys.VAPIDPrivateKey,
+	}
+
+	if !s.TLSEnabled() {
+		env = append(env, "DISABLE_SSL=true")
+	}
+
+	if s.Resources.CPUs > 0 {
+		env = append(env, "NUM_CPUS="+strconv.Itoa(s.Resources.CPUs))
+	}
+
+	if url := a.URL(); url != "" {
+		env = append(env, "BASE_URL="+url)
+	}
+
+	env = append(env, s.SMTP.BuildEnv()...)
+
+	for k, v := range s.EnvVars {
+		env = append(env, k+"="+v)
+	}
+
+	return env
+}
+
+func (a *Application) containerConfig(env []string) *container.Config {
+	config := &container.Config{
+		Image: a.Settings.Image,
+		Labels: map[string]string{
+			labelKey: a.Settings.Marshal(),
+		},
+		Env: env,
+	}
+
+	if a.Settings.Static() {
+		config.Cmd = a.staticNginxCommand()
+	}
+
+	return config
+}
+
+// Helpers
+
+func (a *Application) staticNginxCommand() []string {
+	config := strings.NewReplacer(
+		"{{bar}}", escapeNginxVariables(a.appBar()),
+		"{{health}}", HealthCheckPath,
+		"{{root}}", staticContentTarget,
+	).Replace(staticNginxConfig)
+
+	return []string{"sh", "-c", "cat > /etc/nginx/conf.d/default.conf <<'EOF'\n" + config + "EOF\nnginx -g 'daemon off;'\n"}
+}
+
+// escapeNginxVariables keeps nginx from expanding dollar signs in the bar, as
+// its single-quoted strings still interpolate variables.
+func escapeNginxVariables(text string) string {
+	return strings.ReplaceAll(text, "$", `\$`)
+}
+====
+package docker
+
+import (
+	"crypto/sha256"
+	"fmt"
+	"io"
+	"io/fs"
+	"os"
+	"path/filepath"
+)
+
+// HashSource returns a digest of the files in dir, so a deployed folder can be
+// compared against the copy that is being served.
+func HashSource(dir string) (string, error) {
+	root, err := filepath.EvalSymlinks(dir)
+	if err != nil {
+		return "", err
+	}
+
+	h := sha256.New()
+
+	err = filepath.WalkDir(root, func(path string, entry fs.DirEntry, err error) error {
+		if err != nil {
+			return err
+		}
+		if path == root && entry.IsDir() {
+			return nil
+		}
+
+		rel, err := filepath.Rel(root, path)
+		if err != nil {
+			return err
+		}
+		rel = filepath.ToSlash(rel)
+
+		if entry.Type()&fs.ModeSymlink != 0 {
+			target, err := os.Readlink(path)
+			if err != nil {
+				return err
+			}
+			fmt.Fprintf(h, "%s\x00link\x00%s\x00", rel, target)
+			return nil
+		}
+
+		if !entry.Type().IsRegular() {
+			return nil
+		}
+
+		sum, err := hashFile(path)
+		if err != nil {
+			return err
+		}
+		fmt.Fprintf(h, "%s\x00%x\x00", rel, sum)
+		return nil
+	})
+	if err != nil {
+		return "", err
+	}
+
+	return fmt.Sprintf("%x", h.Sum(nil)), nil
+}
+
+// Helpers
+
+func hashFile(path string) ([]byte, error) {
+	f, err := os.Open(path)
+	if err != nil {
+		return nil, err
+	}
+	defer f.Close()
+
+	h := sha256.New()
+	if _, err := io.Copy(h, f); err != nil {
+		return nil, err
+	}
+
+	return h.Sum(nil), nil
+}
+====
+internal/docker/application.go:275:	if err := a.verifyHTTP(ctx); err != nil {
+internal/docker/application.go:468:func (a *Application) verifyHTTP(ctx context.Context) error {
+internal/docker/application_test.go:26:	err := app.verifyHTTP(context.Background())
+internal/docker/application_test.go:45:	err := app.verifyHTTP(context.Background())
+internal/docker/application_test.go:59:	err := app.verifyHTTP(context.Background())
+internal/docker/application_test.go:70:	err := app.verifyHTTP(context.Background())
+internal/docker/application_test.go:80:	err := app.verifyHTTP(context.Background())
+internal/docker/namespace_test.go:24:func TestApplicationLookup(t *testing.T) {
+internal/docker/registry_auth.go:51:	authenticator, err := authn.DefaultKeychain.Resolve(ref.Context())
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && grep -R "Setup(ctx)\|proxy.Boot\|EnsureNetwork" -n internal cmd && sed -n 60,140p internal/ui/app.go && grep -R "Setup\|Boot" -n internal/ui | head -40
+internal/command/deploy.go:39:	if err := ns.Setup(ctx); err != nil {
+internal/command/keys.go:41:	if err := ns.Setup(ctx); err != nil {
+internal/command/restore.go:39:	if err := ns.Setup(ctx); err != nil {
+internal/command/update.go:43:	if err := ns.Setup(ctx); err != nil {
+internal/docker/namespace.go:143:	if err := n.EnsureNetwork(ctx); err != nil {
+internal/docker/namespace.go:147:	return n.proxy.Boot(ctx, ProxySettings{})
+internal/docker/namespace.go:150:func (n *Namespace) EnsureNetwork(ctx context.Context) error {
+internal/ui/install_activity.go:166:	if err := m.namespace.Setup(ctx); err != nil {
+
+type App struct {
+	namespace       *docker.Namespace
+	scraper         *metrics.MetricsScraper
+	dockerScraper   *docker.Scraper
+	systemScraper   *system.Scraper
+	userStats       *userstats.Reader
+	currentScreen   Component
+	sizeGuard       TerminalSizeGuard
+	lastSize        tea.WindowSizeMsg
+	eventChan       <-chan struct{}
+	watchCtx        context.Context
+	watchCancel     context.CancelFunc
+	installImageRef string
+}
+
+func NewApp(ns *docker.Namespace, installImageRef string) *App {
+	ctx, cancel := context.WithCancel(context.Background())
+	eventChan := ns.EventWatcher().Watch(ctx)
+
+	apps := ns.Applications()
+
+	metricsPort := docker.DefaultMetricsPort
+	if ns.Proxy().Settings != nil && ns.Proxy().Settings.MetricsPort != 0 {
+		metricsPort = ns.Proxy().Settings.MetricsPort
+	}
+
+	scraper := metrics.NewMetricsScraper(metrics.ScraperSettings{
+		Port:       metricsPort,
+		BufferSize: ChartSlidingWindow,
+	})
+
+	dockerScraper := docker.NewScraper(ns, docker.ScraperSettings{
+		BufferSize: containerStatsBuffer,
+	})
+
+	diskPath, err := ns.DockerRootDir(ctx)
+	if err != nil {
+		slog.Warn("failed to get Docker root dir, using default", "err", err)
+		diskPath = "/var/lib/docker"
+	}
+
+	systemScraper := system.NewScraper(system.ScraperSettings{
+		BufferSize: ChartHistoryLength,
+		DiskPath:   diskPath,
+	})
+
+	userStats := userstats.NewReader(ns.Name())
+
+	var screen Component
+	if len(apps) > 0 && installImageRef == "" {
+		screen = NewDashboard(ns, apps, 0, scraper, dockerScraper, systemScraper, userStats)
+	} else {
+		screen = NewInstall(ns, installImageRef)
+	}
+
+	return &App{
+		namespace:       ns,
+		scraper:         scraper,
+		dockerScraper:   dockerScraper,
+		systemScraper:   systemScraper,
+		userStats:       userStats,
+		currentScreen:   screen,
+		sizeGuard:       NewTerminalSizeGuard(80, 24),
+		eventChan:       eventChan,
+		watchCtx:        ctx,
+		watchCancel:     cancel,
+		installImageRef: installImageRef,
+	}
+}
+
+func (m *App) Init() tea.Cmd {
+	return tea.Batch(
+		m.currentScreen.Init(),
+		m.watchForChanges(),
+		m.runScrape(),
+		m.scheduleNextScrapeTick(),
+		m.runUserStatsScrape(),
+		m.scheduleNextUserStatsTick(),
+	)
+}
+internal/ui/install_activity.go:166:	if err := m.namespace.Setup(ctx); err != nil {
+internal/ui/install_activity.go:167:		m.doneChan <- installDoneMsg{err: fmt.Errorf("%w: %w", docker.ErrSetupFailed, err)}
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && sed -n 1,120p internal/docker/namespace_test.go && echo ==== && sed -n 1,80p internal/command/status_test.go && echo ==== && sed -n 1,100p internal/command/list_test.go
+package docker
+
+import (
+	"strings"
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+)
+
+func TestUniqueName(t *testing.T) {
+	ns := &Namespace{name: "test"}
+
+	name, err := ns.UniqueName("myapp")
+	require.NoError(t, err)
+	assert.True(t, strings.HasPrefix(name, "myapp."))
+	assert.Len(t, name, len("myapp.")+6)
+
+	name2, err := ns.UniqueName("myapp")
+	require.NoError(t, err)
+	assert.NotEqual(t, name, name2)
+}
+
+func TestApplicationLookup(t *testing.T) {
+	ns := &Namespace{name: "test"}
+	ns.applications = append(ns.applications, NewApplication(ns, ApplicationSettings{Name: "alpha"}))
+	ns.applications = append(ns.applications, NewApplication(ns, ApplicationSettings{Name: "beta"}))
+
+	assert.NotNil(t, ns.Application("alpha"))
+	assert.Equal(t, "alpha", ns.Application("alpha").Settings.Name)
+	assert.NotNil(t, ns.Application("beta"))
+	assert.Nil(t, ns.Application("missing"))
+}
+
+func TestApplicationByHost(t *testing.T) {
+	ns := &Namespace{name: "test"}
+	ns.applications = append(ns.applications,
+		NewApplication(ns, ApplicationSettings{Name: "app1", Host: "app1.localhost"}),
+		NewApplication(ns, ApplicationSettings{Name: "app2", Host: "app2.localhost"}),
+	)
+
+	app := ns.ApplicationByHost("app1.localhost")
+	require.NotNil(t, app)
+	assert.Equal(t, "app1", app.Settings.Name)
+
+	app = ns.ApplicationByHost("app2.localhost")
+	require.NotNil(t, app)
+	assert.Equal(t, "app2", app.Settings.Name)
+
+	assert.Nil(t, ns.ApplicationByHost("missing.localhost"))
+}
+
+func TestHostInUse(t *testing.T) {
+	ns := &Namespace{name: "test"}
+	ns.applications = append(ns.applications,
+		NewApplication(ns, ApplicationSettings{Name: "app1", Host: "app1.localhost"}),
+		NewApplication(ns, ApplicationSettings{Name: "app2", Host: "app2.localhost"}),
+	)
+
+	assert.True(t, ns.HostInUse("app1.localhost"))
+	assert.True(t, ns.HostInUse("app2.localhost"))
+	assert.False(t, ns.HostInUse("other.localhost"))
+}
+
+func TestHostInUseByAnother(t *testing.T) {
+	ns := &Namespace{name: "test"}
+	ns.applications = append(ns.applications,
+		NewApplication(ns, ApplicationSettings{Name: "app1", Host: "shared.localhost"}),
+		NewApplication(ns, ApplicationSettings{Name: "app2", Host: "unique.localhost"}),
+	)
+
+	assert.False(t, ns.HostInUseByAnother("shared.localhost", "app1"))
+	assert.True(t, ns.HostInUseByAnother("shared.localhost", "app2"))
+	assert.False(t, ns.HostInUseByAnother("other.localhost", "app1"))
+}
+
+func TestNewApplicationDoesNotAffectNamespace(t *testing.T) {
+	ns := &Namespace{name: "test"}
+	ns.addApplication(ApplicationSettings{Name: "existing", Host: "existing.localhost"})
+
+	// NewApplication creates a standalone app without adding it to the namespace
+	app := NewApplication(ns, ApplicationSettings{Name: "standalone", Host: "standalone.localhost"})
+
+	assert.Nil(t, ns.Application("standalone"))
+	assert.False(t, ns.HostInUse("standalone.localhost"))
+	assert.Len(t, ns.Applications(), 1)
+	assert.Equal(t, "standalone", app.Settings.Name)
+}
+
+func TestContainerAppName(t *testing.T) {
+	ns := &Namespace{name: "once"}
+
+	t.Run("standard app", func(t *testing.T) {
+		assert.Equal(t, "campfire", ns.containerAppName("once-app-campfire-a1b2c3"))
+	})
+
+	t.Run("dotted unique name", func(t *testing.T) {
+		assert.Equal(t, "campfire.a1b2c3", ns.containerAppName("once-app-campfire.a1b2c3-d4e5f6"))
+	})
+
+	t.Run("dashed app name", func(t *testing.T) {
+		assert.Equal(t, "my-app", ns.containerAppName("once-app-my-app-abcdef"))
+	})
+
+	t.Run("wrong namespace", func(t *testing.T) {
+		assert.Equal(t, "", ns.containerAppName("other-app-campfire-a1b2c3"))
+	})
+
+	t.Run("not a container name", func(t *testing.T) {
+		assert.Equal(t, "", ns.containerAppName("something-else"))
+	})
+
+	t.Run("no ID suffix", func(t *testing.T) {
+		assert.Equal(t, "", ns.containerAppName("once-app-campfire"))
+	})
+}
+====
+package command
+
+import (
+	"bytes"
+	"context"
+	"encoding/json"
+	"strings"
+	"testing"
+	"time"
+
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+
+	"github.com/basecamp/once/internal/docker"
+)
+
+func TestStatusPrintsApplicationStatus(t *testing.T) {
+	now := time.Date(2026, 11, 6, 12, 0, 0, 0, time.UTC)
+	ns := statusNamespace(t)
+	app := ns.ApplicationByHost("myapp.localhost")
+	app.Running = true
+	app.RunningSince = now.Add(-90 * time.Minute)
+
+	state := &docker.State{Apps: map[string]*docker.AppState{
+		"myapp": {
+			LastUpdate: docker.OperationResult{At: time.Date(2026, 11, 2, 10, 0, 0, 0, time.UTC)},
+			LastBackup: docker.OperationResult{
+				At:    time.Date(2026, 11, 5, 9, 0, 0, 0, time.UTC),
+				Error: "disk full",
+			},
+		},
+	}}
+
+	s := statusCommandFor(t, now, state)
+
+	var out bytes.Buffer
+	s.cmd.SetOut(&out)
+
+	err := s.run(context.Background(), ns, s.cmd, []string{"myapp.localhost"})
+	require.NoError(t, err)
+
+	expected := strings.Join([]string{
+		"Host:        myapp.localhost",
+		"URL:         http://myapp.localhost",
+		"Image:       example/app:latest",
+		"Source:      /srv/site",
+		"State:       running",
+		"Uptime:      1h 30m",
+		"CPUs:        2",
+		"Memory:      1024 MB",
+		"Last update: 2 Nov 2026, 10:00",
+		"Last backup: 5 Nov 2026, 09:00 (failed: disk full)",
+	}, "\n") + "\n"
+	assert.Equal(t, expected, out.String())
+}
+
+func TestStatusPrintsStoppedApplicationWithoutHistory(t *testing.T) {
+	ns := statusStoppedNamespace(t)
+	s := statusCommandFor(t, time.Now(), &docker.State{})
+
+	var out bytes.Buffer
+	s.cmd.SetOut(&out)
+
+	err := s.run(context.Background(), ns, s.cmd, []string{"myapp.localhost"})
+	require.NoError(t, err)
+
+	expected := strings.Join([]string{
+		"Host:        myapp.localhost",
+		"URL:         http://myapp.localhost",
+		"Image:       example/app:latest",
+		"State:       stopped",
+		"Uptime:      —",
+		"CPUs:        unlimited",
+		"Memory:      unlimited",
+		"Last update: Never",
+		"Last backup: Never",
+	}, "\n") + "\n"
+	assert.Equal(t, expected, out.String())
+}
+
+====
+package command
+
+import (
+	"bytes"
+	"context"
+	"encoding/json"
+	"strings"
+	"testing"
+	"time"
+
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+
+	"github.com/basecamp/once/internal/docker"
+)
+
+func TestListPrintsApplications(t *testing.T) {
+	ns := listNamespace(t, docker.ApplicationSettings{
+		Name:  "myapp",
+		Host:  "myapp.localhost",
+		Image: "example/app:latest",
+	})
+	ns.Applications()[0].Running = true
+
+	l := listCommandFor(t, time.Now(), &docker.State{})
+
+	var out bytes.Buffer
+	l.cmd.SetOut(&out)
+
+	require.NoError(t, l.run(context.Background(), ns, l.cmd, nil))
+	assert.True(t, strings.Contains(out.String(), "myapp.localhost"))
+	assert.True(t, strings.Contains(out.String(), "(running)"))
+}
+
+func TestListJSON(t *testing.T) {
+	now := time.Date(2026, 11, 6, 12, 0, 0, 0, time.UTC)
+	ns := listNamespace(t, docker.ApplicationSettings{
+		Name:  "myapp",
+		Host:  "myapp.localhost",
+		Image: "example/app:latest",
+	})
+	app := ns.Applications()[0]
+	app.Running = true
+	app.RunningSince = now.Add(-31 * 24 * time.Hour)
+
+	state := &docker.State{Apps: map[string]*docker.AppState{
+		"myapp": {LastBackup: docker.OperationResult{At: now.Add(-time.Hour)}},
+	}}
+
+	l := listCommandFor(t, now, state)
+	l.asJSON = true
+
+	var out bytes.Buffer
+	l.cmd.SetOut(&out)
+
+	require.NoError(t, l.run(context.Background(), ns, l.cmd, nil))
+
+	var apps []listApp
+	require.NoError(t, json.Unmarshal(out.Bytes(), &apps))
+	require.Len(t, apps, 1)
+
+	assert.Equal(t, "myapp.localhost", apps[0].Host)
+	assert.Equal(t, "example/app:latest", apps[0].Image)
+	assert.Empty(t, apps[0].Folder)
+	assert.Equal(t, "running", apps[0].State)
+	assert.Equal(t, []docker.Channel{docker.ChannelRunning, docker.ChannelIdle}, apps[0].Channels)
+}
+
+func TestListJSONStaticAppUsesFolder(t *testing.T) {
+	ns := listNamespace(t, docker.ApplicationSettings{
+		Name:   "site",
+		Host:   "site.localhost",
+		Image:  docker.StaticImage,
+		Source: "/srv/site",
+	})
+
+	l := listCommandFor(t, time.Now(), &docker.State{})
+	l.asJSON = true
+
+	var out bytes.Buffer
+	l.cmd.SetOut(&out)
+
+	require.NoError(t, l.run(context.Background(), ns, l.cmd, nil))
+
+	var apps []listApp
+	require.NoError(t, json.Unmarshal(out.Bytes(), &apps))
+	require.Len(t, apps, 1)
+
+	assert.Equal(t, "site.localhost", apps[0].Host)
+	assert.Empty(t, apps[0].Image)
+	assert.Equal(t, "/srv/site", apps[0].Folder)
+	assert.Equal(t, "stopped", apps[0].State)
+	assert.Equal(t, []docker.Channel{docker.ChannelStopped, docker.ChannelNoBackup}, apps[0].Channels)
+}
+
+// Helpers
+
+func listNamespace(t *testing.T, apps ...docker.ApplicationSettings) *docker.Namespace {
+	t.Helper()
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && grep -R "type InspectResponse" -n $(go env GOMODCACHE)/github.com/moby/moby/api@v1.56.0/types/container/*.go && sed -n 1,120p $(go env GOMODCACHE)/github.com/moby/moby/api@v1.56.0/types/container/container.go | head -120 && grep -R "NetworkSettings" -n $(go env GOMODCACHE)/github.com/moby/moby/api@v1.56.0/types/container/*.go | head
+/home/mrjohn/go/pkg/mod/github.com/moby/moby/api@v1.56.0/types/container/container.go:117:type InspectResponse struct {
+package container
+
+import (
+	"os"
+	"time"
+
+	"github.com/moby/moby/api/types/mount"
+	"github.com/moby/moby/api/types/storage"
+	ocispec "github.com/opencontainers/image-spec/specs-go/v1"
+)
+
+// PruneReport contains the response for Engine API:
+// POST "/containers/prune"
+type PruneReport struct {
+	ContainersDeleted []string
+	SpaceReclaimed    uint64
+}
+
+// PathStat is used to encode the header from
+// GET "/containers/{name:.*}/archive"
+// "Name" is the file or directory name.
+type PathStat struct {
+	Name       string      `json:"name"`
+	Size       int64       `json:"size"`
+	Mode       os.FileMode `json:"mode"`
+	Mtime      time.Time   `json:"mtime"`
+	LinkTarget string      `json:"linkTarget"`
+}
+
+// MountPoint represents a mount point configuration inside the container.
+// This is used for reporting the mountpoints in use by a container.
+type MountPoint struct {
+	// Type is the type of mount, see [mount.Type] definitions for details.
+	Type mount.Type `json:",omitempty"`
+
+	// Name is the name reference to the underlying data defined by `Source`
+	// e.g., the volume name.
+	Name string `json:",omitempty"`
+
+	// Source is the source location of the mount.
+	//
+	// For volumes, this contains the storage location of the volume (within
+	// `/var/lib/docker/volumes/`). For bind-mounts, and `npipe`, this contains
+	// the source (host) part of the bind-mount. For `tmpfs` mount points, this
+	// field is empty.
+	Source string
+
+	// Destination is the path relative to the container root (`/`) where the
+	// Source is mounted inside the container.
+	Destination string
+
+	// Driver is the volume driver used to create the volume (if it is a volume).
+	Driver string `json:",omitempty"`
+
+	// Mode is a comma separated list of options supplied by the user when
+	// creating the bind/volume mount.
+	//
+	// The default is platform-specific (`"z"` on Linux, empty on Windows).
+	Mode string
+
+	// RW indicates whether the mount is mounted writable (read-write).
+	RW bool
+
+	// Propagation describes how mounts are propagated from the host into the
+	// mount point, and vice-versa. Refer to the Linux kernel documentation
+	// for details:
+	// https://www.kernel.org/doc/Documentation/filesystems/sharedsubtree.txt
+	//
+	// This field is not used on Windows.
+	Propagation mount.Propagation
+}
+
+// State stores container's running state
+// it's part of ContainerJSONBase and returned by "inspect" command
+type State struct {
+	Status     ContainerState // String representation of the container state. Can be one of "created", "running", "paused", "restarting", "removing", "exited", or "dead"
+	Running    bool
+	Paused     bool
+	Restarting bool
+	OOMKilled  bool
+	Dead       bool
+	Pid        int
+	ExitCode   int
+	Error      string
+	StartedAt  string
+	FinishedAt string
+	Health     *Health `json:",omitempty"`
+}
+
+// Summary contains response of Engine API:
+// GET "/containers/json"
+type Summary struct {
+	ID                      string `json:"Id"`
+	Names                   []string
+	Image                   string
+	ImageID                 string
+	ImageManifestDescriptor *ocispec.Descriptor `json:"ImageManifestDescriptor,omitempty"`
+	Command                 string
+	Created                 int64
+	Ports                   []PortSummary
+	SizeRw                  int64 `json:",omitempty"`
+	SizeRootFs              int64 `json:",omitempty"`
+	Labels                  map[string]string
+	State                   ContainerState
+	Status                  string
+	HostConfig              struct {
+		NetworkMode string            `json:",omitempty"`
+		Annotations map[string]string `json:",omitempty"`
+	}
+	Health          *HealthSummary `json:",omitempty"`
+	NetworkSettings *NetworkSettingsSummary
+	Mounts          []MountPoint
+}
+
+// InspectResponse is the response for the GET "/containers/{name:.*}/json"
+// endpoint.
+type InspectResponse struct {
+	ID              string `json:"Id"`
+	Created         string
+	Path            string
+/home/mrjohn/go/pkg/mod/github.com/moby/moby/api@v1.56.0/types/container/container.go:111:	NetworkSettings *NetworkSettingsSummary
+/home/mrjohn/go/pkg/mod/github.com/moby/moby/api@v1.56.0/types/container/container.go:148:	NetworkSettings *NetworkSettings
+/home/mrjohn/go/pkg/mod/github.com/moby/moby/api@v1.56.0/types/container/network_settings.go:7:// NetworkSettings exposes the network settings in the api
+/home/mrjohn/go/pkg/mod/github.com/moby/moby/api@v1.56.0/types/container/network_settings.go:8:type NetworkSettings struct {
+/home/mrjohn/go/pkg/mod/github.com/moby/moby/api@v1.56.0/types/container/network_settings.go:18:// NetworkSettingsSummary provides a summary of container's networks
+/home/mrjohn/go/pkg/mod/github.com/moby/moby/api@v1.56.0/types/container/network_settings.go:20:type NetworkSettingsSummary struct {
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && sed -n 100,200p internal/command/list_test.go && sed -n 200,320p internal/command/status_test.go
+ns, err := docker.NewNamespace("test", docker.WithApplications(apps...))
+	require.NoError(t, err)
+
+	return ns
+}
+
+func listCommandFor(t *testing.T, now time.Time, state *docker.State) *listCommand {
+	t.Helper()
+
+	l := newListCommand()
+	l.now = func() time.Time { return now }
+	l.loadState = func(context.Context, *docker.Namespace) (*docker.State, error) {
+		return state, nil
+	}
+	return l
+}
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && cat cmd/once/main.go && sed -n 1,160p internal/command/deploy.go && grep -R "IsExitError\|ExitCode" -n . --include='*.go'
+package main
+
+import (
+	"fmt"
+	"os"
+
+	"github.com/basecamp/once/internal/command"
+	"github.com/basecamp/once/internal/docker"
+	"github.com/basecamp/once/internal/logging"
+)
+
+func main() {
+	logging.SetupStderr()
+
+	if err := command.NewRootCommand().Execute(); err != nil {
+		if code, ok := command.ExitCode(err); ok {
+			os.Exit(code)
+		}
+		fmt.Fprintln(os.Stderr, "Error:", docker.ErrorMessage(err))
+		os.Exit(1)
+	}
+}
+package command
+
+import (
+	"context"
+	"fmt"
+	"log/slog"
+	"os"
+	"path/filepath"
+
+	"github.com/spf13/cobra"
+
+	"github.com/basecamp/once/internal/docker"
+)
+
+type deployCommand struct {
+	cmd   *cobra.Command
+	flags settingsFlags
+}
+
+func newDeployCommand() *deployCommand {
+	d := &deployCommand{}
+	d.cmd = &cobra.Command{
+		Use:   "deploy <image|path>",
+		Short: "Deploy an application or static site",
+		Args:  cobra.ExactArgs(1),
+		RunE:  WithNamespace(d.run),
+	}
+
+	d.flags.register(d.cmd)
+
+	return d
+}
+
+// Private
+
+func (d *deployCommand) run(ctx context.Context, ns *docker.Namespace, cmd *cobra.Command, args []string) error {
+	imageRef, source := deployTarget(args[0])
+
+	if err := ns.Setup(ctx); err != nil {
+		return fmt.Errorf("%w: %w", docker.ErrSetupFailed, err)
+	}
+
+	baseName := docker.NameFromImageRef(imageRef)
+	if source != "" {
+		baseName = docker.NameFromPath(source)
+	}
+
+	host := d.flags.host
+	if host == "" {
+		host = baseName + ".localhost"
+	}
+
+	existing, err := siteToReplace(ns, host, source)
+	if err != nil {
+		return err
+	}
+	if existing != nil {
+		return d.redeploy(ctx, cmd, existing, imageRef, source)
+	}
+
+	settings, err := d.flags.buildSettings(cmd, imageRef, host)
+	if err != nil {
+		return err
+	}
+	settings.Source = source
+	settings, err = withSourceHash(settings, source)
+	if err != nil {
+		return err
+	}
+
+	name, err := ns.UniqueName(baseName)
+	if err != nil {
+		return fmt.Errorf("generating app name: %w", err)
+	}
+	settings.Name = name
+
+	if source != "" {
+		served, err := docker.ServeSite(name, source)
+		if err != nil {
+			return fmt.Errorf("preparing site contents: %w", err)
+		}
+		settings.ServedPath = served
+	}
+
+	app := docker.NewApplication(ns, settings)
+
+	return runWithProgress("Deploying "+host, func(progress docker.DeployProgressCallback) error {
+		if err := app.Deploy(ctx, progress); err != nil {
+			if cleanupErr := app.Destroy(context.Background(), true); cleanupErr != nil {
+				slog.Error("Failed to clean up after deploy failure", "app", name, "error", cleanupErr)
+			}
+			return fmt.Errorf("%w: %w", docker.ErrDeployFailed, err)
+		}
+
+		if err := app.VerifyHTTPOrRemove(ctx); err != nil {
+			return err
+		}
+
+		return nil
+	})
+}
+
+// redeploy replaces what an existing static site serves, keeping its host and
+// settings. A failed redeploy leaves the previous version in place, so unlike
+// a first deploy the app is never removed.
+func (d *deployCommand) redeploy(ctx context.Context, cmd *cobra.Command, app *docker.Application, image, source string) error {
+	settings, err := d.redeploySettings(cmd, app.Settings, image, source)
+	if err != nil {
+		return err
+	}
+
+	settings, err = withSourceHash(settings, source)
+	if err != nil {
+		return err
+	}
+
+	if source != "" {
+		served, err := docker.ServeSite(app.Settings.Name, source)
+		if err != nil {
+			return fmt.Errorf("preparing site contents: %w", err)
+		}
+		settings.ServedPath = served
+	}
+
+	oldSettings := app.Settings
+	app.Settings = settings
+
+	return runWithProgress("Deploying "+settings.Host, func(progress docker.DeployProgressCallback) error {
+		if err := app.Deploy(ctx, progress); err != nil {
+			app.Settings = oldSettings
+			removeServedCopy(settings.ServedPath)
+			return fmt.Errorf("%w: %w", docker.ErrDeployFailed, err)
+		}
+
+		if oldSettings.ServedPath != "" && oldSettings.ServedPath != settings.ServedPath {
+			removeServedCopy(oldSettings.ServedPath)
+		}
+
+		return nil
+	})
+}
+
+func (d *deployCommand) redeploySettings(cmd *cobra.Command, existing docker.ApplicationSettings, image, source string) (docker.ApplicationSettings, error) {
+	settings, err := d.flags.applyChanges(cmd, existing, image)
+	if err != nil {
+		return docker.ApplicationSettings{}, err
+	}
+
+	settings.Source = source
+	return settings, nil
+}
+
+// Helpers
+
+// removeServedCopy drops a served copy that is no longer in use, logging rather
+// than failing when it can't be cleaned up.
+func removeServedCopy(path string) {
+	if path == "" {
+		return
+	}
+./cmd/once/main.go:16:		if code, ok := command.ExitCode(err); ok {
+./integration/docker_test.go:462:	code, ok := command.ExitCode(err)
+./integration/docker_test.go:1340:	require.Equal(t, 0, inspect.ExitCode, "exec command failed")
+./internal/command/root.go:114:	ExitCode() int
+./internal/command/root.go:117:func ExitCode(err error) (int, bool) {
+./internal/command/root.go:119:		return e.ExitCode(), true
+./internal/command/root.go:124:func IsExitError(err error) bool {
+./internal/command/root.go:125:	_, ok := ExitCode(err)
+./internal/docker/application_backup.go:331:	if result.ExitCode != 0 {
+./internal/docker/application_backup.go:332:		return true, fmt.Errorf("hook script %q failed with exit code %d: %s", name, result.ExitCode, result.Stderr)
+./internal/docker/container.go:34:	ExitCode int
+./internal/docker/container.go:55:	exitCode, err := inspectExecExitCode(ctx, c, execID)
+./internal/docker/container.go:63:		ExitCode: exitCode,
+./internal/docker/container.go:119:	exitCode, err := inspectExecExitCode(ctx, c, execID)
+./internal/docker/container.go:150:func inspectExecExitCode(ctx context.Context, c *client.Client, execID string) (int, error) {
+./internal/docker/container.go:155:	return inspect.ExitCode, nil
+./internal/docker/container.go:227:func (e execExitError) ExitCode() int {
+./internal/docker/proxy.go:297:	if result.ExitCode != 0 {
+./internal/docker/proxy.go:298:		return result.Stdout + result.Stderr, fmt.Errorf("exec failed with exit code %d", result.ExitCode)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && sed -n 1,180p internal/command/update_test.go && echo ==== && sed -n 1,140p internal/command/update.go && echo ==== && sed -n 1,120p internal/command/open_test.go
+package command
+
+import (
+	"strings"
+	"testing"
+
+	"github.com/spf13/cobra"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+
+	"github.com/basecamp/once/internal/docker"
+)
+
+func TestApplyChanges(t *testing.T) {
+	existing := docker.ApplicationSettings{
+		Name:       "myapp",
+		Image:      "myimage:latest",
+		Host:       "app.example.com",
+		DisableTLS: false,
+		EnvVars:    map[string]string{"KEY": "value"},
+		SMTP: docker.SMTPSettings{
+			Server:   "smtp.example.com",
+			Port:     "587",
+			Username: "user",
+			Password: "pass",
+			From:     "noreply@example.com",
+		},
+		Resources: docker.ContainerResources{
+			CPUs:     2,
+			MemoryMB: 1024,
+		},
+		AutoUpdate: true,
+		Backup: docker.BackupSettings{
+			Path:       "/backups",
+			AutoBackup: true,
+		},
+	}
+
+	newCmd := func() (*cobra.Command, *settingsFlags) {
+		cmd := &cobra.Command{}
+		f := &settingsFlags{}
+		f.register(cmd)
+		return cmd, f
+	}
+
+	t.Run("no flags changed returns existing", func(t *testing.T) {
+		cmd, f := newCmd()
+		result, err := f.applyChanges(cmd, existing, existing.Image)
+		require.NoError(t, err)
+		assert.True(t, existing.Equal(result))
+	})
+
+	t.Run("single flag changed", func(t *testing.T) {
+		cmd, f := newCmd()
+		require.NoError(t, cmd.Flags().Set("memory", "2048"))
+
+		result, err := f.applyChanges(cmd, existing, existing.Image)
+		require.NoError(t, err)
+		assert.Equal(t, 2048, result.Resources.MemoryMB)
+		assert.Equal(t, existing.Resources.CPUs, result.Resources.CPUs)
+		assert.Equal(t, existing.Host, result.Host)
+		assert.Equal(t, existing.EnvVars, result.EnvVars)
+	})
+
+	t.Run("multiple flags changed", func(t *testing.T) {
+		cmd, f := newCmd()
+		require.NoError(t, cmd.Flags().Set("host", "new.example.com"))
+		require.NoError(t, cmd.Flags().Set("cpus", "4"))
+		require.NoError(t, cmd.Flags().Set("auto-backup", "false"))
+
+		result, err := f.applyChanges(cmd, existing, existing.Image)
+		require.NoError(t, err)
+		assert.Equal(t, "new.example.com", result.Host)
+		assert.Equal(t, 4, result.Resources.CPUs)
+		assert.Equal(t, false, result.Backup.AutoBackup)
+		// Unchanged fields preserved
+		assert.Equal(t, existing.SMTP, result.SMTP)
+		assert.Equal(t, existing.EnvVars, result.EnvVars)
+		assert.Equal(t, existing.Resources.MemoryMB, result.Resources.MemoryMB)
+	})
+
+	t.Run("env replaces all vars", func(t *testing.T) {
+		cmd, f := newCmd()
+		require.NoError(t, cmd.Flags().Set("env", "NEW=val"))
+
+		result, err := f.applyChanges(cmd, existing, existing.Image)
+		require.NoError(t, err)
+		assert.Equal(t, map[string]string{"NEW": "val"}, result.EnvVars)
+	})
+
+	t.Run("invalid env returns error", func(t *testing.T) {
+		cmd, f := newCmd()
+		require.NoError(t, cmd.Flags().Set("env", "INVALID"))
+
+		_, err := f.applyChanges(cmd, existing, existing.Image)
+		assert.ErrorContains(t, err, "must be in KEY=VALUE format")
+	})
+
+	t.Run("empty image", func(t *testing.T) {
+		cmd, f := newCmd()
+
+		_, err := f.applyChanges(cmd, existing, "")
+		assert.ErrorIs(t, err, docker.ErrImageRequired)
+	})
+
+	t.Run("enable auto-backup with existing path", func(t *testing.T) {
+		noAutoBackup := existing
+		noAutoBackup.Backup.AutoBackup = false
+
+		cmd, f := newCmd()
+		require.NoError(t, cmd.Flags().Set("auto-backup", "true"))
+
+		result, err := f.applyChanges(cmd, noAutoBackup, noAutoBackup.Image)
+		require.NoError(t, err)
+		assert.True(t, result.Backup.AutoBackup)
+	})
+
+	t.Run("enable auto-backup without path", func(t *testing.T) {
+		noPath := existing
+		noPath.Backup.Path = ""
+		noPath.Backup.AutoBackup = false
+
+		cmd, f := newCmd()
+		require.NoError(t, cmd.Flags().Set("auto-backup", "true"))
+
+		_, err := f.applyChanges(cmd, noPath, noPath.Image)
+		assert.ErrorIs(t, err, docker.ErrAutoBackupWithoutPath)
+	})
+
+	t.Run("clear backup path with auto-backup enabled", func(t *testing.T) {
+		cmd, f := newCmd()
+		require.NoError(t, cmd.Flags().Set("backup-path", ""))
+
+		_, err := f.applyChanges(cmd, existing, existing.Image)
+		assert.ErrorIs(t, err, docker.ErrAutoBackupWithoutPath)
+	})
+
+	t.Run("registry credentials scope to the effective image's host", func(t *testing.T) {
+		cmd, f := newCmd()
+		require.NoError(t, cmd.Flags().Set("registry-username", "user"))
+		require.NoError(t, cmd.Flags().Set("registry-password", "pass"))
+
+		result, err := f.applyChanges(cmd, existing, "ghcr.io/otherimage:latest")
+		require.NoError(t, err)
+		assert.Equal(t, docker.RegistrySettings{Host: "ghcr.io", Username: "user", Password: "pass"}, result.Registry)
+	})
+
+	t.Run("registry password from stdin", func(t *testing.T) {
+		withCreds := existing
+		withCreds.Registry = docker.RegistrySettings{Host: "index.docker.io", Username: "user", Password: "old"}
+
+		cmd, f := newCmd()
+		cmd.SetIn(strings.NewReader("newpass\n"))
+		require.NoError(t, cmd.Flags().Set("registry-username", "user"))
+		require.NoError(t, cmd.Flags().Set("registry-password-stdin", "true"))
+
+		result, err := f.applyChanges(cmd, withCreds, withCreds.Image)
+		require.NoError(t, err)
+		assert.Equal(t, "newpass", result.Registry.Password)
+		assert.Equal(t, "user", result.Registry.Username)
+	})
+
+	t.Run("username alone is rejected even with stored credentials", func(t *testing.T) {
+		// Otherwise a username change plus a new image host would re-scope
+		// the stored password to a different registry.
+		withCreds := existing
+		withCreds.Registry = docker.RegistrySettings{Host: "index.docker.io", Username: "user", Password: "pass"}
+
+		cmd, f := newCmd()
+		require.NoError(t, cmd.Flags().Set("registry-username", "newuser"))
+
+		_, err := f.applyChanges(cmd, withCreds, "ghcr.io/otherimage:latest")
+		assert.ErrorIs(t, err, docker.ErrRegistryUsernameWithoutPassword)
+	})
+
+	t.Run("image change alone keeps existing registry scope", func(t *testing.T) {
+		withCreds := existing
+		withCreds.Registry = docker.RegistrySettings{Host: "index.docker.io", Username: "user", Password: "pass"}
+
+		cmd, f := newCmd()
+====
+package command
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/spf13/cobra"
+
+	"github.com/basecamp/once/internal/docker"
+)
+
+type updateCommand struct {
+	cmd   *cobra.Command
+	flags settingsFlags
+	image string
+}
+
+func newUpdateCommand() *updateCommand {
+	u := &updateCommand{}
+	u.cmd = &cobra.Command{
+		Use:   "update <host>",
+		Short: "Update settings for a deployed application",
+		Args:  cobra.ExactArgs(1),
+		RunE:  WithNamespace(u.run),
+	}
+
+	u.flags.register(u.cmd)
+	u.cmd.Flags().StringVar(&u.image, "image", "", "new image for the application")
+
+	return u
+}
+
+// Private
+
+func (u *updateCommand) run(ctx context.Context, ns *docker.Namespace, cmd *cobra.Command, args []string) error {
+	currentHost := args[0]
+
+	app, err := findApplication(ns, currentHost)
+	if err != nil {
+		return err
+	}
+
+	if err := ns.Setup(ctx); err != nil {
+		return fmt.Errorf("%w: %w", docker.ErrSetupFailed, err)
+	}
+
+	image := app.Settings.Image
+	if cmd.Flags().Changed("image") {
+		image = u.image
+	}
+
+	settings, err := u.flags.applyChanges(cmd, app.Settings, image)
+	if err != nil {
+		return err
+	}
+
+	if settings.Host != app.Settings.Host {
+		if ns.HostInUseByAnother(settings.Host, app.Settings.Name) {
+			return docker.ErrHostnameInUse
+		}
+	}
+
+	oldSettings := app.Settings
+	app.Settings = settings
+
+	return runWithProgress("Updating "+currentHost, func(progress docker.DeployProgressCallback) error {
+		if err := app.Deploy(ctx, progress); err != nil {
+			app.Settings = oldSettings
+			return fmt.Errorf("%w: %w", docker.ErrDeployFailed, err)
+		}
+		return nil
+	})
+}
+====
+package command
+
+import (
+	"bytes"
+	"context"
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+
+	"github.com/basecamp/once/internal/docker"
+)
+
+func TestOpenPrintsAndOpensApplicationURL(t *testing.T) {
+	ns, err := docker.NewNamespace("test", docker.WithApplications(
+		docker.ApplicationSettings{Name: "myapp", Host: "myapp.localhost"},
+	))
+	require.NoError(t, err)
+
+	var opened string
+	o := newOpenCommand()
+	o.open = func(url string) error {
+		opened = url
+		return nil
+	}
+
+	var out bytes.Buffer
+	o.cmd.SetOut(&out)
+
+	err = o.run(context.Background(), ns, o.cmd, []string{"myapp.localhost"})
+	require.NoError(t, err)
+	assert.Equal(t, "http://myapp.localhost\n", out.String())
+	assert.Equal(t, "http://myapp.localhost", opened)
+}
+
+func TestOpenWithoutHostOpensTheDashboard(t *testing.T) {
+	ns, err := docker.NewNamespace("test")
+	require.NoError(t, err)
+
+	var launched *docker.Namespace
+	o := newOpenCommand()
+	o.openUI = func(got *docker.Namespace) error {
+		launched = got
+		return nil
+	}
+
+	err = o.run(context.Background(), ns, o.cmd, nil)
+	require.NoError(t, err)
+	assert.Same(t, ns, launched)
+}
+
+func TestOpenUnknownHost(t *testing.T) {
+	ns, err := docker.NewNamespace("test")
+	require.NoError(t, err)
+
+	o := newOpenCommand()
+	o.open = func(string) error {
+		t.Fatal("should not open the browser")
+		return nil
+	}
+
+	err = o.run(context.Background(), ns, o.cmd, []string{"missing.localhost"})
+	require.Error(t, err)
+	assert.Contains(t, err.Error(), `no application found at host "missing.localhost"`)
+}
+
+func TestOpenReturnsBrowserError(t *testing.T) {
+	ns, err := docker.NewNamespace("test", docker.WithApplications(
+		docker.ApplicationSettings{Name: "myapp", Host: "myapp.localhost"},
+	))
+	require.NoError(t, err)
+
+	o := newOpenCommand()
+	o.open = func(string) error { return assert.AnError }
+
+	err = o.run(context.Background(), ns, o.cmd, []string{"myapp.localhost"})
+	require.ErrorIs(t, err, assert.AnError)
+}
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0msed -n 1,80p /home/mrjohn/go/pkg/mod/github.com/moby/moby/api@v1.56.0/types/container/network_settings.go && sed -n 117,165p /home/mrjohn/go/pkg/mod/github.com/moby/moby/api@v1.56.0/types/container/container.go && grep -R "type PortBinding\|type PortMap" -n /home/mrjohn/go/pkg/mod/github.com/moby/moby/api@v1.56.0/types/network/
+package container
+
+import (
+	"github.com/moby/moby/api/types/network"
+)
+
+// NetworkSettings exposes the network settings in the api
+type NetworkSettings struct {
+	SandboxID  string // SandboxID uniquely represents a container's network stack
+	SandboxKey string // SandboxKey identifies the sandbox
+
+	// Ports is a collection of [network.PortBinding] indexed by [network.Port]
+	Ports network.PortMap
+
+	Networks map[string]*network.EndpointSettings
+}
+
+// NetworkSettingsSummary provides a summary of container's networks
+// in /containers/json
+type NetworkSettingsSummary struct {
+	Networks map[string]*network.EndpointSettings
+}
+type InspectResponse struct {
+	ID              string `json:"Id"`
+	Created         string
+	Path            string
+	Args            []string
+	State           *State
+	Image           string
+	ResolvConfPath  string
+	HostnamePath    string
+	HostsPath       string
+	LogPath         string
+	Name            string
+	RestartCount    int
+	Driver          string
+	Platform        string
+	MountLabel      string
+	ProcessLabel    string
+	AppArmorProfile string
+	ExecIDs         []string
+	HostConfig      *HostConfig
+
+	// GraphDriver contains information about the container's graph driver.
+	GraphDriver *storage.DriverData `json:"GraphDriver,omitempty"`
+
+	// Storage contains information about the storage used for the container's filesystem.
+	Storage *storage.Storage `json:"Storage,omitempty"`
+
+	SizeRw          *int64 `json:",omitempty"`
+	SizeRootFs      *int64 `json:",omitempty"`
+	Mounts          []MountPoint
+	Config          *Config
+	NetworkSettings *NetworkSettings
+	// ImageManifestDescriptor is the descriptor of a platform-specific manifest of the image used to create the container.
+	ImageManifestDescriptor *ocispec.Descriptor `json:"ImageManifestDescriptor,omitempty"`
+}
+/home/mrjohn/go/pkg/mod/github.com/moby/moby/api@v1.56.0/types/network/port.go:164:type PortBinding struct {
+/home/mrjohn/go/pkg/mod/github.com/moby/moby/api@v1.56.0/types/network/port.go:172:type PortMap = map[Port][]PortBinding
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0msed -n 1,220p /home/mrjohn/go/pkg/mod/github.com/moby/moby/api@v1.56.0/types/network/port.go
+package network
+
+import (
+	"errors"
+	"fmt"
+	"iter"
+	"net/netip"
+	"strconv"
+	"strings"
+	"unique"
+)
+
+// IPProtocol represents a network protocol for a port.
+type IPProtocol string
+
+const (
+	TCP  IPProtocol = "tcp"
+	UDP  IPProtocol = "udp"
+	SCTP IPProtocol = "sctp"
+)
+
+// Sentinel port proto value for zero Port and PortRange values.
+var protoZero unique.Handle[IPProtocol]
+
+// Port is a type representing a single port number and protocol in the format "<portnum>/[<proto>]".
+//
+// The zero port value, i.e. Port{}, is invalid; use [ParsePort] to create a valid Port value.
+type Port struct {
+	num   uint16
+	proto unique.Handle[IPProtocol]
+}
+
+// ParsePort parses s as a [Port].
+//
+// It normalizes the provided protocol such that "80/tcp", "80/TCP", and "80/tCp" are equivalent.
+// If a port number is provided, but no protocol, the default ("tcp") protocol is returned.
+func ParsePort(s string) (Port, error) {
+	if s == "" {
+		return Port{}, errors.New("invalid port: value is empty")
+	}
+
+	port, proto, _ := strings.Cut(s, "/")
+
+	portNum, err := parsePortNumber(port)
+	if err != nil {
+		return Port{}, fmt.Errorf("invalid port '%s': %w", port, err)
+	}
+
+	normalizedPortProto := normalizePortProto(proto)
+	return Port{num: portNum, proto: normalizedPortProto}, nil
+}
+
+// MustParsePort calls [ParsePort](s) and panics on error.
+//
+// It is intended for use in tests with hard-coded strings.
+func MustParsePort(s string) Port {
+	p, err := ParsePort(s)
+	if err != nil {
+		panic(err)
+	}
+	return p
+}
+
+// PortFrom returns a [Port] with the given number and protocol.
+//
+// If no protocol is specified (i.e. proto == ""), then PortFrom returns Port{}, false.
+func PortFrom(num uint16, proto IPProtocol) (p Port, ok bool) {
+	if proto == "" {
+		return Port{}, false
+	}
+	normalized := normalizePortProto(string(proto))
+	return Port{num: num, proto: normalized}, true
+}
+
+// Num returns p's port number.
+func (p Port) Num() uint16 {
+	return p.num
+}
+
+// Port returns p's port number as a string.
+//
+// It returns an empty string for zero-values.
+func (p Port) Port() string {
+	if p.proto == protoZero {
+		return ""
+	}
+	return strconv.Itoa(int(p.num))
+}
+
+// Proto returns p's network protocol.
+func (p Port) Proto() IPProtocol {
+	if p.proto == protoZero {
+		return ""
+	}
+	return p.proto.Value()
+}
+
+// IsZero reports whether p is the zero value.
+func (p Port) IsZero() bool {
+	return p.proto == protoZero
+}
+
+// IsValid reports whether p is an initialized valid port (not the zero value).
+func (p Port) IsValid() bool {
+	return p.proto != protoZero
+}
+
+// String returns a string representation of the port in the format "<portnum>/<proto>".
+// If the port is the zero value, it returns "invalid port", and users should
+// check [PortRange.IsValid] or [PortRange.IsZero] before using this method.
+func (p Port) String() string {
+	switch p.proto {
+	case protoZero:
+		return "invalid port"
+	default:
+		return string(p.AppendTo(nil))
+	}
+}
+
+// AppendText implements [encoding.TextAppender] interface.
+// It is the same as [Port.AppendTo] but returns an error to satisfy the interface.
+func (p Port) AppendText(b []byte) ([]byte, error) {
+	return p.AppendTo(b), nil
+}
+
+// AppendTo appends a text encoding of p to b and returns the extended buffer.
+func (p Port) AppendTo(b []byte) []byte {
+	if p.IsZero() {
+		return b
+	}
+	return fmt.Appendf(b, "%d/%s", p.num, p.proto.Value())
+}
+
+// MarshalText implements [encoding.TextMarshaler] interface.
+func (p Port) MarshalText() ([]byte, error) {
+	return p.AppendText(nil)
+}
+
+// UnmarshalText implements [encoding.TextUnmarshaler] interface.
+func (p *Port) UnmarshalText(text []byte) error {
+	if len(text) == 0 {
+		*p = Port{}
+		return nil
+	}
+
+	port, err := ParsePort(string(text))
+	if err != nil {
+		return err
+	}
+
+	*p = port
+	return nil
+}
+
+// Range returns a [PortRange] representing the single port.
+func (p Port) Range() PortRange {
+	return PortRange{start: p.num, end: p.num, proto: p.proto}
+}
+
+// PortSet is a collection of structs indexed by [Port].
+type PortSet = map[Port]struct{}
+
+// PortBinding represents a binding between a Host IP address and a Host Port.
+type PortBinding struct {
+	// HostIP is the host IP Address
+	HostIP netip.Addr `json:"HostIp"`
+	// HostPort is the host port number
+	HostPort string `json:"HostPort"`
+}
+
+// PortMap is a collection of [PortBinding] indexed by [Port].
+type PortMap = map[Port][]PortBinding
+
+// PortRange represents a range of port numbers and a protocol in the format "8000-9000/tcp".
+//
+// The zero port range value, i.e. PortRange{}, is invalid; use [ParsePortRange] to create a valid PortRange value.
+type PortRange struct {
+	start uint16
+	end   uint16
+	proto unique.Handle[IPProtocol]
+}
+
+// ParsePortRange parses s as a [PortRange].
+//
+// It normalizes the provided protocol such that "80-90/tcp", "80-90/TCP", and "80-90/tCp" are equivalent.
+// If a port number range is provided, but no protocol, the default ("tcp") protocol is returned.
+func ParsePortRange(s string) (PortRange, error) {
+	if s == "" {
+		return PortRange{}, errors.New("invalid port range: value is empty")
+	}
+
+	portRange, proto, _ := strings.Cut(s, "/")
+
+	start, end, ok := strings.Cut(portRange, "-")
+	startVal, err := parsePortNumber(start)
+	if err != nil {
+		return PortRange{}, fmt.Errorf("invalid start port '%s': %w", start, err)
+	}
+
+	portProto := normalizePortProto(proto)
+
+	if !ok || start == end {
+		return PortRange{start: startVal, end: startVal, proto: portProto}, nil
+	}
+
+	endVal, err := parsePortNumber(end)
+	if err != nil {
+		return PortRange{}, fmt.Errorf("invalid end port '%s': %w", end, err)
+	}
+	if endVal < startVal {
+		return PortRange{}, errors.New("invalid port range: " + s)
+	}
+	return PortRange{start: startVal, end: endVal, proto: portProto}, nil
+}
+
+// MustParsePortRange calls [ParsePortRange](s) and panics on error.
+// It is intended for use in tests with hard-coded strings.
+func MustParsePortRange(s string) PortRange {
+	pr, err := ParsePortRange(s)
+	if err != nil {
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && grep -n "once status\|once list\|Commands\|## Usage\|once " README.md | head -60 && sed -n 1,130p README.md
+41:- Register the background service by running `sudo once background install`
+43:Then run `once` to install an app, or `once --help` to see what commands are available.
+# ONCE
+
+ONCE is a platform for installing and managing Docker-based web applications.
+Its goal is to make self-hosting applications as simple as possible.
+
+As well as simplifying the initial setup, ONCE also provides automatic updates, backups, and system information.
+It has a TUI interface with a dashboard for monitoring and operating your applications, as well as CLI commands for common operations should you (or your AI agent) prefer that.
+
+ONCE runs on Linux and macOS, and can be used to run applications on a variety of hardware: a physical server, a cloud VPS, a Raspberry Pi, or your laptop, are all suitable.
+
+ONCE comes with a set of 37signals apps built-in, but you can use it to install any compatible Docker image as well.
+
+![Demo](.github/media/install.gif)
+
+## Installing
+
+The simplest way to get started with ONCE is to use the install snippet to bootstrap the tool and choose an app to install:
+
+```sh
+curl https://get.once.com | sh
+```
+
+This will download the appropriate binary for your platform, install it and its corresponding background service, and then launch it so you can do your first application install.
+If the machine you're running this from doesn't already have Docker, it will install that too (on supported platforms).
+
+### Customizing the installer behaviour
+
+If you want to install `once` without launching it (for example, for a scripted install), you can use `ONCE_INTERACTIVE=false`:
+
+```sh
+curl https://get.once.com | ONCE_INTERACTIVE=false sh
+```
+
+### Installing manually
+
+If you prefer to set ONCE up yourself, you can download the appropriate binary from the GitHub Releases page.
+Then follow these steps to get it installed:
+
+- Install Docker (if it's not already installed) using your preferred package manager
+- Copy the `once` binary to wherever you'd like to run it from
+- Register the background service by running `sudo once background install`
+
+Then run `once` to install an app, or `once --help` to see what commands are available.
+
+Note that if you need to use `sudo` when running Docker commands (for example, if your user is not in the `docker` group) then you'll also need to use `sudo` whenever you run `once`.
+
+## Using ONCE to install and configure applications
+
+On first run, ONCE will prompt you to choose an application to install.
+You can pick from the built-in applications, or enter the path to a Docker image.
+
+When entering an image path you can pick any application that works with ONCE (more on this below), so you can run additional applications or even your own custom forks of the built-in ones.
+
+You'll need to enter a hostname for the application.
+If you're installing onto a machine on the public Internet (like a cloud VPS), and you have a domain name, then you can use that.
+It's a good idea to use a subdomain so that you can run multiple applications on the same domain.
+
+For example, if you own `example.com` you might install Writebook to `books.example.com`.
+
+Whatever hostname you choose, make sure you have a DNS entry for it which points to the machine you're installing to.
+The details of how to do this will vary depending on which provider you use for your DNS, but generally you should have access to an admin interface where you can set up an `A` record with the hostname you've chosen, pointed to the IP address of your machine.
+If you plan to install many applications on the same machine you could use a wildcard DNS entry for this.
+
+> [!TIP]
+> One tip if you're using Cloudflare: by default, DNS entries on Cloudflare will have the "proxy" option enabled, which means that traffic will pass through Cloudflare before reaching your server.
+> ONCE works well in this setup provided you have SSL enabled end-to-end.
+> So just be sure your Cloudflare SSL mode is set to "Strict (full)" if you're using its proxy option.
+
+Once you've picked your application and entered the hostname, the rest is automatic.
+ONCE will fetch, install, and boot the application, and then take you to the dashboard screen where you can monitor it.
+
+### Changing application settings
+
+There are various extra settings you can change on your applications.
+When you have an application selected on the dashboard, press `s` to view the settings menu, and choose an item from the menu to open that screen.
+From there you can set up a location for automatic backups, update your hostname, switch to using your own fork's image, set up an email provider and more.
+
+You can also use the action menu, `a` to start and stop applications, or remove them completely.
+
+### Customizing the `once` appearance
+
+On first run, `once` shows an animated logo and background.
+If you find this distracting, or it causes problems in your environment, you can suppress it with `ONCE_REDUCED_MOTION=true`:
+
+```sh
+ONCE_REDUCED_MOTION=true once
+```
+
+## Making a ONCE-compatible application
+
+Fundamentally, ONCE works with any web application that:
+
+- Is packaged as a Docker container
+- Serves HTTP on port 80
+- Has a healthcheck endpoint at `/up` that returns success
+- Keeps its persistent data in `/storage`
+
+Any application that does these things should work with ONCE.
+
+However, beyond this bare minimum, there are some additional scripts and environment variables that allow for better integration with the platform:
+
+### Storage paths
+
+ONCE will mount a persistent volume into `/storage`.
+
+For compatibility with standard Rails applications, it also mounts the same volume into `/rails/storage`.
+That means Rails applications built with the default Dockerfile should work just fine.
+
+Data in this volume persists across restarts, and is also the data that will be included in backups.
+
+### Hook scripts
+
+ONCE uses a few optional hook scripts as integration points.
+Currently supported hooks are:
+
+- `/hooks/pre-backup` -- Because ONCE can't assume that it's safe to backup the files of an application while they are in use, it will try to call this hook before starting a backup so the application can do anything it needs to generate a "safe" copy of the data.
+If this script exists, and return success, ONCE assumes it's now safe to copy the files into the backup.
+If it doesn't exist, or returns an error, ONCE will pause the application's container while it copies the file.
+This means backups are always consistent in either case, but the hook gives the app a way to avoid the paused container introducing latency to in-flight requests while the backup runs.
+An example of using `pre-backup` on a SQLite-based application would be to use SQLite's online backup feature to take a safe consistent copy of the database.
+
+- `/hooks/post-restore` -- The inverse of `pre-backup`, `post-restore` will be called after restoring the data from a backup, but before booting the application.
+If an application needs to do any cleanup, such as move or rename files generated during `pre-backup`, it can do it in this hook.
+
+### Environment variables
+
+Many of the configuration settings that you can do in the ONCE UI make their way into the application in the form of environment variables.
+These include:
+
+- `SECRET_KEY_BASE` -- A unique identifier, generated at installation time, and kept for the life of the applications.
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/namespace.go
+Index: internal/docker/namespace.go
+===================================================================
+--- internal/docker/namespace.go
++++ internal/docker/namespace.go
+@@ -194,8 +194,13 @@
+ 	}
+ 	return info.Info.DockerRootDir, nil
+ }
+ 
++func (n *Namespace) Ping(ctx context.Context) error {
++	_, err := n.client.Ping(ctx, client.PingOptions{})
++	return connectionError(err)
++}
++
+ func (n *Namespace) EventWatcher() *EventWatcher {
+ 	return NewEventWatcher(n.client, n.name)
+ }
+ 
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/proxy.go
+Index: internal/docker/proxy.go
+===================================================================
+--- internal/docker/proxy.go
++++ internal/docker/proxy.go
+@@ -8,8 +8,9 @@
+ 	"fmt"
+ 	"io"
+ 	"log/slog"
+ 	"net/netip"
++	"strconv"
+ 	"strings"
+ 
+ 	"github.com/containerd/errdefs"
+ 	"github.com/moby/moby/api/types/container"
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/proxy.go
+Index: internal/docker/proxy.go
+===================================================================
+--- internal/docker/proxy.go
++++ internal/docker/proxy.go
+@@ -65,8 +65,14 @@
+ 	namespace *Namespace
+ 	Settings  *ProxySettings
+ }
+ 
++type ProxyStatus struct {
++	Exists         bool
++	Running        bool
++	PublishedPorts map[int]bool
++}
++
+ func NewProxy(ns *Namespace) *Proxy {
+ 	return &Proxy{namespace: ns}
+ }
+ 
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/proxy.go
+Index: internal/docker/proxy.go
+===================================================================
+--- internal/docker/proxy.go
++++ internal/docker/proxy.go
+@@ -193,8 +193,38 @@
+ func (p *Proxy) Deploy(ctx context.Context, opts DeployOptions) error {
+ 	return p.Exec(ctx, p.deployArgs(opts))
+ }
+ 
++func (p *Proxy) Status(ctx context.Context) (ProxyStatus, error) {
++	info, err := p.namespace.client.ContainerInspect(ctx, p.containerName(), client.ContainerInspectOptions{})
++	if err != nil {
++		if errdefs.IsNotFound(err) {
++			return ProxyStatus{}, nil
++		}
++		return ProxyStatus{}, fmt.Errorf("inspecting proxy container: %w", err)
++	}
++
++	status := ProxyStatus{
++		Exists:         true,
++		PublishedPorts: make(map[int]bool),
++	}
++	if info.Container.State != nil {
++		status.Running = info.Container.State.Running
++	}
++	if info.Container.NetworkSettings != nil {
++		for _, bindings := range info.Container.NetworkSettings.Ports {
++			for _, binding := range bindings {
++				port, err := strconv.Atoi(binding.HostPort)
++				if err == nil && port > 0 {
++					status.PublishedPorts[port] = true
++				}
++			}
++		}
++	}
++
++	return status, nil
++}
++
+ func (p *Proxy) containerName() string {
+ 	return p.namespace.name + "-proxy"
+ }
+ 
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/system/disk.go
+Index: internal/system/disk.go
+===================================================================
+--- internal/system/disk.go
++++ internal/system/disk.go
+@@ -1,8 +1,21 @@
+ package system
+ 
+ import "syscall"
+ 
++type DiskSpace struct {
++	Total uint64
++	Free  uint64
++}
++
++func DiskSpaceAt(path string) (DiskSpace, error) {
++	total, _, free, err := statDisk(path)
++	if err != nil {
++		return DiskSpace{}, err
++	}
++	return DiskSpace{Total: total, Free: free}, nil
++}
++
+ func statDisk(path string) (total, used, free uint64, err error) {
+ 	var stat syscall.Statfs_t
+ 	if err = syscall.Statfs(path, &stat); err != nil {
+ 		return
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mWrite internal/command/doctor.go
+Created file successfully: internal/command/doctor.go
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/command/root.go
+Index: internal/command/root.go
+===================================================================
+--- internal/command/root.go
++++ internal/command/root.go
+@@ -41,8 +41,9 @@
+ 
+ 	r.cmd.AddCommand(newBackgroundCommand().cmd)
+ 	r.cmd.AddCommand(newBackupCommand().cmd)
+ 	r.cmd.AddCommand(newDeployCommand().cmd)
++	r.cmd.AddCommand(newDoctorCommand().cmd)
+ 	r.cmd.AddCommand(newExecCommand().cmd)
+ 	r.cmd.AddCommand(newKeysCommand().cmd)
+ 	r.cmd.AddCommand(newListCommand().cmd)
+ 	r.cmd.AddCommand(newLogsCommand().cmd)
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mWrite internal/command/doctor_test.go
+Created file successfully: internal/command/doctor_test.go
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && gofmt -w internal/command/doctor.go internal/command/doctor_test.go internal/docker/proxy.go internal/docker/namespace.go internal/system/disk.go && go test ./internal/...
+ok  	github.com/basecamp/once/internal/background	0.021s
+ok  	github.com/basecamp/once/internal/browser	(cached)
+ok  	github.com/basecamp/once/internal/command	0.047s
+ok  	github.com/basecamp/once/internal/docker	0.111s
+ok  	github.com/basecamp/once/internal/fsutil	(cached)
+ok  	github.com/basecamp/once/internal/htmltext	(cached)
+?   	github.com/basecamp/once/internal/logging	[no test files]
+ok  	github.com/basecamp/once/internal/metrics	0.031s
+ok  	github.com/basecamp/once/internal/mouse	(cached)
+?   	github.com/basecamp/once/internal/service	[no test files]
+ok  	github.com/basecamp/once/internal/system	0.019s
+ok  	github.com/basecamp/once/internal/ui	0.488s
+ok  	github.com/basecamp/once/internal/userstats	0.010s
+ok  	github.com/basecamp/once/internal/version	(cached)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && make lint
+golangci-lint run
+0 issues.
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/command/doctor.go
+Index: internal/command/doctor.go
+===================================================================
+--- internal/command/doctor.go
++++ internal/command/doctor.go
+@@ -118,8 +118,9 @@
+ 		return append([]doctorResult{dockerResult}, unavailableCheckResults()...)
+ 	}
+ 
+ 	if err := d.refresh(ctx, ns); err != nil {
++		dockerResult.ok = false
+ 		dockerResult.detail = "connected, but could not load applications: " + err.Error()
+ 		dockerResult.fix = "Check the Docker daemon and try again."
+ 		return append([]doctorResult{dockerResult}, unavailableCheckResults()...)
+ 	}
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/command/doctor.go
+Index: internal/command/doctor.go
+===================================================================
+--- internal/command/doctor.go
++++ internal/command/doctor.go
+@@ -6,8 +6,9 @@
+ 	"errors"
+ 	"fmt"
+ 	"io"
+ 	"net"
++	"os"
+ 	"strconv"
+ 	"strings"
+ 	"time"
+ 
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/command/doctor.go
+Index: internal/command/doctor.go
+===================================================================
+--- internal/command/doctor.go
++++ internal/command/doctor.go
+@@ -398,12 +398,28 @@
+ }
+ 
+ func portAvailable(port int) bool {
+ 	listener, err := net.Listen("tcp", ":"+strconv.Itoa(port))
++	if err == nil {
++		listener.Close()
++		return true
++	}
++
++	// Without privilege to bind a low port we can't tell whether it is free
++	// from the bind error alone, so look for a listener instead.
++	if errors.Is(err, os.ErrPermission) {
++		return !portListening(port)
++	}
++
++	return false
++}
++
++func portListening(port int) bool {
++	conn, err := net.DialTimeout("tcp", net.JoinHostPort("127.0.0.1", strconv.Itoa(port)), 250*time.Millisecond)
+ 	if err != nil {
+ 		return false
+ 	}
+-	listener.Close()
++	conn.Close()
+ 	return true
+ }
+ 
+ func certificateExpiry(ctx context.Context, host string, port int) (time.Time, error) {
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && gofmt -w internal/command/doctor.go && go test ./internal/... && make lint
+ok  	github.com/basecamp/once/internal/background	(cached)
+ok  	github.com/basecamp/once/internal/browser	(cached)
+ok  	github.com/basecamp/once/internal/command	0.108s
+ok  	github.com/basecamp/once/internal/docker	(cached)
+ok  	github.com/basecamp/once/internal/fsutil	(cached)
+ok  	github.com/basecamp/once/internal/htmltext	(cached)
+?   	github.com/basecamp/once/internal/logging	[no test files]
+ok  	github.com/basecamp/once/internal/metrics	(cached)
+ok  	github.com/basecamp/once/internal/mouse	(cached)
+?   	github.com/basecamp/once/internal/service	[no test files]
+ok  	github.com/basecamp/once/internal/system	(cached)
+ok  	github.com/basecamp/once/internal/ui	(cached)
+ok  	github.com/basecamp/once/internal/userstats	(cached)
+ok  	github.com/basecamp/once/internal/version	(cached)
+golangci-lint run
+0 issues.
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && go run ./cmd/once doctor; echo "exit=$?"
+PASS  Docker          daemon is reachable
+PASS  Ports 80/443    available
+PASS  DNS             1 host(s) resolve
+PASS  Proxy           container once-proxy is running
+PASS  Disk            77GB free of 510GB (15%)
+PASS  Certificates    no TLS hosts to check
+
+All checks passed.
+exit=0
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && git status --short && git diff --stat && git diff -- internal/docker/namespace.go internal/docker/proxy.go internal/system/disk.go internal/command/root.go | sed -n 1,220p
+M internal/command/root.go
+ M internal/docker/namespace.go
+ M internal/docker/proxy.go
+ M internal/system/disk.go
+?? .scratch/split/26-doctor-command.log
+?? internal/command/doctor.go
+?? internal/command/doctor_test.go
+ internal/command/root.go     |  1 +
+ internal/docker/namespace.go |  5 +++++
+ internal/docker/proxy.go     | 37 +++++++++++++++++++++++++++++++++++++
+ internal/system/disk.go      | 13 +++++++++++++
+ 4 files changed, 56 insertions(+)
+diff --git i/internal/command/root.go w/internal/command/root.go
+index f950181..eeae8bd 100644
+--- i/internal/command/root.go
++++ w/internal/command/root.go
+@@ -42,6 +42,7 @@ func NewRootCommand() *RootCommand {
+ 	r.cmd.AddCommand(newBackgroundCommand().cmd)
+ 	r.cmd.AddCommand(newBackupCommand().cmd)
+ 	r.cmd.AddCommand(newDeployCommand().cmd)
++	r.cmd.AddCommand(newDoctorCommand().cmd)
+ 	r.cmd.AddCommand(newExecCommand().cmd)
+ 	r.cmd.AddCommand(newKeysCommand().cmd)
+ 	r.cmd.AddCommand(newListCommand().cmd)
+diff --git i/internal/docker/namespace.go w/internal/docker/namespace.go
+index 663c7bf..8b54e75 100644
+--- i/internal/docker/namespace.go
++++ w/internal/docker/namespace.go
+@@ -195,6 +195,11 @@ func (n *Namespace) DockerRootDir(ctx context.Context) (string, error) {
+ 	return info.Info.DockerRootDir, nil
+ }
+ 
++func (n *Namespace) Ping(ctx context.Context) error {
++	_, err := n.client.Ping(ctx, client.PingOptions{})
++	return connectionError(err)
++}
++
+ func (n *Namespace) EventWatcher() *EventWatcher {
+ 	return NewEventWatcher(n.client, n.name)
+ }
+diff --git i/internal/docker/proxy.go w/internal/docker/proxy.go
+index e42663e..108c06b 100644
+--- i/internal/docker/proxy.go
++++ w/internal/docker/proxy.go
+@@ -9,6 +9,7 @@ import (
+ 	"io"
+ 	"log/slog"
+ 	"net/netip"
++	"strconv"
+ 	"strings"
+ 
+ 	"github.com/containerd/errdefs"
+@@ -65,6 +66,12 @@ type Proxy struct {
+ 	Settings  *ProxySettings
+ }
+ 
++type ProxyStatus struct {
++	Exists         bool
++	Running        bool
++	PublishedPorts map[int]bool
++}
++
+ func NewProxy(ns *Namespace) *Proxy {
+ 	return &Proxy{namespace: ns}
+ }
+@@ -187,6 +194,36 @@ func (p *Proxy) Deploy(ctx context.Context, opts DeployOptions) error {
+ 	return p.Exec(ctx, p.deployArgs(opts))
+ }
+ 
++func (p *Proxy) Status(ctx context.Context) (ProxyStatus, error) {
++	info, err := p.namespace.client.ContainerInspect(ctx, p.containerName(), client.ContainerInspectOptions{})
++	if err != nil {
++		if errdefs.IsNotFound(err) {
++			return ProxyStatus{}, nil
++		}
++		return ProxyStatus{}, fmt.Errorf("inspecting proxy container: %w", err)
++	}
++
++	status := ProxyStatus{
++		Exists:         true,
++		PublishedPorts: make(map[int]bool),
++	}
++	if info.Container.State != nil {
++		status.Running = info.Container.State.Running
++	}
++	if info.Container.NetworkSettings != nil {
++		for _, bindings := range info.Container.NetworkSettings.Ports {
++			for _, binding := range bindings {
++				port, err := strconv.Atoi(binding.HostPort)
++				if err == nil && port > 0 {
++					status.PublishedPorts[port] = true
++				}
++			}
++		}
++	}
++
++	return status, nil
++}
++
+ func (p *Proxy) containerName() string {
+ 	return p.namespace.name + "-proxy"
+ }
+diff --git i/internal/system/disk.go w/internal/system/disk.go
+index 851a427..09ee8f5 100644
+--- i/internal/system/disk.go
++++ w/internal/system/disk.go
+@@ -2,6 +2,19 @@ package system
+ 
+ import "syscall"
+ 
++type DiskSpace struct {
++	Total uint64
++	Free  uint64
++}
++
++func DiskSpaceAt(path string) (DiskSpace, error) {
++	total, _, free, err := statDisk(path)
++	if err != nil {
++		return DiskSpace{}, err
++	}
++	return DiskSpace{Total: total, Free: free}, nil
++}
++
+ func statDisk(path string) (total, used, free uint64, err error) {
+ 	var stat syscall.Statfs_t
+ 	if err = syscall.Statfs(path, &stat); err != nil {
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && make build && ./bin/once doctor --help
+CGO_ENABLED=0 go build -trimpath -ldflags "-s -w -X 'github.com/basecamp/once/internal/version.Version=v0.3.4-29-ga300e9e'" -o bin/ ./cmd/...
+Check that Once can serve applications
+
+Usage:
+  once doctor [flags]
+
+Flags:
+  -h, --help   help for doctor
+
+Global Flags:
+  -n, --namespace string   namespace for containers (default "once")
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && grep -R "RunE:" -n internal/command | grep -v WithNamespace
+internal/command/background_install.go:26:		RunE:  b.run,
+internal/command/background_remove.go:23:		RunE:  b.run,
+internal/command/background_run.go:23:		RunE:   b.run,
+internal/command/keys_set.go:24:		PreRunE: k.validateFlags,
+internal/command/self_update.go:19:		RunE: func(cmd *cobra.Command, args []string) error {
+internal/command/doctor.go:84:		RunE:  d.run,
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && sed -n 1,80p internal/command/background_run.go
+package command
+
+import (
+	"os/signal"
+	"syscall"
+
+	"github.com/spf13/cobra"
+
+	"github.com/basecamp/once/internal/background"
+)
+
+type backgroundRunCommand struct {
+	cmd *cobra.Command
+}
+
+func newBackgroundRunCommand() *backgroundRunCommand {
+	b := &backgroundRunCommand{}
+	b.cmd = &cobra.Command{
+		Use:    "run",
+		Short:  "Run background tasks (automatic backups and updates)",
+		Args:   cobra.NoArgs,
+		Hidden: true,
+		RunE:   b.run,
+	}
+	return b
+}
+
+// Private
+
+func (b *backgroundRunCommand) run(cmd *cobra.Command, args []string) error {
+	ctx, stop := signal.NotifyContext(cmd.Context(), syscall.SIGTERM, syscall.SIGINT)
+	defer stop()
+
+	runner := background.NewRunner(namespaceFlag(cmd))
+
+	return runner.Run(ctx)
+}
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/command/doctor.go
+Index: internal/command/doctor.go
+===================================================================
+--- internal/command/doctor.go
++++ internal/command/doctor.go
+@@ -80,9 +80,9 @@
+ 	d.cmd = &cobra.Command{
+ 		Use:   "doctor",
+ 		Short: "Check that Once can serve applications",
+ 		Args:  cobra.NoArgs,
+-		RunE:  d.run,
++		RunE:  d.execute,
+ 	}
+ 
+ 	return d
+ }
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/command/doctor.go
+Index: internal/command/doctor.go
+===================================================================
+--- internal/command/doctor.go
++++ internal/command/doctor.go
+@@ -96,15 +96,19 @@
+ }
+ 
+ // Private
+ 
+-func (d *doctorCommand) run(cmd *cobra.Command, args []string) error {
++func (d *doctorCommand) execute(cmd *cobra.Command, args []string) error {
+ 	ns, err := d.newNamespace(namespaceFlag(cmd))
+ 	if err != nil {
+ 		return fmt.Errorf("creating namespace: %w", err)
+ 	}
+ 
+-	results := d.check(context.Background(), ns)
++	return d.run(context.Background(), ns, cmd, args)
++}
++
++func (d *doctorCommand) run(ctx context.Context, ns *docker.Namespace, cmd *cobra.Command, args []string) error {
++	results := d.check(ctx, ns)
+ 	d.print(cmd.OutOrStdout(), results)
+ 
+ 	if failed := failedCheckCount(results); failed > 0 {
+ 		return doctorFailure{count: failed}
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/command/doctor_test.go
+Index: internal/command/doctor_test.go
+===================================================================
+--- internal/command/doctor_test.go
++++ internal/command/doctor_test.go
+@@ -147,8 +147,28 @@
+ 	assert.Contains(t, result.detail, "(10 days)")
+ 	assert.Contains(t, result.fix, "Restart the proxy")
+ }
+ 
++func TestDoctorRunReturnsFailureWhenChecksFail(t *testing.T) {
++	ns := doctorNamespace(t)
++	d := passingDoctor(t, ns)
++	d.ping = func(context.Context, *docker.Namespace) error {
++		return docker.ErrDockerNotRunning
++	}
++
++	var out bytes.Buffer
++	d.cmd.SetOut(&out)
++
++	err := d.run(context.Background(), ns, d.cmd, nil)
++	require.Error(t, err)
++
++	code, ok := ExitCode(err)
++	require.True(t, ok)
++	assert.Equal(t, 1, code)
++	assert.Contains(t, out.String(), "FAIL  Docker")
++	assert.Contains(t, out.String(), "6 check(s) failed.")
++}
++
+ func TestDoctorPrintIncludesFixForFailures(t *testing.T) {
+ 	var out bytes.Buffer
+ 	d := newDoctorCommand()
+ 
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && gofmt -w internal/command/doctor.go internal/command/doctor_test.go && make test && make lint
+go test ./internal/...
+ok  	github.com/basecamp/once/internal/background	(cached)
+ok  	github.com/basecamp/once/internal/browser	(cached)
+ok  	github.com/basecamp/once/internal/command	0.107s
+ok  	github.com/basecamp/once/internal/docker	(cached)
+ok  	github.com/basecamp/once/internal/fsutil	(cached)
+ok  	github.com/basecamp/once/internal/htmltext	(cached)
+?   	github.com/basecamp/once/internal/logging	[no test files]
+ok  	github.com/basecamp/once/internal/metrics	(cached)
+ok  	github.com/basecamp/once/internal/mouse	(cached)
+?   	github.com/basecamp/once/internal/service	[no test files]
+ok  	github.com/basecamp/once/internal/system	(cached)
+ok  	github.com/basecamp/once/internal/ui	(cached)
+ok  	github.com/basecamp/once/internal/userstats	(cached)
+ok  	github.com/basecamp/once/internal/version	(cached)
+golangci-lint run
+0 issues.
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+Added `once doctor` with six PASS/FAIL checks: Docker, ports 80/443, DNS for every host, proxy container, free disk, and certificate expiry. Failed checks include a fix and exit non-zero.
+
+Added supporting Docker/disk helpers and tests. `make test` passes; `make lint` reports `0 issues.`

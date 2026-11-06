@@ -195,6 +195,11 @@ func (n *Namespace) DockerRootDir(ctx context.Context) (string, error) {
 	return info.Info.DockerRootDir, nil
 }
 
+func (n *Namespace) Ping(ctx context.Context) error {
+	_, err := n.client.Ping(ctx, client.PingOptions{})
+	return connectionError(err)
+}
+
 func (n *Namespace) EventWatcher() *EventWatcher {
 	return NewEventWatcher(n.client, n.name)
 }
