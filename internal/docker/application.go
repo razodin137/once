@@ -186,6 +186,14 @@ func (a *Application) Start(ctx context.Context) error {
 	return err
 }
 
+func (a *Application) Restart(ctx context.Context) error {
+	if err := a.Stop(ctx); err != nil {
+		return err
+	}
+
+	return a.Start(ctx)
+}
+
 func (a *Application) Exec(ctx context.Context, cmd []string) error {
 	name, err := a.ContainerName(ctx)
 	if err != nil {

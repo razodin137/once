@@ -1,0 +1,324 @@
+[0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m✱ [0mGlob "**/command/**" [90m35 matches[0m
+[0m✱ [0mGlob "**/*24-restart-command*" [90m2 matches[0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead prompt/24-restart-command.md 
+[0m→ [0mRead .scratch/split/24-restart-command.log 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/command/root.go 
+[0m→ [0mRead internal/command/stop.go 
+[0m→ [0mRead internal/command/start.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mls internal/docker && grep -rn "func (a \*Application)" internal/docker
+appbar.go
+appbar_test.go
+application_backup.go
+application_backup_test.go
+application.go
+application_settings.go
+application_settings_test.go
+application_static_test.go
+application_test.go
+channels.go
+channels_test.go
+container.go
+errors.go
+errors_test.go
+events.go
+helpers.go
+helpers_test.go
+logs.go
+logs_test.go
+markdown.go
+namespace.go
+namespace_test.go
+progress.go
+progress_test.go
+proxy.go
+proxy_test.go
+registry_auth.go
+registry_auth_test.go
+ring_buffer.go
+ring_buffer_test.go
+scraper.go
+scraper_test.go
+site.go
+site_test.go
+source.go
+source_test.go
+state.go
+state_test.go
+volume.go
+volume_test.go
+internal/docker/application.go:104:func (a *Application) ContainerName(ctx context.Context) (string, error) {
+internal/docker/application.go:123:func (a *Application) Volume(ctx context.Context) (*ApplicationVolume, error) {
+internal/docker/application.go:135:func (a *Application) URL() string {
+internal/docker/application.go:169:func (a *Application) Stop(ctx context.Context) error {
+internal/docker/application.go:179:func (a *Application) Start(ctx context.Context) error {
+internal/docker/application.go:189:func (a *Application) Exec(ctx context.Context, cmd []string) error {
+internal/docker/application.go:205:func (a *Application) Update(ctx context.Context, progress DeployProgressCallback) (bool, error) {
+internal/docker/application.go:229:func (a *Application) Deploy(ctx context.Context, progress DeployProgressCallback) error {
+internal/docker/application.go:249:func (a *Application) UpdateSettings(ctx context.Context, settings ApplicationSettings, progress DeployProgressCallback) error {
+internal/docker/application.go:266:func (a *Application) VerifyHTTPOrRemove(ctx context.Context) error {
+internal/docker/application.go:277:func (a *Application) Remove(ctx context.Context, removeData bool) error {
+internal/docker/application.go:285:func (a *Application) Destroy(ctx context.Context, destroyVolumes bool) error {
+internal/docker/application.go:326:func (a *Application) saveOperationResult(ctx context.Context, record func(*State)) {
+internal/docker/application.go:335:func (a *Application) pullImage(ctx context.Context, progress DeployProgressCallback) (bool, error) {
+internal/docker/application.go:356:func (a *Application) runningImageID(ctx context.Context) string {
+internal/docker/application.go:368:func (a *Application) deployWithVolume(ctx context.Context, vol *ApplicationVolume, progress DeployProgressCallback) error {
+internal/docker/application.go:446:func (a *Application) ensureKeys(vol *ApplicationVolume) error {
+internal/docker/application.go:460:func (a *Application) verifyHTTP(ctx context.Context) error {
+internal/docker/application.go:485:func (a *Application) removeContainersExcept(ctx context.Context, keep string) error {
+internal/docker/application.go:506:func (a *Application) volumeMounts(vol *ApplicationVolume) []mount.Mount {
+internal/docker/application.go:529:func (a *Application) BuildEnv() []string {
+internal/docker/application.go:559:func (a *Application) containerConfig(env []string) *container.Config {
+internal/docker/application.go:577:func (a *Application) staticNginxCommand() []string {
+internal/docker/application_backup.go:34:func (a *Application) Backup(ctx context.Context) error {
+internal/docker/application_backup.go:42:func (a *Application) BackupName() string {
+internal/docker/application_backup.go:46:func (a *Application) BackupToFile(ctx context.Context, dir string, name string) error {
+internal/docker/application_backup.go:82:func (a *Application) TrimBackups() error {
+internal/docker/application_backup.go:119:func (a *Application) Restore(ctx context.Context, volSettings ApplicationLegacyVolumeSettings, backup io.Reader) (returnErr error) {
+internal/docker/application_backup.go:164:func (a *Application) backupToWriter(ctx context.Context, w io.Writer) error {
+internal/docker/application_backup.go:197:func (a *Application) copyVolumeData(ctx context.Context, containerName string, tw *tar.Writer, pause bool) (returnErr error) {
+internal/docker/application_backup.go:238:func (a *Application) populateVolume(ctx context.Context, vol *ApplicationVolume, backup io.Reader) error {
+internal/docker/application_backup.go:280:func (a *Application) runRestoreHook(ctx context.Context, vol *ApplicationVolume) error {
+internal/docker/application_backup.go:311:func (a *Application) runHookScript(ctx context.Context, containerName, name string) error {
+internal/docker/application_backup.go:316:func (a *Application) tryHookScript(ctx context.Context, containerName, name string) (bool, error) {
+internal/docker/channels.go:29:func (a *Application) Channels(ctx ChannelContext) []Channel {
+internal/docker/channels.go:65:func (a *Application) deploying(now time.Time) bool {
+internal/docker/channels.go:69:func (a *Application) idle(now time.Time) bool {
+internal/docker/appbar.go:26:func (a *Application) appBar() string {
+internal/docker/appbar.go:32:func (a *Application) writeAppBarScript() error {
+internal/docker/appbar.go:45:func (a *Application) appBarScript() string {
+internal/docker/appbar.go:53:func (a *Application) appBarData() appBarData {
+internal/docker/appbar.go:77:func (a *Application) neighborApps() (back, next *Application) {
+internal/docker/appbar.go:101:func (a *Application) runningSiblings() []*Application {
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/docker/application.go [90m[offset=90, limit=120][0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgrep -n "Stop\|Start\|ContainerStop\|ContainerStart" internal/docker/application_test.go internal/command/root_test.go
+(no output)
+[0m→ [0mRead internal/command/root_test.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m✱ [0mGrep "[Rr]estart" [90min . · 10 matches[0m
+[0m$ [0mls prompt && ls .scratch/split | head -40
+00-overview.md
+01-deploy-static-folder.md
+02-serve-static-apps.md
+03-redeploy-folder.md
+04-stale-source-detection.md
+05-folder-contents-fallback.md
+06-markdown-pages.md
+07-single-file-html-site.md
+08-remove-static-app.md
+09-contents-card.md
+10-contents-screen.md
+11-channels.md
+12-channel-filter.md
+13-favorites.md
+14-drift.md
+15-app-bar.md
+16-bar-keys.md
+17-bar-cross-fade.md
+18-bar-hide.md
+19-open-command.md
+20-show-command.md
+21-logs-command.md
+22-status-command.md
+23-list-json.md
+24-restart-command.md
+25-update-all.md
+26-doctor-command.md
+27-backups-list.md
+28-screenshot-capture.md
+29-card-thumbnails.md
+30-route-map.md
+31-page-weight.md
+32-broken-links.md
+33-meta-preview.md
+34-deploy-diff.md
+35-promote-on-evidence.md
+36-error-capture.md
+37-dashboard-filter.md
+38-command-palette.md
+39-toasts.md
+40-chart-time-range.md
+41-compact-layout.md
+42-appearance-settings.md
+43-app-details-view.md
+44-mouse-on-cards.md
+45-incremental-render.md
+46-chart-performance.md
+47-single-stats-stream.md
+48-share-link.md
+49-status-page.md
+50-house-style-pass.md
+01-deploy-static-folder.check
+01-deploy-static-folder.diff
+01-deploy-static-folder.log
+02-serve-static-apps.check
+02-serve-static-apps.diff
+02-serve-static-apps.log
+03-redeploy-folder.check
+03-redeploy-folder.diff
+03-redeploy-folder.log
+04-stale-source-detection.check
+04-stale-source-detection.diff
+04-stale-source-detection.log
+05-folder-contents-fallback.check
+05-folder-contents-fallback.diff
+05-folder-contents-fallback.log
+06-markdown-pages.check
+06-markdown-pages.diff
+06-markdown-pages.log
+07-single-file-html-site.check
+07-single-file-html-site.diff
+07-single-file-html-site.log
+08-remove-static-app.check
+08-remove-static-app.diff
+08-remove-static-app.log
+09-contents-card.check
+09-contents-card.diff
+09-contents-card.log
+10-contents-screen.check
+10-contents-screen.diff
+10-contents-screen.log
+11-channels.check
+11-channels.diff
+11-channels.log
+12-channel-filter.check
+12-channel-filter.diff
+12-channel-filter.log
+13-favorites.check
+13-favorites.diff
+13-favorites.log
+14-drift.check
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead prompt/21-logs-command.md 
+[0m→ [0mRead .scratch/split/21-logs-command.diff 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/docker/application_test.go [90m[limit=120][0m
+[0m✱ [0mGrep "\.Start\(|\.Stop\(" [90min . · 17 matches[0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/command/status.go [90m[limit=45, offset=1][0m
+[0m→ [0mRead internal/ui/dashboard.go [90m[limit=50, offset=325][0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead Makefile 
+[0m→ [0mRead internal/command/update.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgrep -rn "mock\|fake\|Mock\|Fake" internal/docker/*_test.go | head -30; grep -n "type Namespace struct" -A 20 internal/docker/namespace.go
+internal/docker/logs_test.go:14:type mockLogsClient struct {
+internal/docker/logs_test.go:21:func (m *mockLogsClient) ContainerLogs(ctx context.Context, containerName string, options client.ContainerLogsOptions) (client.ContainerLogsResult, error) {
+internal/docker/logs_test.go:29:func (m *mockLogsClient) ContainerInspect(ctx context.Context, containerID string, options client.ContainerInspectOptions) (client.ContainerInspectResult, error) {
+internal/docker/logs_test.go:213:	client := &mockLogsClient{}
+internal/docker/logs_test.go:223:	client := &mockLogsClient{}
+internal/docker/logs_test.go:232:	client := &mockLogsClient{
+internal/docker/registry_auth_test.go:47:		installFakeCredHelper(t, "myhelper", credHelperScript("helper-user", "helper-pass"))
+internal/docker/registry_auth_test.go:59:		installFakeCredHelper(t, "mystore", credHelperScript("store-user", "store-pass"))
+internal/docker/registry_auth_test.go:71:		installFakeCredHelper(t, "specific-helper", credHelperScript("helper-user", "helper-pass"))
+internal/docker/registry_auth_test.go:76:		installFakeCredHelper(t, "global-store", `#!/bin/sh
+internal/docker/registry_auth_test.go:106:		installFakeCredHelper(t, "failing-helper", "#!/bin/sh\nexit 1\n")
+internal/docker/registry_auth_test.go:242:func installFakeCredHelper(t *testing.T, helperName, script string) {
+internal/docker/scraper_test.go:18:type mockStatsClient struct {
+internal/docker/scraper_test.go:24:func (m *mockStatsClient) ContainerList(ctx context.Context, options client.ContainerListOptions) (client.ContainerListResult, error) {
+internal/docker/scraper_test.go:28:func (m *mockStatsClient) ContainerStats(ctx context.Context, containerID string, options client.ContainerStatsOptions) (client.ContainerStatsResult, error) {
+internal/docker/scraper_test.go:123:	client := &mockStatsClient{
+internal/docker/scraper_test.go:156:	client := &mockStatsClient{
+internal/docker/scraper_test.go:171:	client := &mockStatsClient{
+internal/docker/scraper_test.go:204:	client := &mockStatsClient{
+internal/docker/scraper_test.go:247:	client := &mockStatsClient{
+internal/docker/scraper_test.go:273:	client := &mockStatsClient{
+internal/docker/scraper_test.go:287:	client := &mockStatsClient{
+22:type Namespace struct {
+23-	name         string
+24-	client       *client.Client
+25-	proxy        *Proxy
+26-	applications []*Application
+27-}
+28-
+29-type NamespaceOption func(*Namespace)
+30-
+31-func WithApplications(apps ...ApplicationSettings) NamespaceOption {
+32-	return func(ns *Namespace) {
+33-		for _, s := range apps {
+34-			ns.addApplication(s)
+35-		}
+36-	}
+37-}
+38-
+39-func NewNamespace(name string, opts ...NamespaceOption) (*Namespace, error) {
+40-	if name == "" {
+41-		name = DefaultNamespace
+42-	}
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mWrite internal/command/restart.go
+Created file successfully: internal/command/restart.go
+[0m← [0mEdit internal/docker/application.go
+Index: internal/docker/application.go
+===================================================================
+--- internal/docker/application.go
++++ internal/docker/application.go
+@@ -185,8 +185,16 @@
+ 	_, err = a.namespace.client.ContainerStart(ctx, name, client.ContainerStartOptions{})
+ 	return err
+ }
+ 
++func (a *Application) Restart(ctx context.Context) error {
++	if err := a.Stop(ctx); err != nil {
++		return err
++	}
++
++	return a.Start(ctx)
++}
++
+ func (a *Application) Exec(ctx context.Context, cmd []string) error {
+ 	name, err := a.ContainerName(ctx)
+ 	if err != nil {
+ 		return err
+
+[0m← [0mEdit internal/command/root.go
+Index: internal/command/root.go
+===================================================================
+--- internal/command/root.go
++++ internal/command/root.go
+@@ -47,8 +47,9 @@
+ 	r.cmd.AddCommand(newListCommand().cmd)
+ 	r.cmd.AddCommand(newLogsCommand().cmd)
+ 	r.cmd.AddCommand(newOpenCommand().cmd)
+ 	r.cmd.AddCommand(newRemoveCommand().cmd)
++	r.cmd.AddCommand(newRestartCommand().cmd)
+ 	r.cmd.AddCommand(newRestoreCommand().cmd)
+ 	r.cmd.AddCommand(newShowCommand().cmd)
+ 	r.cmd.AddCommand(newStartCommand().cmd)
+ 	r.cmd.AddCommand(newStatusCommand().cmd)
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgofmt -l internal/command/restart.go internal/command/root.go internal/docker/application.go; make test
+go test ./internal/...
+ok  	github.com/basecamp/once/internal/background	0.051s
+ok  	github.com/basecamp/once/internal/browser	(cached)
+ok  	github.com/basecamp/once/internal/command	0.150s
+ok  	github.com/basecamp/once/internal/docker	0.377s
+ok  	github.com/basecamp/once/internal/fsutil	(cached)
+ok  	github.com/basecamp/once/internal/htmltext	(cached)
+?   	github.com/basecamp/once/internal/logging	[no test files]
+ok  	github.com/basecamp/once/internal/metrics	0.086s
+ok  	github.com/basecamp/once/internal/mouse	(cached)
+?   	github.com/basecamp/once/internal/service	[no test files]
+ok  	github.com/basecamp/once/internal/system	(cached)
+ok  	github.com/basecamp/once/internal/ui	1.907s
+ok  	github.com/basecamp/once/internal/userstats	(cached)
+ok  	github.com/basecamp/once/internal/version	(cached)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mmake lint
+golangci-lint run
+0 issues.
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+Added `once restart <host>`:
+
+- `internal/command/restart.go:16` — new command wired to `withApplication`
+- `internal/docker/application.go:189` — `Application.Restart` stops then starts the existing container, no image pull/redeploy
+- `internal/command/root.go:51` — registered command
+
+Lint: `make lint` (golangci-lint) — 0 issues. Tests: `make test` — all pass.

@@ -1,0 +1,3 @@
+ internal/command/root.go       | 1 +
+ internal/docker/application.go | 8 ++++++++
+ 2 files changed, 9 insertions(+)
