@@ -113,6 +113,53 @@ func TestStaticSiteDeployment(t *testing.T) {
 	assertProxiedBody(t, ctx, base, "staticapp.localhost", "/up", "ok")
 }
 
+func TestStaticSiteRedeploy(t *testing.T) {
+	t.Parallel()
+
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Minute)
+	defer cancel()
+
+	firstDir := t.TempDir()
+	require.NoError(t, os.WriteFile(filepath.Join(firstDir, "index.html"), []byte("<h1>version one</h1>"), 0o644))
+
+	ns := newTestNamespace(t, "once-static-redeploy-test")
+
+	require.NoError(t, ns.EnsureNetwork(ctx))
+	require.NoError(t, ns.Proxy().Boot(ctx, getProxyPorts(t)))
+
+	app := deployApp(t, ctx, ns, docker.ApplicationSettings{
+		Name:   "staticapp",
+		Image:  docker.StaticImage,
+		Source: firstDir,
+		Host:   "staticapp.localhost",
+	})
+
+	firstName, err := app.ContainerName(ctx)
+	require.NoError(t, err)
+	firstKeys := app.Settings.Keys
+
+	secondDir := t.TempDir()
+	require.NoError(t, os.WriteFile(filepath.Join(secondDir, "index.html"), []byte("<h1>version two</h1>"), 0o644))
+
+	app.Settings.Source = secondDir
+	require.NoError(t, app.Deploy(ctx, nil), "redeploy")
+	require.NoError(t, ns.Refresh(ctx))
+
+	redeployed := ns.Application("staticapp")
+	require.NotNil(t, redeployed)
+	assert.Len(t, ns.Applications(), 1)
+	assert.Equal(t, "staticapp.localhost", redeployed.Settings.Host)
+	assert.Equal(t, firstKeys, redeployed.Settings.Keys)
+	assert.Equal(t, secondDir, redeployed.Settings.Source)
+
+	secondName, err := redeployed.ContainerName(ctx)
+	require.NoError(t, err)
+	assert.NotEqual(t, firstName, secondName, "redeploy should replace the container")
+
+	base := fmt.Sprintf("http://127.0.0.1:%d", ns.Proxy().Settings.HTTPPort)
+	assertProxiedBody(t, ctx, base, "staticapp.localhost", "/", "version two")
+}
+
 func TestRestoreState(t *testing.T) {
 	t.Parallel()
 

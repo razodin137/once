@@ -50,8 +50,12 @@ func (d *deployCommand) run(ctx context.Context, ns *docker.Namespace, cmd *cobr
 		host = baseName + ".localhost"
 	}
 
-	if ns.HostInUse(host) {
-		return docker.ErrHostnameInUse
+	existing, err := siteToReplace(ns, host, source)
+	if err != nil {
+		return err
+	}
+	if existing != nil {
+		return d.redeploy(ctx, cmd, existing, imageRef, source)
 	}
 
 	settings, err := d.flags.buildSettings(cmd, imageRef, host)
@@ -84,7 +88,55 @@ func (d *deployCommand) run(ctx context.Context, ns *docker.Namespace, cmd *cobr
 	})
 }
 
+// redeploy replaces what an existing static site serves, keeping its host and
+// settings. A failed redeploy leaves the previous version in place, so unlike
+// a first deploy the app is never removed.
+func (d *deployCommand) redeploy(ctx context.Context, cmd *cobra.Command, app *docker.Application, image, source string) error {
+	settings, err := d.redeploySettings(cmd, app.Settings, image, source)
+	if err != nil {
+		return err
+	}
+
+	oldSettings := app.Settings
+	app.Settings = settings
+
+	return runWithProgress("Deploying "+settings.Host, func(progress docker.DeployProgressCallback) error {
+		if err := app.Deploy(ctx, progress); err != nil {
+			app.Settings = oldSettings
+			return fmt.Errorf("%w: %w", docker.ErrDeployFailed, err)
+		}
+
+		return nil
+	})
+}
+
+func (d *deployCommand) redeploySettings(cmd *cobra.Command, existing docker.ApplicationSettings, image, source string) (docker.ApplicationSettings, error) {
+	settings, err := d.flags.applyChanges(cmd, existing, image)
+	if err != nil {
+		return docker.ApplicationSettings{}, err
+	}
+
+	settings.Source = source
+	return settings, nil
+}
+
 // Helpers
+
+// siteToReplace returns the static site already serving host, when deploying a
+// folder should replace it in place. Deploying an image, or deploying a folder
+// to a host owned by an application, is still a hostname conflict.
+func siteToReplace(ns *docker.Namespace, host, source string) (*docker.Application, error) {
+	existing := ns.ApplicationByHost(host)
+	if existing == nil {
+		return nil, nil
+	}
+
+	if source == "" || !existing.Settings.Static() {
+		return nil, docker.ErrHostnameInUse
+	}
+
+	return existing, nil
+}
 
 func deployTarget(arg string) (imageRef, source string) {
 	path, err := filepath.Abs(arg)

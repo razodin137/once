@@ -82,6 +82,94 @@ func TestDeployTarget(t *testing.T) {
 	})
 }
 
+func TestSiteToReplace(t *testing.T) {
+	ns, err := docker.NewNamespace("once", docker.WithApplications(
+		docker.ApplicationSettings{Name: "site.abc123", Image: docker.StaticImage, Source: "/srv/site", Host: "site.localhost"},
+		docker.ApplicationSettings{Name: "app.def456", Image: "image:latest", Host: "app.localhost"},
+	))
+	require.NoError(t, err)
+
+	t.Run("unused host", func(t *testing.T) {
+		app, err := siteToReplace(ns, "new.localhost", "/srv/new")
+		require.NoError(t, err)
+		assert.Nil(t, app)
+	})
+
+	t.Run("deploying a folder over a static site", func(t *testing.T) {
+		app, err := siteToReplace(ns, "site.localhost", "/srv/site-v2")
+		require.NoError(t, err)
+		require.NotNil(t, app)
+		assert.Equal(t, "site.abc123", app.Settings.Name)
+	})
+
+	t.Run("deploying a folder over an application", func(t *testing.T) {
+		app, err := siteToReplace(ns, "app.localhost", "/srv/app")
+		assert.ErrorIs(t, err, docker.ErrHostnameInUse)
+		assert.Nil(t, app)
+	})
+
+	t.Run("deploying an image over an existing host", func(t *testing.T) {
+		app, err := siteToReplace(ns, "site.localhost", "")
+		assert.ErrorIs(t, err, docker.ErrHostnameInUse)
+		assert.Nil(t, app)
+	})
+}
+
+func TestRedeploySettings(t *testing.T) {
+	existing := docker.ApplicationSettings{
+		Name:       "site.abc123",
+		Image:      docker.StaticImage,
+		Source:     "/srv/site",
+		Host:       "site.example.com",
+		DisableTLS: false,
+		EnvVars:    map[string]string{"KEY": "value"},
+		Resources:  docker.ContainerResources{CPUs: 2, MemoryMB: 1024},
+		Keys:       docker.Keys{SecretKeyBase: "secret", VAPIDPublicKey: "pub", VAPIDPrivateKey: "priv"},
+	}
+
+	t.Run("keeps settings and swaps the source", func(t *testing.T) {
+		cmd := &cobra.Command{}
+		d := &deployCommand{}
+		d.flags.register(cmd)
+
+		result, err := d.redeploySettings(cmd, existing, docker.StaticImage, "/srv/site-v2")
+		require.NoError(t, err)
+
+		assert.Equal(t, existing.Name, result.Name)
+		assert.Equal(t, existing.Host, result.Host)
+		assert.Equal(t, existing.DisableTLS, result.DisableTLS)
+		assert.Equal(t, existing.EnvVars, result.EnvVars)
+		assert.Equal(t, existing.Resources, result.Resources)
+		assert.Equal(t, existing.Keys, result.Keys)
+		assert.Equal(t, docker.StaticImage, result.Image)
+		assert.Equal(t, "/srv/site-v2", result.Source)
+	})
+
+	t.Run("changed flags still apply", func(t *testing.T) {
+		cmd := &cobra.Command{}
+		d := &deployCommand{}
+		d.flags.register(cmd)
+		require.NoError(t, cmd.Flags().Set("memory", "2048"))
+
+		result, err := d.redeploySettings(cmd, existing, docker.StaticImage, "/srv/site-v2")
+		require.NoError(t, err)
+
+		assert.Equal(t, 2048, result.Resources.MemoryMB)
+		assert.Equal(t, existing.Resources.CPUs, result.Resources.CPUs)
+		assert.Equal(t, existing.Keys, result.Keys)
+	})
+
+	t.Run("invalid flags return an error", func(t *testing.T) {
+		cmd := &cobra.Command{}
+		d := &deployCommand{}
+		d.flags.register(cmd)
+		require.NoError(t, cmd.Flags().Set("env", "INVALID"))
+
+		_, err := d.redeploySettings(cmd, existing, docker.StaticImage, "/srv/site-v2")
+		assert.ErrorContains(t, err, "must be in KEY=VALUE format")
+	})
+}
+
 func TestBuildSettingsImageRequired(t *testing.T) {
 	f := &settingsFlags{}
 	_, err := f.buildSettings(&cobra.Command{}, "", "app.example.com")
