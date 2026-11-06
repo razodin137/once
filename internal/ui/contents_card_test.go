@@ -5,6 +5,8 @@ import (
 	"testing"
 	"time"
 
+	"charm.land/bubbletea/v2"
+	"charm.land/lipgloss/v2"
 	"github.com/charmbracelet/x/ansi"
 	"github.com/stretchr/testify/assert"
 
@@ -82,6 +84,20 @@ func TestContentsCardFitsWidth(t *testing.T) {
 
 	for line := range strings.SplitSeq(ansi.Strip(view), "\n") {
 		assert.LessOrEqual(t, ansi.StringWidth(line), 50)
+	}
+}
+
+func TestContentsCardFillsScreen(t *testing.T) {
+	app := &docker.Application{Settings: docker.ApplicationSettings{Name: "writebook"}}
+	card := NewContentsCard(app, nil, 120)
+	updated, _ := card.Update(tea.WindowSizeMsg{Width: 120, Height: 40})
+	card = updated.(ContentsCard)
+
+	view := card.View()
+
+	assert.Equal(t, 40, lipgloss.Height(view))
+	for line := range strings.SplitSeq(ansi.Strip(view), "\n") {
+		assert.Equal(t, 120, ansi.StringWidth(line))
 	}
 }
 

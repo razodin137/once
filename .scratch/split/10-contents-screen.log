@@ -1,0 +1,1889 @@
+[0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m✱ [0mGlob "**/10-contents-screen*" [90m1 match[0m
+[0m✱ [0mGlob "**/split/**" [90m0 matches[0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead prompt/10-contents-screen.md 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m✱ [0mGrep "contents" [90m80 matches[0m
+[0m$ [0mls -R internal | head -100; echo ---; ls
+internal:
+background
+command
+docker
+fsutil
+logging
+metrics
+mouse
+service
+system
+ui
+userstats
+version
+
+internal/background:
+runner.go
+runner_test.go
+
+internal/command:
+background.go
+background_install.go
+background_remove.go
+background_run.go
+backup.go
+cli_progress.go
+deploy.go
+deploy_test.go
+exec.go
+exec_test.go
+keys.go
+keys_reset.go
+keys_set.go
+list.go
+remove.go
+restore.go
+root.go
+root_test.go
+self_update.go
+settings_flags.go
+start.go
+stop.go
+teardown.go
+update.go
+update_test.go
+version.go
+
+internal/docker:
+application_backup.go
+application_backup_test.go
+application.go
+application_settings.go
+application_settings_test.go
+application_static_test.go
+application_test.go
+container.go
+errors.go
+errors_test.go
+events.go
+helpers.go
+helpers_test.go
+logs.go
+logs_test.go
+markdown.go
+namespace.go
+namespace_test.go
+progress.go
+progress_test.go
+proxy.go
+proxy_test.go
+registry_auth.go
+registry_auth_test.go
+ring_buffer.go
+ring_buffer_test.go
+scraper.go
+scraper_test.go
+site.go
+site_test.go
+source.go
+source_test.go
+state.go
+state_test.go
+volume.go
+volume_test.go
+
+internal/fsutil:
+fsutil.go
+fsutil_test.go
+
+internal/logging:
+log.go
+
+internal/metrics:
+scraper.go
+scraper_test.go
+
+internal/mouse:
+lexer.go
+lexer_test.go
+tracker.go
+tracker_test.go
+---
+AGENTS.md
+bin
+cmd
+go.mod
+go.sum
+installer
+integration
+internal
+Makefile
+mise.toml
+MIT-LICENSE
+prompt
+prompt-v1
+README.md
+scripts
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcat prompt/09-contents-card.md; echo ---; cat prompt/00-overview.md 2>/dev/null | head -60; echo ---; ls internal/ui internal/service
+Your job is to go in and add a contents card for one app here to this Go CLI/TUI app.
+
+Cream paper, a serif title, a stamp with the app's initials, then the facts: host, image or folder, uptime, last deploy, last backup. It is the card the rest of the interface is built around, so make it good.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+---
+These prompts change the ONCE Go CLI/TUI in this repository, one feature per file, run in order with a fresh agent for each.
+
+House style here is the project's own Go conventions plus `make lint`; the wider reference copy is at /home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+
+The last line of every file is the same, and it means `make test` and `make lint` both run clean.
+
+Each file is the whole instruction for its session. Read only the one you are running.
+---
+internal/service:
+launchd.go
+service.go
+systemd.go
+
+internal/ui:
+actions_menu.go
+actions_menu_test.go
+app.go
+chart.go
+chart_scale.go
+chart_scale_test.go
+chart_test.go
+component.go
+confirmation.go
+confirmation_test.go
+contents_card.go
+contents_card_test.go
+dashboard.go
+dashboard_header.go
+dashboard_header_test.go
+dashboard_panel.go
+dashboard_panel_test.go
+dashboard_test.go
+form.go
+form_test.go
+helpers_test.go
+help.go
+help_test.go
+install_activity.go
+install_app_list.go
+install_app_list_test.go
+install.go
+install_hostname_form.go
+install_hostname_form_test.go
+install_image_form.go
+install_image_form_test.go
+install_test.go
+keys.go
+logo.go
+logs.go
+logs_test.go
+menu.go
+menu_test.go
+metric_card.go
+metric_card_test.go
+palette_detect.go
+palette_detect_test.go
+palette.go
+palette_test.go
+popup_help.go
+popup_help_test.go
+progress.go
+remove.go
+remove_test.go
+settings_form_application.go
+settings_form_backups.go
+settings_form_base.go
+settings_form_email.go
+settings_form_environment.go
+settings_form_registry.go
+settings_form_resources.go
+settings_form_test.go
+settings_form_updates.go
+settings.go
+settings_menu.go
+settings_menu_test.go
+settings_test.go
+starfield.go
+styles.go
+styles_test.go
+terminal_size_guard.go
+terminal_size_guard_test.go
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/ui/contents_card.go 
+[0m→ [0mRead internal/ui/dashboard.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/ui/contents_card_test.go 
+[0m$ [0mgrep -rn "ContentsCard\|contents card\|contentsCard" --include=*.go . | grep -v _test | head -40; echo ---; grep -rln "web" --include=*.go internal | head; echo ---; ls prompt
+./internal/ui/dashboard.go:169:			m.overlay = NewContentsCard(app, m.lastBackupFor(app), m.width)
+./internal/ui/dashboard.go:193:	case ContentsCardCloseMsg:
+./internal/ui/contents_card.go:18:	contentsCardMaxWidth = 64
+./internal/ui/contents_card.go:19:	contentsCardPadding  = 2
+./internal/ui/contents_card.go:22:var contentsCardCloseKey = WithHelp(NewKeyBinding("esc"), "esc", "back")
+./internal/ui/contents_card.go:32:type ContentsCardCloseMsg struct{}
+./internal/ui/contents_card.go:34:type ContentsCard struct {
+./internal/ui/contents_card.go:40:func NewContentsCard(app *docker.Application, lastBackup *docker.OperationResult, width int) ContentsCard {
+./internal/ui/contents_card.go:41:	return ContentsCard{
+./internal/ui/contents_card.go:48:func (c ContentsCard) Init() tea.Cmd {
+./internal/ui/contents_card.go:52:func (c ContentsCard) Update(msg tea.Msg) (Component, tea.Cmd) {
+./internal/ui/contents_card.go:57:		if key.Matches(msg, contentsCardCloseKey) {
+./internal/ui/contents_card.go:58:			return c, func() tea.Msg { return ContentsCardCloseMsg{} }
+./internal/ui/contents_card.go:65:func (c ContentsCard) View() string {
+./internal/ui/contents_card.go:88:func (c ContentsCard) headerLines(inner int) []string {
+./internal/ui/contents_card.go:116:func (c ContentsCard) stamp() string {
+./internal/ui/contents_card.go:132:func (c ContentsCard) factLines(inner int) []string {
+./internal/ui/contents_card.go:161:func (c ContentsCard) host() string {
+./internal/ui/contents_card.go:168:func (c ContentsCard) sourceFact() contentsFact {
+./internal/ui/contents_card.go:176:func (c ContentsCard) uptimeFact() contentsFact {
+./internal/ui/contents_card.go:187:func (c ContentsCard) backupFact() contentsFact {
+./internal/ui/contents_card.go:201:func (c ContentsCard) displayName() string {
+./internal/ui/contents_card.go:216:func (c ContentsCard) initials() string {
+./internal/ui/contents_card.go:234:func (c ContentsCard) nameWords() []string {
+./internal/ui/contents_card.go:239:func (c ContentsCard) contentWidth() int {
+./internal/ui/contents_card.go:240:	width := min(contentsCardMaxWidth, c.width-2)
+./internal/ui/contents_card.go:241:	return max(width-2*contentsCardPadding, 24)
+./internal/ui/contents_card.go:244:func (c ContentsCard) frame(lines []string, inner int) string {
+./internal/ui/contents_card.go:247:	padding := paper.Render(strings.Repeat(" ", contentsCardPadding))
+./internal/ui/contents_card.go:250:	framed = append(framed, border.Render("╭"+strings.Repeat("─", inner+2*contentsCardPadding)+"╮"))
+./internal/ui/contents_card.go:257:	framed = append(framed, border.Render("╰"+strings.Repeat("─", inner+2*contentsCardPadding)+"╯"))
+---
+internal/command/root.go
+internal/docker/errors.go
+---
+00-overview.md
+01-deploy-static-folder.md
+02-serve-static-apps.md
+03-redeploy-folder.md
+04-stale-source-detection.md
+05-folder-contents-fallback.md
+06-markdown-pages.md
+07-single-file-html-site.md
+08-remove-static-app.md
+09-contents-card.md
+10-contents-screen.md
+11-channels.md
+12-channel-filter.md
+13-favorites.md
+14-drift.md
+15-app-bar.md
+16-bar-keys.md
+17-bar-cross-fade.md
+18-bar-hide.md
+19-open-command.md
+20-show-command.md
+21-logs-command.md
+22-status-command.md
+23-list-json.md
+24-restart-command.md
+25-update-all.md
+26-doctor-command.md
+27-backups-list.md
+28-screenshot-capture.md
+29-card-thumbnails.md
+30-route-map.md
+31-page-weight.md
+32-broken-links.md
+33-meta-preview.md
+34-deploy-diff.md
+35-promote-on-evidence.md
+36-error-capture.md
+37-dashboard-filter.md
+38-command-palette.md
+39-toasts.md
+40-chart-time-range.md
+41-compact-layout.md
+42-appearance-settings.md
+43-app-details-view.md
+44-mouse-on-cards.md
+45-incremental-render.md
+46-chart-performance.md
+47-single-stats-stream.md
+48-share-link.md
+49-status-page.md
+50-house-style-pass.md
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/ui/app.go 
+[0m$ [0mgrep -rn "card\|card" --include=*.go internal/docker/site.go internal/docker/*.go | head -20; echo ---; git log --oneline | head -15; echo ---; git status --short; echo ---; git show --stat HEAD | head -30
+internal/docker/site.go:345:    --card: #faf7f0;
+internal/docker/site.go:366:    background: var(--card);
+internal/docker/markdown.go:159:    --card: #faf7f0;
+internal/docker/markdown.go:180:    background: var(--card);
+internal/docker/proxy.go:96:	_, _ = io.Copy(io.Discard, reader)
+internal/docker/site.go:345:    --card: #faf7f0;
+internal/docker/site.go:366:    background: var(--card);
+---
+1c4fb9a split: 09-contents-card
+313f156 split: 08-remove-static-app
+91e0ada split: 07-single-file-html-site
+54ed0bf split: 06-markdown-pages
+ea29c59 split: 05-folder-contents-fallback
+3c926ed split: 04-stale-source-detection
+3b00d24 split: 03-redeploy-folder
+8021ade split: 02-serve-static-apps
+c279c61 split: 01-deploy-static-folder
+dd1ea52 split: 01-deploy-static-folder
+fe93045 starting the script: Prompting scripts for upgrading
+864ec7c Use strings.CutLast in cutLast (#118)
+---
+?? .scratch/split/10-contents-screen.log
+---
+commit 1c4fb9a2e9d123a3fa099d0dac6e40ac4cf8f481
+Author: razodin137 <razodin137@gmail.com>
+Date:   Fri Nov 6 18:31:09 2026 +0700
+
+    split: 09-contents-card
+
+ .scratch/split/09-contents-card.check |   15 +
+ .scratch/split/09-contents-card.diff  |    5 +
+ .scratch/split/09-contents-card.log   | 5986 +++++++++++++++++++++++++++++++++
+ internal/docker/application.go        |    1 +
+ internal/docker/namespace.go          |    1 +
+ internal/ui/contents_card.go          |  289 ++
+ internal/ui/contents_card_test.go     |   95 +
+ internal/ui/dashboard.go              |   28 +-
+ internal/ui/dashboard_test.go         |   15 +
+ 9 files changed, 6434 insertions(+), 1 deletion(-)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/ui/logs.go 
+[0m→ [0mRead internal/ui/remove.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mls .scratch/split; echo ---; cat .scratch/split/09-contents-card.check; echo ---; cat .scratch/split/09-contents-card.diff; echo ---; cat .scratch/split/08-remove-static-app.diff 2>/dev/null | head -40
+01-deploy-static-folder.check
+01-deploy-static-folder.diff
+01-deploy-static-folder.log
+02-serve-static-apps.check
+02-serve-static-apps.diff
+02-serve-static-apps.log
+03-redeploy-folder.check
+03-redeploy-folder.diff
+03-redeploy-folder.log
+04-stale-source-detection.check
+04-stale-source-detection.diff
+04-stale-source-detection.log
+05-folder-contents-fallback.check
+05-folder-contents-fallback.diff
+05-folder-contents-fallback.log
+06-markdown-pages.check
+06-markdown-pages.diff
+06-markdown-pages.log
+07-single-file-html-site.check
+07-single-file-html-site.diff
+07-single-file-html-site.log
+08-remove-static-app.check
+08-remove-static-app.diff
+08-remove-static-app.log
+09-contents-card.check
+09-contents-card.diff
+09-contents-card.log
+10-contents-screen.log
+---
+go test ./internal/...
+ok  	github.com/basecamp/once/internal/background	(cached)
+ok  	github.com/basecamp/once/internal/command	(cached)
+ok  	github.com/basecamp/once/internal/docker	0.029s
+ok  	github.com/basecamp/once/internal/fsutil	(cached)
+?   	github.com/basecamp/once/internal/logging	[no test files]
+ok  	github.com/basecamp/once/internal/metrics	0.006s
+ok  	github.com/basecamp/once/internal/mouse	(cached)
+?   	github.com/basecamp/once/internal/service	[no test files]
+ok  	github.com/basecamp/once/internal/system	(cached)
+ok  	github.com/basecamp/once/internal/ui	(cached)
+ok  	github.com/basecamp/once/internal/userstats	(cached)
+ok  	github.com/basecamp/once/internal/version	(cached)
+golangci-lint run
+0 issues.
+---
+ internal/docker/application.go |  1 +
+ internal/docker/namespace.go   |  1 +
+ internal/ui/dashboard.go       | 28 +++++++++++++++++++++++++++-
+ internal/ui/dashboard_test.go  | 15 +++++++++++++++
+ 4 files changed, 44 insertions(+), 1 deletion(-)
+---
+ internal/docker/application.go |  2 +-
+ internal/docker/site.go        | 35 +++++++++++++++++++++++++++-----
+ internal/docker/site_test.go   | 46 ++++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 77 insertions(+), 6 deletions(-)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/ui/helpers_test.go 
+[0m$ [0mgit show 1c4fb9a -- internal/ui/dashboard_test.go internal/ui/dashboard.go internal/docker/application.go internal/docker/namespace.go | head -150; echo ---; cat Makefile
+commit 1c4fb9a2e9d123a3fa099d0dac6e40ac4cf8f481
+Author: razodin137 <razodin137@gmail.com>
+Date:   Fri Nov 6 18:31:09 2026 +0700
+
+    split: 09-contents-card
+
+diff --git a/internal/docker/application.go b/internal/docker/application.go
+index 0b3cffd..f53f255 100644
+--- a/internal/docker/application.go
++++ b/internal/docker/application.go
+@@ -84,6 +84,7 @@ type Application struct {
+ 	Settings     ApplicationSettings
+ 	Running      bool
+ 	RunningSince time.Time
++	DeployedAt   time.Time
+ }
+ 
+ func NewApplication(ns *Namespace, settings ApplicationSettings) *Application {
+diff --git a/internal/docker/namespace.go b/internal/docker/namespace.go
+index c6195b4..663c7bf 100644
+--- a/internal/docker/namespace.go
++++ b/internal/docker/namespace.go
+@@ -322,6 +322,7 @@ func (n *Namespace) restoreState(ctx context.Context) error {
+ 					}
+ 					app := NewApplication(n, settings)
+ 					app.Running = c.State == "running"
++					app.DeployedAt = time.Unix(c.Created, 0)
+ 					if app.Running {
+ 						info, err := n.client.ContainerInspect(ctx, c.ID, client.ContainerInspectOptions{})
+ 						if err == nil && info.Container.State != nil {
+diff --git a/internal/ui/dashboard.go b/internal/ui/dashboard.go
+index 3899f6d..41ba855 100644
+--- a/internal/ui/dashboard.go
++++ b/internal/ui/dashboard.go
+@@ -26,6 +26,7 @@ var dashboardKeys = struct {
+ 	Actions  key.Binding
+ 	NewApp   key.Binding
+ 	Logs     key.Binding
++	Contents key.Binding
+ 	Details  key.Binding
+ 	Quit     key.Binding
+ }{
+@@ -35,6 +36,7 @@ var dashboardKeys = struct {
+ 	Actions:  WithHelp(NewKeyBinding("a"), "a", "actions"),
+ 	NewApp:   WithHelp(NewKeyBinding("n"), "n", "new app"),
+ 	Logs:     WithHelp(NewKeyBinding("g"), "g", "logs"),
++	Contents: WithHelp(NewKeyBinding("C"), "C", "contents"),
+ 	Details:  WithHelp(NewKeyBinding("d"), "d", "toggle details"),
+ 	Quit:     WithHelp(NewKeyBinding("esc"), "esc", "quit"),
+ }
+@@ -162,6 +164,13 @@ func (m Dashboard) Update(msg tea.Msg) (Component, tea.Cmd) {
+ 		if key.Matches(msg, dashboardKeys.Logs) && len(m.apps) > 0 {
+ 			return m, func() tea.Msg { return NavigateToLogsMsg{App: m.apps[m.selectedIndex]} }
+ 		}
++		if key.Matches(msg, dashboardKeys.Contents) && len(m.apps) > 0 {
++			app := m.apps[m.selectedIndex]
++			m.overlay = NewContentsCard(app, m.lastBackupFor(app), m.width)
++			var cmd tea.Cmd
++			m.overlay, cmd = m.overlay.Update(tea.WindowSizeMsg{Width: m.width, Height: m.height})
++			return m, cmd
++		}
+ 		if key.Matches(msg, dashboardKeys.Details) && len(m.apps) > 0 {
+ 			dashboardShowDetails = !dashboardShowDetails
+ 			m.updateViewportSize()
+@@ -181,6 +190,9 @@ func (m Dashboard) Update(msg tea.Msg) (Component, tea.Cmd) {
+ 	case ActionsMenuCloseMsg:
+ 		m.overlay = nil
+ 
++	case ContentsCardCloseMsg:
++		m.overlay = nil
++
+ 	case ActionsMenuSelectMsg:
+ 		m.overlay = nil
+ 		switch msg.action {
+@@ -284,7 +296,8 @@ func (m Dashboard) helpBindings() []key.Binding {
+ 	if len(m.apps) > 0 {
+ 		return []key.Binding{
+ 			dashboardKeys.Up, dashboardKeys.Down, dashboardKeys.Actions,
+-			dashboardKeys.Settings, dashboardKeys.Logs, dashboardKeys.Details, dashboardKeys.NewApp, dashboardKeys.Quit,
++			dashboardKeys.Settings, dashboardKeys.Logs, dashboardKeys.Contents,
++			dashboardKeys.Details, dashboardKeys.NewApp, dashboardKeys.Quit,
+ 		}
+ 	}
+ 	return []key.Binding{dashboardKeys.NewApp, dashboardKeys.Quit}
+@@ -306,6 +319,19 @@ func (m Dashboard) scheduleNextDashboardTick() tea.Cmd {
+ 	return tea.Every(time.Second, func(time.Time) tea.Msg { return dashboardTickMsg{} })
+ }
+ 
++func (m Dashboard) lastBackupFor(app *docker.Application) *docker.OperationResult {
++	if m.namespace == nil {
++		return nil
++	}
++
++	state, err := m.namespace.LoadState(context.Background())
++	if err != nil {
++		return nil
++	}
++
++	return state.AppState(app.Settings.Name).LastBackupResult()
++}
++
+ func (m *Dashboard) selectPanel(index int) {
+ 	m.selectedIndex = max(0, min(index, len(m.apps)-1))
+ 	m.rebuildViewportContent()
+diff --git a/internal/ui/dashboard_test.go b/internal/ui/dashboard_test.go
+index 4d3f0cf..4072a52 100644
+--- a/internal/ui/dashboard_test.go
++++ b/internal/ui/dashboard_test.go
+@@ -100,6 +100,21 @@ func TestDashboard_ActionsMenuOpensOnA(t *testing.T) {
+ 	assert.NotNil(t, d.overlay)
+ }
+ 
++func TestDashboard_ContentsCardOpensOnC(t *testing.T) {
++	d := testDashboard(1)
++	d.width = 80
++	d.height = 40
++	d.updateViewportSize()
++	d.rebuildViewportContent()
++
++	d, _ = updateDashboard(d, keyPressMsg("C"))
++	assert.NotNil(t, d.overlay)
++	assert.IsType(t, ContentsCard{}, d.overlay)
++
++	d, _ = updateDashboard(d, ContentsCardCloseMsg{})
++	assert.Nil(t, d.overlay)
++}
++
+ func TestDashboard_ActionsMenuCloses(t *testing.T) {
+ 	d := testDashboard(1)
+ 	d.width = 80
+---
+.PHONY: build test integration lint lint-actions coverage dist test-release
+
+PLATFORMS = linux darwin
+ARCHITECTURES = amd64 arm64
+VERSION := $(shell git describe --tags --always)
+LDFLAGS := -ldflags "-s -w -X 'github.com/basecamp/once/internal/version.Version=$(VERSION)'"
+
+TEST_RELEASE_TAG = v0.0.1-test
+
+build:
+	CGO_ENABLED=0 go build -trimpath $(LDFLAGS) -o bin/ ./cmd/...
+
+build-all:
+	@for os in $(PLATFORMS); do \
+		for arch in $(ARCHITECTURES); do \
+			echo "Building for $$os/$$arch..."; \
+			CGO_ENABLED=0 GOOS=$$os GOARCH=$$arch go build -trimpath $(LDFLAGS) -o bin/$$os-$$arch/ ./cmd/...; \
+		done; \
+	done
+
+test:
+	go test ./internal/...
+
+integration:
+	go test -v -count=1 -parallel 16 -timeout 30m ./integration/...
+
+check:
+	go vet ./...
+	govulncheck ./...
+
+lint:
+	golangci-lint run
+
+lint-actions:
+	actionlint
+	zizmor .
+
+coverage:
+	go test -coverprofile=coverage.out ./internal/...
+	go tool cover -html=coverage.out
+
+dist: build-all
+	mkdir -p dist
+	@for os in $(PLATFORMS); do \
+		for arch in $(ARCHITECTURES); do \
+			cp bin/$$os-$$arch/once dist/once-$$os-$$arch; \
+		done; \
+	done
+	cd dist && sha256sum once-* > checksums.txt
+
+test-release:
+	-gh release delete $(TEST_RELEASE_TAG) --yes --cleanup-tag
+	git tag -f $(TEST_RELEASE_TAG)
+	git push origin $(TEST_RELEASE_TAG) --force
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0msed -n 300,460p internal/docker/site.go
+func siteEntryHref(entry fs.DirEntry) template.URL {
+	href := url.PathEscape(entry.Name())
+	if entry.IsDir() {
+		href += "/"
+	}
+
+	return template.URL(href)
+}
+
+func formatSiteSize(size int64) string {
+	const unit = 1000
+
+	if size < unit {
+		return fmt.Sprintf("%d B", size)
+	}
+
+	div, exp := int64(unit), 0
+	for size >= div*unit && exp < 4 {
+		div *= unit
+		exp++
+	}
+
+	return fmt.Sprintf("%.1f %cB", float64(size)/float64(div), "kMGTP"[exp])
+}
+
+func formatEntryCount(count int) string {
+	if count == 1 {
+		return "1 entry"
+	}
+
+	return fmt.Sprintf("%d entries", count)
+}
+
+var contentsTemplate = template.Must(template.New("contents").Parse(contentsPageHTML))
+
+const contentsPageHTML = `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{.Name}} · ONCE</title>
+<style>
+  :root {
+    color-scheme: light;
+    --paper: #f3ede1;
+    --card: #faf7f0;
+    --ink: #201d19;
+    --muted: #7d746a;
+    --rule: #ddd3c3;
+    --accent: #b4552f;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: clamp(1.5rem, 5vw, 4rem) 1.25rem;
+    background: var(--paper);
+    color: var(--ink);
+    font: 0.9375rem/1.55 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+
+  main {
+    max-width: 48rem;
+    margin: 0 auto;
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    background: var(--card);
+    border: 1px solid var(--rule);
+    box-shadow: 0 1px 0 var(--rule);
+  }
+
+  header {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .eyebrow {
+    margin: 0;
+    font-size: 0.6875rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  h1 {
+    margin: 0.35rem 0 0;
+    font: 400 clamp(1.5rem, 4vw, 2rem)/1.15 Georgia, "Iowan Old Style", "Times New Roman", serif;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.25rem;
+  }
+
+  th {
+    padding: 0 0.5rem 0.5rem;
+    font-size: 0.6875rem;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-align: left;
+    color: var(--muted);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  td {
+    padding: 0.6rem 0.5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  tbody tr:last-child td { border-bottom: 0; }
+
+  .name a { color: var(--ink); text-decoration: none; }
+  .name a:hover, .name a:focus { color: var(--accent); }
+  .dir a::after { content: "/"; color: var(--accent); }
+
+  .size, .date {
+    color: var(--muted);
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .size { text-align: right; }
+  .empty { color: var(--muted); }
+
+  footer {
+    margin-top: 1.25rem;
+    font-size: 0.6875rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <p class="eyebrow">ONCE · Contents</p>
+    <h1>{{.Name}}</h1>
+  </header>
+  <table>
+    <thead>
+      <tr><th scope="col">Name</th><th scope="col">Size</th><th scope="col">Modified</th></tr>
+    </thead>
+    <tbody>
+      {{if .Parent}}<tr><td class="name"><a href="{{.Parent}}">..</a></td><td class="size">—</td><td class="date">—</td></tr>{{end}}
+      {{range .Entries}}<tr><td class="name{{if .Dir}} dir{{end}}"><a href="{{.Href}}">{{.Name}}</a></td><td class="size">{{.Size}}</td><td class="date">{{.Modified}}</td></tr>{{end}}
+      {{if not .Entries}}<tr><td class="empty" colspan="3">This folder is empty.</td></tr>{{end}}
+    </tbody>
+  </table>
+  <footer>{{.Count}}</footer>
+</main>
+</body>
+</html>
+`
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mls /home/mrjohn/Work/tries/2026-11-06-yo; ls /home/mrjohn/Work/tries | head -20; grep -rn "web card\|web-card\|webbar\|web bar" --include=* -i prompt | head
+listmonk
+once
+2026-10-28-deepseek-opencode-max
+2026-10-28-intelliprompt
+2026-11-02-campfire-ghost-integration
+2026-11-02-caveman
+2026-11-02-ship-a-site
+2026-11-03-beam
+2026-11-03-cash-register
+2026-11-03-finance
+2026-11-03-house-style
+2026-11-03-local-modelsls
+2026-11-03-offgrid-tools
+2026-11-03-off-grid-washing-machine
+2026-11-03-tabernacle
+2026-11-03-teaching
+2026-11-04-magsklgjs
+2026-11-04-mannnnnnn
+2026-11-04-minimum-wage
+2026-11-04-moving-on-back-to-georgia
+2026-11-04-thai-certification-offer
+2026-11-05-auto-software-scripts
+prompt/10-contents-screen.md:3:Opened from the selected dashboard panel, same words and facts as the web card, esc back to the dashboard, which already handles overlays and selection.
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgrep -rn "LastBackupResult\|func (n \*Namespace) LoadState\|OperationResult" internal/docker/*.go | head -30; echo ---; sed -n 1,80p internal/ui/dashboard_header.go; echo ---; grep -rn "TitleRule" internal/ui/styles.go
+internal/docker/application_backup.go:67:	a.saveOperationResult(ctx, func(s *State) { s.RecordBackup(a.Settings.Name, err) })
+internal/docker/application.go:201:		a.saveOperationResult(ctx, func(s *State) { s.RecordUpdate(a.Settings.Name, err) })
+internal/docker/application.go:206:		a.saveOperationResult(ctx, func(s *State) { s.RecordUpdate(a.Settings.Name, nil) })
+internal/docker/application.go:213:		a.saveOperationResult(ctx, func(s *State) { s.RecordUpdate(a.Settings.Name, err) })
+internal/docker/application.go:218:	a.saveOperationResult(ctx, func(s *State) { s.RecordUpdate(a.Settings.Name, err) })
+internal/docker/application.go:319:func (a *Application) saveOperationResult(ctx context.Context, record func(*State)) {
+internal/docker/namespace.go:220:func (n *Namespace) LoadState(ctx context.Context) (*State, error) {
+internal/docker/state.go:7:	LastSelfUpdate OperationResult      `json:"lastSelfUpdate"`
+internal/docker/state.go:11:	LastBackup OperationResult `json:"lastBackup"`
+internal/docker/state.go:12:	LastUpdate OperationResult `json:"lastUpdate"`
+internal/docker/state.go:15:func (as *AppState) LastBackupResult() *OperationResult {
+internal/docker/state.go:22:func (as *AppState) LastUpdateResult() *OperationResult {
+internal/docker/state.go:29:type OperationResult struct {
+internal/docker/state.go:35:	return s.operationDue(appName, func(as *AppState) OperationResult { return as.LastBackup })
+internal/docker/state.go:39:	return s.operationDue(appName, func(as *AppState) OperationResult { return as.LastUpdate })
+internal/docker/state.go:70:func (s *State) operationDue(appName string, getResult func(*AppState) OperationResult) bool {
+internal/docker/state.go:100:func newResult(err error) OperationResult {
+internal/docker/state.go:101:	r := OperationResult{At: time.Now()}
+internal/docker/state_test.go:24:			"myapp": {LastBackup: OperationResult{At: time.Now().Add(-AutomaticTaskInterval - time.Minute)}},
+internal/docker/state_test.go:31:			"myapp": {LastBackup: OperationResult{At: time.Now().Add(-time.Second)}},
+internal/docker/state_test.go:38:			"myapp": {LastBackup: OperationResult{At: time.Now().Add(-time.Second), Error: "disk full"}},
+internal/docker/state_test.go:52:			"myapp": {LastUpdate: OperationResult{At: time.Now().Add(-time.Second)}},
+internal/docker/state_test.go:59:			"myapp": {LastUpdate: OperationResult{At: time.Now().Add(-time.Second), Error: "pull failed"}},
+---
+package ui
+
+import (
+	"fmt"
+	"slices"
+	"strings"
+
+	"charm.land/lipgloss/v2"
+
+	"github.com/basecamp/once/internal/system"
+)
+
+const (
+	headerChartHeight = 6
+	headerBorderLines = 2
+	headerTotalHeight = headerChartHeight + headerBorderLines
+	headerMinWidth    = 80
+)
+
+type DashboardHeader struct {
+	scraper  *system.Scraper
+	cpuChart Chart
+	memChart Chart
+}
+
+func NewDashboardHeader(scraper *system.Scraper) DashboardHeader {
+	cpuTitle := fmt.Sprintf("CPU (%d cores)", scraper.NumCPUs())
+
+	memTitle := "Memory"
+	if total := scraper.MemTotal(); total > 0 {
+		memTitle = fmt.Sprintf("Memory (%s)", UnitBytes.Format(float64(total)))
+	}
+
+	return DashboardHeader{
+		scraper:  scraper,
+		cpuChart: NewChart(cpuTitle, UnitPercent),
+		memChart: NewChart(memTitle, UnitBytes),
+	}
+}
+
+func (h DashboardHeader) Height(width int) int {
+	if width < headerMinWidth {
+		return 0
+	}
+	return headerTotalHeight
+}
+
+func (h DashboardHeader) View(width int) string {
+	if width < headerMinWidth {
+		return ""
+	}
+
+	if total := h.scraper.MemTotal(); total > 0 {
+		h.memChart = NewChart(fmt.Sprintf("Memory (%s)", UnitBytes.Format(float64(total))), UnitBytes)
+	}
+
+	gap := 1
+	widths := distributeWidths(width-2*gap, 3) // 2 gaps between 3 panels
+
+	cpuView := h.renderCPUChart(widths[0])
+	memView := h.renderMemChart(widths[1])
+	diskView := h.renderDiskGauge(widths[2])
+
+	spacer := strings.Repeat(" ", gap)
+	return lipgloss.JoinHorizontal(lipgloss.Top, cpuView, spacer, memView, spacer, diskView)
+}
+
+// Private
+
+func (h DashboardHeader) renderCPUChart(width int) string {
+	samples := h.scraper.Fetch(ChartHistoryLength)
+	data := make([]float64, len(samples))
+	for i, s := range samples {
+		data[i] = s.CPUPercent
+	}
+	slices.Reverse(data)
+
+	scaleMax := float64(h.scraper.NumCPUs()) * 100
+	scale := ChartScale{max: scaleMax}
+
+---
+75:func (s styles) TitleRule(width int, crumbs ...string) string {
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0msed -n 1,130p internal/ui/styles.go; echo ---; sed -n 200,240p internal/docker/namespace.go; echo ---; sed -n 1,60p internal/docker/state.go
+package ui
+
+import (
+	"image/color"
+	"strings"
+
+	"charm.land/lipgloss/v2"
+	"github.com/charmbracelet/x/ansi"
+)
+
+// Colors is the active palette. It is initialized with a default palette
+// at package init and may be replaced by ApplyPalette after terminal
+// color detection.
+var Colors = DefaultPalette()
+
+type styles struct {
+	Title         lipgloss.Style
+	Label         lipgloss.Style
+	Input         lipgloss.Style
+	Button        lipgloss.Style
+	ButtonPrimary lipgloss.Style
+}
+
+var Styles = buildStyles()
+
+var borderStyle = lipgloss.NewStyle().Foreground(Colors.Border)
+
+// rebuildStyles reconstructs all package-level style variables from the
+// current Colors palette. Called by ApplyPalette.
+func rebuildStyles() {
+	Styles = buildStyles()
+	borderStyle = lipgloss.NewStyle().Foreground(Colors.Border)
+	rebuildStarfieldStyles()
+	rebuildLogoStyles()
+}
+
+func buildStyles() styles {
+	return styles{
+		Title: lipgloss.NewStyle().
+			Foreground(Colors.Primary).
+			Bold(true),
+		Label: lipgloss.NewStyle().
+			Bold(true),
+		Input: lipgloss.NewStyle().
+			Border(lipgloss.RoundedBorder()).
+			BorderForeground(Colors.Border).
+			Padding(0, 1),
+		Button: lipgloss.NewStyle().
+			Padding(0, 2).
+			MarginRight(1).
+			Border(lipgloss.RoundedBorder()).
+			BorderForeground(Colors.Border),
+		ButtonPrimary: lipgloss.NewStyle().
+			Padding(0, 2).
+			MarginRight(1).
+			Border(lipgloss.RoundedBorder()).
+			BorderForeground(Colors.Primary),
+	}
+}
+
+func (s styles) Focus(base lipgloss.Style, focused bool) lipgloss.Style {
+	if focused {
+		return base.BorderForeground(Colors.Focused)
+	}
+	return base
+}
+
+func (s styles) WithError(base lipgloss.Style, hasError bool) lipgloss.Style {
+	if hasError {
+		return base.BorderForeground(Colors.Error)
+	}
+	return base
+}
+
+func (s styles) TitleRule(width int, crumbs ...string) string {
+	label := " " + strings.Join(append([]string{"ONCE"}, crumbs...), " · ") + " "
+	labelWidth := lipgloss.Width(label)
+	ruleWidth := max(width-2, labelWidth) // subtract end caps
+	side := (ruleWidth - labelWidth) / 2
+	remainder := ruleWidth - labelWidth - side*2
+	line := "╶" + strings.Repeat("─", side) + label + strings.Repeat("─", side+remainder) + "╴"
+	return lipgloss.NewStyle().Foreground(Colors.Border).Render(line)
+}
+
+func (s styles) CenteredLine(width int, content string) string {
+	return lipgloss.NewStyle().Width(width).Align(lipgloss.Center).Render(content)
+}
+
+// OverlayCenter composites fg centered on top of bg within the given dimensions.
+func OverlayCenter(bg, fg string, width, height int) string {
+	bgLines := strings.Split(bg, "\n")
+	fgLines := strings.Split(fg, "\n")
+
+	for len(bgLines) < height {
+		bgLines = append(bgLines, strings.Repeat(" ", width))
+	}
+
+	fgHeight := len(fgLines)
+	fgWidth := 0
+	for _, line := range fgLines {
+		if w := ansi.StringWidth(line); w > fgWidth {
+			fgWidth = w
+		}
+	}
+
+	topOffset := (height - fgHeight) / 2
+	leftOffset := (width - fgWidth) / 2
+
+	for i, fgLine := range fgLines {
+		bgIdx := topOffset + i
+		if bgIdx < 0 || bgIdx >= len(bgLines) {
+			continue
+		}
+
+		bgLine := bgLines[bgIdx]
+
+		left := ansi.Truncate(bgLine, leftOffset, "")
+		if w := ansi.StringWidth(left); w < leftOffset {
+			left += strings.Repeat(" ", leftOffset-w)
+		}
+
+		if w := ansi.StringWidth(fgLine); w < fgWidth {
+			fgLine += strings.Repeat(" ", fgWidth-w)
+		}
+
+		right := ansi.TruncateLeft(bgLine, leftOffset+fgWidth, "")
+
+		bgLines[bgIdx] = left + ansi.ResetStyle + fgLine + ansi.ResetStyle + right
+	}
+
+---
+}
+
+func (n *Namespace) ApplicationExists(ctx context.Context, name string) (bool, error) {
+	containers, err := n.client.ContainerList(ctx, client.ContainerListOptions{All: true})
+	if err != nil {
+		return false, err
+	}
+
+	for _, c := range containers.Items {
+		for _, cname := range c.Names {
+			cname = strings.TrimPrefix(cname, "/")
+			if n.containerAppName(cname) == name {
+				return true, nil
+			}
+		}
+	}
+
+	return false, nil
+}
+
+func (n *Namespace) LoadState(ctx context.Context) (*State, error) {
+	return n.proxy.LoadState(ctx)
+}
+
+func (n *Namespace) SaveState(ctx context.Context, state *State) error {
+	return n.proxy.SaveState(ctx, state)
+}
+
+func (n *Namespace) Restore(ctx context.Context, r io.ReadSeeker) (*Application, error) {
+	appSettings, volSettings, err := readBackupSettings(r)
+	if err != nil {
+		return nil, fmt.Errorf("parsing backup: %w", err)
+	}
+
+	if n.HostInUse(appSettings.Host) {
+		return nil, ErrHostnameInUse
+	}
+
+	name, err := n.UniqueName(NameFromImageRef(appSettings.Image))
+	if err != nil {
+		return nil, fmt.Errorf("generating app name: %w", err)
+---
+package docker
+
+import "time"
+
+type State struct {
+	Apps           map[string]*AppState `json:"apps"`
+	LastSelfUpdate OperationResult      `json:"lastSelfUpdate"`
+}
+
+type AppState struct {
+	LastBackup OperationResult `json:"lastBackup"`
+	LastUpdate OperationResult `json:"lastUpdate"`
+}
+
+func (as *AppState) LastBackupResult() *OperationResult {
+	if as == nil || as.LastBackup.At.IsZero() {
+		return nil
+	}
+	return &as.LastBackup
+}
+
+func (as *AppState) LastUpdateResult() *OperationResult {
+	if as == nil || as.LastUpdate.At.IsZero() {
+		return nil
+	}
+	return &as.LastUpdate
+}
+
+type OperationResult struct {
+	At    time.Time `json:"at"`
+	Error string    `json:"error"`
+}
+
+func (s *State) BackupDue(appName string) bool {
+	return s.operationDue(appName, func(as *AppState) OperationResult { return as.LastBackup })
+}
+
+func (s *State) UpdateDue(appName string) bool {
+	return s.operationDue(appName, func(as *AppState) OperationResult { return as.LastUpdate })
+}
+
+func (s *State) AppState(appName string) *AppState {
+	if s.Apps == nil {
+		return nil
+	}
+	return s.Apps[appName]
+}
+
+func (s *State) SelfUpdateDue() bool {
+	if s.LastSelfUpdate.At.IsZero() {
+		return true
+	}
+	return s.LastSelfUpdate.Error != "" || time.Since(s.LastSelfUpdate.At) >= AutomaticTaskInterval
+}
+
+func (s *State) RecordSelfUpdate(err error) {
+	s.LastSelfUpdate = newResult(err)
+}
+
+func (s *State) RecordBackup(appName string, err error) {
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mls -a | head -30; cat .golangci.yml 2>/dev/null || cat .golangci.yaml 2>/dev/null; echo ---; sed -n 1,140p internal/ui/dashboard_test.go
+.
+..
+AGENTS.md
+bin
+.claude
+cmd
+.dockerignore
+.git
+.github
+.gitignore
+.golangci.yml
+go.mod
+go.sum
+installer
+integration
+internal
+Makefile
+mise.toml
+MIT-LICENSE
+prompt
+prompt-v1
+README.md
+.scratch
+scripts
+version: "2"
+
+formatters:
+  enable:
+    - gofmt
+    - gci
+  settings:
+    gci:
+      sections:
+        - standard
+        - default
+        - localmodule
+
+linters:
+  enable:
+    - modernize
+  disable:
+    - errcheck
+---
+package ui
+
+import (
+	"fmt"
+	"testing"
+	"time"
+
+	tea "charm.land/bubbletea/v2"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+
+	"github.com/basecamp/once/internal/docker"
+	"github.com/basecamp/once/internal/metrics"
+	"github.com/basecamp/once/internal/system"
+)
+
+func TestFormatDuration(t *testing.T) {
+	t.Run("seconds", func(t *testing.T) {
+		assert.Equal(t, "0s", formatDuration(0))
+		assert.Equal(t, "1s", formatDuration(1*time.Second))
+		assert.Equal(t, "45s", formatDuration(45*time.Second))
+		assert.Equal(t, "59s", formatDuration(59*time.Second))
+	})
+
+	t.Run("minutes", func(t *testing.T) {
+		assert.Equal(t, "1m", formatDuration(1*time.Minute))
+		assert.Equal(t, "30m", formatDuration(30*time.Minute))
+		assert.Equal(t, "59m", formatDuration(59*time.Minute))
+		assert.Equal(t, "1m", formatDuration(1*time.Minute+30*time.Second))
+	})
+
+	t.Run("hours", func(t *testing.T) {
+		assert.Equal(t, "1h", formatDuration(1*time.Hour))
+		assert.Equal(t, "2h", formatDuration(2*time.Hour))
+		assert.Equal(t, "3h 45m", formatDuration(3*time.Hour+45*time.Minute))
+		assert.Equal(t, "23h 59m", formatDuration(23*time.Hour+59*time.Minute))
+	})
+
+	t.Run("days", func(t *testing.T) {
+		assert.Equal(t, "1d", formatDuration(24*time.Hour))
+		assert.Equal(t, "2d", formatDuration(48*time.Hour))
+		assert.Equal(t, "1d 1h", formatDuration(25*time.Hour))
+		assert.Equal(t, "2d 2h", formatDuration(50*time.Hour))
+		assert.Equal(t, "7d 12h", formatDuration(7*24*time.Hour+12*time.Hour))
+	})
+}
+
+func TestDashboardKeyboardSelectsPanel(t *testing.T) {
+	d := testDashboard(3)
+	d.width = 80
+	d.height = 40
+	d.updateViewportSize()
+	d.rebuildViewportContent()
+
+	assert.Equal(t, 0, d.selectedIndex)
+
+	d, _ = updateDashboard(d, keyPressMsg("down"))
+	assert.Equal(t, 1, d.selectedIndex)
+
+	d, _ = updateDashboard(d, keyPressMsg("down"))
+	assert.Equal(t, 2, d.selectedIndex)
+
+	// Can't go past last
+	d, _ = updateDashboard(d, keyPressMsg("down"))
+	assert.Equal(t, 2, d.selectedIndex)
+
+	d, _ = updateDashboard(d, keyPressMsg("up"))
+	assert.Equal(t, 1, d.selectedIndex)
+
+	d, _ = updateDashboard(d, keyPressMsg("up"))
+	assert.Equal(t, 0, d.selectedIndex)
+
+	// Can't go before first
+	d, _ = updateDashboard(d, keyPressMsg("up"))
+	assert.Equal(t, 0, d.selectedIndex)
+}
+
+func TestDashboardKeyboardJK(t *testing.T) {
+	d := testDashboard(3)
+	d.width = 80
+	d.height = 40
+	d.updateViewportSize()
+	d.rebuildViewportContent()
+
+	d, _ = updateDashboard(d, keyPressMsg("j"))
+	assert.Equal(t, 1, d.selectedIndex)
+
+	d, _ = updateDashboard(d, keyPressMsg("k"))
+	assert.Equal(t, 0, d.selectedIndex)
+}
+
+func TestDashboard_ActionsMenuOpensOnA(t *testing.T) {
+	d := testDashboard(1)
+	d.width = 80
+	d.height = 40
+	d.updateViewportSize()
+	d.rebuildViewportContent()
+
+	d, _ = updateDashboard(d, keyPressMsg("a"))
+	assert.NotNil(t, d.overlay)
+}
+
+func TestDashboard_ContentsCardOpensOnC(t *testing.T) {
+	d := testDashboard(1)
+	d.width = 80
+	d.height = 40
+	d.updateViewportSize()
+	d.rebuildViewportContent()
+
+	d, _ = updateDashboard(d, keyPressMsg("C"))
+	assert.NotNil(t, d.overlay)
+	assert.IsType(t, ContentsCard{}, d.overlay)
+
+	d, _ = updateDashboard(d, ContentsCardCloseMsg{})
+	assert.Nil(t, d.overlay)
+}
+
+func TestDashboard_ActionsMenuCloses(t *testing.T) {
+	d := testDashboard(1)
+	d.width = 80
+	d.height = 40
+	d.updateViewportSize()
+	d.rebuildViewportContent()
+
+	d, _ = updateDashboard(d, keyPressMsg("a"))
+	assert.NotNil(t, d.overlay)
+
+	d, _ = updateDashboard(d, ActionsMenuCloseMsg{})
+	assert.Nil(t, d.overlay)
+}
+
+func TestDashboard_ActionsMenuStartStop(t *testing.T) {
+	d := testDashboard(1)
+	d.width = 80
+	d.height = 40
+	d.updateViewportSize()
+	d.rebuildViewportContent()
+
+	d, _ = updateDashboard(d, ActionsMenuSelectMsg{app: d.apps[0], action: ActionsMenuStartStop})
+	assert.True(t, d.toggling)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgrep -n "func testDashboard\|func updateDashboard" -A 60 internal/ui/dashboard_test.go
+238:func testDashboard(numApps int) Dashboard {
+239-	apps := make([]*docker.Application, numApps)
+240-	for i := range numApps {
+241-		apps[i] = &docker.Application{
+242-			Running: true,
+243-			Settings: docker.ApplicationSettings{
+244-				Name: fmt.Sprintf("app-%d", i),
+245-				Host: fmt.Sprintf("app-%d.example.com", i),
+246-			},
+247-		}
+248-	}
+249-
+250-	scraper := metrics.NewMetricsScraper(metrics.ScraperSettings{})
+251-	dockerScraper := &docker.Scraper{}
+252-	systemScraper := system.NewScraper(system.ScraperSettings{BufferSize: 10})
+253-
+254-	dashboardShowDetails = true
+255-	return NewDashboard(nil, apps, 0, scraper, dockerScraper, systemScraper, nil)
+256-}
+257-
+258:func updateDashboard(d Dashboard, msg tea.Msg) (Dashboard, tea.Cmd) {
+259-	comp, cmd := d.Update(msg)
+260-	return comp.(Dashboard), cmd
+261-}
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/ui/help.go 
+[0m→ [0mRead internal/ui/component.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgrep -n "func (m Settings) View" -A 40 internal/ui/settings.go; echo ---; grep -rn "TitleRule" internal/ui/*.go | grep -v _test
+206:func (m Settings) View() string {
+207-	titleLine := Styles.TitleRule(m.width, m.app.Settings.Host, strings.ToLower(m.section.Title()))
+208-
+209-	var contentView string
+210-	switch m.state {
+211-	case settingsStateForm:
+212-		var statusLine string
+213-		if m.err != nil {
+214-			statusLine = lipgloss.NewStyle().Foreground(Colors.Error).Width(m.width).Align(lipgloss.Center).Render(docker.ErrorMessage(m.err))
+215-		} else if line := m.section.StatusLine(); line != "" {
+216-			statusLine = lipgloss.NewStyle().Foreground(Colors.Muted).Render(line)
+217-		}
+218-		contentView = lipgloss.JoinVertical(lipgloss.Center, statusLine, "", m.section.View())
+219-	case settingsStateActionComplete:
+220-		contentView = m.renderActionComplete()
+221-	default:
+222-		contentView = m.progress.View()
+223-	}
+224-
+225-	var helpLine string
+226-	if m.state == settingsStateForm {
+227-		helpLine = Styles.CenteredLine(m.width, m.help.View())
+228-	}
+229-
+230-	titleHeight := 2 // title + blank line
+231-	helpHeight := lipgloss.Height(helpLine)
+232-	middleHeight := m.height - titleHeight - helpHeight
+233-
+234-	centeredContent := lipgloss.Place(
+235-		m.width,
+236-		middleHeight,
+237-		lipgloss.Center,
+238-		lipgloss.Center,
+239-		contentView,
+240-	)
+241-
+242-	return titleLine + "\n\n" + centeredContent + helpLine
+243-}
+244-
+245-// Private
+246-
+---
+internal/ui/dashboard.go:253:	titleLine := Styles.TitleRule(m.width, m.hostname)
+internal/ui/install.go:287:		titleLine := Styles.TitleRule(m.width, "install")
+internal/ui/logs.go:117:	titleLine := Styles.TitleRule(m.width, m.app.Settings.Host, "logs")
+internal/ui/remove.go:114:	titleLine := Styles.TitleRule(m.width, m.app.Settings.Host, "remove")
+internal/ui/settings.go:207:	titleLine := Styles.TitleRule(m.width, m.app.Settings.Host, strings.ToLower(m.section.Title()))
+internal/ui/styles.go:75:func (s styles) TitleRule(width int, crumbs ...string) string {
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgrep -rn "ONCE · CONTENTS\|Contents" README.md docs 2>/dev/null | head; find . -iname "*.png" -o -iname "*.jpg" | head; echo ---; sed -n 1,80p prompt/15-app-bar.md; echo ---; sed -n 1,80p prompt/09-contents-card.md
+---
+Your job is to go in and inject a bar into every page ONCE serves here to this Go CLI/TUI app.
+
+Forty pixels tall, the app name on the left, then back, next, contents, drift, reload and hide. Dark glass over whatever the page is, and the page itself is never modified on disk.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+---
+Your job is to go in and add a contents card for one app here to this Go CLI/TUI app.
+
+Cream paper, a serif title, a stamp with the app's initials, then the facts: host, image or folder, uptime, last deploy, last backup. It is the card the rest of the interface is built around, so make it good.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0msed -n 1,120p README.md
+# ONCE
+
+ONCE is a platform for installing and managing Docker-based web applications.
+Its goal is to make self-hosting applications as simple as possible.
+
+As well as simplifying the initial setup, ONCE also provides automatic updates, backups, and system information.
+It has a TUI interface with a dashboard for monitoring and operating your applications, as well as CLI commands for common operations should you (or your AI agent) prefer that.
+
+ONCE runs on Linux and macOS, and can be used to run applications on a variety of hardware: a physical server, a cloud VPS, a Raspberry Pi, or your laptop, are all suitable.
+
+ONCE comes with a set of 37signals apps built-in, but you can use it to install any compatible Docker image as well.
+
+![Demo](.github/media/install.gif)
+
+## Installing
+
+The simplest way to get started with ONCE is to use the install snippet to bootstrap the tool and choose an app to install:
+
+```sh
+curl https://get.once.com | sh
+```
+
+This will download the appropriate binary for your platform, install it and its corresponding background service, and then launch it so you can do your first application install.
+If the machine you're running this from doesn't already have Docker, it will install that too (on supported platforms).
+
+### Customizing the installer behaviour
+
+If you want to install `once` without launching it (for example, for a scripted install), you can use `ONCE_INTERACTIVE=false`:
+
+```sh
+curl https://get.once.com | ONCE_INTERACTIVE=false sh
+```
+
+### Installing manually
+
+If you prefer to set ONCE up yourself, you can download the appropriate binary from the GitHub Releases page.
+Then follow these steps to get it installed:
+
+- Install Docker (if it's not already installed) using your preferred package manager
+- Copy the `once` binary to wherever you'd like to run it from
+- Register the background service by running `sudo once background install`
+
+Then run `once` to install an app, or `once --help` to see what commands are available.
+
+Note that if you need to use `sudo` when running Docker commands (for example, if your user is not in the `docker` group) then you'll also need to use `sudo` whenever you run `once`.
+
+## Using ONCE to install and configure applications
+
+On first run, ONCE will prompt you to choose an application to install.
+You can pick from the built-in applications, or enter the path to a Docker image.
+
+When entering an image path you can pick any application that works with ONCE (more on this below), so you can run additional applications or even your own custom forks of the built-in ones.
+
+You'll need to enter a hostname for the application.
+If you're installing onto a machine on the public Internet (like a cloud VPS), and you have a domain name, then you can use that.
+It's a good idea to use a subdomain so that you can run multiple applications on the same domain.
+
+For example, if you own `example.com` you might install Writebook to `books.example.com`.
+
+Whatever hostname you choose, make sure you have a DNS entry for it which points to the machine you're installing to.
+The details of how to do this will vary depending on which provider you use for your DNS, but generally you should have access to an admin interface where you can set up an `A` record with the hostname you've chosen, pointed to the IP address of your machine.
+If you plan to install many applications on the same machine you could use a wildcard DNS entry for this.
+
+> [!TIP]
+> One tip if you're using Cloudflare: by default, DNS entries on Cloudflare will have the "proxy" option enabled, which means that traffic will pass through Cloudflare before reaching your server.
+> ONCE works well in this setup provided you have SSL enabled end-to-end.
+> So just be sure your Cloudflare SSL mode is set to "Strict (full)" if you're using its proxy option.
+
+Once you've picked your application and entered the hostname, the rest is automatic.
+ONCE will fetch, install, and boot the application, and then take you to the dashboard screen where you can monitor it.
+
+### Changing application settings
+
+There are various extra settings you can change on your applications.
+When you have an application selected on the dashboard, press `s` to view the settings menu, and choose an item from the menu to open that screen.
+From there you can set up a location for automatic backups, update your hostname, switch to using your own fork's image, set up an email provider and more.
+
+You can also use the action menu, `a` to start and stop applications, or remove them completely.
+
+### Customizing the `once` appearance
+
+On first run, `once` shows an animated logo and background.
+If you find this distracting, or it causes problems in your environment, you can suppress it with `ONCE_REDUCED_MOTION=true`:
+
+```sh
+ONCE_REDUCED_MOTION=true once
+```
+
+## Making a ONCE-compatible application
+
+Fundamentally, ONCE works with any web application that:
+
+- Is packaged as a Docker container
+- Serves HTTP on port 80
+- Has a healthcheck endpoint at `/up` that returns success
+- Keeps its persistent data in `/storage`
+
+Any application that does these things should work with ONCE.
+
+However, beyond this bare minimum, there are some additional scripts and environment variables that allow for better integration with the platform:
+
+### Storage paths
+
+ONCE will mount a persistent volume into `/storage`.
+
+For compatibility with standard Rails applications, it also mounts the same volume into `/rails/storage`.
+That means Rails applications built with the default Dockerfile should work just fine.
+
+Data in this volume persists across restarts, and is also the data that will be included in backups.
+
+### Hook scripts
+
+ONCE uses a few optional hook scripts as integration points.
+Currently supported hooks are:
+
+- `/hooks/pre-backup` -- Because ONCE can't assume that it's safe to backup the files of an application while they are in use, it will try to call this hook before starting a backup so the application can do anything it needs to generate a "safe" copy of the data.
+If this script exists, and return success, ONCE assumes it's now safe to copy the files into the backup.
+If it doesn't exist, or returns an error, ONCE will pause the application's container while it copies the file.
+This means backups are always consistent in either case, but the hook gives the app a way to avoid the paused container introducing latency to in-flight requests while the backup runs.
+An example of using `pre-backup` on a SQLite-based application would be to use SQLite's online backup feature to take a safe consistent copy of the database.
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgrep -rn "func Place" $(go env GOPATH)/pkg/mod/charm.land/lipgloss/v2*/pos.go 2>/dev/null | head; sed -n 1,80p $(go env GOPATH)/pkg/mod/charm.land/lipgloss/v2*/pos.go 2>/dev/null | head -100
+(no output)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgo env GOPATH GOMODCACHE; grep -n "lipgloss" go.mod; grep -rn "func Place" $(go env GOMODCACHE)/charm.land/lipgloss/v2@*/ 2>/dev/null | head
+/home/mrjohn/go
+/home/mrjohn/go/pkg/mod
+8:	charm.land/lipgloss/v2 v2.0.6
+/home/mrjohn/go/pkg/mod/charm.land/lipgloss/v2@v2.0.6/position.go:36:func Place(width, height int, hPos, vPos Position, str string, opts ...WhitespaceOption) string {
+/home/mrjohn/go/pkg/mod/charm.land/lipgloss/v2@v2.0.6/position.go:43:func PlaceHorizontal(width int, pos Position, str string, opts ...WhitespaceOption) string {
+/home/mrjohn/go/pkg/mod/charm.land/lipgloss/v2@v2.0.6/position.go:90:func PlaceVertical(height int, pos Position, str string, opts ...WhitespaceOption) string {
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0msed -n 30,140p /home/mrjohn/go/pkg/mod/charm.land/lipgloss/v2@v2.0.6/position.go
+Left   Position = 0.0
+	Right  Position = 1.0
+)
+
+// Place places a string or text block vertically in an unstyled box of a given
+// width or height.
+func Place(width, height int, hPos, vPos Position, str string, opts ...WhitespaceOption) string {
+	return PlaceVertical(height, vPos, PlaceHorizontal(width, hPos, str, opts...), opts...)
+}
+
+// PlaceHorizontal places a string or text block horizontally in an unstyled
+// block of a given width. If the given width is shorter than the max width of
+// the string (measured by its longest line) this will be a noöp.
+func PlaceHorizontal(width int, pos Position, str string, opts ...WhitespaceOption) string {
+	lines, contentWidth := getLines(str)
+	gap := width - contentWidth
+
+	if gap <= 0 {
+		return str
+	}
+
+	ws := newWhitespace(opts...)
+
+	var b strings.Builder
+	for i, l := range lines {
+		// Is this line shorter than the longest line?
+		short := max(0, contentWidth-ansi.StringWidth(l))
+
+		switch pos {
+		case Left:
+			b.WriteString(l)
+			b.WriteString(ws.render(gap + short))
+
+		case Right:
+			b.WriteString(ws.render(gap + short))
+			b.WriteString(l)
+
+		default: // somewhere in the middle
+			totalGap := gap + short
+
+			split := int(math.Round(float64(totalGap) * pos.value()))
+			left := totalGap - split
+			right := totalGap - left
+
+			b.WriteString(ws.render(left))
+			b.WriteString(l)
+			b.WriteString(ws.render(right))
+		}
+
+		if i < len(lines)-1 {
+			b.WriteRune('\n')
+		}
+	}
+
+	return b.String()
+}
+
+// PlaceVertical places a string or text block vertically in an unstyled block
+// of a given height. If the given height is shorter than the height of the
+// string (measured by its newlines) then this will be a noöp.
+func PlaceVertical(height int, pos Position, str string, opts ...WhitespaceOption) string {
+	contentHeight := strings.Count(str, "\n") + 1
+	gap := height - contentHeight
+
+	if gap <= 0 {
+		return str
+	}
+
+	ws := newWhitespace(opts...)
+
+	_, width := getLines(str)
+	emptyLine := ws.render(width)
+	b := strings.Builder{}
+
+	switch pos {
+	case Top:
+		b.WriteString(str)
+		b.WriteRune('\n')
+		for i := range gap {
+			b.WriteString(emptyLine)
+			if i < gap-1 {
+				b.WriteRune('\n')
+			}
+		}
+
+	case Bottom:
+		b.WriteString(strings.Repeat(emptyLine+"\n", gap))
+		b.WriteString(str)
+
+	default: // Somewhere in the middle
+		split := int(math.Round(float64(gap) * pos.value()))
+		top := gap - split
+		bottom := gap - top
+
+		b.WriteString(strings.Repeat(emptyLine+"\n", top))
+		b.WriteString(str)
+
+		for range bottom {
+			b.WriteRune('\n')
+			b.WriteString(emptyLine)
+		}
+	}
+
+	return b.String()
+}
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/ui/contents_card.go
+Index: internal/ui/contents_card.go
+===================================================================
+--- internal/ui/contents_card.go
++++ internal/ui/contents_card.go
+@@ -34,8 +34,9 @@
+ type ContentsCard struct {
+ 	app        docker.Application
+ 	lastBackup *docker.OperationResult
+ 	width      int
++	height     int
+ }
+ 
+ func NewContentsCard(app *docker.Application, lastBackup *docker.OperationResult, width int) ContentsCard {
+ 	return ContentsCard{
+
+[0m← [0mEdit internal/ui/contents_card.go
+Index: internal/ui/contents_card.go
+===================================================================
+--- internal/ui/contents_card.go
++++ internal/ui/contents_card.go
+@@ -52,9 +52,9 @@
+ 
+ func (c ContentsCard) Update(msg tea.Msg) (Component, tea.Cmd) {
+ 	switch msg := msg.(type) {
+ 	case tea.WindowSizeMsg:
+-		c.width = msg.Width
++		c.width, c.height = msg.Width, msg.Height
+ 	case tea.KeyPressMsg:
+ 		if key.Matches(msg, contentsCardCloseKey) {
+ 			return c, func() tea.Msg { return ContentsCardCloseMsg{} }
+ 		}
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/ui/contents_card.go
+Index: internal/ui/contents_card.go
+===================================================================
+--- internal/ui/contents_card.go
++++ internal/ui/contents_card.go
+@@ -73,9 +73,11 @@
+ 	lines = append(lines, c.factLines(inner)...)
+ 	lines = append(lines, "")
+ 	lines = append(lines, contentsCell("esc  close", inner, contentsStyle(contentsMuted)))
+ 
+-	return c.frame(lines, inner)
++	card := c.frame(lines, inner)
++
++	return lipgloss.Place(c.width, c.height, lipgloss.Center, lipgloss.Center, card)
+ }
+ 
+ // Private
+ 
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/ui/contents_card_test.go
+Index: internal/ui/contents_card_test.go
+===================================================================
+--- internal/ui/contents_card_test.go
++++ internal/ui/contents_card_test.go
+@@ -84,8 +84,21 @@
+ 		assert.LessOrEqual(t, ansi.StringWidth(line), 50)
+ 	}
+ }
+ 
++func TestContentsCardFillsScreen(t *testing.T) {
++	app := &docker.Application{Settings: docker.ApplicationSettings{Name: "writebook"}}
++	card := NewContentsCard(app, nil, 120)
++	card, _ = card.Update(tea.WindowSizeMsg{Width: 120, Height: 40})
++
++	view := card.View()
++
++	assert.Equal(t, 40, lipgloss.Height(view))
++	for line := range strings.SplitSeq(ansi.Strip(view), "\n") {
++		assert.Equal(t, 120, ansi.StringWidth(line))
++	}
++}
++
+ func TestContentsCardCloseKey(t *testing.T) {
+ 	card := NewContentsCard(&docker.Application{}, nil, 80)
+ 
+ 	_, cmd := card.Update(keyPressMsg("esc"))
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/ui/contents_card_test.go
+Index: internal/ui/contents_card_test.go
+===================================================================
+--- internal/ui/contents_card_test.go
++++ internal/ui/contents_card_test.go
+@@ -7,8 +7,11 @@
+ 
+ 	"github.com/charmbracelet/x/ansi"
+ 	"github.com/stretchr/testify/assert"
+ 
++	tea "charm.land/bubbletea/v2"
++	"charm.land/lipgloss/v2"
++
+ 	"github.com/basecamp/once/internal/docker"
+ )
+ 
+ func TestContentsCardShowsAppFacts(t *testing.T) {
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/ui/contents_card_test.go
+Index: internal/ui/contents_card_test.go
+===================================================================
+--- internal/ui/contents_card_test.go
++++ internal/ui/contents_card_test.go
+@@ -4,14 +4,13 @@
+ 	"strings"
+ 	"testing"
+ 	"time"
+ 
++	"charm.land/bubbletea/v2"
++	"charm.land/lipgloss/v2"
+ 	"github.com/charmbracelet/x/ansi"
+ 	"github.com/stretchr/testify/assert"
+ 
+-	tea "charm.land/bubbletea/v2"
+-	"charm.land/lipgloss/v2"
+-
+ 	"github.com/basecamp/once/internal/docker"
+ )
+ 
+ func TestContentsCardShowsAppFacts(t *testing.T) {
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgofmt -l internal/ui/contents_card.go internal/ui/contents_card_test.go; go test ./internal/ui/... 2>&1 | tail -20
+# github.com/basecamp/once/internal/ui [github.com/basecamp/once/internal/ui.test]
+internal/ui/contents_card_test.go:93:12: cannot use 1st function result (value of interface type Component) as ContentsCard value in multiple assignment: need type assertion
+FAIL	github.com/basecamp/once/internal/ui [build failed]
+FAIL
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/ui/contents_card_test.go
+Index: internal/ui/contents_card_test.go
+===================================================================
+--- internal/ui/contents_card_test.go
++++ internal/ui/contents_card_test.go
+@@ -89,9 +89,10 @@
+ 
+ func TestContentsCardFillsScreen(t *testing.T) {
+ 	app := &docker.Application{Settings: docker.ApplicationSettings{Name: "writebook"}}
+ 	card := NewContentsCard(app, nil, 120)
+-	card, _ = card.Update(tea.WindowSizeMsg{Width: 120, Height: 40})
++	updated, _ := card.Update(tea.WindowSizeMsg{Width: 120, Height: 40})
++	card = updated.(ContentsCard)
+ 
+ 	view := card.View()
+ 
+ 	assert.Equal(t, 40, lipgloss.Height(view))
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgo test ./internal/ui/... 2>&1 | tail -20
+ok  	github.com/basecamp/once/internal/ui	0.547s
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mmake test 2>&1 | tail -25; echo "=== LINT ==="; make lint 2>&1 | tail -25
+go test ./internal/...
+ok  	github.com/basecamp/once/internal/background	(cached)
+ok  	github.com/basecamp/once/internal/command	(cached)
+ok  	github.com/basecamp/once/internal/docker	0.057s
+ok  	github.com/basecamp/once/internal/fsutil	(cached)
+?   	github.com/basecamp/once/internal/logging	[no test files]
+ok  	github.com/basecamp/once/internal/metrics	0.016s
+ok  	github.com/basecamp/once/internal/mouse	(cached)
+?   	github.com/basecamp/once/internal/service	[no test files]
+ok  	github.com/basecamp/once/internal/system	(cached)
+ok  	github.com/basecamp/once/internal/ui	(cached)
+ok  	github.com/basecamp/once/internal/userstats	(cached)
+ok  	github.com/basecamp/once/internal/version	(cached)
+=== LINT ===
+golangci-lint run
+0 issues.
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgit diff -- internal/ui/contents_card.go internal/ui/contents_card_test.go
+diff --git i/internal/ui/contents_card.go w/internal/ui/contents_card.go
+index a9f4728..8a96b45 100644
+--- i/internal/ui/contents_card.go
++++ w/internal/ui/contents_card.go
+@@ -35,6 +35,7 @@ type ContentsCard struct {
+ 	app        docker.Application
+ 	lastBackup *docker.OperationResult
+ 	width      int
++	height     int
+ }
+ 
+ func NewContentsCard(app *docker.Application, lastBackup *docker.OperationResult, width int) ContentsCard {
+@@ -52,7 +53,7 @@ func (c ContentsCard) Init() tea.Cmd {
+ func (c ContentsCard) Update(msg tea.Msg) (Component, tea.Cmd) {
+ 	switch msg := msg.(type) {
+ 	case tea.WindowSizeMsg:
+-		c.width = msg.Width
++		c.width, c.height = msg.Width, msg.Height
+ 	case tea.KeyPressMsg:
+ 		if key.Matches(msg, contentsCardCloseKey) {
+ 			return c, func() tea.Msg { return ContentsCardCloseMsg{} }
+@@ -73,7 +74,9 @@ func (c ContentsCard) View() string {
+ 	lines = append(lines, "")
+ 	lines = append(lines, contentsCell("esc  close", inner, contentsStyle(contentsMuted)))
+ 
+-	return c.frame(lines, inner)
++	card := c.frame(lines, inner)
++
++	return lipgloss.Place(c.width, c.height, lipgloss.Center, lipgloss.Center, card)
+ }
+ 
+ // Private
+diff --git i/internal/ui/contents_card_test.go w/internal/ui/contents_card_test.go
+index dbcbb45..9ce3b7b 100644
+--- i/internal/ui/contents_card_test.go
++++ w/internal/ui/contents_card_test.go
+@@ -5,6 +5,8 @@ import (
+ 	"testing"
+ 	"time"
+ 
++	"charm.land/bubbletea/v2"
++	"charm.land/lipgloss/v2"
+ 	"github.com/charmbracelet/x/ansi"
+ 	"github.com/stretchr/testify/assert"
+ 
+@@ -85,6 +87,20 @@ func TestContentsCardFitsWidth(t *testing.T) {
+ 	}
+ }
+ 
++func TestContentsCardFillsScreen(t *testing.T) {
++	app := &docker.Application{Settings: docker.ApplicationSettings{Name: "writebook"}}
++	card := NewContentsCard(app, nil, 120)
++	updated, _ := card.Update(tea.WindowSizeMsg{Width: 120, Height: 40})
++	card = updated.(ContentsCard)
++
++	view := card.View()
++
++	assert.Equal(t, 40, lipgloss.Height(view))
++	for line := range strings.SplitSeq(ansi.Strip(view), "\n") {
++		assert.Equal(t, 120, ansi.StringWidth(line))
++	}
++}
++
+ func TestContentsCardCloseKey(t *testing.T) {
+ 	card := NewContentsCard(&docker.Application{}, nil, 80)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+Full-screen contents page implemented: the card now receives the terminal height and renders centered across the whole screen (`internal/ui/contents_card.go:65`), still opened with `C` from the selected dashboard panel and closed with `esc` back to the dashboard.
+
+`make test` passes; `make lint` reports 0 issues.

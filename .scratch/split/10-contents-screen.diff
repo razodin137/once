@@ -1,0 +1,3 @@
+ internal/ui/contents_card.go      |  7 +++++--
+ internal/ui/contents_card_test.go | 16 ++++++++++++++++
+ 2 files changed, 21 insertions(+), 2 deletions(-)

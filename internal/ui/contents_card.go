@@ -35,6 +35,7 @@ type ContentsCard struct {
 	app        docker.Application
 	lastBackup *docker.OperationResult
 	width      int
+	height     int
 }
 
 func NewContentsCard(app *docker.Application, lastBackup *docker.OperationResult, width int) ContentsCard {
@@ -52,7 +53,7 @@ func (c ContentsCard) Init() tea.Cmd {
 func (c ContentsCard) Update(msg tea.Msg) (Component, tea.Cmd) {
 	switch msg := msg.(type) {
 	case tea.WindowSizeMsg:
-		c.width = msg.Width
+		c.width, c.height = msg.Width, msg.Height
 	case tea.KeyPressMsg:
 		if key.Matches(msg, contentsCardCloseKey) {
 			return c, func() tea.Msg { return ContentsCardCloseMsg{} }
@@ -73,7 +74,9 @@ func (c ContentsCard) View() string {
 	lines = append(lines, "")
 	lines = append(lines, contentsCell("esc  close", inner, contentsStyle(contentsMuted)))
 
-	return c.frame(lines, inner)
+	card := c.frame(lines, inner)
+
+	return lipgloss.Place(c.width, c.height, lipgloss.Center, lipgloss.Center, card)
 }
 
 // Private
