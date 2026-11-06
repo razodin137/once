@@ -83,6 +83,36 @@ func TestDockerDeployment(t *testing.T) {
 	assert.True(t, ns.HostInUse("campfire.localhost"))
 }
 
+func TestStaticSiteDeployment(t *testing.T) {
+	t.Parallel()
+
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Minute)
+	defer cancel()
+
+	dir := t.TempDir()
+	require.NoError(t, os.WriteFile(filepath.Join(dir, "index.html"), []byte("<h1>hello from once</h1>"), 0o644))
+	require.NoError(t, os.WriteFile(filepath.Join(dir, "about.html"), []byte("<h1>about</h1>"), 0o644))
+
+	ns := newTestNamespace(t, "once-static-test")
+
+	require.NoError(t, ns.EnsureNetwork(ctx))
+	require.NoError(t, ns.Proxy().Boot(ctx, getProxyPorts(t)))
+
+	app := deployApp(t, ctx, ns, docker.ApplicationSettings{
+		Name:   "staticapp",
+		Image:  docker.StaticImage,
+		Source: dir,
+		Host:   "staticapp.localhost",
+	})
+
+	require.True(t, app.Settings.Static())
+
+	base := fmt.Sprintf("http://127.0.0.1:%d", ns.Proxy().Settings.HTTPPort)
+	assertProxiedBody(t, ctx, base, "staticapp.localhost", "/", "hello from once")
+	assertProxiedBody(t, ctx, base, "staticapp.localhost", "/about.html", "about")
+	assertProxiedBody(t, ctx, base, "staticapp.localhost", "/up", "ok")
+}
+
 func TestRestoreState(t *testing.T) {
 	t.Parallel()
 
@@ -1088,6 +1118,24 @@ func deployApp(t *testing.T, ctx context.Context, ns *docker.Namespace, settings
 	require.NoError(t, app.Deploy(ctx, nil))
 	require.NoError(t, ns.Refresh(ctx))
 	return ns.Application(settings.Name)
+}
+
+func assertProxiedBody(t *testing.T, ctx context.Context, base, host, path, want string) {
+	t.Helper()
+
+	req, err := http.NewRequestWithContext(ctx, http.MethodGet, base+path, nil)
+	require.NoError(t, err)
+	req.Host = host
+
+	resp, err := http.DefaultClient.Do(req)
+	require.NoError(t, err)
+	defer resp.Body.Close()
+
+	body, err := io.ReadAll(resp.Body)
+	require.NoError(t, err)
+
+	assert.Equal(t, http.StatusOK, resp.StatusCode)
+	assert.Contains(t, string(body), want)
 }
 
 // Test ports are allocated from a range below the Linux ephemeral port range

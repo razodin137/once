@@ -52,18 +52,18 @@ const (
 	HealthCheckPath       = "/up"
 	httpVerifyTimeout     = 30 * time.Second
 
-	StaticImage         = "nginx:alpine"
+	StaticImage         = "nginx:alpine-slim"
 	staticContentTarget = "/usr/share/nginx/html"
 )
 
 const staticNginxConfig = `server {
     listen 80;
-    location = /up {
+    location = %s {
         access_log off;
         return 200 "ok";
     }
     location / {
-        root /usr/share/nginx/html;
+        root %s;
         index index.html;
     }
 }
@@ -550,5 +550,6 @@ func (a *Application) containerConfig(env []string) *container.Config {
 // Helpers
 
 func staticNginxCommand() []string {
-	return []string{"sh", "-c", "cat > /etc/nginx/conf.d/default.conf <<'EOF'\n" + staticNginxConfig + "EOF\nnginx -g 'daemon off;'\n"}
+	config := fmt.Sprintf(staticNginxConfig, HealthCheckPath, staticContentTarget)
+	return []string{"sh", "-c", "cat > /etc/nginx/conf.d/default.conf <<'EOF'\n" + config + "EOF\nnginx -g 'daemon off;'\n"}
 }
