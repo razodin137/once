@@ -100,6 +100,21 @@ func TestDashboard_ActionsMenuOpensOnA(t *testing.T) {
 	assert.NotNil(t, d.overlay)
 }
 
+func TestDashboard_ContentsCardOpensOnC(t *testing.T) {
+	d := testDashboard(1)
+	d.width = 80
+	d.height = 40
+	d.updateViewportSize()
+	d.rebuildViewportContent()
+
+	d, _ = updateDashboard(d, keyPressMsg("C"))
+	assert.NotNil(t, d.overlay)
+	assert.IsType(t, ContentsCard{}, d.overlay)
+
+	d, _ = updateDashboard(d, ContentsCardCloseMsg{})
+	assert.Nil(t, d.overlay)
+}
+
 func TestDashboard_ActionsMenuCloses(t *testing.T) {
 	d := testDashboard(1)
 	d.width = 80

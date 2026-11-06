@@ -322,6 +322,7 @@ func (n *Namespace) restoreState(ctx context.Context) error {
 					}
 					app := NewApplication(n, settings)
 					app.Running = c.State == "running"
+					app.DeployedAt = time.Unix(c.Created, 0)
 					if app.Running {
 						info, err := n.client.ContainerInspect(ctx, c.ID, client.ContainerInspectOptions{})
 						if err == nil && info.Container.State != nil {

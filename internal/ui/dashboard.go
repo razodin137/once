@@ -26,6 +26,7 @@ var dashboardKeys = struct {
 	Actions  key.Binding
 	NewApp   key.Binding
 	Logs     key.Binding
+	Contents key.Binding
 	Details  key.Binding
 	Quit     key.Binding
 }{
@@ -35,6 +36,7 @@ var dashboardKeys = struct {
 	Actions:  WithHelp(NewKeyBinding("a"), "a", "actions"),
 	NewApp:   WithHelp(NewKeyBinding("n"), "n", "new app"),
 	Logs:     WithHelp(NewKeyBinding("g"), "g", "logs"),
+	Contents: WithHelp(NewKeyBinding("C"), "C", "contents"),
 	Details:  WithHelp(NewKeyBinding("d"), "d", "toggle details"),
 	Quit:     WithHelp(NewKeyBinding("esc"), "esc", "quit"),
 }
@@ -162,6 +164,13 @@ func (m Dashboard) Update(msg tea.Msg) (Component, tea.Cmd) {
 		if key.Matches(msg, dashboardKeys.Logs) && len(m.apps) > 0 {
 			return m, func() tea.Msg { return NavigateToLogsMsg{App: m.apps[m.selectedIndex]} }
 		}
+		if key.Matches(msg, dashboardKeys.Contents) && len(m.apps) > 0 {
+			app := m.apps[m.selectedIndex]
+			m.overlay = NewContentsCard(app, m.lastBackupFor(app), m.width)
+			var cmd tea.Cmd
+			m.overlay, cmd = m.overlay.Update(tea.WindowSizeMsg{Width: m.width, Height: m.height})
+			return m, cmd
+		}
 		if key.Matches(msg, dashboardKeys.Details) && len(m.apps) > 0 {
 			dashboardShowDetails = !dashboardShowDetails
 			m.updateViewportSize()
@@ -179,6 +188,9 @@ func (m Dashboard) Update(msg tea.Msg) (Component, tea.Cmd) {
 		}
 
 	case ActionsMenuCloseMsg:
+		m.overlay = nil
+
+	case ContentsCardCloseMsg:
 		m.overlay = nil
 
 	case ActionsMenuSelectMsg:
@@ -284,7 +296,8 @@ func (m Dashboard) helpBindings() []key.Binding {
 	if len(m.apps) > 0 {
 		return []key.Binding{
 			dashboardKeys.Up, dashboardKeys.Down, dashboardKeys.Actions,
-			dashboardKeys.Settings, dashboardKeys.Logs, dashboardKeys.Details, dashboardKeys.NewApp, dashboardKeys.Quit,
+			dashboardKeys.Settings, dashboardKeys.Logs, dashboardKeys.Contents,
+			dashboardKeys.Details, dashboardKeys.NewApp, dashboardKeys.Quit,
 		}
 	}
 	return []key.Binding{dashboardKeys.NewApp, dashboardKeys.Quit}
@@ -304,6 +317,19 @@ func (m Dashboard) runStartStop(app *docker.Application) tea.Cmd {
 
 func (m Dashboard) scheduleNextDashboardTick() tea.Cmd {
 	return tea.Every(time.Second, func(time.Time) tea.Msg { return dashboardTickMsg{} })
+}
+
+func (m Dashboard) lastBackupFor(app *docker.Application) *docker.OperationResult {
+	if m.namespace == nil {
+		return nil
+	}
+
+	state, err := m.namespace.LoadState(context.Background())
+	if err != nil {
+		return nil
+	}
+
+	return state.AppState(app.Settings.Name).LastBackupResult()
 }
 
 func (m *Dashboard) selectPanel(index int) {

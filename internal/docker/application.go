@@ -84,6 +84,7 @@ type Application struct {
 	Settings     ApplicationSettings
 	Running      bool
 	RunningSince time.Time
+	DeployedAt   time.Time
 }
 
 func NewApplication(ns *Namespace, settings ApplicationSettings) *Application {

@@ -1,0 +1,5 @@
+ internal/docker/application.go |  1 +
+ internal/docker/namespace.go   |  1 +
+ internal/ui/dashboard.go       | 28 +++++++++++++++++++++++++++-
+ internal/ui/dashboard_test.go  | 15 +++++++++++++++
+ 4 files changed, 44 insertions(+), 1 deletion(-)
