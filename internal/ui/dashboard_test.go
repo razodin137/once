@@ -6,6 +6,7 @@ import (
 	"time"
 
 	tea "charm.land/bubbletea/v2"
+	"github.com/charmbracelet/x/ansi"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
@@ -233,26 +234,120 @@ func TestDashboard_EmptyStateShowsMessage(t *testing.T) {
 	assert.Contains(t, view, "new app")
 }
 
+func TestDashboard_ChannelChipFiltersPanels(t *testing.T) {
+	d := testDashboardWithApps(runningApp("web"), runningApp("api"), stoppedApp("worker"))
+	d.width = 120
+	d.height = 40
+	d.updateViewportSize()
+	d.rebuildViewportContent()
+
+	d, _ = updateDashboard(d, MouseEvent{IsClick: true, Target: channelTarget(docker.ChannelStopped)})
+
+	assert.Equal(t, docker.ChannelStopped, d.filter)
+	assert.Equal(t, []int{2}, d.visibleIndices(d.computeScales()))
+	assert.Equal(t, 2, d.selectedIndex)
+}
+
+func TestDashboard_ChannelChipTogglesFilterOff(t *testing.T) {
+	d := testDashboardWithApps(runningApp("web"), stoppedApp("worker"))
+	d.width = 120
+	d.height = 40
+	d.updateViewportSize()
+	d.rebuildViewportContent()
+
+	d, _ = updateDashboard(d, MouseEvent{IsClick: true, Target: channelTarget(docker.ChannelStopped)})
+	assert.Equal(t, docker.ChannelStopped, d.filter)
+
+	d, _ = updateDashboard(d, MouseEvent{IsClick: true, Target: channelTarget(docker.ChannelStopped)})
+	assert.Empty(t, d.filter)
+	assert.Len(t, d.visibleIndices(d.computeScales()), 2)
+}
+
+func TestDashboard_FilterKeepsSelectionOnClickedPanel(t *testing.T) {
+	d := testDashboardWithApps(runningApp("web"), stoppedApp("worker"))
+	d.width = 120
+	d.height = 40
+	d.updateViewportSize()
+	d.rebuildViewportContent()
+
+	d.toggleFilter(docker.ChannelStopped, 1)
+
+	assert.Equal(t, 1, d.selectedIndex)
+}
+
+func TestDashboard_KeyboardNavigationSkipsFilteredPanels(t *testing.T) {
+	d := testDashboardWithApps(runningApp("web"), stoppedApp("worker"), stoppedApp("cron"))
+	d.width = 120
+	d.height = 40
+	d.updateViewportSize()
+	d.rebuildViewportContent()
+
+	d.toggleFilter(docker.ChannelStopped, -1)
+	require.Equal(t, 1, d.selectedIndex)
+
+	d, _ = updateDashboard(d, keyPressMsg("down"))
+	assert.Equal(t, 2, d.selectedIndex)
+
+	d, _ = updateDashboard(d, keyPressMsg("down"))
+	assert.Equal(t, 2, d.selectedIndex)
+
+	d, _ = updateDashboard(d, keyPressMsg("up"))
+	assert.Equal(t, 1, d.selectedIndex)
+}
+
+func TestDashboard_EmptyFilterShowsMessage(t *testing.T) {
+	d := testDashboardWithApps(runningApp("web"))
+	d.width = 80
+	d.height = 24
+	d.updateViewportSize()
+	d.rebuildViewportContent()
+
+	d.toggleFilter(docker.ChannelStopped, -1)
+
+	assert.Empty(t, d.visibleIndices(d.computeScales()))
+	assert.Contains(t, ansi.Strip(d.View()), "No applications in the [stopped] channel")
+
+	d, _ = updateDashboard(d, MouseEvent{IsClick: true, Target: channelTarget(docker.ChannelStopped)})
+	assert.Empty(t, d.filter)
+	assert.Len(t, d.visibleIndices(d.computeScales()), 1)
+}
+
 // Helpers
 
 func testDashboard(numApps int) Dashboard {
 	apps := make([]*docker.Application, numApps)
 	for i := range numApps {
-		apps[i] = &docker.Application{
-			Running: true,
-			Settings: docker.ApplicationSettings{
-				Name: fmt.Sprintf("app-%d", i),
-				Host: fmt.Sprintf("app-%d.example.com", i),
-			},
-		}
+		apps[i] = runningApp(fmt.Sprintf("app-%d", i))
 	}
+	return testDashboardWithApps(apps...)
+}
 
+func testDashboardWithApps(apps ...*docker.Application) Dashboard {
 	scraper := metrics.NewMetricsScraper(metrics.ScraperSettings{})
 	dockerScraper := &docker.Scraper{}
 	systemScraper := system.NewScraper(system.ScraperSettings{BufferSize: 10})
 
 	dashboardShowDetails = true
 	return NewDashboard(nil, apps, 0, scraper, dockerScraper, systemScraper, nil)
+}
+
+func runningApp(name string) *docker.Application {
+	return &docker.Application{
+		Running: true,
+		Settings: docker.ApplicationSettings{
+			Name: name,
+			Host: name + ".example.com",
+		},
+	}
+}
+
+func stoppedApp(name string) *docker.Application {
+	return &docker.Application{
+		Settings: docker.ApplicationSettings{
+			Name: name,
+			Host: name + ".example.com",
+		},
+	}
 }
 
 func updateDashboard(d Dashboard, msg tea.Msg) (Dashboard, tea.Cmd) {

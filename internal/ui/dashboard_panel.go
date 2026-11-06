@@ -54,7 +54,7 @@ func (p DashboardPanel) DataMaxes() (traffic float64) {
 	return maxValue(reqData)
 }
 
-func (p DashboardPanel) View(selected bool, toggling bool, showDetails bool, width int, scales DashboardScales) string {
+func (p DashboardPanel) View(selected bool, toggling bool, active docker.Channel, showDetails bool, width int, scales DashboardScales) string {
 	innerWidth := max(width-3, 0) // indicator(1) + left padding(1) + right padding(1)
 	detailed := showDetails && p.app.Running
 
@@ -69,10 +69,10 @@ func (p DashboardPanel) View(selected bool, toggling bool, showDetails bool, wid
 	left := badge + " " + url + " " + name
 
 	chips := p.chips(cards, toggling)
-	right := renderChannelChips(chips)
+	right := renderChannelChips(chips, active)
 	for len(chips) > 1 && lipgloss.Width(left)+lipgloss.Width(right)+3 > innerWidth {
 		chips = chips[:len(chips)-1]
-		right = renderChannelChips(chips)
+		right = renderChannelChips(chips, active)
 	}
 
 	gap := max(innerWidth-2-lipgloss.Width(left)-lipgloss.Width(right), 1)
@@ -125,6 +125,14 @@ func (p DashboardPanel) Height(showDetails bool) int {
 	return bodyHeight + 2 // top + bottom transition lines
 }
 
+func (p DashboardPanel) Channels(scales DashboardScales) []docker.Channel {
+	var cards [3]MetricCard
+	if p.app.Running {
+		cards = p.buildMetricCards(scales)
+	}
+	return p.channels(cards)
+}
+
 // Private
 
 func (p DashboardPanel) chips(cards [3]MetricCard, toggling bool) []channelChip {
@@ -136,18 +144,21 @@ func (p DashboardPanel) chips(cards [3]MetricCard, toggling bool) []channelChip 
 		return []channelChip{{label: label, color: Colors.LightText}}
 	}
 
-	channels := p.app.Channels(docker.ChannelContext{
-		Now:        time.Now(),
-		Stale:      p.stale(),
-		Unhealthy:  p.unhealthy(cards),
-		LastBackup: p.lastBackup(),
-	})
-
+	channels := p.channels(cards)
 	chips := make([]channelChip, len(channels))
 	for i, c := range channels {
 		chips[i] = newChannelChip(c)
 	}
 	return chips
+}
+
+func (p DashboardPanel) channels(cards [3]MetricCard) []docker.Channel {
+	return p.app.Channels(docker.ChannelContext{
+		Now:        time.Now(),
+		Stale:      p.stale(),
+		Unhealthy:  p.unhealthy(cards),
+		LastBackup: p.lastBackup(),
+	})
 }
 
 func (p DashboardPanel) stale() bool {

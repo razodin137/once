@@ -1,0 +1,6 @@
+ internal/ui/channels.go             |  31 ++++++++--
+ internal/ui/dashboard.go            |  96 ++++++++++++++++++++++++++++---
+ internal/ui/dashboard_panel.go      |  31 ++++++----
+ internal/ui/dashboard_panel_test.go |  42 +++++++++-----
+ internal/ui/dashboard_test.go       | 109 +++++++++++++++++++++++++++++++++---
+ 5 files changed, 265 insertions(+), 44 deletions(-)

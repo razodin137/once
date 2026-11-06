@@ -1,0 +1,2507 @@
+[0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mls -la; echo "---"; ls ~/.config/opencode/command 2>/dev/null; echo "---"; ls .opencode/command 2>/dev/null
+total 64
+drwxr-xr-x 1 mrjohn mrjohn   352 Nov  6 17:59 .
+drwxr-xr-x 1 mrjohn mrjohn    24 Nov  6 18:01 ..
+-rw-r--r-- 1 mrjohn mrjohn  4449 Nov  6 17:42 AGENTS.md
+drwxr-xr-x 1 mrjohn mrjohn     8 Nov  6 17:59 bin
+drwxr-xr-x 1 mrjohn mrjohn    18 Nov  6 17:42 .claude
+drwxr-xr-x 1 mrjohn mrjohn     8 Nov  6 17:42 cmd
+-rw-r--r-- 1 mrjohn mrjohn     8 Nov  6 17:42 .dockerignore
+drwxr-xr-x 1 mrjohn mrjohn   196 Nov  6 18:36 .git
+drwxr-xr-x 1 mrjohn mrjohn    86 Nov  6 17:42 .github
+-rw-r--r-- 1 mrjohn mrjohn    53 Nov  6 17:42 .gitignore
+-rw-r--r-- 1 mrjohn mrjohn   216 Nov  6 17:42 .golangci.yml
+-rw-r--r-- 1 mrjohn mrjohn  3273 Nov  6 18:23 go.mod
+-rw-r--r-- 1 mrjohn mrjohn 14792 Nov  6 18:23 go.sum
+drwxr-xr-x 1 mrjohn mrjohn   138 Nov  6 17:42 installer
+drwxr-xr-x 1 mrjohn mrjohn    62 Nov  6 17:42 integration
+drwxr-xr-x 1 mrjohn mrjohn   158 Nov  6 17:42 internal
+-rw-r--r-- 1 mrjohn mrjohn  1292 Nov  6 17:42 Makefile
+-rw-r--r-- 1 mrjohn mrjohn    97 Nov  6 17:42 mise.toml
+-rw-r--r-- 1 mrjohn mrjohn  1053 Nov  6 17:42 MIT-LICENSE
+drwxr-xr-x 1 mrjohn mrjohn  2004 Nov  6 17:49 prompt
+drwxr-xr-x 1 mrjohn mrjohn   840 Nov  6 17:44 prompt-v1
+-rw-r--r-- 1 mrjohn mrjohn  8244 Nov  6 17:42 README.md
+drwxr-xr-x 1 mrjohn mrjohn    10 Nov  6 18:36 .scratch
+drwxr-xr-x 1 mrjohn mrjohn    30 Nov  5 23:06 scripts
+---
+---
+[0m✱ [0mGrep "12-channel-filter|channel-filter" [90min . · 17 matches[0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead prompt/12-channel-filter.md 
+[0m$ [0mls -la .scratch/split/; echo "---PROMPT---"; ls prompt/ | head -40
+total 1240
+drwxr-xr-x 1 mrjohn mrjohn   1686 Nov  6 18:36 .
+drwxr-xr-x 1 mrjohn mrjohn     10 Nov  6 18:36 ..
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:12 01-deploy-static-folder.check
+-rw-r--r-- 1 mrjohn mrjohn    191 Nov  6 18:12 01-deploy-static-folder.diff
+-rw-r--r-- 1 mrjohn mrjohn  29878 Nov  6 18:12 01-deploy-static-folder.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:15 02-serve-static-apps.check
+-rw-r--r-- 1 mrjohn mrjohn    177 Nov  6 18:15 02-serve-static-apps.diff
+-rw-r--r-- 1 mrjohn mrjohn  96981 Nov  6 18:15 02-serve-static-apps.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:18 03-redeploy-folder.check
+-rw-r--r-- 1 mrjohn mrjohn    258 Nov  6 18:18 03-redeploy-folder.diff
+-rw-r--r-- 1 mrjohn mrjohn  88725 Nov  6 18:18 03-redeploy-folder.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:20 04-stale-source-detection.check
+-rw-r--r-- 1 mrjohn mrjohn    475 Nov  6 18:20 04-stale-source-detection.diff
+-rw-r--r-- 1 mrjohn mrjohn  82455 Nov  6 18:20 04-stale-source-detection.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:22 05-folder-contents-fallback.check
+-rw-r--r-- 1 mrjohn mrjohn    308 Nov  6 18:22 05-folder-contents-fallback.diff
+-rw-r--r-- 1 mrjohn mrjohn 142626 Nov  6 18:22 05-folder-contents-fallback.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:24 06-markdown-pages.check
+-rw-r--r-- 1 mrjohn mrjohn    397 Nov  6 18:24 06-markdown-pages.diff
+-rw-r--r-- 1 mrjohn mrjohn  81696 Nov  6 18:24 06-markdown-pages.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:25 07-single-file-html-site.check
+-rw-r--r-- 1 mrjohn mrjohn    492 Nov  6 18:25 07-single-file-html-site.diff
+-rw-r--r-- 1 mrjohn mrjohn  89089 Nov  6 18:25 07-single-file-html-site.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:27 08-remove-static-app.check
+-rw-r--r-- 1 mrjohn mrjohn    241 Nov  6 18:27 08-remove-static-app.diff
+-rw-r--r-- 1 mrjohn mrjohn  73820 Nov  6 18:27 08-remove-static-app.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:31 09-contents-card.check
+-rw-r--r-- 1 mrjohn mrjohn    247 Nov  6 18:31 09-contents-card.diff
+-rw-r--r-- 1 mrjohn mrjohn 195996 Nov  6 18:31 09-contents-card.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:33 10-contents-screen.check
+-rw-r--r-- 1 mrjohn mrjohn    156 Nov  6 18:33 10-contents-screen.diff
+-rw-r--r-- 1 mrjohn mrjohn  62181 Nov  6 18:33 10-contents-screen.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:36 11-channels.check
+-rw-r--r-- 1 mrjohn mrjohn    270 Nov  6 18:36 11-channels.diff
+-rw-r--r-- 1 mrjohn mrjohn 210717 Nov  6 18:36 11-channels.log
+-rw-r--r-- 1 mrjohn mrjohn   1635 Nov  6 18:37 12-channel-filter.log
+---PROMPT---
+00-overview.md
+01-deploy-static-folder.md
+02-serve-static-apps.md
+03-redeploy-folder.md
+04-stale-source-detection.md
+05-folder-contents-fallback.md
+06-markdown-pages.md
+07-single-file-html-site.md
+08-remove-static-app.md
+09-contents-card.md
+10-contents-screen.md
+11-channels.md
+12-channel-filter.md
+13-favorites.md
+14-drift.md
+15-app-bar.md
+16-bar-keys.md
+17-bar-cross-fade.md
+18-bar-hide.md
+19-open-command.md
+20-show-command.md
+21-logs-command.md
+22-status-command.md
+23-list-json.md
+24-restart-command.md
+25-update-all.md
+26-doctor-command.md
+27-backups-list.md
+28-screenshot-capture.md
+29-card-thumbnails.md
+30-route-map.md
+31-page-weight.md
+32-broken-links.md
+33-meta-preview.md
+34-deploy-diff.md
+35-promote-on-evidence.md
+36-error-capture.md
+37-dashboard-filter.md
+38-command-palette.md
+39-toasts.md
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd .scratch/split; for f in 09-contents-card.check 10-contents-screen.check 11-channels.check 11-channels.diff; do echo "=== $f"; cat "$f"; done; echo "=== 12 log"; cat 12-channel-filter.log
+=== 09-contents-card.check
+go test ./internal/...
+ok  	github.com/basecamp/once/internal/background	(cached)
+ok  	github.com/basecamp/once/internal/command	(cached)
+ok  	github.com/basecamp/once/internal/docker	0.029s
+ok  	github.com/basecamp/once/internal/fsutil	(cached)
+?   	github.com/basecamp/once/internal/logging	[no test files]
+ok  	github.com/basecamp/once/internal/metrics	0.006s
+ok  	github.com/basecamp/once/internal/mouse	(cached)
+?   	github.com/basecamp/once/internal/service	[no test files]
+ok  	github.com/basecamp/once/internal/system	(cached)
+ok  	github.com/basecamp/once/internal/ui	(cached)
+ok  	github.com/basecamp/once/internal/userstats	(cached)
+ok  	github.com/basecamp/once/internal/version	(cached)
+golangci-lint run
+0 issues.
+=== 10-contents-screen.check
+go test ./internal/...
+ok  	github.com/basecamp/once/internal/background	(cached)
+ok  	github.com/basecamp/once/internal/command	(cached)
+ok  	github.com/basecamp/once/internal/docker	0.058s
+ok  	github.com/basecamp/once/internal/fsutil	(cached)
+?   	github.com/basecamp/once/internal/logging	[no test files]
+ok  	github.com/basecamp/once/internal/metrics	0.014s
+ok  	github.com/basecamp/once/internal/mouse	(cached)
+?   	github.com/basecamp/once/internal/service	[no test files]
+ok  	github.com/basecamp/once/internal/system	(cached)
+ok  	github.com/basecamp/once/internal/ui	(cached)
+ok  	github.com/basecamp/once/internal/userstats	(cached)
+ok  	github.com/basecamp/once/internal/version	(cached)
+golangci-lint run
+0 issues.
+=== 11-channels.check
+go test ./internal/...
+ok  	github.com/basecamp/once/internal/background	(cached)
+ok  	github.com/basecamp/once/internal/command	(cached)
+ok  	github.com/basecamp/once/internal/docker	0.029s
+ok  	github.com/basecamp/once/internal/fsutil	(cached)
+?   	github.com/basecamp/once/internal/logging	[no test files]
+ok  	github.com/basecamp/once/internal/metrics	0.006s
+ok  	github.com/basecamp/once/internal/mouse	(cached)
+?   	github.com/basecamp/once/internal/service	[no test files]
+ok  	github.com/basecamp/once/internal/system	(cached)
+ok  	github.com/basecamp/once/internal/ui	(cached)
+ok  	github.com/basecamp/once/internal/userstats	(cached)
+ok  	github.com/basecamp/once/internal/version	(cached)
+golangci-lint run
+0 issues.
+=== 11-channels.diff
+ internal/ui/dashboard.go            | 47 ++++++++++++++++++----
+ internal/ui/dashboard_panel.go      | 80 +++++++++++++++++++++++++------------
+ internal/ui/dashboard_panel_test.go | 63 ++++++++++++++++++++++++-----
+ 3 files changed, 145 insertions(+), 45 deletions(-)
+=== 12 log
+[0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mls -la; echo "---"; ls ~/.config/opencode/command 2>/dev/null; echo "---"; ls .opencode/command 2>/dev/null
+total 64
+drwxr-xr-x 1 mrjohn mrjohn   352 Nov  6 17:59 .
+drwxr-xr-x 1 mrjohn mrjohn    24 Nov  6 18:01 ..
+-rw-r--r-- 1 mrjohn mrjohn  4449 Nov  6 17:42 AGENTS.md
+drwxr-xr-x 1 mrjohn mrjohn     8 Nov  6 17:59 bin
+drwxr-xr-x 1 mrjohn mrjohn    18 Nov  6 17:42 .claude
+drwxr-xr-x 1 mrjohn mrjohn     8 Nov  6 17:42 cmd
+-rw-r--r-- 1 mrjohn mrjohn     8 Nov  6 17:42 .dockerignore
+drwxr-xr-x 1 mrjohn mrjohn   196 Nov  6 18:36 .git
+drwxr-xr-x 1 mrjohn mrjohn    86 Nov  6 17:42 .github
+-rw-r--r-- 1 mrjohn mrjohn    53 Nov  6 17:42 .gitignore
+-rw-r--r-- 1 mrjohn mrjohn   216 Nov  6 17:42 .golangci.yml
+-rw-r--r-- 1 mrjohn mrjohn  3273 Nov  6 18:23 go.mod
+-rw-r--r-- 1 mrjohn mrjohn 14792 Nov  6 18:23 go.sum
+drwxr-xr-x 1 mrjohn mrjohn   138 Nov  6 17:42 installer
+drwxr-xr-x 1 mrjohn mrjohn    62 Nov  6 17:42 integration
+drwxr-xr-x 1 mrjohn mrjohn   158 Nov  6 17:42 internal
+-rw-r--r-- 1 mrjohn mrjohn  1292 Nov  6 17:42 Makefile
+-rw-r--r-- 1 mrjohn mrjohn    97 Nov  6 17:42 mise.toml
+-rw-r--r-- 1 mrjohn mrjohn  1053 Nov  6 17:42 MIT-LICENSE
+drwxr-xr-x 1 mrjohn mrjohn  2004 Nov  6 17:49 prompt
+drwxr-xr-x 1 mrjohn mrjohn   840 Nov  6 17:44 prompt-v1
+-rw-r--r-- 1 mrjohn mrjohn  8244 Nov  6 17:42 README.md
+drwxr-xr-x 1 mrjohn mrjohn    10 Nov  6 18:36 .scratch
+drwxr-xr-x 1 mrjohn mrjohn    30 Nov  5 23:06 scripts
+---
+---
+[0m✱ [0mGrep "12-channel-filter|channel-filter" [90min . · 17 matches[0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead prompt/12-channel-filter.md 
+[0m$ [0mls -la .scratch/split/; echo "---PROMPT---"; ls prompt/ | head -40
+total 1240
+drwxr-xr-x 1 mrjohn mrjohn   1686 Nov  6 18:36 .
+drwxr-xr-x 1 mrjohn mrjohn     10 Nov  6 18:36 ..
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:12 01-deploy-static-folder.check
+-rw-r--r-- 1 mrjohn mrjohn    191 Nov  6 18:12 01-deploy-static-folder.diff
+-rw-r--r-- 1 mrjohn mrjohn  29878 Nov  6 18:12 01-deploy-static-folder.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:15 02-serve-static-apps.check
+-rw-r--r-- 1 mrjohn mrjohn    177 Nov  6 18:15 02-serve-static-apps.diff
+-rw-r--r-- 1 mrjohn mrjohn  96981 Nov  6 18:15 02-serve-static-apps.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:18 03-redeploy-folder.check
+-rw-r--r-- 1 mrjohn mrjohn    258 Nov  6 18:18 03-redeploy-folder.diff
+-rw-r--r-- 1 mrjohn mrjohn  88725 Nov  6 18:18 03-redeploy-folder.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:20 04-stale-source-detection.check
+-rw-r--r-- 1 mrjohn mrjohn    475 Nov  6 18:20 04-stale-source-detection.diff
+-rw-r--r-- 1 mrjohn mrjohn  82455 Nov  6 18:20 04-stale-source-detection.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:22 05-folder-contents-fallback.check
+-rw-r--r-- 1 mrjohn mrjohn    308 Nov  6 18:22 05-folder-contents-fallback.diff
+-rw-r--r-- 1 mrjohn mrjohn 142626 Nov  6 18:22 05-folder-contents-fallback.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:24 06-markdown-pages.check
+-rw-r--r-- 1 mrjohn mrjohn    397 Nov  6 18:24 06-markdown-pages.diff
+-rw-r--r-- 1 mrjohn mrjohn  81696 Nov  6 18:24 06-markdown-pages.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:25 07-single-file-html-site.check
+-rw-r--r-- 1 mrjohn mrjohn    492 Nov  6 18:25 07-single-file-html-site.diff
+-rw-r--r-- 1 mrjohn mrjohn  89089 Nov  6 18:25 07-single-file-html-site.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:27 08-remove-static-app.check
+-rw-r--r-- 1 mrjohn mrjohn    241 Nov  6 18:27 08-remove-static-app.diff
+-rw-r--r-- 1 mrjohn mrjohn  73820 Nov  6 18:27 08-remove-static-app.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:31 09-contents-card.check
+-rw-r--r-- 1 mrjohn mrjohn    247 Nov  6 18:31 09-contents-card.diff
+-rw-r--r-- 1 mrjohn mrjohn 195996 Nov  6 18:31 09-contents-card.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:33 10-contents-screen.check
+-rw-r--r-- 1 mrjohn mrjohn    156 Nov  6 18:33 10-contents-screen.diff
+-rw-r--r-- 1 mrjohn mrjohn  62181 Nov  6 18:33 10-contents-screen.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:36 11-channels.check
+-rw-r--r-- 1 mrjohn mrjohn    270 Nov  6 18:36 11-channels.diff
+-rw-r--r-- 1 mrjohn mrjohn 210717 Nov  6 18:36 11-channels.log
+-rw-r--r-- 1 mrjohn mrjohn   1635 Nov  6 18:37 12-channel-filter.log
+---PROMPT---
+00-overview.md
+01-deploy-static-folder.md
+02-serve-static-apps.md
+03-redeploy-folder.md
+04-stale-source-detection.md
+05-folder-contents-fallback.md
+06-markdown-pages.md
+07-single-file-html-site.md
+08-remove-static-app.md
+09-contents-card.md
+10-contents-screen.md
+11-channels.md
+12-channel-filter.md
+13-favorites.md
+14-drift.md
+15-app-bar.md
+16-bar-keys.md
+17-bar-cross-fade.md
+18-bar-hide.md
+19-open-command.md
+20-show-command.md
+21-logs-command.md
+22-status-command.md
+23-list-json.md
+24-restart-command.md
+25-update-all.md
+26-doctor-command.md
+27-backups-list.md
+28-screenshot-capture.md
+29-card-thumbnails.md
+30-route-map.md
+31-page-weight.md
+32-broken-links.md
+33-meta-preview.md
+34-deploy-diff.md
+35-promote-on-evidence.md
+36-error-capture.md
+37-dashboard-filter.md
+38-command-palette.md
+39-toasts.md
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; cat prompt/00-overview.md; echo "===11==="; cat prompt/11-channels.md; echo "===13==="; cat prompt/13-favorites.md; echo "---git---"; git status --short; git log --oneline -15
+These prompts change the ONCE Go CLI/TUI in this repository, one feature per file, run in order with a fresh agent for each.
+
+House style here is the project's own Go conventions plus `make lint`; the wider reference copy is at /home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+
+The last line of every file is the same, and it means `make test` and `make lint` both run clean.
+
+Each file is the whole instruction for its session. Read only the one you are running.
+===11===
+Your job is to go in and derive channel chips for each app from state ONCE already has here to this Go CLI/TUI app.
+
+Running, stopped, deploying, stale, unhealthy, no backup, idle for thirty days. Nothing to configure and nothing to store.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+===13===
+Your job is to go in and add favorites to apps here to this Go CLI/TUI app.
+
+A star on the card and a star in the dashboard row, favorites sorted first, remembered across runs in the state ONCE already keeps per namespace.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+---git---
+?? .scratch/split/12-channel-filter.log
+a8a3dc0 split: 11-channels
+115041b split: 10-contents-screen
+1c4fb9a split: 09-contents-card
+313f156 split: 08-remove-static-app
+91e0ada split: 07-single-file-html-site
+54ed0bf split: 06-markdown-pages
+ea29c59 split: 05-folder-contents-fallback
+3c926ed split: 04-stale-source-detection
+3b00d24 split: 03-redeploy-folder
+8021ade split: 02-serve-static-apps
+c279c61 split: 01-deploy-static-folder
+dd1ea52 split: 01-deploy-static-folder
+fe93045 starting the script: Prompting scripts for upgrading
+864ec7c Use strings.CutLast in cutLast (#118)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/ui/dashboard_panel.go 
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; ls internal/ui; echo ---; git show --stat HEAD
+actions_menu.go
+actions_menu_test.go
+app.go
+channels.go
+chart.go
+chart_scale.go
+chart_scale_test.go
+chart_test.go
+component.go
+confirmation.go
+confirmation_test.go
+contents_card.go
+contents_card_test.go
+dashboard.go
+dashboard_header.go
+dashboard_header_test.go
+dashboard_panel.go
+dashboard_panel_test.go
+dashboard_test.go
+form.go
+form_test.go
+helpers_test.go
+help.go
+help_test.go
+install_activity.go
+install_app_list.go
+install_app_list_test.go
+install.go
+install_hostname_form.go
+install_hostname_form_test.go
+install_image_form.go
+install_image_form_test.go
+install_test.go
+keys.go
+logo.go
+logs.go
+logs_test.go
+menu.go
+menu_test.go
+metric_card.go
+metric_card_test.go
+palette_detect.go
+palette_detect_test.go
+palette.go
+palette_test.go
+popup_help.go
+popup_help_test.go
+progress.go
+remove.go
+remove_test.go
+settings_form_application.go
+settings_form_backups.go
+settings_form_base.go
+settings_form_email.go
+settings_form_environment.go
+settings_form_registry.go
+settings_form_resources.go
+settings_form_test.go
+settings_form_updates.go
+settings.go
+settings_menu.go
+settings_menu_test.go
+settings_test.go
+starfield.go
+styles.go
+styles_test.go
+terminal_size_guard.go
+terminal_size_guard_test.go
+---
+commit a8a3dc04a1f158aa61a5857c781cc9c8647f039d
+Author: razodin137 <razodin137@gmail.com>
+Date:   Fri Nov 6 18:36:59 2026 +0700
+
+    split: 11-channels
+
+ .scratch/split/11-channels.check    |   15 +
+ .scratch/split/11-channels.diff     |    4 +
+ .scratch/split/11-channels.log      | 6960 +++++++++++++++++++++++++++++++++++
+ internal/docker/channels.go         |   85 +
+ internal/docker/channels_test.go    |  124 +
+ internal/ui/channels.go             |   64 +
+ internal/ui/dashboard.go            |   47 +-
+ internal/ui/dashboard_panel.go      |   80 +-
+ internal/ui/dashboard_panel_test.go |   63 +-
+ 9 files changed, 7397 insertions(+), 45 deletions(-)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/ui/dashboard.go 
+[0m→ [0mRead internal/ui/channels.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/ui/dashboard_panel_test.go 
+[0m→ [0mRead internal/docker/channels.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; sed -n 1,140p internal/ui/styles.go; echo ---; sed -n 1,120p internal/ui/dashboard_test.go; echo ---; grep -rn "MouseEvent" internal/ui/*.go | head -40
+package ui
+
+import (
+	"image/color"
+	"strings"
+
+	"charm.land/lipgloss/v2"
+	"github.com/charmbracelet/x/ansi"
+)
+
+// Colors is the active palette. It is initialized with a default palette
+// at package init and may be replaced by ApplyPalette after terminal
+// color detection.
+var Colors = DefaultPalette()
+
+type styles struct {
+	Title         lipgloss.Style
+	Label         lipgloss.Style
+	Input         lipgloss.Style
+	Button        lipgloss.Style
+	ButtonPrimary lipgloss.Style
+}
+
+var Styles = buildStyles()
+
+var borderStyle = lipgloss.NewStyle().Foreground(Colors.Border)
+
+// rebuildStyles reconstructs all package-level style variables from the
+// current Colors palette. Called by ApplyPalette.
+func rebuildStyles() {
+	Styles = buildStyles()
+	borderStyle = lipgloss.NewStyle().Foreground(Colors.Border)
+	rebuildStarfieldStyles()
+	rebuildLogoStyles()
+}
+
+func buildStyles() styles {
+	return styles{
+		Title: lipgloss.NewStyle().
+			Foreground(Colors.Primary).
+			Bold(true),
+		Label: lipgloss.NewStyle().
+			Bold(true),
+		Input: lipgloss.NewStyle().
+			Border(lipgloss.RoundedBorder()).
+			BorderForeground(Colors.Border).
+			Padding(0, 1),
+		Button: lipgloss.NewStyle().
+			Padding(0, 2).
+			MarginRight(1).
+			Border(lipgloss.RoundedBorder()).
+			BorderForeground(Colors.Border),
+		ButtonPrimary: lipgloss.NewStyle().
+			Padding(0, 2).
+			MarginRight(1).
+			Border(lipgloss.RoundedBorder()).
+			BorderForeground(Colors.Primary),
+	}
+}
+
+func (s styles) Focus(base lipgloss.Style, focused bool) lipgloss.Style {
+	if focused {
+		return base.BorderForeground(Colors.Focused)
+	}
+	return base
+}
+
+func (s styles) WithError(base lipgloss.Style, hasError bool) lipgloss.Style {
+	if hasError {
+		return base.BorderForeground(Colors.Error)
+	}
+	return base
+}
+
+func (s styles) TitleRule(width int, crumbs ...string) string {
+	label := " " + strings.Join(append([]string{"ONCE"}, crumbs...), " · ") + " "
+	labelWidth := lipgloss.Width(label)
+	ruleWidth := max(width-2, labelWidth) // subtract end caps
+	side := (ruleWidth - labelWidth) / 2
+	remainder := ruleWidth - labelWidth - side*2
+	line := "╶" + strings.Repeat("─", side) + label + strings.Repeat("─", side+remainder) + "╴"
+	return lipgloss.NewStyle().Foreground(Colors.Border).Render(line)
+}
+
+func (s styles) CenteredLine(width int, content string) string {
+	return lipgloss.NewStyle().Width(width).Align(lipgloss.Center).Render(content)
+}
+
+// OverlayCenter composites fg centered on top of bg within the given dimensions.
+func OverlayCenter(bg, fg string, width, height int) string {
+	bgLines := strings.Split(bg, "\n")
+	fgLines := strings.Split(fg, "\n")
+
+	for len(bgLines) < height {
+		bgLines = append(bgLines, strings.Repeat(" ", width))
+	}
+
+	fgHeight := len(fgLines)
+	fgWidth := 0
+	for _, line := range fgLines {
+		if w := ansi.StringWidth(line); w > fgWidth {
+			fgWidth = w
+		}
+	}
+
+	topOffset := (height - fgHeight) / 2
+	leftOffset := (width - fgWidth) / 2
+
+	for i, fgLine := range fgLines {
+		bgIdx := topOffset + i
+		if bgIdx < 0 || bgIdx >= len(bgLines) {
+			continue
+		}
+
+		bgLine := bgLines[bgIdx]
+
+		left := ansi.Truncate(bgLine, leftOffset, "")
+		if w := ansi.StringWidth(left); w < leftOffset {
+			left += strings.Repeat(" ", leftOffset-w)
+		}
+
+		if w := ansi.StringWidth(fgLine); w < fgWidth {
+			fgLine += strings.Repeat(" ", fgWidth-w)
+		}
+
+		right := ansi.TruncateLeft(bgLine, leftOffset+fgWidth, "")
+
+		bgLines[bgIdx] = left + ansi.ResetStyle + fgLine + ansi.ResetStyle + right
+	}
+
+	return strings.Join(bgLines, "\n")
+}
+
+// WithBackground re-applies a background color after any SGR reset sequences
+// within the content, so that inner styled elements don't clear the outer
+// background. Resets with no visible content following on the same line are
+// left alone, preventing the background from bleeding past the panel edge.
+func WithBackground(bg color.Color, content string) string {
+	bgSeq := ansi.NewStyle().BackgroundColor(bg).String()
+	p := ansi.NewParser()
+---
+package ui
+
+import (
+	"fmt"
+	"testing"
+	"time"
+
+	tea "charm.land/bubbletea/v2"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+
+	"github.com/basecamp/once/internal/docker"
+	"github.com/basecamp/once/internal/metrics"
+	"github.com/basecamp/once/internal/system"
+)
+
+func TestFormatDuration(t *testing.T) {
+	t.Run("seconds", func(t *testing.T) {
+		assert.Equal(t, "0s", formatDuration(0))
+		assert.Equal(t, "1s", formatDuration(1*time.Second))
+		assert.Equal(t, "45s", formatDuration(45*time.Second))
+		assert.Equal(t, "59s", formatDuration(59*time.Second))
+	})
+
+	t.Run("minutes", func(t *testing.T) {
+		assert.Equal(t, "1m", formatDuration(1*time.Minute))
+		assert.Equal(t, "30m", formatDuration(30*time.Minute))
+		assert.Equal(t, "59m", formatDuration(59*time.Minute))
+		assert.Equal(t, "1m", formatDuration(1*time.Minute+30*time.Second))
+	})
+
+	t.Run("hours", func(t *testing.T) {
+		assert.Equal(t, "1h", formatDuration(1*time.Hour))
+		assert.Equal(t, "2h", formatDuration(2*time.Hour))
+		assert.Equal(t, "3h 45m", formatDuration(3*time.Hour+45*time.Minute))
+		assert.Equal(t, "23h 59m", formatDuration(23*time.Hour+59*time.Minute))
+	})
+
+	t.Run("days", func(t *testing.T) {
+		assert.Equal(t, "1d", formatDuration(24*time.Hour))
+		assert.Equal(t, "2d", formatDuration(48*time.Hour))
+		assert.Equal(t, "1d 1h", formatDuration(25*time.Hour))
+		assert.Equal(t, "2d 2h", formatDuration(50*time.Hour))
+		assert.Equal(t, "7d 12h", formatDuration(7*24*time.Hour+12*time.Hour))
+	})
+}
+
+func TestDashboardKeyboardSelectsPanel(t *testing.T) {
+	d := testDashboard(3)
+	d.width = 80
+	d.height = 40
+	d.updateViewportSize()
+	d.rebuildViewportContent()
+
+	assert.Equal(t, 0, d.selectedIndex)
+
+	d, _ = updateDashboard(d, keyPressMsg("down"))
+	assert.Equal(t, 1, d.selectedIndex)
+
+	d, _ = updateDashboard(d, keyPressMsg("down"))
+	assert.Equal(t, 2, d.selectedIndex)
+
+	// Can't go past last
+	d, _ = updateDashboard(d, keyPressMsg("down"))
+	assert.Equal(t, 2, d.selectedIndex)
+
+	d, _ = updateDashboard(d, keyPressMsg("up"))
+	assert.Equal(t, 1, d.selectedIndex)
+
+	d, _ = updateDashboard(d, keyPressMsg("up"))
+	assert.Equal(t, 0, d.selectedIndex)
+
+	// Can't go before first
+	d, _ = updateDashboard(d, keyPressMsg("up"))
+	assert.Equal(t, 0, d.selectedIndex)
+}
+
+func TestDashboardKeyboardJK(t *testing.T) {
+	d := testDashboard(3)
+	d.width = 80
+	d.height = 40
+	d.updateViewportSize()
+	d.rebuildViewportContent()
+
+	d, _ = updateDashboard(d, keyPressMsg("j"))
+	assert.Equal(t, 1, d.selectedIndex)
+
+	d, _ = updateDashboard(d, keyPressMsg("k"))
+	assert.Equal(t, 0, d.selectedIndex)
+}
+
+func TestDashboard_ActionsMenuOpensOnA(t *testing.T) {
+	d := testDashboard(1)
+	d.width = 80
+	d.height = 40
+	d.updateViewportSize()
+	d.rebuildViewportContent()
+
+	d, _ = updateDashboard(d, keyPressMsg("a"))
+	assert.NotNil(t, d.overlay)
+}
+
+func TestDashboard_ContentsCardOpensOnC(t *testing.T) {
+	d := testDashboard(1)
+	d.width = 80
+	d.height = 40
+	d.updateViewportSize()
+	d.rebuildViewportContent()
+
+	d, _ = updateDashboard(d, keyPressMsg("C"))
+	assert.NotNil(t, d.overlay)
+	assert.IsType(t, ContentsCard{}, d.overlay)
+
+	d, _ = updateDashboard(d, ContentsCardCloseMsg{})
+	assert.Nil(t, d.overlay)
+}
+
+func TestDashboard_ActionsMenuCloses(t *testing.T) {
+	d := testDashboard(1)
+	d.width = 80
+---
+internal/ui/actions_menu.go:57:	case MouseEvent:
+internal/ui/app.go:152:		m.currentScreen, cmd = m.currentScreen.Update(MouseEvent{
+internal/ui/component.go:15:// MouseEvent is dispatched to sub-components after the root App resolves
+internal/ui/component.go:17:type MouseEvent struct {
+internal/ui/confirmation.go:50:	case MouseEvent:
+internal/ui/confirmation_test.go:82:	_, cmd := c.Update(MouseEvent{IsClick: true, Target: "confirm"})
+internal/ui/confirmation_test.go:93:	_, cmd := c.Update(MouseEvent{IsClick: true, Target: "cancel"})
+internal/ui/dashboard.go:117:		case tea.KeyPressMsg, MouseEvent:
+internal/ui/dashboard.go:130:	case MouseEvent:
+internal/ui/form.go:257:	case MouseEvent:
+internal/ui/form_test.go:383:	*form = updateForm(*form, MouseEvent{IsClick: true, Target: "submit"})
+internal/ui/help.go:28:	if msg, ok := msg.(MouseEvent); ok {
+internal/ui/install.go:102:		case tea.KeyPressMsg, MouseEvent, tea.MouseWheelMsg:
+internal/ui/install.go:144:	case MouseEvent:
+internal/ui/logs.go:89:	case MouseEvent:
+internal/ui/menu.go:79:	case MouseEvent:
+internal/ui/popup_help.go:70:	case MouseEvent:
+internal/ui/popup_help_test.go:40:	_, cmd := ph.Update(MouseEvent{IsClick: true, Target: "ok"})
+internal/ui/remove.go:62:	case MouseEvent:
+internal/ui/settings.go:132:	case MouseEvent:
+internal/ui/settings_menu.go:50:	case MouseEvent:
+internal/ui/settings_test.go:136:	_, cmd := updateSettings(s, MouseEvent{IsClick: true, Target: "done"})
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/ui/component.go 
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; sed -n 120,200p internal/ui/app.go; echo ---TESTS---; sed -n 120,400p internal/ui/dashboard_test.go
+systemScraper:   systemScraper,
+		userStats:       userStats,
+		currentScreen:   screen,
+		sizeGuard:       NewTerminalSizeGuard(80, 24),
+		eventChan:       eventChan,
+		watchCtx:        ctx,
+		watchCancel:     cancel,
+		installImageRef: installImageRef,
+	}
+}
+
+func (m *App) Init() tea.Cmd {
+	return tea.Batch(
+		m.currentScreen.Init(),
+		m.watchForChanges(),
+		m.runScrape(),
+		m.scheduleNextScrapeTick(),
+		m.runUserStatsScrape(),
+		m.scheduleNextUserStatsTick(),
+	)
+}
+
+func (m *App) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
+	switch msg := msg.(type) {
+	case tea.WindowSizeMsg:
+		m.lastSize = msg
+		m.sizeGuard = m.sizeGuard.Update(msg)
+
+	case tea.MouseClickMsg:
+		ms := msg.Mouse()
+		target := mouse.Resolve(ms.X, ms.Y)
+		var cmd tea.Cmd
+		m.currentScreen, cmd = m.currentScreen.Update(MouseEvent{
+			X:       ms.X,
+			Y:       ms.Y,
+			Button:  ms.Button,
+			Target:  target,
+			IsClick: true,
+		})
+		return m, cmd
+
+	case tea.MouseWheelMsg:
+		var cmd tea.Cmd
+		m.currentScreen, cmd = m.currentScreen.Update(msg)
+		return m, cmd
+
+	case tea.MouseReleaseMsg, tea.MouseMotionMsg:
+		return m, nil
+
+	case tea.KeyPressMsg:
+		if key.Matches(msg, appKeys.Quit) {
+			m.shutdown()
+			return m, tea.Quit
+		}
+
+	case namespaceChangedMsg:
+		if err := m.namespace.Refresh(m.watchCtx); err != nil {
+			slog.Error("refreshing namespace", "err", err)
+		}
+		var cmd tea.Cmd
+		m.currentScreen, cmd = m.currentScreen.Update(msg)
+		return m, tea.Batch(cmd, m.watchForChanges())
+
+	case scrapeTickMsg:
+		return m, tea.Batch(
+			m.runScrape(),
+			m.scheduleNextScrapeTick(),
+		)
+
+	case scrapeUserStatsTickMsg:
+		return m, tea.Batch(
+			m.runUserStatsScrape(),
+			m.scheduleNextUserStatsTick(),
+		)
+
+	case scrapeDoneMsg:
+		var cmd tea.Cmd
+		m.currentScreen, cmd = m.currentScreen.Update(msg)
+		return m, cmd
+
+	case NavigateToInstallMsg:
+---TESTS---
+	d.width = 80
+	d.height = 40
+	d.updateViewportSize()
+	d.rebuildViewportContent()
+
+	d, _ = updateDashboard(d, keyPressMsg("a"))
+	assert.NotNil(t, d.overlay)
+
+	d, _ = updateDashboard(d, ActionsMenuCloseMsg{})
+	assert.Nil(t, d.overlay)
+}
+
+func TestDashboard_ActionsMenuStartStop(t *testing.T) {
+	d := testDashboard(1)
+	d.width = 80
+	d.height = 40
+	d.updateViewportSize()
+	d.rebuildViewportContent()
+
+	d, _ = updateDashboard(d, ActionsMenuSelectMsg{app: d.apps[0], action: ActionsMenuStartStop})
+	assert.True(t, d.toggling)
+}
+
+func TestDashboard_ActionsMenuRemove(t *testing.T) {
+	d := testDashboard(1)
+	d.width = 80
+	d.height = 40
+	d.updateViewportSize()
+	d.rebuildViewportContent()
+
+	_, cmd := updateDashboard(d, ActionsMenuSelectMsg{app: d.apps[0], action: ActionsMenuRemove})
+	require.NotNil(t, cmd)
+
+	msg := cmd()
+	navMsg, ok := msg.(NavigateToRemoveMsg)
+	require.True(t, ok, "expected NavigateToRemoveMsg, got %T", msg)
+	assert.Equal(t, d.apps[0], navMsg.App)
+}
+
+func TestDashboard_OldStartStopKeyRemoved(t *testing.T) {
+	d := testDashboard(1)
+	d.width = 80
+	d.height = 40
+	d.updateViewportSize()
+	d.rebuildViewportContent()
+
+	d, _ = updateDashboard(d, keyPressMsg("o"))
+	assert.False(t, d.toggling)
+}
+
+func TestDashboard_SettingsMenuStillWorks(t *testing.T) {
+	d := testDashboard(1)
+	d.width = 80
+	d.height = 40
+	d.updateViewportSize()
+	d.rebuildViewportContent()
+
+	d, _ = updateDashboard(d, keyPressMsg("s"))
+	assert.NotNil(t, d.overlay)
+}
+
+func TestDashboard_ToggleDetails(t *testing.T) {
+	d := testDashboard(2)
+	d.width = 120
+	d.height = 40
+	d.updateViewportSize()
+	d.rebuildViewportContent()
+
+	assert.True(t, dashboardShowDetails)
+	fullHeight := d.panels[0].Height(dashboardShowDetails)
+
+	d, _ = updateDashboard(d, keyPressMsg("d"))
+	assert.False(t, dashboardShowDetails)
+	compactHeight := d.panels[0].Height(dashboardShowDetails)
+	assert.Less(t, compactHeight, fullHeight)
+
+	// Toggle back
+	d, _ = updateDashboard(d, keyPressMsg("d"))
+	assert.True(t, dashboardShowDetails)
+}
+
+func TestDashboard_ToggleDetailsEmptyState(t *testing.T) {
+	d := testDashboard(0)
+	d, _ = updateDashboard(d, tea.WindowSizeMsg{Width: 80, Height: 24})
+
+	// Should not panic
+	_, _ = updateDashboard(d, keyPressMsg("d"))
+	assert.True(t, dashboardShowDetails) // unchanged — guarded by len(m.apps) > 0
+}
+
+func TestDashboard_SelectPanelAfterAppsRemoved(t *testing.T) {
+	d := testDashboard(3)
+	d.width = 80
+	d.height = 40
+	d.updateViewportSize()
+	d.rebuildViewportContent()
+
+	// Simulate all apps disappearing (e.g. `once teardown` in another shell).
+	d.apps = nil
+	d.buildPanels()
+
+	// Regression: #49 — scrollToSelection used to index into an empty m.panels.
+	assert.NotPanics(t, func() {
+		d.selectPanel(0)
+	})
+}
+
+func TestDashboard_EmptyStateShowsMessage(t *testing.T) {
+	d := testDashboard(0)
+	d, _ = updateDashboard(d, tea.WindowSizeMsg{Width: 80, Height: 24})
+
+	view := d.View()
+	assert.Contains(t, view, "There are no applications installed")
+	assert.Contains(t, view, "new app")
+}
+
+// Helpers
+
+func testDashboard(numApps int) Dashboard {
+	apps := make([]*docker.Application, numApps)
+	for i := range numApps {
+		apps[i] = &docker.Application{
+			Running: true,
+			Settings: docker.ApplicationSettings{
+				Name: fmt.Sprintf("app-%d", i),
+				Host: fmt.Sprintf("app-%d.example.com", i),
+			},
+		}
+	}
+
+	scraper := metrics.NewMetricsScraper(metrics.ScraperSettings{})
+	dockerScraper := &docker.Scraper{}
+	systemScraper := system.NewScraper(system.ScraperSettings{BufferSize: 10})
+
+	dashboardShowDetails = true
+	return NewDashboard(nil, apps, 0, scraper, dockerScraper, systemScraper, nil)
+}
+
+func updateDashboard(d Dashboard, msg tea.Msg) (Dashboard, tea.Cmd) {
+	comp, cmd := d.Update(msg)
+	return comp.(Dashboard), cmd
+}
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; ls internal/mouse; sed -n 1,200p internal/mouse/*.go
+lexer.go
+lexer_test.go
+tracker.go
+tracker_test.go
+package mouse
+
+import "strings"
+
+// Token represents a lexical token in an ANSI stream.
+type Token struct {
+	Type   TokenType
+	Text   string // The raw text of the token
+	Params string // CSI: parameter bytes between ESC[ and final byte
+	Final  byte   // CSI: command byte; ESC: second byte
+}
+
+// TokenType identifies the kind of token.
+type TokenType int
+
+const (
+	TextToken TokenType = iota
+	CSIToken
+	OSCToken
+	ESCToken
+	EOFToken
+)
+
+// Lexer tokenizes a string containing ANSI escape sequences.
+type Lexer struct {
+	input string
+	pos   int
+}
+
+// NewLexer creates a new lexer for the given input.
+func NewLexer(input string) Lexer {
+	return Lexer{input: input}
+}
+
+// Next returns the next token from the input.
+func (l *Lexer) Next() Token {
+	if l.pos >= len(l.input) {
+		return Token{Type: EOFToken}
+	}
+
+	ch := l.input[l.pos]
+
+	if ch == '\x1b' {
+		return l.readEscape()
+	}
+
+	return l.readText()
+}
+
+// ParseCSIParam parses a single integer from a CSI parameter string.
+func ParseCSIParam(s string) int {
+	n := 0
+	for i := range len(s) {
+		b := s[i]
+		if b >= '0' && b <= '9' {
+			n = n*10 + int(b-'0')
+		}
+	}
+	return n
+}
+
+// Private
+
+func (l *Lexer) readText() Token {
+	start := l.pos
+	if i := strings.IndexByte(l.input[l.pos:], '\x1b'); i >= 0 {
+		l.pos += i
+	} else {
+		l.pos = len(l.input)
+	}
+	return Token{
+		Type: TextToken,
+		Text: l.input[start:l.pos],
+	}
+}
+
+func (l *Lexer) readEscape() Token {
+	start := l.pos
+	l.pos++ // consume ESC
+
+	if l.pos >= len(l.input) {
+		return Token{
+			Type: TextToken,
+			Text: l.input[start:l.pos],
+		}
+	}
+
+	switch l.input[l.pos] {
+	case '[':
+		return l.readCSI(start)
+	case ']':
+		return l.readOSC(start)
+	}
+
+	// Other escape sequence (ESC followed by single char)
+	final := l.input[l.pos]
+	l.pos++
+	return Token{
+		Type:  ESCToken,
+		Text:  l.input[start:l.pos],
+		Final: final,
+	}
+}
+
+func (l *Lexer) readOSC(start int) Token {
+	l.pos++ // consume ']'
+
+	// Read until BEL (\x07) or ST (\x1b\\)
+	for l.pos < len(l.input) {
+		b := l.input[l.pos]
+		if b == '\x07' {
+			l.pos++
+			break
+		}
+		if b == '\x1b' && l.pos+1 < len(l.input) && l.input[l.pos+1] == '\\' {
+			l.pos += 2
+			break
+		}
+		l.pos++
+	}
+
+	return Token{
+		Type: OSCToken,
+		Text: l.input[start:l.pos],
+	}
+}
+
+func (l *Lexer) readCSI(start int) Token {
+	l.pos++ // consume '['
+
+	paramStart := l.pos
+
+	// Read parameter bytes (0x30-0x3F) and intermediate bytes (0x20-0x2F)
+	for l.pos < len(l.input) {
+		b := l.input[l.pos]
+		if (b >= 0x30 && b <= 0x3F) || (b >= 0x20 && b <= 0x2F) {
+			l.pos++
+		} else {
+			break
+		}
+	}
+
+	paramEnd := l.pos
+
+	// Read final byte (0x40-0x7E)
+	var final byte
+	if l.pos < len(l.input) {
+		b := l.input[l.pos]
+		if b >= 0x40 && b <= 0x7E {
+			final = b
+			l.pos++
+		}
+	}
+
+	return Token{
+		Type:   CSIToken,
+		Text:   l.input[start:l.pos],
+		Params: l.input[paramStart:paramEnd],
+		Final:  final,
+	}
+}
+package mouse
+
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
+
+func TestLexer(t *testing.T) {
+	t.Run("PlainText", func(t *testing.T) {
+		l := NewLexer("Hello World")
+
+		tok := l.Next()
+		assert.Equal(t, TextToken, tok.Type)
+		assert.Equal(t, "Hello World", tok.Text)
+
+		tok = l.Next()
+		assert.Equal(t, EOFToken, tok.Type)
+	})
+
+	t.Run("TextWithCSI", func(t *testing.T) {
+		l := NewLexer("Hello\x1b[31mRed\x1b[0mWorld")
+
+		tok := l.Next()
+		assert.Equal(t, TextToken, tok.Type)
+		assert.Equal(t, "Hello", tok.Text)
+
+		tok = l.Next()
+		assert.Equal(t, CSIToken, tok.Type)
+		assert.Equal(t, "\x1b[31m", tok.Text)
+		assert.Equal(t, "31", tok.Params)
+		assert.Equal(t, byte('m'), tok.Final)
+
+		tok = l.Next()
+		assert.Equal(t, TextToken, tok.Type)
+		assert.Equal(t, "Red", tok.Text)
+
+		tok = l.Next()
+		assert.Equal(t, CSIToken, tok.Type)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/mouse/tracker.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; grep -rn "mouse.Mark\|mouse.Sweep\|Sweep(" internal/ui | head -40; echo ---; sed -n 1,110p internal/ui/actions_menu.go; echo ---; sed -n 1,80p internal/ui/menu.go
+internal/ui/app.go:257:		content = mouse.Sweep(m.currentScreen.View())
+internal/ui/confirmation.go:71:	confirmButton := mouse.Mark("confirm", confirmStyle.Render(m.confirmLabel))
+internal/ui/confirmation.go:77:	cancelButton := mouse.Mark("cancel", cancelStyle.Render("Cancel"))
+internal/ui/form.go:304:		field := mouse.Mark(fieldTarget(i), inputStyle.Render(item.Field.View()))
+internal/ui/form.go:313:	submitButton := mouse.Mark("submit", Styles.Focus(Styles.ButtonPrimary, f.focused == f.submitIndex()).
+internal/ui/form.go:319:		actionBtn := mouse.Mark("action", Styles.Focus(Styles.Button, f.focused == f.actionIndex()).
+internal/ui/form.go:324:	cancelButton := mouse.Mark("cancel", Styles.Focus(Styles.Button, f.focused == f.cancelIndex()).
+internal/ui/help.go:93:		line.WriteString(mouse.Mark(helpTarget(it.index), it.str))
+internal/ui/menu.go:127:			lines[i] = mouse.Mark(menuItemTarget(i), line)
+internal/ui/menu.go:139:		lines[i] = mouse.Mark(menuItemTarget(i), line)
+internal/ui/popup_help.go:93:	okButton := mouse.Mark("ok", buttonStyle.Render("OK"))
+internal/ui/settings.go:288:	button := mouse.Mark("done", buttonStyle.Render("Done"))
+internal/ui/settings_form_environment.go:177:		keyView := mouse.Mark(fieldTarget(keyIdx), keyStyle.Render(m.form.TextField(keyIdx).View()))
+internal/ui/settings_form_environment.go:178:		valueView := mouse.Mark(fieldTarget(valIdx), valueStyle.Render(m.form.TextField(valIdx).View()))
+internal/ui/settings_form_environment.go:193:	submitButton := mouse.Mark("submit", Styles.Focus(Styles.ButtonPrimary, focused == submitIdx).
+internal/ui/settings_form_environment.go:195:	cancelButton := mouse.Mark("cancel", Styles.Focus(Styles.Button, focused == cancelIdx).
+---
+package ui
+
+import (
+	"charm.land/bubbles/v2/key"
+	tea "charm.land/bubbletea/v2"
+	"charm.land/lipgloss/v2"
+
+	"github.com/basecamp/once/internal/docker"
+)
+
+var actionsMenuCloseKey = WithHelp(NewKeyBinding("esc"), "esc", "close")
+
+type ActionsMenuCloseMsg struct{}
+
+type ActionsMenuSelectMsg struct {
+	app    *docker.Application
+	action ActionsMenuAction
+}
+
+type ActionsMenuAction int
+
+const (
+	ActionsMenuStartStop ActionsMenuAction = iota
+	ActionsMenuRemove
+)
+
+type ActionsMenu struct {
+	app  *docker.Application
+	menu Menu
+	help Help
+}
+
+func NewActionsMenu(app *docker.Application) ActionsMenu {
+	startStopLabel := "Start"
+	if app.Running {
+		startStopLabel = "Stop"
+	}
+
+	h := NewHelp()
+	h.SetBindings([]key.Binding{actionsMenuCloseKey})
+	return ActionsMenu{
+		app: app,
+		menu: NewMenu(
+			MenuItem{Label: startStopLabel, Key: int(ActionsMenuStartStop), Shortcut: WithHelp(NewKeyBinding("s"), "s", "")},
+			MenuItem{Label: "Remove", Key: int(ActionsMenuRemove), Shortcut: WithHelp(NewKeyBinding("r"), "r", "")},
+		),
+		help: h,
+	}
+}
+
+func (m ActionsMenu) Init() tea.Cmd {
+	return nil
+}
+
+func (m ActionsMenu) Update(msg tea.Msg) (Component, tea.Cmd) {
+	switch msg := msg.(type) {
+	case MouseEvent:
+		var cmd tea.Cmd
+		m.help, cmd = m.help.Update(msg)
+		if cmd != nil {
+			return m, cmd
+		}
+
+	case tea.KeyPressMsg:
+		if key.Matches(msg, actionsMenuCloseKey) {
+			return m, func() tea.Msg { return ActionsMenuCloseMsg{} }
+		}
+
+	case MenuSelectMsg:
+		return m, m.selectAction(ActionsMenuAction(msg.Key))
+	}
+
+	var cmd tea.Cmd
+	m.menu, cmd = m.menu.Update(msg)
+	return m, cmd
+}
+
+func (m ActionsMenu) View() string {
+	boxStyle := lipgloss.NewStyle().
+		Border(lipgloss.RoundedBorder()).
+		BorderForeground(Colors.Border).
+		Padding(1, 4)
+
+	titleStyle := lipgloss.NewStyle().
+		Bold(true).
+		Foreground(Colors.Primary).
+		MarginBottom(1)
+
+	title := titleStyle.Render("Actions")
+
+	m.menu.SetWidth(20)
+	menuView := m.menu.View()
+
+	helpView := m.help.View()
+	menuWidth := lipgloss.Width(menuView)
+	helpLine := lipgloss.NewStyle().MarginTop(1).Width(menuWidth).Align(lipgloss.Center).Render(helpView)
+
+	content := lipgloss.JoinVertical(lipgloss.Center,
+		title,
+		menuView,
+		helpLine,
+	)
+
+	return boxStyle.Render(content)
+}
+
+// Private
+
+func (m ActionsMenu) selectAction(action ActionsMenuAction) tea.Cmd {
+	return func() tea.Msg {
+---
+package ui
+
+import (
+	"strconv"
+	"strings"
+
+	"charm.land/bubbles/v2/key"
+	tea "charm.land/bubbletea/v2"
+	"charm.land/lipgloss/v2"
+
+	"github.com/basecamp/once/internal/mouse"
+)
+
+var menuKeys = struct {
+	Up     key.Binding
+	Down   key.Binding
+	Select key.Binding
+}{
+	Up:     NewKeyBinding("up", "k"),
+	Down:   NewKeyBinding("down", "j"),
+	Select: NewKeyBinding("enter"),
+}
+
+type MenuItem struct {
+	Label    string
+	Key      int
+	Shortcut key.Binding
+}
+
+type MenuSelectMsg struct{ Key int }
+
+type Menu struct {
+	items        []MenuItem
+	selected     int
+	width        int
+	minWidth     int
+	hasShortcuts bool
+}
+
+func NewMenu(items ...MenuItem) Menu {
+	maxLabel := 0
+	maxKey := 0
+	hasShortcuts := false
+	for _, item := range items {
+		if w := lipgloss.Width(item.Label); w > maxLabel {
+			maxLabel = w
+		}
+		if len(item.Shortcut.Keys()) > 0 {
+			hasShortcuts = true
+			if w := len(item.Shortcut.Help().Key); w > maxKey {
+				maxKey = w
+			}
+		}
+	}
+
+	minWidth := maxLabel
+	if hasShortcuts {
+		minWidth = maxLabel + 2 + maxKey
+	}
+
+	return Menu{
+		items:        items,
+		minWidth:     minWidth,
+		hasShortcuts: hasShortcuts,
+	}
+}
+
+func (m *Menu) SetWidth(w int) {
+	m.width = w
+}
+
+func (m Menu) Update(msg tea.Msg) (Menu, tea.Cmd) {
+	count := len(m.items)
+	if count == 0 {
+		return m, nil
+	}
+
+	switch msg := msg.(type) {
+	case MouseEvent:
+		if msg.IsClick {
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; sed -n 1,120p internal/ui/metric_card.go; echo ---; grep -n "func (m MetricCard) Health\|healthNormal\|type MetricCard" -n internal/ui/metric_card.go
+package ui
+
+import (
+	"fmt"
+	"image/color"
+	"strings"
+
+	"charm.land/lipgloss/v2"
+)
+
+type HealthState int
+
+const (
+	healthNormal HealthState = iota
+	healthWarning
+	healthError
+)
+
+func (h HealthState) Color() color.Color {
+	return Colors.HealthColor(h)
+}
+
+type MetricThresholds struct {
+	Warning float64
+	Error   float64
+}
+
+func (t MetricThresholds) Health(pct float64) HealthState {
+	switch {
+	case pct >= t.Error:
+		return healthError
+	case pct >= t.Warning:
+		return healthWarning
+	default:
+		return healthNormal
+	}
+}
+
+func (t MetricThresholds) Color(pct float64) color.Color {
+	return t.Health(pct).Color()
+}
+
+type MetricCard struct {
+	title      string
+	data       []float64
+	scale      ChartScale
+	unit       UnitType
+	limitLabel string
+	healthPct  float64
+	thresholds MetricThresholds
+
+	// Traffic-specific fields
+	isTraffic bool
+	errData   []float64
+}
+
+func NewMetricCard(title string, data []float64, scale ChartScale, unit UnitType, limitLabel string, warning, error float64) MetricCard {
+	scaleMax := scale.Max()
+	if scaleMax == 0 {
+		scaleMax = 1
+	}
+	current := lastValue(data)
+
+	return MetricCard{
+		title:      title,
+		data:       data,
+		scale:      scale,
+		unit:       unit,
+		limitLabel: limitLabel,
+		healthPct:  current / scaleMax * 100,
+		thresholds: MetricThresholds{Warning: warning, Error: error},
+	}
+}
+
+func NewTrafficCard(reqData, errData []float64, scale ChartScale, errPct float64, warning, error float64) MetricCard {
+	scaleLabel := ""
+	if scale.Max() > 0 {
+		scaleLabel = UnitCount.Format(scale.Max())
+	}
+
+	return MetricCard{
+		title:      "Traffic",
+		data:       reqData,
+		scale:      scale,
+		unit:       UnitCount,
+		limitLabel: scaleLabel,
+		healthPct:  errPct,
+		thresholds: MetricThresholds{Warning: warning, Error: error},
+		isTraffic:  true,
+		errData:    errData,
+	}
+}
+
+func (c MetricCard) Health() HealthState {
+	return c.thresholds.Health(c.healthPct)
+}
+
+func (c MetricCard) View(width int) string {
+	inner := width - 2 // left + right border
+
+	left := boxSide()
+	right := boxSide()
+
+	var barStr, valueLine, detailLine string
+	if c.isTraffic {
+		barStr, valueLine, detailLine = c.trafficLines(inner)
+	} else {
+		barStr, valueLine, detailLine = c.metricLines(inner)
+	}
+
+	contentLines := []string{
+		left + " " + barStr + padOrTruncate("", max(inner-1-lipgloss.Width(barStr), 0)) + right,
+		left + valueLine + right,
+		left + padOrTruncate(detailLine, inner) + right,
+	}
+
+	return boxTop(c.title, inner) + "\n" + strings.Join(contentLines, "\n") + "\n" + boxBottom(inner)
+}
+
+// Private
+---
+14:	healthNormal HealthState = iota
+35:		return healthNormal
+43:type MetricCard struct {
+150:		if health > healthNormal {
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mWrite internal/ui/channels.go
+Wrote file successfully: internal/ui/channels.go
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/ui/dashboard_panel.go
+Index: internal/ui/dashboard_panel.go
+===================================================================
+--- internal/ui/dashboard_panel.go
++++ internal/ui/dashboard_panel.go
+@@ -53,9 +53,9 @@
+ 	reqData, _ := p.fetchMetricsData()
+ 	return maxValue(reqData)
+ }
+ 
+-func (p DashboardPanel) View(selected bool, toggling bool, showDetails bool, width int, scales DashboardScales) string {
++func (p DashboardPanel) View(selected bool, toggling bool, active docker.Channel, showDetails bool, width int, scales DashboardScales) string {
+ 	innerWidth := max(width-3, 0) // indicator(1) + left padding(1) + right padding(1)
+ 	detailed := showDetails && p.app.Running
+ 
+ 	var cards [3]MetricCard
+@@ -68,12 +68,12 @@
+ 	badge := p.renderHealthBadge(cards)
+ 	left := badge + " " + url + " " + name
+ 
+ 	chips := p.chips(cards, toggling)
+-	right := renderChannelChips(chips)
++	right := renderChannelChips(chips, active)
+ 	for len(chips) > 1 && lipgloss.Width(left)+lipgloss.Width(right)+3 > innerWidth {
+ 		chips = chips[:len(chips)-1]
+-		right = renderChannelChips(chips)
++		right = renderChannelChips(chips, active)
+ 	}
+ 
+ 	gap := max(innerWidth-2-lipgloss.Width(left)-lipgloss.Width(right), 1)
+ 	titleLine := " " + left + strings.Repeat(" ", gap) + right + " "
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/ui/dashboard_panel.go
+Index: internal/ui/dashboard_panel.go
+===================================================================
+--- internal/ui/dashboard_panel.go
++++ internal/ui/dashboard_panel.go
+@@ -124,8 +124,16 @@
+ 	}
+ 	return bodyHeight + 2 // top + bottom transition lines
+ }
+ 
++func (p DashboardPanel) Channels(scales DashboardScales) []docker.Channel {
++	var cards [3]MetricCard
++	if p.app.Running {
++		cards = p.buildMetricCards(scales)
++	}
++	return p.channels(cards)
++}
++
+ // Private
+ 
+ func (p DashboardPanel) chips(cards [3]MetricCard, toggling bool) []channelChip {
+ 	if toggling {
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/ui/dashboard_panel.go
+Index: internal/ui/dashboard_panel.go
+===================================================================
+--- internal/ui/dashboard_panel.go
++++ internal/ui/dashboard_panel.go
+@@ -143,22 +143,25 @@
+ 		}
+ 		return []channelChip{{label: label, color: Colors.LightText}}
+ 	}
+ 
+-	channels := p.app.Channels(docker.ChannelContext{
+-		Now:        time.Now(),
+-		Stale:      p.stale(),
+-		Unhealthy:  p.unhealthy(cards),
+-		LastBackup: p.lastBackup(),
+-	})
+-
++	channels := p.channels(cards)
+ 	chips := make([]channelChip, len(channels))
+ 	for i, c := range channels {
+ 		chips[i] = newChannelChip(c)
+ 	}
+ 	return chips
+ }
+ 
++func (p DashboardPanel) channels(cards [3]MetricCard) []docker.Channel {
++	return p.app.Channels(docker.ChannelContext{
++		Now:        time.Now(),
++		Stale:      p.stale(),
++		Unhealthy:  p.unhealthy(cards),
++		LastBackup: p.lastBackup(),
++	})
++}
++
+ func (p DashboardPanel) stale() bool {
+ 	if p.dockerScraper == nil {
+ 		return false
+ 	}
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/ui/dashboard.go
+Index: internal/ui/dashboard.go
+===================================================================
+--- internal/ui/dashboard.go
++++ internal/ui/dashboard.go
+@@ -1,9 +1,11 @@
+ package ui
+ 
+ import (
+ 	"context"
++	"fmt"
+ 	"os"
++	"slices"
+ 	"strings"
+ 	"time"
+ 
+ 	"charm.land/bubbles/v2/key"
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/ui/dashboard.go
+Index: internal/ui/dashboard.go
+===================================================================
+--- internal/ui/dashboard.go
++++ internal/ui/dashboard.go
+@@ -64,8 +64,9 @@
+ 	help          Help
+ 	overlay       Component
+ 	state         *docker.State
+ 	stateLoadedAt time.Time
++	filter        docker.Channel
+ }
+ 
+ type dashboardTickMsg struct{}
+ 
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/ui/dashboard.go
+Index: internal/ui/dashboard.go
+===================================================================
+--- internal/ui/dashboard.go
++++ internal/ui/dashboard.go
+@@ -131,8 +131,16 @@
+ 		m.rebuildViewportContent()
+ 
+ 	case MouseEvent:
+ 		if msg.IsClick {
++			if channel, ok := channelFromTarget(msg.Target); ok {
++				source := -1
++				if i, ok := m.panelIndexAtY(msg.Y); ok {
++					source = i
++				}
++				m.toggleFilter(channel, source)
++				return m, nil
++			}
+ 			if i, ok := m.panelIndexAtY(msg.Y); ok {
+ 				m.selectPanel(i)
+ 				return m, nil
+ 			}
+@@ -145,13 +153,13 @@
+ 		if key.Matches(msg, dashboardKeys.Quit) {
+ 			return m, func() tea.Msg { return QuitMsg{} }
+ 		}
+ 		if key.Matches(msg, dashboardKeys.Up) {
+-			m.selectPanel(m.selectedIndex - 1)
++			m.moveSelection(-1)
+ 			return m, nil
+ 		}
+ 		if key.Matches(msg, dashboardKeys.Down) {
+-			m.selectPanel(m.selectedIndex + 1)
++			m.moveSelection(1)
+ 			return m, nil
+ 		}
+ 		if key.Matches(msg, dashboardKeys.NewApp) {
+ 			return m, func() tea.Msg { return NavigateToInstallMsg{} }
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/ui/dashboard.go [90m[offset=340, limit=120][0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/ui/dashboard.go
+Index: internal/ui/dashboard.go
+===================================================================
+--- internal/ui/dashboard.go
++++ internal/ui/dashboard.go
+@@ -355,8 +355,45 @@
+ 	m.rebuildViewportContent()
+ 	m.scrollToSelection()
+ }
+ 
++func (m *Dashboard) moveSelection(delta int) {
++	indices := m.visibleIndices(m.computeScales())
++	if len(indices) == 0 {
++		return
++	}
++
++	pos := slices.Index(indices, m.selectedIndex)
++	if pos < 0 {
++		m.selectPanel(indices[0])
++		return
++	}
++
++	pos = max(0, min(pos+delta, len(indices)-1))
++	m.selectPanel(indices[pos])
++}
++
++func (m *Dashboard) toggleFilter(channel docker.Channel, source int) {
++	if m.filter == channel {
++		m.filter = ""
++	} else {
++		m.filter = channel
++	}
++
++	indices := m.visibleIndices(m.computeScales())
++	if !slices.Contains(indices, m.selectedIndex) {
++		switch {
++		case slices.Contains(indices, source):
++			m.selectedIndex = source
++		case len(indices) > 0:
++			m.selectedIndex = indices[0]
++		}
++	}
++
++	m.rebuildViewportContent()
++	m.scrollToSelection()
++}
++
+ func (m *Dashboard) updateViewportSize() {
+ 	titleHeight := 1
+ 	headerHeight := m.header.Height(m.width)
+ 	if headerHeight > 0 {
+@@ -373,16 +410,43 @@
+ }
+ 
+ func (m *Dashboard) rebuildViewportContent() {
+ 	scales := m.computeScales()
++	indices := m.visibleIndices(scales)
++	if len(indices) > 0 && !slices.Contains(indices, m.selectedIndex) {
++		m.selectedIndex = indices[0]
++	}
++
+ 	var views []string
+-	for i := range m.panels {
++	for _, i := range indices {
+ 		toggling := m.toggling && m.togglingApp == m.panels[i].app.Settings.Name
+-		views = append(views, m.panels[i].View(i == m.selectedIndex, toggling, dashboardShowDetails, m.width, scales))
++		views = append(views, m.panels[i].View(i == m.selectedIndex, toggling, m.filter, dashboardShowDetails, m.width, scales))
+ 	}
++	if len(views) == 0 {
++		views = append(views, m.emptyFilterView())
++	}
+ 	m.viewport.SetContent(lipgloss.JoinVertical(lipgloss.Left, views...))
+ }
+ 
++func (m *Dashboard) visibleIndices(scales DashboardScales) []int {
++	indices := make([]int, 0, len(m.panels))
++	for i := range m.panels {
++		if m.filter == "" || slices.Contains(m.panels[i].Channels(scales), m.filter) {
++			indices = append(indices, i)
++		}
++	}
++	return indices
++}
++
++func (m Dashboard) emptyFilterView() string {
++	message := fmt.Sprintf("No applications in the %s channel", channelLabel(m.filter))
++	return lipgloss.NewStyle().
++		Width(m.width).
++		Align(lipgloss.Center).
++		Foreground(Colors.Border).
++		Render(message)
++}
++
+ func (m *Dashboard) computeScales() DashboardScales {
+ 	var maxTraffic float64
+ 	for i := range m.panels {
+ 		traffic := m.panels[i].DataMaxes()
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/ui/dashboard.go
+Index: internal/ui/dashboard.go
+===================================================================
+--- internal/ui/dashboard.go
++++ internal/ui/dashboard.go
+@@ -459,17 +459,24 @@
+ 	}
+ }
+ 
+ func (m *Dashboard) scrollToSelection() {
+-	if len(m.panels) == 0 {
++	indices := m.visibleIndices(m.computeScales())
++	if len(indices) == 0 {
++		m.viewport.SetYOffset(0)
+ 		return
+ 	}
+ 
++	pos := slices.Index(indices, m.selectedIndex)
++	if pos < 0 {
++		pos = 0
++	}
++
+ 	panelTop := 0
+-	for i := range m.selectedIndex {
++	for _, i := range indices[:pos] {
+ 		panelTop += m.panels[i].Height(dashboardShowDetails)
+ 	}
+-	panelBottom := panelTop + m.panels[m.selectedIndex].Height(dashboardShowDetails)
++	panelBottom := panelTop + m.panels[indices[pos]].Height(dashboardShowDetails)
+ 	if panelTop < m.viewport.YOffset() {
+ 		m.viewport.SetYOffset(panelTop)
+ 	} else if panelBottom > m.viewport.YOffset()+m.viewport.Height() {
+ 		m.viewport.SetYOffset(panelBottom - m.viewport.Height())
+@@ -488,9 +495,9 @@
+ 	}
+ 
+ 	contentRow := vpRow + m.viewport.YOffset()
+ 	top := 0
+-	for i := range m.panels {
++	for _, i := range m.visibleIndices(m.computeScales()) {
+ 		h := m.panels[i].Height(dashboardShowDetails)
+ 		if contentRow < top+h {
+ 			return i, true
+ 		}
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; grep -rn "\.View(.*toggling\|panel.View(\|renderChannelChips(" internal/ui --include=*.go
+internal/ui/dashboard.go:422:		views = append(views, m.panels[i].View(i == m.selectedIndex, toggling, m.filter, dashboardShowDetails, m.width, scales))
+internal/ui/dashboard_panel.go:72:	right := renderChannelChips(chips, active)
+internal/ui/dashboard_panel.go:75:		right = renderChannelChips(chips, active)
+internal/ui/dashboard_panel_test.go:17:	view := panel.View(false, false, true, 120, DashboardScales{})
+internal/ui/dashboard_panel_test.go:26:	view := panel.View(false, false, true, 120, DashboardScales{})
+internal/ui/dashboard_panel_test.go:36:	view := panel.View(false, false, true, 120, DashboardScales{})
+internal/ui/dashboard_panel_test.go:46:	view := panel.View(false, false, true, 120, DashboardScales{})
+internal/ui/dashboard_panel_test.go:57:	view := panel.View(false, false, true, 120, DashboardScales{})
+internal/ui/dashboard_panel_test.go:65:	view := panel.View(false, false, true, 120, DashboardScales{})
+internal/ui/dashboard_panel_test.go:90:	view := panel.View(true, false, true, 80, DashboardScales{})
+internal/ui/dashboard_panel_test.go:100:	view := panel.View(false, false, true, 80, DashboardScales{})
+internal/ui/dashboard_panel_test.go:110:	view := panel.View(false, false, true, 30, DashboardScales{})
+internal/ui/dashboard_panel_test.go:118:	view := panel.View(false, false, true, 120, DashboardScales{})
+internal/ui/dashboard_panel_test.go:127:	view := panel.View(false, true, true, 120, DashboardScales{})
+internal/ui/dashboard_panel_test.go:135:	view := panel.View(false, false, false, 80, DashboardScales{})
+internal/ui/dashboard_panel_test.go:143:	running := renderChannelChips([]channelChip{newChannelChip(docker.ChannelRunning)})
+internal/ui/dashboard_panel_test.go:144:	stopped := renderChannelChips([]channelChip{newChannelChip(docker.ChannelStopped)})
+internal/ui/dashboard_panel_test.go:145:	noBackup := renderChannelChips([]channelChip{newChannelChip(docker.ChannelNoBackup)})
+internal/ui/channels.go:29:func renderChannelChips(chips []channelChip, active docker.Channel) string {
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; perl -0pi -e 's/panel\.View\((true|false), (true|false), /panel.View($1, $2, "", /g; s/renderChannelChips\((\[\]channelChip\{[^}]*\})\)/renderChannelChips($1, "")/g' internal/ui/dashboard_panel_test.go; grep -n "panel.View(\|renderChannelChips(" internal/ui/dashboard_panel_test.go
+17:	view := panel.View(false, false, "", true, 120, DashboardScales{})
+26:	view := panel.View(false, false, "", true, 120, DashboardScales{})
+36:	view := panel.View(false, false, "", true, 120, DashboardScales{})
+46:	view := panel.View(false, false, "", true, 120, DashboardScales{})
+57:	view := panel.View(false, false, "", true, 120, DashboardScales{})
+65:	view := panel.View(false, false, "", true, 120, DashboardScales{})
+90:	view := panel.View(true, false, "", true, 80, DashboardScales{})
+100:	view := panel.View(false, false, "", true, 80, DashboardScales{})
+110:	view := panel.View(false, false, "", true, 30, DashboardScales{})
+118:	view := panel.View(false, false, "", true, 120, DashboardScales{})
+127:	view := panel.View(false, true, "", true, 120, DashboardScales{})
+135:	view := panel.View(false, false, "", false, 80, DashboardScales{})
+143:	running := renderChannelChips([]channelChip{newChannelChip(docker.ChannelRunning)}, "")
+144:	stopped := renderChannelChips([]channelChip{newChannelChip(docker.ChannelStopped)}, "")
+145:	noBackup := renderChannelChips([]channelChip{newChannelChip(docker.ChannelNoBackup)}, "")
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/ui/dashboard_test.go
+Index: internal/ui/dashboard_test.go
+===================================================================
+--- internal/ui/dashboard_test.go
++++ internal/ui/dashboard_test.go
+@@ -232,30 +232,120 @@
+ 	assert.Contains(t, view, "There are no applications installed")
+ 	assert.Contains(t, view, "new app")
+ }
+ 
++func TestDashboard_ChannelChipFiltersPanels(t *testing.T) {
++	d := testDashboardWithApps(runningApp("web"), runningApp("api"), stoppedApp("worker"))
++	d.width = 120
++	d.height = 40
++	d.updateViewportSize()
++	d.rebuildViewportContent()
++
++	d, _ = updateDashboard(d, MouseEvent{IsClick: true, Target: channelTarget(docker.ChannelStopped)})
++
++	assert.Equal(t, docker.ChannelStopped, d.filter)
++	assert.Equal(t, []int{2}, d.visibleIndices(d.computeScales()))
++	assert.Equal(t, 2, d.selectedIndex)
++}
++
++func TestDashboard_ChannelChipTogglesFilterOff(t *testing.T) {
++	d := testDashboardWithApps(runningApp("web"), stoppedApp("worker"))
++	d.width = 120
++	d.height = 40
++	d.updateViewportSize()
++	d.rebuildViewportContent()
++
++	d, _ = updateDashboard(d, MouseEvent{IsClick: true, Target: channelTarget(docker.ChannelStopped)})
++	assert.Equal(t, docker.ChannelStopped, d.filter)
++
++	d, _ = updateDashboard(d, MouseEvent{IsClick: true, Target: channelTarget(docker.ChannelStopped)})
++	assert.Empty(t, d.filter)
++	assert.Len(t, d.visibleIndices(d.computeScales()), 2)
++}
++
++func TestDashboard_FilterKeepsSelectionOnClickedPanel(t *testing.T) {
++	d := testDashboardWithApps(runningApp("web"), stoppedApp("worker"))
++	d.width = 120
++	d.height = 40
++	d.updateViewportSize()
++	d.rebuildViewportContent()
++
++	d.toggleFilter(docker.ChannelStopped, 1)
++
++	assert.Equal(t, 1, d.selectedIndex)
++}
++
++func TestDashboard_KeyboardNavigationSkipsFilteredPanels(t *testing.T) {
++	d := testDashboardWithApps(runningApp("web"), stoppedApp("worker"), stoppedApp("cron"))
++	d.width = 120
++	d.height = 40
++	d.updateViewportSize()
++	d.rebuildViewportContent()
++
++	d.toggleFilter(docker.ChannelStopped, -1)
++	require.Equal(t, 1, d.selectedIndex)
++
++	d, _ = updateDashboard(d, keyPressMsg("down"))
++	assert.Equal(t, 2, d.selectedIndex)
++
++	d, _ = updateDashboard(d, keyPressMsg("down"))
++	assert.Equal(t, 2, d.selectedIndex)
++
++	d, _ = updateDashboard(d, keyPressMsg("up"))
++	assert.Equal(t, 1, d.selectedIndex)
++}
++
++func TestDashboard_EmptyFilterShowsMessage(t *testing.T) {
++	d := testDashboardWithApps(runningApp("web"))
++	d.width = 80
++	d.height = 24
++	d.updateViewportSize()
++	d.rebuildViewportContent()
++
++	d.toggleFilter(docker.ChannelStopped, -1)
++
++	assert.Empty(t, d.visibleIndices(d.computeScales()))
++	assert.Contains(t, d.View(), "No applications in the stopped channel")
++}
++
+ // Helpers
+ 
+ func testDashboard(numApps int) Dashboard {
+ 	apps := make([]*docker.Application, numApps)
+ 	for i := range numApps {
+-		apps[i] = &docker.Application{
+-			Running: true,
+-			Settings: docker.ApplicationSettings{
+-				Name: fmt.Sprintf("app-%d", i),
+-				Host: fmt.Sprintf("app-%d.example.com", i),
+-			},
+-		}
++		apps[i] = runningApp(fmt.Sprintf("app-%d", i))
+ 	}
++	return testDashboardWithApps(apps...)
++}
+ 
++func testDashboardWithApps(apps ...*docker.Application) Dashboard {
+ 	scraper := metrics.NewMetricsScraper(metrics.ScraperSettings{})
+ 	dockerScraper := &docker.Scraper{}
+ 	systemScraper := system.NewScraper(system.ScraperSettings{BufferSize: 10})
+ 
+ 	dashboardShowDetails = true
+ 	return NewDashboard(nil, apps, 0, scraper, dockerScraper, systemScraper, nil)
+ }
+ 
++func runningApp(name string) *docker.Application {
++	return &docker.Application{
++		Running: true,
++		Settings: docker.ApplicationSettings{
++			Name: name,
++			Host: name + ".example.com",
++		},
++	}
++}
++
++func stoppedApp(name string) *docker.Application {
++	return &docker.Application{
++		Settings: docker.ApplicationSettings{
++			Name: name,
++			Host: name + ".example.com",
++		},
++	}
++}
++
+ func updateDashboard(d Dashboard, msg tea.Msg) (Dashboard, tea.Cmd) {
+ 	comp, cmd := d.Update(msg)
+ 	return comp.(Dashboard), cmd
+ }
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; gofmt -w internal/ui/channels.go internal/ui/dashboard.go internal/ui/dashboard_panel.go internal/ui/dashboard_panel_test.go internal/ui/dashboard_test.go && make test
+go test ./internal/...
+ok  	github.com/basecamp/once/internal/background	(cached)
+ok  	github.com/basecamp/once/internal/command	0.010s
+ok  	github.com/basecamp/once/internal/docker	0.042s
+ok  	github.com/basecamp/once/internal/fsutil	(cached)
+?   	github.com/basecamp/once/internal/logging	[no test files]
+ok  	github.com/basecamp/once/internal/metrics	0.010s
+ok  	github.com/basecamp/once/internal/mouse	(cached)
+?   	github.com/basecamp/once/internal/service	[no test files]
+ok  	github.com/basecamp/once/internal/system	(cached)
+ok  	github.com/basecamp/once/internal/ui	0.235s
+ok  	github.com/basecamp/once/internal/userstats	(cached)
+ok  	github.com/basecamp/once/internal/version	(cached)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; make lint
+golangci-lint run
+internal/ui/dashboard.go:470:5: minmax: if statement can be modernized using max (modernize)
+	if pos < 0 {
+	   ^
+1 issues:
+* modernize: 1
+make: *** [Makefile:32: lint] Error 1
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/ui/dashboard.go
+Index: internal/ui/dashboard.go
+===================================================================
+--- internal/ui/dashboard.go
++++ internal/ui/dashboard.go
+@@ -466,11 +466,9 @@
+ 		return
+ 	}
+ 
+ 	pos := slices.Index(indices, m.selectedIndex)
+-	if pos < 0 {
+-		pos = 0
+-	}
++	pos = max(pos, 0)
+ 
+ 	panelTop := 0
+ 	for _, i := range indices[:pos] {
+ 		panelTop += m.panels[i].Height(dashboardShowDetails)
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; gofmt -w internal/ui/dashboard.go && make test && make lint
+go test ./internal/...
+ok  	github.com/basecamp/once/internal/background	(cached)
+ok  	github.com/basecamp/once/internal/command	(cached)
+ok  	github.com/basecamp/once/internal/docker	(cached)
+ok  	github.com/basecamp/once/internal/fsutil	(cached)
+?   	github.com/basecamp/once/internal/logging	[no test files]
+ok  	github.com/basecamp/once/internal/metrics	(cached)
+ok  	github.com/basecamp/once/internal/mouse	(cached)
+?   	github.com/basecamp/once/internal/service	[no test files]
+ok  	github.com/basecamp/once/internal/system	(cached)
+ok  	github.com/basecamp/once/internal/ui	0.320s
+ok  	github.com/basecamp/once/internal/userstats	(cached)
+ok  	github.com/basecamp/once/internal/version	(cached)
+golangci-lint run
+0 issues.
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; git diff --stat; git diff -- internal/ui/channels.go internal/ui/dashboard_panel.go | sed -n 1,200p
+internal/ui/channels.go             |  31 +++++++++--
+ internal/ui/dashboard.go            |  96 ++++++++++++++++++++++++++++++---
+ internal/ui/dashboard_panel.go      |  31 +++++++----
+ internal/ui/dashboard_panel_test.go |  30 +++++------
+ internal/ui/dashboard_test.go       | 104 +++++++++++++++++++++++++++++++++---
+ 5 files changed, 248 insertions(+), 44 deletions(-)
+diff --git i/internal/ui/channels.go w/internal/ui/channels.go
+index 630d2a4..574597e 100644
+--- i/internal/ui/channels.go
++++ w/internal/ui/channels.go
+@@ -7,8 +7,11 @@ import (
+ 	"charm.land/lipgloss/v2"
+ 
+ 	"github.com/basecamp/once/internal/docker"
++	"github.com/basecamp/once/internal/mouse"
+ )
+ 
++const channelTargetPrefix = "channel:"
++
+ type channelChip struct {
+ 	channel docker.Channel
+ 	label   string
+@@ -23,18 +26,38 @@ func newChannelChip(channel docker.Channel) channelChip {
+ 	}
+ }
+ 
+-func renderChannelChips(chips []channelChip) string {
++func renderChannelChips(chips []channelChip, active docker.Channel) string {
+ 	parts := make([]string, len(chips))
+ 	for i, chip := range chips {
+-		parts[i] = lipgloss.NewStyle().Foreground(Colors.Border).Render("[") +
+-			lipgloss.NewStyle().Foreground(chip.color).Render(chip.label) +
+-			lipgloss.NewStyle().Foreground(Colors.Border).Render("]")
++		borderColor := Colors.Border
++		labelStyle := lipgloss.NewStyle().Foreground(chip.color)
++		if chip.channel == active {
++			borderColor = Colors.Focused
++			labelStyle = labelStyle.Bold(true)
++		}
++
++		rendered := lipgloss.NewStyle().Foreground(borderColor).Render("[") +
++			labelStyle.Render(chip.label) +
++			lipgloss.NewStyle().Foreground(borderColor).Render("]")
++		parts[i] = mouse.Mark(channelTarget(chip.channel), rendered)
+ 	}
+ 	return strings.Join(parts, " ")
+ }
+ 
+ // Helpers
+ 
++func channelTarget(channel docker.Channel) string {
++	return channelTargetPrefix + string(channel)
++}
++
++func channelFromTarget(target string) (docker.Channel, bool) {
++	name, ok := strings.CutPrefix(target, channelTargetPrefix)
++	if !ok || name == "" {
++		return "", false
++	}
++	return docker.Channel(name), true
++}
++
+ func channelLabel(channel docker.Channel) string {
+ 	switch channel {
+ 	case docker.ChannelNoBackup:
+diff --git i/internal/ui/dashboard_panel.go w/internal/ui/dashboard_panel.go
+index 0a1a3db..d2bf334 100644
+--- i/internal/ui/dashboard_panel.go
++++ w/internal/ui/dashboard_panel.go
+@@ -54,7 +54,7 @@ func (p DashboardPanel) DataMaxes() (traffic float64) {
+ 	return maxValue(reqData)
+ }
+ 
+-func (p DashboardPanel) View(selected bool, toggling bool, showDetails bool, width int, scales DashboardScales) string {
++func (p DashboardPanel) View(selected bool, toggling bool, active docker.Channel, showDetails bool, width int, scales DashboardScales) string {
+ 	innerWidth := max(width-3, 0) // indicator(1) + left padding(1) + right padding(1)
+ 	detailed := showDetails && p.app.Running
+ 
+@@ -69,10 +69,10 @@ func (p DashboardPanel) View(selected bool, toggling bool, showDetails bool, wid
+ 	left := badge + " " + url + " " + name
+ 
+ 	chips := p.chips(cards, toggling)
+-	right := renderChannelChips(chips)
++	right := renderChannelChips(chips, active)
+ 	for len(chips) > 1 && lipgloss.Width(left)+lipgloss.Width(right)+3 > innerWidth {
+ 		chips = chips[:len(chips)-1]
+-		right = renderChannelChips(chips)
++		right = renderChannelChips(chips, active)
+ 	}
+ 
+ 	gap := max(innerWidth-2-lipgloss.Width(left)-lipgloss.Width(right), 1)
+@@ -125,6 +125,14 @@ func (p DashboardPanel) Height(showDetails bool) int {
+ 	return bodyHeight + 2 // top + bottom transition lines
+ }
+ 
++func (p DashboardPanel) Channels(scales DashboardScales) []docker.Channel {
++	var cards [3]MetricCard
++	if p.app.Running {
++		cards = p.buildMetricCards(scales)
++	}
++	return p.channels(cards)
++}
++
+ // Private
+ 
+ func (p DashboardPanel) chips(cards [3]MetricCard, toggling bool) []channelChip {
+@@ -136,13 +144,7 @@ func (p DashboardPanel) chips(cards [3]MetricCard, toggling bool) []channelChip
+ 		return []channelChip{{label: label, color: Colors.LightText}}
+ 	}
+ 
+-	channels := p.app.Channels(docker.ChannelContext{
+-		Now:        time.Now(),
+-		Stale:      p.stale(),
+-		Unhealthy:  p.unhealthy(cards),
+-		LastBackup: p.lastBackup(),
+-	})
+-
++	channels := p.channels(cards)
+ 	chips := make([]channelChip, len(channels))
+ 	for i, c := range channels {
+ 		chips[i] = newChannelChip(c)
+@@ -150,6 +152,15 @@ func (p DashboardPanel) chips(cards [3]MetricCard, toggling bool) []channelChip
+ 	return chips
+ }
+ 
++func (p DashboardPanel) channels(cards [3]MetricCard) []docker.Channel {
++	return p.app.Channels(docker.ChannelContext{
++		Now:        time.Now(),
++		Stale:      p.stale(),
++		Unhealthy:  p.unhealthy(cards),
++		LastBackup: p.lastBackup(),
++	})
++}
++
+ func (p DashboardPanel) stale() bool {
+ 	if p.dockerScraper == nil {
+ 		return false
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; sed -n 128,210p internal/ui/styles.go
+bgLines[bgIdx] = left + ansi.ResetStyle + fgLine + ansi.ResetStyle + right
+	}
+
+	return strings.Join(bgLines, "\n")
+}
+
+// WithBackground re-applies a background color after any SGR reset sequences
+// within the content, so that inner styled elements don't clear the outer
+// background. Resets with no visible content following on the same line are
+// left alone, preventing the background from bleeding past the panel edge.
+func WithBackground(bg color.Color, content string) string {
+	bgSeq := ansi.NewStyle().BackgroundColor(bg).String()
+	p := ansi.NewParser()
+	lines := strings.Split(content, "\n")
+	for i, line := range lines {
+		lines[i] = applyBackgroundToLine(line, bgSeq, p)
+	}
+	return strings.Join(lines, "\n")
+}
+
+// Box drawing helpers for bordered panels used across chart, metric card,
+// visits card, and disk gauge components.
+
+func boxTop(title string, innerWidth int) string {
+	titleLen := lipgloss.Width(title)
+	fill := max(innerWidth-1-titleLen, 0) // 1 for dash before title
+	return borderStyle.Render("╭─" + title + strings.Repeat("─", fill) + "╮")
+}
+
+func boxBottom(innerWidth int) string {
+	return borderStyle.Render("╰" + strings.Repeat("─", innerWidth) + "╯")
+}
+
+func boxSide() string {
+	return borderStyle.Render("│")
+}
+
+// distributeWidths divides total evenly among count items, distributing any
+// remainder one pixel at a time to the first items.
+func distributeWidths(total, count int) []int {
+	if count <= 0 {
+		return nil
+	}
+	base := total / count
+	rem := total % count
+	widths := make([]int, count)
+	for i := range widths {
+		widths[i] = base
+		if i < rem {
+			widths[i]++
+		}
+	}
+	return widths
+}
+
+func padOrTruncate(s string, width int) string {
+	w := lipgloss.Width(s)
+	if w >= width {
+		return s[:width]
+	}
+	return s + strings.Repeat(" ", width-w)
+}
+
+func formatValueLine(valueStr, limitLabel string, inner int) string {
+	if limitLabel != "" {
+		limitStr := lipgloss.NewStyle().Foreground(Colors.Border).Render("·" + limitLabel)
+		gap := max(inner-lipgloss.Width(valueStr)-lipgloss.Width(limitStr)-1, 0)
+		return valueStr + strings.Repeat(" ", gap) + limitStr + " "
+	}
+	return padOrTruncate(valueStr, inner)
+}
+
+// Helpers
+
+func applyBackgroundToLine(line, bgSeq string, p *ansi.Parser) string {
+	var result strings.Builder
+	remaining := line
+	var state byte
+	for len(remaining) > 0 {
+		seq, _, n, newState := ansi.DecodeSequence(remaining, state, p)
+		state = newState
+		result.WriteString(seq)
+		if isSGRReset(seq, p) && hasVisibleContent(remaining[n:]) {
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/ui/dashboard.go
+Index: internal/ui/dashboard.go
+===================================================================
+--- internal/ui/dashboard.go
++++ internal/ui/dashboard.go
+@@ -437,9 +437,10 @@
+ 	return indices
+ }
+ 
+ func (m Dashboard) emptyFilterView() string {
+-	message := fmt.Sprintf("No applications in the %s channel", channelLabel(m.filter))
++	chip := renderChannelChips([]channelChip{newChannelChip(m.filter)}, m.filter)
++	message := "No applications in the " + chip + " channel"
+ 	return lipgloss.NewStyle().
+ 		Width(m.width).
+ 		Align(lipgloss.Center).
+ 		Foreground(Colors.Border).
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/ui/dashboard.go
+Index: internal/ui/dashboard.go
+===================================================================
+--- internal/ui/dashboard.go
++++ internal/ui/dashboard.go
+@@ -1,9 +1,8 @@
+ package ui
+ 
+ import (
+ 	"context"
+-	"fmt"
+ 	"os"
+ 	"slices"
+ 	"strings"
+ 	"time"
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/ui/dashboard_test.go
+Index: internal/ui/dashboard_test.go
+===================================================================
+--- internal/ui/dashboard_test.go
++++ internal/ui/dashboard_test.go
+@@ -303,9 +303,13 @@
+ 
+ 	d.toggleFilter(docker.ChannelStopped, -1)
+ 
+ 	assert.Empty(t, d.visibleIndices(d.computeScales()))
+-	assert.Contains(t, d.View(), "No applications in the stopped channel")
++	assert.Contains(t, ansi.Strip(d.View()), "No applications in the [stopped] channel")
++
++	d, _ = updateDashboard(d, MouseEvent{IsClick: true, Target: channelTarget(docker.ChannelStopped)})
++	assert.Empty(t, d.filter)
++	assert.Len(t, d.visibleIndices(d.computeScales()), 1)
+ }
+ 
+ // Helpers
+ 
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/ui/dashboard_test.go
+Index: internal/ui/dashboard_test.go
+===================================================================
+--- internal/ui/dashboard_test.go
++++ internal/ui/dashboard_test.go
+@@ -5,8 +5,9 @@
+ 	"testing"
+ 	"time"
+ 
+ 	tea "charm.land/bubbletea/v2"
++	"github.com/charmbracelet/x/ansi"
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+ 
+ 	"github.com/basecamp/once/internal/docker"
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; gofmt -w internal/ui/dashboard.go internal/ui/dashboard_test.go && make test && make lint
+go test ./internal/...
+ok  	github.com/basecamp/once/internal/background	(cached)
+ok  	github.com/basecamp/once/internal/command	0.009s
+ok  	github.com/basecamp/once/internal/docker	(cached)
+ok  	github.com/basecamp/once/internal/fsutil	(cached)
+?   	github.com/basecamp/once/internal/logging	[no test files]
+ok  	github.com/basecamp/once/internal/metrics	(cached)
+ok  	github.com/basecamp/once/internal/mouse	(cached)
+?   	github.com/basecamp/once/internal/service	[no test files]
+ok  	github.com/basecamp/once/internal/system	(cached)
+ok  	github.com/basecamp/once/internal/ui	0.225s
+ok  	github.com/basecamp/once/internal/userstats	(cached)
+ok  	github.com/basecamp/once/internal/version	(cached)
+golangci-lint run
+0 issues.
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/ui/dashboard_panel_test.go
+Index: internal/ui/dashboard_panel_test.go
+===================================================================
+--- internal/ui/dashboard_panel_test.go
++++ internal/ui/dashboard_panel_test.go
+@@ -148,8 +148,25 @@
+ 	assert.Contains(t, ansi.Strip(stopped), "[stopped]")
+ 	assert.Contains(t, ansi.Strip(noBackup), "[no backup]")
+ }
+ 
++func TestRenderChannelChipsMouseTargets(t *testing.T) {
++	row := "row " + renderChannelChips([]channelChip{
++		newChannelChip(docker.ChannelRunning),
++		newChannelChip(docker.ChannelStopped),
++	}, "")
++
++	assert.Contains(t, ansi.Strip(mouse.Sweep(row)), "[running] [stopped]")
++	assert.Equal(t, channelTarget(docker.ChannelRunning), mouse.Resolve(5, 0))
++	assert.Equal(t, channelTarget(docker.ChannelStopped), mouse.Resolve(15, 0))
++}
++
++func TestRenderChannelChipsHighlightsActive(t *testing.T) {
++	chips := []channelChip{newChannelChip(docker.ChannelRunning)}
++
++	assert.NotEqual(t, renderChannelChips(chips, ""), renderChannelChips(chips, docker.ChannelRunning))
++}
++
+ func TestRenderBar(t *testing.T) {
+ 	bar := renderBar(50, 0, 100, Colors.Success, 10)
+ 	assert.NotEmpty(t, bar)
+ 	// Bar contains braille characters
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/ui/dashboard_panel_test.go
+Index: internal/ui/dashboard_panel_test.go
+===================================================================
+--- internal/ui/dashboard_panel_test.go
++++ internal/ui/dashboard_panel_test.go
+@@ -159,14 +159,8 @@
+ 	assert.Equal(t, channelTarget(docker.ChannelRunning), mouse.Resolve(5, 0))
+ 	assert.Equal(t, channelTarget(docker.ChannelStopped), mouse.Resolve(15, 0))
+ }
+ 
+-func TestRenderChannelChipsHighlightsActive(t *testing.T) {
+-	chips := []channelChip{newChannelChip(docker.ChannelRunning)}
+-
+-	assert.NotEqual(t, renderChannelChips(chips, ""), renderChannelChips(chips, docker.ChannelRunning))
+-}
+-
+ func TestRenderBar(t *testing.T) {
+ 	bar := renderBar(50, 0, 100, Colors.Success, 10)
+ 	assert.NotEmpty(t, bar)
+ 	// Bar contains braille characters
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/ui/dashboard_panel_test.go
+Index: internal/ui/dashboard_panel_test.go
+===================================================================
+--- internal/ui/dashboard_panel_test.go
++++ internal/ui/dashboard_panel_test.go
+@@ -9,8 +9,9 @@
+ 	"github.com/stretchr/testify/assert"
+ 
+ 	"github.com/basecamp/once/internal/docker"
+ 	"github.com/basecamp/once/internal/metrics"
++	"github.com/basecamp/once/internal/mouse"
+ )
+ 
+ func TestDashboardPanelViewRunningApp(t *testing.T) {
+ 	panel := testPanel(true)
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; gofmt -w internal/ui/dashboard_panel_test.go && go test ./internal/ui/ -run 'TestRenderChannelChips|TestDashboard_Channel|TestDashboard_Filter|TestDashboard_KeyboardNavigationSkips|TestDashboard_EmptyFilter' -v
+=== RUN   TestRenderChannelChips
+--- PASS: TestRenderChannelChips (0.00s)
+=== RUN   TestRenderChannelChipsMouseTargets
+--- PASS: TestRenderChannelChipsMouseTargets (0.00s)
+=== RUN   TestDashboard_ChannelChipFiltersPanels
+--- PASS: TestDashboard_ChannelChipFiltersPanels (0.00s)
+=== RUN   TestDashboard_ChannelChipTogglesFilterOff
+--- PASS: TestDashboard_ChannelChipTogglesFilterOff (0.00s)
+=== RUN   TestDashboard_FilterKeepsSelectionOnClickedPanel
+--- PASS: TestDashboard_FilterKeepsSelectionOnClickedPanel (0.00s)
+=== RUN   TestDashboard_KeyboardNavigationSkipsFilteredPanels
+--- PASS: TestDashboard_KeyboardNavigationSkipsFilteredPanels (0.00s)
+=== RUN   TestDashboard_EmptyFilterShowsMessage
+--- PASS: TestDashboard_EmptyFilterShowsMessage (0.00s)
+PASS
+ok  	github.com/basecamp/once/internal/ui	0.020s
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; grep -n "func (s \*Scraper) Fetch\|func (s \*Scraper) Stale" -A 20 internal/docker/scraper.go 2>/dev/null | head -60; ls internal/docker | grep -i scrap
+90:func (s *Scraper) Fetch(appName string, n int) []Sample {
+91-	s.mu.RLock()
+92-	defer s.mu.RUnlock()
+93-
+94-	data, ok := s.apps[appName]
+95-	if !ok {
+96-		return nil
+97-	}
+98-
+99-	return data.samples.FetchNewestFirst(n)
+100-}
+101-
+102-func (s *Scraper) LastError() error {
+103-	s.mu.RLock()
+104-	defer s.mu.RUnlock()
+105-	return s.lastError
+106-}
+107-
+108-// Stale reports whether the folder an app was deployed from has changed since
+109-// that deploy.
+110:func (s *Scraper) Stale(appName string) bool {
+111-	s.mu.RLock()
+112-	defer s.mu.RUnlock()
+113-	return s.stale[appName]
+114-}
+115-
+116-// Scrape snapshots the latest stats from streaming connections and records samples.
+117-// It also ensures streams are running for all current containers.
+118-func (s *Scraper) Scrape(ctx context.Context) {
+119-	containers, err := s.findAppContainers(ctx)
+120-	if err != nil {
+121-		s.setError(err)
+122-		return
+123-	}
+124-
+125-	s.updateStreams(ctx, containers)
+126-	s.updateStale(containers)
+127-
+128-	now := time.Now()
+129-	s.mu.Lock()
+130-	for appName, data := range s.apps {
+scraper.go
+scraper_test.go
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once; make test && make lint
+go test ./internal/...
+ok  	github.com/basecamp/once/internal/background	(cached)
+ok  	github.com/basecamp/once/internal/command	(cached)
+ok  	github.com/basecamp/once/internal/docker	(cached)
+ok  	github.com/basecamp/once/internal/fsutil	(cached)
+?   	github.com/basecamp/once/internal/logging	[no test files]
+ok  	github.com/basecamp/once/internal/metrics	(cached)
+ok  	github.com/basecamp/once/internal/mouse	(cached)
+?   	github.com/basecamp/once/internal/service	[no test files]
+ok  	github.com/basecamp/once/internal/system	(cached)
+ok  	github.com/basecamp/once/internal/ui	0.238s
+ok  	github.com/basecamp/once/internal/userstats	(cached)
+ok  	github.com/basecamp/once/internal/version	(cached)
+golangci-lint run
+0 issues.
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+Channel chips now filter the dashboard:
+
+- Chips are clickable via the mouse tracker (`internal/ui/channels.go`) and toggle a `Dashboard.filter`; clicking the active chip clears it.
+- Filtered panels are hidden from the viewport, keyboard/click selection skips them, and selection moves to the clicked/first visible panel (`internal/ui/dashboard.go`).
+- Empty filter state shows the active chip so it can still be cleared.
+- `internal/ui/dashboard_panel.go` exposes `Channels()` and highlights the active chip.
+
+`make test` and `make lint` both pass (`0 issues`).

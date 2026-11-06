@@ -7,7 +7,10 @@ import (
 	"charm.land/lipgloss/v2"
 
 	"github.com/basecamp/once/internal/docker"
+	"github.com/basecamp/once/internal/mouse"
 )
+
+const channelTargetPrefix = "channel:"
 
 type channelChip struct {
 	channel docker.Channel
@@ -23,17 +26,37 @@ func newChannelChip(channel docker.Channel) channelChip {
 	}
 }
 
-func renderChannelChips(chips []channelChip) string {
+func renderChannelChips(chips []channelChip, active docker.Channel) string {
 	parts := make([]string, len(chips))
 	for i, chip := range chips {
-		parts[i] = lipgloss.NewStyle().Foreground(Colors.Border).Render("[") +
-			lipgloss.NewStyle().Foreground(chip.color).Render(chip.label) +
-			lipgloss.NewStyle().Foreground(Colors.Border).Render("]")
+		borderColor := Colors.Border
+		labelStyle := lipgloss.NewStyle().Foreground(chip.color)
+		if chip.channel == active {
+			borderColor = Colors.Focused
+			labelStyle = labelStyle.Bold(true)
+		}
+
+		rendered := lipgloss.NewStyle().Foreground(borderColor).Render("[") +
+			labelStyle.Render(chip.label) +
+			lipgloss.NewStyle().Foreground(borderColor).Render("]")
+		parts[i] = mouse.Mark(channelTarget(chip.channel), rendered)
 	}
 	return strings.Join(parts, " ")
 }
 
 // Helpers
+
+func channelTarget(channel docker.Channel) string {
+	return channelTargetPrefix + string(channel)
+}
+
+func channelFromTarget(target string) (docker.Channel, bool) {
+	name, ok := strings.CutPrefix(target, channelTargetPrefix)
+	if !ok || name == "" {
+		return "", false
+	}
+	return docker.Channel(name), true
+}
 
 func channelLabel(channel docker.Channel) string {
 	switch channel {

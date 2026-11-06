@@ -3,6 +3,7 @@ package ui
 import (
 	"context"
 	"os"
+	"slices"
 	"strings"
 	"time"
 
@@ -63,6 +64,7 @@ type Dashboard struct {
 	overlay       Component
 	state         *docker.State
 	stateLoadedAt time.Time
+	filter        docker.Channel
 }
 
 type dashboardTickMsg struct{}
@@ -129,6 +131,14 @@ func (m Dashboard) Update(msg tea.Msg) (Component, tea.Cmd) {
 
 	case MouseEvent:
 		if msg.IsClick {
+			if channel, ok := channelFromTarget(msg.Target); ok {
+				source := -1
+				if i, ok := m.panelIndexAtY(msg.Y); ok {
+					source = i
+				}
+				m.toggleFilter(channel, source)
+				return m, nil
+			}
 			if i, ok := m.panelIndexAtY(msg.Y); ok {
 				m.selectPanel(i)
 				return m, nil
@@ -143,11 +153,11 @@ func (m Dashboard) Update(msg tea.Msg) (Component, tea.Cmd) {
 			return m, func() tea.Msg { return QuitMsg{} }
 		}
 		if key.Matches(msg, dashboardKeys.Up) {
-			m.selectPanel(m.selectedIndex - 1)
+			m.moveSelection(-1)
 			return m, nil
 		}
 		if key.Matches(msg, dashboardKeys.Down) {
-			m.selectPanel(m.selectedIndex + 1)
+			m.moveSelection(1)
 			return m, nil
 		}
 		if key.Matches(msg, dashboardKeys.NewApp) {
@@ -345,6 +355,43 @@ func (m *Dashboard) selectPanel(index int) {
 	m.scrollToSelection()
 }
 
+func (m *Dashboard) moveSelection(delta int) {
+	indices := m.visibleIndices(m.computeScales())
+	if len(indices) == 0 {
+		return
+	}
+
+	pos := slices.Index(indices, m.selectedIndex)
+	if pos < 0 {
+		m.selectPanel(indices[0])
+		return
+	}
+
+	pos = max(0, min(pos+delta, len(indices)-1))
+	m.selectPanel(indices[pos])
+}
+
+func (m *Dashboard) toggleFilter(channel docker.Channel, source int) {
+	if m.filter == channel {
+		m.filter = ""
+	} else {
+		m.filter = channel
+	}
+
+	indices := m.visibleIndices(m.computeScales())
+	if !slices.Contains(indices, m.selectedIndex) {
+		switch {
+		case slices.Contains(indices, source):
+			m.selectedIndex = source
+		case len(indices) > 0:
+			m.selectedIndex = indices[0]
+		}
+	}
+
+	m.rebuildViewportContent()
+	m.scrollToSelection()
+}
+
 func (m *Dashboard) updateViewportSize() {
 	titleHeight := 1
 	headerHeight := m.header.Height(m.width)
@@ -363,12 +410,40 @@ func (m *Dashboard) updateViewportSize() {
 
 func (m *Dashboard) rebuildViewportContent() {
 	scales := m.computeScales()
+	indices := m.visibleIndices(scales)
+	if len(indices) > 0 && !slices.Contains(indices, m.selectedIndex) {
+		m.selectedIndex = indices[0]
+	}
+
 	var views []string
-	for i := range m.panels {
+	for _, i := range indices {
 		toggling := m.toggling && m.togglingApp == m.panels[i].app.Settings.Name
-		views = append(views, m.panels[i].View(i == m.selectedIndex, toggling, dashboardShowDetails, m.width, scales))
+		views = append(views, m.panels[i].View(i == m.selectedIndex, toggling, m.filter, dashboardShowDetails, m.width, scales))
+	}
+	if len(views) == 0 {
+		views = append(views, m.emptyFilterView())
 	}
 	m.viewport.SetContent(lipgloss.JoinVertical(lipgloss.Left, views...))
+}
+
+func (m *Dashboard) visibleIndices(scales DashboardScales) []int {
+	indices := make([]int, 0, len(m.panels))
+	for i := range m.panels {
+		if m.filter == "" || slices.Contains(m.panels[i].Channels(scales), m.filter) {
+			indices = append(indices, i)
+		}
+	}
+	return indices
+}
+
+func (m Dashboard) emptyFilterView() string {
+	chip := renderChannelChips([]channelChip{newChannelChip(m.filter)}, m.filter)
+	message := "No applications in the " + chip + " channel"
+	return lipgloss.NewStyle().
+		Width(m.width).
+		Align(lipgloss.Center).
+		Foreground(Colors.Border).
+		Render(message)
 }
 
 func (m *Dashboard) computeScales() DashboardScales {
@@ -385,15 +460,20 @@ func (m *Dashboard) computeScales() DashboardScales {
 }
 
 func (m *Dashboard) scrollToSelection() {
-	if len(m.panels) == 0 {
+	indices := m.visibleIndices(m.computeScales())
+	if len(indices) == 0 {
+		m.viewport.SetYOffset(0)
 		return
 	}
 
+	pos := slices.Index(indices, m.selectedIndex)
+	pos = max(pos, 0)
+
 	panelTop := 0
-	for i := range m.selectedIndex {
+	for _, i := range indices[:pos] {
 		panelTop += m.panels[i].Height(dashboardShowDetails)
 	}
-	panelBottom := panelTop + m.panels[m.selectedIndex].Height(dashboardShowDetails)
+	panelBottom := panelTop + m.panels[indices[pos]].Height(dashboardShowDetails)
 	if panelTop < m.viewport.YOffset() {
 		m.viewport.SetYOffset(panelTop)
 	} else if panelBottom > m.viewport.YOffset()+m.viewport.Height() {
@@ -414,7 +494,7 @@ func (m *Dashboard) panelIndexAtY(y int) (int, bool) {
 
 	contentRow := vpRow + m.viewport.YOffset()
 	top := 0
-	for i := range m.panels {
+	for _, i := range m.visibleIndices(m.computeScales()) {
 		h := m.panels[i].Height(dashboardShowDetails)
 		if contentRow < top+h {
 			return i, true
