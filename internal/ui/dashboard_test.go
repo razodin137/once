@@ -334,6 +334,46 @@ func TestDashboard_FavoriteKeyTogglesAndSortsFirst(t *testing.T) {
 	assert.Equal(t, []int{0, 1, 2}, d.visibleIndices(d.computeScales()))
 }
 
+func TestDashboard_DriftKeyOpensAnotherRunningApp(t *testing.T) {
+	d := testDashboard(2)
+
+	_, cmd := updateDashboard(d, keyPressMsg("R"))
+	require.NotNil(t, cmd)
+}
+
+func TestDashboard_DriftKeyWithoutAnotherRunningApp(t *testing.T) {
+	d := testDashboard(1)
+
+	_, cmd := updateDashboard(d, keyPressMsg("R"))
+	assert.Nil(t, cmd)
+}
+
+func TestDriftTargetExcludesCurrentApp(t *testing.T) {
+	apps := []*docker.Application{runningApp("a"), runningApp("b"), runningApp("c")}
+
+	for range 50 {
+		index, ok := driftTarget(apps, 1)
+		require.True(t, ok)
+		assert.NotEqual(t, 1, index)
+	}
+}
+
+func TestDriftTargetSkipsStoppedApps(t *testing.T) {
+	apps := []*docker.Application{stoppedApp("a"), runningApp("b")}
+
+	index, ok := driftTarget(apps, 0)
+	require.True(t, ok)
+	assert.Equal(t, 1, index)
+}
+
+func TestDriftTargetNeedsRunningCandidate(t *testing.T) {
+	_, ok := driftTarget([]*docker.Application{runningApp("a")}, 0)
+	assert.False(t, ok)
+
+	_, ok = driftTarget([]*docker.Application{stoppedApp("a"), stoppedApp("b")}, 0)
+	assert.False(t, ok)
+}
+
 // Helpers
 
 func testDashboard(numApps int) Dashboard {

@@ -3,6 +3,7 @@ package ui
 import (
 	"context"
 	"log/slog"
+	"math/rand/v2"
 	"os"
 	"slices"
 	"strings"
@@ -13,6 +14,7 @@ import (
 	tea "charm.land/bubbletea/v2"
 	"charm.land/lipgloss/v2"
 
+	"github.com/basecamp/once/internal/browser"
 	"github.com/basecamp/once/internal/docker"
 	"github.com/basecamp/once/internal/metrics"
 	"github.com/basecamp/once/internal/system"
@@ -32,6 +34,7 @@ var dashboardKeys = struct {
 	NewApp   key.Binding
 	Logs     key.Binding
 	Contents key.Binding
+	Drift    key.Binding
 	Details  key.Binding
 	Quit     key.Binding
 }{
@@ -43,6 +46,7 @@ var dashboardKeys = struct {
 	NewApp:   WithHelp(NewKeyBinding("n"), "n", "new app"),
 	Logs:     WithHelp(NewKeyBinding("g"), "g", "logs"),
 	Contents: WithHelp(NewKeyBinding("C"), "C", "contents"),
+	Drift:    WithHelp(NewKeyBinding("R"), "R", "drift"),
 	Details:  WithHelp(NewKeyBinding("d"), "d", "toggle details"),
 	Quit:     WithHelp(NewKeyBinding("esc"), "esc", "quit"),
 }
@@ -194,6 +198,9 @@ func (m Dashboard) Update(msg tea.Msg) (Component, tea.Cmd) {
 			m.overlay, cmd = m.overlay.Update(tea.WindowSizeMsg{Width: m.width, Height: m.height})
 			return m, cmd
 		}
+		if key.Matches(msg, dashboardKeys.Drift) {
+			return m, m.drift()
+		}
 		if key.Matches(msg, dashboardKeys.Details) && len(m.apps) > 0 {
 			dashboardShowDetails = !dashboardShowDetails
 			m.updateViewportSize()
@@ -326,7 +333,8 @@ func (m Dashboard) helpBindings() []key.Binding {
 		return []key.Binding{
 			dashboardKeys.Up, dashboardKeys.Down, dashboardKeys.Actions,
 			dashboardKeys.Favorite, dashboardKeys.Settings, dashboardKeys.Logs,
-			dashboardKeys.Contents, dashboardKeys.Details, dashboardKeys.NewApp, dashboardKeys.Quit,
+			dashboardKeys.Contents, dashboardKeys.Drift, dashboardKeys.Details,
+			dashboardKeys.NewApp, dashboardKeys.Quit,
 		}
 	}
 	return []key.Binding{dashboardKeys.NewApp, dashboardKeys.Quit}
@@ -341,6 +349,21 @@ func (m Dashboard) runStartStop(app *docker.Application) tea.Cmd {
 			err = app.Start(context.Background())
 		}
 		return startStopFinishedMsg{err: err}
+	}
+}
+
+func (m Dashboard) drift() tea.Cmd {
+	index, ok := driftTarget(m.apps, m.selectedIndex)
+	if !ok {
+		return nil
+	}
+
+	app := m.apps[index]
+	return func() tea.Msg {
+		if err := browser.Open(app.URL()); err != nil {
+			slog.Warn("Failed to open drifted app", "app", app.Settings.Name, "error", err)
+		}
+		return nil
 	}
 }
 
@@ -572,6 +595,19 @@ func (m *Dashboard) refreshState() {
 }
 
 // Helpers
+
+func driftTarget(apps []*docker.Application, current int) (int, bool) {
+	candidates := make([]int, 0, len(apps))
+	for i, app := range apps {
+		if app.Running && i != current {
+			candidates = append(candidates, i)
+		}
+	}
+	if len(candidates) == 0 {
+		return 0, false
+	}
+	return candidates[rand.IntN(len(candidates))], true
+}
 
 func loadState(ns *docker.Namespace) *docker.State {
 	if ns == nil {

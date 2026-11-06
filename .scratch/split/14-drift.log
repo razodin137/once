@@ -1,0 +1,3043 @@
+[0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m✱ [0mGlob "**/*14*drift*" [90m1 match[0m
+[0m$ [0mls -la; ls -la .opencode 2>/dev/null; ls ~/.config/opencode/command 2>/dev/null
+total 64
+drwxr-xr-x 1 mrjohn mrjohn   352 Nov  6 17:59 .
+drwxr-xr-x 1 mrjohn mrjohn    24 Nov  6 18:01 ..
+-rw-r--r-- 1 mrjohn mrjohn  4449 Nov  6 17:42 AGENTS.md
+drwxr-xr-x 1 mrjohn mrjohn     8 Nov  6 17:59 bin
+drwxr-xr-x 1 mrjohn mrjohn    18 Nov  6 17:42 .claude
+drwxr-xr-x 1 mrjohn mrjohn     8 Nov  6 17:42 cmd
+-rw-r--r-- 1 mrjohn mrjohn     8 Nov  6 17:42 .dockerignore
+drwxr-xr-x 1 mrjohn mrjohn   196 Nov  6 18:41 .git
+drwxr-xr-x 1 mrjohn mrjohn    86 Nov  6 17:42 .github
+-rw-r--r-- 1 mrjohn mrjohn    53 Nov  6 17:42 .gitignore
+-rw-r--r-- 1 mrjohn mrjohn   216 Nov  6 17:42 .golangci.yml
+-rw-r--r-- 1 mrjohn mrjohn  3273 Nov  6 18:23 go.mod
+-rw-r--r-- 1 mrjohn mrjohn 14792 Nov  6 18:23 go.sum
+drwxr-xr-x 1 mrjohn mrjohn   138 Nov  6 17:42 installer
+drwxr-xr-x 1 mrjohn mrjohn    62 Nov  6 17:42 integration
+drwxr-xr-x 1 mrjohn mrjohn   158 Nov  6 17:42 internal
+-rw-r--r-- 1 mrjohn mrjohn  1292 Nov  6 17:42 Makefile
+-rw-r--r-- 1 mrjohn mrjohn    97 Nov  6 17:42 mise.toml
+-rw-r--r-- 1 mrjohn mrjohn  1053 Nov  6 17:42 MIT-LICENSE
+drwxr-xr-x 1 mrjohn mrjohn  2004 Nov  6 17:49 prompt
+drwxr-xr-x 1 mrjohn mrjohn   840 Nov  6 17:44 prompt-v1
+-rw-r--r-- 1 mrjohn mrjohn  8244 Nov  6 17:42 README.md
+drwxr-xr-x 1 mrjohn mrjohn    10 Nov  6 18:36 .scratch
+drwxr-xr-x 1 mrjohn mrjohn    30 Nov  5 23:06 scripts
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead prompt/14-drift.md 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcat .golangci.yml; echo ---; cat go.mod; echo ---; cat mise.toml
+version: "2"
+
+formatters:
+  enable:
+    - gofmt
+    - gci
+  settings:
+    gci:
+      sections:
+        - standard
+        - default
+        - localmodule
+
+linters:
+  enable:
+    - modernize
+  disable:
+    - errcheck
+---
+module github.com/basecamp/once
+
+go 1.27.0
+
+require (
+	charm.land/bubbles/v2 v2.2.1
+	charm.land/bubbletea/v2 v2.0.9
+	charm.land/lipgloss/v2 v2.0.6
+	github.com/axiomhq/hyperloglog v0.2.6
+	github.com/charmbracelet/colorprofile v0.4.3
+	github.com/charmbracelet/x/ansi v0.11.8
+	github.com/charmbracelet/x/term v0.2.2
+	github.com/containerd/errdefs v1.0.0
+	github.com/distribution/reference v0.6.0
+	github.com/google/go-containerregistry v0.22.1
+	github.com/lucasb-eyer/go-colorful v1.4.1
+	github.com/mattn/go-runewidth v0.0.29
+	github.com/moby/moby/api v1.56.0
+	github.com/moby/moby/client v0.6.0
+	github.com/prometheus/client_model v0.6.3
+	github.com/prometheus/common v0.71.0
+	github.com/shirou/gopsutil/v4 v4.26.8
+	github.com/spf13/cobra v1.10.2
+	github.com/stretchr/testify v1.12.1
+	github.com/yuin/goldmark v1.8.6
+)
+
+require (
+	github.com/Microsoft/go-winio v0.6.2 // indirect
+	github.com/atotto/clipboard v0.1.4 // indirect
+	github.com/cespare/xxhash/v2 v2.3.0 // indirect
+	github.com/charmbracelet/ultraviolet v0.0.0-20260811164956-006e29f97886 // indirect
+	github.com/charmbracelet/x/termios v0.1.1 // indirect
+	github.com/charmbracelet/x/windows v0.2.2 // indirect
+	github.com/clipperhouse/displaywidth v0.11.0 // indirect
+	github.com/clipperhouse/uax29/v2 v2.7.0 // indirect
+	github.com/containerd/errdefs/pkg v0.3.0 // indirect
+	github.com/dgryski/go-metro v0.0.0-20250106013310-edb8663e5e33 // indirect
+	github.com/docker/cli v29.7.2+incompatible // indirect
+	github.com/docker/docker-credential-helpers v0.9.8 // indirect
+	github.com/docker/go-connections v0.7.0 // indirect
+	github.com/docker/go-units v0.5.0 // indirect
+	github.com/ebitengine/purego v0.10.2 // indirect
+	github.com/felixge/httpsnoop v1.1.0 // indirect
+	github.com/go-logr/logr v1.4.3 // indirect
+	github.com/go-logr/stdr v1.2.2 // indirect
+	github.com/go-ole/go-ole v1.3.0 // indirect
+	github.com/inconshreveable/mousetrap v1.1.0 // indirect
+	github.com/kamstrup/intmap v0.5.2 // indirect
+	github.com/klauspost/compress v1.19.2 // indirect
+	github.com/lufia/plan9stats v0.0.0-20260330125221-c963978e514e // indirect
+	github.com/moby/docker-image-spec v1.3.1 // indirect
+	github.com/muesli/cancelreader v0.2.2 // indirect
+	github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822 // indirect
+	github.com/opencontainers/go-digest v1.0.0 // indirect
+	github.com/opencontainers/image-spec v1.1.1 // indirect
+	github.com/power-devops/perfstat v0.0.0-20240221224432-82ca36839d55 // indirect
+	github.com/rivo/uniseg v0.4.7 // indirect
+	github.com/sirupsen/logrus v1.9.4 // indirect
+	github.com/spf13/pflag v1.0.10 // indirect
+	github.com/tklauser/go-sysconf v0.4.0 // indirect
+	github.com/tklauser/numcpus v0.12.0 // indirect
+	github.com/xo/terminfo v0.0.0-20220910002029-abceb7e1c41e // indirect
+	github.com/yusufpapurcu/wmi v1.2.4 // indirect
+	go.opentelemetry.io/auto/sdk v1.2.1 // indirect
+	go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.69.0 // indirect
+	go.opentelemetry.io/otel v1.44.0 // indirect
+	go.opentelemetry.io/otel/metric v1.44.0 // indirect
+	go.opentelemetry.io/otel/trace v1.44.0 // indirect
+	go.yaml.in/yaml/v3 v3.0.5 // indirect
+	golang.org/x/sync v0.22.0 // indirect
+	golang.org/x/sys v0.47.0 // indirect
+	google.golang.org/protobuf v1.36.12 // indirect
+)
+---
+[tools]
+go = "latest"
+golangci-lint = "latest"
+"go:golang.org/x/vuln/cmd/govulncheck" = "latest"
+[0m$ [0mfind . -path ./.git -prune -o -type f -name '*.go' -print | head -50; echo ---; ls prompt; echo ---; cat Makefile
+./cmd/once/main.go
+./installer/main.go
+./installer/main_test.go
+./integration/docker_test.go
+./integration/testapp/main.go
+./integration/ui_test.go
+./internal/background/runner.go
+./internal/background/runner_test.go
+./internal/command/background.go
+./internal/command/background_install.go
+./internal/command/background_remove.go
+./internal/command/background_run.go
+./internal/command/backup.go
+./internal/command/cli_progress.go
+./internal/command/deploy.go
+./internal/command/deploy_test.go
+./internal/command/exec.go
+./internal/command/exec_test.go
+./internal/command/keys.go
+./internal/command/keys_reset.go
+./internal/command/keys_set.go
+./internal/command/list.go
+./internal/command/remove.go
+./internal/command/restore.go
+./internal/command/root.go
+./internal/command/root_test.go
+./internal/command/self_update.go
+./internal/command/settings_flags.go
+./internal/command/start.go
+./internal/command/stop.go
+./internal/command/teardown.go
+./internal/command/update.go
+./internal/command/update_test.go
+./internal/command/version.go
+./internal/docker/application.go
+./internal/docker/application_backup.go
+./internal/docker/application_backup_test.go
+./internal/docker/application_settings.go
+./internal/docker/application_settings_test.go
+./internal/docker/application_test.go
+./internal/docker/container.go
+./internal/docker/errors.go
+./internal/docker/errors_test.go
+./internal/docker/events.go
+./internal/docker/helpers.go
+./internal/docker/helpers_test.go
+./internal/docker/logs.go
+./internal/docker/logs_test.go
+./internal/docker/namespace.go
+./internal/docker/namespace_test.go
+---
+00-overview.md
+01-deploy-static-folder.md
+02-serve-static-apps.md
+03-redeploy-folder.md
+04-stale-source-detection.md
+05-folder-contents-fallback.md
+06-markdown-pages.md
+07-single-file-html-site.md
+08-remove-static-app.md
+09-contents-card.md
+10-contents-screen.md
+11-channels.md
+12-channel-filter.md
+13-favorites.md
+14-drift.md
+15-app-bar.md
+16-bar-keys.md
+17-bar-cross-fade.md
+18-bar-hide.md
+19-open-command.md
+20-show-command.md
+21-logs-command.md
+22-status-command.md
+23-list-json.md
+24-restart-command.md
+25-update-all.md
+26-doctor-command.md
+27-backups-list.md
+28-screenshot-capture.md
+29-card-thumbnails.md
+30-route-map.md
+31-page-weight.md
+32-broken-links.md
+33-meta-preview.md
+34-deploy-diff.md
+35-promote-on-evidence.md
+36-error-capture.md
+37-dashboard-filter.md
+38-command-palette.md
+39-toasts.md
+40-chart-time-range.md
+41-compact-layout.md
+42-appearance-settings.md
+43-app-details-view.md
+44-mouse-on-cards.md
+45-incremental-render.md
+46-chart-performance.md
+47-single-stats-stream.md
+48-share-link.md
+49-status-page.md
+50-house-style-pass.md
+---
+.PHONY: build test integration lint lint-actions coverage dist test-release
+
+PLATFORMS = linux darwin
+ARCHITECTURES = amd64 arm64
+VERSION := $(shell git describe --tags --always)
+LDFLAGS := -ldflags "-s -w -X 'github.com/basecamp/once/internal/version.Version=$(VERSION)'"
+
+TEST_RELEASE_TAG = v0.0.1-test
+
+build:
+	CGO_ENABLED=0 go build -trimpath $(LDFLAGS) -o bin/ ./cmd/...
+
+build-all:
+	@for os in $(PLATFORMS); do \
+		for arch in $(ARCHITECTURES); do \
+			echo "Building for $$os/$$arch..."; \
+			CGO_ENABLED=0 GOOS=$$os GOARCH=$$arch go build -trimpath $(LDFLAGS) -o bin/$$os-$$arch/ ./cmd/...; \
+		done; \
+	done
+
+test:
+	go test ./internal/...
+
+integration:
+	go test -v -count=1 -parallel 16 -timeout 30m ./integration/...
+
+check:
+	go vet ./...
+	govulncheck ./...
+
+lint:
+	golangci-lint run
+
+lint-actions:
+	actionlint
+	zizmor .
+
+coverage:
+	go test -coverprofile=coverage.out ./internal/...
+	go tool cover -html=coverage.out
+
+dist: build-all
+	mkdir -p dist
+	@for os in $(PLATFORMS); do \
+		for arch in $(ARCHITECTURES); do \
+			cp bin/$$os-$$arch/once dist/once-$$os-$$arch; \
+		done; \
+	done
+	cd dist && sha256sum once-* > checksums.txt
+
+test-release:
+	-gh release delete $(TEST_RELEASE_TAG) --yes --cleanup-tag
+	git tag -f $(TEST_RELEASE_TAG)
+	git push origin $(TEST_RELEASE_TAG) --force
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mls internal/ui 2>/dev/null; find . -path ./.git -prune -o -iname '*tui*' -print -o -iname '*ui*' -print | head -40
+actions_menu.go
+actions_menu_test.go
+app.go
+channels.go
+chart.go
+chart_scale.go
+chart_scale_test.go
+chart_test.go
+component.go
+confirmation.go
+confirmation_test.go
+contents_card.go
+contents_card_test.go
+dashboard.go
+dashboard_header.go
+dashboard_header_test.go
+dashboard_panel.go
+dashboard_panel_test.go
+dashboard_test.go
+favorite.go
+form.go
+form_test.go
+helpers_test.go
+help.go
+help_test.go
+install_activity.go
+install_app_list.go
+install_app_list_test.go
+install.go
+install_hostname_form.go
+install_hostname_form_test.go
+install_image_form.go
+install_image_form_test.go
+install_test.go
+keys.go
+logo.go
+logs.go
+logs_test.go
+menu.go
+menu_test.go
+metric_card.go
+metric_card_test.go
+palette_detect.go
+palette_detect_test.go
+palette.go
+palette_test.go
+popup_help.go
+popup_help_test.go
+progress.go
+remove.go
+remove_test.go
+settings_form_application.go
+settings_form_backups.go
+settings_form_base.go
+settings_form_email.go
+settings_form_environment.go
+settings_form_registry.go
+settings_form_resources.go
+settings_form_test.go
+settings_form_updates.go
+settings.go
+settings_menu.go
+settings_menu_test.go
+settings_test.go
+starfield.go
+styles.go
+styles_test.go
+terminal_size_guard.go
+terminal_size_guard_test.go
+./integration/ui_test.go
+./internal/ui
+[0m$ [0mls internal; echo ---; find internal -type d; echo ---; grep -rn "key.Matches\|case \"" internal/ui --include=*.go | head -60
+background
+command
+docker
+fsutil
+logging
+metrics
+mouse
+service
+system
+ui
+userstats
+version
+---
+internal
+internal/background
+internal/command
+internal/docker
+internal/fsutil
+internal/logging
+internal/metrics
+internal/mouse
+internal/service
+internal/system
+internal/ui
+internal/userstats
+internal/version
+---
+internal/ui/actions_menu.go:65:		if key.Matches(msg, actionsMenuCloseKey) {
+internal/ui/app.go:170:		if key.Matches(msg, appKeys.Quit) {
+internal/ui/confirmation.go:42:		case key.Matches(msg, confirmationKeys.Toggle):
+internal/ui/confirmation.go:44:		case key.Matches(msg, confirmationKeys.Enter):
+internal/ui/confirmation.go:46:		case key.Matches(msg, confirmationKeys.Esc):
+internal/ui/confirmation.go:53:			case "confirm":
+internal/ui/confirmation.go:55:			case "cancel":
+internal/ui/dashboard.go:155:		if key.Matches(msg, dashboardKeys.Quit) {
+internal/ui/dashboard.go:158:		if key.Matches(msg, dashboardKeys.Up) {
+internal/ui/dashboard.go:162:		if key.Matches(msg, dashboardKeys.Down) {
+internal/ui/dashboard.go:166:		if key.Matches(msg, dashboardKeys.NewApp) {
+internal/ui/dashboard.go:169:		if key.Matches(msg, dashboardKeys.Settings) && len(m.apps) > 0 {
+internal/ui/dashboard.go:176:		if key.Matches(msg, dashboardKeys.Actions) && len(m.apps) > 0 && !m.toggling {
+internal/ui/dashboard.go:183:		if key.Matches(msg, dashboardKeys.Favorite) && len(m.apps) > 0 {
+internal/ui/dashboard.go:187:		if key.Matches(msg, dashboardKeys.Logs) && len(m.apps) > 0 {
+internal/ui/dashboard.go:190:		if key.Matches(msg, dashboardKeys.Contents) && len(m.apps) > 0 {
+internal/ui/dashboard.go:197:		if key.Matches(msg, dashboardKeys.Details) && len(m.apps) > 0 {
+internal/ui/form.go:264:		case key.Matches(msg, formKeys.Tab):
+internal/ui/form.go:266:		case key.Matches(msg, formKeys.ShiftTab):
+internal/ui/form.go:268:		case key.Matches(msg, formKeys.Enter):
+internal/ui/form.go:463:	case "submit":
+internal/ui/form.go:467:	case "action":
+internal/ui/form.go:473:	case "cancel":
+internal/ui/install.go:158:			if key.Matches(msg, installKeys.Help) {
+internal/ui/install.go:165:			if key.Matches(msg, installKeys.Back) {
+internal/ui/logs.go:148:	if key.Matches(msg, logsKeys.Back) {
+internal/ui/logs.go:168:	case key.Matches(msg, logsKeys.Back):
+internal/ui/logs.go:172:	case key.Matches(msg, logsKeys.Filter) && m.filterEnabled:
+internal/ui/menu.go:91:		case key.Matches(msg, menuKeys.Up):
+internal/ui/menu.go:93:		case key.Matches(msg, menuKeys.Down):
+internal/ui/menu.go:95:		case key.Matches(msg, menuKeys.Select):
+internal/ui/menu.go:99:				if key.Matches(msg, item.Shortcut) {
+internal/ui/popup_help.go:57:		if key.Matches(msg, popupHelpKeys.Close) {
+internal/ui/remove.go:78:			if key.Matches(msg, removeKeys.Back) {
+internal/ui/settings.go:149:			if key.Matches(msg, settingsKeys.Enter) {
+internal/ui/settings.go:158:			if key.Matches(msg, settingsKeys.Back) {
+internal/ui/settings_menu.go:58:		if key.Matches(msg, settingsMenuCloseKey) {
+internal/ui/contents_card.go:66:		if key.Matches(msg, contentsCardFavoriteKey) {
+internal/ui/contents_card.go:72:		if key.Matches(msg, contentsCardCloseKey) {
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/ui/keys.go 
+[0m→ [0mRead internal/ui/dashboard.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcat internal/ui/app.go
+package ui
+
+import (
+	"context"
+	"log/slog"
+	"sync"
+	"time"
+
+	"charm.land/bubbles/v2/key"
+	tea "charm.land/bubbletea/v2"
+	"github.com/charmbracelet/colorprofile"
+
+	"github.com/basecamp/once/internal/docker"
+	"github.com/basecamp/once/internal/metrics"
+	"github.com/basecamp/once/internal/mouse"
+	"github.com/basecamp/once/internal/system"
+	"github.com/basecamp/once/internal/userstats"
+	"github.com/basecamp/once/internal/version"
+)
+
+var appKeys = struct {
+	Quit key.Binding
+}{
+	Quit: WithHelp(NewKeyBinding("ctrl+c"), "ctrl+c", "quit"),
+}
+
+type (
+	namespaceChangedMsg    struct{}
+	scrapeTickMsg          struct{}
+	scrapeUserStatsTickMsg struct{}
+	scrapeDoneMsg          struct{}
+
+	NavigateToInstallMsg   struct{}
+	NavigateToDashboardMsg struct {
+		AppName    string
+		AllowEmpty bool
+	}
+	NavigateToAppMsg             struct{ App *docker.Application }
+	NavigateToSettingsSectionMsg struct {
+		App     *docker.Application
+		Section SettingsSectionType
+	}
+	NavigateToLogsMsg   struct{ App *docker.Application }
+	NavigateToRemoveMsg struct{ App *docker.Application }
+
+	QuitMsg struct{}
+)
+
+type SettingsSectionType int
+
+const (
+	SettingsSectionApplication SettingsSectionType = iota
+	SettingsSectionRegistry
+	SettingsSectionEmail
+	SettingsSectionEnvironment
+	SettingsSectionResources
+	SettingsSectionUpdates
+	SettingsSectionBackups
+)
+
+type App struct {
+	namespace       *docker.Namespace
+	scraper         *metrics.MetricsScraper
+	dockerScraper   *docker.Scraper
+	systemScraper   *system.Scraper
+	userStats       *userstats.Reader
+	currentScreen   Component
+	sizeGuard       TerminalSizeGuard
+	lastSize        tea.WindowSizeMsg
+	eventChan       <-chan struct{}
+	watchCtx        context.Context
+	watchCancel     context.CancelFunc
+	installImageRef string
+}
+
+func NewApp(ns *docker.Namespace, installImageRef string) *App {
+	ctx, cancel := context.WithCancel(context.Background())
+	eventChan := ns.EventWatcher().Watch(ctx)
+
+	apps := ns.Applications()
+
+	metricsPort := docker.DefaultMetricsPort
+	if ns.Proxy().Settings != nil && ns.Proxy().Settings.MetricsPort != 0 {
+		metricsPort = ns.Proxy().Settings.MetricsPort
+	}
+
+	scraper := metrics.NewMetricsScraper(metrics.ScraperSettings{
+		Port:       metricsPort,
+		BufferSize: ChartSlidingWindow,
+	})
+
+	dockerScraper := docker.NewScraper(ns, docker.ScraperSettings{
+		BufferSize: containerStatsBuffer,
+	})
+
+	diskPath, err := ns.DockerRootDir(ctx)
+	if err != nil {
+		slog.Warn("failed to get Docker root dir, using default", "err", err)
+		diskPath = "/var/lib/docker"
+	}
+
+	systemScraper := system.NewScraper(system.ScraperSettings{
+		BufferSize: ChartHistoryLength,
+		DiskPath:   diskPath,
+	})
+
+	userStats := userstats.NewReader(ns.Name())
+
+	var screen Component
+	if len(apps) > 0 && installImageRef == "" {
+		screen = NewDashboard(ns, apps, 0, scraper, dockerScraper, systemScraper, userStats)
+	} else {
+		screen = NewInstall(ns, installImageRef)
+	}
+
+	return &App{
+		namespace:       ns,
+		scraper:         scraper,
+		dockerScraper:   dockerScraper,
+		systemScraper:   systemScraper,
+		userStats:       userStats,
+		currentScreen:   screen,
+		sizeGuard:       NewTerminalSizeGuard(80, 24),
+		eventChan:       eventChan,
+		watchCtx:        ctx,
+		watchCancel:     cancel,
+		installImageRef: installImageRef,
+	}
+}
+
+func (m *App) Init() tea.Cmd {
+	return tea.Batch(
+		m.currentScreen.Init(),
+		m.watchForChanges(),
+		m.runScrape(),
+		m.scheduleNextScrapeTick(),
+		m.runUserStatsScrape(),
+		m.scheduleNextUserStatsTick(),
+	)
+}
+
+func (m *App) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
+	switch msg := msg.(type) {
+	case tea.WindowSizeMsg:
+		m.lastSize = msg
+		m.sizeGuard = m.sizeGuard.Update(msg)
+
+	case tea.MouseClickMsg:
+		ms := msg.Mouse()
+		target := mouse.Resolve(ms.X, ms.Y)
+		var cmd tea.Cmd
+		m.currentScreen, cmd = m.currentScreen.Update(MouseEvent{
+			X:       ms.X,
+			Y:       ms.Y,
+			Button:  ms.Button,
+			Target:  target,
+			IsClick: true,
+		})
+		return m, cmd
+
+	case tea.MouseWheelMsg:
+		var cmd tea.Cmd
+		m.currentScreen, cmd = m.currentScreen.Update(msg)
+		return m, cmd
+
+	case tea.MouseReleaseMsg, tea.MouseMotionMsg:
+		return m, nil
+
+	case tea.KeyPressMsg:
+		if key.Matches(msg, appKeys.Quit) {
+			m.shutdown()
+			return m, tea.Quit
+		}
+
+	case namespaceChangedMsg:
+		if err := m.namespace.Refresh(m.watchCtx); err != nil {
+			slog.Error("refreshing namespace", "err", err)
+		}
+		var cmd tea.Cmd
+		m.currentScreen, cmd = m.currentScreen.Update(msg)
+		return m, tea.Batch(cmd, m.watchForChanges())
+
+	case scrapeTickMsg:
+		return m, tea.Batch(
+			m.runScrape(),
+			m.scheduleNextScrapeTick(),
+		)
+
+	case scrapeUserStatsTickMsg:
+		return m, tea.Batch(
+			m.runUserStatsScrape(),
+			m.scheduleNextUserStatsTick(),
+		)
+
+	case scrapeDoneMsg:
+		var cmd tea.Cmd
+		m.currentScreen, cmd = m.currentScreen.Update(msg)
+		return m, cmd
+
+	case NavigateToInstallMsg:
+		return m, m.navigateTo(NewInstall(m.namespace, ""))
+
+	case NavigateToAppMsg:
+		if err := m.namespace.Refresh(m.watchCtx); err != nil {
+			slog.Error("refreshing namespace", "err", err)
+		}
+		apps := m.namespace.Applications()
+		targetIndex := 0
+		for i, app := range apps {
+			if app.Settings.Name == msg.App.Settings.Name {
+				targetIndex = i
+				break
+			}
+		}
+		return m, m.navigateTo(NewDashboard(m.namespace, apps, targetIndex, m.scraper, m.dockerScraper, m.systemScraper, m.userStats))
+
+	case NavigateToDashboardMsg:
+		if err := m.namespace.Refresh(m.watchCtx); err != nil {
+			slog.Error("refreshing namespace", "err", err)
+		}
+		apps := m.namespace.Applications()
+		if len(apps) == 0 && !msg.AllowEmpty {
+			m.shutdown()
+			return m, tea.Quit
+		}
+		selectedIndex := 0
+		for i, app := range apps {
+			if app.Settings.Name == msg.AppName {
+				selectedIndex = i
+				break
+			}
+		}
+		return m, m.navigateTo(NewDashboard(m.namespace, apps, selectedIndex, m.scraper, m.dockerScraper, m.systemScraper, m.userStats))
+
+	case NavigateToSettingsSectionMsg:
+		return m, m.navigateTo(NewSettings(m.namespace, msg.App, msg.Section))
+
+	case NavigateToRemoveMsg:
+		return m, m.navigateTo(NewRemove(m.namespace, msg.App))
+
+	case NavigateToLogsMsg:
+		return m, m.navigateTo(NewLogs(m.namespace, msg.App))
+
+	case QuitMsg:
+		m.shutdown()
+		return m, tea.Quit
+	}
+
+	var cmd tea.Cmd
+	m.currentScreen, cmd = m.currentScreen.Update(msg)
+	return m, cmd
+}
+
+func (m *App) View() tea.View {
+	var content string
+	if m.sizeGuard.LargeEnough() {
+		content = mouse.Sweep(m.currentScreen.View())
+	} else {
+		content = m.sizeGuard.View()
+	}
+
+	v := tea.NewView(content)
+	v.AltScreen = true
+	v.MouseMode = tea.MouseModeAllMotion
+	return v
+}
+
+func Run(ns *docker.Namespace, installImageRef string) error {
+	slog.Info("Starting ONCE UI", "version", version.Version)
+	defer func() { slog.Info("Stopping ONCE UI") }()
+
+	detected := DetectTerminalColors(100 * time.Millisecond)
+	ApplyPalette(NewPalette(detected))
+
+	app := NewApp(ns, installImageRef)
+
+	var opts []tea.ProgramOption
+	if detected.SupportsTrueColor() {
+		opts = append(opts, tea.WithColorProfile(colorprofile.TrueColor))
+	}
+
+	_, err := tea.NewProgram(app, opts...).Run()
+	return err
+}
+
+// Private
+
+func (m *App) scheduleNextScrapeTick() tea.Cmd {
+	return tea.Every(ChartUpdateInterval, func(time.Time) tea.Msg { return scrapeTickMsg{} })
+}
+
+func (m *App) scheduleNextUserStatsTick() tea.Cmd {
+	return tea.Every(UserStatsUpdateInterval, func(time.Time) tea.Msg { return scrapeUserStatsTickMsg{} })
+}
+
+func (m *App) navigateTo(screen Component) tea.Cmd {
+	m.currentScreen = screen
+	var sizeCmd tea.Cmd
+	m.currentScreen, sizeCmd = m.currentScreen.Update(m.lastSize)
+	return tea.Batch(sizeCmd, m.currentScreen.Init())
+}
+
+func (m *App) shutdown() {
+	m.watchCancel()
+}
+
+func (m *App) runScrape() tea.Cmd {
+	return func() tea.Msg {
+		var wg sync.WaitGroup
+		wg.Go(func() { m.scraper.Scrape(m.watchCtx) })
+		wg.Go(func() { m.dockerScraper.Scrape(m.watchCtx) })
+		wg.Go(func() { m.systemScraper.Scrape(m.watchCtx) })
+		wg.Wait()
+		return scrapeDoneMsg{}
+	}
+}
+
+func (m *App) runUserStatsScrape() tea.Cmd {
+	return func() tea.Msg {
+		m.userStats.Scrape(m.watchCtx)
+		return scrapeDoneMsg{}
+	}
+}
+
+func (m *App) watchForChanges() tea.Cmd {
+	return func() tea.Msg {
+		_, ok := <-m.eventChan
+		if !ok {
+			return nil
+		}
+		return namespaceChangedMsg{}
+	}
+}
+[0m$ [0mgrep -rn "Running" internal/ui/*.go | head -40; echo ---; grep -rn "open\|Open\|browser\|Browser" internal/ui/*.go internal/system/*.go internal/docker/*.go | grep -vi "openkey\|opens" | head -60
+internal/ui/actions_menu.go:35:	if app.Running {
+internal/ui/actions_menu_test.go:15:func TestActionsMenu_ShowsStopWhenRunning(t *testing.T) {
+internal/ui/actions_menu_test.go:16:	app := &docker.Application{Running: true}
+internal/ui/actions_menu_test.go:23:	app := &docker.Application{Running: false}
+internal/ui/actions_menu_test.go:30:	app := &docker.Application{Running: true}
+internal/ui/actions_menu_test.go:79:	app := &docker.Application{Running: true}
+internal/ui/actions_menu_test.go:106:	app := &docker.Application{Running: true}
+internal/ui/channels.go:74:	case docker.ChannelRunning:
+internal/ui/contents_card.go:210:	if !c.app.Running {
+internal/ui/contents_card.go:213:	if c.app.RunningSince.IsZero() {
+internal/ui/contents_card.go:217:	return contentsFact{label: "UPTIME", value: formatDuration(time.Since(c.app.RunningSince))}
+internal/ui/contents_card_test.go:18:		Running:      true,
+internal/ui/contents_card_test.go:19:		RunningSince: time.Now().Add(-2 * time.Hour),
+internal/ui/dashboard.go:338:		if app.Running {
+internal/ui/dashboard_panel.go:49:	if !p.app.Running {
+internal/ui/dashboard_panel.go:59:	detailed := showDetails && p.app.Running
+internal/ui/dashboard_panel.go:62:	if p.app.Running {
+internal/ui/dashboard_panel.go:127:	if !showDetails || !p.app.Running {
+internal/ui/dashboard_panel.go:135:	if p.app.Running {
+internal/ui/dashboard_panel.go:146:		if p.app.Running {
+internal/ui/dashboard_panel.go:177:	if !p.app.Running {
+internal/ui/dashboard_panel.go:201:	if !p.app.Running {
+internal/ui/dashboard_panel_test.go:16:func TestDashboardPanelViewRunningApp(t *testing.T) {
+internal/ui/dashboard_panel_test.go:71:func TestDashboardPanelHeightRunning(t *testing.T) {
+internal/ui/dashboard_panel_test.go:144:	running := renderChannelChips([]channelChip{newChannelChip(docker.ChannelRunning)}, "")
+internal/ui/dashboard_panel_test.go:155:		newChannelChip(docker.ChannelRunning),
+internal/ui/dashboard_panel_test.go:160:	assert.Equal(t, channelTarget(docker.ChannelRunning), mouse.Resolve(5, 0))
+internal/ui/dashboard_panel_test.go:198:		Running: running,
+internal/ui/dashboard_test.go:358:		Running: true,
+internal/ui/settings.go:44:	settingsStateRunningAction
+internal/ui/settings.go:128:		if m.state == settingsStateDeploying || m.state == settingsStateRunningAction {
+internal/ui/settings.go:170:		m.state = settingsStateRunningAction
+internal/ui/settings.go:190:		if m.state == settingsStateDeploying || m.state == settingsStateRunningAction {
+internal/ui/settings_test.go:104:	s.state = settingsStateRunningAction
+internal/ui/settings_test.go:113:	s.state = settingsStateRunningAction
+internal/ui/settings_test.go:180:		Running: true,
+---
+internal/ui/palette_detect.go:53:	tty, err := os.OpenFile("/dev/tty", os.O_RDWR, 0)
+internal/docker/markdown.go:90:	file, err := os.OpenFile(target, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0o644)
+internal/docker/site.go:176:	src, err := os.Open(source)
+internal/docker/site.go:182:	dst, err := os.OpenFile(target, os.O_WRONLY|os.O_CREATE|os.O_EXCL, 0o644)
+internal/docker/site.go:276:	file, err := os.OpenFile(target, os.O_WRONLY|os.O_CREATE|os.O_EXCL, 0o644)
+internal/docker/source.go:66:	f, err := os.Open(path)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcat prompt/00-overview.md; echo ---; cat prompt/13-favorites.md; echo ---; cat prompt/15-app-bar.md
+These prompts change the ONCE Go CLI/TUI in this repository, one feature per file, run in order with a fresh agent for each.
+
+House style here is the project's own Go conventions plus `make lint`; the wider reference copy is at /home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+
+The last line of every file is the same, and it means `make test` and `make lint` both run clean.
+
+Each file is the whole instruction for its session. Read only the one you are running.
+---
+Your job is to go in and add favorites to apps here to this Go CLI/TUI app.
+
+A star on the card and a star in the dashboard row, favorites sorted first, remembered across runs in the state ONCE already keeps per namespace.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+---
+Your job is to go in and inject a bar into every page ONCE serves here to this Go CLI/TUI app.
+
+Forty pixels tall, the app name on the left, then back, next, contents, drift, reload and hide. Dark glass over whatever the page is, and the page itself is never modified on disk.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+[0m$ [0mgit -C . log --oneline | head -20; echo ---; grep -rn "NavigateToAppMsg" -n internal | head
+c9f069a split: 13-favorites
+f3b2a49 split: 12-channel-filter
+a8a3dc0 split: 11-channels
+115041b split: 10-contents-screen
+1c4fb9a split: 09-contents-card
+313f156 split: 08-remove-static-app
+91e0ada split: 07-single-file-html-site
+54ed0bf split: 06-markdown-pages
+ea29c59 split: 05-folder-contents-fallback
+3c926ed split: 04-stale-source-detection
+3b00d24 split: 03-redeploy-folder
+8021ade split: 02-serve-static-apps
+c279c61 split: 01-deploy-static-folder
+dd1ea52 split: 01-deploy-static-folder
+fe93045 starting the script: Prompting scripts for upgrading
+864ec7c Use strings.CutLast in cutLast (#118)
+---
+internal/ui/app.go:38:	NavigateToAppMsg             struct{ App *docker.Application }
+internal/ui/app.go:203:	case NavigateToAppMsg:
+internal/ui/install.go:248:		return m, func() tea.Msg { return NavigateToAppMsg(msg) }
+internal/ui/install_test.go:135:	navMsg, ok := msg.(NavigateToAppMsg)
+internal/ui/install_test.go:136:	require.True(t, ok, "expected NavigateToAppMsg, got %T", msg)
+internal/ui/settings.go:184:		return m, func() tea.Msg { return NavigateToAppMsg{App: m.app} }
+internal/ui/settings.go:281:	return m, func() tea.Msg { return NavigateToAppMsg{App: m.app} }
+internal/ui/settings_test.go:81:	_, ok := msg.(NavigateToAppMsg)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgrep -rn "Hostname\|hostname" internal/ui/*.go | head -30; echo ---; grep -rn "func (a \*Application)" internal/docker/application.go | head -40
+internal/ui/contents_card_test.go:78:			Host:  "a-very-long-hostname.example.com",
+internal/ui/dashboard.go:59:	hostname      string
+internal/ui/dashboard.go:86:	hostname, _ := os.Hostname()
+internal/ui/dashboard.go:98:		hostname:      hostname,
+internal/ui/dashboard.go:282:	titleLine := Styles.TitleRule(m.width, m.hostname)
+internal/ui/install_activity.go:44:	hostname      string
+internal/ui/install_activity.go:56:func NewInstallActivity(ns *docker.Namespace, imageRef, hostname string, registry docker.RegistrySettings) *InstallActivity {
+internal/ui/install_activity.go:61:		hostname:     hostname,
+internal/ui/install_activity.go:178:	hostname := m.hostname
+internal/ui/install_activity.go:183:		Host:       hostname,
+internal/ui/install.go:30:	installStateHostname                      // Screen 3: enter hostname
+internal/ui/install.go:36:	Hostname string
+internal/ui/install.go:46:	hostnameForm   InstallHostnameForm
+internal/ui/install.go:74:		m.state = installStateHostname
+internal/ui/install.go:75:		m.hostnameForm = NewInstallHostnameForm(imageRef, m.installFlag)
+internal/ui/install.go:171:		m.hostnameForm = NewInstallHostnameForm(msg.ImageRef, "")
+internal/ui/install.go:174:		m.state = installStateHostname
+internal/ui/install.go:191:		m.hostnameForm = NewInstallHostnameForm(msg.ImageRef, "")
+internal/ui/install.go:203:		m.state = installStateHostname
+internal/ui/install.go:210:	case InstallHostnameBackMsg:
+internal/ui/install.go:222:		if m.namespace.HostInUse(msg.Hostname) {
+internal/ui/install.go:223:			m.err = docker.ErrHostnameInUse
+internal/ui/install.go:227:		m.activity = NewInstallActivity(m.namespace, msg.ImageRef, msg.Hostname, m.registry)
+internal/ui/install.go:242:			m.state = installStateHostname
+internal/ui/install.go:305:	case installStateHostname:
+internal/ui/install.go:306:		return m.hostnameForm.Init()
+internal/ui/install.go:329:	case installStateHostname:
+internal/ui/install.go:331:		m.hostnameForm, cmd = m.hostnameForm.Update(msg)
+internal/ui/install.go:343:	case installStateHostname:
+internal/ui/install.go:344:		return m.hostnameForm.View()
+---
+97:func (a *Application) ContainerName(ctx context.Context) (string, error) {
+116:func (a *Application) Volume(ctx context.Context) (*ApplicationVolume, error) {
+128:func (a *Application) URL() string {
+162:func (a *Application) Stop(ctx context.Context) error {
+172:func (a *Application) Start(ctx context.Context) error {
+182:func (a *Application) Exec(ctx context.Context, cmd []string) error {
+198:func (a *Application) Update(ctx context.Context, progress DeployProgressCallback) (bool, error) {
+222:func (a *Application) Deploy(ctx context.Context, progress DeployProgressCallback) error {
+242:func (a *Application) UpdateSettings(ctx context.Context, settings ApplicationSettings, progress DeployProgressCallback) error {
+259:func (a *Application) VerifyHTTPOrRemove(ctx context.Context) error {
+270:func (a *Application) Remove(ctx context.Context, removeData bool) error {
+278:func (a *Application) Destroy(ctx context.Context, destroyVolumes bool) error {
+319:func (a *Application) saveOperationResult(ctx context.Context, record func(*State)) {
+328:func (a *Application) pullImage(ctx context.Context, progress DeployProgressCallback) (bool, error) {
+349:func (a *Application) runningImageID(ctx context.Context) string {
+361:func (a *Application) deployWithVolume(ctx context.Context, vol *ApplicationVolume, progress DeployProgressCallback) error {
+435:func (a *Application) ensureKeys(vol *ApplicationVolume) error {
+449:func (a *Application) verifyHTTP(ctx context.Context) error {
+474:func (a *Application) removeContainersExcept(ctx context.Context, keep string) error {
+495:func (a *Application) volumeMounts(vol *ApplicationVolume) []mount.Mount {
+518:func (a *Application) BuildEnv() []string {
+548:func (a *Application) containerConfig(env []string) *container.Config {
+[0m$ [0mgrep -rni "drift" . --exclude-dir=.git | head -20; echo ---; cat prompt/19-open-command.md; echo ---; cat prompt/43-app-details-view.md
+grep: ./bin/once: binary file matches
+./prompt/14-drift.md:1:Your job is to go in and add Drift here to this Go CLI/TUI app.
+./prompt/15-app-bar.md:3:Forty pixels tall, the app name on the left, then back, next, contents, drift, reload and hide. Dark glass over whatever the page is, and the page itself is never modified on disk.
+./prompt/16-bar-keys.md:3:`/` menu, `[` back, `]` next, `C` contents, `R` drift, `Shift+R` reload, `H` hide, the same letters the TUI already uses so one set of habits works in both.
+./.scratch/split/01-deploy-static-folder.log:715:14-drift.md
+./.scratch/split/02-serve-static-apps.log:62:-rw-r--r-- 1 mrjohn mrjohn  297 Nov  6 17:49 14-drift.md
+./.scratch/split/02-serve-static-apps.log:2451:- `internal/docker/application.go:59` — nginx config derives its health path and document root from `HealthCheckPath` / `staticContentTarget`, so the static container cannot drift from the app health-check contract.
+./.scratch/split/03-redeploy-folder.log:95:14-drift.md
+./.scratch/split/04-stale-source-detection.log:72:14-drift.md
+./.scratch/split/04-stale-source-detection.log:380:[0m$ [0mgrep -rni "stale\|drift" internal --include=*.go | head -30; echo ===; cat prompt/14-drift.md; echo ===; cat prompt/09-contents-card.md
+./.scratch/split/04-stale-source-detection.log:382:Your job is to go in and add Drift here to this Go CLI/TUI app.
+./.scratch/split/05-folder-contents-fallback.log:56:-rw-r--r-- 1 mrjohn mrjohn  297 Nov  6 17:49 14-drift.md
+./.scratch/split/05-folder-contents-fallback.log:305:-rw-r--r-- 1 mrjohn mrjohn  297 Nov  6 17:49 14-drift.md
+./.scratch/split/06-markdown-pages.log:155:14-drift.md
+./.scratch/split/06-markdown-pages.log:982:14-drift.md
+./.scratch/split/07-single-file-html-site.log:48:-rw-r--r-- 1 mrjohn mrjohn  297 Nov  6 17:49 14-drift.md
+./.scratch/split/08-remove-static-app.log:50:14-drift.md
+./.scratch/split/08-remove-static-app.log:197:14-drift.md
+./.scratch/split/09-contents-card.log:53:14-drift.md
+./.scratch/split/09-contents-card.log:2379:=== prompt/14-drift.md
+./.scratch/split/09-contents-card.log:2380:Your job is to go in and add Drift here to this Go CLI/TUI app.
+---
+Your job is to go in and add `once open <host>` here to this Go CLI/TUI app.
+
+It prints the URL and opens it in the browser, and on its own it opens the contents page listing every app.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+---
+Your job is to go in and give every app a details page here to this Go CLI/TUI app.
+
+Enter on a panel opens it: URL, image or folder, uptime, resource limits, last deploy, last backup, recent health and a screenshot. Esc returns to the dashboard.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0msed -n 1,140p internal/docker/application.go; echo ---; grep -rn "func.*URL" internal/docker/*.go
+package docker
+
+import (
+	"cmp"
+	"context"
+	"errors"
+	"fmt"
+	"log/slog"
+	"net/http"
+	"strconv"
+	"strings"
+	"time"
+
+	"github.com/containerd/errdefs"
+	"github.com/moby/moby/api/types/container"
+	"github.com/moby/moby/api/types/mount"
+	"github.com/moby/moby/api/types/network"
+	"github.com/moby/moby/client"
+)
+
+var (
+	ErrApplicationExists     = errors.New("application already exists")
+	ErrHostnameInUse         = errors.New("hostname already in use")
+	ErrHostRequired          = errors.New("host is required")
+	ErrInvalidBackup         = errors.New("invalid backup archive")
+	ErrImageRequired         = errors.New("image is required")
+	ErrApplicationNotRunning = errors.New("the application is not running")
+	ErrBackupPathRelative    = errors.New("backup path must be absolute")
+	ErrBackupFileExists      = errors.New("backup file already exists")
+	ErrAutoBackupWithoutPath = errors.New("auto-backup requires a backup path")
+	ErrSetupFailed           = errors.New("setup failed")
+	ErrPullFailed            = &describedError{
+		msg:         "pull failed",
+		description: "Failed to download the application image. Check that the image name is correct and try again.",
+	}
+	ErrPullMaybeUnauthorized = &describedError{
+		msg:         "image missing or authentication required",
+		description: "Could not pull the image. The image may not exist, or it may require registry credentials.",
+	}
+	ErrDeployFailed       = errors.New("deploy failed")
+	ErrVerificationFailed = &describedError{
+		msg:         "verification failed",
+		description: "The application couldn't be verified. Please check that you have a valid DNS record set up.",
+	}
+	ErrUnpauseFailed                   = errors.New("failed to unpause container after backup")
+	ErrRegistryPasswordWithoutUsername = errors.New("registry password requires a username")
+	ErrRegistryUsernameWithoutPassword = errors.New("registry username requires a password")
+)
+
+const (
+	AutomaticTaskInterval = 24 * time.Hour
+	HealthCheckPath       = "/up"
+	httpVerifyTimeout     = 30 * time.Second
+
+	StaticImage         = "nginx:alpine-slim"
+	staticContentTarget = "/usr/share/nginx/html"
+)
+
+const staticNginxConfig = `server {
+    listen 80;
+    location = %s {
+        access_log off;
+        return 200 "ok";
+    }
+    location ~* \.md$ {
+        root %s;
+        charset utf-8;
+        types { }
+        default_type text/html;
+    }
+    location / {
+        root %s;
+        index index.html;
+    }
+}
+`
+
+// AppVolumeMountTargets defines the paths where the app data volume is mounted
+// inside the container. The first entry is the primary path used for backups.
+var AppVolumeMountTargets = []string{"/storage", "/rails/storage"}
+
+type Application struct {
+	namespace    *Namespace
+	Settings     ApplicationSettings
+	Running      bool
+	RunningSince time.Time
+	DeployedAt   time.Time
+}
+
+func NewApplication(ns *Namespace, settings ApplicationSettings) *Application {
+	return &Application{
+		namespace: ns,
+		Settings:  settings,
+	}
+}
+
+func (a *Application) ContainerName(ctx context.Context) (string, error) {
+	containers, err := a.namespace.client.ContainerList(ctx, client.ContainerListOptions{All: true})
+	if err != nil {
+		return "", err
+	}
+
+	for _, c := range containers.Items {
+		if len(c.Names) == 0 {
+			continue
+		}
+		name := strings.TrimPrefix(c.Names[0], "/")
+		if a.namespace.containerAppName(name) == a.Settings.Name {
+			return name, nil
+		}
+	}
+
+	return "", fmt.Errorf("no container found for app %s", a.Settings.Name)
+}
+
+func (a *Application) Volume(ctx context.Context) (*ApplicationVolume, error) {
+	vol, err := FindVolume(ctx, a.namespace, a.Settings.Name)
+	if err == nil {
+		return vol, nil
+	}
+	if !errors.Is(err, ErrVolumeNotFound) {
+		return nil, err
+	}
+
+	return CreateVolume(ctx, a.namespace, a.Settings.Name, ApplicationLegacyVolumeSettings{})
+}
+
+func (a *Application) URL() string {
+	if a.Settings.Host == "" {
+		return ""
+	}
+
+	scheme := "http"
+	defaultPort := 80
+	if a.Settings.TLSEnabled() {
+		scheme = "https"
+		defaultPort = 443
+	}
+
+	base := scheme + "://" + a.Settings.Host
+---
+internal/docker/application.go:128:func (a *Application) URL() string {
+internal/docker/application_test.go:84:func TestURL(t *testing.T) {
+internal/docker/application_test.go:176:func TestBuildEnvWithBaseURL(t *testing.T) {
+internal/docker/application_test.go:184:func TestBuildEnvWithoutBaseURL(t *testing.T) {
+internal/docker/application_test.go:192:func TestBuildEnvCustomBaseURLOverridesGenerated(t *testing.T) {
+internal/docker/site.go:300:func siteEntryHref(entry fs.DirEntry) template.URL {
+[0m$ [0mgrep -rni "xdg-open\|exec.Command\|browser" --include=*.go . | head -20; echo ---; ls internal/command; echo ---; cat internal/command/exec.go
+./integration/docker_test.go:1340:	require.Equal(t, 0, inspect.ExitCode, "exec command failed")
+./internal/service/launchd.go:89:	cmd := exec.CommandContext(ctx, "launchctl", args...)
+./internal/service/systemd.go:81:	cmd := exec.CommandContext(ctx, "systemctl", args...)
+---
+background.go
+background_install.go
+background_remove.go
+background_run.go
+backup.go
+cli_progress.go
+deploy.go
+deploy_test.go
+exec.go
+exec_test.go
+keys.go
+keys_reset.go
+keys_set.go
+list.go
+remove.go
+restore.go
+root.go
+root_test.go
+self_update.go
+settings_flags.go
+start.go
+stop.go
+teardown.go
+update.go
+update_test.go
+version.go
+---
+package command
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/spf13/cobra"
+
+	"github.com/basecamp/once/internal/docker"
+)
+
+type execCommand struct {
+	cmd *cobra.Command
+}
+
+func newExecCommand() *execCommand {
+	e := &execCommand{}
+	e.cmd = &cobra.Command{
+		Use:   "exec <host> <command> [args...]",
+		Short: "Execute a command in an application container",
+		Args:  cobra.MinimumNArgs(2),
+		RunE:  WithNamespace(e.run),
+	}
+	e.cmd.Flags().SetInterspersed(false)
+	return e
+}
+
+// Private
+
+func (e *execCommand) run(ctx context.Context, ns *docker.Namespace, cmd *cobra.Command, args []string) error {
+	host, commandArgs, err := splitExecArgs(args)
+	if err != nil {
+		return err
+	}
+
+	return withApplication(ns, host, "executing command in", func(app *docker.Application) error {
+		return app.Exec(ctx, commandArgs)
+	})
+}
+
+// Helpers
+
+func splitExecArgs(args []string) (string, []string, error) {
+	commandArgs := args[1:]
+	if commandArgs[0] == "--" {
+		commandArgs = commandArgs[1:]
+	}
+	if len(commandArgs) == 0 {
+		return "", nil, fmt.Errorf("command is required")
+	}
+
+	return args[0], commandArgs, nil
+}
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mls .scratch/split; echo ---; sed -n 1,60p .scratch/split/13-favorites.log 2>/dev/null
+01-deploy-static-folder.check
+01-deploy-static-folder.diff
+01-deploy-static-folder.log
+02-serve-static-apps.check
+02-serve-static-apps.diff
+02-serve-static-apps.log
+03-redeploy-folder.check
+03-redeploy-folder.diff
+03-redeploy-folder.log
+04-stale-source-detection.check
+04-stale-source-detection.diff
+04-stale-source-detection.log
+05-folder-contents-fallback.check
+05-folder-contents-fallback.diff
+05-folder-contents-fallback.log
+06-markdown-pages.check
+06-markdown-pages.diff
+06-markdown-pages.log
+07-single-file-html-site.check
+07-single-file-html-site.diff
+07-single-file-html-site.log
+08-remove-static-app.check
+08-remove-static-app.diff
+08-remove-static-app.log
+09-contents-card.check
+09-contents-card.diff
+09-contents-card.log
+10-contents-screen.check
+10-contents-screen.diff
+10-contents-screen.log
+11-channels.check
+11-channels.diff
+11-channels.log
+12-channel-filter.check
+12-channel-filter.diff
+12-channel-filter.log
+13-favorites.check
+13-favorites.diff
+13-favorites.log
+14-drift.log
+---
+[0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mls -la; ls -la .opencode 2>/dev/null; find . -path ./node_modules -prune -o -name "*split*" -print 2>/dev/null | head -50
+total 64
+drwxr-xr-x 1 mrjohn mrjohn   352 Nov  6 17:59 .
+drwxr-xr-x 1 mrjohn mrjohn    24 Nov  6 18:01 ..
+-rw-r--r-- 1 mrjohn mrjohn  4449 Nov  6 17:42 AGENTS.md
+drwxr-xr-x 1 mrjohn mrjohn     8 Nov  6 17:59 bin
+drwxr-xr-x 1 mrjohn mrjohn    18 Nov  6 17:42 .claude
+drwxr-xr-x 1 mrjohn mrjohn     8 Nov  6 17:42 cmd
+-rw-r--r-- 1 mrjohn mrjohn     8 Nov  6 17:42 .dockerignore
+drwxr-xr-x 1 mrjohn mrjohn   196 Nov  6 18:39 .git
+drwxr-xr-x 1 mrjohn mrjohn    86 Nov  6 17:42 .github
+-rw-r--r-- 1 mrjohn mrjohn    53 Nov  6 17:42 .gitignore
+-rw-r--r-- 1 mrjohn mrjohn   216 Nov  6 17:42 .golangci.yml
+-rw-r--r-- 1 mrjohn mrjohn  3273 Nov  6 18:23 go.mod
+-rw-r--r-- 1 mrjohn mrjohn 14792 Nov  6 18:23 go.sum
+drwxr-xr-x 1 mrjohn mrjohn   138 Nov  6 17:42 installer
+drwxr-xr-x 1 mrjohn mrjohn    62 Nov  6 17:42 integration
+drwxr-xr-x 1 mrjohn mrjohn   158 Nov  6 17:42 internal
+-rw-r--r-- 1 mrjohn mrjohn  1292 Nov  6 17:42 Makefile
+-rw-r--r-- 1 mrjohn mrjohn    97 Nov  6 17:42 mise.toml
+-rw-r--r-- 1 mrjohn mrjohn  1053 Nov  6 17:42 MIT-LICENSE
+drwxr-xr-x 1 mrjohn mrjohn  2004 Nov  6 17:49 prompt
+drwxr-xr-x 1 mrjohn mrjohn   840 Nov  6 17:44 prompt-v1
+-rw-r--r-- 1 mrjohn mrjohn  8244 Nov  6 17:42 README.md
+drwxr-xr-x 1 mrjohn mrjohn    10 Nov  6 18:36 .scratch
+drwxr-xr-x 1 mrjohn mrjohn    30 Nov  5 23:06 scripts
+./scripts/split-serial.sh
+./.scratch/split
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mls -la .scratch/split; echo ---; ls prompt | head -60; echo ---; ls prompt-v1 | head -60; echo ---; cat scripts/split-serial.sh
+total 1332
+drwxr-xr-x 1 mrjohn mrjohn   1808 Nov  6 18:39 .
+drwxr-xr-x 1 mrjohn mrjohn     10 Nov  6 18:36 ..
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:12 01-deploy-static-folder.check
+-rw-r--r-- 1 mrjohn mrjohn    191 Nov  6 18:12 01-deploy-static-folder.diff
+-rw-r--r-- 1 mrjohn mrjohn  29878 Nov  6 18:12 01-deploy-static-folder.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:15 02-serve-static-apps.check
+-rw-r--r-- 1 mrjohn mrjohn    177 Nov  6 18:15 02-serve-static-apps.diff
+-rw-r--r-- 1 mrjohn mrjohn  96981 Nov  6 18:15 02-serve-static-apps.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:18 03-redeploy-folder.check
+-rw-r--r-- 1 mrjohn mrjohn    258 Nov  6 18:18 03-redeploy-folder.diff
+-rw-r--r-- 1 mrjohn mrjohn  88725 Nov  6 18:18 03-redeploy-folder.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:20 04-stale-source-detection.check
+-rw-r--r-- 1 mrjohn mrjohn    475 Nov  6 18:20 04-stale-source-detection.diff
+-rw-r--r-- 1 mrjohn mrjohn  82455 Nov  6 18:20 04-stale-source-detection.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:22 05-folder-contents-fallback.check
+-rw-r--r-- 1 mrjohn mrjohn    308 Nov  6 18:22 05-folder-contents-fallback.diff
+-rw-r--r-- 1 mrjohn mrjohn 142626 Nov  6 18:22 05-folder-contents-fallback.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:24 06-markdown-pages.check
+-rw-r--r-- 1 mrjohn mrjohn    397 Nov  6 18:24 06-markdown-pages.diff
+-rw-r--r-- 1 mrjohn mrjohn  81696 Nov  6 18:24 06-markdown-pages.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:25 07-single-file-html-site.check
+-rw-r--r-- 1 mrjohn mrjohn    492 Nov  6 18:25 07-single-file-html-site.diff
+-rw-r--r-- 1 mrjohn mrjohn  89089 Nov  6 18:25 07-single-file-html-site.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:27 08-remove-static-app.check
+-rw-r--r-- 1 mrjohn mrjohn    241 Nov  6 18:27 08-remove-static-app.diff
+-rw-r--r-- 1 mrjohn mrjohn  73820 Nov  6 18:27 08-remove-static-app.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:31 09-contents-card.check
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcat scripts/split-serial.sh; echo ===; tail -60 .scratch/split/14-drift.log
+#!/usr/bin/env bash
+# Run the split prompts in prompt/ one at a time, each in a
+# fresh session, stopping at the first failure.
+#
+#   MODEL=ollama/deepseek-v4.1-flash:1017-cloud ./scripts/split-serial.sh
+#   MODEL=... FROM=8 TO=8 ./scripts/split-serial.sh    # one step only
+#   ONLY=11-state,07-remove,08-shell ./scripts/split-serial.sh   # explicit order
+#   COMMIT=0 ./scripts/split-serial.sh                 # leave commits alone
+#   CHECK_CMD='make test' ./scripts/split-serial.sh    # override the detected gate
+#
+# No --continue and no --session: that is what makes every step a fresh agent.
+# The tree must be clean before the loop starts, and every green step is
+# committed, so a bad step is one `git revert` away.
+
+set -uo pipefail
+
+ROOT=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
+LOGS="$ROOT/.scratch/split"
+MODEL=${MODEL:-ollama/deepseek-v4.1-flash:1017-cloud}
+FROM=${FROM:-1}
+TO=${TO:-99}
+COMMIT=${COMMIT:-1}
+ONLY=${ONLY:-}
+CHECK_CMD=${CHECK_CMD:-__detect__}
+
+mkdir -p "$LOGS"
+cd "$ROOT" || exit 1
+
+has_make_target() {
+  make -n "$1" >/dev/null 2>&1
+}
+
+detect_check() {
+  if [ "$CHECK_CMD" != "__detect__" ]; then
+    printf '%s\n' "$CHECK_CMD"
+  elif [ -f package.json ] && node -e \
+      'process.exit(require("./package.json").scripts?.check ? 0 : 1)' 2>/dev/null; then
+    printf 'npm run check\n'
+  elif [ -f Makefile ]; then
+    local check="" target
+    for target in test lint; do
+      if has_make_target "$target"; then
+        check="${check:+$check && }make $target"
+      fi
+    done
+    if [ -z "$check" ] && has_make_target check; then
+      check="make check"
+    fi
+    printf '%s\n' "$check"
+  fi
+}
+
+CHECK=$(detect_check)
+
+if [ -z "$CHECK" ]; then
+  echo "== no project check detected; set CHECK_CMD to gate each step" >&2
+else
+  echo "== check: $CHECK"
+fi
+
+if ! git diff --quiet || ! git diff --cached --quiet; then
+  echo "== tree is dirty; commit it before starting" >&2
+  exit 1
+fi
+
+if [ -n "$ONLY" ]; then
+  IFS=',' read -r -a files <<<"$ONLY"
+  for i in "${!files[@]}"; do
+    files[$i]="$ROOT/prompt/${files[$i]}.md"
+  done
+else
+  files=("$ROOT"/prompt/*.md)
+fi
+
+for path in "${files[@]}"; do
+  name=$(basename "$path" .md)
+  step=$((10#${name%%-*}))
+
+  if [ -z "$ONLY" ]; then
+    [ "$step" -lt "$FROM" ] && continue
+    [ "$step" -gt "$TO" ] && continue
+  fi
+
+  if [ ! -f "$path" ]; then
+    echo "== $name: no such command" >&2
+    exit 1
+  fi
+
+  blocked="$LOGS/BLOCKED-$name"
+  rm -f "$blocked"
+
+  echo "== $name"
+  opencode run -m "$MODEL" --auto --title "split $name" "/split/$name" 2>&1 \
+    | tee "$LOGS/$name.log"
+  status=${PIPESTATUS[0]}
+
+  if [ -f "$blocked" ]; then
+    echo "== $name: blocked, $(cat "$blocked")" >&2
+    exit 1
+  fi
+
+  if [ "$status" -ne 0 ]; then
+    echo "== $name: opencode exited $status, stopping" >&2
+    exit 1
+  fi
+
+  if [ -n "$CHECK" ] && ! eval "$CHECK" >"$LOGS/$name.check" 2>&1; then
+    echo "== $name: check failed ($CHECK), see $LOGS/$name.check" >&2
+    exit 1
+  fi
+
+  git diff --stat >"$LOGS/$name.diff"
+
+  if [ "$COMMIT" = "1" ]; then
+    git add -A
+    git commit -q -m "split: $name"
+  fi
+done
+
+echo "== finished"
+===
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mls -la; ls -la .opencode 2>/dev/null; find . -path ./node_modules -prune -o -name "*split*" -print 2>/dev/null | head -50
+total 64
+drwxr-xr-x 1 mrjohn mrjohn   352 Nov  6 17:59 .
+drwxr-xr-x 1 mrjohn mrjohn    24 Nov  6 18:01 ..
+-rw-r--r-- 1 mrjohn mrjohn  4449 Nov  6 17:42 AGENTS.md
+drwxr-xr-x 1 mrjohn mrjohn     8 Nov  6 17:59 bin
+drwxr-xr-x 1 mrjohn mrjohn    18 Nov  6 17:42 .claude
+drwxr-xr-x 1 mrjohn mrjohn     8 Nov  6 17:42 cmd
+-rw-r--r-- 1 mrjohn mrjohn     8 Nov  6 17:42 .dockerignore
+drwxr-xr-x 1 mrjohn mrjohn   196 Nov  6 18:39 .git
+drwxr-xr-x 1 mrjohn mrjohn    86 Nov  6 17:42 .github
+-rw-r--r-- 1 mrjohn mrjohn    53 Nov  6 17:42 .gitignore
+-rw-r--r-- 1 mrjohn mrjohn   216 Nov  6 17:42 .golangci.yml
+-rw-r--r-- 1 mrjohn mrjohn  3273 Nov  6 18:23 go.mod
+-rw-r--r-- 1 mrjohn mrjohn 14792 Nov  6 18:23 go.sum
+drwxr-xr-x 1 mrjohn mrjohn   138 Nov  6 17:42 installer
+drwxr-xr-x 1 mrjohn mrjohn    62 Nov  6 17:42 integration
+drwxr-xr-x 1 mrjohn mrjohn   158 Nov  6 17:42 internal
+-rw-r--r-- 1 mrjohn mrjohn  1292 Nov  6 17:42 Makefile
+-rw-r--r-- 1 mrjohn mrjohn    97 Nov  6 17:42 mise.toml
+-rw-r--r-- 1 mrjohn mrjohn  1053 Nov  6 17:42 MIT-LICENSE
+drwxr-xr-x 1 mrjohn mrjohn  2004 Nov  6 17:49 prompt
+drwxr-xr-x 1 mrjohn mrjohn   840 Nov  6 17:44 prompt-v1
+-rw-r--r-- 1 mrjohn mrjohn  8244 Nov  6 17:42 README.md
+drwxr-xr-x 1 mrjohn mrjohn    10 Nov  6 18:36 .scratch
+drwxr-xr-x 1 mrjohn mrjohn    30 Nov  5 23:06 scripts
+./scripts/split-serial.sh
+./.scratch/split
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mls -la .scratch/split; echo ---; ls prompt | head -60; echo ---; ls prompt-v1 | head -60; echo ---; cat scripts/split-serial.sh
+total 1332
+drwxr-xr-x 1 mrjohn mrjohn   1808 Nov  6 18:39 .
+drwxr-xr-x 1 mrjohn mrjohn     10 Nov  6 18:36 ..
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:12 01-deploy-static-folder.check
+-rw-r--r-- 1 mrjohn mrjohn    191 Nov  6 18:12 01-deploy-static-folder.diff
+-rw-r--r-- 1 mrjohn mrjohn  29878 Nov  6 18:12 01-deploy-static-folder.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:15 02-serve-static-apps.check
+-rw-r--r-- 1 mrjohn mrjohn    177 Nov  6 18:15 02-serve-static-apps.diff
+-rw-r--r-- 1 mrjohn mrjohn  96981 Nov  6 18:15 02-serve-static-apps.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:18 03-redeploy-folder.check
+-rw-r--r-- 1 mrjohn mrjohn    258 Nov  6 18:18 03-redeploy-folder.diff
+-rw-r--r-- 1 mrjohn mrjohn  88725 Nov  6 18:18 03-redeploy-folder.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:20 04-stale-source-detection.check
+-rw-r--r-- 1 mrjohn mrjohn    475 Nov  6 18:20 04-stale-source-detection.diff
+-rw-r--r-- 1 mrjohn mrjohn  82455 Nov  6 18:20 04-stale-source-detection.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:22 05-folder-contents-fallback.check
+-rw-r--r-- 1 mrjohn mrjohn    308 Nov  6 18:22 05-folder-contents-fallback.diff
+-rw-r--r-- 1 mrjohn mrjohn 142626 Nov  6 18:22 05-folder-contents-fallback.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:24 06-markdown-pages.check
+-rw-r--r-- 1 mrjohn mrjohn    397 Nov  6 18:24 06-markdown-pages.diff
+-rw-r--r-- 1 mrjohn mrjohn  81696 Nov  6 18:24 06-markdown-pages.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:25 07-single-file-html-site.check
+-rw-r--r-- 1 mrjohn mrjohn    492 Nov  6 18:25 07-single-file-html-site.diff
+-rw-r--r-- 1 mrjohn mrjohn  89089 Nov  6 18:25 07-single-file-html-site.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:27 08-remove-static-app.check
+-rw-r--r-- 1 mrjohn mrjohn    241 Nov  6 18:27 08-remove-static-app.diff
+-rw-r--r-- 1 mrjohn mrjohn  73820 Nov  6 18:27 08-remove-static-app.log
+-rw-r--r-- 1 mrjohn mrjohn    728 Nov  6 18:31 09-contents-card.check
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mls prompt-v1; echo ---; grep -rni "drift\|random" prompt-v1 | head -20
+00-overview.md
+01-logs-command.md
+02-status-command.md
+03-restart-command.md
+04-backups-command.md
+05-dashboard-filter.md
+06-dashboard-lifecycle-shortcuts.md
+07-update-all.md
+08-health-checks.md
+09-app-details.md
+10-backup-restore.md
+11-logs-stderr.md
+12-logs-pause.md
+13-appearance-settings.md
+14-command-palette.md
+15-toasts.md
+16-chart-time-range.md
+17-compact-layout.md
+18-incremental-render.md
+19-chart-performance.md
+20-house-style.md
+---
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgrep -rn "contents" internal/docker/*.go | head -40; echo ---; sed -n 1,120p internal/docker/site.go
+internal/docker/application_backup.go:232:		return fmt.Errorf("copying volume contents: %w", err)
+internal/docker/site.go:27:// returns its path. Folders without an index.html get a generated contents
+internal/docker/site.go:84:// index.html gets a generated contents page. A folder made up entirely of
+internal/docker/site.go:218:type contentsPage struct {
+internal/docker/site.go:221:	Entries []contentsEntry
+internal/docker/site.go:225:type contentsEntry struct {
+internal/docker/site.go:245:	page := contentsPage{
+internal/docker/site.go:247:		Entries: make([]contentsEntry, 0, len(entries)),
+internal/docker/site.go:265:		page.Entries = append(page.Entries, contentsEntry{
+internal/docker/site.go:282:	return contentsTemplate.Execute(file, page)
+internal/docker/site.go:333:var contentsTemplate = template.Must(template.New("contents").Parse(contentsPageHTML))
+internal/docker/site.go:335:const contentsPageHTML = `<!doctype html>
+---
+package docker
+
+import (
+	"fmt"
+	"html/template"
+	"io"
+	"io/fs"
+	"net/url"
+	"os"
+	"path/filepath"
+	"slices"
+	"strings"
+)
+
+const (
+	siteIndexName = "index.html"
+	siteHTMLExt   = ".html"
+)
+
+// IsSiteFile reports whether path names a single HTML file that can be served
+// as a site in its own right.
+func IsSiteFile(path string) bool {
+	return strings.EqualFold(filepath.Ext(path), siteHTMLExt)
+}
+
+// ServeSite copies source into a fresh directory in the served site cache and
+// returns its path. Folders without an index.html get a generated contents
+// page in the copy, so the source is left untouched. A single HTML file is
+// served as the site's index.html.
+func ServeSite(name, source string) (string, error) {
+	dir, err := servedSiteDir(name)
+	if err != nil {
+		return "", err
+	}
+
+	if err := os.MkdirAll(dir, 0o755); err != nil {
+		return "", fmt.Errorf("creating served site directory: %w", err)
+	}
+
+	revision, err := randomID(8)
+	if err != nil {
+		return "", fmt.Errorf("generating served site id: %w", err)
+	}
+
+	dest := filepath.Join(dir, revision)
+	if err := BuildServedSite(source, dest); err != nil {
+		os.RemoveAll(dest)
+		return "", err
+	}
+
+	return dest, nil
+}
+
+// RemoveServedSite deletes every served copy belonging to name, along with any
+// generated pages, and prunes the site cache once it is empty.
+func RemoveServedSite(name string) error {
+	if name == "" {
+		return fmt.Errorf("served site name is required")
+	}
+
+	root, err := servedSiteRoot()
+	if err != nil {
+		return err
+	}
+
+	if err := os.RemoveAll(filepath.Join(root, "sites", name)); err != nil {
+		return err
+	}
+
+	removeIfEmpty(filepath.Join(root, "sites"))
+	removeIfEmpty(root)
+
+	return nil
+}
+
+// RemoveServedCopy deletes a single served copy, such as the previous version
+// of a site after a redeploy.
+func RemoveServedCopy(path string) error {
+	return os.RemoveAll(path)
+}
+
+// BuildServedSite builds the served copy of source in dest. Markdown files are
+// rendered as HTML documents, and every folder in the copy that has no
+// index.html gets a generated contents page. A folder made up entirely of
+// Markdown documents opens its first one instead. A single file is served as
+// the site's index.html.
+func BuildServedSite(source, dest string) error {
+	root, err := filepath.EvalSymlinks(source)
+	if err != nil {
+		return err
+	}
+
+	info, err := os.Stat(root)
+	if err != nil {
+		return err
+	}
+
+	if err := os.MkdirAll(dest, 0o755); err != nil {
+		return err
+	}
+
+	if !info.IsDir() {
+		if !info.Mode().IsRegular() {
+			return fmt.Errorf("unsupported site source: %s", source)
+		}
+		return copySiteFile(root, filepath.Join(dest, siteIndexName))
+	}
+
+	if err := copyTree(root, dest); err != nil {
+		return err
+	}
+
+	if err := renderMarkdownDocuments(root, dest); err != nil {
+		return err
+	}
+
+	return writeContentsPages(root, dest)
+}
+
+// Helpers
+[0m$ [0mgit remote -v; git branch -a; git tag | tail
+origin	https://github.com/razodin137/once.git (fetch)
+origin	https://github.com/razodin137/once.git (push)
+upstream	https://github.com/basecamp/once.git (fetch)
+upstream	https://github.com/basecamp/once.git (push)
+* main
+  remotes/origin/main
+  remotes/upstream/HEAD -> upstream/main
+  remotes/upstream/main
+v0.3.4
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgit log --oneline upstream/main | head -20; echo ---; git grep -ni drift upstream/main -- . | head -30; echo ---; git grep -ni "random" upstream/main -- . | head -20
+864ec7c Use strings.CutLast in cutLast (#118)
+---
+---
+upstream/main:internal/docker/application.go:337:	id, err := ContainerRandomID()
+upstream/main:internal/docker/helpers.go:28:func ContainerRandomID() (string, error) {
+upstream/main:internal/docker/helpers.go:29:	return randomID(6)
+upstream/main:internal/docker/helpers.go:32:func randomID(length int) (string, error) {
+upstream/main:internal/docker/namespace.go:131:		id, err := randomID(6)
+upstream/main:internal/ui/starfield.go:165:		s.stars[i] = s.randomStar()
+upstream/main:internal/ui/starfield.go:184:			s.stars[i] = s.randomStar()
+upstream/main:internal/ui/starfield.go:191:			s.stars[i] = s.randomStar()
+upstream/main:internal/ui/starfield.go:196:func (s *Starfield) randomStar() star {
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcat prompt/16-bar-keys.md; echo ---; cat prompt/17-bar-cross-fade.md; echo ---; cat prompt/18-bar-hide.md
+Your job is to go in and bind the bar to the same keys everywhere here to this Go CLI/TUI app.
+
+`/` menu, `[` back, `]` next, `C` contents, `R` drift, `Shift+R` reload, `H` hide, the same letters the TUI already uses so one set of habits works in both.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+---
+Your job is to go in and keep the bar still while content cross-fades between apps here to this Go CLI/TUI app.
+
+Moving to the next or previous app replaces the page under a bar that does not move or blink, and older browsers just replace the page.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+---
+Your job is to go in and let the bar hide itself here to this Go CLI/TUI app.
+
+Scrolling down hides it, scrolling up brings it back, and while it is gone a small tab sits in the top right corner to bring it back with a click or `H`.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+[0m$ [0mls internal/system; sed -n 1,80p internal/system/scraper.go; echo ---; ls internal/command; sed -n 1,120p internal/command/root.go
+disk.go
+scraper.go
+scraper_test.go
+package system
+
+import (
+	"context"
+	"log/slog"
+	"os"
+	"sync"
+
+	"github.com/shirou/gopsutil/v4/cpu"
+	"github.com/shirou/gopsutil/v4/mem"
+)
+
+type Sample struct {
+	CPUPercent float64
+	NumCPUs    int
+	MemTotal   uint64
+	MemUsed    uint64
+	DiskTotal  uint64
+	DiskFree   uint64
+	DiskUsed   uint64
+	DiskErr    error
+}
+
+const defaultBufferSize = 200
+
+type ScraperSettings struct {
+	BufferSize   int
+	DiskPath     string
+	DiskFallback string
+}
+
+func (s ScraperSettings) withDefaults() ScraperSettings {
+	if s.BufferSize == 0 {
+		s.BufferSize = defaultBufferSize
+	}
+	if s.DiskFallback == "" {
+		s.DiskFallback = "/"
+	}
+	return s
+}
+
+type Scraper struct {
+	settings    ScraperSettings
+	mu          sync.RWMutex
+	samples     []Sample
+	head, count int
+	numCPUs     int
+	memTotal    uint64
+}
+
+func NewScraper(settings ScraperSettings) *Scraper {
+	settings = settings.withDefaults()
+
+	numCPUs, err := cpu.Counts(true)
+	if err != nil {
+		slog.Warn("failed to get CPU count, defaulting to 1", "err", err)
+		numCPUs = 1
+	}
+
+	return &Scraper{
+		settings: settings,
+		samples:  make([]Sample, settings.BufferSize),
+		numCPUs:  numCPUs,
+	}
+}
+
+func (s *Scraper) NumCPUs() int {
+	return s.numCPUs
+}
+
+func (s *Scraper) MemTotal() uint64 {
+	return s.memTotal
+}
+
+func (s *Scraper) Fetch(n int) []Sample {
+	s.mu.RLock()
+	defer s.mu.RUnlock()
+
+	available := min(n, s.count)
+	result := make([]Sample, available)
+---
+background.go
+background_install.go
+background_remove.go
+background_run.go
+backup.go
+cli_progress.go
+deploy.go
+deploy_test.go
+exec.go
+exec_test.go
+keys.go
+keys_reset.go
+keys_set.go
+list.go
+remove.go
+restore.go
+root.go
+root_test.go
+self_update.go
+settings_flags.go
+start.go
+stop.go
+teardown.go
+update.go
+update_test.go
+version.go
+package command
+
+import (
+	"context"
+	"errors"
+	"fmt"
+
+	"github.com/spf13/cobra"
+
+	"github.com/basecamp/once/internal/docker"
+	"github.com/basecamp/once/internal/logging"
+	"github.com/basecamp/once/internal/ui"
+)
+
+type RootCommand struct {
+	cmd       *cobra.Command
+	namespace string
+
+	installImageRef string
+}
+
+func NewRootCommand() *RootCommand {
+	r := &RootCommand{}
+	r.cmd = &cobra.Command{
+		Use:           "once",
+		Short:         "Manage web applications from Docker images",
+		SilenceUsage:  true,
+		SilenceErrors: true,
+		CompletionOptions: cobra.CompletionOptions{
+			HiddenDefaultCmd: true,
+		},
+		RunE: WithNamespace(func(ctx context.Context, ns *docker.Namespace, cmd *cobra.Command, args []string) error {
+			return logging.ToLogFile(func() error {
+				return ui.Run(ns, r.installImageRef)
+			})
+		}),
+	}
+	r.cmd.PersistentFlags().StringVarP(&r.namespace, "namespace", "n", docker.DefaultNamespace, "namespace for containers")
+
+	r.cmd.Flags().StringVar(&r.installImageRef, "install", "", "Path to Docker image to install")
+
+	r.cmd.AddCommand(newBackgroundCommand().cmd)
+	r.cmd.AddCommand(newBackupCommand().cmd)
+	r.cmd.AddCommand(newDeployCommand().cmd)
+	r.cmd.AddCommand(newExecCommand().cmd)
+	r.cmd.AddCommand(newKeysCommand().cmd)
+	r.cmd.AddCommand(newListCommand().cmd)
+	r.cmd.AddCommand(newRemoveCommand().cmd)
+	r.cmd.AddCommand(newRestoreCommand().cmd)
+	r.cmd.AddCommand(newStartCommand().cmd)
+	r.cmd.AddCommand(newStopCommand().cmd)
+	r.cmd.AddCommand(newTeardownCommand().cmd)
+	r.cmd.AddCommand(newUpdateCommand().cmd)
+	r.cmd.AddCommand(newSelfUpdateCommand().cmd)
+	r.cmd.AddCommand(newVersionCommand().cmd)
+
+	return r
+}
+
+func (r *RootCommand) Execute() error {
+	return r.cmd.Execute()
+}
+
+// Helpers
+
+type NamespaceRunE func(ctx context.Context, ns *docker.Namespace, cmd *cobra.Command, args []string) error
+
+func findApplication(ns *docker.Namespace, host string) (*docker.Application, error) {
+	app := ns.ApplicationByHost(host)
+	if app == nil {
+		return nil, fmt.Errorf("no application found at host %q", host)
+	}
+	return app, nil
+}
+
+func withApplication(ns *docker.Namespace, host string, action string, fn func(*docker.Application) error) error {
+	app, err := findApplication(ns, host)
+	if err != nil {
+		return err
+	}
+
+	if err := fn(app); err != nil {
+		return fmt.Errorf("%s application: %w", action, err)
+	}
+
+	return nil
+}
+
+func WithNamespace(fn NamespaceRunE) func(*cobra.Command, []string) error {
+	return func(cmd *cobra.Command, args []string) error {
+		ctx := context.Background()
+
+		ns, err := docker.RestoreNamespace(ctx, namespaceFlag(cmd))
+		if err != nil {
+			return fmt.Errorf("restoring namespace: %w", err)
+		}
+
+		return fn(ctx, ns, cmd, args)
+	}
+}
+
+func namespaceFlag(cmd *cobra.Command) string {
+	namespace, _ := cmd.Root().PersistentFlags().GetString("namespace")
+	return namespace
+}
+
+type exitCoder interface {
+	error
+	ExitCode() int
+}
+
+func ExitCode(err error) (int, bool) {
+	if e, ok := errors.AsType[exitCoder](err); ok {
+		return e.ExitCode(), true
+	}
+	return 0, false
+}
+
+func IsExitError(err error) bool {
+	_, ok := ExitCode(err)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0msed -n 1,80p internal/service/service.go 2>/dev/null; ls internal/service; sed -n 1,40p internal/service/systemd.go; echo ---; ls internal/command/*_test.go; sed -n 1,80p internal/ui/dashboard_test.go
+package service
+
+import (
+	"context"
+	"fmt"
+	"runtime"
+)
+
+type Service interface {
+	IsInstalled(name string) bool
+	Install(ctx context.Context, name, execPath, namespace string) error
+	Remove(ctx context.Context, name string) error
+	ServiceName(name string) string
+}
+
+func New() (Service, error) {
+	switch runtime.GOOS {
+	case "linux":
+		return &Systemd{}, nil
+	case "darwin":
+		return &Launchd{}, nil
+	default:
+		return nil, fmt.Errorf("unsupported platform: %s", runtime.GOOS)
+	}
+}
+launchd.go
+service.go
+systemd.go
+package service
+
+import (
+	"context"
+	"errors"
+	"fmt"
+	"io/fs"
+	"os"
+	"os/exec"
+	"path/filepath"
+)
+
+const systemdUnitDir = "/etc/systemd/system"
+
+const unitTemplate = `[Unit]
+Description=Once background tasks (%s)
+After=network.target docker.service
+
+[Service]
+Type=simple
+ExecStart=%s background run --namespace %s
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+`
+
+type Systemd struct{}
+
+func (s *Systemd) IsInstalled(name string) bool {
+	_, err := os.Stat(s.unitFilePath(name))
+	return err == nil
+}
+
+func (s *Systemd) Install(ctx context.Context, name, execPath, namespace string) error {
+	path := s.unitFilePath(name)
+
+	if err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {
+		return fmt.Errorf("creating systemd directory: %w", err)
+---
+internal/command/deploy_test.go
+internal/command/exec_test.go
+internal/command/root_test.go
+internal/command/update_test.go
+package ui
+
+import (
+	"fmt"
+	"testing"
+	"time"
+
+	tea "charm.land/bubbletea/v2"
+	"github.com/charmbracelet/x/ansi"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+
+	"github.com/basecamp/once/internal/docker"
+	"github.com/basecamp/once/internal/metrics"
+	"github.com/basecamp/once/internal/system"
+)
+
+func TestFormatDuration(t *testing.T) {
+	t.Run("seconds", func(t *testing.T) {
+		assert.Equal(t, "0s", formatDuration(0))
+		assert.Equal(t, "1s", formatDuration(1*time.Second))
+		assert.Equal(t, "45s", formatDuration(45*time.Second))
+		assert.Equal(t, "59s", formatDuration(59*time.Second))
+	})
+
+	t.Run("minutes", func(t *testing.T) {
+		assert.Equal(t, "1m", formatDuration(1*time.Minute))
+		assert.Equal(t, "30m", formatDuration(30*time.Minute))
+		assert.Equal(t, "59m", formatDuration(59*time.Minute))
+		assert.Equal(t, "1m", formatDuration(1*time.Minute+30*time.Second))
+	})
+
+	t.Run("hours", func(t *testing.T) {
+		assert.Equal(t, "1h", formatDuration(1*time.Hour))
+		assert.Equal(t, "2h", formatDuration(2*time.Hour))
+		assert.Equal(t, "3h 45m", formatDuration(3*time.Hour+45*time.Minute))
+		assert.Equal(t, "23h 59m", formatDuration(23*time.Hour+59*time.Minute))
+	})
+
+	t.Run("days", func(t *testing.T) {
+		assert.Equal(t, "1d", formatDuration(24*time.Hour))
+		assert.Equal(t, "2d", formatDuration(48*time.Hour))
+		assert.Equal(t, "1d 1h", formatDuration(25*time.Hour))
+		assert.Equal(t, "2d 2h", formatDuration(50*time.Hour))
+		assert.Equal(t, "7d 12h", formatDuration(7*24*time.Hour+12*time.Hour))
+	})
+}
+
+func TestDashboardKeyboardSelectsPanel(t *testing.T) {
+	d := testDashboard(3)
+	d.width = 80
+	d.height = 40
+	d.updateViewportSize()
+	d.rebuildViewportContent()
+
+	assert.Equal(t, 0, d.selectedIndex)
+
+	d, _ = updateDashboard(d, keyPressMsg("down"))
+	assert.Equal(t, 1, d.selectedIndex)
+
+	d, _ = updateDashboard(d, keyPressMsg("down"))
+	assert.Equal(t, 2, d.selectedIndex)
+
+	// Can't go past last
+	d, _ = updateDashboard(d, keyPressMsg("down"))
+	assert.Equal(t, 2, d.selectedIndex)
+
+	d, _ = updateDashboard(d, keyPressMsg("up"))
+	assert.Equal(t, 1, d.selectedIndex)
+
+	d, _ = updateDashboard(d, keyPressMsg("up"))
+	assert.Equal(t, 0, d.selectedIndex)
+
+	// Can't go before first
+	d, _ = updateDashboard(d, keyPressMsg("up"))
+	assert.Equal(t, 0, d.selectedIndex)
+}
+
+func TestDashboardKeyboardJK(t *testing.T) {
+	d := testDashboard(3)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcat internal/ui/helpers_test.go; echo ---; grep -n "TestDashboard" internal/ui/dashboard_test.go
+package ui
+
+import tea "charm.land/bubbletea/v2"
+
+func keyPressMsg(s string) tea.KeyPressMsg {
+	k := tea.Key{Text: s}
+	if r := []rune(s); len(r) == 1 {
+		k.Code = r[0]
+	}
+	return tea.KeyPressMsg(k)
+}
+---
+49:func TestDashboardKeyboardSelectsPanel(t *testing.T) {
+79:func TestDashboardKeyboardJK(t *testing.T) {
+93:func TestDashboard_ActionsMenuOpensOnA(t *testing.T) {
+104:func TestDashboard_ContentsCardOpensOnC(t *testing.T) {
+119:func TestDashboard_ActionsMenuCloses(t *testing.T) {
+133:func TestDashboard_ActionsMenuStartStop(t *testing.T) {
+144:func TestDashboard_ActionsMenuRemove(t *testing.T) {
+160:func TestDashboard_OldStartStopKeyRemoved(t *testing.T) {
+171:func TestDashboard_SettingsMenuStillWorks(t *testing.T) {
+182:func TestDashboard_ToggleDetails(t *testing.T) {
+202:func TestDashboard_ToggleDetailsEmptyState(t *testing.T) {
+211:func TestDashboard_SelectPanelAfterAppsRemoved(t *testing.T) {
+228:func TestDashboard_EmptyStateShowsMessage(t *testing.T) {
+237:func TestDashboard_ChannelChipFiltersPanels(t *testing.T) {
+251:func TestDashboard_ChannelChipTogglesFilterOff(t *testing.T) {
+266:func TestDashboard_FilterKeepsSelectionOnClickedPanel(t *testing.T) {
+278:func TestDashboard_KeyboardNavigationSkipsFilteredPanels(t *testing.T) {
+298:func TestDashboard_EmptyFilterShowsMessage(t *testing.T) {
+315:func TestDashboard_FavoriteKeyTogglesAndSortsFirst(t *testing.T) {
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0msed -n 90,220p internal/ui/dashboard_test.go; echo ---; grep -rn "func testDashboard" internal/ui/*.go
+assert.Equal(t, 0, d.selectedIndex)
+}
+
+func TestDashboard_ActionsMenuOpensOnA(t *testing.T) {
+	d := testDashboard(1)
+	d.width = 80
+	d.height = 40
+	d.updateViewportSize()
+	d.rebuildViewportContent()
+
+	d, _ = updateDashboard(d, keyPressMsg("a"))
+	assert.NotNil(t, d.overlay)
+}
+
+func TestDashboard_ContentsCardOpensOnC(t *testing.T) {
+	d := testDashboard(1)
+	d.width = 80
+	d.height = 40
+	d.updateViewportSize()
+	d.rebuildViewportContent()
+
+	d, _ = updateDashboard(d, keyPressMsg("C"))
+	assert.NotNil(t, d.overlay)
+	assert.IsType(t, ContentsCard{}, d.overlay)
+
+	d, _ = updateDashboard(d, ContentsCardCloseMsg{})
+	assert.Nil(t, d.overlay)
+}
+
+func TestDashboard_ActionsMenuCloses(t *testing.T) {
+	d := testDashboard(1)
+	d.width = 80
+	d.height = 40
+	d.updateViewportSize()
+	d.rebuildViewportContent()
+
+	d, _ = updateDashboard(d, keyPressMsg("a"))
+	assert.NotNil(t, d.overlay)
+
+	d, _ = updateDashboard(d, ActionsMenuCloseMsg{})
+	assert.Nil(t, d.overlay)
+}
+
+func TestDashboard_ActionsMenuStartStop(t *testing.T) {
+	d := testDashboard(1)
+	d.width = 80
+	d.height = 40
+	d.updateViewportSize()
+	d.rebuildViewportContent()
+
+	d, _ = updateDashboard(d, ActionsMenuSelectMsg{app: d.apps[0], action: ActionsMenuStartStop})
+	assert.True(t, d.toggling)
+}
+
+func TestDashboard_ActionsMenuRemove(t *testing.T) {
+	d := testDashboard(1)
+	d.width = 80
+	d.height = 40
+	d.updateViewportSize()
+	d.rebuildViewportContent()
+
+	_, cmd := updateDashboard(d, ActionsMenuSelectMsg{app: d.apps[0], action: ActionsMenuRemove})
+	require.NotNil(t, cmd)
+
+	msg := cmd()
+	navMsg, ok := msg.(NavigateToRemoveMsg)
+	require.True(t, ok, "expected NavigateToRemoveMsg, got %T", msg)
+	assert.Equal(t, d.apps[0], navMsg.App)
+}
+
+func TestDashboard_OldStartStopKeyRemoved(t *testing.T) {
+	d := testDashboard(1)
+	d.width = 80
+	d.height = 40
+	d.updateViewportSize()
+	d.rebuildViewportContent()
+
+	d, _ = updateDashboard(d, keyPressMsg("o"))
+	assert.False(t, d.toggling)
+}
+
+func TestDashboard_SettingsMenuStillWorks(t *testing.T) {
+	d := testDashboard(1)
+	d.width = 80
+	d.height = 40
+	d.updateViewportSize()
+	d.rebuildViewportContent()
+
+	d, _ = updateDashboard(d, keyPressMsg("s"))
+	assert.NotNil(t, d.overlay)
+}
+
+func TestDashboard_ToggleDetails(t *testing.T) {
+	d := testDashboard(2)
+	d.width = 120
+	d.height = 40
+	d.updateViewportSize()
+	d.rebuildViewportContent()
+
+	assert.True(t, dashboardShowDetails)
+	fullHeight := d.panels[0].Height(dashboardShowDetails)
+
+	d, _ = updateDashboard(d, keyPressMsg("d"))
+	assert.False(t, dashboardShowDetails)
+	compactHeight := d.panels[0].Height(dashboardShowDetails)
+	assert.Less(t, compactHeight, fullHeight)
+
+	// Toggle back
+	d, _ = updateDashboard(d, keyPressMsg("d"))
+	assert.True(t, dashboardShowDetails)
+}
+
+func TestDashboard_ToggleDetailsEmptyState(t *testing.T) {
+	d := testDashboard(0)
+	d, _ = updateDashboard(d, tea.WindowSizeMsg{Width: 80, Height: 24})
+
+	// Should not panic
+	_, _ = updateDashboard(d, keyPressMsg("d"))
+	assert.True(t, dashboardShowDetails) // unchanged — guarded by len(m.apps) > 0
+}
+
+func TestDashboard_SelectPanelAfterAppsRemoved(t *testing.T) {
+	d := testDashboard(3)
+	d.width = 80
+	d.height = 40
+	d.updateViewportSize()
+	d.rebuildViewportContent()
+
+	// Simulate all apps disappearing (e.g. `once teardown` in another shell).
+	d.apps = nil
+	d.buildPanels()
+---
+internal/ui/dashboard_test.go:339:func testDashboard(numApps int) Dashboard {
+internal/ui/dashboard_test.go:347:func testDashboardWithApps(apps ...*docker.Application) Dashboard {
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0msed -n 315,400p internal/ui/dashboard_test.go
+func TestDashboard_FavoriteKeyTogglesAndSortsFirst(t *testing.T) {
+	d := testDashboard(3)
+	d.width = 80
+	d.height = 40
+	d.state = &docker.State{}
+	d.buildPanels()
+	d.updateViewportSize()
+	d.rebuildViewportContent()
+
+	d, _ = updateDashboard(d, keyPressMsg("down"))
+	d, _ = updateDashboard(d, keyPressMsg("f"))
+
+	assert.True(t, d.state.IsFavorite("app-1"))
+	assert.Equal(t, []int{1, 0, 2}, d.visibleIndices(d.computeScales()))
+	assert.Equal(t, 1, d.selectedIndex)
+
+	d, _ = updateDashboard(d, keyPressMsg("f"))
+
+	assert.False(t, d.state.IsFavorite("app-1"))
+	assert.Equal(t, []int{0, 1, 2}, d.visibleIndices(d.computeScales()))
+}
+
+// Helpers
+
+func testDashboard(numApps int) Dashboard {
+	apps := make([]*docker.Application, numApps)
+	for i := range numApps {
+		apps[i] = runningApp(fmt.Sprintf("app-%d", i))
+	}
+	return testDashboardWithApps(apps...)
+}
+
+func testDashboardWithApps(apps ...*docker.Application) Dashboard {
+	scraper := metrics.NewMetricsScraper(metrics.ScraperSettings{})
+	dockerScraper := &docker.Scraper{}
+	systemScraper := system.NewScraper(system.ScraperSettings{BufferSize: 10})
+
+	dashboardShowDetails = true
+	return NewDashboard(nil, apps, 0, scraper, dockerScraper, systemScraper, nil)
+}
+
+func runningApp(name string) *docker.Application {
+	return &docker.Application{
+		Running: true,
+		Settings: docker.ApplicationSettings{
+			Name: name,
+			Host: name + ".example.com",
+		},
+	}
+}
+
+func stoppedApp(name string) *docker.Application {
+	return &docker.Application{
+		Settings: docker.ApplicationSettings{
+			Name: name,
+			Host: name + ".example.com",
+		},
+	}
+}
+
+func updateDashboard(d Dashboard, msg tea.Msg) (Dashboard, tea.Cmd) {
+	comp, cmd := d.Update(msg)
+	return comp.(Dashboard), cmd
+}
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgrep -rn "func ExecProcess\|type ExecCallback" $(go env GOMODCACHE)/charm.land/bubbletea/v2@v2.0.9/*.go | head; echo ---; sed -n '/func ExecProcess/,/^}/p' $(go env GOMODCACHE)/charm.land/bubbletea/v2@v2.0.9/exec.go; echo ---; grep -rn "ExecProcess" internal | head
+/home/mrjohn/go/pkg/mod/charm.land/bubbletea/v2@v2.0.9/exec.go:50:func ExecProcess(c *exec.Cmd, fn ExecCallback) Cmd {
+/home/mrjohn/go/pkg/mod/charm.land/bubbletea/v2@v2.0.9/exec.go:56:type ExecCallback func(error) Msg
+---
+func ExecProcess(c *exec.Cmd, fn ExecCallback) Cmd {
+	return Exec(wrapExecCommand(c), fn)
+}
+---
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0msed -n 1,120p internal/ui/help.go; echo ---; cat internal/ui/help_test.go; echo ---; grep -rn "Contents.*favorite\|help" internal/ui/dashboard_test.go | head
+package ui
+
+import (
+	"strconv"
+	"strings"
+
+	"charm.land/bubbles/v2/key"
+	tea "charm.land/bubbletea/v2"
+	"charm.land/lipgloss/v2"
+
+	"github.com/basecamp/once/internal/mouse"
+)
+
+type Help struct {
+	width    int
+	bindings []key.Binding
+}
+
+func NewHelp() Help {
+	return Help{}
+}
+
+func (h *Help) SetWidth(w int) {
+	h.width = w
+}
+
+func (h Help) Update(msg tea.Msg) (Help, tea.Cmd) {
+	if msg, ok := msg.(MouseEvent); ok {
+		if msg.IsClick {
+			for i, kb := range h.bindings {
+				keys := kb.Keys()
+				if msg.Target == helpTarget(i) && len(keys) > 0 {
+					first := keys[0]
+					return h, func() tea.Msg {
+						return tea.KeyPressMsg(tea.Key{Text: first})
+					}
+				}
+			}
+		}
+	}
+	return h, nil
+}
+
+func (h *Help) SetBindings(bindings []key.Binding) {
+	h.bindings = bindings
+}
+
+func (h Help) Height() int {
+	return strings.Count(h.View(), "\n") + 1
+}
+
+func (h Help) View() string {
+	keyStyle := lipgloss.NewStyle().Bold(true)
+	descStyle := lipgloss.NewStyle().Foreground(Colors.Border)
+	separator := descStyle.Render(" • ")
+	sepWidth := lipgloss.Width(separator)
+
+	type helpItem struct {
+		str   string
+		width int
+		index int
+	}
+
+	var items []helpItem
+	for i, kb := range h.bindings {
+		help := kb.Help()
+		if help.Key == "" {
+			continue
+		}
+		rendered := keyStyle.Render(help.Key) + " " + descStyle.Render(help.Desc)
+		items = append(items, helpItem{str: rendered, width: lipgloss.Width(rendered), index: i})
+	}
+
+	if len(items) == 0 {
+		return ""
+	}
+
+	maxWidth := h.width
+	var lines []string
+	var line strings.Builder
+	lineWidth := 0
+
+	for _, it := range items {
+		if lineWidth > 0 && maxWidth > 0 && lineWidth+sepWidth+it.width > maxWidth {
+			lines = append(lines, line.String())
+			line.Reset()
+			lineWidth = 0
+		}
+		if lineWidth > 0 {
+			line.WriteString(separator)
+			lineWidth += sepWidth
+		}
+		line.WriteString(mouse.Mark(helpTarget(it.index), it.str))
+		lineWidth += it.width
+	}
+	if line.Len() > 0 {
+		lines = append(lines, line.String())
+	}
+
+	return strings.Join(lines, "\n")
+}
+
+// Helpers
+
+func helpTarget(i int) string {
+	return "help:" + strconv.Itoa(i)
+}
+---
+package ui
+
+import (
+	"strings"
+	"testing"
+
+	"charm.land/bubbles/v2/key"
+	"github.com/stretchr/testify/assert"
+)
+
+func TestHelp_RenderBasic(t *testing.T) {
+	bindings := []key.Binding{
+		WithHelp(NewKeyBinding("s"), "s", "settings"),
+		WithHelp(NewKeyBinding("g"), "g", "logs"),
+	}
+
+	h := NewHelp()
+	h.SetWidth(80)
+	h.SetBindings(bindings)
+	result := h.View()
+
+	assert.Contains(t, result, "s")
+	assert.Contains(t, result, "settings")
+	assert.Contains(t, result, "g")
+	assert.Contains(t, result, "logs")
+}
+
+func TestHelp_RenderEmpty(t *testing.T) {
+	h := NewHelp()
+	h.SetWidth(80)
+
+	result := h.View()
+	assert.Empty(t, result)
+}
+
+func TestHelp_RenderSkipsEmptyHelp(t *testing.T) {
+	bindings := []key.Binding{
+		WithHelp(NewKeyBinding("s"), "s", "settings"),
+		NewKeyBinding("x"), // no help text
+		WithHelp(NewKeyBinding("g"), "g", "logs"),
+	}
+
+	h := NewHelp()
+	h.SetWidth(80)
+	h.SetBindings(bindings)
+	result := h.View()
+
+	assert.Contains(t, result, "settings")
+	assert.Contains(t, result, "logs")
+	// The binding without help should not appear
+	assert.NotContains(t, result, "x ")
+}
+
+func TestHelp_RenderWraps(t *testing.T) {
+	bindings := []key.Binding{
+		WithHelp(NewKeyBinding("a"), "a", "aaaaaaaaa"),
+		WithHelp(NewKeyBinding("b"), "b", "bbbbbbbbb"),
+		WithHelp(NewKeyBinding("c"), "c", "ccccccccc"),
+	}
+
+	h := NewHelp()
+	h.SetWidth(30) // narrow enough to force wrapping
+	h.SetBindings(bindings)
+	result := h.View()
+
+	lines := strings.Split(result, "\n")
+	assert.Greater(t, len(lines), 1, "should wrap to multiple lines")
+}
+---
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0msed -n 128,165p internal/docker/application.go; echo ---; grep -rn "func (s ApplicationSettings) TLSEnabled\|func (s ApplicationSettings) URL" internal/docker/*.go
+func (a *Application) URL() string {
+	if a.Settings.Host == "" {
+		return ""
+	}
+
+	scheme := "http"
+	defaultPort := 80
+	if a.Settings.TLSEnabled() {
+		scheme = "https"
+		defaultPort = 443
+	}
+
+	base := scheme + "://" + a.Settings.Host
+
+	if a.namespace == nil {
+		return base
+	}
+
+	proxy := a.namespace.Proxy()
+	if proxy.Settings == nil {
+		return base
+	}
+
+	port := proxy.Settings.HTTPPort
+	if a.Settings.TLSEnabled() {
+		port = proxy.Settings.HTTPSPort
+	}
+
+	if port != 0 && port != defaultPort {
+		return base + ":" + strconv.Itoa(port)
+	}
+	return base
+}
+
+func (a *Application) Stop(ctx context.Context) error {
+	name, err := a.ContainerName(ctx)
+	if err != nil {
+		return err
+---
+internal/docker/application_settings.go:141:func (s ApplicationSettings) TLSEnabled() bool {
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgrep -rn "\.URL()" internal | head -20; echo ---; sed -n 1,120p internal/ui/actions_menu.go
+internal/command/list.go:39:		host := hostStyle.Hyperlink(app.URL()).Render(app.Settings.Host)
+internal/docker/application.go:450:	url := a.URL()
+internal/docker/application.go:535:	if url := a.URL(); url != "" {
+internal/docker/application_test.go:96:		assert.Equal(t, "", app.URL())
+internal/docker/application_test.go:101:		assert.Equal(t, "https://app.example.com", app.URL())
+internal/docker/application_test.go:111:		assert.Equal(t, "http://app.localhost", app.URL())
+internal/docker/application_test.go:116:		assert.Equal(t, "http://app.localhost", app.URL())
+internal/docker/application_test.go:121:		assert.Equal(t, "http://app.localhost:8080", app.URL())
+internal/docker/application_test.go:126:		assert.Equal(t, "https://app.example.com", app.URL())
+internal/docker/application_test.go:131:		assert.Equal(t, "https://app.example.com:8443", app.URL())
+internal/docker/application_test.go:136:		assert.Equal(t, "http://chat.localhost:9090", app.URL())
+internal/ui/dashboard_panel.go:66:	url := Styles.Title.Hyperlink(p.app.URL()).Render(p.app.Settings.Host)
+---
+package ui
+
+import (
+	"charm.land/bubbles/v2/key"
+	tea "charm.land/bubbletea/v2"
+	"charm.land/lipgloss/v2"
+
+	"github.com/basecamp/once/internal/docker"
+)
+
+var actionsMenuCloseKey = WithHelp(NewKeyBinding("esc"), "esc", "close")
+
+type ActionsMenuCloseMsg struct{}
+
+type ActionsMenuSelectMsg struct {
+	app    *docker.Application
+	action ActionsMenuAction
+}
+
+type ActionsMenuAction int
+
+const (
+	ActionsMenuStartStop ActionsMenuAction = iota
+	ActionsMenuRemove
+)
+
+type ActionsMenu struct {
+	app  *docker.Application
+	menu Menu
+	help Help
+}
+
+func NewActionsMenu(app *docker.Application) ActionsMenu {
+	startStopLabel := "Start"
+	if app.Running {
+		startStopLabel = "Stop"
+	}
+
+	h := NewHelp()
+	h.SetBindings([]key.Binding{actionsMenuCloseKey})
+	return ActionsMenu{
+		app: app,
+		menu: NewMenu(
+			MenuItem{Label: startStopLabel, Key: int(ActionsMenuStartStop), Shortcut: WithHelp(NewKeyBinding("s"), "s", "")},
+			MenuItem{Label: "Remove", Key: int(ActionsMenuRemove), Shortcut: WithHelp(NewKeyBinding("r"), "r", "")},
+		),
+		help: h,
+	}
+}
+
+func (m ActionsMenu) Init() tea.Cmd {
+	return nil
+}
+
+func (m ActionsMenu) Update(msg tea.Msg) (Component, tea.Cmd) {
+	switch msg := msg.(type) {
+	case MouseEvent:
+		var cmd tea.Cmd
+		m.help, cmd = m.help.Update(msg)
+		if cmd != nil {
+			return m, cmd
+		}
+
+	case tea.KeyPressMsg:
+		if key.Matches(msg, actionsMenuCloseKey) {
+			return m, func() tea.Msg { return ActionsMenuCloseMsg{} }
+		}
+
+	case MenuSelectMsg:
+		return m, m.selectAction(ActionsMenuAction(msg.Key))
+	}
+
+	var cmd tea.Cmd
+	m.menu, cmd = m.menu.Update(msg)
+	return m, cmd
+}
+
+func (m ActionsMenu) View() string {
+	boxStyle := lipgloss.NewStyle().
+		Border(lipgloss.RoundedBorder()).
+		BorderForeground(Colors.Border).
+		Padding(1, 4)
+
+	titleStyle := lipgloss.NewStyle().
+		Bold(true).
+		Foreground(Colors.Primary).
+		MarginBottom(1)
+
+	title := titleStyle.Render("Actions")
+
+	m.menu.SetWidth(20)
+	menuView := m.menu.View()
+
+	helpView := m.help.View()
+	menuWidth := lipgloss.Width(menuView)
+	helpLine := lipgloss.NewStyle().MarginTop(1).Width(menuWidth).Align(lipgloss.Center).Render(helpView)
+
+	content := lipgloss.JoinVertical(lipgloss.Center,
+		title,
+		menuView,
+		helpLine,
+	)
+
+	return boxStyle.Render(content)
+}
+
+// Private
+
+func (m ActionsMenu) selectAction(action ActionsMenuAction) tea.Cmd {
+	return func() tea.Msg {
+		return ActionsMenuSelectMsg{app: m.app, action: action}
+	}
+}
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+I've got the shape: `R` on the dashboard should pick a random *running* app other than the current one and open its URL. Let me implement it.
+[0m← [0mEdit internal/ui/dashboard.go
+Index: internal/ui/dashboard.go
+===================================================================
+--- internal/ui/dashboard.go
++++ internal/ui/dashboard.go
+@@ -2,8 +2,9 @@
+ 
+ import (
+ 	"context"
+ 	"log/slog"
++	"math/rand/v2"
+ 	"os"
+ 	"slices"
+ 	"strings"
+ 	"time"
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/ui/dashboard.go
+Index: internal/ui/dashboard.go
+===================================================================
+--- internal/ui/dashboard.go
++++ internal/ui/dashboard.go
+@@ -13,8 +13,9 @@
+ 	"charm.land/bubbles/v2/viewport"
+ 	tea "charm.land/bubbletea/v2"
+ 	"charm.land/lipgloss/v2"
+ 
++	"github.com/basecamp/once/internal/browser"
+ 	"github.com/basecamp/once/internal/docker"
+ 	"github.com/basecamp/once/internal/metrics"
+ 	"github.com/basecamp/once/internal/system"
+ 	"github.com/basecamp/once/internal/userstats"
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/ui/dashboard.go
+Index: internal/ui/dashboard.go
+===================================================================
+--- internal/ui/dashboard.go
++++ internal/ui/dashboard.go
+@@ -33,8 +33,9 @@
+ 	Favorite key.Binding
+ 	NewApp   key.Binding
+ 	Logs     key.Binding
+ 	Contents key.Binding
++	Drift    key.Binding
+ 	Details  key.Binding
+ 	Quit     key.Binding
+ }{
+ 	Up:       WithHelp(NewKeyBinding("up", "k"), "↑/k", "up"),
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/ui/dashboard.go
+Index: internal/ui/dashboard.go
+===================================================================
+--- internal/ui/dashboard.go
++++ internal/ui/dashboard.go
+@@ -45,8 +45,9 @@
+ 	Favorite: WithHelp(NewKeyBinding("f"), "f", "favorite"),
+ 	NewApp:   WithHelp(NewKeyBinding("n"), "n", "new app"),
+ 	Logs:     WithHelp(NewKeyBinding("g"), "g", "logs"),
+ 	Contents: WithHelp(NewKeyBinding("C"), "C", "contents"),
++	Drift:    WithHelp(NewKeyBinding("R"), "R", "drift"),
+ 	Details:  WithHelp(NewKeyBinding("d"), "d", "toggle details"),
+ 	Quit:     WithHelp(NewKeyBinding("esc"), "esc", "quit"),
+ }
+ 
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/ui/dashboard.go
+Index: internal/ui/dashboard.go
+===================================================================
+--- internal/ui/dashboard.go
++++ internal/ui/dashboard.go
+@@ -197,8 +197,11 @@
+ 			var cmd tea.Cmd
+ 			m.overlay, cmd = m.overlay.Update(tea.WindowSizeMsg{Width: m.width, Height: m.height})
+ 			return m, cmd
+ 		}
++		if key.Matches(msg, dashboardKeys.Drift) {
++			return m, m.drift()
++		}
+ 		if key.Matches(msg, dashboardKeys.Details) && len(m.apps) > 0 {
+ 			dashboardShowDetails = !dashboardShowDetails
+ 			m.updateViewportSize()
+ 			m.selectPanel(m.selectedIndex)
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/ui/dashboard.go
+Index: internal/ui/dashboard.go
+===================================================================
+--- internal/ui/dashboard.go
++++ internal/ui/dashboard.go
+@@ -332,9 +332,10 @@
+ 	if len(m.apps) > 0 {
+ 		return []key.Binding{
+ 			dashboardKeys.Up, dashboardKeys.Down, dashboardKeys.Actions,
+ 			dashboardKeys.Favorite, dashboardKeys.Settings, dashboardKeys.Logs,
+-			dashboardKeys.Contents, dashboardKeys.Details, dashboardKeys.NewApp, dashboardKeys.Quit,
++			dashboardKeys.Contents, dashboardKeys.Drift, dashboardKeys.Details,
++			dashboardKeys.NewApp, dashboardKeys.Quit,
+ 		}
+ 	}
+ 	return []key.Binding{dashboardKeys.NewApp, dashboardKeys.Quit}
+ }
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/ui/dashboard.go [90m[offset=26, limit=36][0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/ui/dashboard.go [90m[offset=190, limit=22][0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/ui/dashboard.go
+Index: internal/ui/dashboard.go
+===================================================================
+--- internal/ui/dashboard.go
++++ internal/ui/dashboard.go
+@@ -351,8 +351,23 @@
+ 		return startStopFinishedMsg{err: err}
+ 	}
+ }
+ 
++func (m Dashboard) drift() tea.Cmd {
++	index, ok := driftTarget(m.apps, m.selectedIndex)
++	if !ok {
++		return nil
++	}
++
++	app := m.apps[index]
++	return func() tea.Msg {
++		if err := browser.Open(app.URL()); err != nil {
++			slog.Warn("Failed to open drifted app", "app", app.Settings.Name, "error", err)
++		}
++		return nil
++	}
++}
++
+ func (m Dashboard) scheduleNextDashboardTick() tea.Cmd {
+ 	return tea.Every(time.Second, func(time.Time) tea.Msg { return dashboardTickMsg{} })
+ }
+ 
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/ui/dashboard.go
+Index: internal/ui/dashboard.go
+===================================================================
+--- internal/ui/dashboard.go
++++ internal/ui/dashboard.go
+@@ -595,8 +595,21 @@
+ }
+ 
+ // Helpers
+ 
++func driftTarget(apps []*docker.Application, current int) (int, bool) {
++	candidates := make([]int, 0, len(apps))
++	for i, app := range apps {
++		if app.Running && i != current {
++			candidates = append(candidates, i)
++		}
++	}
++	if len(candidates) == 0 {
++		return 0, false
++	}
++	return candidates[rand.IntN(len(candidates))], true
++}
++
+ func loadState(ns *docker.Namespace) *docker.State {
+ 	if ns == nil {
+ 		return nil
+ 	}
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mWrite internal/browser/browser.go
+Created file successfully: internal/browser/browser.go
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/ui/dashboard_test.go
+Index: internal/ui/dashboard_test.go
+===================================================================
+--- internal/ui/dashboard_test.go
++++ internal/ui/dashboard_test.go
+@@ -333,8 +333,48 @@
+ 	assert.False(t, d.state.IsFavorite("app-1"))
+ 	assert.Equal(t, []int{0, 1, 2}, d.visibleIndices(d.computeScales()))
+ }
+ 
++func TestDashboard_DriftKeyOpensAnotherRunningApp(t *testing.T) {
++	d := testDashboard(2)
++
++	_, cmd := updateDashboard(d, keyPressMsg("R"))
++	require.NotNil(t, cmd)
++}
++
++func TestDashboard_DriftKeyWithoutAnotherRunningApp(t *testing.T) {
++	d := testDashboard(1)
++
++	_, cmd := updateDashboard(d, keyPressMsg("R"))
++	assert.Nil(t, cmd)
++}
++
++func TestDriftTargetExcludesCurrentApp(t *testing.T) {
++	apps := []*docker.Application{runningApp("a"), runningApp("b"), runningApp("c")}
++
++	for range 50 {
++		index, ok := driftTarget(apps, 1)
++		require.True(t, ok)
++		assert.NotEqual(t, 1, index)
++	}
++}
++
++func TestDriftTargetSkipsStoppedApps(t *testing.T) {
++	apps := []*docker.Application{stoppedApp("a"), runningApp("b")}
++
++	index, ok := driftTarget(apps, 0)
++	require.True(t, ok)
++	assert.Equal(t, 1, index)
++}
++
++func TestDriftTargetNeedsRunningCandidate(t *testing.T) {
++	_, ok := driftTarget([]*docker.Application{runningApp("a")}, 0)
++	assert.False(t, ok)
++
++	_, ok = driftTarget([]*docker.Application{stoppedApp("a"), stoppedApp("b")}, 0)
++	assert.False(t, ok)
++}
++
+ // Helpers
+ 
+ func testDashboard(numApps int) Dashboard {
+ 	apps := make([]*docker.Application, numApps)
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/ui/dashboard_test.go [90m[offset=315, limit=55][0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mWrite internal/browser/browser_test.go
+Created file successfully: internal/browser/browser_test.go
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgofmt -l internal/ui/dashboard.go internal/ui/dashboard_test.go internal/browser/browser.go internal/browser/browser_test.go; go test ./internal/... 2>&1 | tail -30
+ok  	github.com/basecamp/once/internal/background	(cached)
+ok  	github.com/basecamp/once/internal/browser	0.004s
+ok  	github.com/basecamp/once/internal/command	0.010s
+ok  	github.com/basecamp/once/internal/docker	0.033s
+ok  	github.com/basecamp/once/internal/fsutil	(cached)
+?   	github.com/basecamp/once/internal/logging	[no test files]
+ok  	github.com/basecamp/once/internal/metrics	0.009s
+ok  	github.com/basecamp/once/internal/mouse	(cached)
+?   	github.com/basecamp/once/internal/service	[no test files]
+ok  	github.com/basecamp/once/internal/system	(cached)
+ok  	github.com/basecamp/once/internal/ui	0.238s
+ok  	github.com/basecamp/once/internal/userstats	(cached)
+ok  	github.com/basecamp/once/internal/version	(cached)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mmake lint 2>&1 | tail -40
+golangci-lint run
+0 issues.
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgit diff --stat; git diff -- internal/ui/dashboard.go internal/browser/browser.go
+internal/ui/dashboard.go      | 38 +++++++++++++++++++++++++++++++++++++-
+ internal/ui/dashboard_test.go | 40 ++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 77 insertions(+), 1 deletion(-)
+diff --git i/internal/ui/dashboard.go w/internal/ui/dashboard.go
+index df09a45..3424aa3 100644
+--- i/internal/ui/dashboard.go
++++ w/internal/ui/dashboard.go
+@@ -3,6 +3,7 @@ package ui
+ import (
+ 	"context"
+ 	"log/slog"
++	"math/rand/v2"
+ 	"os"
+ 	"slices"
+ 	"strings"
+@@ -13,6 +14,7 @@ import (
+ 	tea "charm.land/bubbletea/v2"
+ 	"charm.land/lipgloss/v2"
+ 
++	"github.com/basecamp/once/internal/browser"
+ 	"github.com/basecamp/once/internal/docker"
+ 	"github.com/basecamp/once/internal/metrics"
+ 	"github.com/basecamp/once/internal/system"
+@@ -32,6 +34,7 @@ var dashboardKeys = struct {
+ 	NewApp   key.Binding
+ 	Logs     key.Binding
+ 	Contents key.Binding
++	Drift    key.Binding
+ 	Details  key.Binding
+ 	Quit     key.Binding
+ }{
+@@ -43,6 +46,7 @@ var dashboardKeys = struct {
+ 	NewApp:   WithHelp(NewKeyBinding("n"), "n", "new app"),
+ 	Logs:     WithHelp(NewKeyBinding("g"), "g", "logs"),
+ 	Contents: WithHelp(NewKeyBinding("C"), "C", "contents"),
++	Drift:    WithHelp(NewKeyBinding("R"), "R", "drift"),
+ 	Details:  WithHelp(NewKeyBinding("d"), "d", "toggle details"),
+ 	Quit:     WithHelp(NewKeyBinding("esc"), "esc", "quit"),
+ }
+@@ -194,6 +198,9 @@ func (m Dashboard) Update(msg tea.Msg) (Component, tea.Cmd) {
+ 			m.overlay, cmd = m.overlay.Update(tea.WindowSizeMsg{Width: m.width, Height: m.height})
+ 			return m, cmd
+ 		}
++		if key.Matches(msg, dashboardKeys.Drift) {
++			return m, m.drift()
++		}
+ 		if key.Matches(msg, dashboardKeys.Details) && len(m.apps) > 0 {
+ 			dashboardShowDetails = !dashboardShowDetails
+ 			m.updateViewportSize()
+@@ -326,7 +333,8 @@ func (m Dashboard) helpBindings() []key.Binding {
+ 		return []key.Binding{
+ 			dashboardKeys.Up, dashboardKeys.Down, dashboardKeys.Actions,
+ 			dashboardKeys.Favorite, dashboardKeys.Settings, dashboardKeys.Logs,
+-			dashboardKeys.Contents, dashboardKeys.Details, dashboardKeys.NewApp, dashboardKeys.Quit,
++			dashboardKeys.Contents, dashboardKeys.Drift, dashboardKeys.Details,
++			dashboardKeys.NewApp, dashboardKeys.Quit,
+ 		}
+ 	}
+ 	return []key.Binding{dashboardKeys.NewApp, dashboardKeys.Quit}
+@@ -344,6 +352,21 @@ func (m Dashboard) runStartStop(app *docker.Application) tea.Cmd {
+ 	}
+ }
+ 
++func (m Dashboard) drift() tea.Cmd {
++	index, ok := driftTarget(m.apps, m.selectedIndex)
++	if !ok {
++		return nil
++	}
++
++	app := m.apps[index]
++	return func() tea.Msg {
++		if err := browser.Open(app.URL()); err != nil {
++			slog.Warn("Failed to open drifted app", "app", app.Settings.Name, "error", err)
++		}
++		return nil
++	}
++}
++
+ func (m Dashboard) scheduleNextDashboardTick() tea.Cmd {
+ 	return tea.Every(time.Second, func(time.Time) tea.Msg { return dashboardTickMsg{} })
+ }
+@@ -573,6 +596,19 @@ func (m *Dashboard) refreshState() {
+ 
+ // Helpers
+ 
++func driftTarget(apps []*docker.Application, current int) (int, bool) {
++	candidates := make([]int, 0, len(apps))
++	for i, app := range apps {
++		if app.Running && i != current {
++			candidates = append(candidates, i)
++		}
++	}
++	if len(candidates) == 0 {
++		return 0, false
++	}
++	return candidates[rand.IntN(len(candidates))], true
++}
++
+ func loadState(ns *docker.Namespace) *docker.State {
+ 	if ns == nil {
+ 		return nil
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mmake test 2>&1 | tail -15
+go test ./internal/...
+ok  	github.com/basecamp/once/internal/background	(cached)
+ok  	github.com/basecamp/once/internal/browser	(cached)
+ok  	github.com/basecamp/once/internal/command	(cached)
+ok  	github.com/basecamp/once/internal/docker	(cached)
+ok  	github.com/basecamp/once/internal/fsutil	(cached)
+?   	github.com/basecamp/once/internal/logging	[no test files]
+ok  	github.com/basecamp/once/internal/metrics	(cached)
+ok  	github.com/basecamp/once/internal/mouse	(cached)
+?   	github.com/basecamp/once/internal/service	[no test files]
+ok  	github.com/basecamp/once/internal/system	(cached)
+ok  	github.com/basecamp/once/internal/ui	(cached)
+ok  	github.com/basecamp/once/internal/userstats	(cached)
+ok  	github.com/basecamp/once/internal/version	(cached)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+Added Drift: `R` on the dashboard picks a uniformly random **running** app other than the selected one and opens its URL in the browser.
+
+- `internal/ui/dashboard.go:201` binds `R`; `driftTarget` filters running apps and excludes the current index; `drift` opens the URL.
+- `internal/browser/browser.go` opens via `xdg-open`/`open`.
+- No state, settings, or history involved.
+
+Lint command: `make lint` → `0 issues`. Tests: `make test` → all packages pass.
