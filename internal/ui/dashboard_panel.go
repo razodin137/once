@@ -54,7 +54,7 @@ func (p DashboardPanel) DataMaxes() (traffic float64) {
 	return maxValue(reqData)
 }
 
-func (p DashboardPanel) View(selected bool, toggling bool, active docker.Channel, showDetails bool, width int, scales DashboardScales) string {
+func (p DashboardPanel) View(selected bool, busy string, active docker.Channel, showDetails bool, width int, scales DashboardScales) string {
 	innerWidth := max(width-3, 0) // indicator(1) + left padding(1) + right padding(1)
 	detailed := showDetails && p.app.Running
 
@@ -73,7 +73,7 @@ func (p DashboardPanel) View(selected bool, toggling bool, active docker.Channel
 	star := lipgloss.NewStyle().Foreground(starColor).Render(favoriteStarText(p.favorite()))
 	left := star + " " + badge + " " + url + " " + name
 
-	chips := p.chips(cards, toggling)
+	chips := p.chips(cards, busy)
 	right := renderChannelChips(chips, active)
 	for len(chips) > 1 && lipgloss.Width(left)+lipgloss.Width(right)+3 > innerWidth {
 		chips = chips[:len(chips)-1]
@@ -140,13 +140,9 @@ func (p DashboardPanel) Channels(scales DashboardScales) []docker.Channel {
 
 // Private
 
-func (p DashboardPanel) chips(cards [3]MetricCard, toggling bool) []channelChip {
-	if toggling {
-		label := "starting..."
-		if p.app.Running {
-			label = "stopping..."
-		}
-		return []channelChip{{label: label, color: Colors.LightText}}
+func (p DashboardPanel) chips(cards [3]MetricCard, busy string) []channelChip {
+	if busy != "" {
+		return []channelChip{{label: busy, color: Colors.LightText}}
 	}
 
 	channels := p.channels(cards)

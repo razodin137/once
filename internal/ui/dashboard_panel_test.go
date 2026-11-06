@@ -15,7 +15,7 @@ import (
 
 func TestDashboardPanelViewRunningApp(t *testing.T) {
 	panel := testPanel(true)
-	view := panel.View(false, false, "", true, 120, DashboardScales{})
+	view := panel.View(false, "", "", true, 120, DashboardScales{})
 	stripped := ansi.Strip(view)
 
 	assert.Contains(t, stripped, "app.example.com")
@@ -24,7 +24,7 @@ func TestDashboardPanelViewRunningApp(t *testing.T) {
 
 func TestDashboardPanelViewStoppedApp(t *testing.T) {
 	panel := testPanel(false)
-	view := panel.View(false, false, "", true, 120, DashboardScales{})
+	view := panel.View(false, "", "", true, 120, DashboardScales{})
 	stripped := ansi.Strip(view)
 
 	assert.Contains(t, stripped, "app.example.com")
@@ -34,7 +34,7 @@ func TestDashboardPanelViewStoppedApp(t *testing.T) {
 func TestDashboardPanelViewShowsNoBackupChip(t *testing.T) {
 	state := &docker.State{Apps: map[string]*docker.AppState{"test-app": {}}}
 	panel := testPanelWithState(true, state)
-	view := panel.View(false, false, "", true, 120, DashboardScales{})
+	view := panel.View(false, "", "", true, 120, DashboardScales{})
 
 	assert.Contains(t, ansi.Strip(view), "[no backup]")
 }
@@ -44,7 +44,7 @@ func TestDashboardPanelViewHidesBackupChipForASuccessfulBackup(t *testing.T) {
 		"test-app": {LastBackup: docker.OperationResult{At: time.Now()}},
 	}}
 	panel := testPanelWithState(true, state)
-	view := panel.View(false, false, "", true, 120, DashboardScales{})
+	view := panel.View(false, "", "", true, 120, DashboardScales{})
 
 	assert.NotContains(t, ansi.Strip(view), "[no backup]")
 }
@@ -55,7 +55,7 @@ func TestDashboardPanelViewShowsIdleChip(t *testing.T) {
 	}}
 	panel := testPanelWithState(true, state)
 	panel.app.DeployedAt = time.Now().Add(-31 * 24 * time.Hour)
-	view := panel.View(false, false, "", true, 120, DashboardScales{})
+	view := panel.View(false, "", "", true, 120, DashboardScales{})
 
 	assert.Contains(t, ansi.Strip(view), "[idle 30d]")
 }
@@ -63,7 +63,7 @@ func TestDashboardPanelViewShowsIdleChip(t *testing.T) {
 func TestDashboardPanelViewShowsDeployingChip(t *testing.T) {
 	panel := testPanel(true)
 	panel.app.DeployedAt = time.Now()
-	view := panel.View(false, false, "", true, 120, DashboardScales{})
+	view := panel.View(false, "", "", true, 120, DashboardScales{})
 
 	assert.Contains(t, ansi.Strip(view), "[deploying]")
 }
@@ -88,7 +88,7 @@ func TestDashboardPanelHeightStopped(t *testing.T) {
 
 func TestDashboardPanelSelectedHasIndicator(t *testing.T) {
 	panel := testPanel(true)
-	view := panel.View(true, false, "", true, 80, DashboardScales{})
+	view := panel.View(true, "", "", true, 80, DashboardScales{})
 
 	// Selected panels have the indicator character
 	assert.Contains(t, view, "▐")
@@ -98,7 +98,7 @@ func TestDashboardPanelSelectedHasIndicator(t *testing.T) {
 
 func TestDashboardPanelNotSelectedNoIndicator(t *testing.T) {
 	panel := testPanel(true)
-	view := panel.View(false, false, "", true, 80, DashboardScales{})
+	view := panel.View(false, "", "", true, 80, DashboardScales{})
 
 	assert.NotContains(t, view, "▐")
 	assert.NotContains(t, view, "▗")
@@ -108,7 +108,7 @@ func TestDashboardPanelNotSelectedNoIndicator(t *testing.T) {
 func TestDashboardPanelNarrowWidthHidesCards(t *testing.T) {
 	panel := testPanel(true)
 	// Width of 30 is too narrow for cards (need minCardWidth*4+3 = 35 inner)
-	view := panel.View(false, false, "", true, 30, DashboardScales{})
+	view := panel.View(false, "", "", true, 30, DashboardScales{})
 
 	// Should not contain card borders
 	assert.NotContains(t, view, "╭─")
@@ -116,16 +116,16 @@ func TestDashboardPanelNarrowWidthHidesCards(t *testing.T) {
 
 func TestDashboardPanelWideWidthShowsCards(t *testing.T) {
 	panel := testPanel(true)
-	view := panel.View(false, false, "", true, 120, DashboardScales{})
+	view := panel.View(false, "", "", true, 120, DashboardScales{})
 
 	// Cards should have borders
 	assert.Contains(t, view, "╭─")
 	assert.Contains(t, view, "╰")
 }
 
-func TestDashboardPanelTogglingShowsStatus(t *testing.T) {
+func TestDashboardPanelBusyShowsStatus(t *testing.T) {
 	panel := testPanel(true)
-	view := panel.View(false, true, "", true, 120, DashboardScales{})
+	view := panel.View(false, "stopping...", "", true, 120, DashboardScales{})
 	stripped := ansi.Strip(view)
 
 	assert.Contains(t, stripped, "stopping...")
@@ -133,7 +133,7 @@ func TestDashboardPanelTogglingShowsStatus(t *testing.T) {
 
 func TestDashboardPanelViewHasThreeLines(t *testing.T) {
 	panel := testPanel(false)
-	view := panel.View(false, false, "", false, 80, DashboardScales{})
+	view := panel.View(false, "", "", false, 80, DashboardScales{})
 	lines := strings.Split(view, "\n")
 
 	// top transition + body lines + bottom transition
@@ -178,13 +178,13 @@ func TestDashboardPanelShowsFavoriteStar(t *testing.T) {
 	state.SetFavorite("test-app", true)
 	panel := testPanelWithState(true, state)
 
-	assert.Contains(t, ansi.Strip(panel.View(false, false, "", true, 120, DashboardScales{})), favoriteStar)
+	assert.Contains(t, ansi.Strip(panel.View(false, "", "", true, 120, DashboardScales{})), favoriteStar)
 }
 
 func TestDashboardPanelShowsUnfavoriteStar(t *testing.T) {
 	panel := testPanel(true)
 
-	assert.Contains(t, ansi.Strip(panel.View(false, false, "", true, 120, DashboardScales{})), unfavoriteStar)
+	assert.Contains(t, ansi.Strip(panel.View(false, "", "", true, 120, DashboardScales{})), unfavoriteStar)
 }
 
 // Helpers

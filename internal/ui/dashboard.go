@@ -26,29 +26,31 @@ var dashboardShowDetails = true
 const stateRefreshInterval = time.Minute
 
 var dashboardKeys = struct {
-	Up       key.Binding
-	Down     key.Binding
-	Settings key.Binding
-	Actions  key.Binding
-	Favorite key.Binding
-	NewApp   key.Binding
-	Logs     key.Binding
-	Contents key.Binding
-	Drift    key.Binding
-	Details  key.Binding
-	Quit     key.Binding
+	Up        key.Binding
+	Down      key.Binding
+	Settings  key.Binding
+	Actions   key.Binding
+	Favorite  key.Binding
+	NewApp    key.Binding
+	Logs      key.Binding
+	Contents  key.Binding
+	Drift     key.Binding
+	Details   key.Binding
+	UpdateAll key.Binding
+	Quit      key.Binding
 }{
-	Up:       WithHelp(NewKeyBinding("up", "k"), "↑/k", "up"),
-	Down:     WithHelp(NewKeyBinding("down", "j"), "↓/j", "down"),
-	Settings: WithHelp(NewKeyBinding("s"), "s", "settings"),
-	Actions:  WithHelp(NewKeyBinding("a"), "a", "actions"),
-	Favorite: WithHelp(NewKeyBinding("f"), "f", "favorite"),
-	NewApp:   WithHelp(NewKeyBinding("n"), "n", "new app"),
-	Logs:     WithHelp(NewKeyBinding("g"), "g", "logs"),
-	Contents: WithHelp(NewKeyBinding("C"), "C", "contents"),
-	Drift:    WithHelp(NewKeyBinding("R"), "R", "drift"),
-	Details:  WithHelp(NewKeyBinding("d"), "d", "toggle details"),
-	Quit:     WithHelp(NewKeyBinding("esc"), "esc", "quit"),
+	Up:        WithHelp(NewKeyBinding("up", "k"), "↑/k", "up"),
+	Down:      WithHelp(NewKeyBinding("down", "j"), "↓/j", "down"),
+	Settings:  WithHelp(NewKeyBinding("s"), "s", "settings"),
+	Actions:   WithHelp(NewKeyBinding("a"), "a", "actions"),
+	Favorite:  WithHelp(NewKeyBinding("f"), "f", "favorite"),
+	NewApp:    WithHelp(NewKeyBinding("n"), "n", "new app"),
+	Logs:      WithHelp(NewKeyBinding("g"), "g", "logs"),
+	Contents:  WithHelp(NewKeyBinding("C"), "C", "contents"),
+	Drift:     WithHelp(NewKeyBinding("R"), "R", "drift"),
+	Details:   WithHelp(NewKeyBinding("d"), "d", "toggle details"),
+	UpdateAll: WithHelp(NewKeyBinding("u"), "u", "update all"),
+	Quit:      WithHelp(NewKeyBinding("esc"), "esc", "quit"),
 }
 
 type Dashboard struct {
@@ -66,6 +68,10 @@ type Dashboard struct {
 	viewport      viewport.Model
 	toggling      bool
 	togglingApp   string
+	updating      bool
+	updatingApp   string
+	updateQueue   []*docker.Application
+	updateApp     func(context.Context, *docker.Application) (bool, error)
 	progress      Progress
 	help          Help
 	overlay       Component
@@ -77,6 +83,10 @@ type Dashboard struct {
 type dashboardTickMsg struct{}
 
 type startStopFinishedMsg struct {
+	err error
+}
+
+type updateAllAppDoneMsg struct {
 	err error
 }
 
@@ -177,12 +187,16 @@ func (m Dashboard) Update(msg tea.Msg) (Component, tea.Cmd) {
 			m.overlay, cmd = m.overlay.Update(tea.WindowSizeMsg{Width: m.width, Height: m.height})
 			return m, cmd
 		}
-		if key.Matches(msg, dashboardKeys.Actions) && len(m.apps) > 0 && !m.toggling {
+		if key.Matches(msg, dashboardKeys.Actions) && len(m.apps) > 0 && !m.busy() {
 			app := m.apps[m.selectedIndex]
 			m.overlay = NewActionsMenu(app)
 			var cmd tea.Cmd
 			m.overlay, cmd = m.overlay.Update(tea.WindowSizeMsg{Width: m.width, Height: m.height})
 			return m, cmd
+		}
+		if key.Matches(msg, dashboardKeys.UpdateAll) && len(m.apps) > 0 && !m.busy() {
+			m.startUpdateAll()
+			return m, tea.Batch(m.progress.Init(), m.updateNextApp())
 		}
 		if key.Matches(msg, dashboardKeys.Favorite) && len(m.apps) > 0 {
 			m.toggleFavorite(m.apps[m.selectedIndex].Settings.Name)
@@ -247,6 +261,16 @@ func (m Dashboard) Update(msg tea.Msg) (Component, tea.Cmd) {
 		m.updateViewportSize()
 		m.rebuildViewportContent()
 
+	case updateAllAppDoneMsg:
+		if msg.err != nil {
+			slog.Warn("Failed to update app", "app", m.updatingApp, "error", msg.err)
+		}
+		if len(m.updateQueue) == 0 {
+			m.finishUpdateAll()
+			return m, nil
+		}
+		return m, m.updateNextApp()
+
 	case scrapeDoneMsg:
 		m.rebuildViewportContent()
 
@@ -256,7 +280,7 @@ func (m Dashboard) Update(msg tea.Msg) (Component, tea.Cmd) {
 		cmds = append(cmds, m.scheduleNextDashboardTick())
 
 	case ProgressTickMsg:
-		if m.toggling {
+		if m.busy() {
 			var cmd tea.Cmd
 			m.progress, cmd = m.progress.Update(msg)
 			cmds = append(cmds, cmd)
@@ -313,8 +337,8 @@ func (m Dashboard) View() string {
 		parts = append(parts, "", headerView, "")
 	}
 	parts = append(parts, m.viewport.View())
-	if m.toggling {
-		parts = append(parts, m.progress.View())
+	if m.busy() {
+		parts = append(parts, m.progressLine())
 	}
 	parts = append(parts, helpLine)
 	content := strings.Join(parts, "\n")
@@ -334,7 +358,7 @@ func (m Dashboard) helpBindings() []key.Binding {
 			dashboardKeys.Up, dashboardKeys.Down, dashboardKeys.Actions,
 			dashboardKeys.Favorite, dashboardKeys.Settings, dashboardKeys.Logs,
 			dashboardKeys.Contents, dashboardKeys.Drift, dashboardKeys.Details,
-			dashboardKeys.NewApp, dashboardKeys.Quit,
+			dashboardKeys.UpdateAll, dashboardKeys.NewApp, dashboardKeys.Quit,
 		}
 	}
 	return []key.Binding{dashboardKeys.NewApp, dashboardKeys.Quit}
@@ -350,6 +374,61 @@ func (m Dashboard) runStartStop(app *docker.Application) tea.Cmd {
 		}
 		return startStopFinishedMsg{err: err}
 	}
+}
+
+func (m Dashboard) busy() bool {
+	return m.toggling || m.updating
+}
+
+func (m Dashboard) progressLine() string {
+	if m.updatingApp == "" {
+		return m.progress.View()
+	}
+
+	label := lipgloss.NewStyle().Foreground(Colors.LightText).Render("Updating " + m.updatingApp)
+	return label + " " + m.progress.View()
+}
+
+func (m *Dashboard) startUpdateAll() {
+	m.updating = true
+	m.updateQueue = slices.Clone(m.apps)
+	m.progress = NewProgress(m.width, Colors.Border)
+	m.updateViewportSize()
+	m.rebuildViewportContent()
+}
+
+func (m *Dashboard) updateNextApp() tea.Cmd {
+	if len(m.updateQueue) == 0 {
+		return nil
+	}
+
+	app := m.updateQueue[0]
+	m.updateQueue = m.updateQueue[1:]
+	m.updatingApp = app.Settings.Host
+	m.rebuildViewportContent()
+
+	update := m.updateApp
+	if update == nil {
+		update = func(ctx context.Context, app *docker.Application) (bool, error) {
+			return app.Update(ctx, nil)
+		}
+	}
+
+	return func() tea.Msg {
+		_, err := update(context.Background(), app)
+		return updateAllAppDoneMsg{err: err}
+	}
+}
+
+func (m *Dashboard) finishUpdateAll() {
+	m.updating = false
+	m.updatingApp = ""
+	m.updateQueue = nil
+	m.state = loadState(m.namespace)
+	m.stateLoadedAt = time.Now()
+	m.buildPanels()
+	m.updateViewportSize()
+	m.rebuildViewportContent()
 }
 
 func (m Dashboard) drift() tea.Cmd {
@@ -459,7 +538,7 @@ func (m *Dashboard) updateViewportSize() {
 	}
 	helpHeight := m.help.Height()
 	progressHeight := 0
-	if m.toggling {
+	if m.busy() {
 		progressHeight = 1
 	}
 	vpHeight := max(m.height-titleHeight-headerHeight-helpHeight-progressHeight, 0)
@@ -476,13 +555,27 @@ func (m *Dashboard) rebuildViewportContent() {
 
 	var views []string
 	for _, i := range indices {
-		toggling := m.toggling && m.togglingApp == m.panels[i].app.Settings.Name
-		views = append(views, m.panels[i].View(i == m.selectedIndex, toggling, m.filter, dashboardShowDetails, m.width, scales))
+		views = append(views, m.panels[i].View(i == m.selectedIndex, m.panelBusyLabel(i), m.filter, dashboardShowDetails, m.width, scales))
 	}
 	if len(views) == 0 {
 		views = append(views, m.emptyFilterView())
 	}
 	m.viewport.SetContent(lipgloss.JoinVertical(lipgloss.Left, views...))
+}
+
+func (m *Dashboard) panelBusyLabel(index int) string {
+	app := m.panels[index].app
+
+	switch {
+	case m.updating && m.updatingApp == app.Settings.Host:
+		return "updating..."
+	case m.toggling && m.togglingApp == app.Settings.Name && app.Running:
+		return "stopping..."
+	case m.toggling && m.togglingApp == app.Settings.Name:
+		return "starting..."
+	default:
+		return ""
+	}
 }
 
 func (m *Dashboard) visibleIndices(scales DashboardScales) []int {

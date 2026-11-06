@@ -1,0 +1,2327 @@
+[0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m✱ [0mGlob "**/25-update-all*" [90m1 match[0m
+[0m$ [0mls -la; find . -path ./node_modules -prune -o -name "*update-all*" -print 2>/dev/null | head -50
+total 64
+drwxr-xr-x 1 mrjohn mrjohn   352 Nov  6 17:59 .
+drwxr-xr-x 1 mrjohn mrjohn    24 Nov  6 18:01 ..
+-rw-r--r-- 1 mrjohn mrjohn  4449 Nov  6 17:42 AGENTS.md
+drwxr-xr-x 1 mrjohn mrjohn     8 Nov  6 17:59 bin
+drwxr-xr-x 1 mrjohn mrjohn    18 Nov  6 17:42 .claude
+drwxr-xr-x 1 mrjohn mrjohn     8 Nov  6 17:42 cmd
+-rw-r--r-- 1 mrjohn mrjohn     8 Nov  6 17:42 .dockerignore
+drwxr-xr-x 1 mrjohn mrjohn   196 Nov  6 19:05 .git
+drwxr-xr-x 1 mrjohn mrjohn    86 Nov  6 17:42 .github
+-rw-r--r-- 1 mrjohn mrjohn    53 Nov  6 17:42 .gitignore
+-rw-r--r-- 1 mrjohn mrjohn   216 Nov  6 17:42 .golangci.yml
+-rw-r--r-- 1 mrjohn mrjohn  3299 Nov  6 18:57 go.mod
+-rw-r--r-- 1 mrjohn mrjohn 14945 Nov  6 18:56 go.sum
+drwxr-xr-x 1 mrjohn mrjohn   138 Nov  6 17:42 installer
+drwxr-xr-x 1 mrjohn mrjohn    62 Nov  6 17:42 integration
+drwxr-xr-x 1 mrjohn mrjohn   188 Nov  6 18:57 internal
+-rw-r--r-- 1 mrjohn mrjohn  1292 Nov  6 17:42 Makefile
+-rw-r--r-- 1 mrjohn mrjohn    97 Nov  6 17:42 mise.toml
+-rw-r--r-- 1 mrjohn mrjohn  1053 Nov  6 17:42 MIT-LICENSE
+drwxr-xr-x 1 mrjohn mrjohn  2004 Nov  6 17:49 prompt
+drwxr-xr-x 1 mrjohn mrjohn   840 Nov  6 17:44 prompt-v1
+-rw-r--r-- 1 mrjohn mrjohn  8244 Nov  6 17:42 README.md
+drwxr-xr-x 1 mrjohn mrjohn    10 Nov  6 18:58 .scratch
+drwxr-xr-x 1 mrjohn mrjohn    30 Nov  5 23:06 scripts
+./prompt-v1/07-update-all.md
+./prompt/25-update-all.md
+./.scratch/split/25-update-all.log
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead prompt/25-update-all.md 
+[0m$ [0mls /home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/; echo ---; cat /home/mrjohn/Work/tries/2026-11-06-yo/once/.scratch/split/25-update-all.log 2>/dev/null | head -50
+00-overview.md
+01-deploy-static-folder.md
+02-serve-static-apps.md
+03-redeploy-folder.md
+04-stale-source-detection.md
+05-folder-contents-fallback.md
+06-markdown-pages.md
+07-single-file-html-site.md
+08-remove-static-app.md
+09-contents-card.md
+10-contents-screen.md
+11-channels.md
+12-channel-filter.md
+13-favorites.md
+14-drift.md
+15-app-bar.md
+16-bar-keys.md
+17-bar-cross-fade.md
+18-bar-hide.md
+19-open-command.md
+20-show-command.md
+21-logs-command.md
+22-status-command.md
+23-list-json.md
+24-restart-command.md
+25-update-all.md
+26-doctor-command.md
+27-backups-list.md
+28-screenshot-capture.md
+29-card-thumbnails.md
+30-route-map.md
+31-page-weight.md
+32-broken-links.md
+33-meta-preview.md
+34-deploy-diff.md
+35-promote-on-evidence.md
+36-error-capture.md
+37-dashboard-filter.md
+38-command-palette.md
+39-toasts.md
+40-chart-time-range.md
+41-compact-layout.md
+42-appearance-settings.md
+43-app-details-view.md
+44-mouse-on-cards.md
+45-incremental-render.md
+46-chart-performance.md
+47-single-stats-stream.md
+48-share-link.md
+49-status-page.md
+50-house-style-pass.md
+---
+[0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m✱ [0mGlob "**/25-update-all*" [90m1 match[0m
+[0m$ [0mls -la; find . -path ./node_modules -prune -o -name "*update-all*" -print 2>/dev/null | head -50
+total 64
+drwxr-xr-x 1 mrjohn mrjohn   352 Nov  6 17:59 .
+drwxr-xr-x 1 mrjohn mrjohn    24 Nov  6 18:01 ..
+-rw-r--r-- 1 mrjohn mrjohn  4449 Nov  6 17:42 AGENTS.md
+drwxr-xr-x 1 mrjohn mrjohn     8 Nov  6 17:59 bin
+drwxr-xr-x 1 mrjohn mrjohn    18 Nov  6 17:42 .claude
+drwxr-xr-x 1 mrjohn mrjohn     8 Nov  6 17:42 cmd
+-rw-r--r-- 1 mrjohn mrjohn     8 Nov  6 17:42 .dockerignore
+drwxr-xr-x 1 mrjohn mrjohn   196 Nov  6 19:05 .git
+drwxr-xr-x 1 mrjohn mrjohn    86 Nov  6 17:42 .github
+-rw-r--r-- 1 mrjohn mrjohn    53 Nov  6 17:42 .gitignore
+-rw-r--r-- 1 mrjohn mrjohn   216 Nov  6 17:42 .golangci.yml
+-rw-r--r-- 1 mrjohn mrjohn  3299 Nov  6 18:57 go.mod
+-rw-r--r-- 1 mrjohn mrjohn 14945 Nov  6 18:56 go.sum
+drwxr-xr-x 1 mrjohn mrjohn   138 Nov  6 17:42 installer
+drwxr-xr-x 1 mrjohn mrjohn    62 Nov  6 17:42 integration
+drwxr-xr-x 1 mrjohn mrjohn   188 Nov  6 18:57 internal
+-rw-r--r-- 1 mrjohn mrjohn  1292 Nov  6 17:42 Makefile
+-rw-r--r-- 1 mrjohn mrjohn    97 Nov  6 17:42 mise.toml
+-rw-r--r-- 1 mrjohn mrjohn  1053 Nov  6 17:42 MIT-LICENSE
+drwxr-xr-x 1 mrjohn mrjohn  2004 Nov  6 17:49 prompt
+drwxr-xr-x 1 mrjohn mrjohn   840 Nov  6 17:44 prompt-v1
+-rw-r--r-- 1 mrjohn mrjohn  8244 Nov  6 17:42 README.md
+drwxr-xr-x 1 mrjohn mrjohn    10 Nov  6 18:58 .scratch
+drwxr-xr-x 1 mrjohn mrjohn    30 Nov  5 23:06 scripts
+./prompt-v1/07-update-all.md
+./prompt/25-update-all.md
+./.scratch/split/25-update-all.log
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && find cmd internal -type f | sort && echo --- && cat Makefile && echo --- && cat .golangci.yml
+cmd/once/main.go
+internal/background/runner.go
+internal/background/runner_test.go
+internal/browser/browser.go
+internal/browser/browser_test.go
+internal/command/background.go
+internal/command/background_install.go
+internal/command/background_remove.go
+internal/command/background_run.go
+internal/command/backup.go
+internal/command/cli_progress.go
+internal/command/deploy.go
+internal/command/deploy_test.go
+internal/command/exec.go
+internal/command/exec_test.go
+internal/command/keys.go
+internal/command/keys_reset.go
+internal/command/keys_set.go
+internal/command/list.go
+internal/command/list_test.go
+internal/command/logs.go
+internal/command/logs_test.go
+internal/command/open.go
+internal/command/open_test.go
+internal/command/remove.go
+internal/command/restart.go
+internal/command/restore.go
+internal/command/root.go
+internal/command/root_test.go
+internal/command/self_update.go
+internal/command/settings_flags.go
+internal/command/show.go
+internal/command/show_test.go
+internal/command/start.go
+internal/command/status.go
+internal/command/status_test.go
+internal/command/stop.go
+internal/command/teardown.go
+internal/command/update.go
+internal/command/update_test.go
+internal/command/version.go
+internal/docker/appbar.go
+internal/docker/appbar_test.go
+internal/docker/application_backup.go
+internal/docker/application_backup_test.go
+internal/docker/application.go
+internal/docker/application_settings.go
+internal/docker/application_settings_test.go
+internal/docker/application_static_test.go
+internal/docker/application_test.go
+internal/docker/channels.go
+internal/docker/channels_test.go
+internal/docker/container.go
+internal/docker/errors.go
+internal/docker/errors_test.go
+internal/docker/events.go
+internal/docker/helpers.go
+internal/docker/helpers_test.go
+internal/docker/logs.go
+internal/docker/logs_test.go
+internal/docker/markdown.go
+internal/docker/namespace.go
+internal/docker/namespace_test.go
+internal/docker/progress.go
+internal/docker/progress_test.go
+internal/docker/proxy.go
+internal/docker/proxy_test.go
+internal/docker/registry_auth.go
+internal/docker/registry_auth_test.go
+internal/docker/ring_buffer.go
+internal/docker/ring_buffer_test.go
+internal/docker/scraper.go
+internal/docker/scraper_test.go
+internal/docker/site.go
+internal/docker/site_test.go
+internal/docker/source.go
+internal/docker/source_test.go
+internal/docker/state.go
+internal/docker/state_test.go
+internal/docker/volume.go
+internal/docker/volume_test.go
+internal/fsutil/fsutil.go
+internal/fsutil/fsutil_test.go
+internal/htmltext/htmltext.go
+internal/htmltext/htmltext_test.go
+internal/logging/log.go
+internal/metrics/scraper.go
+internal/metrics/scraper_test.go
+internal/mouse/lexer.go
+internal/mouse/lexer_test.go
+internal/mouse/tracker.go
+internal/mouse/tracker_test.go
+internal/service/launchd.go
+internal/service/service.go
+internal/service/systemd.go
+internal/system/disk.go
+internal/system/scraper.go
+internal/system/scraper_test.go
+internal/ui/actions_menu.go
+internal/ui/actions_menu_test.go
+internal/ui/app.go
+internal/ui/channels.go
+internal/ui/chart.go
+internal/ui/chart_scale.go
+internal/ui/chart_scale_test.go
+internal/ui/chart_test.go
+internal/ui/component.go
+internal/ui/confirmation.go
+internal/ui/confirmation_test.go
+internal/ui/contents_card.go
+internal/ui/contents_card_test.go
+internal/ui/dashboard.go
+internal/ui/dashboard_header.go
+internal/ui/dashboard_header_test.go
+internal/ui/dashboard_panel.go
+internal/ui/dashboard_panel_test.go
+internal/ui/dashboard_test.go
+internal/ui/favorite.go
+internal/ui/form.go
+internal/ui/form_test.go
+internal/ui/helpers_test.go
+internal/ui/help.go
+internal/ui/help_test.go
+internal/ui/install_activity.go
+internal/ui/install_app_list.go
+internal/ui/install_app_list_test.go
+internal/ui/install.go
+internal/ui/install_hostname_form.go
+internal/ui/install_hostname_form_test.go
+internal/ui/install_image_form.go
+internal/ui/install_image_form_test.go
+internal/ui/install_test.go
+internal/ui/keys.go
+internal/ui/logo.go
+internal/ui/logs.go
+internal/ui/logs_test.go
+internal/ui/menu.go
+internal/ui/menu_test.go
+internal/ui/metric_card.go
+internal/ui/metric_card_test.go
+internal/ui/palette_detect.go
+internal/ui/palette_detect_test.go
+internal/ui/palette.go
+internal/ui/palette_test.go
+internal/ui/popup_help.go
+internal/ui/popup_help_test.go
+internal/ui/progress.go
+internal/ui/remove.go
+internal/ui/remove_test.go
+internal/ui/settings_form_application.go
+internal/ui/settings_form_backups.go
+internal/ui/settings_form_base.go
+internal/ui/settings_form_email.go
+internal/ui/settings_form_environment.go
+internal/ui/settings_form_registry.go
+internal/ui/settings_form_resources.go
+internal/ui/settings_form_test.go
+internal/ui/settings_form_updates.go
+internal/ui/settings.go
+internal/ui/settings_menu.go
+internal/ui/settings_menu_test.go
+internal/ui/settings_test.go
+internal/ui/starfield.go
+internal/ui/styles.go
+internal/ui/styles_test.go
+internal/ui/terminal_size_guard.go
+internal/ui/terminal_size_guard_test.go
+internal/userstats/reader.go
+internal/userstats/reader_test.go
+internal/userstats/scraper.go
+internal/userstats/scraper_test.go
+internal/userstats/store.go
+internal/userstats/store_test.go
+internal/version/updater.go
+internal/version/updater_test.go
+internal/version/version.go
+---
+.PHONY: build test integration lint lint-actions coverage dist test-release
+
+PLATFORMS = linux darwin
+ARCHITECTURES = amd64 arm64
+VERSION := $(shell git describe --tags --always)
+LDFLAGS := -ldflags "-s -w -X 'github.com/basecamp/once/internal/version.Version=$(VERSION)'"
+
+TEST_RELEASE_TAG = v0.0.1-test
+
+build:
+	CGO_ENABLED=0 go build -trimpath $(LDFLAGS) -o bin/ ./cmd/...
+
+build-all:
+	@for os in $(PLATFORMS); do \
+		for arch in $(ARCHITECTURES); do \
+			echo "Building for $$os/$$arch..."; \
+			CGO_ENABLED=0 GOOS=$$os GOARCH=$$arch go build -trimpath $(LDFLAGS) -o bin/$$os-$$arch/ ./cmd/...; \
+		done; \
+	done
+
+test:
+	go test ./internal/...
+
+integration:
+	go test -v -count=1 -parallel 16 -timeout 30m ./integration/...
+
+check:
+	go vet ./...
+	govulncheck ./...
+
+lint:
+	golangci-lint run
+
+lint-actions:
+	actionlint
+	zizmor .
+
+coverage:
+	go test -coverprofile=coverage.out ./internal/...
+	go tool cover -html=coverage.out
+
+dist: build-all
+	mkdir -p dist
+	@for os in $(PLATFORMS); do \
+		for arch in $(ARCHITECTURES); do \
+			cp bin/$$os-$$arch/once dist/once-$$os-$$arch; \
+		done; \
+	done
+	cd dist && sha256sum once-* > checksums.txt
+
+test-release:
+	-gh release delete $(TEST_RELEASE_TAG) --yes --cleanup-tag
+	git tag -f $(TEST_RELEASE_TAG)
+	git push origin $(TEST_RELEASE_TAG) --force
+---
+version: "2"
+
+formatters:
+  enable:
+    - gofmt
+    - gci
+  settings:
+    gci:
+      sections:
+        - standard
+        - default
+        - localmodule
+
+linters:
+  enable:
+    - modernize
+  disable:
+    - errcheck
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/command/restart.go 
+[0m→ [0mRead internal/command/update.go 
+[0m→ [0mRead internal/command/update_test.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/command/show.go 
+[0m→ [0mRead internal/command/status.go 
+[0m→ [0mRead internal/command/root.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && grep -rn "AutoUpdate\|auto-update\|updateAvailable\|UpdateAvailable\|pull\|Pull" --include=*.go internal | grep -v _test.go | head -60
+internal/background/runner.go:107:	if !app.Settings.AutoUpdate {
+internal/background/runner.go:114:	slog.Info("Running auto-update", "app", app.Settings.Name)
+internal/command/settings_flags.go:45:	cmd.Flags().BoolVar(&f.autoUpdate, "auto-update", true, "automatically update the application")
+internal/command/settings_flags.go:48:	cmd.Flags().StringVar(&f.registryUsername, "registry-username", "", "registry username for pulling the application image")
+internal/command/settings_flags.go:49:	cmd.Flags().StringVar(&f.registryPassword, "registry-password", "", "registry password for pulling the application image")
+internal/command/settings_flags.go:80:		AutoUpdate: f.autoUpdate,
+internal/command/settings_flags.go:149:	if cmd.Flags().Changed("auto-update") {
+internal/command/settings_flags.go:150:		s.AutoUpdate = f.autoUpdate
+internal/docker/application.go:32:	ErrPullFailed            = &describedError{
+internal/docker/application.go:33:		msg:         "pull failed",
+internal/docker/application.go:36:	ErrPullMaybeUnauthorized = &describedError{
+internal/docker/application.go:38:		description: "Could not pull the image. The image may not exist, or it may require registry credentials.",
+internal/docker/application.go:214:	changed, err := a.pullImage(ctx, progress)
+internal/docker/application.go:242:	if _, err := a.pullImage(ctx, progress); err != nil {
+internal/docker/application.go:255:// it never pulls, so the app is not updated even if its image tag has moved.
+internal/docker/application.go:343:func (a *Application) pullImage(ctx context.Context, progress DeployProgressCallback) (bool, error) {
+internal/docker/application.go:344:	opts := client.ImagePullOptions{RegistryAuth: registryAuthFor(a.Settings)}
+internal/docker/application.go:345:	reader, err := a.namespace.client.ImagePull(ctx, a.Settings.Image, opts)
+internal/docker/application.go:347:		return false, wrapPullError(err)
+internal/docker/application.go:351:	tracker := newPullProgressTracker(progress)
+internal/docker/application.go:353:		return false, wrapPullError(err)
+internal/docker/application.go:356:	pulledInspect, err := a.namespace.client.ImageInspect(ctx, a.Settings.Image)
+internal/docker/application.go:358:		return false, fmt.Errorf("%w: inspecting image after pull: %w", ErrPullFailed, err)
+internal/docker/application.go:361:	return pulledInspect.ID != a.runningImageID(ctx), nil
+internal/docker/application_backup.go:130:	if _, err := a.pullImage(ctx, nil); err != nil {
+internal/docker/application_settings.go:108:	AutoUpdate bool               `json:"autoUpdate"`
+internal/docker/application_settings.go:159:	if s.AutoUpdate != other.AutoUpdate {
+internal/docker/errors.go:55:func wrapPullError(err error) error {
+internal/docker/errors.go:56:	if pullErrorMayNeedAuth(err) {
+internal/docker/errors.go:57:		return fmt.Errorf("%w: %w: %w", ErrPullMaybeUnauthorized, ErrPullFailed, err)
+internal/docker/errors.go:59:	return fmt.Errorf("%w: %w", ErrPullFailed, err)
+internal/docker/errors.go:62:// pullErrorMayNeedAuth reports whether a pull failure looks like a missing or
+internal/docker/errors.go:65:func pullErrorMayNeedAuth(err error) bool {
+internal/docker/progress.go:14:	statusPullComplete     = "Pull complete"
+internal/docker/progress.go:33:type pullProgressTracker struct {
+internal/docker/progress.go:44:func newPullProgressTracker(callback DeployProgressCallback) *pullProgressTracker {
+internal/docker/progress.go:45:	return &pullProgressTracker{
+internal/docker/progress.go:51:func (t *pullProgressTracker) Track(reader io.Reader) error {
+internal/docker/progress.go:76:func (t *pullProgressTracker) processMessage(msg jsonstream.Message) {
+internal/docker/progress.go:95:	case statusDownloadComplete, statusPullComplete, statusAlreadyExists:
+internal/docker/progress.go:104:func (t *pullProgressTracker) reportProgress() {
+internal/docker/progress.go:121:func (t *pullProgressTracker) report(percentage int) {
+internal/docker/proxy.go:91:	reader, err := p.namespace.client.ImagePull(ctx, ProxyImage, client.ImagePullOptions{})
+internal/docker/proxy.go:93:		return fmt.Errorf("pulling proxy image: %w", err)
+internal/docker/registry_auth.go:21:// registryAuthFor returns a base64-encoded JSON auth string for pulling the
+internal/docker/registry_auth.go:22:// application's image, suitable for use in ImagePullOptions.RegistryAuth.
+internal/ui/install.go:235:		if errors.Is(msg.Err, docker.ErrPullFailed) {
+internal/ui/install.go:237:			if m.state == installStateImageForm && errors.Is(msg.Err, docker.ErrPullMaybeUnauthorized) && !m.imageForm.ShowsCredentials() {
+internal/ui/install_activity.go:184:		AutoUpdate: true,
+internal/ui/settings_form_updates.go:11:const updatesAutoUpdateField = 0
+internal/ui/settings_form_updates.go:18:	autoUpdateField := NewCheckboxField("Automatically apply updates", app.Settings.AutoUpdate)
+internal/ui/settings_form_updates.go:44:		s.AutoUpdate = f.CheckboxField(updatesAutoUpdateField).Checked()
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/docker/application.go [90m[limit=420][0m
+[0m→ [0mRead internal/background/runner.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead prompt-v1/07-update-all.md 
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && grep -rn "update-all\|updateAll\|UpdateAll" --include=*.go --include=*.md . | head -20; echo ---; git log --oneline | head -10; git status --short
+./prompt/25-update-all.md:1:Your job is to go in and add an update-all action here to this Go CLI/TUI app.
+---
+b0719c4 split: 24-restart-command
+7471b8a split: 23-list-json
+de404e1 split: 22-status-command
+1a2ecf5 split: 21-logs-command
+3591731 split: 20-show-command
+598da78 split: 19-open-command
+e4ca439 split: 18-bar-hide
+c903ba8 split: 17-bar-cross-fade
+926c88b split: 16-bar-keys
+1b1f9fd split: 16-bar-keys
+?? .scratch/split/25-update-all.log
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && cat internal/ui/actions_menu.go && echo ==== && grep -rn "Update\|update" internal/ui/*.go | grep -v _test | head -60
+package ui
+
+import (
+	"charm.land/bubbles/v2/key"
+	tea "charm.land/bubbletea/v2"
+	"charm.land/lipgloss/v2"
+
+	"github.com/basecamp/once/internal/docker"
+)
+
+var actionsMenuCloseKey = WithHelp(NewKeyBinding("esc"), "esc", "close")
+
+type ActionsMenuCloseMsg struct{}
+
+type ActionsMenuSelectMsg struct {
+	app    *docker.Application
+	action ActionsMenuAction
+}
+
+type ActionsMenuAction int
+
+const (
+	ActionsMenuStartStop ActionsMenuAction = iota
+	ActionsMenuRemove
+)
+
+type ActionsMenu struct {
+	app  *docker.Application
+	menu Menu
+	help Help
+}
+
+func NewActionsMenu(app *docker.Application) ActionsMenu {
+	startStopLabel := "Start"
+	if app.Running {
+		startStopLabel = "Stop"
+	}
+
+	h := NewHelp()
+	h.SetBindings([]key.Binding{actionsMenuCloseKey})
+	return ActionsMenu{
+		app: app,
+		menu: NewMenu(
+			MenuItem{Label: startStopLabel, Key: int(ActionsMenuStartStop), Shortcut: WithHelp(NewKeyBinding("s"), "s", "")},
+			MenuItem{Label: "Remove", Key: int(ActionsMenuRemove), Shortcut: WithHelp(NewKeyBinding("r"), "r", "")},
+		),
+		help: h,
+	}
+}
+
+func (m ActionsMenu) Init() tea.Cmd {
+	return nil
+}
+
+func (m ActionsMenu) Update(msg tea.Msg) (Component, tea.Cmd) {
+	switch msg := msg.(type) {
+	case MouseEvent:
+		var cmd tea.Cmd
+		m.help, cmd = m.help.Update(msg)
+		if cmd != nil {
+			return m, cmd
+		}
+
+	case tea.KeyPressMsg:
+		if key.Matches(msg, actionsMenuCloseKey) {
+			return m, func() tea.Msg { return ActionsMenuCloseMsg{} }
+		}
+
+	case MenuSelectMsg:
+		return m, m.selectAction(ActionsMenuAction(msg.Key))
+	}
+
+	var cmd tea.Cmd
+	m.menu, cmd = m.menu.Update(msg)
+	return m, cmd
+}
+
+func (m ActionsMenu) View() string {
+	boxStyle := lipgloss.NewStyle().
+		Border(lipgloss.RoundedBorder()).
+		BorderForeground(Colors.Border).
+		Padding(1, 4)
+
+	titleStyle := lipgloss.NewStyle().
+		Bold(true).
+		Foreground(Colors.Primary).
+		MarginBottom(1)
+
+	title := titleStyle.Render("Actions")
+
+	m.menu.SetWidth(20)
+	menuView := m.menu.View()
+
+	helpView := m.help.View()
+	menuWidth := lipgloss.Width(menuView)
+	helpLine := lipgloss.NewStyle().MarginTop(1).Width(menuWidth).Align(lipgloss.Center).Render(helpView)
+
+	content := lipgloss.JoinVertical(lipgloss.Center,
+		title,
+		menuView,
+		helpLine,
+	)
+
+	return boxStyle.Render(content)
+}
+
+// Private
+
+func (m ActionsMenu) selectAction(action ActionsMenuAction) tea.Cmd {
+	return func() tea.Msg {
+		return ActionsMenuSelectMsg{app: m.app, action: action}
+	}
+}
+====
+internal/ui/actions_menu.go:55:func (m ActionsMenu) Update(msg tea.Msg) (Component, tea.Cmd) {
+internal/ui/actions_menu.go:59:		m.help, cmd = m.help.Update(msg)
+internal/ui/actions_menu.go:74:	m.menu, cmd = m.menu.Update(msg)
+internal/ui/app.go:57:	SettingsSectionUpdates
+internal/ui/app.go:142:func (m *App) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
+internal/ui/app.go:146:		m.sizeGuard = m.sizeGuard.Update(msg)
+internal/ui/app.go:152:		m.currentScreen, cmd = m.currentScreen.Update(MouseEvent{
+internal/ui/app.go:163:		m.currentScreen, cmd = m.currentScreen.Update(msg)
+internal/ui/app.go:180:		m.currentScreen, cmd = m.currentScreen.Update(msg)
+internal/ui/app.go:197:		m.currentScreen, cmd = m.currentScreen.Update(msg)
+internal/ui/app.go:250:	m.currentScreen, cmd = m.currentScreen.Update(msg)
+internal/ui/app.go:289:	return tea.Every(ChartUpdateInterval, func(time.Time) tea.Msg { return scrapeTickMsg{} })
+internal/ui/app.go:293:	return tea.Every(UserStatsUpdateInterval, func(time.Time) tea.Msg { return scrapeUserStatsTickMsg{} })
+internal/ui/app.go:299:	m.currentScreen, sizeCmd = m.currentScreen.Update(m.lastSize)
+internal/ui/chart.go:13:	ChartUpdateInterval     = 2 * time.Second
+internal/ui/chart.go:14:	UserStatsUpdateInterval = 30 * time.Second
+internal/ui/chart.go:15:	ChartSlidingWindow      = int(time.Minute / ChartUpdateInterval)
+internal/ui/component.go:11:	Update(tea.Msg) (Component, tea.Cmd)
+internal/ui/confirmation.go:38:func (m Confirmation) Update(msg tea.Msg) (Confirmation, tea.Cmd) {
+internal/ui/contents_card.go:61:func (c ContentsCard) Update(msg tea.Msg) (Component, tea.Cmd) {
+internal/ui/dashboard.go:117:func (m Dashboard) Update(msg tea.Msg) (Component, tea.Cmd) {
+internal/ui/dashboard.go:122:		m.overlay, cmd = m.overlay.Update(msg)
+internal/ui/dashboard.go:136:		m.updateViewportSize()
+internal/ui/dashboard.go:154:			m.help, cmd = m.help.Update(msg)
+internal/ui/dashboard.go:177:			m.overlay, cmd = m.overlay.Update(tea.WindowSizeMsg{Width: m.width, Height: m.height})
+internal/ui/dashboard.go:184:			m.overlay, cmd = m.overlay.Update(tea.WindowSizeMsg{Width: m.width, Height: m.height})
+internal/ui/dashboard.go:198:			m.overlay, cmd = m.overlay.Update(tea.WindowSizeMsg{Width: m.width, Height: m.height})
+internal/ui/dashboard.go:206:			m.updateViewportSize()
+internal/ui/dashboard.go:237:			m.updateViewportSize()
+internal/ui/dashboard.go:247:		m.updateViewportSize()
+internal/ui/dashboard.go:261:			m.progress, cmd = m.progress.Update(msg)
+internal/ui/dashboard.go:454:func (m *Dashboard) updateViewportSize() {
+internal/ui/form.go:27:	Update(tea.Msg) tea.Cmd
+internal/ui/form.go:78:func (f *TextField) Update(msg tea.Msg) tea.Cmd {
+internal/ui/form.go:88:	f.input, cmd = f.input.Update(msg)
+internal/ui/form.go:139:func (f *CheckboxField) Update(msg tea.Msg) tea.Cmd {
+internal/ui/form.go:185:func (f *StaticField) Update(tea.Msg) tea.Cmd { return nil }
+internal/ui/form.go:248:func (f Form) Update(msg tea.Msg) (Form, tea.Cmd) {
+internal/ui/form.go:279:		cmd := f.items[f.focused].Field.Update(msg)
+internal/ui/help.go:27:func (h Help) Update(msg tea.Msg) (Help, tea.Cmd) {
+internal/ui/install_activity.go:76:func (m *InstallActivity) Update(msg tea.Msg) tea.Cmd {
+internal/ui/install_activity.go:101:		m.progress, cmd = m.progress.Update(msg)
+internal/ui/install_activity.go:184:		AutoUpdate: true,
+internal/ui/install_app_list.go:45:func (m InstallAppList) Update(msg tea.Msg) (InstallAppList, tea.Cmd) {
+internal/ui/install_app_list.go:56:	m.menu, cmd = m.menu.Update(msg)
+internal/ui/install.go:96:func (m Install) Update(msg tea.Msg) (Component, tea.Cmd) {
+internal/ui/install.go:105:			ph, cmd = ph.Update(msg)
+internal/ui/install.go:111:	m.updateHelpBindings()
+internal/ui/install.go:123:			cmds = append(cmds, m.starfield.Update(tea.WindowSizeMsg{Width: m.width, Height: m.middleHeight()}))
+internal/ui/install.go:126:			cmds = append(cmds, m.activity.Update(msg))
+internal/ui/install.go:128:			cmds = append(cmds, m.updateCurrentScreen(msg))
+internal/ui/install.go:134:			return m, m.starfield.Update(msg)
+internal/ui/install.go:140:			return m, m.logo.Update(msg)
+internal/ui/install.go:147:			m.help, cmd = m.help.Update(msg)
+internal/ui/install.go:228:		m.activity.Update(tea.WindowSizeMsg{Width: m.width, Height: m.height})
+internal/ui/install.go:252:		return m, m.activity.Update(msg)
+internal/ui/install.go:254:	return m, m.updateCurrentScreen(msg)
+internal/ui/install.go:272:		m.updateHelpBindings()
+internal/ui/install.go:314:		m.updateCurrentScreen(tea.WindowSizeMsg{Width: m.width, Height: m.height})
+internal/ui/install.go:319:func (m *Install) updateCurrentScreen(msg tea.Msg) tea.Cmd {
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/command/deploy.go 
+[0m→ [0mRead internal/command/cli_progress.go 
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && cat internal/command/list.go && echo ==== && grep -rn "Applications()" internal/command internal/docker | head
+package command
+
+import (
+	"context"
+	"encoding/json"
+	"fmt"
+	"io"
+	"time"
+
+	"charm.land/lipgloss/v2"
+	"github.com/spf13/cobra"
+
+	"github.com/basecamp/once/internal/docker"
+)
+
+var hostStyle = lipgloss.NewStyle().Foreground(lipgloss.BrightBlue)
+
+type listCommand struct {
+	cmd *cobra.Command
+
+	asJSON    bool
+	now       func() time.Time
+	loadState func(context.Context, *docker.Namespace) (*docker.State, error)
+}
+
+type listApp struct {
+	Host     string           `json:"host"`
+	Image    string           `json:"image,omitempty"`
+	Folder   string           `json:"folder,omitempty"`
+	State    string           `json:"state"`
+	Channels []docker.Channel `json:"channels"`
+}
+
+func newListCommand() *listCommand {
+	l := &listCommand{
+		now: time.Now,
+		loadState: func(ctx context.Context, ns *docker.Namespace) (*docker.State, error) {
+			return ns.LoadState(ctx)
+		},
+	}
+	l.cmd = &cobra.Command{
+		Use:     "list",
+		Aliases: []string{"ls"},
+		Short:   "List installed applications",
+		RunE:    WithNamespace(l.run),
+	}
+	l.cmd.Flags().BoolVar(&l.asJSON, "json", false, "print the applications as JSON")
+	return l
+}
+
+// Private
+
+func (l *listCommand) run(ctx context.Context, ns *docker.Namespace, cmd *cobra.Command, args []string) error {
+	w := cmd.OutOrStdout()
+
+	if l.asJSON {
+		return l.writeJSON(ctx, ns, w)
+	}
+
+	for _, app := range ns.Applications() {
+		host := hostStyle.Hyperlink(app.URL()).Render(app.Settings.Host)
+		fmt.Fprintf(w, "%s (%s)\n", host, appState(app))
+	}
+
+	return nil
+}
+
+func (l *listCommand) writeJSON(ctx context.Context, ns *docker.Namespace, w io.Writer) error {
+	state, err := l.loadState(ctx, ns)
+	if err != nil {
+		return fmt.Errorf("loading state: %w", err)
+	}
+	if state == nil {
+		state = &docker.State{}
+	}
+
+	apps := make([]listApp, len(ns.Applications()))
+	for i, app := range ns.Applications() {
+		apps[i] = l.listApp(app, state)
+	}
+
+	return json.NewEncoder(w).Encode(apps)
+}
+
+func (l *listCommand) listApp(app *docker.Application, state *docker.State) listApp {
+	entry := listApp{
+		Host:  app.Settings.Host,
+		Image: app.Settings.Image,
+		State: appState(app),
+		Channels: app.Channels(docker.ChannelContext{
+			Now:        l.now(),
+			LastBackup: state.AppState(app.Settings.Name).LastBackupResult(),
+		}),
+	}
+
+	if app.Settings.Source != "" {
+		entry.Image = ""
+		entry.Folder = app.Settings.Source
+	}
+
+	return entry
+}
+
+// Helpers
+
+func appState(app *docker.Application) string {
+	if app.Running {
+		return "running"
+	}
+	return "stopped"
+}
+====
+internal/command/list.go:60:	for _, app := range ns.Applications() {
+internal/command/list.go:77:	apps := make([]listApp, len(ns.Applications()))
+internal/command/list.go:78:	for i, app := range ns.Applications() {
+internal/command/list_test.go:23:	ns.Applications()[0].Running = true
+internal/command/list_test.go:42:	app := ns.Applications()[0]
+internal/docker/namespace.go:86:	n.sortApplications()
+internal/docker/namespace.go:103:func (n *Namespace) Applications() []*Application {
+internal/docker/namespace.go:358:	n.sortApplications()
+internal/docker/namespace.go:362:func (n *Namespace) sortApplications() {
+internal/docker/namespace_test.go:86:	assert.Len(t, ns.Applications(), 1)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/docker/namespace.go [90m[limit=140][0m
+[0m→ [0mRead internal/command/root_test.go 
+[0m→ [0mRead internal/command/list_test.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && git log --all --oneline | head -20; git branch -a; grep -rn "ActionsMenu" internal/ui/app.go internal/ui/dashboard.go | head -20
+b0719c4 split: 24-restart-command
+7471b8a split: 23-list-json
+de404e1 split: 22-status-command
+1a2ecf5 split: 21-logs-command
+3591731 split: 20-show-command
+598da78 split: 19-open-command
+e4ca439 split: 18-bar-hide
+c903ba8 split: 17-bar-cross-fade
+926c88b split: 16-bar-keys
+1b1f9fd split: 16-bar-keys
+d826067 split: 15-app-bar
+d9aa468 split: 15-app-bar
+2a8c584 split: 14-drift
+c9f069a split: 13-favorites
+f3b2a49 split: 12-channel-filter
+a8a3dc0 split: 11-channels
+115041b split: 10-contents-screen
+1c4fb9a split: 09-contents-card
+313f156 split: 08-remove-static-app
+91e0ada split: 07-single-file-html-site
+* main
+  remotes/origin/main
+  remotes/upstream/HEAD -> upstream/main
+  remotes/upstream/main
+internal/ui/dashboard.go:182:			m.overlay = NewActionsMenu(app)
+internal/ui/dashboard.go:220:	case ActionsMenuCloseMsg:
+internal/ui/dashboard.go:229:	case ActionsMenuSelectMsg:
+internal/ui/dashboard.go:232:		case ActionsMenuStartStop:
+internal/ui/dashboard.go:240:		case ActionsMenuRemove:
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && git ls-tree --name-only upstream/main internal/command/ | sed -n '1,60p'
+internal/command/background.go
+internal/command/background_install.go
+internal/command/background_remove.go
+internal/command/background_run.go
+internal/command/backup.go
+internal/command/cli_progress.go
+internal/command/deploy.go
+internal/command/deploy_test.go
+internal/command/exec.go
+internal/command/exec_test.go
+internal/command/keys.go
+internal/command/keys_reset.go
+internal/command/keys_set.go
+internal/command/list.go
+internal/command/remove.go
+internal/command/restore.go
+internal/command/root.go
+internal/command/root_test.go
+internal/command/self_update.go
+internal/command/settings_flags.go
+internal/command/start.go
+internal/command/stop.go
+internal/command/teardown.go
+internal/command/update.go
+internal/command/update_test.go
+internal/command/version.go
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && ls prompt-v1 && echo ==== && head -5 prompt-v1/*.md | head -120
+00-overview.md
+01-logs-command.md
+02-status-command.md
+03-restart-command.md
+04-backups-command.md
+05-dashboard-filter.md
+06-dashboard-lifecycle-shortcuts.md
+07-update-all.md
+08-health-checks.md
+09-app-details.md
+10-backup-restore.md
+11-logs-stderr.md
+12-logs-pause.md
+13-appearance-settings.md
+14-command-palette.md
+15-toasts.md
+16-chart-time-range.md
+17-compact-layout.md
+18-incremental-render.md
+19-chart-performance.md
+20-house-style.md
+====
+==> prompt-v1/00-overview.md <==
+These prompts change the ONCE Go CLI/TUI in this repository, one feature per file, run in order with a fresh agent for each.
+
+House style here is the project's own Go conventions plus `make lint`; the wider reference copy is at /home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+
+The done line in every file means `make test` and `make lint` both run clean.
+
+==> prompt-v1/01-logs-command.md <==
+Your job is to go in and add a `once logs <host>` command here to this Go CLI/TUI app.
+
+Logs already stream inside the TUI through the existing log streamer; reuse that so the command follows the app container, supports `--tail` and `--grep`, and exits cleanly on ctrl+c.
+
+Done is when make test runs clean and so do house-style lints
+
+==> prompt-v1/02-status-command.md <==
+Your job is to go in and add a `once status <host>` command here to this Go CLI/TUI app.
+
+The app already knows its URL, image, running state, uptime, resource limits and last update and backup results; show all of it in a readable block. A `--json` flag should emit the same data for scripts.
+
+Done is when make test runs clean and so do house-style lints
+
+==> prompt-v1/03-restart-command.md <==
+Your job is to go in and add a `once restart <host>` command here to this Go CLI/TUI app.
+
+Start and stop already exist and neither pulls an image; restart should stop the current container and start it again without redeploying.
+
+Done is when make test runs clean and so do house-style lints
+
+==> prompt-v1/04-backups-command.md <==
+Your job is to go in and add a `once backups <host>` command here to this Go CLI/TUI app.
+
+Backups are already written into the configured directory as timestamped archives; list them newest first with date, age and size, and make an empty result obvious.
+
+Done is when make test runs clean and so do house-style lints
+
+==> prompt-v1/05-dashboard-filter.md <==
+Your job is to go in and add filtering to the dashboard here to this Go CLI/TUI app.
+
+Pressing `/` should open a query field that narrows the panels to matching hostnames or app names as you type; esc clears it and restores every panel. Selection, scrolling and mouse clicks must keep working while the list is filtered.
+
+Done is when make test runs clean and so do house-style lints
+
+==> prompt-v1/06-dashboard-lifecycle-shortcuts.md <==
+Your job is to go in and add quick lifecycle keys to the dashboard here to this Go CLI/TUI app.
+
+`x` should toggle the selected app between running and stopped, and `r` should restart it, both using the same progress treatment as the actions menu. The actions menu already has start and stop, so this is only a faster path to them.
+
+Done is when make test runs clean and so do house-style lints
+
+==> prompt-v1/07-update-all.md <==
+Your job is to go in and add an Update all action to the dashboard here to this Go CLI/TUI app.
+
+For each app it should check for a newer image and redeploy only when there is one, naming the app currently being updated in the progress line. The per-app update path already exists and must be reused.
+
+Done is when make test runs clean and so do house-style lints
+
+==> prompt-v1/08-health-checks.md <==
+Your job is to go in and add continuous HTTP health checks to the dashboard here to this Go CLI/TUI app.
+
+Probe each running app's `/up` endpoint on a short interval and show status plus latency on its panel, keeping the last latency visible when an app stops without pretending it is healthy. Deploy-time verification already exists; this is the ongoing version.
+
+Done is when make test runs clean and so do house-style lints
+
+==> prompt-v1/09-app-details.md <==
+Your job is to go in and add a full-screen app details view here to this Go CLI/TUI app.
+
+Enter on the selected dashboard panel should open it with the URL, image, uptime, resource limits, last update and backup, and a short health and latency history. Esc returns to the dashboard, which already handles selection and overlays.
+
+Done is when make test runs clean and so do house-style lints
+
+==> prompt-v1/10-backup-restore.md <==
+Your job is to go in and add restoring from a chosen backup to the backups settings screen here to this Go CLI/TUI app.
+
+List the archives in the configured directory newest first, and let one be selected and restored after a confirmation. The existing restore path creates a new app and refuses a host that is already in use, so this must restore over the selected app in place: stop it, replace its data, run the post-restore hook and redeploy.
+
+Done is when make test runs clean and so do house-style lints
+
+==> prompt-v1/11-logs-stderr.md <==
+Your job is to go in and colour stderr differently in the logs screen here to this Go CLI/TUI app.
+
+The log buffer already records whether each line came from stderr; use that to make failures stand out without changing stdout lines.
+
+Done is when make test runs clean and so do house-style lints
+
+==> prompt-v1/12-logs-pause.md <==
+Your job is to go in and add pause and resume to the logs screen here to this Go CLI/TUI app.
+
+`p` should freeze the view while lines keep arriving in the background, with a clear paused indicator and a jump to the newest line when resumed.
+
+Done is when make test runs clean and so do house-style lints
+
+==> prompt-v1/13-appearance-settings.md <==
+Your job is to go in and add an Appearance settings screen here to this Go CLI/TUI app.
+
+Offer light, dark and auto themes plus a reduced-motion toggle, persist the choice across runs and apply it immediately. Terminal colour detection and the reduced-motion environment variable already exist; this makes them user-facing.
+
+Done is when make test runs clean and so do house-style lints
+
+==> prompt-v1/14-command-palette.md <==
+Your job is to go in and add a command palette to the TUI here to this Go CLI/TUI app.
+
+`ctrl+p` should open a searchable list of the actions available on the current screen and run the chosen one exactly as its key would. The menus, key bindings and navigation messages already exist; this is another way into them.
+
+Done is when make test runs clean and so do house-style lints
+
+==> prompt-v1/15-toasts.md <==
+Your job is to go in and add transient notifications to the TUI here to this Go CLI/TUI app.
+
+When a start, stop, restart, update, backup or restore finishes, show a short success or failure message that fades after a few seconds without taking focus from the current screen.
+
+Done is when make test runs clean and so do house-style lints
+
+==> prompt-v1/16-chart-time-range.md <==
+Your job is to go in and add a time-range selector to the dashboard charts here to this Go CLI/TUI app.
+
+`t` should cycle one minute, five minutes and fifteen minutes, and the CPU, memory and traffic charts plus their peak labels should all follow it. The scrapers already keep ring buffers; grow them enough for fifteen minutes.
+
+Done is when make test runs clean and so do house-style lints
+
+==> prompt-v1/17-compact-layout.md <==
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/ui/dashboard.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && for f in prompt/19-open-command.md prompt/20-show-command.md prompt/21-logs-command.md prompt/22-status-command.md prompt/23-list-json.md prompt/24-restart-command.md prompt/26-doctor-command.md prompt/27-backups-list.md; do echo "== $f"; head -6 "$f"; done
+== prompt/19-open-command.md
+Your job is to go in and add `once open <host>` here to this Go CLI/TUI app.
+
+It prints the URL and opens it in the browser, and on its own it opens the contents page listing every app.
+
+Done is when make test runs clean and so do house-style lints
+
+== prompt/20-show-command.md
+Your job is to go in and add `once show <host>` here to this Go CLI/TUI app.
+
+It fetches the app's page and prints it as text in the terminal: headings, links and forms, no markup. Useful when you only want to know what the page says.
+
+Done is when make test runs clean and so do house-style lints
+
+== prompt/21-logs-command.md
+Your job is to go in and add `once logs <host>` here to this Go CLI/TUI app.
+
+Logs already stream inside the TUI through the existing log streamer; reuse it so the command follows the container, supports `--tail` and `--grep`, and exits cleanly on ctrl+c.
+
+Done is when make test runs clean and so do house-style lints
+
+== prompt/22-status-command.md
+Your job is to go in and add `once status <host>` here to this Go CLI/TUI app.
+
+The app already knows its URL, image, running state, uptime, resource limits and last update and backup results; show all of it in a readable block, with `--json` for the same data.
+
+Done is when make test runs clean and so do house-style lints
+
+== prompt/23-list-json.md
+Your job is to go in and add `--json` to `once list` here to this Go CLI/TUI app.
+
+Stable field names, one array, every app with host, image or folder, state and channel chips, so a script can read it without scraping the table.
+
+Done is when make test runs clean and so do house-style lints
+
+== prompt/24-restart-command.md
+Your job is to go in and add `once restart <host>` here to this Go CLI/TUI app.
+
+Start and stop both exist and neither pulls an image; restart stops the current container and starts it again without redeploying.
+
+Done is when make test runs clean and so do house-style lints
+
+== prompt/26-doctor-command.md
+Your job is to go in and add `once doctor` here to this Go CLI/TUI app.
+
+Docker, ports 80 and 443, DNS for every host, the proxy container, free disk and certificate expiry, each as one pass or fail line with the fix beside it.
+
+Done is when make test runs clean and so do house-style lints
+
+== prompt/27-backups-list.md
+Your job is to go in and add `once backups <host>` here to this Go CLI/TUI app.
+
+Archives are already written into the configured directory; list them newest first with date, age and size, and make an empty result obvious.
+
+Done is when make test runs clean and so do house-style lints
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/ui/progress.go 
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && grep -n "toggling\|Updating\|progress" internal/ui/dashboard_panel.go internal/ui/dashboard_test.go | head -60
+internal/ui/dashboard_panel.go:57:func (p DashboardPanel) View(selected bool, toggling bool, active docker.Channel, showDetails bool, width int, scales DashboardScales) string {
+internal/ui/dashboard_panel.go:76:	chips := p.chips(cards, toggling)
+internal/ui/dashboard_panel.go:143:func (p DashboardPanel) chips(cards [3]MetricCard, toggling bool) []channelChip {
+internal/ui/dashboard_panel.go:144:	if toggling {
+internal/ui/dashboard_test.go:141:	assert.True(t, d.toggling)
+internal/ui/dashboard_test.go:168:	assert.False(t, d.toggling)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/ui/dashboard_test.go [90m[limit=220][0m
+[0m→ [0mRead internal/ui/dashboard_panel.go [90m[limit=180][0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/ui/dashboard_test.go [90m[offset=220][0m
+[0m→ [0mRead internal/ui/app.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && grep -rn "\.View(.*toggl\|panels\[.*\].View\|\.chips(" internal/ui | head; echo ---; sed -n '30,140p' internal/docker/progress.go
+internal/ui/dashboard.go:480:		views = append(views, m.panels[i].View(i == m.selectedIndex, toggling, m.filter, dashboardShowDetails, m.width, scales))
+internal/ui/dashboard_panel.go:76:	chips := p.chips(cards, toggling)
+---
+
+type DeployProgressCallback func(DeployProgress)
+
+type pullProgressTracker struct {
+	layers         map[string]*layerProgress
+	callback       DeployProgressCallback
+	lastPercentage int
+}
+
+type layerProgress struct {
+	total   int64
+	current int64
+}
+
+func newPullProgressTracker(callback DeployProgressCallback) *pullProgressTracker {
+	return &pullProgressTracker{
+		layers:   make(map[string]*layerProgress),
+		callback: callback,
+	}
+}
+
+func (t *pullProgressTracker) Track(reader io.Reader) error {
+	decoder := json.NewDecoder(reader)
+
+	for {
+		var msg jsonstream.Message
+		if err := decoder.Decode(&msg); err != nil {
+			if errors.Is(err, io.EOF) {
+				break
+			}
+			return err
+		}
+
+		if msg.Error != nil {
+			return errors.New(msg.Error.Message)
+		}
+
+		t.processMessage(msg)
+	}
+
+	t.report(100)
+	return nil
+}
+
+// Private
+
+func (t *pullProgressTracker) processMessage(msg jsonstream.Message) {
+	if msg.ID == "" {
+		return
+	}
+
+	layer, exists := t.layers[msg.ID]
+	if !exists {
+		layer = &layerProgress{}
+		t.layers[msg.ID] = layer
+	}
+
+	switch msg.Status {
+	case statusDownloading:
+		if msg.Progress != nil {
+			if msg.Progress.Total > 0 {
+				layer.total = msg.Progress.Total
+			}
+			layer.current = msg.Progress.Current
+		}
+	case statusDownloadComplete, statusPullComplete, statusAlreadyExists:
+		if layer.total > 0 {
+			layer.current = layer.total
+		}
+	}
+
+	t.reportProgress()
+}
+
+func (t *pullProgressTracker) reportProgress() {
+	var totalBytes, downloadedBytes int64
+
+	for _, layer := range t.layers {
+		totalBytes += layer.total
+		downloadedBytes += layer.current
+	}
+
+	var percentage int
+	if totalBytes > 0 {
+		percentage = min(int(downloadedBytes*100/totalBytes), 100)
+	}
+
+	t.lastPercentage = max(percentage, t.lastPercentage)
+	t.report(t.lastPercentage)
+}
+
+func (t *pullProgressTracker) report(percentage int) {
+	if t.callback == nil {
+		return
+	}
+	t.callback(DeployProgress{
+		Stage:      DeployStageDownloading,
+		Percentage: percentage,
+	})
+}
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && grep -rn '"u"\|"update\|Update all\|update all' internal/ui README.md | head -20; echo ---; sed -n '1,120p' internal/ui/help_test.go
+internal/ui/settings_menu.go:37:			MenuItem{Label: "Updates", Key: int(SettingsSectionUpdates), Shortcut: WithHelp(NewKeyBinding("u"), "u", "")},
+---
+package ui
+
+import (
+	"strings"
+	"testing"
+
+	"charm.land/bubbles/v2/key"
+	"github.com/stretchr/testify/assert"
+)
+
+func TestHelp_RenderBasic(t *testing.T) {
+	bindings := []key.Binding{
+		WithHelp(NewKeyBinding("s"), "s", "settings"),
+		WithHelp(NewKeyBinding("g"), "g", "logs"),
+	}
+
+	h := NewHelp()
+	h.SetWidth(80)
+	h.SetBindings(bindings)
+	result := h.View()
+
+	assert.Contains(t, result, "s")
+	assert.Contains(t, result, "settings")
+	assert.Contains(t, result, "g")
+	assert.Contains(t, result, "logs")
+}
+
+func TestHelp_RenderEmpty(t *testing.T) {
+	h := NewHelp()
+	h.SetWidth(80)
+
+	result := h.View()
+	assert.Empty(t, result)
+}
+
+func TestHelp_RenderSkipsEmptyHelp(t *testing.T) {
+	bindings := []key.Binding{
+		WithHelp(NewKeyBinding("s"), "s", "settings"),
+		NewKeyBinding("x"), // no help text
+		WithHelp(NewKeyBinding("g"), "g", "logs"),
+	}
+
+	h := NewHelp()
+	h.SetWidth(80)
+	h.SetBindings(bindings)
+	result := h.View()
+
+	assert.Contains(t, result, "settings")
+	assert.Contains(t, result, "logs")
+	// The binding without help should not appear
+	assert.NotContains(t, result, "x ")
+}
+
+func TestHelp_RenderWraps(t *testing.T) {
+	bindings := []key.Binding{
+		WithHelp(NewKeyBinding("a"), "a", "aaaaaaaaa"),
+		WithHelp(NewKeyBinding("b"), "b", "bbbbbbbbb"),
+		WithHelp(NewKeyBinding("c"), "c", "ccccccccc"),
+	}
+
+	h := NewHelp()
+	h.SetWidth(30) // narrow enough to force wrapping
+	h.SetBindings(bindings)
+	result := h.View()
+
+	lines := strings.Split(result, "\n")
+	assert.Greater(t, len(lines), 1, "should wrap to multiple lines")
+}
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+I'll implement this as a dashboard "Update all" action, matching the v1 prompt it derives from, reusing `Application.Update`.
+[0m← [0mEdit internal/ui/dashboard.go
+Index: internal/ui/dashboard.go
+===================================================================
+--- internal/ui/dashboard.go
++++ internal/ui/dashboard.go
+@@ -33,23 +33,25 @@
+ 	Favorite key.Binding
+ 	NewApp   key.Binding
+ 	Logs     key.Binding
+ 	Contents key.Binding
+-	Drift    key.Binding
+-	Details  key.Binding
+-	Quit     key.Binding
++	Drift     key.Binding
++	Details   key.Binding
++	UpdateAll key.Binding
++	Quit      key.Binding
+ }{
+-	Up:       WithHelp(NewKeyBinding("up", "k"), "↑/k", "up"),
+-	Down:     WithHelp(NewKeyBinding("down", "j"), "↓/j", "down"),
+-	Settings: WithHelp(NewKeyBinding("s"), "s", "settings"),
+-	Actions:  WithHelp(NewKeyBinding("a"), "a", "actions"),
+-	Favorite: WithHelp(NewKeyBinding("f"), "f", "favorite"),
+-	NewApp:   WithHelp(NewKeyBinding("n"), "n", "new app"),
+-	Logs:     WithHelp(NewKeyBinding("g"), "g", "logs"),
+-	Contents: WithHelp(NewKeyBinding("C"), "C", "contents"),
+-	Drift:    WithHelp(NewKeyBinding("R"), "R", "drift"),
+-	Details:  WithHelp(NewKeyBinding("d"), "d", "toggle details"),
+-	Quit:     WithHelp(NewKeyBinding("esc"), "esc", "quit"),
++	Up:        WithHelp(NewKeyBinding("up", "k"), "↑/k", "up"),
++	Down:      WithHelp(NewKeyBinding("down", "j"), "↓/j", "down"),
++	Settings:  WithHelp(NewKeyBinding("s"), "s", "settings"),
++	Actions:   WithHelp(NewKeyBinding("a"), "a", "actions"),
++	Favorite:  WithHelp(NewKeyBinding("f"), "f", "favorite"),
++	NewApp:    WithHelp(NewKeyBinding("n"), "n", "new app"),
++	Logs:      WithHelp(NewKeyBinding("g"), "g", "logs"),
++	Contents:  WithHelp(NewKeyBinding("C"), "C", "contents"),
++	Drift:     WithHelp(NewKeyBinding("R"), "R", "drift"),
++	Details:   WithHelp(NewKeyBinding("d"), "d", "toggle details"),
++	UpdateAll: WithHelp(NewKeyBinding("u"), "u", "update all"),
++	Quit:      WithHelp(NewKeyBinding("esc"), "esc", "quit"),
+ }
+ 
+ type Dashboard struct {
+ 	namespace     *docker.Namespace
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/ui/dashboard.go
+Index: internal/ui/dashboard.go
+===================================================================
+--- internal/ui/dashboard.go
++++ internal/ui/dashboard.go
+@@ -67,8 +67,12 @@
+ 	width, height int
+ 	viewport      viewport.Model
+ 	toggling      bool
+ 	togglingApp   string
++	updating      bool
++	updatingApp   string
++	updateQueue   []*docker.Application
++	updateApp     func(context.Context, *docker.Application) (bool, error)
+ 	progress      Progress
+ 	help          Help
+ 	overlay       Component
+ 	state         *docker.State
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/ui/dashboard.go
+Index: internal/ui/dashboard.go
+===================================================================
+--- internal/ui/dashboard.go
++++ internal/ui/dashboard.go
+@@ -85,8 +85,12 @@
+ type startStopFinishedMsg struct {
+ 	err error
+ }
+ 
++type updateAllAppDoneMsg struct {
++	err error
++}
++
+ func NewDashboard(ns *docker.Namespace, apps []*docker.Application, selectedIndex int,
+ 	scraper *metrics.MetricsScraper, dockerScraper *docker.Scraper, systemScraper *system.Scraper, userStats *userstats.Reader,
+ ) Dashboard {
+ 	vp := viewport.New()
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/ui/dashboard.go
+Index: internal/ui/dashboard.go
+===================================================================
+--- internal/ui/dashboard.go
++++ internal/ui/dashboard.go
+@@ -193,8 +193,12 @@
+ 			var cmd tea.Cmd
+ 			m.overlay, cmd = m.overlay.Update(tea.WindowSizeMsg{Width: m.width, Height: m.height})
+ 			return m, cmd
+ 		}
++		if key.Matches(msg, dashboardKeys.UpdateAll) && len(m.apps) > 0 && !m.busy() {
++			m.startUpdateAll()
++			return m, tea.Batch(m.progress.Init(), m.updateNextApp())
++		}
+ 		if key.Matches(msg, dashboardKeys.Favorite) && len(m.apps) > 0 {
+ 			m.toggleFavorite(m.apps[m.selectedIndex].Settings.Name)
+ 			return m, nil
+ 		}
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/ui/dashboard.go
+Index: internal/ui/dashboard.go
+===================================================================
+--- internal/ui/dashboard.go
++++ internal/ui/dashboard.go
+@@ -260,8 +260,18 @@
+ 		m.togglingApp = ""
+ 		m.updateViewportSize()
+ 		m.rebuildViewportContent()
+ 
++	case updateAllAppDoneMsg:
++		if msg.err != nil {
++			slog.Warn("Failed to update app", "app", m.updatingApp, "error", msg.err)
++		}
++		if len(m.updateQueue) == 0 {
++			m.finishUpdateAll()
++			return m, nil
++		}
++		return m, m.updateNextApp()
++
+ 	case scrapeDoneMsg:
+ 		m.rebuildViewportContent()
+ 
+ 	case dashboardTickMsg:
+@@ -269,9 +279,9 @@
+ 		m.rebuildViewportContent()
+ 		cmds = append(cmds, m.scheduleNextDashboardTick())
+ 
+ 	case ProgressTickMsg:
+-		if m.toggling {
++		if m.busy() {
+ 			var cmd tea.Cmd
+ 			m.progress, cmd = m.progress.Update(msg)
+ 			cmds = append(cmds, cmd)
+ 		}
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/ui/dashboard.go
+Index: internal/ui/dashboard.go
+===================================================================
+--- internal/ui/dashboard.go
++++ internal/ui/dashboard.go
+@@ -336,10 +336,10 @@
+ 	if headerView != "" {
+ 		parts = append(parts, "", headerView, "")
+ 	}
+ 	parts = append(parts, m.viewport.View())
+-	if m.toggling {
+-		parts = append(parts, m.progress.View())
++	if m.busy() {
++		parts = append(parts, m.progressLine())
+ 	}
+ 	parts = append(parts, helpLine)
+ 	content := strings.Join(parts, "\n")
+ 
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/ui/dashboard.go
+Index: internal/ui/dashboard.go
+===================================================================
+--- internal/ui/dashboard.go
++++ internal/ui/dashboard.go
+@@ -357,9 +357,9 @@
+ 		return []key.Binding{
+ 			dashboardKeys.Up, dashboardKeys.Down, dashboardKeys.Actions,
+ 			dashboardKeys.Favorite, dashboardKeys.Settings, dashboardKeys.Logs,
+ 			dashboardKeys.Contents, dashboardKeys.Drift, dashboardKeys.Details,
+-			dashboardKeys.NewApp, dashboardKeys.Quit,
++			dashboardKeys.UpdateAll, dashboardKeys.NewApp, dashboardKeys.Quit,
+ 		}
+ 	}
+ 	return []key.Binding{dashboardKeys.NewApp, dashboardKeys.Quit}
+ }
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/ui/dashboard.go [90m[limit=30, offset=340][0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/ui/dashboard.go
+Index: internal/ui/dashboard.go
+===================================================================
+--- internal/ui/dashboard.go
++++ internal/ui/dashboard.go
+@@ -375,8 +375,63 @@
+ 		return startStopFinishedMsg{err: err}
+ 	}
+ }
+ 
++func (m Dashboard) busy() bool {
++	return m.toggling || m.updating
++}
++
++func (m Dashboard) progressLine() string {
++	if m.updatingApp == "" {
++		return m.progress.View()
++	}
++
++	label := lipgloss.NewStyle().Foreground(Colors.LightText).Render("Updating " + m.updatingApp)
++	return label + " " + m.progress.View()
++}
++
++func (m *Dashboard) startUpdateAll() {
++	m.updating = true
++	m.updateQueue = slices.Clone(m.apps)
++	m.progress = NewProgress(m.width, Colors.Border)
++	m.updateViewportSize()
++	m.rebuildViewportContent()
++}
++
++func (m *Dashboard) updateNextApp() tea.Cmd {
++	if len(m.updateQueue) == 0 {
++		return nil
++	}
++
++	app := m.updateQueue[0]
++	m.updateQueue = m.updateQueue[1:]
++	m.updatingApp = app.Settings.Host
++	m.rebuildViewportContent()
++
++	update := m.updateApp
++	if update == nil {
++		update = func(ctx context.Context, app *docker.Application) (bool, error) {
++			return app.Update(ctx, nil)
++		}
++	}
++
++	return func() tea.Msg {
++		_, err := update(context.Background(), app)
++		return updateAllAppDoneMsg{err: err}
++	}
++}
++
++func (m *Dashboard) finishUpdateAll() {
++	m.updating = false
++	m.updatingApp = ""
++	m.updateQueue = nil
++	m.state = loadState(m.namespace)
++	m.stateLoadedAt = time.Now()
++	m.buildPanels()
++	m.updateViewportSize()
++	m.rebuildViewportContent()
++}
++
+ func (m Dashboard) drift() tea.Cmd {
+ 	index, ok := driftTarget(m.apps, m.selectedIndex)
+ 	if !ok {
+ 		return nil
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/ui/dashboard.go
+Index: internal/ui/dashboard.go
+===================================================================
+--- internal/ui/dashboard.go
++++ internal/ui/dashboard.go
+@@ -537,9 +537,9 @@
+ 		headerHeight += 2 // blank lines above and below header
+ 	}
+ 	helpHeight := m.help.Height()
+ 	progressHeight := 0
+-	if m.toggling {
++	if m.busy() {
+ 		progressHeight = 1
+ 	}
+ 	vpHeight := max(m.height-titleHeight-headerHeight-helpHeight-progressHeight, 0)
+ 	m.viewport.SetHeight(vpHeight)
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/ui/dashboard.go
+Index: internal/ui/dashboard.go
+===================================================================
+--- internal/ui/dashboard.go
++++ internal/ui/dashboard.go
+@@ -554,10 +554,9 @@
+ 	}
+ 
+ 	var views []string
+ 	for _, i := range indices {
+-		toggling := m.toggling && m.togglingApp == m.panels[i].app.Settings.Name
+-		views = append(views, m.panels[i].View(i == m.selectedIndex, toggling, m.filter, dashboardShowDetails, m.width, scales))
++		views = append(views, m.panels[i].View(i == m.selectedIndex, m.panelBusyLabel(i), m.filter, dashboardShowDetails, m.width,...))
+ 	}
+ 	if len(views) == 0 {
+ 		views = append(views, m.emptyFilterView())
+ 	}
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/ui/dashboard.go
+Index: internal/ui/dashboard.go
+===================================================================
+--- internal/ui/dashboard.go
++++ internal/ui/dashboard.go
+@@ -554,9 +554,9 @@
+ 	}
+ 
+ 	var views []string
+ 	for _, i := range indices {
+-		views = append(views, m.panels[i].View(i == m.selectedIndex, m.panelBusyLabel(i), m.filter, dashboardShowDetails, m.width,...))
++		views = append(views, m.panels[i].View(i == m.selectedIndex, m.panelBusyLabel(i), m.filter, dashboardShowDetails, m.width, scales))
+ 	}
+ 	if len(views) == 0 {
+ 		views = append(views, m.emptyFilterView())
+ 	}
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m✗ [0mEdit internal/ui/dashboard.go failed
+[91m[1mError: [0mNo changes to apply: oldString and newString are identical.
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/ui/dashboard.go
+Index: internal/ui/dashboard.go
+===================================================================
+--- internal/ui/dashboard.go
++++ internal/ui/dashboard.go
+@@ -562,8 +562,23 @@
+ 	}
+ 	m.viewport.SetContent(lipgloss.JoinVertical(lipgloss.Left, views...))
+ }
+ 
++func (m *Dashboard) panelBusyLabel(index int) string {
++	app := m.panels[index].app
++
++	switch {
++	case m.updating && m.updatingApp == app.Settings.Host:
++		return "updating..."
++	case m.toggling && m.togglingApp == app.Settings.Name && app.Running:
++		return "stopping..."
++	case m.toggling && m.togglingApp == app.Settings.Name:
++		return "starting..."
++	default:
++		return ""
++	}
++}
++
+ func (m *Dashboard) visibleIndices(scales DashboardScales) []int {
+ 	indices := make([]int, 0, len(m.panels))
+ 	for i := range m.panels {
+ 		if m.filter == "" || slices.Contains(m.panels[i].Channels(scales), m.filter) {
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+Now update the panel signature:
+[0m← [0mEdit internal/ui/dashboard_panel.go
+Index: internal/ui/dashboard_panel.go
+===================================================================
+--- internal/ui/dashboard_panel.go
++++ internal/ui/dashboard_panel.go
+@@ -53,9 +53,9 @@
+ 	reqData, _ := p.fetchMetricsData()
+ 	return maxValue(reqData)
+ }
+ 
+-func (p DashboardPanel) View(selected bool, toggling bool, active docker.Channel, showDetails bool, width int, scales DashboardScales) string {
++func (p DashboardPanel) View(selected bool, busy string, active docker.Channel, showDetails bool, width int, scales DashboardScales) string {
+ 	innerWidth := max(width-3, 0) // indicator(1) + left padding(1) + right padding(1)
+ 	detailed := showDetails && p.app.Running
+ 
+ 	var cards [3]MetricCard
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/ui/dashboard_panel.go
+Index: internal/ui/dashboard_panel.go
+===================================================================
+--- internal/ui/dashboard_panel.go
++++ internal/ui/dashboard_panel.go
+@@ -72,9 +72,9 @@
+ 	}
+ 	star := lipgloss.NewStyle().Foreground(starColor).Render(favoriteStarText(p.favorite()))
+ 	left := star + " " + badge + " " + url + " " + name
+ 
+-	chips := p.chips(cards, toggling)
++	chips := p.chips(cards, busy)
+ 	right := renderChannelChips(chips, active)
+ 	for len(chips) > 1 && lipgloss.Width(left)+lipgloss.Width(right)+3 > innerWidth {
+ 		chips = chips[:len(chips)-1]
+ 		right = renderChannelChips(chips, active)
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/ui/dashboard_panel.go
+Index: internal/ui/dashboard_panel.go
+===================================================================
+--- internal/ui/dashboard_panel.go
++++ internal/ui/dashboard_panel.go
+@@ -139,15 +139,11 @@
+ }
+ 
+ // Private
+ 
+-func (p DashboardPanel) chips(cards [3]MetricCard, toggling bool) []channelChip {
+-	if toggling {
+-		label := "starting..."
+-		if p.app.Running {
+-			label = "stopping..."
+-		}
+-		return []channelChip{{label: label, color: Colors.LightText}}
++func (p DashboardPanel) chips(cards [3]MetricCard, busy string) []channelChip {
++	if busy != "" {
++		return []channelChip{{label: busy, color: Colors.LightText}}
+ 	}
+ 
+ 	channels := p.channels(cards)
+ 	chips := make([]channelChip, len(channels))
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && gofmt -l internal/ui && go build ./... && go test ./internal/ui/ 2>&1 | tail -30
+internal/ui/dashboard.go
+# github.com/basecamp/once/internal/ui [github.com/basecamp/once/internal/ui.test]
+internal/ui/dashboard_panel_test.go:18:28: cannot use false (untyped bool constant) as string value in argument to panel.View
+internal/ui/dashboard_panel_test.go:27:28: cannot use false (untyped bool constant) as string value in argument to panel.View
+internal/ui/dashboard_panel_test.go:37:28: cannot use false (untyped bool constant) as string value in argument to panel.View
+internal/ui/dashboard_panel_test.go:47:28: cannot use false (untyped bool constant) as string value in argument to panel.View
+internal/ui/dashboard_panel_test.go:58:28: cannot use false (untyped bool constant) as string value in argument to panel.View
+internal/ui/dashboard_panel_test.go:66:28: cannot use false (untyped bool constant) as string value in argument to panel.View
+internal/ui/dashboard_panel_test.go:91:27: cannot use false (untyped bool constant) as string value in argument to panel.View
+internal/ui/dashboard_panel_test.go:101:28: cannot use false (untyped bool constant) as string value in argument to panel.View
+internal/ui/dashboard_panel_test.go:111:28: cannot use false (untyped bool constant) as string value in argument to panel.View
+internal/ui/dashboard_panel_test.go:119:28: cannot use false (untyped bool constant) as string value in argument to panel.View
+internal/ui/dashboard_panel_test.go:119:28: too many errors
+FAIL	github.com/basecamp/once/internal/ui [build failed]
+FAIL
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && sed -n '1,130p' internal/ui/dashboard_panel_test.go
+package ui
+
+import (
+	"strings"
+	"testing"
+	"time"
+
+	"github.com/charmbracelet/x/ansi"
+	"github.com/stretchr/testify/assert"
+
+	"github.com/basecamp/once/internal/docker"
+	"github.com/basecamp/once/internal/metrics"
+	"github.com/basecamp/once/internal/mouse"
+)
+
+func TestDashboardPanelViewRunningApp(t *testing.T) {
+	panel := testPanel(true)
+	view := panel.View(false, false, "", true, 120, DashboardScales{})
+	stripped := ansi.Strip(view)
+
+	assert.Contains(t, stripped, "app.example.com")
+	assert.Contains(t, stripped, "[running]")
+}
+
+func TestDashboardPanelViewStoppedApp(t *testing.T) {
+	panel := testPanel(false)
+	view := panel.View(false, false, "", true, 120, DashboardScales{})
+	stripped := ansi.Strip(view)
+
+	assert.Contains(t, stripped, "app.example.com")
+	assert.Contains(t, stripped, "[stopped]")
+}
+
+func TestDashboardPanelViewShowsNoBackupChip(t *testing.T) {
+	state := &docker.State{Apps: map[string]*docker.AppState{"test-app": {}}}
+	panel := testPanelWithState(true, state)
+	view := panel.View(false, false, "", true, 120, DashboardScales{})
+
+	assert.Contains(t, ansi.Strip(view), "[no backup]")
+}
+
+func TestDashboardPanelViewHidesBackupChipForASuccessfulBackup(t *testing.T) {
+	state := &docker.State{Apps: map[string]*docker.AppState{
+		"test-app": {LastBackup: docker.OperationResult{At: time.Now()}},
+	}}
+	panel := testPanelWithState(true, state)
+	view := panel.View(false, false, "", true, 120, DashboardScales{})
+
+	assert.NotContains(t, ansi.Strip(view), "[no backup]")
+}
+
+func TestDashboardPanelViewShowsIdleChip(t *testing.T) {
+	state := &docker.State{Apps: map[string]*docker.AppState{
+		"test-app": {LastBackup: docker.OperationResult{At: time.Now()}},
+	}}
+	panel := testPanelWithState(true, state)
+	panel.app.DeployedAt = time.Now().Add(-31 * 24 * time.Hour)
+	view := panel.View(false, false, "", true, 120, DashboardScales{})
+
+	assert.Contains(t, ansi.Strip(view), "[idle 30d]")
+}
+
+func TestDashboardPanelViewShowsDeployingChip(t *testing.T) {
+	panel := testPanel(true)
+	panel.app.DeployedAt = time.Now()
+	view := panel.View(false, false, "", true, 120, DashboardScales{})
+
+	assert.Contains(t, ansi.Strip(view), "[deploying]")
+}
+
+func TestDashboardPanelHeightRunning(t *testing.T) {
+	panel := testPanel(true)
+
+	fullHeight := panel.Height(true)
+	compactHeight := panel.Height(false)
+
+	assert.Equal(t, PanelHeight+2, fullHeight)
+	assert.Equal(t, StoppedPanelHeight+2, compactHeight)
+}
+
+func TestDashboardPanelHeightStopped(t *testing.T) {
+	panel := testPanel(false)
+
+	// Stopped always uses compact height regardless of showDetails
+	assert.Equal(t, StoppedPanelHeight+2, panel.Height(true))
+	assert.Equal(t, StoppedPanelHeight+2, panel.Height(false))
+}
+
+func TestDashboardPanelSelectedHasIndicator(t *testing.T) {
+	panel := testPanel(true)
+	view := panel.View(true, false, "", true, 80, DashboardScales{})
+
+	// Selected panels have the indicator character
+	assert.Contains(t, view, "▐")
+	assert.Contains(t, view, "▗")
+	assert.Contains(t, view, "▝")
+}
+
+func TestDashboardPanelNotSelectedNoIndicator(t *testing.T) {
+	panel := testPanel(true)
+	view := panel.View(false, false, "", true, 80, DashboardScales{})
+
+	assert.NotContains(t, view, "▐")
+	assert.NotContains(t, view, "▗")
+	assert.NotContains(t, view, "▝")
+}
+
+func TestDashboardPanelNarrowWidthHidesCards(t *testing.T) {
+	panel := testPanel(true)
+	// Width of 30 is too narrow for cards (need minCardWidth*4+3 = 35 inner)
+	view := panel.View(false, false, "", true, 30, DashboardScales{})
+
+	// Should not contain card borders
+	assert.NotContains(t, view, "╭─")
+}
+
+func TestDashboardPanelWideWidthShowsCards(t *testing.T) {
+	panel := testPanel(true)
+	view := panel.View(false, false, "", true, 120, DashboardScales{})
+
+	// Cards should have borders
+	assert.Contains(t, view, "╭─")
+	assert.Contains(t, view, "╰")
+}
+
+func TestDashboardPanelTogglingShowsStatus(t *testing.T) {
+	panel := testPanel(true)
+	view := panel.View(false, true, "", true, 120, DashboardScales{})
+	stripped := ansi.Strip(view)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && sed -n '120,180p' internal/ui/dashboard_panel_test.go
+// Cards should have borders
+	assert.Contains(t, view, "╭─")
+	assert.Contains(t, view, "╰")
+}
+
+func TestDashboardPanelTogglingShowsStatus(t *testing.T) {
+	panel := testPanel(true)
+	view := panel.View(false, true, "", true, 120, DashboardScales{})
+	stripped := ansi.Strip(view)
+
+	assert.Contains(t, stripped, "stopping...")
+}
+
+func TestDashboardPanelViewHasThreeLines(t *testing.T) {
+	panel := testPanel(false)
+	view := panel.View(false, false, "", false, 80, DashboardScales{})
+	lines := strings.Split(view, "\n")
+
+	// top transition + body lines + bottom transition
+	assert.GreaterOrEqual(t, len(lines), 3)
+}
+
+func TestRenderChannelChips(t *testing.T) {
+	running := renderChannelChips([]channelChip{newChannelChip(docker.ChannelRunning)}, "")
+	stopped := renderChannelChips([]channelChip{newChannelChip(docker.ChannelStopped)}, "")
+	noBackup := renderChannelChips([]channelChip{newChannelChip(docker.ChannelNoBackup)}, "")
+
+	assert.Contains(t, ansi.Strip(running), "[running]")
+	assert.Contains(t, ansi.Strip(stopped), "[stopped]")
+	assert.Contains(t, ansi.Strip(noBackup), "[no backup]")
+}
+
+func TestRenderChannelChipsMouseTargets(t *testing.T) {
+	row := "row " + renderChannelChips([]channelChip{
+		newChannelChip(docker.ChannelRunning),
+		newChannelChip(docker.ChannelStopped),
+	}, "")
+
+	assert.Contains(t, ansi.Strip(mouse.Sweep(row)), "[running] [stopped]")
+	assert.Equal(t, channelTarget(docker.ChannelRunning), mouse.Resolve(5, 0))
+	assert.Equal(t, channelTarget(docker.ChannelStopped), mouse.Resolve(15, 0))
+}
+
+func TestRenderBar(t *testing.T) {
+	bar := renderBar(50, 0, 100, Colors.Success, 10)
+	assert.NotEmpty(t, bar)
+	// Bar contains braille characters
+	assert.Contains(t, bar, "⢾")
+	assert.Contains(t, bar, "⡷")
+}
+
+func TestRenderBarZeroWidth(t *testing.T) {
+	assert.Empty(t, renderBar(50, 0, 100, Colors.Success, 0))
+}
+
+func TestDashboardPanelShowsFavoriteStar(t *testing.T) {
+	state := &docker.State{}
+	state.SetFavorite("test-app", true)
+	panel := testPanelWithState(true, state)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && perl -0pi -e 's/View\(false, false,/View(false, "",/g; s/View\(true, false,/View(true, "",/g; s/View\(false, true,/View(false, "stopping...",/g' internal/ui/dashboard_panel_test.go && grep -n "panel.View(" internal/ui/dashboard_panel_test.go | head -20
+18:	view := panel.View(false, "", "", true, 120, DashboardScales{})
+27:	view := panel.View(false, "", "", true, 120, DashboardScales{})
+37:	view := panel.View(false, "", "", true, 120, DashboardScales{})
+47:	view := panel.View(false, "", "", true, 120, DashboardScales{})
+58:	view := panel.View(false, "", "", true, 120, DashboardScales{})
+66:	view := panel.View(false, "", "", true, 120, DashboardScales{})
+91:	view := panel.View(true, "", "", true, 80, DashboardScales{})
+101:	view := panel.View(false, "", "", true, 80, DashboardScales{})
+111:	view := panel.View(false, "", "", true, 30, DashboardScales{})
+119:	view := panel.View(false, "", "", true, 120, DashboardScales{})
+128:	view := panel.View(false, "stopping...", "", true, 120, DashboardScales{})
+136:	view := panel.View(false, "", "", false, 80, DashboardScales{})
+181:	assert.Contains(t, ansi.Strip(panel.View(false, "", "", true, 120, DashboardScales{})), favoriteStar)
+187:	assert.Contains(t, ansi.Strip(panel.View(false, "", "", true, 120, DashboardScales{})), unfavoriteStar)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && perl -0pi -e 's/TestDashboardPanelTogglingShowsStatus/TestDashboardPanelBusyShowsStatus/' internal/ui/dashboard_panel_test.go && gofmt -w internal/ui/dashboard.go internal/ui/dashboard_panel.go internal/ui/dashboard_panel_test.go && go test ./internal/ui/ 2>&1 | tail -20
+ok  	github.com/basecamp/once/internal/ui	0.542s
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && head -8 go.mod
+module github.com/basecamp/once
+
+go 1.27.0
+
+require (
+	charm.land/bubbles/v2 v2.2.1
+	charm.land/bubbletea/v2 v2.0.9
+	charm.land/lipgloss/v2 v2.0.6
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/ui/dashboard_test.go
+Index: internal/ui/dashboard_test.go
+===================================================================
+--- internal/ui/dashboard_test.go
++++ internal/ui/dashboard_test.go
+@@ -140,8 +140,55 @@
+ 	d, _ = updateDashboard(d, ActionsMenuSelectMsg{app: d.apps[0], action: ActionsMenuStartStop})
+ 	assert.True(t, d.toggling)
+ }
+ 
++func TestDashboard_UpdateAllReusesPerAppUpdate(t *testing.T) {
++	d := testDashboard(2)
++	d.updateQueue = slices.Clone(d.apps)
++
++	var updated []string
++	d.updateApp = func(_ context.Context, app *docker.Application) (bool, error) {
++		updated = append(updated, app.Settings.Name)
++		return true, nil
++	}
++
++	cmd := d.updateNextApp()
++	require.NotNil(t, cmd)
++
++	msg := cmd()
++	assert.IsType(t, updateAllAppDoneMsg{}, msg)
++	assert.Equal(t, []string{"app-0"}, updated)
++}
++
++func TestDashboard_UpdateAllAdvancesThroughApps(t *testing.T) {
++	d := testDashboard(2)
++	d.width = 80
++	d.height = 40
++	d.updateViewportSize()
++	d.rebuildViewportContent()
++
++	d, _ = updateDashboard(d, keyPressMsg("u"))
++	require.True(t, d.updating)
++	assert.Equal(t, "app-0.example.com", d.updatingApp)
++
++	d, cmd := updateDashboard(d, updateAllAppDoneMsg{err: assert.AnError})
++	require.NotNil(t, cmd)
++	assert.Equal(t, "app-1.example.com", d.updatingApp)
++
++	d, _ = updateDashboard(d, updateAllAppDoneMsg{})
++	assert.False(t, d.updating)
++	assert.Empty(t, d.updatingApp)
++	assert.Empty(t, d.updateQueue)
++}
++
++func TestDashboard_UpdateAllNamesCurrentApp(t *testing.T) {
++	d := testDashboard(2)
++	d, _ = updateDashboard(d, tea.WindowSizeMsg{Width: 80, Height: 40})
++
++	d, _ = updateDashboard(d, keyPressMsg("u"))
++	assert.Contains(t, ansi.Strip(d.View()), "Updating app-0.example.com")
++}
++
+ func TestDashboard_ActionsMenuRemove(t *testing.T) {
+ 	d := testDashboard(1)
+ 	d.width = 80
+ 	d.height = 40
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/ui/dashboard_test.go
+Index: internal/ui/dashboard_test.go
+===================================================================
+--- internal/ui/dashboard_test.go
++++ internal/ui/dashboard_test.go
+@@ -1,8 +1,10 @@
+ package ui
+ 
+ import (
++	"context"
+ 	"fmt"
++	"slices"
+ 	"testing"
+ 	"time"
+ 
+ 	tea "charm.land/bubbletea/v2"
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && gofmt -w internal/ui/dashboard_test.go && go test ./internal/ui/ 2>&1 | tail -30
+--- FAIL: TestDashboard_UpdateAllReusesPerAppUpdate (0.00s)
+panic: strings: negative Repeat count [recovered, repanicked]
+
+goroutine 118 [running]:
+testing.tRunner.func1.2({0xfbae28, 0xa2a3f0})
+	/home/mrjohn/.local/share/mise/installs/go/1.27.3/src/testing/testing.go:2125 +0x232
+testing.tRunner.func1()
+	/home/mrjohn/.local/share/mise/installs/go/1.27.3/src/testing/testing.go:2128 +0x329
+panic({0xfbae28?, 0xa2a3f0?})
+	/home/mrjohn/.local/share/mise/installs/go/1.27.3/src/runtime/panic.go:859 +0x125
+strings.Repeat({0x9ec273?, 0x400?}, 0x104c400?)
+	/home/mrjohn/.local/share/mise/installs/go/1.27.3/src/strings/strings.go:609 +0x56b
+github.com/basecamp/once/internal/ui.DashboardPanel.renderTopTransition({{0x0, {{0x7e6766a9118, 0x5}, {0x0, 0x0}, {0x0, 0x0}, {0x0, 0x0}, {0x0, ...}, ...}, ...}, ...}, ...)
+	/home/mrjohn/Work/tries/2026-11-06-yo/once/internal/ui/dashboard_panel.go:296 +0x239
+github.com/basecamp/once/internal/ui.DashboardPanel.View({{0x0, {{0x7e6766a9118, 0x5}, {0x0, 0x0}, {0x0, 0x0}, {0x0, 0x0}, {0x0, ...}, ...}, ...}, ...}, ...)
+	/home/mrjohn/Work/tries/2026-11-06-yo/once/internal/ui/dashboard_panel.go:119 +0x113b
+github.com/basecamp/once/internal/ui.(*Dashboard).rebuildViewportContent(0x7e6767af370)
+	/home/mrjohn/Work/tries/2026-11-06-yo/once/internal/ui/dashboard.go:558 +0x49c
+github.com/basecamp/once/internal/ui.(*Dashboard).updateNextApp(0x7e6767af370)
+	/home/mrjohn/Work/tries/2026-11-06-yo/once/internal/ui/dashboard.go:408 +0xc5
+github.com/basecamp/once/internal/ui.TestDashboard_UpdateAllReusesPerAppUpdate(0x7e676626b48)
+	/home/mrjohn/Work/tries/2026-11-06-yo/once/internal/ui/dashboard_test.go:156 +0x1a5
+testing.tRunner(0x7e676626b48, 0x105b520)
+	/home/mrjohn/.local/share/mise/installs/go/1.27.3/src/testing/testing.go:2195 +0xea
+created by testing.(*T).Run in goroutine 1
+	/home/mrjohn/.local/share/mise/installs/go/1.27.3/src/testing/testing.go:2260 +0x4d4
+FAIL	github.com/basecamp/once/internal/ui	0.098s
+FAIL
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/ui/dashboard_test.go
+Index: internal/ui/dashboard_test.go
+===================================================================
+--- internal/ui/dashboard_test.go
++++ internal/ui/dashboard_test.go
+@@ -144,8 +144,12 @@
+ }
+ 
+ func TestDashboard_UpdateAllReusesPerAppUpdate(t *testing.T) {
+ 	d := testDashboard(2)
++	d.width = 80
++	d.height = 40
++	d.updateViewportSize()
++	d.rebuildViewportContent()
+ 	d.updateQueue = slices.Clone(d.apps)
+ 
+ 	var updated []string
+ 	d.updateApp = func(_ context.Context, app *docker.Application) (bool, error) {
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && go test ./internal/ui/ 2>&1 | tail -20
+ok  	github.com/basecamp/once/internal/ui	0.561s
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/ui/dashboard.go
+Index: internal/ui/dashboard.go
+===================================================================
+--- internal/ui/dashboard.go
++++ internal/ui/dashboard.go
+@@ -186,9 +186,9 @@
+ 			var cmd tea.Cmd
+ 			m.overlay, cmd = m.overlay.Update(tea.WindowSizeMsg{Width: m.width, Height: m.height})
+ 			return m, cmd
+ 		}
+-		if key.Matches(msg, dashboardKeys.Actions) && len(m.apps) > 0 && !m.toggling {
++		if key.Matches(msg, dashboardKeys.Actions) && len(m.apps) > 0 && !m.busy() {
+ 			app := m.apps[m.selectedIndex]
+ 			m.overlay = NewActionsMenu(app)
+ 			var cmd tea.Cmd
+ 			m.overlay, cmd = m.overlay.Update(tea.WindowSizeMsg{Width: m.width, Height: m.height})
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && make lint 2>&1 | tail -40
+golangci-lint run
+0 issues.
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && make test 2>&1 | tail -30
+go test ./internal/...
+ok  	github.com/basecamp/once/internal/background	(cached)
+ok  	github.com/basecamp/once/internal/browser	(cached)
+ok  	github.com/basecamp/once/internal/command	0.070s
+ok  	github.com/basecamp/once/internal/docker	0.163s
+ok  	github.com/basecamp/once/internal/fsutil	(cached)
+ok  	github.com/basecamp/once/internal/htmltext	(cached)
+?   	github.com/basecamp/once/internal/logging	[no test files]
+ok  	github.com/basecamp/once/internal/metrics	0.030s
+ok  	github.com/basecamp/once/internal/mouse	(cached)
+?   	github.com/basecamp/once/internal/service	[no test files]
+ok  	github.com/basecamp/once/internal/system	(cached)
+ok  	github.com/basecamp/once/internal/ui	0.553s
+ok  	github.com/basecamp/once/internal/userstats	(cached)
+ok  	github.com/basecamp/once/internal/version	(cached)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && git diff --stat && git diff internal/ui/dashboard.go internal/ui/dashboard_panel.go | sed -n '1,240p'
+internal/ui/dashboard.go            | 153 +++++++++++++++++++++++++++++-------
+ internal/ui/dashboard_panel.go      |  14 ++--
+ internal/ui/dashboard_panel_test.go |  30 +++----
+ internal/ui/dashboard_test.go       |  53 +++++++++++++
+ 4 files changed, 196 insertions(+), 54 deletions(-)
+diff --git i/internal/ui/dashboard.go w/internal/ui/dashboard.go
+index 3424aa3..d902718 100644
+--- i/internal/ui/dashboard.go
++++ w/internal/ui/dashboard.go
+@@ -26,29 +26,31 @@ var dashboardShowDetails = true
+ const stateRefreshInterval = time.Minute
+ 
+ var dashboardKeys = struct {
+-	Up       key.Binding
+-	Down     key.Binding
+-	Settings key.Binding
+-	Actions  key.Binding
+-	Favorite key.Binding
+-	NewApp   key.Binding
+-	Logs     key.Binding
+-	Contents key.Binding
+-	Drift    key.Binding
+-	Details  key.Binding
+-	Quit     key.Binding
++	Up        key.Binding
++	Down      key.Binding
++	Settings  key.Binding
++	Actions   key.Binding
++	Favorite  key.Binding
++	NewApp    key.Binding
++	Logs      key.Binding
++	Contents  key.Binding
++	Drift     key.Binding
++	Details   key.Binding
++	UpdateAll key.Binding
++	Quit      key.Binding
+ }{
+-	Up:       WithHelp(NewKeyBinding("up", "k"), "↑/k", "up"),
+-	Down:     WithHelp(NewKeyBinding("down", "j"), "↓/j", "down"),
+-	Settings: WithHelp(NewKeyBinding("s"), "s", "settings"),
+-	Actions:  WithHelp(NewKeyBinding("a"), "a", "actions"),
+-	Favorite: WithHelp(NewKeyBinding("f"), "f", "favorite"),
+-	NewApp:   WithHelp(NewKeyBinding("n"), "n", "new app"),
+-	Logs:     WithHelp(NewKeyBinding("g"), "g", "logs"),
+-	Contents: WithHelp(NewKeyBinding("C"), "C", "contents"),
+-	Drift:    WithHelp(NewKeyBinding("R"), "R", "drift"),
+-	Details:  WithHelp(NewKeyBinding("d"), "d", "toggle details"),
+-	Quit:     WithHelp(NewKeyBinding("esc"), "esc", "quit"),
++	Up:        WithHelp(NewKeyBinding("up", "k"), "↑/k", "up"),
++	Down:      WithHelp(NewKeyBinding("down", "j"), "↓/j", "down"),
++	Settings:  WithHelp(NewKeyBinding("s"), "s", "settings"),
++	Actions:   WithHelp(NewKeyBinding("a"), "a", "actions"),
++	Favorite:  WithHelp(NewKeyBinding("f"), "f", "favorite"),
++	NewApp:    WithHelp(NewKeyBinding("n"), "n", "new app"),
++	Logs:      WithHelp(NewKeyBinding("g"), "g", "logs"),
++	Contents:  WithHelp(NewKeyBinding("C"), "C", "contents"),
++	Drift:     WithHelp(NewKeyBinding("R"), "R", "drift"),
++	Details:   WithHelp(NewKeyBinding("d"), "d", "toggle details"),
++	UpdateAll: WithHelp(NewKeyBinding("u"), "u", "update all"),
++	Quit:      WithHelp(NewKeyBinding("esc"), "esc", "quit"),
+ }
+ 
+ type Dashboard struct {
+@@ -66,6 +68,10 @@ type Dashboard struct {
+ 	viewport      viewport.Model
+ 	toggling      bool
+ 	togglingApp   string
++	updating      bool
++	updatingApp   string
++	updateQueue   []*docker.Application
++	updateApp     func(context.Context, *docker.Application) (bool, error)
+ 	progress      Progress
+ 	help          Help
+ 	overlay       Component
+@@ -80,6 +86,10 @@ type startStopFinishedMsg struct {
+ 	err error
+ }
+ 
++type updateAllAppDoneMsg struct {
++	err error
++}
++
+ func NewDashboard(ns *docker.Namespace, apps []*docker.Application, selectedIndex int,
+ 	scraper *metrics.MetricsScraper, dockerScraper *docker.Scraper, systemScraper *system.Scraper, userStats *userstats.Reader,
+ ) Dashboard {
+@@ -177,13 +187,17 @@ func (m Dashboard) Update(msg tea.Msg) (Component, tea.Cmd) {
+ 			m.overlay, cmd = m.overlay.Update(tea.WindowSizeMsg{Width: m.width, Height: m.height})
+ 			return m, cmd
+ 		}
+-		if key.Matches(msg, dashboardKeys.Actions) && len(m.apps) > 0 && !m.toggling {
++		if key.Matches(msg, dashboardKeys.Actions) && len(m.apps) > 0 && !m.busy() {
+ 			app := m.apps[m.selectedIndex]
+ 			m.overlay = NewActionsMenu(app)
+ 			var cmd tea.Cmd
+ 			m.overlay, cmd = m.overlay.Update(tea.WindowSizeMsg{Width: m.width, Height: m.height})
+ 			return m, cmd
+ 		}
++		if key.Matches(msg, dashboardKeys.UpdateAll) && len(m.apps) > 0 && !m.busy() {
++			m.startUpdateAll()
++			return m, tea.Batch(m.progress.Init(), m.updateNextApp())
++		}
+ 		if key.Matches(msg, dashboardKeys.Favorite) && len(m.apps) > 0 {
+ 			m.toggleFavorite(m.apps[m.selectedIndex].Settings.Name)
+ 			return m, nil
+@@ -247,6 +261,16 @@ func (m Dashboard) Update(msg tea.Msg) (Component, tea.Cmd) {
+ 		m.updateViewportSize()
+ 		m.rebuildViewportContent()
+ 
++	case updateAllAppDoneMsg:
++		if msg.err != nil {
++			slog.Warn("Failed to update app", "app", m.updatingApp, "error", msg.err)
++		}
++		if len(m.updateQueue) == 0 {
++			m.finishUpdateAll()
++			return m, nil
++		}
++		return m, m.updateNextApp()
++
+ 	case scrapeDoneMsg:
+ 		m.rebuildViewportContent()
+ 
+@@ -256,7 +280,7 @@ func (m Dashboard) Update(msg tea.Msg) (Component, tea.Cmd) {
+ 		cmds = append(cmds, m.scheduleNextDashboardTick())
+ 
+ 	case ProgressTickMsg:
+-		if m.toggling {
++		if m.busy() {
+ 			var cmd tea.Cmd
+ 			m.progress, cmd = m.progress.Update(msg)
+ 			cmds = append(cmds, cmd)
+@@ -313,8 +337,8 @@ func (m Dashboard) View() string {
+ 		parts = append(parts, "", headerView, "")
+ 	}
+ 	parts = append(parts, m.viewport.View())
+-	if m.toggling {
+-		parts = append(parts, m.progress.View())
++	if m.busy() {
++		parts = append(parts, m.progressLine())
+ 	}
+ 	parts = append(parts, helpLine)
+ 	content := strings.Join(parts, "\n")
+@@ -334,7 +358,7 @@ func (m Dashboard) helpBindings() []key.Binding {
+ 			dashboardKeys.Up, dashboardKeys.Down, dashboardKeys.Actions,
+ 			dashboardKeys.Favorite, dashboardKeys.Settings, dashboardKeys.Logs,
+ 			dashboardKeys.Contents, dashboardKeys.Drift, dashboardKeys.Details,
+-			dashboardKeys.NewApp, dashboardKeys.Quit,
++			dashboardKeys.UpdateAll, dashboardKeys.NewApp, dashboardKeys.Quit,
+ 		}
+ 	}
+ 	return []key.Binding{dashboardKeys.NewApp, dashboardKeys.Quit}
+@@ -352,6 +376,61 @@ func (m Dashboard) runStartStop(app *docker.Application) tea.Cmd {
+ 	}
+ }
+ 
++func (m Dashboard) busy() bool {
++	return m.toggling || m.updating
++}
++
++func (m Dashboard) progressLine() string {
++	if m.updatingApp == "" {
++		return m.progress.View()
++	}
++
++	label := lipgloss.NewStyle().Foreground(Colors.LightText).Render("Updating " + m.updatingApp)
++	return label + " " + m.progress.View()
++}
++
++func (m *Dashboard) startUpdateAll() {
++	m.updating = true
++	m.updateQueue = slices.Clone(m.apps)
++	m.progress = NewProgress(m.width, Colors.Border)
++	m.updateViewportSize()
++	m.rebuildViewportContent()
++}
++
++func (m *Dashboard) updateNextApp() tea.Cmd {
++	if len(m.updateQueue) == 0 {
++		return nil
++	}
++
++	app := m.updateQueue[0]
++	m.updateQueue = m.updateQueue[1:]
++	m.updatingApp = app.Settings.Host
++	m.rebuildViewportContent()
++
++	update := m.updateApp
++	if update == nil {
++		update = func(ctx context.Context, app *docker.Application) (bool, error) {
++			return app.Update(ctx, nil)
++		}
++	}
++
++	return func() tea.Msg {
++		_, err := update(context.Background(), app)
++		return updateAllAppDoneMsg{err: err}
++	}
++}
++
++func (m *Dashboard) finishUpdateAll() {
++	m.updating = false
++	m.updatingApp = ""
++	m.updateQueue = nil
++	m.state = loadState(m.namespace)
++	m.stateLoadedAt = time.Now()
++	m.buildPanels()
++	m.updateViewportSize()
++	m.rebuildViewportContent()
++}
++
+ func (m Dashboard) drift() tea.Cmd {
+ 	index, ok := driftTarget(m.apps, m.selectedIndex)
+ 	if !ok {
+@@ -459,7 +538,7 @@ func (m *Dashboard) updateViewportSize() {
+ 	}
+ 	helpHeight := m.help.Height()
+ 	progressHeight := 0
+-	if m.toggling {
++	if m.busy() {
+ 		progressHeight = 1
+ 	}
+ 	vpHeight := max(m.height-titleHeight-headerHeight-helpHeight-progressHeight, 0)
+@@ -476,8 +555,7 @@ func (m *Dashboard) rebuildViewportContent() {
+ 
+ 	var views []string
+ 	for _, i := range indices {
+-		toggling := m.toggling && m.togglingApp == m.panels[i].app.Settings.Name
+-		views = append(views, m.panels[i].View(i == m.selectedIndex, toggling, m.filter, dashboardShowDetails, m.width, scales))
++		views = append(views, m.panels[i].View(i == m.selectedIndex, m.panelBusyLabel(i), m.filter, dashboardShowDetails, m.width, scales))
+ 	}
+ 	if len(views) == 0 {
+ 		views = append(views, m.emptyFilterView())
+@@ -485,6 +563,21 @@ func (m *Dashboard) rebuildViewportContent() {
+ 	m.viewport.SetContent(lipgloss.JoinVertical(lipgloss.Left, views...))
+ }
+ 
++func (m *Dashboard) panelBusyLabel(index int) string {
++	app := m.panels[index].app
++
++	switch {
++	case m.updating && m.updatingApp == app.Settings.Host:
++		return "updating..."
++	case m.toggling && m.togglingApp == app.Settings.Name && app.Running:
++		return "stopping..."
++	case m.toggling && m.togglingApp == app.Settings.Name:
++		return "starting..."
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && grep -n "actions\|dashboard\|key\|restart" README.md | head -20
+7:It has a TUI interface with a dashboard for monitoring and operating your applications, as well as CLI commands for common operations should you (or your AI agent) prefer that.
+70:ONCE will fetch, install, and boot the application, and then take you to the dashboard screen where you can monitor it.
+75:When you have an application selected on the dashboard, press `s` to view the settings menu, and choose an item from the menu to open that screen.
+109:Data in this volume persists across restarts, and is also the data that will be included in backups.
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && grep -n "dashboard\|Actions\|Drift\|Contents" internal/ui/palette.go | head -20
+(no output)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && head -30 internal/ui/palette.go
+package ui
+
+import (
+	"image/color"
+	"math"
+
+	"charm.land/lipgloss/v2"
+	"github.com/charmbracelet/x/ansi"
+	"github.com/lucasb-eyer/go-colorful"
+)
+
+// Palette holds all colors used by the UI. ANSI color fields always contain
+// BasicColor values so the terminal applies its own theme. Synthesized
+// colors (FocusOrange, BackgroundTint, LightText) are true-color RGB.
+type Palette struct {
+	// ANSI 16 — always BasicColor values for rendering
+	Black, Red, Green, Yellow, Blue, Magenta, Cyan, White                                                 color.Color
+	BrightBlack, BrightRed, BrightGreen, BrightYellow, BrightBlue, BrightMagenta, BrightCyan, BrightWhite color.Color
+
+	// Synthesized (always true-color RGB)
+	FocusOrange    color.Color
+	BackgroundTint color.Color
+	LightText      color.Color
+
+	// Semantic aliases
+	Border  color.Color // = LightText
+	Muted   color.Color // = LightText
+	Focused color.Color // = FocusOrange
+	Primary color.Color // = Blue or BrightBlue (better contrast)
+	Error   color.Color // = Red
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+Added an **Update all** dashboard action on `u`.
+
+- `internal/ui/dashboard.go:189` starts the run, then updates apps one at a time via `Application.Update`, which pulls and only redeploys when the image changed. The progress line and the panel chip name the current app (`Updating <host>` / `updating...`).
+- Failures are logged and the run continues with the next app; the queue/state is reset when done.
+- Tests cover sequencing, naming, and reuse of the per-app path; `DashboardPanel.View` now takes a busy label instead of a bool.
+
+Lint command: `make lint` → `0 issues`. `make test` → all packages pass.

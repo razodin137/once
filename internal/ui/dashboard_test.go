@@ -1,7 +1,9 @@
 package ui
 
 import (
+	"context"
 	"fmt"
+	"slices"
 	"testing"
 	"time"
 
@@ -139,6 +141,57 @@ func TestDashboard_ActionsMenuStartStop(t *testing.T) {
 
 	d, _ = updateDashboard(d, ActionsMenuSelectMsg{app: d.apps[0], action: ActionsMenuStartStop})
 	assert.True(t, d.toggling)
+}
+
+func TestDashboard_UpdateAllReusesPerAppUpdate(t *testing.T) {
+	d := testDashboard(2)
+	d.width = 80
+	d.height = 40
+	d.updateViewportSize()
+	d.rebuildViewportContent()
+	d.updateQueue = slices.Clone(d.apps)
+
+	var updated []string
+	d.updateApp = func(_ context.Context, app *docker.Application) (bool, error) {
+		updated = append(updated, app.Settings.Name)
+		return true, nil
+	}
+
+	cmd := d.updateNextApp()
+	require.NotNil(t, cmd)
+
+	msg := cmd()
+	assert.IsType(t, updateAllAppDoneMsg{}, msg)
+	assert.Equal(t, []string{"app-0"}, updated)
+}
+
+func TestDashboard_UpdateAllAdvancesThroughApps(t *testing.T) {
+	d := testDashboard(2)
+	d.width = 80
+	d.height = 40
+	d.updateViewportSize()
+	d.rebuildViewportContent()
+
+	d, _ = updateDashboard(d, keyPressMsg("u"))
+	require.True(t, d.updating)
+	assert.Equal(t, "app-0.example.com", d.updatingApp)
+
+	d, cmd := updateDashboard(d, updateAllAppDoneMsg{err: assert.AnError})
+	require.NotNil(t, cmd)
+	assert.Equal(t, "app-1.example.com", d.updatingApp)
+
+	d, _ = updateDashboard(d, updateAllAppDoneMsg{})
+	assert.False(t, d.updating)
+	assert.Empty(t, d.updatingApp)
+	assert.Empty(t, d.updateQueue)
+}
+
+func TestDashboard_UpdateAllNamesCurrentApp(t *testing.T) {
+	d := testDashboard(2)
+	d, _ = updateDashboard(d, tea.WindowSizeMsg{Width: 80, Height: 40})
+
+	d, _ = updateDashboard(d, keyPressMsg("u"))
+	assert.Contains(t, ansi.Strip(d.View()), "Updating app-0.example.com")
 }
 
 func TestDashboard_ActionsMenuRemove(t *testing.T) {
