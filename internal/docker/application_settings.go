@@ -98,6 +98,7 @@ type ApplicationSettings struct {
 	Name       string             `json:"name"`
 	Image      string             `json:"image"`
 	Source     string             `json:"source,omitempty"`
+	SourceHash string             `json:"sourceHash,omitempty"`
 	Host       string             `json:"host"`
 	DisableTLS bool               `json:"disableTLS"`
 	EnvVars    map[string]string  `json:"env"`
@@ -145,7 +146,7 @@ func (s ApplicationSettings) Static() bool {
 }
 
 func (s ApplicationSettings) Equal(other ApplicationSettings) bool {
-	if s.Name != other.Name || s.Image != other.Image || s.Source != other.Source || s.Host != other.Host || s.DisableTLS != other.DisableTLS {
+	if s.Name != other.Name || s.Image != other.Image || s.Source != other.Source || s.SourceHash != other.SourceHash || s.Host != other.Host || s.DisableTLS != other.DisableTLS {
 		return false
 	}
 	if s.Resources != other.Resources {

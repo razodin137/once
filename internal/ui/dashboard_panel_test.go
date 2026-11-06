@@ -105,10 +105,11 @@ func TestRenderStateInfo(t *testing.T) {
 	running := &docker.Application{Running: true}
 	stopped := &docker.Application{Running: false}
 
-	assert.Contains(t, ansi.Strip(renderStateInfo(running, false)), "running")
-	assert.Contains(t, ansi.Strip(renderStateInfo(stopped, false)), "stopped")
-	assert.Contains(t, ansi.Strip(renderStateInfo(running, true)), "stopping...")
-	assert.Contains(t, ansi.Strip(renderStateInfo(stopped, true)), "starting...")
+	assert.Contains(t, ansi.Strip(renderStateInfo(running, false, false)), "running")
+	assert.Contains(t, ansi.Strip(renderStateInfo(stopped, false, false)), "stopped")
+	assert.Contains(t, ansi.Strip(renderStateInfo(running, true, false)), "stopping...")
+	assert.Contains(t, ansi.Strip(renderStateInfo(stopped, true, false)), "starting...")
+	assert.Contains(t, ansi.Strip(renderStateInfo(running, false, true)), "stale")
 }
 
 func TestRenderBar(t *testing.T) {

@@ -63,6 +63,10 @@ func (d *deployCommand) run(ctx context.Context, ns *docker.Namespace, cmd *cobr
 		return err
 	}
 	settings.Source = source
+	settings, err = withSourceHash(settings, source)
+	if err != nil {
+		return err
+	}
 
 	name, err := ns.UniqueName(baseName)
 	if err != nil {
@@ -97,6 +101,11 @@ func (d *deployCommand) redeploy(ctx context.Context, cmd *cobra.Command, app *d
 		return err
 	}
 
+	settings, err = withSourceHash(settings, source)
+	if err != nil {
+		return err
+	}
+
 	oldSettings := app.Settings
 	app.Settings = settings
 
@@ -121,6 +130,22 @@ func (d *deployCommand) redeploySettings(cmd *cobra.Command, existing docker.App
 }
 
 // Helpers
+
+// withSourceHash records what the deployed folder contained, so later scrapes
+// can tell whether it has changed since.
+func withSourceHash(settings docker.ApplicationSettings, source string) (docker.ApplicationSettings, error) {
+	if source == "" {
+		return settings, nil
+	}
+
+	hash, err := docker.HashSource(source)
+	if err != nil {
+		return settings, fmt.Errorf("hashing source folder: %w", err)
+	}
+
+	settings.SourceHash = hash
+	return settings, nil
+}
 
 // siteToReplace returns the static site already serving host, when deploying a
 // folder should replace it in place. Deploying an image, or deploying a folder

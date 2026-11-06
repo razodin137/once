@@ -1,0 +1,8 @@
+ internal/command/deploy.go              | 25 ++++++++++
+ internal/command/deploy_test.go         | 42 +++++++++++++++++
+ internal/docker/application_settings.go |  3 +-
+ internal/docker/scraper.go              | 53 +++++++++++++++++----
+ internal/docker/scraper_test.go         | 84 +++++++++++++++++++++++++++++++++
+ internal/ui/dashboard_panel.go          | 14 +++++-
+ internal/ui/dashboard_panel_test.go     |  9 ++--
+ 7 files changed, 215 insertions(+), 15 deletions(-)

@@ -4,6 +4,8 @@ import (
 	"bytes"
 	"context"
 	"encoding/json"
+	"os"
+	"path/filepath"
 	"testing"
 	"time"
 
@@ -236,6 +238,64 @@ func TestScraperReconnectsOnContainerChange(t *testing.T) {
 	assert.Equal(t, uint64(2000), samples[0].MemoryBytes)
 }
 
+func TestScraperMarksChangedSourceStale(t *testing.T) {
+	dir := t.TempDir()
+	file := filepath.Join(dir, "index.html")
+	require.NoError(t, os.WriteFile(file, []byte("first"), 0o644))
+
+	settings := staticSettings(t, "site", dir)
+	client := &mockStatsClient{
+		containers: []container.Summary{staticContainer("site", settings)},
+		stats:      map[string]container.StatsResponse{},
+	}
+
+	ctx := t.Context()
+
+	s := newTestScraper(client)
+	s.Scrape(ctx)
+	assert.False(t, s.Stale("site"))
+
+	require.NoError(t, os.WriteFile(file, []byte("second"), 0o644))
+	s.Scrape(ctx)
+	assert.True(t, s.Stale("site"))
+
+	require.NoError(t, os.WriteFile(file, []byte("first"), 0o644))
+	s.Scrape(ctx)
+	assert.False(t, s.Stale("site"))
+}
+
+func TestScraperMarksMissingSourceStale(t *testing.T) {
+	dir := t.TempDir()
+	settings := staticSettings(t, "site", dir)
+
+	require.NoError(t, os.RemoveAll(dir))
+
+	client := &mockStatsClient{
+		containers: []container.Summary{staticContainer("site", settings)},
+		stats:      map[string]container.StatsResponse{},
+	}
+
+	ctx := t.Context()
+
+	s := newTestScraper(client)
+	s.Scrape(ctx)
+	assert.True(t, s.Stale("site"))
+}
+
+func TestScraperIgnoresSourcesWithoutHash(t *testing.T) {
+	settings := ApplicationSettings{Name: "site", Image: StaticImage, Source: t.TempDir(), Host: "site.localhost"}
+	client := &mockStatsClient{
+		containers: []container.Summary{staticContainer("site", settings)},
+		stats:      map[string]container.StatsResponse{},
+	}
+
+	ctx := t.Context()
+
+	s := newTestScraper(client)
+	s.Scrape(ctx)
+	assert.False(t, s.Stale("site"))
+}
+
 func TestCalculateCPUPercent(t *testing.T) {
 	stats := &container.StatsResponse{
 		CPUStats: container.CPUStats{
@@ -271,6 +331,30 @@ func TestCalculateCPUPercentZeroDelta(t *testing.T) {
 }
 
 // Helpers
+
+func staticSettings(t *testing.T, name, dir string) ApplicationSettings {
+	t.Helper()
+
+	hash, err := HashSource(dir)
+	require.NoError(t, err)
+
+	return ApplicationSettings{
+		Name:       name,
+		Image:      StaticImage,
+		Source:     dir,
+		SourceHash: hash,
+		Host:       name + ".localhost",
+	}
+}
+
+func staticContainer(appName string, settings ApplicationSettings) container.Summary {
+	return container.Summary{
+		ID:     "abc123",
+		Names:  []string{"/test-app-" + appName + "-xyz"},
+		State:  "running",
+		Labels: map[string]string{labelKey: settings.Marshal()},
+	}
+}
 
 func addSample(s *Scraper, appName string, sample Sample) {
 	s.mu.Lock()

@@ -65,7 +65,7 @@ func (p DashboardPanel) View(selected bool, toggling bool, showDetails bool, wid
 	name := lipgloss.NewStyle().Foreground(Colors.Border).Render("(" + docker.NameFromImageRef(p.app.Settings.Image) + ")")
 	badge := p.renderHealthBadge(cards)
 	left := badge + " " + url + " " + name
-	right := renderStateInfo(&p.app, toggling)
+	right := renderStateInfo(&p.app, toggling, p.stale())
 	gap := max(innerWidth-2-lipgloss.Width(left)-lipgloss.Width(right), 1)
 	titleLine := " " + left + strings.Repeat(" ", gap) + right + " "
 
@@ -117,6 +117,13 @@ func (p DashboardPanel) Height(showDetails bool) int {
 }
 
 // Private
+
+func (p DashboardPanel) stale() bool {
+	if p.dockerScraper == nil {
+		return false
+	}
+	return p.dockerScraper.Stale(p.app.Settings.Name)
+}
 
 func (p DashboardPanel) renderHealthBadge(cards [3]MetricCard) string {
 	if !p.app.Running {
@@ -274,7 +281,7 @@ func (p DashboardPanel) fetchMetricsData() (requests, errors []float64) {
 
 // Helpers
 
-func renderStateInfo(app *docker.Application, toggling bool) string {
+func renderStateInfo(app *docker.Application, toggling, stale bool) string {
 	var status string
 	var statusColor color.Color
 	if toggling && app.Running {
@@ -283,6 +290,9 @@ func renderStateInfo(app *docker.Application, toggling bool) string {
 	} else if toggling {
 		status = "starting..."
 		statusColor = Colors.LightText
+	} else if stale {
+		status = "stale"
+		statusColor = Colors.Warning
 	} else if app.Running {
 		status = "running"
 		statusColor = Colors.Success

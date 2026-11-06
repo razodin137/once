@@ -1,6 +1,8 @@
 package command
 
 import (
+	"os"
+	"path/filepath"
 	"strings"
 	"testing"
 
@@ -79,6 +81,46 @@ func TestDeployTarget(t *testing.T) {
 		image, source := deployTarget("/no/such/folder")
 		assert.Equal(t, "/no/such/folder", image)
 		assert.Empty(t, source)
+	})
+}
+
+func TestWithSourceHash(t *testing.T) {
+	t.Run("image deploy leaves the hash empty", func(t *testing.T) {
+		settings, err := withSourceHash(docker.ApplicationSettings{Image: "image:latest"}, "")
+		require.NoError(t, err)
+		assert.Empty(t, settings.SourceHash)
+	})
+
+	t.Run("folder deploy records the folder hash", func(t *testing.T) {
+		dir := t.TempDir()
+		require.NoError(t, os.WriteFile(filepath.Join(dir, "index.html"), []byte("hi"), 0o644))
+
+		settings, err := withSourceHash(docker.ApplicationSettings{Source: dir}, dir)
+		require.NoError(t, err)
+
+		hash, err := docker.HashSource(dir)
+		require.NoError(t, err)
+		assert.Equal(t, hash, settings.SourceHash)
+	})
+
+	t.Run("changed folder hashes differently", func(t *testing.T) {
+		dir := t.TempDir()
+		file := filepath.Join(dir, "index.html")
+		require.NoError(t, os.WriteFile(file, []byte("hi"), 0o644))
+
+		before, err := withSourceHash(docker.ApplicationSettings{Source: dir}, dir)
+		require.NoError(t, err)
+
+		require.NoError(t, os.WriteFile(file, []byte("bye"), 0o644))
+
+		after, err := withSourceHash(docker.ApplicationSettings{Source: dir}, dir)
+		require.NoError(t, err)
+		assert.NotEqual(t, before.SourceHash, after.SourceHash)
+	})
+
+	t.Run("missing folder returns an error", func(t *testing.T) {
+		_, err := withSourceHash(docker.ApplicationSettings{}, filepath.Join(t.TempDir(), "missing"))
+		assert.Error(t, err)
 	})
 }
 

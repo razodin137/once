@@ -49,12 +49,18 @@ type Scraper struct {
 	mu        sync.RWMutex
 	apps      map[string]*appData
 	streams   map[string]*streamInfo
+	stale     map[string]bool
 	lastError error
 }
 
 type streamInfo struct {
 	containerID string
 	cancel      context.CancelFunc
+}
+
+type appContainer struct {
+	id       string
+	settings ApplicationSettings
 }
 
 type appData struct {
@@ -75,6 +81,7 @@ func NewScraper(ns *Namespace, settings ScraperSettings) *Scraper {
 		prefix:   ns.name + "-app-",
 		apps:     make(map[string]*appData),
 		streams:  make(map[string]*streamInfo),
+		stale:    make(map[string]bool),
 	}
 }
 
@@ -98,6 +105,14 @@ func (s *Scraper) LastError() error {
 	return s.lastError
 }
 
+// Stale reports whether the folder an app was deployed from has changed since
+// that deploy.
+func (s *Scraper) Stale(appName string) bool {
+	s.mu.RLock()
+	defer s.mu.RUnlock()
+	return s.stale[appName]
+}
+
 // Scrape snapshots the latest stats from streaming connections and records samples.
 // It also ensures streams are running for all current containers.
 func (s *Scraper) Scrape(ctx context.Context) {
@@ -108,6 +123,7 @@ func (s *Scraper) Scrape(ctx context.Context) {
 	}
 
 	s.updateStreams(ctx, containers)
+	s.updateStale(containers)
 
 	now := time.Now()
 	s.mu.Lock()
@@ -131,13 +147,13 @@ func (s *Scraper) Scrape(ctx context.Context) {
 	s.setError(nil)
 }
 
-func (s *Scraper) findAppContainers(ctx context.Context) (map[string]string, error) {
+func (s *Scraper) findAppContainers(ctx context.Context) (map[string]appContainer, error) {
 	containers, err := s.client.ContainerList(ctx, client.ContainerListOptions{})
 	if err != nil {
 		return nil, err
 	}
 
-	result := make(map[string]string)
+	result := make(map[string]appContainer)
 	for _, c := range containers.Items {
 		if c.State != "running" {
 			continue
@@ -146,7 +162,8 @@ func (s *Scraper) findAppContainers(ctx context.Context) (map[string]string, err
 			name = strings.TrimPrefix(name, "/")
 			if after, ok := strings.CutPrefix(name, s.prefix); ok {
 				if appName, _, ok := cutLast(after, "-"); ok {
-					result[appName] = c.ID
+					settings, _ := UnmarshalApplicationSettings(c.Labels[labelKey])
+					result[appName] = appContainer{id: c.ID, settings: settings}
 				}
 			}
 		}
@@ -157,14 +174,34 @@ func (s *Scraper) findAppContainers(ctx context.Context) (map[string]string, err
 
 // Private
 
-func (s *Scraper) updateStreams(ctx context.Context, containers map[string]string) {
+func (s *Scraper) updateStale(containers map[string]appContainer) {
+	stale := make(map[string]bool)
+
+	for appName, container := range containers {
+		settings := container.settings
+		if !settings.Static() || settings.SourceHash == "" {
+			continue
+		}
+
+		hash, err := HashSource(settings.Source)
+		if err != nil || hash != settings.SourceHash {
+			stale[appName] = true
+		}
+	}
+
+	s.mu.Lock()
+	defer s.mu.Unlock()
+	s.stale = stale
+}
+
+func (s *Scraper) updateStreams(ctx context.Context, containers map[string]appContainer) {
 	s.mu.Lock()
 	defer s.mu.Unlock()
 
 	// Start or restart streams for containers
-	for appName, containerID := range containers {
+	for appName, container := range containers {
 		if stream, exists := s.streams[appName]; exists {
-			if stream.containerID == containerID {
+			if stream.containerID == container.id {
 				continue
 			}
 			// Container ID changed (redeployed), restart stream
@@ -178,8 +215,8 @@ func (s *Scraper) updateStreams(ctx context.Context, containers map[string]strin
 		}
 
 		streamCtx, cancel := context.WithCancel(ctx)
-		s.streams[appName] = &streamInfo{containerID: containerID, cancel: cancel}
-		go s.runStream(streamCtx, appName, containerID)
+		s.streams[appName] = &streamInfo{containerID: container.id, cancel: cancel}
+		go s.runStream(streamCtx, appName, container.id)
 	}
 
 	// Stop streams for removed containers

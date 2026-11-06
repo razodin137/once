@@ -1,0 +1,2383 @@
+[0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mls -la; ls -la .opencode 2>/dev/null; find . -path ./vendor -prune -o -type d -name '*split*' -print 2>/dev/null | head -20
+total 64
+drwxr-xr-x 1 mrjohn mrjohn   352 Nov  6 17:59 .
+drwxr-xr-x 1 mrjohn mrjohn    24 Nov  6 18:01 ..
+-rw-r--r-- 1 mrjohn mrjohn  4449 Nov  6 17:42 AGENTS.md
+drwxr-xr-x 1 mrjohn mrjohn     8 Nov  6 17:59 bin
+drwxr-xr-x 1 mrjohn mrjohn    18 Nov  6 17:42 .claude
+drwxr-xr-x 1 mrjohn mrjohn     8 Nov  6 17:42 cmd
+-rw-r--r-- 1 mrjohn mrjohn     8 Nov  6 17:42 .dockerignore
+drwxr-xr-x 1 mrjohn mrjohn   196 Nov  6 18:18 .git
+drwxr-xr-x 1 mrjohn mrjohn    86 Nov  6 17:42 .github
+-rw-r--r-- 1 mrjohn mrjohn    53 Nov  6 17:42 .gitignore
+-rw-r--r-- 1 mrjohn mrjohn   216 Nov  6 17:42 .golangci.yml
+-rw-r--r-- 1 mrjohn mrjohn  3240 Nov  6 17:42 go.mod
+-rw-r--r-- 1 mrjohn mrjohn 14625 Nov  6 17:42 go.sum
+drwxr-xr-x 1 mrjohn mrjohn   138 Nov  6 17:42 installer
+drwxr-xr-x 1 mrjohn mrjohn    62 Nov  6 17:42 integration
+drwxr-xr-x 1 mrjohn mrjohn   158 Nov  6 17:42 internal
+-rw-r--r-- 1 mrjohn mrjohn  1292 Nov  6 17:42 Makefile
+-rw-r--r-- 1 mrjohn mrjohn    97 Nov  6 17:42 mise.toml
+-rw-r--r-- 1 mrjohn mrjohn  1053 Nov  6 17:42 MIT-LICENSE
+drwxr-xr-x 1 mrjohn mrjohn  2004 Nov  6 17:49 prompt
+drwxr-xr-x 1 mrjohn mrjohn   840 Nov  6 17:44 prompt-v1
+-rw-r--r-- 1 mrjohn mrjohn  8244 Nov  6 17:42 README.md
+drwxr-xr-x 1 mrjohn mrjohn    10 Nov  6 18:14 .scratch
+drwxr-xr-x 1 mrjohn mrjohn    30 Nov  5 23:06 scripts
+./.scratch/split
+[0m✱ [0mGlob "**/04-stale-source-detection*" [90m1 match[0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead prompt/04-stale-source-detection.md 
+[0m$ [0mls -la .scratch/split; ls -la .claude; cat .claude/* 2>/dev/null | head -50
+total 244
+drwxr-xr-x 1 mrjohn mrjohn   514 Nov  6 18:18 .
+drwxr-xr-x 1 mrjohn mrjohn    10 Nov  6 18:14 ..
+-rw-r--r-- 1 mrjohn mrjohn   728 Nov  6 18:12 01-deploy-static-folder.check
+-rw-r--r-- 1 mrjohn mrjohn   191 Nov  6 18:12 01-deploy-static-folder.diff
+-rw-r--r-- 1 mrjohn mrjohn 29878 Nov  6 18:12 01-deploy-static-folder.log
+-rw-r--r-- 1 mrjohn mrjohn   728 Nov  6 18:15 02-serve-static-apps.check
+-rw-r--r-- 1 mrjohn mrjohn   177 Nov  6 18:15 02-serve-static-apps.diff
+-rw-r--r-- 1 mrjohn mrjohn 96981 Nov  6 18:15 02-serve-static-apps.log
+-rw-r--r-- 1 mrjohn mrjohn   728 Nov  6 18:18 03-redeploy-folder.check
+-rw-r--r-- 1 mrjohn mrjohn   258 Nov  6 18:18 03-redeploy-folder.diff
+-rw-r--r-- 1 mrjohn mrjohn 88725 Nov  6 18:18 03-redeploy-folder.log
+-rw-r--r-- 1 mrjohn mrjohn  1646 Nov  6 18:18 04-stale-source-detection.log
+total 4
+drwxr-xr-x 1 mrjohn mrjohn  18 Nov  6 17:42 .
+drwxr-xr-x 1 mrjohn mrjohn 352 Nov  6 17:59 ..
+-rw-r--r-- 1 mrjohn mrjohn  14 Nov  6 17:42 CLAUDE.md
+@../AGENTS.md
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead .scratch/split/04-stale-source-detection.log 
+[0m→ [0mRead .scratch/split/03-redeploy-folder.check 
+[0m→ [0mRead .scratch/split/03-redeploy-folder.diff 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mls prompt; echo ---; cat prompt/01-deploy-static-folder.md; echo ---; cat prompt/02-serve-static-apps.md; echo ---; cat prompt/03-redeploy-folder.md
+00-overview.md
+01-deploy-static-folder.md
+02-serve-static-apps.md
+03-redeploy-folder.md
+04-stale-source-detection.md
+05-folder-contents-fallback.md
+06-markdown-pages.md
+07-single-file-html-site.md
+08-remove-static-app.md
+09-contents-card.md
+10-contents-screen.md
+11-channels.md
+12-channel-filter.md
+13-favorites.md
+14-drift.md
+15-app-bar.md
+16-bar-keys.md
+17-bar-cross-fade.md
+18-bar-hide.md
+19-open-command.md
+20-show-command.md
+21-logs-command.md
+22-status-command.md
+23-list-json.md
+24-restart-command.md
+25-update-all.md
+26-doctor-command.md
+27-backups-list.md
+28-screenshot-capture.md
+29-card-thumbnails.md
+30-route-map.md
+31-page-weight.md
+32-broken-links.md
+33-meta-preview.md
+34-deploy-diff.md
+35-promote-on-evidence.md
+36-error-capture.md
+37-dashboard-filter.md
+38-command-palette.md
+39-toasts.md
+40-chart-time-range.md
+41-compact-layout.md
+42-appearance-settings.md
+43-app-details-view.md
+44-mouse-on-cards.md
+45-incremental-render.md
+46-chart-performance.md
+47-single-stats-stream.md
+48-share-link.md
+49-status-page.md
+50-house-style-pass.md
+---
+Your job is to go in and add a `once deploy <path>` form for plain folders here to this Go CLI/TUI app.
+
+Deploy already takes an image reference; when the argument is a directory, publish that directory as a site under a host derived from its name, and report the host the way an image deploy does.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+---
+Your job is to go in and serve a deployed folder from a tiny static container here to this Go CLI/TUI app.
+
+Keep hosts, TLS, health checks and zero-downtime swaps identical to an app container; only the image and the mount differ, so a folder deploys through the same path as everything else.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+---
+Your job is to go in and make deploying a folder that already has a host replace what is served in place here to this Go CLI/TUI app.
+
+Keep the hostname and settings, swap the content, and leave the old version serving until the new one is up.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+[0m$ [0mgit log --oneline | head -20; echo ---; git status --short
+3b00d24 split: 03-redeploy-folder
+8021ade split: 02-serve-static-apps
+c279c61 split: 01-deploy-static-folder
+dd1ea52 split: 01-deploy-static-folder
+fe93045 starting the script: Prompting scripts for upgrading
+864ec7c Use strings.CutLast in cutLast (#118)
+---
+?? .scratch/split/04-stale-source-detection.log
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead prompt/00-overview.md 
+[0m$ [0mgit show --stat 3b00d24; echo ===; git show 3b00d24 -- internal/command/deploy.go | head -200
+commit 3b00d24641e93d395c14417d9dad4d908b5f463e
+Author: razodin137 <razodin137@gmail.com>
+Date:   Fri Nov 6 18:18:11 2026 +0700
+
+    split: 03-redeploy-folder
+
+ .scratch/split/03-redeploy-folder.check |   15 +
+ .scratch/split/03-redeploy-folder.diff  |    4 +
+ .scratch/split/03-redeploy-folder.log   | 2621 +++++++++++++++++++++++++++++++
+ integration/docker_test.go              |   47 +
+ internal/command/deploy.go              |   56 +-
+ internal/command/deploy_test.go         |   88 ++
+ 6 files changed, 2829 insertions(+), 2 deletions(-)
+===
+commit 3b00d24641e93d395c14417d9dad4d908b5f463e
+Author: razodin137 <razodin137@gmail.com>
+Date:   Fri Nov 6 18:18:11 2026 +0700
+
+    split: 03-redeploy-folder
+
+diff --git a/internal/command/deploy.go b/internal/command/deploy.go
+index 279891b..0f6a0e6 100644
+--- a/internal/command/deploy.go
++++ b/internal/command/deploy.go
+@@ -50,8 +50,12 @@ func (d *deployCommand) run(ctx context.Context, ns *docker.Namespace, cmd *cobr
+ 		host = baseName + ".localhost"
+ 	}
+ 
+-	if ns.HostInUse(host) {
+-		return docker.ErrHostnameInUse
++	existing, err := siteToReplace(ns, host, source)
++	if err != nil {
++		return err
++	}
++	if existing != nil {
++		return d.redeploy(ctx, cmd, existing, imageRef, source)
+ 	}
+ 
+ 	settings, err := d.flags.buildSettings(cmd, imageRef, host)
+@@ -84,8 +88,56 @@ func (d *deployCommand) run(ctx context.Context, ns *docker.Namespace, cmd *cobr
+ 	})
+ }
+ 
++// redeploy replaces what an existing static site serves, keeping its host and
++// settings. A failed redeploy leaves the previous version in place, so unlike
++// a first deploy the app is never removed.
++func (d *deployCommand) redeploy(ctx context.Context, cmd *cobra.Command, app *docker.Application, image, source string) error {
++	settings, err := d.redeploySettings(cmd, app.Settings, image, source)
++	if err != nil {
++		return err
++	}
++
++	oldSettings := app.Settings
++	app.Settings = settings
++
++	return runWithProgress("Deploying "+settings.Host, func(progress docker.DeployProgressCallback) error {
++		if err := app.Deploy(ctx, progress); err != nil {
++			app.Settings = oldSettings
++			return fmt.Errorf("%w: %w", docker.ErrDeployFailed, err)
++		}
++
++		return nil
++	})
++}
++
++func (d *deployCommand) redeploySettings(cmd *cobra.Command, existing docker.ApplicationSettings, image, source string) (docker.ApplicationSettings, error) {
++	settings, err := d.flags.applyChanges(cmd, existing, image)
++	if err != nil {
++		return docker.ApplicationSettings{}, err
++	}
++
++	settings.Source = source
++	return settings, nil
++}
++
+ // Helpers
+ 
++// siteToReplace returns the static site already serving host, when deploying a
++// folder should replace it in place. Deploying an image, or deploying a folder
++// to a host owned by an application, is still a hostname conflict.
++func siteToReplace(ns *docker.Namespace, host, source string) (*docker.Application, error) {
++	existing := ns.ApplicationByHost(host)
++	if existing == nil {
++		return nil, nil
++	}
++
++	if source == "" || !existing.Settings.Static() {
++		return nil, docker.ErrHostnameInUse
++	}
++
++	return existing, nil
++}
++
+ func deployTarget(arg string) (imageRef, source string) {
+ 	path, err := filepath.Abs(arg)
+ 	if err != nil {
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mls internal/docker internal/background internal/command; echo ===; grep -rn "Static()" internal --include=*.go | head -30
+internal/background:
+runner.go
+runner_test.go
+
+internal/command:
+background.go
+background_install.go
+background_remove.go
+background_run.go
+backup.go
+cli_progress.go
+deploy.go
+deploy_test.go
+exec.go
+exec_test.go
+keys.go
+keys_reset.go
+keys_set.go
+list.go
+remove.go
+restore.go
+root.go
+root_test.go
+self_update.go
+settings_flags.go
+start.go
+stop.go
+teardown.go
+update.go
+update_test.go
+version.go
+
+internal/docker:
+application_backup.go
+application_backup_test.go
+application.go
+application_settings.go
+application_settings_test.go
+application_static_test.go
+application_test.go
+container.go
+errors.go
+errors_test.go
+events.go
+helpers.go
+helpers_test.go
+logs.go
+logs_test.go
+namespace.go
+namespace_test.go
+progress.go
+progress_test.go
+proxy.go
+proxy_test.go
+registry_auth.go
+registry_auth_test.go
+ring_buffer.go
+ring_buffer_test.go
+scraper.go
+scraper_test.go
+state.go
+state_test.go
+volume.go
+volume_test.go
+===
+internal/command/deploy.go:134:	if source == "" || !existing.Settings.Static() {
+internal/docker/application.go:492:	if a.Settings.Static() {
+internal/docker/application.go:543:	if a.Settings.Static() {
+internal/docker/application_settings.go:143:func (s ApplicationSettings) Static() bool {
+[0m$ [0mgrep -rln "scrape\|Scrape" internal --include=*.go; echo ===; grep -rn "Source" internal/docker/*.go | head -40
+internal/background/runner.go
+internal/docker/scraper.go
+internal/docker/scraper_test.go
+internal/metrics/scraper.go
+internal/metrics/scraper_test.go
+internal/system/scraper.go
+internal/system/scraper_test.go
+internal/ui/app.go
+internal/ui/dashboard.go
+internal/ui/dashboard_header.go
+internal/ui/dashboard_header_test.go
+internal/ui/dashboard_panel.go
+internal/ui/dashboard_panel_test.go
+internal/ui/dashboard_test.go
+internal/userstats/reader.go
+internal/userstats/scraper.go
+internal/userstats/scraper_test.go
+===
+internal/docker/application_backup.go:225:	res, err := a.namespace.client.CopyFromContainer(ctx, containerName, client.CopyFromContainerOptions{SourcePath: AppVolumeMountTargets[0]})
+internal/docker/application_backup.go:250:					Source: vol.Name(),
+internal/docker/application.go:487:			Source: vol.Name(),
+internal/docker/application.go:495:			Source:   a.Settings.Source,
+internal/docker/application_settings.go:100:	Source     string             `json:"source,omitempty"`
+internal/docker/application_settings.go:144:	return s.Source != ""
+internal/docker/application_settings.go:148:	if s.Name != other.Name || s.Image != other.Image || s.Source != other.Source || s.Host != other.Host || s.DisableTLS != other.DisableTLS {
+internal/docker/application_static_test.go:12:func TestVolumeMountsStaticSource(t *testing.T) {
+internal/docker/application_static_test.go:13:	app := &Application{Settings: ApplicationSettings{Source: "/srv/my-site"}}
+internal/docker/application_static_test.go:20:		Source:   "/srv/my-site",
+internal/docker/application_static_test.go:27:	app := &Application{Settings: ApplicationSettings{Source: "/srv/my-site"}}
+internal/docker/proxy.go:128:					Source: name,
+internal/docker/proxy.go:236:	res, err := p.namespace.client.CopyFromContainer(ctx, containerName, client.CopyFromContainerOptions{SourcePath: stateFilePath})
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/docker/application_settings.go 
+[0m→ [0mRead internal/docker/application.go [90m[offset=440, limit=180][0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/docker/scraper.go 
+[0m→ [0mRead internal/background/runner.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/metrics/scraper.go 
+[0m$ [0mgrep -rn "Scrape(" internal --include=*.go | grep -v _test | head -30; echo ===; grep -rn "NewScraper" internal --include=*.go | grep -v _test
+internal/docker/scraper.go:43:// Scrape() snapshots the current values without blocking on Docker API calls.
+internal/docker/scraper.go:103:func (s *Scraper) Scrape(ctx context.Context) {
+internal/metrics/scraper.go:101:func (s *MetricsScraper) Scrape(ctx context.Context) {
+internal/system/scraper.go:88:func (s *Scraper) Scrape(ctx context.Context) {
+internal/ui/app.go:135:		m.runScrape(),
+internal/ui/app.go:137:		m.runUserStatsScrape(),
+internal/ui/app.go:185:			m.runScrape(),
+internal/ui/app.go:191:			m.runUserStatsScrape(),
+internal/ui/app.go:307:func (m *App) runScrape() tea.Cmd {
+internal/ui/app.go:310:		wg.Go(func() { m.scraper.Scrape(m.watchCtx) })
+internal/ui/app.go:311:		wg.Go(func() { m.dockerScraper.Scrape(m.watchCtx) })
+internal/ui/app.go:312:		wg.Go(func() { m.systemScraper.Scrape(m.watchCtx) })
+internal/ui/app.go:318:func (m *App) runUserStatsScrape() tea.Cmd {
+internal/ui/app.go:320:		m.userStats.Scrape(m.watchCtx)
+internal/userstats/reader.go:47:func (r *Reader) Scrape(ctx context.Context) {
+===
+internal/background/runner.go:30:	scraper := userstats.NewScraper(r.namespace)
+internal/docker/scraper.go:70:func NewScraper(ns *Namespace, settings ScraperSettings) *Scraper {
+internal/system/scraper.go:51:func NewScraper(settings ScraperSettings) *Scraper {
+internal/ui/app.go:92:	dockerScraper := docker.NewScraper(ns, docker.ScraperSettings{
+internal/ui/app.go:102:	systemScraper := system.NewScraper(system.ScraperSettings{
+internal/userstats/scraper.go:79:func NewScraper(namespace string) *Scraper {
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/ui/app.go [90m[limit=200][0m
+[0m→ [0mRead internal/docker/application.go [90m[limit=220][0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/docker/application.go [90m[offset=220, limit=220][0m
+[0m$ [0mgrep -rni "stale\|drift" internal --include=*.go | head -30; echo ===; cat prompt/14-drift.md; echo ===; cat prompt/09-contents-card.md
+===
+Your job is to go in and add Drift here to this Go CLI/TUI app.
+
+`R` opens a random running app, never the one you are already on. No settings and no history, it just picks.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+===
+Your job is to go in and add a contents card for one app here to this Go CLI/TUI app.
+
+Cream paper, a serif title, a stamp with the app's initials, then the facts: host, image or folder, uptime, last deploy, last backup. It is the card the rest of the interface is built around, so make it good.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/ui/dashboard_panel.go 
+[0m$ [0mls internal/ui; echo ===; cat internal/ui/dashboard.go | head -120
+actions_menu.go
+actions_menu_test.go
+app.go
+chart.go
+chart_scale.go
+chart_scale_test.go
+chart_test.go
+component.go
+confirmation.go
+confirmation_test.go
+dashboard.go
+dashboard_header.go
+dashboard_header_test.go
+dashboard_panel.go
+dashboard_panel_test.go
+dashboard_test.go
+form.go
+form_test.go
+helpers_test.go
+help.go
+help_test.go
+install_activity.go
+install_app_list.go
+install_app_list_test.go
+install.go
+install_hostname_form.go
+install_hostname_form_test.go
+install_image_form.go
+install_image_form_test.go
+install_test.go
+keys.go
+logo.go
+logs.go
+logs_test.go
+menu.go
+menu_test.go
+metric_card.go
+metric_card_test.go
+palette_detect.go
+palette_detect_test.go
+palette.go
+palette_test.go
+popup_help.go
+popup_help_test.go
+progress.go
+remove.go
+remove_test.go
+settings_form_application.go
+settings_form_backups.go
+settings_form_base.go
+settings_form_email.go
+settings_form_environment.go
+settings_form_registry.go
+settings_form_resources.go
+settings_form_test.go
+settings_form_updates.go
+settings.go
+settings_menu.go
+settings_menu_test.go
+settings_test.go
+starfield.go
+styles.go
+styles_test.go
+terminal_size_guard.go
+terminal_size_guard_test.go
+===
+package ui
+
+import (
+	"context"
+	"os"
+	"strings"
+	"time"
+
+	"charm.land/bubbles/v2/key"
+	"charm.land/bubbles/v2/viewport"
+	tea "charm.land/bubbletea/v2"
+	"charm.land/lipgloss/v2"
+
+	"github.com/basecamp/once/internal/docker"
+	"github.com/basecamp/once/internal/metrics"
+	"github.com/basecamp/once/internal/system"
+	"github.com/basecamp/once/internal/userstats"
+)
+
+var dashboardShowDetails = true
+
+var dashboardKeys = struct {
+	Up       key.Binding
+	Down     key.Binding
+	Settings key.Binding
+	Actions  key.Binding
+	NewApp   key.Binding
+	Logs     key.Binding
+	Details  key.Binding
+	Quit     key.Binding
+}{
+	Up:       WithHelp(NewKeyBinding("up", "k"), "↑/k", "up"),
+	Down:     WithHelp(NewKeyBinding("down", "j"), "↓/j", "down"),
+	Settings: WithHelp(NewKeyBinding("s"), "s", "settings"),
+	Actions:  WithHelp(NewKeyBinding("a"), "a", "actions"),
+	NewApp:   WithHelp(NewKeyBinding("n"), "n", "new app"),
+	Logs:     WithHelp(NewKeyBinding("g"), "g", "logs"),
+	Details:  WithHelp(NewKeyBinding("d"), "d", "toggle details"),
+	Quit:     WithHelp(NewKeyBinding("esc"), "esc", "quit"),
+}
+
+type Dashboard struct {
+	namespace     *docker.Namespace
+	scraper       *metrics.MetricsScraper
+	dockerScraper *docker.Scraper
+	systemScraper *system.Scraper
+	userStats     *userstats.Reader
+	apps          []*docker.Application
+	panels        []DashboardPanel
+	header        DashboardHeader
+	hostname      string
+	selectedIndex int
+	width, height int
+	viewport      viewport.Model
+	toggling      bool
+	togglingApp   string
+	progress      Progress
+	help          Help
+	overlay       Component
+}
+
+type dashboardTickMsg struct{}
+
+type startStopFinishedMsg struct {
+	err error
+}
+
+func NewDashboard(ns *docker.Namespace, apps []*docker.Application, selectedIndex int,
+	scraper *metrics.MetricsScraper, dockerScraper *docker.Scraper, systemScraper *system.Scraper, userStats *userstats.Reader,
+) Dashboard {
+	vp := viewport.New()
+	vp.MouseWheelEnabled = false
+	vp.KeyMap = viewport.KeyMap{} // disable default keys, we handle navigation ourselves
+
+	hostname, _ := os.Hostname()
+
+	d := Dashboard{
+		namespace:     ns,
+		scraper:       scraper,
+		dockerScraper: dockerScraper,
+		systemScraper: systemScraper,
+		userStats:     userStats,
+		apps:          apps,
+		selectedIndex: selectedIndex,
+		viewport:      vp,
+		header:        NewDashboardHeader(systemScraper),
+		hostname:      hostname,
+		progress:      NewProgress(0, Colors.Border),
+		help:          NewHelp(),
+	}
+	d.buildPanels()
+	d.help.SetBindings(d.helpBindings())
+	return d
+}
+
+func (m Dashboard) Init() tea.Cmd {
+	return m.scheduleNextDashboardTick()
+}
+
+func (m Dashboard) Update(msg tea.Msg) (Component, tea.Cmd) {
+	var cmds []tea.Cmd
+
+	if m.overlay != nil {
+		var cmd tea.Cmd
+		m.overlay, cmd = m.overlay.Update(msg)
+		cmds = append(cmds, cmd)
+
+		switch msg.(type) {
+		case tea.KeyPressMsg, MouseEvent:
+			return m, cmd
+		}
+	}
+
+	switch msg := msg.(type) {
+	case tea.WindowSizeMsg:
+		m.width, m.height = msg.Width, msg.Height
+		m.progress = m.progress.SetWidth(m.width)
+		m.help.SetWidth(m.width)
+		m.updateViewportSize()
+		m.rebuildViewportContent()
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/ui/app.go [90m[offset=200, limit=150][0m
+[0m→ [0mRead internal/docker/namespace.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/docker/scraper_test.go [90m[limit=120][0m
+[0m$ [0mgrep -rn "ChartUpdateInterval\|UserStatsUpdateInterval" internal/ui/*.go | head; echo ===; grep -rn "Hash\|sha256" internal --include=*.go | head
+internal/ui/app.go:289:	return tea.Every(ChartUpdateInterval, func(time.Time) tea.Msg { return scrapeTickMsg{} })
+internal/ui/app.go:293:	return tea.Every(UserStatsUpdateInterval, func(time.Time) tea.Msg { return scrapeUserStatsTickMsg{} })
+internal/ui/chart.go:13:	ChartUpdateInterval     = 2 * time.Second
+internal/ui/chart.go:14:	UserStatsUpdateInterval = 30 * time.Second
+internal/ui/chart.go:15:	ChartSlidingWindow      = int(time.Minute / ChartUpdateInterval)
+===
+internal/docker/registry_auth_test.go:193:	host, err = RegistryHost("registry.example.com:5000/app@sha256:1111111111111111111111111111111111111111111111111111111111111111")
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/command/deploy.go 
+[0m→ [0mRead internal/command/deploy_test.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/docker/scraper_test.go [90m[offset=118][0m
+[0m$ [0mgrep -rn "labelKey" internal/docker/*.go | head; echo ===; sed -n 1,80p internal/docker/helpers.go; echo ===; grep -rn "NameFromPath" internal/docker/*.go
+internal/docker/application.go:538:			labelKey: a.Settings.Marshal(),
+internal/docker/namespace.go:305:				label := c.Labels[labelKey]
+internal/docker/namespace.go:317:				label := c.Labels[labelKey]
+internal/docker/proxy.go:23:	labelKey   = "once"
+internal/docker/proxy.go:109:				labelKey: settings.Marshal(),
+internal/docker/proxy.go:207:	label := info.Config.Labels[labelKey]
+internal/docker/volume.go:60:	label := vol.Volume.Labels[labelKey]
+internal/docker/volume.go:83:			labelKey: settings.Marshal(),
+===
+package docker
+
+import (
+	"crypto/rand"
+	"encoding/hex"
+	"path/filepath"
+	"regexp"
+	"strings"
+	"time"
+
+	"github.com/distribution/reference"
+)
+
+const streamRetryDelay = time.Second
+
+var pathSeparators = regexp.MustCompile(`[^a-z0-9]+`)
+
+func IsLocalhost(host string) bool {
+	return host == "localhost" || strings.HasSuffix(host, ".localhost")
+}
+
+func NameFromImageRef(imageRef string) string {
+	named, err := reference.ParseNormalizedNamed(imageRef)
+	if err != nil {
+		return imageRef
+	}
+	path := reference.Path(named)
+	parts := strings.Split(path, "/")
+	return parts[len(parts)-1]
+}
+
+func NameFromPath(path string) string {
+	name := pathSeparators.ReplaceAllString(strings.ToLower(filepath.Base(filepath.Clean(path))), "-")
+	name = strings.Trim(name, "-")
+
+	if name == "" {
+		return "site"
+	}
+
+	if len(name) > 63 {
+		name = strings.Trim(name[:63], "-")
+	}
+
+	return name
+}
+
+func ContainerRandomID() (string, error) {
+	return randomID(6)
+}
+
+func randomID(length int) (string, error) {
+	bytes := make([]byte, length)
+	if _, err := rand.Read(bytes); err != nil {
+		return "", err
+	}
+	return hex.EncodeToString(bytes)[:length], nil
+}
+
+// cutLast splits s around the last occurrence of sep, like strings.Cut but
+// from the right.
+func cutLast(s, sep string) (before, after string, found bool) {
+	return strings.CutLast(s, sep)
+}
+===
+internal/docker/helpers.go:32:func NameFromPath(path string) string {
+internal/docker/helpers_test.go:16:func TestNameFromPath(t *testing.T) {
+internal/docker/helpers_test.go:17:	assert.Equal(t, "my-site", NameFromPath("/srv/my-site"))
+internal/docker/helpers_test.go:18:	assert.Equal(t, "my-site", NameFromPath("/srv/My Site/"))
+internal/docker/helpers_test.go:19:	assert.Equal(t, "notes-v2", NameFromPath("/srv/notes.v2"))
+internal/docker/helpers_test.go:20:	assert.Equal(t, "site", NameFromPath("/"))
+internal/docker/helpers_test.go:21:	assert.Equal(t, "site", NameFromPath("."))
+internal/docker/helpers_test.go:24:	assert.Equal(t, strings.Repeat("a", 63), NameFromPath("/srv/"+longName))
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgrep -rn "NewDashboardPanel\|renderStateInfo\|Stale" internal/ui/*_test.go | head -20; echo ===; grep -rn "PanelHeight\|StoppedPanelHeight" internal/ui/*.go | head
+internal/ui/dashboard_panel_test.go:108:	assert.Contains(t, ansi.Strip(renderStateInfo(running, false)), "running")
+internal/ui/dashboard_panel_test.go:109:	assert.Contains(t, ansi.Strip(renderStateInfo(stopped, false)), "stopped")
+internal/ui/dashboard_panel_test.go:110:	assert.Contains(t, ansi.Strip(renderStateInfo(running, true)), "stopping...")
+internal/ui/dashboard_panel_test.go:111:	assert.Contains(t, ansi.Strip(renderStateInfo(stopped, true)), "starting...")
+internal/ui/dashboard_panel_test.go:140:	return NewDashboardPanel(app, scraper, dockerScraper, nil)
+===
+internal/ui/dashboard_panel.go:17:const PanelHeight = 6
+internal/ui/dashboard_panel.go:18:const StoppedPanelHeight = 2
+internal/ui/dashboard_panel.go:86:	height := PanelHeight
+internal/ui/dashboard_panel.go:88:		height = StoppedPanelHeight
+internal/ui/dashboard_panel.go:112:	bodyHeight := PanelHeight
+internal/ui/dashboard_panel.go:114:		bodyHeight = StoppedPanelHeight
+internal/ui/dashboard_panel_test.go:32:func TestDashboardPanelHeightRunning(t *testing.T) {
+internal/ui/dashboard_panel_test.go:38:	assert.Equal(t, PanelHeight+2, fullHeight)
+internal/ui/dashboard_panel_test.go:39:	assert.Equal(t, StoppedPanelHeight+2, compactHeight)
+internal/ui/dashboard_panel_test.go:42:func TestDashboardPanelHeightStopped(t *testing.T) {
+[0m$ [0mgrep -rn "renderStateInfo" internal; echo ===; sed -n 1,80p internal/ui/styles.go; grep -n "FocusOrange\|Warning\|Error " internal/ui/palette.go | head -20
+internal/ui/dashboard_panel.go:68:	right := renderStateInfo(&p.app, toggling)
+internal/ui/dashboard_panel.go:277:func renderStateInfo(app *docker.Application, toggling bool) string {
+internal/ui/dashboard_panel_test.go:108:	assert.Contains(t, ansi.Strip(renderStateInfo(running, false)), "running")
+internal/ui/dashboard_panel_test.go:109:	assert.Contains(t, ansi.Strip(renderStateInfo(stopped, false)), "stopped")
+internal/ui/dashboard_panel_test.go:110:	assert.Contains(t, ansi.Strip(renderStateInfo(running, true)), "stopping...")
+internal/ui/dashboard_panel_test.go:111:	assert.Contains(t, ansi.Strip(renderStateInfo(stopped, true)), "starting...")
+===
+package ui
+
+import (
+	"image/color"
+	"strings"
+
+	"charm.land/lipgloss/v2"
+	"github.com/charmbracelet/x/ansi"
+)
+
+// Colors is the active palette. It is initialized with a default palette
+// at package init and may be replaced by ApplyPalette after terminal
+// color detection.
+var Colors = DefaultPalette()
+
+type styles struct {
+	Title         lipgloss.Style
+	Label         lipgloss.Style
+	Input         lipgloss.Style
+	Button        lipgloss.Style
+	ButtonPrimary lipgloss.Style
+}
+
+var Styles = buildStyles()
+
+var borderStyle = lipgloss.NewStyle().Foreground(Colors.Border)
+
+// rebuildStyles reconstructs all package-level style variables from the
+// current Colors palette. Called by ApplyPalette.
+func rebuildStyles() {
+	Styles = buildStyles()
+	borderStyle = lipgloss.NewStyle().Foreground(Colors.Border)
+	rebuildStarfieldStyles()
+	rebuildLogoStyles()
+}
+
+func buildStyles() styles {
+	return styles{
+		Title: lipgloss.NewStyle().
+			Foreground(Colors.Primary).
+			Bold(true),
+		Label: lipgloss.NewStyle().
+			Bold(true),
+		Input: lipgloss.NewStyle().
+			Border(lipgloss.RoundedBorder()).
+			BorderForeground(Colors.Border).
+			Padding(0, 1),
+		Button: lipgloss.NewStyle().
+			Padding(0, 2).
+			MarginRight(1).
+			Border(lipgloss.RoundedBorder()).
+			BorderForeground(Colors.Border),
+		ButtonPrimary: lipgloss.NewStyle().
+			Padding(0, 2).
+			MarginRight(1).
+			Border(lipgloss.RoundedBorder()).
+			BorderForeground(Colors.Primary),
+	}
+}
+
+func (s styles) Focus(base lipgloss.Style, focused bool) lipgloss.Style {
+	if focused {
+		return base.BorderForeground(Colors.Focused)
+	}
+	return base
+}
+
+func (s styles) WithError(base lipgloss.Style, hasError bool) lipgloss.Style {
+	if hasError {
+		return base.BorderForeground(Colors.Error)
+	}
+	return base
+}
+
+func (s styles) TitleRule(width int, crumbs ...string) string {
+	label := " " + strings.Join(append([]string{"ONCE"}, crumbs...), " · ") + " "
+	labelWidth := lipgloss.Width(label)
+	ruleWidth := max(width-2, labelWidth) // subtract end caps
+	side := (ruleWidth - labelWidth) / 2
+	remainder := ruleWidth - labelWidth - side*2
+14:// colors (FocusOrange, BackgroundTint, LightText) are true-color RGB.
+21:	FocusOrange    color.Color
+28:	Focused color.Color // = FocusOrange
+30:	Error   color.Color // = Red
+32:	Warning color.Color // = FocusOrange
+39:// Gradient interpolates between green and FocusOrange in OKLCH.
+44:	orangeSample, _ := colorful.MakeColor(p.FocusOrange)
+51:	case healthWarning:
+52:		return p.Warning
+128:	p.FocusOrange = synthesizeOrange(p.samples[int(ansi.Blue)])
+138:	p.Focused = p.FocusOrange
+142:	p.Error = p.Red
+144:	p.Warning = p.FocusOrange
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/command/settings_flags.go 
+[0m$ [0mgrep -rn "UpdateSettings\|ApplicationSettings{" internal/ui/*.go | head -20; echo ===; sed -n 1,80p internal/command/list.go
+internal/ui/dashboard_panel_test.go:131:		Settings: docker.ApplicationSettings{
+internal/ui/dashboard_test.go:228:			Settings: docker.ApplicationSettings{
+internal/ui/install_activity.go:180:	app := docker.NewApplication(m.namespace, docker.ApplicationSettings{
+internal/ui/install_test.go:266:	ns := newTestNamespace(docker.ApplicationSettings{Name: "myapp"})
+internal/ui/install_test.go:277:	withApps := newTestNamespace(docker.ApplicationSettings{Name: "myapp"})
+internal/ui/install_test.go:348:	ns := newTestNamespace(docker.ApplicationSettings{Name: "myapp", Host: "taken.example.com"})
+internal/ui/install_test.go:360:	ns := newTestNamespace(docker.ApplicationSettings{Name: "myapp", Host: "taken.example.com"})
+internal/ui/install_test.go:400:	ns := newTestNamespace(docker.ApplicationSettings{Name: "campfire"})
+internal/ui/logs_test.go:28:			Settings: docker.ApplicationSettings{Name: "testapp"},
+internal/ui/remove_test.go:85:		Settings: docker.ApplicationSettings{
+internal/ui/settings_form_test.go:14:	settings := docker.ApplicationSettings{
+internal/ui/settings_form_test.go:28:	settings := docker.ApplicationSettings{
+internal/ui/settings_form_test.go:40:	form := NewSettingsFormApplication(docker.ApplicationSettings{Host: "app.example.com"})
+internal/ui/settings_form_test.go:60:	form := NewSettingsFormApplication(docker.ApplicationSettings{Host: "app.example.com"})
+internal/ui/settings_form_test.go:70:	form := NewSettingsFormApplication(docker.ApplicationSettings{Host: "app.example.com"})
+internal/ui/settings_form_test.go:85:	form := NewSettingsFormApplication(docker.ApplicationSettings{Host: "chat.localhost"})
+internal/ui/settings_form_test.go:96:	form := NewSettingsFormApplication(docker.ApplicationSettings{Host: "app.example.com"})
+internal/ui/settings_form_test.go:108:	form := NewSettingsFormApplication(docker.ApplicationSettings{
+internal/ui/settings_form_test.go:132:	form := NewSettingsFormApplication(docker.ApplicationSettings{Host: "app.example.com"})
+internal/ui/settings_form_test.go:147:	settings := docker.ApplicationSettings{
+===
+package command
+
+import (
+	"context"
+	"fmt"
+
+	"charm.land/lipgloss/v2"
+	"github.com/spf13/cobra"
+
+	"github.com/basecamp/once/internal/docker"
+)
+
+var hostStyle = lipgloss.NewStyle().Foreground(lipgloss.BrightBlue)
+
+type listCommand struct {
+	cmd *cobra.Command
+}
+
+func newListCommand() *listCommand {
+	l := &listCommand{}
+	l.cmd = &cobra.Command{
+		Use:     "list",
+		Aliases: []string{"ls"},
+		Short:   "List installed applications",
+		RunE:    WithNamespace(l.run),
+	}
+	return l
+}
+
+// Private
+
+func (l *listCommand) run(_ context.Context, ns *docker.Namespace, cmd *cobra.Command, args []string) error {
+	for _, app := range ns.Applications() {
+		status := "stopped"
+		if app.Running {
+			status = "running"
+		}
+
+		host := hostStyle.Hyperlink(app.URL()).Render(app.Settings.Host)
+
+		fmt.Printf("%s (%s)\n", host, status)
+	}
+
+	return nil
+}
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcat Makefile; cat .golangci.yml; head -10 go.mod; cat mise.toml
+.PHONY: build test integration lint lint-actions coverage dist test-release
+
+PLATFORMS = linux darwin
+ARCHITECTURES = amd64 arm64
+VERSION := $(shell git describe --tags --always)
+LDFLAGS := -ldflags "-s -w -X 'github.com/basecamp/once/internal/version.Version=$(VERSION)'"
+
+TEST_RELEASE_TAG = v0.0.1-test
+
+build:
+	CGO_ENABLED=0 go build -trimpath $(LDFLAGS) -o bin/ ./cmd/...
+
+build-all:
+	@for os in $(PLATFORMS); do \
+		for arch in $(ARCHITECTURES); do \
+			echo "Building for $$os/$$arch..."; \
+			CGO_ENABLED=0 GOOS=$$os GOARCH=$$arch go build -trimpath $(LDFLAGS) -o bin/$$os-$$arch/ ./cmd/...; \
+		done; \
+	done
+
+test:
+	go test ./internal/...
+
+integration:
+	go test -v -count=1 -parallel 16 -timeout 30m ./integration/...
+
+check:
+	go vet ./...
+	govulncheck ./...
+
+lint:
+	golangci-lint run
+
+lint-actions:
+	actionlint
+	zizmor .
+
+coverage:
+	go test -coverprofile=coverage.out ./internal/...
+	go tool cover -html=coverage.out
+
+dist: build-all
+	mkdir -p dist
+	@for os in $(PLATFORMS); do \
+		for arch in $(ARCHITECTURES); do \
+			cp bin/$$os-$$arch/once dist/once-$$os-$$arch; \
+		done; \
+	done
+	cd dist && sha256sum once-* > checksums.txt
+
+test-release:
+	-gh release delete $(TEST_RELEASE_TAG) --yes --cleanup-tag
+	git tag -f $(TEST_RELEASE_TAG)
+	git push origin $(TEST_RELEASE_TAG) --force
+version: "2"
+
+formatters:
+  enable:
+    - gofmt
+    - gci
+  settings:
+    gci:
+      sections:
+        - standard
+        - default
+        - localmodule
+
+linters:
+  enable:
+    - modernize
+  disable:
+    - errcheck
+module github.com/basecamp/once
+
+go 1.27.0
+
+require (
+	charm.land/bubbles/v2 v2.2.1
+	charm.land/bubbletea/v2 v2.0.9
+	charm.land/lipgloss/v2 v2.0.6
+	github.com/axiomhq/hyperloglog v0.2.6
+	github.com/charmbracelet/colorprofile v0.4.3
+[tools]
+go = "latest"
+golangci-lint = "latest"
+"go:golang.org/x/vuln/cmd/govulncheck" = "latest"
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/ui/dashboard_panel_test.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgrep -rn "\.Equal(" internal --include=*.go | head -30; echo ===; grep -rn "SourceHash\|Source:" internal --include=*_test.go | head
+internal/background/runner_test.go:22:	assert.Equal(t, 5*time.Minute, CheckInterval)
+internal/command/deploy_test.go:26:		assert.Equal(t, map[string]string{"FOO": "bar", "BAZ": "qux"}, result)
+internal/command/deploy_test.go:33:		assert.Equal(t, "postgres://host?opt=val", result["DSN"])
+internal/command/deploy_test.go:52:		assert.Equal(t, "", result["KEY"])
+internal/command/deploy_test.go:59:		assert.Equal(t, "second", result["KEY"])
+internal/command/deploy_test.go:68:		assert.Equal(t, docker.StaticImage, image)
+internal/command/deploy_test.go:69:		assert.Equal(t, dir, source)
+internal/command/deploy_test.go:74:		assert.Equal(t, "ghcr.io/basecamp/once-campfire:main", image)
+internal/command/deploy_test.go:80:		assert.Equal(t, "/no/such/folder", image)
+internal/command/deploy_test.go:102:		assert.Equal(t, "site.abc123", app.Settings.Name)
+internal/command/deploy_test.go:138:		assert.Equal(t, existing.Name, result.Name)
+internal/command/deploy_test.go:139:		assert.Equal(t, existing.Host, result.Host)
+internal/command/deploy_test.go:140:		assert.Equal(t, existing.DisableTLS, result.DisableTLS)
+internal/command/deploy_test.go:141:		assert.Equal(t, existing.EnvVars, result.EnvVars)
+internal/command/deploy_test.go:142:		assert.Equal(t, existing.Resources, result.Resources)
+internal/command/deploy_test.go:143:		assert.Equal(t, existing.Keys, result.Keys)
+internal/command/deploy_test.go:144:		assert.Equal(t, docker.StaticImage, result.Image)
+internal/command/deploy_test.go:145:		assert.Equal(t, "/srv/site-v2", result.Source)
+internal/command/deploy_test.go:157:		assert.Equal(t, 2048, result.Resources.MemoryMB)
+internal/command/deploy_test.go:158:		assert.Equal(t, existing.Resources.CPUs, result.Resources.CPUs)
+internal/command/deploy_test.go:159:		assert.Equal(t, existing.Keys, result.Keys)
+internal/command/deploy_test.go:215:		assert.Equal(t, docker.RegistrySettings{Host: "index.docker.io", Username: "user", Password: "pass"}, s.Registry)
+internal/command/deploy_test.go:226:		assert.Equal(t, "hunter2", s.Registry.Password)
+internal/command/exec_test.go:14:	assert.Equal(t, "myapp.example.com", host)
+internal/command/exec_test.go:15:	assert.Equal(t, []string{"rails", "console"}, commandArgs)
+internal/command/exec_test.go:22:	assert.Equal(t, "myapp.example.com", host)
+internal/command/exec_test.go:23:	assert.Equal(t, []string{"ls", "-la"}, commandArgs)
+internal/command/exec_test.go:30:	assert.Equal(t, "myapp.example.com", host)
+internal/command/exec_test.go:31:	assert.Equal(t, []string{"sh", "-lc", "echo hi"}, commandArgs)
+internal/command/exec_test.go:38:	assert.Equal(t, "command is required", err.Error())
+===
+internal/command/deploy_test.go:87:		docker.ApplicationSettings{Name: "site.abc123", Image: docker.StaticImage, Source: "/srv/site", Host: "site.localhost"},
+internal/command/deploy_test.go:122:		Source:     "/srv/site",
+internal/docker/application_static_test.go:13:	app := &Application{Settings: ApplicationSettings{Source: "/srv/my-site"}}
+internal/docker/application_static_test.go:20:		Source:   "/srv/my-site",
+internal/docker/application_static_test.go:27:	app := &Application{Settings: ApplicationSettings{Source: "/srv/my-site"}}
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgrep -rn "Equal" internal/ui internal/command internal/docker --include=*.go | grep -v _test | grep -v "assert" | head -20
+internal/ui/settings.go:252:	if msg.Settings.Equal(m.app.Settings) {
+internal/docker/application_settings.go:147:func (s ApplicationSettings) Equal(other ApplicationSettings) bool {
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0msed -n 180,290p internal/ui/settings.go; echo ===; grep -rn "func .*Settings\(\)" internal/ui/settings_form_base.go | head; sed -n 1,80p internal/ui/settings_form_base.go
+m.state = settingsStateForm
+			m.err = msg.err
+			return m, nil
+		}
+		return m, func() tea.Msg { return NavigateToAppMsg{App: m.app} }
+
+	case settingsActionFinishedMsg:
+		return m.handleActionResult(msg)
+
+	case ProgressTickMsg:
+		if m.state == settingsStateDeploying || m.state == settingsStateRunningAction {
+			var cmd tea.Cmd
+			m.progress, cmd = m.progress.Update(msg)
+			cmds = append(cmds, cmd)
+		}
+	}
+
+	if m.state == settingsStateForm {
+		var cmd tea.Cmd
+		m.section, cmd = m.section.Update(msg)
+		cmds = append(cmds, cmd)
+	}
+
+	return m, tea.Batch(cmds...)
+}
+
+func (m Settings) View() string {
+	titleLine := Styles.TitleRule(m.width, m.app.Settings.Host, strings.ToLower(m.section.Title()))
+
+	var contentView string
+	switch m.state {
+	case settingsStateForm:
+		var statusLine string
+		if m.err != nil {
+			statusLine = lipgloss.NewStyle().Foreground(Colors.Error).Width(m.width).Align(lipgloss.Center).Render(docker.ErrorMessage(m.err))
+		} else if line := m.section.StatusLine(); line != "" {
+			statusLine = lipgloss.NewStyle().Foreground(Colors.Muted).Render(line)
+		}
+		contentView = lipgloss.JoinVertical(lipgloss.Center, statusLine, "", m.section.View())
+	case settingsStateActionComplete:
+		contentView = m.renderActionComplete()
+	default:
+		contentView = m.progress.View()
+	}
+
+	var helpLine string
+	if m.state == settingsStateForm {
+		helpLine = Styles.CenteredLine(m.width, m.help.View())
+	}
+
+	titleHeight := 2 // title + blank line
+	helpHeight := lipgloss.Height(helpLine)
+	middleHeight := m.height - titleHeight - helpHeight
+
+	centeredContent := lipgloss.Place(
+		m.width,
+		middleHeight,
+		lipgloss.Center,
+		lipgloss.Center,
+		contentView,
+	)
+
+	return titleLine + "\n\n" + centeredContent + helpLine
+}
+
+// Private
+
+func (m Settings) navigateToDashboard() tea.Cmd {
+	return func() tea.Msg { return NavigateToDashboardMsg{AppName: m.app.Settings.Name} }
+}
+
+func (m Settings) handleFormSubmit(msg SettingsSectionSubmitMsg) (Component, tea.Cmd) {
+	if msg.Settings.Equal(m.app.Settings) {
+		return m, m.navigateToDashboard()
+	}
+	if err := msg.Settings.Validate(); err != nil {
+		m.err = err
+		return m, nil
+	}
+	if m.namespace.HostInUseByAnother(msg.Settings.Host, m.app.Settings.Name) {
+		m.err = docker.ErrHostnameInUse
+		return m, nil
+	}
+	m.state = settingsStateDeploying
+	m.savedSettings = m.app.Settings
+	m.app.Settings = msg.Settings
+	m.progress = NewProgress(m.width, Colors.Border)
+	return m, tea.Batch(m.progress.Init(), m.runDeploy())
+}
+
+func (m Settings) handleActionResult(msg settingsActionFinishedMsg) (Component, tea.Cmd) {
+	if msg.err != nil {
+		m.state = settingsStateForm
+		m.err = msg.err
+		return m, nil
+	}
+	if msg.message != "" {
+		m.actionSuccessMessage = msg.message
+		m.state = settingsStateActionComplete
+		return m, nil
+	}
+	return m, func() tea.Msg { return NavigateToAppMsg{App: m.app} }
+}
+
+func (m Settings) renderActionComplete() string {
+	statusLine := Styles.CenteredLine(m.width, m.actionSuccessMessage)
+
+	buttonStyle := Styles.Button.BorderForeground(Colors.Focused)
+	button := mouse.Mark("done", buttonStyle.Render("Done"))
+	buttonView := lipgloss.NewStyle().
+		Width(m.width).
+===
+package ui
+
+import tea "charm.land/bubbletea/v2"
+
+type settingsFormBase struct {
+	form       Form
+	title      string
+	statusLine func() string
+	viewFn     func(Form) string
+}
+
+func (b settingsFormBase) Title() string {
+	return b.title
+}
+
+func (b settingsFormBase) Init() tea.Cmd {
+	return b.form.Init()
+}
+
+func (b settingsFormBase) View() string {
+	if b.viewFn != nil {
+		return b.viewFn(b.form)
+	}
+	return b.form.View()
+}
+
+func (b settingsFormBase) StatusLine() string {
+	if b.statusLine != nil {
+		return b.statusLine()
+	}
+	return ""
+}
+
+// Private
+
+func (b settingsFormBase) update(msg tea.Msg) (settingsFormBase, tea.Cmd) {
+	var cmd tea.Cmd
+	b.form, cmd = b.form.Update(msg)
+	return b, cmd
+}
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mWrite internal/docker/source.go
+Created file successfully: internal/docker/source.go
+[0m← [0mEdit internal/docker/application_settings.go
+Index: internal/docker/application_settings.go
+===================================================================
+--- internal/docker/application_settings.go
++++ internal/docker/application_settings.go
+@@ -97,8 +97,9 @@
+ type ApplicationSettings struct {
+ 	Name       string             `json:"name"`
+ 	Image      string             `json:"image"`
+ 	Source     string             `json:"source,omitempty"`
++	SourceHash string             `json:"sourceHash,omitempty"`
+ 	Host       string             `json:"host"`
+ 	DisableTLS bool               `json:"disableTLS"`
+ 	EnvVars    map[string]string  `json:"env"`
+ 	SMTP       SMTPSettings       `json:"smtp"`
+
+[0m← [0mEdit internal/docker/application_settings.go
+Index: internal/docker/application_settings.go
+===================================================================
+--- internal/docker/application_settings.go
++++ internal/docker/application_settings.go
+@@ -145,9 +145,9 @@
+ 	return s.Source != ""
+ }
+ 
+ func (s ApplicationSettings) Equal(other ApplicationSettings) bool {
+-	if s.Name != other.Name || s.Image != other.Image || s.Source != other.Source || s.Host != other.Host || s.DisableTLS != other.DisableTLS {
++	if s.Name != other.Name || s.Image != other.Image || s.Source != other.Source || s.SourceHash != other.SourceHash || s.Host != other.Host || s.DisableTLS != other.DisableTLS {
+ 		return false
+ 	}
+ 	if s.Resources != other.Resources {
+ 		return false
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/scraper.go
+Index: internal/docker/scraper.go
+===================================================================
+--- internal/docker/scraper.go
++++ internal/docker/scraper.go
+@@ -48,8 +48,9 @@
+ 
+ 	mu        sync.RWMutex
+ 	apps      map[string]*appData
+ 	streams   map[string]*streamInfo
++	stale     map[string]bool
+ 	lastError error
+ }
+ 
+ type streamInfo struct {
+
+[0m← [0mEdit internal/docker/scraper.go
+Index: internal/docker/scraper.go
+===================================================================
+--- internal/docker/scraper.go
++++ internal/docker/scraper.go
+@@ -75,8 +75,9 @@
+ 		client:   ns.client,
+ 		prefix:   ns.name + "-app-",
+ 		apps:     make(map[string]*appData),
+ 		streams:  make(map[string]*streamInfo),
++		stale:    make(map[string]bool),
+ 	}
+ }
+ 
+ // Fetch returns the last n samples for an app, ordered from newest to oldest.
+
+[0m← [0mEdit internal/docker/scraper.go
+Index: internal/docker/scraper.go
+===================================================================
+--- internal/docker/scraper.go
++++ internal/docker/scraper.go
+@@ -99,8 +99,16 @@
+ 	defer s.mu.RUnlock()
+ 	return s.lastError
+ }
+ 
++// Stale reports whether the folder an app was deployed from has changed since
++// that deploy.
++func (s *Scraper) Stale(appName string) bool {
++	s.mu.RLock()
++	defer s.mu.RUnlock()
++	return s.stale[appName]
++}
++
+ // Scrape snapshots the latest stats from streaming connections and records samples.
+ // It also ensures streams are running for all current containers.
+ func (s *Scraper) Scrape(ctx context.Context) {
+ 	containers, err := s.findAppContainers(ctx)
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/scraper.go
+Index: internal/docker/scraper.go
+===================================================================
+--- internal/docker/scraper.go
++++ internal/docker/scraper.go
+@@ -117,8 +117,9 @@
+ 		return
+ 	}
+ 
+ 	s.updateStreams(ctx, containers)
++	s.updateStale(containers)
+ 
+ 	now := time.Now()
+ 	s.mu.Lock()
+ 	for appName, data := range s.apps {
+
+[0m← [0mEdit internal/docker/scraper.go
+Index: internal/docker/scraper.go
+===================================================================
+--- internal/docker/scraper.go
++++ internal/docker/scraper.go
+@@ -141,24 +141,25 @@
+ 
+ 	s.setError(nil)
+ }
+ 
+-func (s *Scraper) findAppContainers(ctx context.Context) (map[string]string, error) {
++func (s *Scraper) findAppContainers(ctx context.Context) (map[string]appContainer, error) {
+ 	containers, err := s.client.ContainerList(ctx, client.ContainerListOptions{})
+ 	if err != nil {
+ 		return nil, err
+ 	}
+ 
+-	result := make(map[string]string)
++	result := make(map[string]appContainer)
+ 	for _, c := range containers.Items {
+ 		if c.State != "running" {
+ 			continue
+ 		}
+ 		for _, name := range c.Names {
+ 			name = strings.TrimPrefix(name, "/")
+ 			if after, ok := strings.CutPrefix(name, s.prefix); ok {
+ 				if appName, _, ok := cutLast(after, "-"); ok {
+-					result[appName] = c.ID
++					settings, _ := UnmarshalApplicationSettings(c.Labels[labelKey])
++					result[appName] = appContainer{id: c.ID, settings: settings}
+ 				}
+ 			}
+ 		}
+ 	}
+@@ -167,16 +168,36 @@
+ }
+ 
+ // Private
+ 
+-func (s *Scraper) updateStreams(ctx context.Context, containers map[string]string) {
++func (s *Scraper) updateStale(containers map[string]appContainer) {
++	stale := make(map[string]bool)
++
++	for appName, container := range containers {
++		settings := container.settings
++		if !settings.Static() || settings.SourceHash == "" {
++			continue
++		}
++
++		hash, err := HashSource(settings.Source)
++		if err != nil || hash != settings.SourceHash {
++			stale[appName] = true
++		}
++	}
++
+ 	s.mu.Lock()
+ 	defer s.mu.Unlock()
++	s.stale = stale
++}
+ 
++func (s *Scraper) updateStreams(ctx context.Context, containers map[string]appContainer) {
++	s.mu.Lock()
++	defer s.mu.Unlock()
++
+ 	// Start or restart streams for containers
+-	for appName, containerID := range containers {
++	for appName, container := range containers {
+ 		if stream, exists := s.streams[appName]; exists {
+-			if stream.containerID == containerID {
++			if stream.containerID == container.id {
+ 				continue
+ 			}
+ 			// Container ID changed (redeployed), restart stream
+ 			stream.cancel()
+@@ -188,10 +209,10 @@
+ 			}
+ 		}
+ 
+ 		streamCtx, cancel := context.WithCancel(ctx)
+-		s.streams[appName] = &streamInfo{containerID: containerID, cancel: cancel}
+-		go s.runStream(streamCtx, appName, containerID)
++		s.streams[appName] = &streamInfo{containerID: container.id, cancel: cancel}
++		go s.runStream(streamCtx, appName, container.id)
+ 	}
+ 
+ 	// Stop streams for removed containers
+ 	for appName, stream := range s.streams {
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/scraper.go
+Index: internal/docker/scraper.go
+===================================================================
+--- internal/docker/scraper.go
++++ internal/docker/scraper.go
+@@ -57,8 +57,13 @@
+ 	containerID string
+ 	cancel      context.CancelFunc
+ }
+ 
++type appContainer struct {
++	id       string
++	settings ApplicationSettings
++}
++
+ type appData struct {
+ 	samples *RingBuffer[Sample]
+ 	latest  *liveStats
+ }
+
+[0m← [0mEdit internal/command/deploy.go
+Index: internal/command/deploy.go
+===================================================================
+--- internal/command/deploy.go
++++ internal/command/deploy.go
+@@ -62,8 +62,12 @@
+ 	if err != nil {
+ 		return err
+ 	}
+ 	settings.Source = source
++	settings, err = withSourceHash(settings, source)
++	if err != nil {
++		return err
++	}
+ 
+ 	name, err := ns.UniqueName(baseName)
+ 	if err != nil {
+ 		return fmt.Errorf("generating app name: %w", err)
+
+[0m← [0mEdit internal/command/deploy.go
+Index: internal/command/deploy.go
+===================================================================
+--- internal/command/deploy.go
++++ internal/command/deploy.go
+@@ -100,8 +100,13 @@
+ 	if err != nil {
+ 		return err
+ 	}
+ 
++	settings, err = withSourceHash(settings, source)
++	if err != nil {
++		return err
++	}
++
+ 	oldSettings := app.Settings
+ 	app.Settings = settings
+ 
+ 	return runWithProgress("Deploying "+settings.Host, func(progress docker.DeployProgressCallback) error {
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/command/deploy.go
+Index: internal/command/deploy.go
+===================================================================
+--- internal/command/deploy.go
++++ internal/command/deploy.go
+@@ -130,8 +130,24 @@
+ }
+ 
+ // Helpers
+ 
++// withSourceHash records what the deployed folder contained, so later scrapes
++// can tell whether it has changed since.
++func withSourceHash(settings docker.ApplicationSettings, source string) (docker.ApplicationSettings, error) {
++	if source == "" {
++		return settings, nil
++	}
++
++	hash, err := docker.HashSource(source)
++	if err != nil {
++		return settings, fmt.Errorf("hashing source folder: %w", err)
++	}
++
++	settings.SourceHash = hash
++	return settings, nil
++}
++
+ // siteToReplace returns the static site already serving host, when deploying a
+ // folder should replace it in place. Deploying an image, or deploying a folder
+ // to a host owned by an application, is still a hostname conflict.
+ func siteToReplace(ns *docker.Namespace, host, source string) (*docker.Application, error) {
+
+[0m← [0mEdit internal/ui/dashboard_panel.go
+Index: internal/ui/dashboard_panel.go
+===================================================================
+--- internal/ui/dashboard_panel.go
++++ internal/ui/dashboard_panel.go
+@@ -64,9 +64,9 @@
+ 	url := Styles.Title.Hyperlink(p.app.URL()).Render(p.app.Settings.Host)
+ 	name := lipgloss.NewStyle().Foreground(Colors.Border).Render("(" + docker.NameFromImageRef(p.app.Settings.Image) + ")")
+ 	badge := p.renderHealthBadge(cards)
+ 	left := badge + " " + url + " " + name
+-	right := renderStateInfo(&p.app, toggling)
++	right := renderStateInfo(&p.app, toggling, p.stale())
+ 	gap := max(innerWidth-2-lipgloss.Width(left)-lipgloss.Width(right), 1)
+ 	titleLine := " " + left + strings.Repeat(" ", gap) + right + " "
+ 
+ 	var lines []string
+
+[0m✗ [0mEdit internal/ui/dashboard_panel.go failed
+[91m[1mError: [0mNo changes to apply: oldString and newString are identical.
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/ui/dashboard_panel.go
+Index: internal/ui/dashboard_panel.go
+===================================================================
+--- internal/ui/dashboard_panel.go
++++ internal/ui/dashboard_panel.go
+@@ -117,8 +117,15 @@
+ }
+ 
+ // Private
+ 
++func (p DashboardPanel) stale() bool {
++	if p.dockerScraper == nil {
++		return false
++	}
++	return p.dockerScraper.Stale(p.app.Settings.Name)
++}
++
+ func (p DashboardPanel) renderHealthBadge(cards [3]MetricCard) string {
+ 	if !p.app.Running {
+ 		return lipgloss.NewStyle().Foreground(Colors.Border).Render("●")
+ 	}
+
+[0m← [0mEdit internal/ui/dashboard_panel.go
+Index: internal/ui/dashboard_panel.go
+===================================================================
+--- internal/ui/dashboard_panel.go
++++ internal/ui/dashboard_panel.go
+@@ -280,17 +280,20 @@
+ }
+ 
+ // Helpers
+ 
+-func renderStateInfo(app *docker.Application, toggling bool) string {
++func renderStateInfo(app *docker.Application, toggling, stale bool) string {
+ 	var status string
+ 	var statusColor color.Color
+ 	if toggling && app.Running {
+ 		status = "stopping..."
+ 		statusColor = Colors.LightText
+ 	} else if toggling {
+ 		status = "starting..."
+ 		statusColor = Colors.LightText
++	} else if stale {
++		status = "stale"
++		statusColor = Colors.Warning
+ 	} else if app.Running {
+ 		status = "running"
+ 		statusColor = Colors.Success
+ 	} else {
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m✗ [0mEdit internal/docker/scraper_test.go failed
+[91m[1mError: [0mNo changes to apply: oldString and newString are identical.
+[0m← [0mWrite internal/docker/source_test.go
+Created file successfully: internal/docker/source_test.go
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/scraper_test.go
+Index: internal/docker/scraper_test.go
+===================================================================
+--- internal/docker/scraper_test.go
++++ internal/docker/scraper_test.go
+@@ -3,12 +3,15 @@
+ import (
+ 	"bytes"
+ 	"context"
+ 	"encoding/json"
++	"os"
++	"path/filepath"
+ 	"testing"
+ 	"time"
+ 
+ 	"github.com/moby/moby/api/types/container"
++	"github.com/moby/moby/api/types/mount"
+ 	"github.com/moby/moby/client"
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+ )
+
+[0m← [0mEdit internal/docker/scraper_test.go
+Index: internal/docker/scraper_test.go
+===================================================================
+--- internal/docker/scraper_test.go
++++ internal/docker/scraper_test.go
+@@ -238,8 +238,69 @@
+ 	assert.Equal(t, 75.0, samples[0].CPUPercent)
+ 	assert.Equal(t, uint64(2000), samples[0].MemoryBytes)
+ }
+ 
++func TestScraperMarksChangedSourceStale(t *testing.T) {
++	dir := t.TempDir()
++	file := filepath.Join(dir, "index.html")
++	require.NoError(t, os.WriteFile(file, []byte("first"), 0o644))
++
++	settings := staticSettings(t, "site", dir)
++	client := &mockStatsClient{
++		containers: []container.Summary{staticContainer("site", settings)},
++		stats:      map[string]container.StatsResponse{},
++	}
++
++	ctx, cancel := context.WithCancel(context.Background())
++	defer cancel()
++
++	s := newTestScraper(client)
++	s.Scrape(ctx)
++	assert.False(t, s.Stale("site"))
++
++	require.NoError(t, os.WriteFile(file, []byte("second"), 0o644))
++	s.Scrape(ctx)
++	assert.True(t, s.Stale("site"))
++
++	require.NoError(t, os.WriteFile(file, []byte("first"), 0o644))
++	s.Scrape(ctx)
++	assert.False(t, s.Stale("site"))
++}
++
++func TestScraperMarksMissingSourceStale(t *testing.T) {
++	dir := t.TempDir()
++	settings := staticSettings(t, "site", dir)
++
++	require.NoError(t, os.RemoveAll(dir))
++
++	client := &mockStatsClient{
++		containers: []container.Summary{staticContainer("site", settings)},
++		stats:      map[string]container.StatsResponse{},
++	}
++
++	ctx, cancel := context.WithCancel(context.Background())
++	defer cancel()
++
++	s := newTestScraper(client)
++	s.Scrape(ctx)
++	assert.True(t, s.Stale("site"))
++}
++
++func TestScraperIgnoresSourcesWithoutHash(t *testing.T) {
++	settings := ApplicationSettings{Name: "site", Image: StaticImage, Source: t.TempDir(), Host: "site.localhost"}
++	client := &mockStatsClient{
++		containers: []container.Summary{staticContainer("site", settings)},
++		stats:      map[string]container.StatsResponse{},
++	}
++
++	ctx, cancel := context.WithCancel(context.Background())
++	defer cancel()
++
++	s := newTestScraper(client)
++	s.Scrape(ctx)
++	assert.False(t, s.Stale("site"))
++}
++
+ func TestCalculateCPUPercent(t *testing.T) {
+ 	stats := &container.StatsResponse{
+ 		CPUStats: container.CPUStats{
+ 			CPUUsage:    container.CPUUsage{TotalUsage: 200000000},
+
+[0m← [0mEdit internal/docker/scraper_test.go
+Index: internal/docker/scraper_test.go
+===================================================================
+--- internal/docker/scraper_test.go
++++ internal/docker/scraper_test.go
+@@ -335,8 +335,32 @@
+ }
+ 
+ // Helpers
+ 
++func staticSettings(t *testing.T, name, dir string) ApplicationSettings {
++	t.Helper()
++
++	hash, err := HashSource(dir)
++	require.NoError(t, err)
++
++	return ApplicationSettings{
++		Name:       name,
++		Image:      StaticImage,
++		Source:     dir,
++		SourceHash: hash,
++		Host:       name + ".localhost",
++	}
++}
++
++func staticContainer(appName string, settings ApplicationSettings) container.Summary {
++	return container.Summary{
++		ID:     "abc123",
++		Names:  []string{"/test-app-" + appName + "-xyz"},
++		State:  "running",
++		Labels: map[string]string{labelKey: settings.Marshal()},
++	}
++}
++
+ func addSample(s *Scraper, appName string, sample Sample) {
+ 	s.mu.Lock()
+ 	defer s.mu.Unlock()
+ 
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/ui/dashboard_panel_test.go
+Index: internal/ui/dashboard_panel_test.go
+===================================================================
+--- internal/ui/dashboard_panel_test.go
++++ internal/ui/dashboard_panel_test.go
+@@ -104,12 +104,13 @@
+ func TestRenderStateInfo(t *testing.T) {
+ 	running := &docker.Application{Running: true}
+ 	stopped := &docker.Application{Running: false}
+ 
+-	assert.Contains(t, ansi.Strip(renderStateInfo(running, false)), "running")
+-	assert.Contains(t, ansi.Strip(renderStateInfo(stopped, false)), "stopped")
+-	assert.Contains(t, ansi.Strip(renderStateInfo(running, true)), "stopping...")
+-	assert.Contains(t, ansi.Strip(renderStateInfo(stopped, true)), "starting...")
++	assert.Contains(t, ansi.Strip(renderStateInfo(running, false, false)), "running")
++	assert.Contains(t, ansi.Strip(renderStateInfo(stopped, false, false)), "stopped")
++	assert.Contains(t, ansi.Strip(renderStateInfo(running, true, false)), "stopping...")
++	assert.Contains(t, ansi.Strip(renderStateInfo(stopped, true, false)), "starting...")
++	assert.Contains(t, ansi.Strip(renderStateInfo(running, false, true)), "stale")
+ }
+ 
+ func TestRenderBar(t *testing.T) {
+ 	bar := renderBar(50, 0, 100, Colors.Success, 10)
+
+[0m← [0mEdit internal/command/deploy_test.go
+Index: internal/command/deploy_test.go
+===================================================================
+--- internal/command/deploy_test.go
++++ internal/command/deploy_test.go
+@@ -1,7 +1,9 @@
+ package command
+ 
+ import (
++	"os"
++	"path/filepath"
+ 	"strings"
+ 	"testing"
+ 
+ 	"github.com/spf13/cobra"
+
+[0m← [0mEdit internal/docker/scraper_test.go
+Index: internal/docker/scraper_test.go
+===================================================================
+--- internal/docker/scraper_test.go
++++ internal/docker/scraper_test.go
+@@ -9,9 +9,8 @@
+ 	"testing"
+ 	"time"
+ 
+ 	"github.com/moby/moby/api/types/container"
+-	"github.com/moby/moby/api/types/mount"
+ 	"github.com/moby/moby/client"
+ 	"github.com/stretchr/testify/assert"
+ 	"github.com/stretchr/testify/require"
+ )
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/command/deploy_test.go
+Index: internal/command/deploy_test.go
+===================================================================
+--- internal/command/deploy_test.go
++++ internal/command/deploy_test.go
+@@ -83,8 +83,48 @@
+ 		assert.Empty(t, source)
+ 	})
+ }
+ 
++func TestWithSourceHash(t *testing.T) {
++	t.Run("image deploy leaves the hash empty", func(t *testing.T) {
++		settings, err := withSourceHash(docker.ApplicationSettings{Image: "image:latest"}, "")
++		require.NoError(t, err)
++		assert.Empty(t, settings.SourceHash)
++	})
++
++	t.Run("folder deploy records the folder hash", func(t *testing.T) {
++		dir := t.TempDir()
++		require.NoError(t, os.WriteFile(filepath.Join(dir, "index.html"), []byte("hi"), 0o644))
++
++		settings, err := withSourceHash(docker.ApplicationSettings{Source: dir}, dir)
++		require.NoError(t, err)
++
++		hash, err := docker.HashSource(dir)
++		require.NoError(t, err)
++		assert.Equal(t, hash, settings.SourceHash)
++	})
++
++	t.Run("changed folder hashes differently", func(t *testing.T) {
++		dir := t.TempDir()
++		file := filepath.Join(dir, "index.html")
++		require.NoError(t, os.WriteFile(file, []byte("hi"), 0o644))
++
++		before, err := withSourceHash(docker.ApplicationSettings{Source: dir}, dir)
++		require.NoError(t, err)
++
++		require.NoError(t, os.WriteFile(file, []byte("bye"), 0o644))
++
++		after, err := withSourceHash(docker.ApplicationSettings{Source: dir}, dir)
++		require.NoError(t, err)
++		assert.NotEqual(t, before.SourceHash, after.SourceHash)
++	})
++
++	t.Run("missing folder returns an error", func(t *testing.T) {
++		_, err := withSourceHash(docker.ApplicationSettings{}, filepath.Join(t.TempDir(), "missing"))
++		assert.Error(t, err)
++	})
++}
++
+ func TestSiteToReplace(t *testing.T) {
+ 	ns, err := docker.NewNamespace("once", docker.WithApplications(
+ 		docker.ApplicationSettings{Name: "site.abc123", Image: docker.StaticImage, Source: "/srv/site", Host: "site.localhost"},
+ 		docker.ApplicationSettings{Name: "app.def456", Image: "image:latest", Host: "app.localhost"},
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgofmt -l internal; go build ./... 2>&1 | head -40
+(no output)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgo test ./internal/... 2>&1 | tail -30
+ok  	github.com/basecamp/once/internal/background	0.005s
+ok  	github.com/basecamp/once/internal/command	0.008s
+ok  	github.com/basecamp/once/internal/docker	0.040s
+ok  	github.com/basecamp/once/internal/fsutil	(cached)
+?   	github.com/basecamp/once/internal/logging	[no test files]
+ok  	github.com/basecamp/once/internal/metrics	0.010s
+ok  	github.com/basecamp/once/internal/mouse	(cached)
+?   	github.com/basecamp/once/internal/service	[no test files]
+ok  	github.com/basecamp/once/internal/system	(cached)
+ok  	github.com/basecamp/once/internal/ui	0.251s
+ok  	github.com/basecamp/once/internal/userstats	0.005s
+ok  	github.com/basecamp/once/internal/version	(cached)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mmake lint 2>&1 | tail -30
+golangci-lint run
+internal/docker/scraper_test.go:252:17: testingcontext: context.WithCancel can be modernized using t.Context (modernize)
+	ctx, cancel := context.WithCancel(context.Background())
+	               ^
+internal/docker/scraper_test.go:279:17: testingcontext: context.WithCancel can be modernized using t.Context (modernize)
+	ctx, cancel := context.WithCancel(context.Background())
+	               ^
+internal/docker/scraper_test.go:294:17: testingcontext: context.WithCancel can be modernized using t.Context (modernize)
+	ctx, cancel := context.WithCancel(context.Background())
+	               ^
+3 issues:
+* modernize: 3
+make: *** [Makefile:32: lint] Error 1
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mpython3 - <<'EOF'
+import re
+p='internal/docker/scraper_test.go'
+s=open(p).read()
+s=s.replace("""	ctx, cancel := context.WithCancel(context.Background())
+	defer cancel()
+
+	s := newTestScraper(client)""","""	ctx := t.Context()
+
+	s := newTestScraper(client)""")
+open(p,'w').write(s)
+EOF
+grep -n "context.WithCancel\|t.Context" internal/docker/scraper_test.go
+24:func (m *mockStatsClient) ContainerList(ctx context.Context, options client.ContainerListOptions) (client.ContainerListResult, error) {
+28:func (m *mockStatsClient) ContainerStats(ctx context.Context, containerID string, options client.ContainerStatsOptions) (client.ContainerStatsResult, error) {
+252:	ctx := t.Context()
+278:	ctx := t.Context()
+292:	ctx := t.Context()
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mmake test 2>&1 | tail -20; make lint 2>&1 | tail -10
+go test ./internal/...
+ok  	github.com/basecamp/once/internal/background	(cached)
+ok  	github.com/basecamp/once/internal/command	(cached)
+ok  	github.com/basecamp/once/internal/docker	0.024s
+ok  	github.com/basecamp/once/internal/fsutil	(cached)
+?   	github.com/basecamp/once/internal/logging	[no test files]
+ok  	github.com/basecamp/once/internal/metrics	(cached)
+ok  	github.com/basecamp/once/internal/mouse	(cached)
+?   	github.com/basecamp/once/internal/service	[no test files]
+ok  	github.com/basecamp/once/internal/system	(cached)
+ok  	github.com/basecamp/once/internal/ui	(cached)
+ok  	github.com/basecamp/once/internal/userstats	(cached)
+ok  	github.com/basecamp/once/internal/version	(cached)
+golangci-lint run
+0 issues.
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0msed -n 40,200p internal/docker/scraper.go
+// Scraper collects Docker container stats using persistent streaming connections.
+// Background goroutines maintain streams for each container and update latest stats.
+// Scrape() snapshots the current values without blocking on Docker API calls.
+type Scraper struct {
+	settings ScraperSettings
+	client   statsClient
+	prefix   string
+
+	mu        sync.RWMutex
+	apps      map[string]*appData
+	streams   map[string]*streamInfo
+	stale     map[string]bool
+	lastError error
+}
+
+type streamInfo struct {
+	containerID string
+	cancel      context.CancelFunc
+}
+
+type appContainer struct {
+	id       string
+	settings ApplicationSettings
+}
+
+type appData struct {
+	samples *RingBuffer[Sample]
+	latest  *liveStats
+}
+
+type liveStats struct {
+	cpuPercent  float64
+	memoryBytes uint64
+}
+
+func NewScraper(ns *Namespace, settings ScraperSettings) *Scraper {
+	settings = settings.withDefaults()
+	return &Scraper{
+		settings: settings,
+		client:   ns.client,
+		prefix:   ns.name + "-app-",
+		apps:     make(map[string]*appData),
+		streams:  make(map[string]*streamInfo),
+		stale:    make(map[string]bool),
+	}
+}
+
+// Fetch returns the last n samples for an app, ordered from newest to oldest.
+// If fewer than n samples exist, only the available samples are returned.
+func (s *Scraper) Fetch(appName string, n int) []Sample {
+	s.mu.RLock()
+	defer s.mu.RUnlock()
+
+	data, ok := s.apps[appName]
+	if !ok {
+		return nil
+	}
+
+	return data.samples.FetchNewestFirst(n)
+}
+
+func (s *Scraper) LastError() error {
+	s.mu.RLock()
+	defer s.mu.RUnlock()
+	return s.lastError
+}
+
+// Stale reports whether the folder an app was deployed from has changed since
+// that deploy.
+func (s *Scraper) Stale(appName string) bool {
+	s.mu.RLock()
+	defer s.mu.RUnlock()
+	return s.stale[appName]
+}
+
+// Scrape snapshots the latest stats from streaming connections and records samples.
+// It also ensures streams are running for all current containers.
+func (s *Scraper) Scrape(ctx context.Context) {
+	containers, err := s.findAppContainers(ctx)
+	if err != nil {
+		s.setError(err)
+		return
+	}
+
+	s.updateStreams(ctx, containers)
+	s.updateStale(containers)
+
+	now := time.Now()
+	s.mu.Lock()
+	for appName, data := range s.apps {
+		var sample Sample
+		if _, running := containers[appName]; running && data.latest != nil {
+			sample = Sample{
+				Timestamp:   now,
+				CPUPercent:  data.latest.cpuPercent,
+				MemoryBytes: data.latest.memoryBytes,
+			}
+		} else {
+			sample = Sample{Timestamp: now}
+			data.latest = nil
+		}
+
+		data.samples.Add(sample)
+	}
+	s.mu.Unlock()
+
+	s.setError(nil)
+}
+
+func (s *Scraper) findAppContainers(ctx context.Context) (map[string]appContainer, error) {
+	containers, err := s.client.ContainerList(ctx, client.ContainerListOptions{})
+	if err != nil {
+		return nil, err
+	}
+
+	result := make(map[string]appContainer)
+	for _, c := range containers.Items {
+		if c.State != "running" {
+			continue
+		}
+		for _, name := range c.Names {
+			name = strings.TrimPrefix(name, "/")
+			if after, ok := strings.CutPrefix(name, s.prefix); ok {
+				if appName, _, ok := cutLast(after, "-"); ok {
+					settings, _ := UnmarshalApplicationSettings(c.Labels[labelKey])
+					result[appName] = appContainer{id: c.ID, settings: settings}
+				}
+			}
+		}
+	}
+
+	return result, nil
+}
+
+// Private
+
+func (s *Scraper) updateStale(containers map[string]appContainer) {
+	stale := make(map[string]bool)
+
+	for appName, container := range containers {
+		settings := container.settings
+		if !settings.Static() || settings.SourceHash == "" {
+			continue
+		}
+
+		hash, err := HashSource(settings.Source)
+		if err != nil || hash != settings.SourceHash {
+			stale[appName] = true
+		}
+	}
+
+	s.mu.Lock()
+	defer s.mu.Unlock()
+	s.stale = stale
+}
+
+func (s *Scraper) updateStreams(ctx context.Context, containers map[string]appContainer) {
+	s.mu.Lock()
+	defer s.mu.Unlock()
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/source.go
+Index: internal/docker/source.go
+===================================================================
+--- internal/docker/source.go
++++ internal/docker/source.go
+@@ -11,19 +11,24 @@
+ 
+ // HashSource returns a digest of the files in dir, so a deployed folder can be
+ // compared against the copy that is being served.
+ func HashSource(dir string) (string, error) {
++	root, err := filepath.EvalSymlinks(dir)
++	if err != nil {
++		return "", err
++	}
++
+ 	h := sha256.New()
+ 
+-	err := filepath.WalkDir(dir, func(path string, entry fs.DirEntry, err error) error {
++	err = filepath.WalkDir(root, func(path string, entry fs.DirEntry, err error) error {
+ 		if err != nil {
+ 			return err
+ 		}
+-		if path == dir {
++		if path == root {
+ 			return nil
+ 		}
+ 
+-		rel, err := filepath.Rel(dir, path)
++		rel, err := filepath.Rel(root, path)
+ 		if err != nil {
+ 			return err
+ 		}
+ 		rel = filepath.ToSlash(rel)
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgofmt -l internal; make test 2>&1 | tail -15; make lint 2>&1 | tail -5
+go test ./internal/...
+ok  	github.com/basecamp/once/internal/background	(cached)
+ok  	github.com/basecamp/once/internal/command	0.011s
+ok  	github.com/basecamp/once/internal/docker	0.043s
+ok  	github.com/basecamp/once/internal/fsutil	(cached)
+?   	github.com/basecamp/once/internal/logging	[no test files]
+ok  	github.com/basecamp/once/internal/metrics	(cached)
+ok  	github.com/basecamp/once/internal/mouse	(cached)
+?   	github.com/basecamp/once/internal/service	[no test files]
+ok  	github.com/basecamp/once/internal/system	(cached)
+ok  	github.com/basecamp/once/internal/ui	(cached)
+ok  	github.com/basecamp/once/internal/userstats	(cached)
+ok  	github.com/basecamp/once/internal/version	(cached)
+golangci-lint run
+0 issues.
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgrep -n "git commit\|git add\|03-redeploy-folder.check\|03-redeploy-folder.diff" .scratch/split/03-redeploy-folder.log | tail -20; echo ===; git config user.name; git config user.email
+===
+razodin137
+razodin137@gmail.com
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/docker/source.go 
+[0m→ [0mRead internal/command/deploy.go [90m[offset=50, limit=100][0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgo vet ./... 2>&1 | head -20; git status --short
+M internal/command/deploy.go
+ M internal/command/deploy_test.go
+ M internal/docker/application_settings.go
+ M internal/docker/scraper.go
+ M internal/docker/scraper_test.go
+ M internal/ui/dashboard_panel.go
+ M internal/ui/dashboard_panel_test.go
+?? .scratch/split/04-stale-source-detection.log
+?? internal/docker/source.go
+?? internal/docker/source_test.go
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0msed -n 120,330p internal/ui/dashboard.go
+m.rebuildViewportContent()
+
+	case MouseEvent:
+		if msg.IsClick {
+			if i, ok := m.panelIndexAtY(msg.Y); ok {
+				m.selectPanel(i)
+				return m, nil
+			}
+			var cmd tea.Cmd
+			m.help, cmd = m.help.Update(msg)
+			return m, cmd
+		}
+
+	case tea.KeyPressMsg:
+		if key.Matches(msg, dashboardKeys.Quit) {
+			return m, func() tea.Msg { return QuitMsg{} }
+		}
+		if key.Matches(msg, dashboardKeys.Up) {
+			m.selectPanel(m.selectedIndex - 1)
+			return m, nil
+		}
+		if key.Matches(msg, dashboardKeys.Down) {
+			m.selectPanel(m.selectedIndex + 1)
+			return m, nil
+		}
+		if key.Matches(msg, dashboardKeys.NewApp) {
+			return m, func() tea.Msg { return NavigateToInstallMsg{} }
+		}
+		if key.Matches(msg, dashboardKeys.Settings) && len(m.apps) > 0 {
+			app := m.apps[m.selectedIndex]
+			m.overlay = NewSettingsMenu(app)
+			var cmd tea.Cmd
+			m.overlay, cmd = m.overlay.Update(tea.WindowSizeMsg{Width: m.width, Height: m.height})
+			return m, cmd
+		}
+		if key.Matches(msg, dashboardKeys.Actions) && len(m.apps) > 0 && !m.toggling {
+			app := m.apps[m.selectedIndex]
+			m.overlay = NewActionsMenu(app)
+			var cmd tea.Cmd
+			m.overlay, cmd = m.overlay.Update(tea.WindowSizeMsg{Width: m.width, Height: m.height})
+			return m, cmd
+		}
+		if key.Matches(msg, dashboardKeys.Logs) && len(m.apps) > 0 {
+			return m, func() tea.Msg { return NavigateToLogsMsg{App: m.apps[m.selectedIndex]} }
+		}
+		if key.Matches(msg, dashboardKeys.Details) && len(m.apps) > 0 {
+			dashboardShowDetails = !dashboardShowDetails
+			m.updateViewportSize()
+			m.selectPanel(m.selectedIndex)
+			return m, nil
+		}
+
+	case SettingsMenuCloseMsg:
+		m.overlay = nil
+
+	case SettingsMenuSelectMsg:
+		m.overlay = nil
+		return m, func() tea.Msg {
+			return NavigateToSettingsSectionMsg{App: msg.app, Section: msg.section}
+		}
+
+	case ActionsMenuCloseMsg:
+		m.overlay = nil
+
+	case ActionsMenuSelectMsg:
+		m.overlay = nil
+		switch msg.action {
+		case ActionsMenuStartStop:
+			app := msg.app
+			m.toggling = true
+			m.togglingApp = app.Settings.Name
+			m.progress = NewProgress(m.width, Colors.Border)
+			m.updateViewportSize()
+			m.rebuildViewportContent()
+			return m, tea.Batch(m.progress.Init(), m.runStartStop(app))
+		case ActionsMenuRemove:
+			return m, func() tea.Msg { return NavigateToRemoveMsg{App: msg.app} }
+		}
+
+	case startStopFinishedMsg:
+		m.toggling = false
+		m.togglingApp = ""
+		m.updateViewportSize()
+		m.rebuildViewportContent()
+
+	case scrapeDoneMsg:
+		m.rebuildViewportContent()
+
+	case dashboardTickMsg:
+		m.rebuildViewportContent()
+		cmds = append(cmds, m.scheduleNextDashboardTick())
+
+	case ProgressTickMsg:
+		if m.toggling {
+			var cmd tea.Cmd
+			m.progress, cmd = m.progress.Update(msg)
+			cmds = append(cmds, cmd)
+		}
+
+	case namespaceChangedMsg:
+		previousName := ""
+		if m.selectedIndex < len(m.apps) {
+			previousName = m.apps[m.selectedIndex].Settings.Name
+		}
+		m.apps = m.namespace.Applications()
+		m.buildPanels()
+		newIndex := 0
+		for i, app := range m.apps {
+			if app.Settings.Name == previousName {
+				newIndex = i
+				break
+			}
+		}
+		m.selectPanel(newIndex)
+		m.help.SetBindings(m.helpBindings())
+	}
+
+	return m, tea.Batch(cmds...)
+}
+
+func (m Dashboard) View() string {
+	titleLine := Styles.TitleRule(m.width, m.hostname)
+
+	helpView := m.help.View()
+	helpLine := Styles.CenteredLine(m.width, helpView)
+
+	headerView := m.header.View(m.width)
+
+	if len(m.apps) == 0 {
+		emptyMsg := lipgloss.NewStyle().Foreground(Colors.Border).Render("There are no applications installed")
+		headerH := m.header.Height(m.width)
+		if headerH > 0 {
+			headerH += 2
+		}
+		middleHeight := m.height - 1 - headerH - 1 // title + header + help
+		centeredContent := lipgloss.Place(m.width, middleHeight, lipgloss.Center, lipgloss.Center, emptyMsg)
+		if headerView != "" {
+			return titleLine + "\n\n" + headerView + "\n" + centeredContent + "\n" + helpLine
+		}
+		return titleLine + "\n" + centeredContent + "\n" + helpLine
+	}
+
+	var parts []string
+	parts = append(parts, titleLine)
+	if headerView != "" {
+		parts = append(parts, "", headerView, "")
+	}
+	parts = append(parts, m.viewport.View())
+	if m.toggling {
+		parts = append(parts, m.progress.View())
+	}
+	parts = append(parts, helpLine)
+	content := strings.Join(parts, "\n")
+
+	if m.overlay != nil {
+		return OverlayCenter(content, m.overlay.View(), m.width, m.height)
+	}
+
+	return content
+}
+
+// Private
+
+func (m Dashboard) helpBindings() []key.Binding {
+	if len(m.apps) > 0 {
+		return []key.Binding{
+			dashboardKeys.Up, dashboardKeys.Down, dashboardKeys.Actions,
+			dashboardKeys.Settings, dashboardKeys.Logs, dashboardKeys.Details, dashboardKeys.NewApp, dashboardKeys.Quit,
+		}
+	}
+	return []key.Binding{dashboardKeys.NewApp, dashboardKeys.Quit}
+}
+
+func (m Dashboard) runStartStop(app *docker.Application) tea.Cmd {
+	return func() tea.Msg {
+		var err error
+		if app.Running {
+			err = app.Stop(context.Background())
+		} else {
+			err = app.Start(context.Background())
+		}
+		return startStopFinishedMsg{err: err}
+	}
+}
+
+func (m Dashboard) scheduleNextDashboardTick() tea.Cmd {
+	return tea.Every(time.Second, func(time.Time) tea.Msg { return dashboardTickMsg{} })
+}
+
+func (m *Dashboard) selectPanel(index int) {
+	m.selectedIndex = max(0, min(index, len(m.apps)-1))
+	m.rebuildViewportContent()
+	m.scrollToSelection()
+}
+
+func (m *Dashboard) updateViewportSize() {
+	titleHeight := 1
+	headerHeight := m.header.Height(m.width)
+	if headerHeight > 0 {
+		headerHeight += 2 // blank lines above and below header
+	}
+	helpHeight := m.help.Height()
+	progressHeight := 0
+	if m.toggling {
+		progressHeight = 1
+	}
+	vpHeight := max(m.height-titleHeight-headerHeight-helpHeight-progressHeight, 0)
+	m.viewport.SetHeight(vpHeight)
+	m.viewport.SetWidth(m.width)
+}
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0msed -n 1,120p internal/ui/settings_form_application.go; grep -n "func (f .*Settings\|settings :=\|settings\." internal/ui/settings_form_*.go | head -40
+package ui
+
+import (
+	tea "charm.land/bubbletea/v2"
+
+	"github.com/basecamp/once/internal/docker"
+)
+
+const (
+	appImageField = iota
+	appHostnameField
+	appTLSField
+)
+
+type SettingsFormApplication struct {
+	settingsFormBase
+}
+
+func NewSettingsFormApplication(settings docker.ApplicationSettings) SettingsFormApplication {
+	imageField := NewTextField("user/repo:tag")
+	imageField.SetValue(settings.Image)
+
+	hostnameField := NewTextField("app.example.com")
+	hostnameField.SetValue(settings.Host)
+
+	tlsField := NewCheckboxField("Enabled", !settings.DisableTLS)
+	tlsField.SetDisabledWhen(func() (bool, string) {
+		if docker.IsLocalhost(hostnameField.Value()) {
+			return true, "Not available for localhost"
+		}
+		return false, ""
+	})
+
+	m := SettingsFormApplication{
+		title: "Application",
+		form: NewForm("Done",
+			FormItem{Label: "Image", Field: imageField, Required: true},
+			FormItem{Label: "Hostname", Field: hostnameField, Required: true},
+			FormItem{Label: "TLS", Field: tlsField},
+		),
+	}
+
+	m.form.OnSubmit(func(f *Form) tea.Cmd {
+		s := settings
+		s.Image = f.TextField(appImageField).Value()
+		s.Host = f.TextField(appHostnameField).Value()
+		s.DisableTLS = !f.CheckboxField(appTLSField).Checked()
+		return func() tea.Msg { return SettingsSectionSubmitMsg{Settings: s} }
+	})
+	m.form.OnCancel(func(f *Form) tea.Cmd {
+		return func() tea.Msg { return SettingsSectionCancelMsg{} }
+	})
+
+	return m
+}
+
+func (m SettingsFormApplication) Update(msg tea.Msg) (SettingsSection, tea.Cmd) {
+	var cmd tea.Cmd
+	m.settingsFormBase, cmd = m.update(msg)
+	return m, cmd
+}
+internal/ui/settings_form_application.go:21:	imageField.SetValue(settings.Image)
+internal/ui/settings_form_application.go:24:	hostnameField.SetValue(settings.Host)
+internal/ui/settings_form_application.go:26:	tlsField := NewCheckboxField("Enabled", !settings.DisableTLS)
+internal/ui/settings_form_email.go:23:	serverField.SetValue(settings.SMTP.Server)
+internal/ui/settings_form_email.go:27:	portField.SetValue(settings.SMTP.Port)
+internal/ui/settings_form_email.go:30:	usernameField.SetValue(settings.SMTP.Username)
+internal/ui/settings_form_email.go:34:	passwordField.SetValue(settings.SMTP.Password)
+internal/ui/settings_form_email.go:37:	fromField.SetValue(settings.SMTP.From)
+internal/ui/settings_form_environment.go:26:	keys := slices.Sorted(maps.Keys(settings.EnvVars))
+internal/ui/settings_form_environment.go:28:		items = append(items, newEnvKeyItem(k), newEnvValueItem(settings.EnvVars[k]))
+internal/ui/settings_form_registry.go:19:	host, _ := docker.RegistryHost(settings.Image)
+internal/ui/settings_form_registry.go:25:	if settings.Registry.Host == host {
+internal/ui/settings_form_registry.go:26:		usernameField.SetValue(settings.Registry.Username)
+internal/ui/settings_form_registry.go:27:		passwordField.SetValue(settings.Registry.Password)
+internal/ui/settings_form_resources.go:24:	if settings.Resources.CPUs != 0 {
+internal/ui/settings_form_resources.go:25:		cpuField.SetValue(strconv.Itoa(settings.Resources.CPUs))
+internal/ui/settings_form_resources.go:31:	if settings.Resources.MemoryMB != 0 {
+internal/ui/settings_form_resources.go:32:		memoryField.SetValue(strconv.Itoa(settings.Resources.MemoryMB))
+internal/ui/settings_form_test.go:14:	settings := docker.ApplicationSettings{
+internal/ui/settings_form_test.go:28:	settings := docker.ApplicationSettings{
+internal/ui/settings_form_test.go:147:	settings := docker.ApplicationSettings{
+internal/ui/settings_form_test.go:193:	settings := docker.ApplicationSettings{
+internal/ui/settings_form_test.go:233:	settings := docker.ApplicationSettings{
+internal/ui/settings_form_test.go:306:	settings := docker.ApplicationSettings{
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+Implemented stale source detection for static sites.
+
+- `internal/docker/source.go`: deterministic `HashSource` (sha256 over relative paths + file contents).
+- `ApplicationSettings.SourceHash` records the deployed folder's digest; `deploy`/redeploy populate it.
+- `docker.Scraper` rehashes static sources on the existing scrape tick and exposes `Stale(app)`; the dashboard shows `stale` (warning color) instead of `running`.
+- Tests cover hashing, stale detection/clearing, missing sources, and deploy hashing.
+
+Verification: `make test` → all packages `ok`; `make lint` (`golangci-lint run`) → `0 issues`. `go vet ./...` also clean.
