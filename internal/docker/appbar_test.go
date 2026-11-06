@@ -142,6 +142,40 @@ func TestAppBarScriptCanBeServedAsIs(t *testing.T) {
 	assert.Contains(t, script, "backdrop-filter:blur")
 }
 
+func TestAppBarCrossFadesContentUnderStillBar(t *testing.T) {
+	ns := namespaceWithApps(ApplicationSettings{Name: "alpha", Host: "alpha.localhost"})
+
+	script := ns.Application("alpha").appBarScript()
+
+	assert.Contains(t, script, `node !== bar && node.tagName !== "SCRIPT"`)
+	assert.Contains(t, script, `node.style.transition = "opacity " + fadeDuration + "ms ease"`)
+	assert.Contains(t, script, `window.setTimeout(() => location.assign(href), fadeDuration)`)
+	assert.NotContains(t, script, "bar.style.opacity")
+}
+
+func TestAppBarCrossFadeFallsBackWithoutTransitions(t *testing.T) {
+	ns := namespaceWithApps(ApplicationSettings{Name: "alpha", Host: "alpha.localhost"})
+
+	script := ns.Application("alpha").appBarScript()
+
+	assert.Contains(t, script, `(prefers-reduced-motion: reduce)`)
+	assert.Contains(t, script, `const canFade = !reduceMotion && Boolean(window.CSS`)
+	assert.Contains(t, script, `if (!canFade || nodes.length === 0) return location.assign(href)`)
+}
+
+func TestAppBarCrossFadeFadesInAfterAppChange(t *testing.T) {
+	ns := namespaceWithApps(
+		ApplicationSettings{Name: "alpha", Host: "alpha.localhost"},
+		ApplicationSettings{Name: "beta", Host: "beta.localhost"},
+	)
+
+	script := ns.Application("beta").appBarScript()
+
+	assert.Contains(t, script, `if (canFade && arrivedFromApp()) fadeIn(contentNodes())`)
+	assert.Contains(t, script, `document.referrer.indexOf(url + "/") === 0`)
+	assert.Contains(t, script, `if (event.persisted) contentNodes().forEach(clearFade)`)
+}
+
 func TestStaticNginxCommandInjectsAppBar(t *testing.T) {
 	ns := namespaceWithApps(ApplicationSettings{Name: "alpha", Host: "alpha.localhost"})
 	app := NewApplication(ns, ApplicationSettings{

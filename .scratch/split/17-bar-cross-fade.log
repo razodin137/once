@@ -1,0 +1,868 @@
+[0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m✱ [0mGrep "bar-cross-fade|split" [90min . · 50 matches[0m
+[0m$ [0mls -la; ls -la .opencode 2>/dev/null; ls -la .scratch 2>/dev/null
+total 64
+drwxr-xr-x 1 mrjohn mrjohn   352 Nov  6 17:59 .
+drwxr-xr-x 1 mrjohn mrjohn    24 Nov  6 18:01 ..
+-rw-r--r-- 1 mrjohn mrjohn  4449 Nov  6 17:42 AGENTS.md
+drwxr-xr-x 1 mrjohn mrjohn     8 Nov  6 17:59 bin
+drwxr-xr-x 1 mrjohn mrjohn    18 Nov  6 17:42 .claude
+drwxr-xr-x 1 mrjohn mrjohn     8 Nov  6 17:42 cmd
+-rw-r--r-- 1 mrjohn mrjohn     8 Nov  6 17:42 .dockerignore
+drwxr-xr-x 1 mrjohn mrjohn   196 Nov  6 18:51 .git
+drwxr-xr-x 1 mrjohn mrjohn    86 Nov  6 17:42 .github
+-rw-r--r-- 1 mrjohn mrjohn    53 Nov  6 17:42 .gitignore
+-rw-r--r-- 1 mrjohn mrjohn   216 Nov  6 17:42 .golangci.yml
+-rw-r--r-- 1 mrjohn mrjohn  3273 Nov  6 18:23 go.mod
+-rw-r--r-- 1 mrjohn mrjohn 14792 Nov  6 18:23 go.sum
+drwxr-xr-x 1 mrjohn mrjohn   138 Nov  6 17:42 installer
+drwxr-xr-x 1 mrjohn mrjohn    62 Nov  6 17:42 integration
+drwxr-xr-x 1 mrjohn mrjohn   172 Nov  6 18:43 internal
+-rw-r--r-- 1 mrjohn mrjohn  1292 Nov  6 17:42 Makefile
+-rw-r--r-- 1 mrjohn mrjohn    97 Nov  6 17:42 mise.toml
+-rw-r--r-- 1 mrjohn mrjohn  1053 Nov  6 17:42 MIT-LICENSE
+drwxr-xr-x 1 mrjohn mrjohn  2004 Nov  6 17:49 prompt
+drwxr-xr-x 1 mrjohn mrjohn   840 Nov  6 17:44 prompt-v1
+-rw-r--r-- 1 mrjohn mrjohn  8244 Nov  6 17:42 README.md
+drwxr-xr-x 1 mrjohn mrjohn    10 Nov  6 18:51 .scratch
+drwxr-xr-x 1 mrjohn mrjohn    30 Nov  5 23:06 scripts
+total 0
+drwxr-xr-x 1 mrjohn mrjohn   10 Nov  6 18:51 .
+drwxr-xr-x 1 mrjohn mrjohn  352 Nov  6 17:59 ..
+drwxr-xr-x 1 mrjohn mrjohn 2184 Nov  6 18:51 split
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead prompt/17-bar-cross-fade.md 
+[0m$ [0mls prompt; git log --oneline -5; git status --porcelain
+00-overview.md
+01-deploy-static-folder.md
+02-serve-static-apps.md
+03-redeploy-folder.md
+04-stale-source-detection.md
+05-folder-contents-fallback.md
+06-markdown-pages.md
+07-single-file-html-site.md
+08-remove-static-app.md
+09-contents-card.md
+10-contents-screen.md
+11-channels.md
+12-channel-filter.md
+13-favorites.md
+14-drift.md
+15-app-bar.md
+16-bar-keys.md
+17-bar-cross-fade.md
+18-bar-hide.md
+19-open-command.md
+20-show-command.md
+21-logs-command.md
+22-status-command.md
+23-list-json.md
+24-restart-command.md
+25-update-all.md
+26-doctor-command.md
+27-backups-list.md
+28-screenshot-capture.md
+29-card-thumbnails.md
+30-route-map.md
+31-page-weight.md
+32-broken-links.md
+33-meta-preview.md
+34-deploy-diff.md
+35-promote-on-evidence.md
+36-error-capture.md
+37-dashboard-filter.md
+38-command-palette.md
+39-toasts.md
+40-chart-time-range.md
+41-compact-layout.md
+42-appearance-settings.md
+43-app-details-view.md
+44-mouse-on-cards.md
+45-incremental-render.md
+46-chart-performance.md
+47-single-stats-stream.md
+48-share-link.md
+49-status-page.md
+50-house-style-pass.md
+926c88b split: 16-bar-keys
+1b1f9fd split: 16-bar-keys
+d826067 split: 15-app-bar
+d9aa468 split: 15-app-bar
+2a8c584 split: 14-drift
+?? .scratch/split/17-bar-cross-fade.log
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcat prompt/15-app-bar.md; echo =====; cat prompt/16-bar-keys.md; echo =====; cat prompt/00-overview.md
+Your job is to go in and inject a bar into every page ONCE serves here to this Go CLI/TUI app.
+
+Forty pixels tall, the app name on the left, then back, next, contents, drift, reload and hide. Dark glass over whatever the page is, and the page itself is never modified on disk.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+=====
+Your job is to go in and bind the bar to the same keys everywhere here to this Go CLI/TUI app.
+
+`/` menu, `[` back, `]` next, `C` contents, `R` drift, `Shift+R` reload, `H` hide, the same letters the TUI already uses so one set of habits works in both.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+=====
+These prompts change the ONCE Go CLI/TUI in this repository, one feature per file, run in order with a fresh agent for each.
+
+House style here is the project's own Go conventions plus `make lint`; the wider reference copy is at /home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+
+The last line of every file is the same, and it means `make test` and `make lint` both run clean.
+
+Each file is the whole instruction for its session. Read only the one you are running.
+[0m$ [0mfind internal -type f -name '*.go' | head -60; echo ===; ls internal; echo ===; cat .scratch/split/15-app-bar.diff 2>/dev/null | head -80
+internal/background/runner.go
+internal/background/runner_test.go
+internal/command/background.go
+internal/command/background_install.go
+internal/command/background_remove.go
+internal/command/background_run.go
+internal/command/backup.go
+internal/command/cli_progress.go
+internal/command/deploy.go
+internal/command/deploy_test.go
+internal/command/exec.go
+internal/command/exec_test.go
+internal/command/keys.go
+internal/command/keys_reset.go
+internal/command/keys_set.go
+internal/command/list.go
+internal/command/remove.go
+internal/command/restore.go
+internal/command/root.go
+internal/command/root_test.go
+internal/command/self_update.go
+internal/command/settings_flags.go
+internal/command/start.go
+internal/command/stop.go
+internal/command/teardown.go
+internal/command/update.go
+internal/command/update_test.go
+internal/command/version.go
+internal/docker/application.go
+internal/docker/application_backup.go
+internal/docker/application_backup_test.go
+internal/docker/application_settings.go
+internal/docker/application_settings_test.go
+internal/docker/application_test.go
+internal/docker/container.go
+internal/docker/errors.go
+internal/docker/errors_test.go
+internal/docker/events.go
+internal/docker/helpers.go
+internal/docker/helpers_test.go
+internal/docker/logs.go
+internal/docker/logs_test.go
+internal/docker/namespace.go
+internal/docker/namespace_test.go
+internal/docker/progress.go
+internal/docker/progress_test.go
+internal/docker/proxy.go
+internal/docker/proxy_test.go
+internal/docker/registry_auth.go
+internal/docker/registry_auth_test.go
+internal/docker/ring_buffer.go
+internal/docker/ring_buffer_test.go
+internal/docker/scraper.go
+internal/docker/scraper_test.go
+internal/docker/state.go
+internal/docker/state_test.go
+internal/docker/volume.go
+internal/docker/volume_test.go
+internal/docker/application_static_test.go
+internal/docker/source.go
+===
+background
+browser
+command
+docker
+fsutil
+logging
+metrics
+mouse
+service
+system
+ui
+userstats
+version
+===
+ .scratch/split/15-app-bar.check |  6 ++++--
+ .scratch/split/15-app-bar.diff  |  2 --
+ .scratch/split/15-app-bar.log   | 14 ++++++++++++++
+ 3 files changed, 18 insertions(+), 4 deletions(-)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mls internal/ui; echo ===; grep -rln "bar" internal/ui internal/browser | head; echo ===; grep -rn "once-bar\|X-Once\|bar" internal/browser/*.go | head -40
+actions_menu.go
+actions_menu_test.go
+app.go
+channels.go
+chart.go
+chart_scale.go
+chart_scale_test.go
+chart_test.go
+component.go
+confirmation.go
+confirmation_test.go
+contents_card.go
+contents_card_test.go
+dashboard.go
+dashboard_header.go
+dashboard_header_test.go
+dashboard_panel.go
+dashboard_panel_test.go
+dashboard_test.go
+favorite.go
+form.go
+form_test.go
+helpers_test.go
+help.go
+help_test.go
+install_activity.go
+install_app_list.go
+install_app_list_test.go
+install.go
+install_hostname_form.go
+install_hostname_form_test.go
+install_image_form.go
+install_image_form_test.go
+install_test.go
+keys.go
+logo.go
+logs.go
+logs_test.go
+menu.go
+menu_test.go
+metric_card.go
+metric_card_test.go
+palette_detect.go
+palette_detect_test.go
+palette.go
+palette_test.go
+popup_help.go
+popup_help_test.go
+progress.go
+remove.go
+remove_test.go
+settings_form_application.go
+settings_form_backups.go
+settings_form_base.go
+settings_form_email.go
+settings_form_environment.go
+settings_form_registry.go
+settings_form_resources.go
+settings_form_test.go
+settings_form_updates.go
+settings.go
+settings_menu.go
+settings_menu_test.go
+settings_test.go
+starfield.go
+styles.go
+styles_test.go
+terminal_size_guard.go
+terminal_size_guard_test.go
+===
+internal/ui/chart.go
+internal/ui/dashboard_header.go
+internal/ui/dashboard_panel.go
+internal/ui/metric_card.go
+internal/ui/progress.go
+internal/ui/dashboard_panel_test.go
+===
+[0m$ [0mgrep -rn "crossfade\|cross-fade\|view-transition\|Transition" internal --include=*.go | head -20; echo ===; git show --stat HEAD; git show --stat HEAD~1
+internal/ui/dashboard_panel.go:119:	topTrans := p.renderTopTransition(selected, width)
+internal/ui/dashboard_panel.go:120:	bottomTrans := p.renderBottomTransition(selected, width)
+internal/ui/dashboard_panel.go:295:func (p DashboardPanel) renderTopTransition(selected bool, width int) string {
+internal/ui/dashboard_panel.go:304:func (p DashboardPanel) renderBottomTransition(selected bool, width int) string {
+===
+commit 926c88b9858492096c4fdf5fe06aef75536d9cc3
+Author: razodin137 <razodin137@gmail.com>
+Date:   Fri Nov 6 18:51:30 2026 +0700
+
+    split: 16-bar-keys
+
+ .scratch/split/16-bar-keys.check | 16 ++++++++++++++++
+ .scratch/split/16-bar-keys.diff  |  2 ++
+ .scratch/split/16-bar-keys.log   |  6 ++++++
+ 3 files changed, 24 insertions(+)
+commit 1b1f9fdc7de790cbc0272c051fe643b851086ee5
+Author: razodin137 <razodin137@gmail.com>
+Date:   Fri Nov 6 18:51:28 2026 +0700
+
+    split: 16-bar-keys
+
+ .scratch/split/16-bar-keys.log | 3375 ++++++++++++++++++++++++++++++++++++++++
+ internal/docker/appbar.go      |  191 ++-
+ internal/docker/appbar_test.go |  146 +-
+ internal/docker/application.go |    8 +
+ 4 files changed, 3618 insertions(+), 102 deletions(-)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/docker/appbar.go 
+[0m→ [0mRead internal/docker/appbar_test.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgrep -rn "func (a \*Application) URL\|func (p \*Proxy) URL\|Hostname\|Scheme" internal/docker/application.go internal/docker/proxy.go | head -40; echo ===; sed -n 1,120p internal/docker/proxy.go
+internal/docker/application.go:23:	ErrHostnameInUse         = errors.New("hostname already in use")
+internal/docker/application.go:135:func (a *Application) URL() string {
+===
+package docker
+
+import (
+	"archive/tar"
+	"bytes"
+	"context"
+	"encoding/json"
+	"fmt"
+	"io"
+	"log/slog"
+	"net/netip"
+	"strings"
+
+	"github.com/containerd/errdefs"
+	"github.com/moby/moby/api/types/container"
+	"github.com/moby/moby/api/types/mount"
+	"github.com/moby/moby/api/types/network"
+	"github.com/moby/moby/client"
+)
+
+const (
+	ProxyImage = "basecamp/kamal-proxy:once-01"
+	labelKey   = "once"
+)
+
+const (
+	stateFileDir  = "/home/kamal-proxy/.config/kamal-proxy"
+	stateFileName = "once-state.json"
+	stateFilePath = stateFileDir + "/" + stateFileName
+)
+
+const (
+	DefaultHTTPPort    = 80
+	DefaultHTTPSPort   = 443
+	DefaultMetricsPort = 1318
+	deployTimeout      = "120s"
+)
+
+type ProxySettings struct {
+	HTTPPort    int `json:"httpPort"`
+	HTTPSPort   int `json:"httpsPort"`
+	MetricsPort int `json:"metricsPort"`
+}
+
+func UnmarshalProxySettings(s string) (ProxySettings, error) {
+	var settings ProxySettings
+	err := json.Unmarshal([]byte(s), &settings)
+	return settings, err
+}
+
+func (s ProxySettings) Marshal() string {
+	b, _ := json.Marshal(s)
+	return string(b)
+}
+
+type DeployOptions struct {
+	AppName string
+	Target  string
+	Host    string
+	TLS     bool
+}
+
+type Proxy struct {
+	namespace *Namespace
+	Settings  *ProxySettings
+}
+
+func NewProxy(ns *Namespace) *Proxy {
+	return &Proxy{namespace: ns}
+}
+
+func (p *Proxy) Boot(ctx context.Context, settings ProxySettings) error {
+	if settings.HTTPPort == 0 {
+		settings.HTTPPort = DefaultHTTPPort
+	}
+	if settings.HTTPSPort == 0 {
+		settings.HTTPSPort = DefaultHTTPSPort
+	}
+	if settings.MetricsPort == 0 {
+		settings.MetricsPort = DefaultMetricsPort
+	}
+
+	info, err := p.namespace.client.ContainerInspect(ctx, p.containerName(), client.ContainerInspectOptions{})
+	if err == nil {
+		return p.ensureRunning(ctx, info.Container)
+	}
+	if !errdefs.IsNotFound(err) {
+		return fmt.Errorf("inspecting proxy container: %w", err)
+	}
+
+	reader, err := p.namespace.client.ImagePull(ctx, ProxyImage, client.ImagePullOptions{})
+	if err != nil {
+		return fmt.Errorf("pulling proxy image: %w", err)
+	}
+	defer reader.Close()
+	_, _ = io.Copy(io.Discard, reader)
+
+	name := p.containerName()
+	httpPortTCP := network.MustParsePort("80/tcp")
+	httpsPortTCP := network.MustParsePort("443/tcp")
+	metricsPortTCP := network.MustParsePort(fmt.Sprintf("%d/tcp", settings.MetricsPort))
+
+	resp, err := p.namespace.client.ContainerCreate(ctx, client.ContainerCreateOptions{
+		Name: name,
+		Config: &container.Config{
+			Image: ProxyImage,
+			Cmd:   []string{"kamal-proxy", "run", "--metrics-port", fmt.Sprintf("%d", settings.MetricsPort)},
+			Labels: map[string]string{
+				labelKey: settings.Marshal(),
+			},
+			ExposedPorts: network.PortSet{
+				httpPortTCP:    struct{}{},
+				httpsPortTCP:   struct{}{},
+				metricsPortTCP: struct{}{},
+			},
+		},
+		HostConfig: &container.HostConfig{
+			PortBindings: network.PortMap{
+				httpPortTCP:    []network.PortBinding{{HostPort: fmt.Sprintf("%d", settings.HTTPPort)}},
+				httpsPortTCP:   []network.PortBinding{{HostPort: fmt.Sprintf("%d", settings.HTTPSPort)}},
+[0m$ [0mgrep -rn "ServedPath\|staticNginxCommand\|sub_filter" internal/docker/*.go | head -40
+internal/docker/appbar.go:33:	if a.Settings.ServedPath == "" {
+internal/docker/appbar.go:37:	path := filepath.Join(a.Settings.ServedPath, filepath.FromSlash(appBarScriptPath))
+internal/docker/appbar_test.go:119:	app.Settings.ServedPath = served
+internal/docker/appbar_test.go:153:	command := strings.Join(app.staticNginxCommand(), " ")
+internal/docker/appbar_test.go:155:	assert.Contains(t, command, `sub_filter '</body>' '<script src="/__once/bar.js" defer></script></body>'`)
+internal/docker/appbar_test.go:156:	assert.Contains(t, command, "sub_filter_types text/html")
+internal/docker/application.go:61:    sub_filter '</body>' '{{bar}}</body>';
+internal/docker/application.go:62:    sub_filter_once on;
+internal/docker/application.go:63:    sub_filter_types text/html;
+internal/docker/application.go:315:	if a.Settings.Static() || a.Settings.ServedPath != "" {
+internal/docker/application.go:517:		source := cmp.Or(a.Settings.ServedPath, a.Settings.Source)
+internal/docker/application.go:569:		config.Cmd = a.staticNginxCommand()
+internal/docker/application.go:577:func (a *Application) staticNginxCommand() []string {
+internal/docker/application_settings.go:102:	ServedPath string             `json:"servedPath,omitempty"`
+internal/docker/application_settings.go:150:	if s.Name != other.Name || s.Image != other.Image || s.Source != other.Source || s.SourceHash != other.SourceHash || s.ServedPath != other.ServedPath || s.Host != other.Host || s.DisableTLS != other.DisableTLS {
+internal/docker/application_static_test.go:15:		ServedPath: "/cache/once/sites/site.abc123/0123456789abcdef",
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0msed -n 40,90p internal/docker/application.go; sed -n 125,160p internal/docker/application.go; sed -n 560,640p internal/docker/application.go
+ErrDeployFailed       = errors.New("deploy failed")
+	ErrVerificationFailed = &describedError{
+		msg:         "verification failed",
+		description: "The application couldn't be verified. Please check that you have a valid DNS record set up.",
+	}
+	ErrUnpauseFailed                   = errors.New("failed to unpause container after backup")
+	ErrRegistryPasswordWithoutUsername = errors.New("registry password requires a username")
+	ErrRegistryUsernameWithoutPassword = errors.New("registry username requires a password")
+)
+
+const (
+	AutomaticTaskInterval = 24 * time.Hour
+	HealthCheckPath       = "/up"
+	httpVerifyTimeout     = 30 * time.Second
+
+	StaticImage         = "nginx:alpine-slim"
+	staticContentTarget = "/usr/share/nginx/html"
+)
+
+const staticNginxConfig = `server {
+    listen 80;
+    sub_filter '</body>' '{{bar}}</body>';
+    sub_filter_once on;
+    sub_filter_types text/html;
+    location = {{health}} {
+        access_log off;
+        return 200 "ok";
+    }
+    location = /__once/bar.js {
+        root {{root}};
+        add_header Cache-Control "no-store";
+    }
+    location ~* \.md$ {
+        root {{root}};
+        charset utf-8;
+        types { }
+        default_type text/html;
+    }
+    location / {
+        root {{root}};
+        index index.html;
+    }
+}
+`
+
+// AppVolumeMountTargets defines the paths where the app data volume is mounted
+// inside the container. The first entry is the primary path used for backups.
+var AppVolumeMountTargets = []string{"/storage", "/rails/storage"}
+
+type Application struct {
+	namespace    *Namespace
+	if err == nil {
+		return vol, nil
+	}
+	if !errors.Is(err, ErrVolumeNotFound) {
+		return nil, err
+	}
+
+	return CreateVolume(ctx, a.namespace, a.Settings.Name, ApplicationLegacyVolumeSettings{})
+}
+
+func (a *Application) URL() string {
+	if a.Settings.Host == "" {
+		return ""
+	}
+
+	scheme := "http"
+	defaultPort := 80
+	if a.Settings.TLSEnabled() {
+		scheme = "https"
+		defaultPort = 443
+	}
+
+	base := scheme + "://" + a.Settings.Host
+
+	if a.namespace == nil {
+		return base
+	}
+
+	proxy := a.namespace.Proxy()
+	if proxy.Settings == nil {
+		return base
+	}
+
+	port := proxy.Settings.HTTPPort
+	if a.Settings.TLSEnabled() {
+		port = proxy.Settings.HTTPSPort
+	config := &container.Config{
+		Image: a.Settings.Image,
+		Labels: map[string]string{
+			labelKey: a.Settings.Marshal(),
+		},
+		Env: env,
+	}
+
+	if a.Settings.Static() {
+		config.Cmd = a.staticNginxCommand()
+	}
+
+	return config
+}
+
+// Helpers
+
+func (a *Application) staticNginxCommand() []string {
+	config := strings.NewReplacer(
+		"{{bar}}", escapeNginxVariables(a.appBar()),
+		"{{health}}", HealthCheckPath,
+		"{{root}}", staticContentTarget,
+	).Replace(staticNginxConfig)
+
+	return []string{"sh", "-c", "cat > /etc/nginx/conf.d/default.conf <<'EOF'\n" + config + "EOF\nnginx -g 'daemon off;'\n"}
+}
+
+// escapeNginxVariables keeps nginx from expanding dollar signs in the bar, as
+// its single-quoted strings still interpolate variables.
+func escapeNginxVariables(text string) string {
+	return strings.ReplaceAll(text, "$", `\$`)
+}
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/appbar.go
+Index: internal/docker/appbar.go
+===================================================================
+--- internal/docker/appbar.go
++++ internal/docker/appbar.go
+@@ -189,17 +189,60 @@
+     menu.hidden = !open
+     toggle.setAttribute("aria-expanded", open ? "true" : "false")
+   }
+ 
++  const reduceMotion = Boolean(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches)
++  const canFade = !reduceMotion && Boolean(window.CSS && window.CSS.supports && window.CSS.supports("transition", "opacity"))
++  const fadeDuration = 180
++
++  function contentNodes() {
++    return Array.from(document.body.children).filter((node) => node !== bar && node.tagName !== "SCRIPT")
++  }
++
++  function clearFade(node) {
++    node.style.transition = ""
++    node.style.opacity = ""
++  }
++
++  function fadeIn(nodes) {
++    nodes.forEach((node) => {
++      node.style.transition = "none"
++      node.style.opacity = "0"
++    })
++    void document.body.offsetWidth
++    nodes.forEach((node) => {
++      node.style.transition = "opacity " + fadeDuration + "ms ease"
++      node.style.opacity = "1"
++    })
++    window.setTimeout(() => nodes.forEach(clearFade), fadeDuration + 50)
++  }
++
++  function arrivedFromApp() {
++    if (!document.referrer) return false
++    const known = [data.back, data.next].concat(drift).filter((url) => url && url !== "#")
++    return known.some((url) => document.referrer === url || document.referrer.indexOf(url + "/") === 0)
++  }
++
++  function leave(href) {
++    if (!href || href === "#") return
++    const nodes = contentNodes()
++    if (!canFade || nodes.length === 0) return location.assign(href)
++    nodes.forEach((node) => {
++      node.style.transition = "opacity " + fadeDuration + "ms ease"
++      node.style.opacity = "0"
++    })
++    window.setTimeout(() => location.assign(href), fadeDuration)
++  }
++
+   function run(action) {
+     if (action === "menu") return setMenu(menu.hidden)
+     if (action === "hide") { setMenu(false); bar.hidden = true; return }
+     if (action === "reload") return location.reload()
+     if (action === "drift") {
+-      if (drift.length > 0) location.assign(drift[Math.floor(Math.random() * drift.length)])
++      if (drift.length > 0) leave(drift[Math.floor(Math.random() * drift.length)])
+       return
+     }
+-    if (links[action]) location.assign(links[action].href)
++    if (links[action]) leave(links[action].href)
+   }
+ 
+   bar.addEventListener("click", (event) => {
+     const action = event.target.closest?.("[data-once]")
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/appbar.go
+Index: internal/docker/appbar.go
+===================================================================
+--- internal/docker/appbar.go
++++ internal/docker/appbar.go
+@@ -271,6 +271,12 @@
+   })
+ 
+   document.head.appendChild(style)
+   document.body.appendChild(bar)
++
++  if (canFade && arrivedFromApp()) fadeIn(contentNodes())
++
++  window.addEventListener("pageshow", (event) => {
++    if (event.persisted) contentNodes().forEach(clearFade)
++  })
+ })()
+ `
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/appbar_test.go
+Index: internal/docker/appbar_test.go
+===================================================================
+--- internal/docker/appbar_test.go
++++ internal/docker/appbar_test.go
+@@ -141,8 +141,42 @@
+ 	assert.Contains(t, script, "height:40px")
+ 	assert.Contains(t, script, "backdrop-filter:blur")
+ }
+ 
++func TestAppBarCrossFadesContentUnderStillBar(t *testing.T) {
++	ns := namespaceWithApps(ApplicationSettings{Name: "alpha", Host: "alpha.localhost"})
++
++	script := ns.Application("alpha").appBarScript()
++
++	assert.Contains(t, script, `node !== bar && node.tagName !== "SCRIPT"`)
++	assert.Contains(t, script, `node.style.transition = "opacity " + fadeDuration + "ms ease"`)
++	assert.Contains(t, script, `window.setTimeout(() => location.assign(href), fadeDuration)`)
++	assert.NotContains(t, script, "bar.style.opacity")
++}
++
++func TestAppBarCrossFadeFallsBackWithoutTransitions(t *testing.T) {
++	ns := namespaceWithApps(ApplicationSettings{Name: "alpha", Host: "alpha.localhost"})
++
++	script := ns.Application("alpha").appBarScript()
++
++	assert.Contains(t, script, `(prefers-reduced-motion: reduce)`)
++	assert.Contains(t, script, `const canFade = !reduceMotion && Boolean(window.CSS`)
++	assert.Contains(t, script, `if (!canFade || nodes.length === 0) return location.assign(href)`)
++}
++
++func TestAppBarCrossFadeFadesInAfterAppChange(t *testing.T) {
++	ns := namespaceWithApps(
++		ApplicationSettings{Name: "alpha", Host: "alpha.localhost"},
++		ApplicationSettings{Name: "beta", Host: "beta.localhost"},
++	)
++
++	script := ns.Application("beta").appBarScript()
++
++	assert.Contains(t, script, `if (canFade && arrivedFromApp()) fadeIn(contentNodes())`)
++	assert.Contains(t, script, `document.referrer.indexOf(url + "/") === 0`)
++	assert.Contains(t, script, `if (event.persisted) contentNodes().forEach(clearFade)`)
++}
++
+ func TestStaticNginxCommandInjectsAppBar(t *testing.T) {
+ 	ns := namespaceWithApps(ApplicationSettings{Name: "alpha", Host: "alpha.localhost"})
+ 	app := NewApplication(ns, ApplicationSettings{
+ 		Name:   "site",
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/docker/appbar_test.go [90m[offset=140, limit=55][0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mmake test 2>&1 | tail -20
+go test ./internal/...
+ok  	github.com/basecamp/once/internal/background	0.012s
+ok  	github.com/basecamp/once/internal/browser	(cached)
+ok  	github.com/basecamp/once/internal/command	(cached)
+ok  	github.com/basecamp/once/internal/docker	0.034s
+ok  	github.com/basecamp/once/internal/fsutil	(cached)
+?   	github.com/basecamp/once/internal/logging	[no test files]
+ok  	github.com/basecamp/once/internal/metrics	0.012s
+ok  	github.com/basecamp/once/internal/mouse	(cached)
+?   	github.com/basecamp/once/internal/service	[no test files]
+ok  	github.com/basecamp/once/internal/system	(cached)
+ok  	github.com/basecamp/once/internal/ui	0.245s
+ok  	github.com/basecamp/once/internal/userstats	(cached)
+ok  	github.com/basecamp/once/internal/version	(cached)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mWrite internal/docker/zz_dump_test.go
+Created file successfully: internal/docker/zz_dump_test.go
+[0m$ [0mmake lint 2>&1 | tail -20
+golangci-lint run
+0 issues.
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgo test ./internal/docker/ -run TestZZDumpBarScript -count=1 >/dev/null && node --check /tmp/opencode/bar.js && echo JS_OK; rm -f internal/docker/zz_dump_test.go /tmp/opencode/bar.js
+JS_OK
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgit diff -- internal/docker/appbar.go internal/docker/appbar_test.go; git status --porcelain
+diff --git i/internal/docker/appbar.go w/internal/docker/appbar.go
+index 0c6fb54..6ce4214 100644
+--- i/internal/docker/appbar.go
++++ w/internal/docker/appbar.go
+@@ -190,15 +190,58 @@ const appBarScriptTemplate = `(function () {
+     toggle.setAttribute("aria-expanded", open ? "true" : "false")
+   }
+ 
++  const reduceMotion = Boolean(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches)
++  const canFade = !reduceMotion && Boolean(window.CSS && window.CSS.supports && window.CSS.supports("transition", "opacity"))
++  const fadeDuration = 180
++
++  function contentNodes() {
++    return Array.from(document.body.children).filter((node) => node !== bar && node.tagName !== "SCRIPT")
++  }
++
++  function clearFade(node) {
++    node.style.transition = ""
++    node.style.opacity = ""
++  }
++
++  function fadeIn(nodes) {
++    nodes.forEach((node) => {
++      node.style.transition = "none"
++      node.style.opacity = "0"
++    })
++    void document.body.offsetWidth
++    nodes.forEach((node) => {
++      node.style.transition = "opacity " + fadeDuration + "ms ease"
++      node.style.opacity = "1"
++    })
++    window.setTimeout(() => nodes.forEach(clearFade), fadeDuration + 50)
++  }
++
++  function arrivedFromApp() {
++    if (!document.referrer) return false
++    const known = [data.back, data.next].concat(drift).filter((url) => url && url !== "#")
++    return known.some((url) => document.referrer === url || document.referrer.indexOf(url + "/") === 0)
++  }
++
++  function leave(href) {
++    if (!href || href === "#") return
++    const nodes = contentNodes()
++    if (!canFade || nodes.length === 0) return location.assign(href)
++    nodes.forEach((node) => {
++      node.style.transition = "opacity " + fadeDuration + "ms ease"
++      node.style.opacity = "0"
++    })
++    window.setTimeout(() => location.assign(href), fadeDuration)
++  }
++
+   function run(action) {
+     if (action === "menu") return setMenu(menu.hidden)
+     if (action === "hide") { setMenu(false); bar.hidden = true; return }
+     if (action === "reload") return location.reload()
+     if (action === "drift") {
+-      if (drift.length > 0) location.assign(drift[Math.floor(Math.random() * drift.length)])
++      if (drift.length > 0) leave(drift[Math.floor(Math.random() * drift.length)])
+       return
+     }
+-    if (links[action]) location.assign(links[action].href)
++    if (links[action]) leave(links[action].href)
+   }
+ 
+   bar.addEventListener("click", (event) => {
+@@ -229,5 +272,11 @@ const appBarScriptTemplate = `(function () {
+ 
+   document.head.appendChild(style)
+   document.body.appendChild(bar)
++
++  if (canFade && arrivedFromApp()) fadeIn(contentNodes())
++
++  window.addEventListener("pageshow", (event) => {
++    if (event.persisted) contentNodes().forEach(clearFade)
++  })
+ })()
+ `
+diff --git i/internal/docker/appbar_test.go w/internal/docker/appbar_test.go
+index 5643614..27fef11 100644
+--- i/internal/docker/appbar_test.go
++++ w/internal/docker/appbar_test.go
+@@ -142,6 +142,40 @@ func TestAppBarScriptCanBeServedAsIs(t *testing.T) {
+ 	assert.Contains(t, script, "backdrop-filter:blur")
+ }
+ 
++func TestAppBarCrossFadesContentUnderStillBar(t *testing.T) {
++	ns := namespaceWithApps(ApplicationSettings{Name: "alpha", Host: "alpha.localhost"})
++
++	script := ns.Application("alpha").appBarScript()
++
++	assert.Contains(t, script, `node !== bar && node.tagName !== "SCRIPT"`)
++	assert.Contains(t, script, `node.style.transition = "opacity " + fadeDuration + "ms ease"`)
++	assert.Contains(t, script, `window.setTimeout(() => location.assign(href), fadeDuration)`)
++	assert.NotContains(t, script, "bar.style.opacity")
++}
++
++func TestAppBarCrossFadeFallsBackWithoutTransitions(t *testing.T) {
++	ns := namespaceWithApps(ApplicationSettings{Name: "alpha", Host: "alpha.localhost"})
++
++	script := ns.Application("alpha").appBarScript()
++
++	assert.Contains(t, script, `(prefers-reduced-motion: reduce)`)
++	assert.Contains(t, script, `const canFade = !reduceMotion && Boolean(window.CSS`)
++	assert.Contains(t, script, `if (!canFade || nodes.length === 0) return location.assign(href)`)
++}
++
++func TestAppBarCrossFadeFadesInAfterAppChange(t *testing.T) {
++	ns := namespaceWithApps(
++		ApplicationSettings{Name: "alpha", Host: "alpha.localhost"},
++		ApplicationSettings{Name: "beta", Host: "beta.localhost"},
++	)
++
++	script := ns.Application("beta").appBarScript()
++
++	assert.Contains(t, script, `if (canFade && arrivedFromApp()) fadeIn(contentNodes())`)
++	assert.Contains(t, script, `document.referrer.indexOf(url + "/") === 0`)
++	assert.Contains(t, script, `if (event.persisted) contentNodes().forEach(clearFade)`)
++}
++
+ func TestStaticNginxCommandInjectsAppBar(t *testing.T) {
+ 	ns := namespaceWithApps(ApplicationSettings{Name: "alpha", Host: "alpha.localhost"})
+ 	app := NewApplication(ns, ApplicationSettings{
+ M internal/docker/appbar.go
+ M internal/docker/appbar_test.go
+?? .scratch/split/17-bar-cross-fade.log
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+Bar now fades the page content in and out while the bar itself stays fixed and untouched (`internal/docker/appbar.go:193`). Arrival is detected from `document.referrer` so the incoming app fades in; `prefers-reduced-motion` or no CSS-transition support falls straight through to a normal navigation, and bfcache restores clear any half-faded inline styles.
+
+Verified: `make test` passes, `make lint` reports `0 issues`; dumped script also passed `node --check`.

@@ -190,15 +190,58 @@ const appBarScriptTemplate = `(function () {
     toggle.setAttribute("aria-expanded", open ? "true" : "false")
   }
 
+  const reduceMotion = Boolean(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches)
+  const canFade = !reduceMotion && Boolean(window.CSS && window.CSS.supports && window.CSS.supports("transition", "opacity"))
+  const fadeDuration = 180
+
+  function contentNodes() {
+    return Array.from(document.body.children).filter((node) => node !== bar && node.tagName !== "SCRIPT")
+  }
+
+  function clearFade(node) {
+    node.style.transition = ""
+    node.style.opacity = ""
+  }
+
+  function fadeIn(nodes) {
+    nodes.forEach((node) => {
+      node.style.transition = "none"
+      node.style.opacity = "0"
+    })
+    void document.body.offsetWidth
+    nodes.forEach((node) => {
+      node.style.transition = "opacity " + fadeDuration + "ms ease"
+      node.style.opacity = "1"
+    })
+    window.setTimeout(() => nodes.forEach(clearFade), fadeDuration + 50)
+  }
+
+  function arrivedFromApp() {
+    if (!document.referrer) return false
+    const known = [data.back, data.next].concat(drift).filter((url) => url && url !== "#")
+    return known.some((url) => document.referrer === url || document.referrer.indexOf(url + "/") === 0)
+  }
+
+  function leave(href) {
+    if (!href || href === "#") return
+    const nodes = contentNodes()
+    if (!canFade || nodes.length === 0) return location.assign(href)
+    nodes.forEach((node) => {
+      node.style.transition = "opacity " + fadeDuration + "ms ease"
+      node.style.opacity = "0"
+    })
+    window.setTimeout(() => location.assign(href), fadeDuration)
+  }
+
   function run(action) {
     if (action === "menu") return setMenu(menu.hidden)
     if (action === "hide") { setMenu(false); bar.hidden = true; return }
     if (action === "reload") return location.reload()
     if (action === "drift") {
-      if (drift.length > 0) location.assign(drift[Math.floor(Math.random() * drift.length)])
+      if (drift.length > 0) leave(drift[Math.floor(Math.random() * drift.length)])
       return
     }
-    if (links[action]) location.assign(links[action].href)
+    if (links[action]) leave(links[action].href)
   }
 
   bar.addEventListener("click", (event) => {
@@ -229,5 +272,11 @@ const appBarScriptTemplate = `(function () {
 
   document.head.appendChild(style)
   document.body.appendChild(bar)
+
+  if (canFade && arrivedFromApp()) fadeIn(contentNodes())
+
+  window.addEventListener("pageshow", (event) => {
+    if (event.persisted) contentNodes().forEach(clearFade)
+  })
 })()
 `
