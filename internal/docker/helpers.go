@@ -30,7 +30,12 @@ func NameFromImageRef(imageRef string) string {
 }
 
 func NameFromPath(path string) string {
-	name := pathSeparators.ReplaceAllString(strings.ToLower(filepath.Base(filepath.Clean(path))), "-")
+	base := filepath.Base(filepath.Clean(path))
+	if ext := filepath.Ext(base); strings.EqualFold(ext, siteHTMLExt) {
+		base = strings.TrimSuffix(base, ext)
+	}
+
+	name := pathSeparators.ReplaceAllString(strings.ToLower(base), "-")
 	name = strings.Trim(name, "-")
 
 	if name == "" {

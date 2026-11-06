@@ -12,11 +12,21 @@ import (
 	"strings"
 )
 
-const siteIndexName = "index.html"
+const (
+	siteIndexName = "index.html"
+	siteHTMLExt   = ".html"
+)
 
-// ServeSite copies the folder at source into a fresh directory in the served
-// site cache and returns its path. Folders without an index.html get a
-// generated contents page in the copy, so the source folder is left untouched.
+// IsSiteFile reports whether path names a single HTML file that can be served
+// as a site in its own right.
+func IsSiteFile(path string) bool {
+	return strings.EqualFold(filepath.Ext(path), siteHTMLExt)
+}
+
+// ServeSite copies source into a fresh directory in the served site cache and
+// returns its path. Folders without an index.html get a generated contents
+// page in the copy, so the source is left untouched. A single HTML file is
+// served as the site's index.html.
 func ServeSite(name, source string) (string, error) {
 	dir, err := servedSiteDir(name)
 	if err != nil {
@@ -57,18 +67,31 @@ func RemoveServedCopy(path string) error {
 	return os.RemoveAll(path)
 }
 
-// BuildServedSite copies the folder at source into dest. Markdown files are
+// BuildServedSite builds the served copy of source in dest. Markdown files are
 // rendered as HTML documents, and every folder in the copy that has no
 // index.html gets a generated contents page. A folder made up entirely of
-// Markdown documents opens its first one instead.
+// Markdown documents opens its first one instead. A single file is served as
+// the site's index.html.
 func BuildServedSite(source, dest string) error {
 	root, err := filepath.EvalSymlinks(source)
 	if err != nil {
 		return err
 	}
 
+	info, err := os.Stat(root)
+	if err != nil {
+		return err
+	}
+
 	if err := os.MkdirAll(dest, 0o755); err != nil {
 		return err
+	}
+
+	if !info.IsDir() {
+		if !info.Mode().IsRegular() {
+			return fmt.Errorf("unsupported site source: %s", source)
+		}
+		return copySiteFile(root, filepath.Join(dest, siteIndexName))
 	}
 
 	if err := copyTree(root, dest); err != nil {

@@ -1,0 +1,2563 @@
+[0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mls -la; ls .opencode 2>/dev/null; ls .opencode/command 2>/dev/null
+total 64
+drwxr-xr-x 1 mrjohn mrjohn   352 Nov  6 17:59 .
+drwxr-xr-x 1 mrjohn mrjohn    24 Nov  6 18:01 ..
+-rw-r--r-- 1 mrjohn mrjohn  4449 Nov  6 17:42 AGENTS.md
+drwxr-xr-x 1 mrjohn mrjohn     8 Nov  6 17:59 bin
+drwxr-xr-x 1 mrjohn mrjohn    18 Nov  6 17:42 .claude
+drwxr-xr-x 1 mrjohn mrjohn     8 Nov  6 17:42 cmd
+-rw-r--r-- 1 mrjohn mrjohn     8 Nov  6 17:42 .dockerignore
+drwxr-xr-x 1 mrjohn mrjohn   196 Nov  6 18:24 .git
+drwxr-xr-x 1 mrjohn mrjohn    86 Nov  6 17:42 .github
+-rw-r--r-- 1 mrjohn mrjohn    53 Nov  6 17:42 .gitignore
+-rw-r--r-- 1 mrjohn mrjohn   216 Nov  6 17:42 .golangci.yml
+-rw-r--r-- 1 mrjohn mrjohn  3273 Nov  6 18:23 go.mod
+-rw-r--r-- 1 mrjohn mrjohn 14792 Nov  6 18:23 go.sum
+drwxr-xr-x 1 mrjohn mrjohn   138 Nov  6 17:42 installer
+drwxr-xr-x 1 mrjohn mrjohn    62 Nov  6 17:42 integration
+drwxr-xr-x 1 mrjohn mrjohn   158 Nov  6 17:42 internal
+-rw-r--r-- 1 mrjohn mrjohn  1292 Nov  6 17:42 Makefile
+-rw-r--r-- 1 mrjohn mrjohn    97 Nov  6 17:42 mise.toml
+-rw-r--r-- 1 mrjohn mrjohn  1053 Nov  6 17:42 MIT-LICENSE
+drwxr-xr-x 1 mrjohn mrjohn  2004 Nov  6 17:49 prompt
+drwxr-xr-x 1 mrjohn mrjohn   840 Nov  6 17:44 prompt-v1
+-rw-r--r-- 1 mrjohn mrjohn  8244 Nov  6 17:42 README.md
+drwxr-xr-x 1 mrjohn mrjohn    10 Nov  6 18:24 .scratch
+drwxr-xr-x 1 mrjohn mrjohn    30 Nov  5 23:06 scripts
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mls -la prompt | head -50; ls -la prompt/split 2>/dev/null; ls -la .claude
+total 204
+drwxr-xr-x 1 mrjohn mrjohn 2004 Nov  6 17:49 .
+drwxr-xr-x 1 mrjohn mrjohn  352 Nov  6 17:59 ..
+-rw-r--r-- 1 mrjohn mrjohn  474 Nov  6 17:49 00-overview.md
+-rw-r--r-- 1 mrjohn mrjohn  422 Nov  6 17:49 01-deploy-static-folder.md
+-rw-r--r-- 1 mrjohn mrjohn  416 Nov  6 17:49 02-serve-static-apps.md
+-rw-r--r-- 1 mrjohn mrjohn  367 Nov  6 17:49 03-redeploy-folder.md
+-rw-r--r-- 1 mrjohn mrjohn  364 Nov  6 17:49 04-stale-source-detection.md
+-rw-r--r-- 1 mrjohn mrjohn  393 Nov  6 17:49 05-folder-contents-fallback.md
+-rw-r--r-- 1 mrjohn mrjohn  324 Nov  6 17:49 06-markdown-pages.md
+-rw-r--r-- 1 mrjohn mrjohn  332 Nov  6 17:49 07-single-file-html-site.md
+-rw-r--r-- 1 mrjohn mrjohn  371 Nov  6 17:49 08-remove-static-app.md
+-rw-r--r-- 1 mrjohn mrjohn  419 Nov  6 17:49 09-contents-card.md
+-rw-r--r-- 1 mrjohn mrjohn  392 Nov  6 17:49 10-contents-screen.md
+-rw-r--r-- 1 mrjohn mrjohn  363 Nov  6 17:49 11-channels.md
+-rw-r--r-- 1 mrjohn mrjohn  341 Nov  6 17:49 12-channel-filter.md
+-rw-r--r-- 1 mrjohn mrjohn  346 Nov  6 17:49 13-favorites.md
+-rw-r--r-- 1 mrjohn mrjohn  297 Nov  6 17:49 14-drift.md
+-rw-r--r-- 1 mrjohn mrjohn  400 Nov  6 17:49 15-app-bar.md
+-rw-r--r-- 1 mrjohn mrjohn  376 Nov  6 17:49 16-bar-keys.md
+-rw-r--r-- 1 mrjohn mrjohn  372 Nov  6 17:49 17-bar-cross-fade.md
+-rw-r--r-- 1 mrjohn mrjohn  356 Nov  6 17:49 18-bar-hide.md
+-rw-r--r-- 1 mrjohn mrjohn  309 Nov  6 17:49 19-open-command.md
+-rw-r--r-- 1 mrjohn mrjohn  358 Nov  6 17:49 20-show-command.md
+-rw-r--r-- 1 mrjohn mrjohn  379 Nov  6 17:49 21-logs-command.md
+-rw-r--r-- 1 mrjohn mrjohn  385 Nov  6 17:49 22-status-command.md
+-rw-r--r-- 1 mrjohn mrjohn  352 Nov  6 17:49 23-list-json.md
+-rw-r--r-- 1 mrjohn mrjohn  335 Nov  6 17:49 24-restart-command.md
+-rw-r--r-- 1 mrjohn mrjohn  360 Nov  6 17:49 25-update-all.md
+-rw-r--r-- 1 mrjohn mrjohn  351 Nov  6 17:49 26-doctor-command.md
+-rw-r--r-- 1 mrjohn mrjohn  346 Nov  6 17:49 27-backups-list.md
+-rw-r--r-- 1 mrjohn mrjohn  358 Nov  6 17:49 28-screenshot-capture.md
+-rw-r--r-- 1 mrjohn mrjohn  380 Nov  6 17:49 29-card-thumbnails.md
+-rw-r--r-- 1 mrjohn mrjohn  343 Nov  6 17:49 30-route-map.md
+-rw-r--r-- 1 mrjohn mrjohn  336 Nov  6 17:49 31-page-weight.md
+-rw-r--r-- 1 mrjohn mrjohn  349 Nov  6 17:49 32-broken-links.md
+-rw-r--r-- 1 mrjohn mrjohn  340 Nov  6 17:49 33-meta-preview.md
+-rw-r--r-- 1 mrjohn mrjohn  375 Nov  6 17:49 34-deploy-diff.md
+-rw-r--r-- 1 mrjohn mrjohn  379 Nov  6 17:49 35-promote-on-evidence.md
+-rw-r--r-- 1 mrjohn mrjohn  357 Nov  6 17:49 36-error-capture.md
+-rw-r--r-- 1 mrjohn mrjohn  398 Nov  6 17:49 37-dashboard-filter.md
+-rw-r--r-- 1 mrjohn mrjohn  403 Nov  6 17:49 38-command-palette.md
+-rw-r--r-- 1 mrjohn mrjohn  363 Nov  6 17:49 39-toasts.md
+-rw-r--r-- 1 mrjohn mrjohn  416 Nov  6 17:49 40-chart-time-range.md
+-rw-r--r-- 1 mrjohn mrjohn  414 Nov  6 17:49 41-compact-layout.md
+-rw-r--r-- 1 mrjohn mrjohn  393 Nov  6 17:49 42-appearance-settings.md
+-rw-r--r-- 1 mrjohn mrjohn  370 Nov  6 17:49 43-app-details-view.md
+-rw-r--r-- 1 mrjohn mrjohn  427 Nov  6 17:49 44-mouse-on-cards.md
+-rw-r--r-- 1 mrjohn mrjohn  442 Nov  6 17:49 45-incremental-render.md
+-rw-r--r-- 1 mrjohn mrjohn  435 Nov  6 17:49 46-chart-performance.md
+total 4
+drwxr-xr-x 1 mrjohn mrjohn  18 Nov  6 17:42 .
+drwxr-xr-x 1 mrjohn mrjohn 352 Nov  6 17:59 ..
+-rw-r--r-- 1 mrjohn mrjohn  14 Nov  6 17:42 CLAUDE.md
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead prompt/07-single-file-html-site.md 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcat prompt/00-overview.md prompt/01-deploy-static-folder.md prompt/02-serve-static-apps.md prompt/03-redeploy-folder.md prompt/04-stale-source-detection.md prompt/05-folder-contents-fallback.md prompt/06-markdown-pages.md
+These prompts change the ONCE Go CLI/TUI in this repository, one feature per file, run in order with a fresh agent for each.
+
+House style here is the project's own Go conventions plus `make lint`; the wider reference copy is at /home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+
+The last line of every file is the same, and it means `make test` and `make lint` both run clean.
+
+Each file is the whole instruction for its session. Read only the one you are running.
+Your job is to go in and add a `once deploy <path>` form for plain folders here to this Go CLI/TUI app.
+
+Deploy already takes an image reference; when the argument is a directory, publish that directory as a site under a host derived from its name, and report the host the way an image deploy does.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+Your job is to go in and serve a deployed folder from a tiny static container here to this Go CLI/TUI app.
+
+Keep hosts, TLS, health checks and zero-downtime swaps identical to an app container; only the image and the mount differ, so a folder deploys through the same path as everything else.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+Your job is to go in and make deploying a folder that already has a host replace what is served in place here to this Go CLI/TUI app.
+
+Keep the hostname and settings, swap the content, and leave the old version serving until the new one is up.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+Your job is to go in and remember whether a served folder has changed since it was deployed here to this Go CLI/TUI app.
+
+Hash the folder at deploy time, compare it on the existing scrape tick, and mark the app stale instead of touching it.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+Your job is to go in and give a folder with no index.html a generated contents page here to this Go CLI/TUI app.
+
+List the files and subfolders with names, sizes and dates in the same card style as the rest of the app, instead of returning a directory listing or a 403.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+Your job is to go in and render Markdown from a served folder as a page here to this Go CLI/TUI app.
+
+A `.md` file opens as a readable document, and a folder holding only Markdown opens its first one.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgit log --oneline | head -20; echo ---; find internal cmd -type f -name '*.go' | sort; echo ---; cat Makefile
+54ed0bf split: 06-markdown-pages
+ea29c59 split: 05-folder-contents-fallback
+3c926ed split: 04-stale-source-detection
+3b00d24 split: 03-redeploy-folder
+8021ade split: 02-serve-static-apps
+c279c61 split: 01-deploy-static-folder
+dd1ea52 split: 01-deploy-static-folder
+fe93045 starting the script: Prompting scripts for upgrading
+864ec7c Use strings.CutLast in cutLast (#118)
+---
+cmd/once/main.go
+internal/background/runner.go
+internal/background/runner_test.go
+internal/command/background.go
+internal/command/background_install.go
+internal/command/background_remove.go
+internal/command/background_run.go
+internal/command/backup.go
+internal/command/cli_progress.go
+internal/command/deploy.go
+internal/command/deploy_test.go
+internal/command/exec.go
+internal/command/exec_test.go
+internal/command/keys.go
+internal/command/keys_reset.go
+internal/command/keys_set.go
+internal/command/list.go
+internal/command/remove.go
+internal/command/restore.go
+internal/command/root.go
+internal/command/root_test.go
+internal/command/self_update.go
+internal/command/settings_flags.go
+internal/command/start.go
+internal/command/stop.go
+internal/command/teardown.go
+internal/command/update.go
+internal/command/update_test.go
+internal/command/version.go
+internal/docker/application_backup.go
+internal/docker/application_backup_test.go
+internal/docker/application.go
+internal/docker/application_settings.go
+internal/docker/application_settings_test.go
+internal/docker/application_static_test.go
+internal/docker/application_test.go
+internal/docker/container.go
+internal/docker/errors.go
+internal/docker/errors_test.go
+internal/docker/events.go
+internal/docker/helpers.go
+internal/docker/helpers_test.go
+internal/docker/logs.go
+internal/docker/logs_test.go
+internal/docker/markdown.go
+internal/docker/namespace.go
+internal/docker/namespace_test.go
+internal/docker/progress.go
+internal/docker/progress_test.go
+internal/docker/proxy.go
+internal/docker/proxy_test.go
+internal/docker/registry_auth.go
+internal/docker/registry_auth_test.go
+internal/docker/ring_buffer.go
+internal/docker/ring_buffer_test.go
+internal/docker/scraper.go
+internal/docker/scraper_test.go
+internal/docker/site.go
+internal/docker/site_test.go
+internal/docker/source.go
+internal/docker/source_test.go
+internal/docker/state.go
+internal/docker/state_test.go
+internal/docker/volume.go
+internal/docker/volume_test.go
+internal/fsutil/fsutil.go
+internal/fsutil/fsutil_test.go
+internal/logging/log.go
+internal/metrics/scraper.go
+internal/metrics/scraper_test.go
+internal/mouse/lexer.go
+internal/mouse/lexer_test.go
+internal/mouse/tracker.go
+internal/mouse/tracker_test.go
+internal/service/launchd.go
+internal/service/service.go
+internal/service/systemd.go
+internal/system/disk.go
+internal/system/scraper.go
+internal/system/scraper_test.go
+internal/ui/actions_menu.go
+internal/ui/actions_menu_test.go
+internal/ui/app.go
+internal/ui/chart.go
+internal/ui/chart_scale.go
+internal/ui/chart_scale_test.go
+internal/ui/chart_test.go
+internal/ui/component.go
+internal/ui/confirmation.go
+internal/ui/confirmation_test.go
+internal/ui/dashboard.go
+internal/ui/dashboard_header.go
+internal/ui/dashboard_header_test.go
+internal/ui/dashboard_panel.go
+internal/ui/dashboard_panel_test.go
+internal/ui/dashboard_test.go
+internal/ui/form.go
+internal/ui/form_test.go
+internal/ui/helpers_test.go
+internal/ui/help.go
+internal/ui/help_test.go
+internal/ui/install_activity.go
+internal/ui/install_app_list.go
+internal/ui/install_app_list_test.go
+internal/ui/install.go
+internal/ui/install_hostname_form.go
+internal/ui/install_hostname_form_test.go
+internal/ui/install_image_form.go
+internal/ui/install_image_form_test.go
+internal/ui/install_test.go
+internal/ui/keys.go
+internal/ui/logo.go
+internal/ui/logs.go
+internal/ui/logs_test.go
+internal/ui/menu.go
+internal/ui/menu_test.go
+internal/ui/metric_card.go
+internal/ui/metric_card_test.go
+internal/ui/palette_detect.go
+internal/ui/palette_detect_test.go
+internal/ui/palette.go
+internal/ui/palette_test.go
+internal/ui/popup_help.go
+internal/ui/popup_help_test.go
+internal/ui/progress.go
+internal/ui/remove.go
+internal/ui/remove_test.go
+internal/ui/settings_form_application.go
+internal/ui/settings_form_backups.go
+internal/ui/settings_form_base.go
+internal/ui/settings_form_email.go
+internal/ui/settings_form_environment.go
+internal/ui/settings_form_registry.go
+internal/ui/settings_form_resources.go
+internal/ui/settings_form_test.go
+internal/ui/settings_form_updates.go
+internal/ui/settings.go
+internal/ui/settings_menu.go
+internal/ui/settings_menu_test.go
+internal/ui/settings_test.go
+internal/ui/starfield.go
+internal/ui/styles.go
+internal/ui/styles_test.go
+internal/ui/terminal_size_guard.go
+internal/ui/terminal_size_guard_test.go
+internal/userstats/reader.go
+internal/userstats/reader_test.go
+internal/userstats/scraper.go
+internal/userstats/scraper_test.go
+internal/userstats/store.go
+internal/userstats/store_test.go
+internal/version/updater.go
+internal/version/updater_test.go
+internal/version/version.go
+---
+.PHONY: build test integration lint lint-actions coverage dist test-release
+
+PLATFORMS = linux darwin
+ARCHITECTURES = amd64 arm64
+VERSION := $(shell git describe --tags --always)
+LDFLAGS := -ldflags "-s -w -X 'github.com/basecamp/once/internal/version.Version=$(VERSION)'"
+
+TEST_RELEASE_TAG = v0.0.1-test
+
+build:
+	CGO_ENABLED=0 go build -trimpath $(LDFLAGS) -o bin/ ./cmd/...
+
+build-all:
+	@for os in $(PLATFORMS); do \
+		for arch in $(ARCHITECTURES); do \
+			echo "Building for $$os/$$arch..."; \
+			CGO_ENABLED=0 GOOS=$$os GOARCH=$$arch go build -trimpath $(LDFLAGS) -o bin/$$os-$$arch/ ./cmd/...; \
+		done; \
+	done
+
+test:
+	go test ./internal/...
+
+integration:
+	go test -v -count=1 -parallel 16 -timeout 30m ./integration/...
+
+check:
+	go vet ./...
+	govulncheck ./...
+
+lint:
+	golangci-lint run
+
+lint-actions:
+	actionlint
+	zizmor .
+
+coverage:
+	go test -coverprofile=coverage.out ./internal/...
+	go tool cover -html=coverage.out
+
+dist: build-all
+	mkdir -p dist
+	@for os in $(PLATFORMS); do \
+		for arch in $(ARCHITECTURES); do \
+			cp bin/$$os-$$arch/once dist/once-$$os-$$arch; \
+		done; \
+	done
+	cd dist && sha256sum once-* > checksums.txt
+
+test-release:
+	-gh release delete $(TEST_RELEASE_TAG) --yes --cleanup-tag
+	git tag -f $(TEST_RELEASE_TAG)
+	git push origin $(TEST_RELEASE_TAG) --force
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/docker/site.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/docker/source.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/command/deploy.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd internal/docker && grep -rn "NameFromPath\|StaticImage\|func .*Static\|HashSource\|SourceHash\|ServedPath" --include='*.go' . | head -60
+./application.go:55:	StaticImage         = "nginx:alpine-slim"
+./application.go:505:		source := cmp.Or(a.Settings.ServedPath, a.Settings.Source)
+./application_settings.go:101:	SourceHash string             `json:"sourceHash,omitempty"`
+./application_settings.go:102:	ServedPath string             `json:"servedPath,omitempty"`
+./application_settings.go:145:func (s ApplicationSettings) Static() bool {
+./application_settings.go:150:	if s.Name != other.Name || s.Image != other.Image || s.Source != other.Source || s.SourceHash != other.SourceHash || s.ServedPath != other.ServedPath || s.Host != other.Host || s.DisableTLS != other.DisableTLS {
+./helpers.go:32:func NameFromPath(path string) string {
+./helpers_test.go:16:func TestNameFromPath(t *testing.T) {
+./helpers_test.go:17:	assert.Equal(t, "my-site", NameFromPath("/srv/my-site"))
+./helpers_test.go:18:	assert.Equal(t, "my-site", NameFromPath("/srv/My Site/"))
+./helpers_test.go:19:	assert.Equal(t, "notes-v2", NameFromPath("/srv/notes.v2"))
+./helpers_test.go:20:	assert.Equal(t, "site", NameFromPath("/"))
+./helpers_test.go:21:	assert.Equal(t, "site", NameFromPath("."))
+./helpers_test.go:24:	assert.Equal(t, strings.Repeat("a", 63), NameFromPath("/srv/"+longName))
+./scraper.go:182:		if !settings.Static() || settings.SourceHash == "" {
+./scraper.go:186:		hash, err := HashSource(settings.Source)
+./scraper.go:187:		if err != nil || hash != settings.SourceHash {
+./scraper_test.go:286:	settings := ApplicationSettings{Name: "site", Image: StaticImage, Source: t.TempDir(), Host: "site.localhost"}
+./scraper_test.go:338:	hash, err := HashSource(dir)
+./scraper_test.go:343:		Image:      StaticImage,
+./scraper_test.go:345:		SourceHash: hash,
+./application_static_test.go:12:func TestVolumeMountsStaticSource(t *testing.T) {
+./application_static_test.go:15:		ServedPath: "/cache/once/sites/site.abc123/0123456789abcdef",
+./application_static_test.go:29:func TestVolumeMountsStaticSourceWithoutServedCopy(t *testing.T) {
+./application_static_test.go:42:func TestContainerConfigStatic(t *testing.T) {
+./source.go:12:// HashSource returns a digest of the files in dir, so a deployed folder can be
+./source.go:14:func HashSource(dir string) (string, error) {
+./source_test.go:12:func TestHashSource(t *testing.T) {
+./source_test.go:18:	hash, err := HashSource(dir)
+./source_test.go:22:	again, err := HashSource(dir)
+./source_test.go:27:func TestHashSourceChangesWithContent(t *testing.T) {
+./source_test.go:32:	before, err := HashSource(dir)
+./source_test.go:37:	after, err := HashSource(dir)
+./source_test.go:42:func TestHashSourceChangesWithFileSet(t *testing.T) {
+./source_test.go:46:	before, err := HashSource(dir)
+./source_test.go:51:	after, err := HashSource(dir)
+./source_test.go:56:func TestHashSourceChangesWithFileName(t *testing.T) {
+./source_test.go:60:	before, err := HashSource(dir)
+./source_test.go:65:	after, err := HashSource(dir)
+./source_test.go:70:func TestHashSourceMissingDirectory(t *testing.T) {
+./source_test.go:71:	_, err := HashSource(filepath.Join(t.TempDir(), "missing"))
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd internal/docker && sed -n '1,60p' helpers.go; echo ---; sed -n '130,165p' application_settings.go; echo ---; sed -n '480,530p' application.go; echo ---; sed -n '1,70p' application_static_test.go
+package docker
+
+import (
+	"crypto/rand"
+	"encoding/hex"
+	"path/filepath"
+	"regexp"
+	"strings"
+	"time"
+
+	"github.com/distribution/reference"
+)
+
+const streamRetryDelay = time.Second
+
+var pathSeparators = regexp.MustCompile(`[^a-z0-9]+`)
+
+func IsLocalhost(host string) bool {
+	return host == "localhost" || strings.HasSuffix(host, ".localhost")
+}
+
+func NameFromImageRef(imageRef string) string {
+	named, err := reference.ParseNormalizedNamed(imageRef)
+	if err != nil {
+		return imageRef
+	}
+	path := reference.Path(named)
+	parts := strings.Split(path, "/")
+	return parts[len(parts)-1]
+}
+
+func NameFromPath(path string) string {
+	name := pathSeparators.ReplaceAllString(strings.ToLower(filepath.Base(filepath.Clean(path))), "-")
+	name = strings.Trim(name, "-")
+
+	if name == "" {
+		return "site"
+	}
+
+	if len(name) > 63 {
+		name = strings.Trim(name[:63], "-")
+	}
+
+	return name
+}
+
+func ContainerRandomID() (string, error) {
+	return randomID(6)
+}
+
+func randomID(length int) (string, error) {
+	bytes := make([]byte, length)
+	if _, err := rand.Read(bytes); err != nil {
+		return "", err
+	}
+	return hex.EncodeToString(bytes)[:length], nil
+}
+
+// cutLast splits s around the last occurrence of sep, like strings.Cut but
+// from the right.
+---
+		return ErrAutoBackupWithoutPath
+	}
+	if s.Registry.Password != "" && s.Registry.Username == "" {
+		return ErrRegistryPasswordWithoutUsername
+	}
+	if s.Registry.Username != "" && s.Registry.Password == "" {
+		return ErrRegistryUsernameWithoutPassword
+	}
+	return nil
+}
+
+func (s ApplicationSettings) TLSEnabled() bool {
+	return s.Host != "" && !s.DisableTLS && !IsLocalhost(s.Host)
+}
+
+func (s ApplicationSettings) Static() bool {
+	return s.Source != ""
+}
+
+func (s ApplicationSettings) Equal(other ApplicationSettings) bool {
+	if s.Name != other.Name || s.Image != other.Image || s.Source != other.Source || s.SourceHash != other.SourceHash || s.ServedPath != other.ServedPath || s.Host != other.Host || s.DisableTLS != other.DisableTLS {
+		return false
+	}
+	if s.Resources != other.Resources {
+		return false
+	}
+	if s.SMTP != other.SMTP {
+		return false
+	}
+	if s.AutoUpdate != other.AutoUpdate {
+		return false
+	}
+	if s.Backup != other.Backup {
+		return false
+	}
+	if s.Keys != other.Keys {
+---
+		if len(c.Names) == 0 {
+			continue
+		}
+		name := strings.TrimPrefix(c.Names[0], "/")
+		if a.namespace.containerAppName(name) == a.Settings.Name && name != keep {
+			if _, err := a.namespace.client.ContainerRemove(ctx, c.ID, client.ContainerRemoveOptions{Force: true}); err != nil {
+				return err
+			}
+		}
+	}
+
+	return nil
+}
+
+func (a *Application) volumeMounts(vol *ApplicationVolume) []mount.Mount {
+	var mounts []mount.Mount
+	for _, target := range AppVolumeMountTargets {
+		mounts = append(mounts, mount.Mount{
+			Type:   mount.TypeVolume,
+			Source: vol.Name(),
+			Target: target,
+		})
+	}
+
+	if a.Settings.Static() {
+		source := cmp.Or(a.Settings.ServedPath, a.Settings.Source)
+		mounts = append(mounts, mount.Mount{
+			Type:     mount.TypeBind,
+			Source:   source,
+			Target:   staticContentTarget,
+			ReadOnly: true,
+		})
+	}
+
+	return mounts
+}
+
+func (a *Application) BuildEnv() []string {
+	s := a.Settings
+
+	env := []string{
+		"SECRET_KEY_BASE=" + s.Keys.SecretKeyBase,
+		"VAPID_PUBLIC_KEY=" + s.Keys.VAPIDPublicKey,
+		"VAPID_PRIVATE_KEY=" + s.Keys.VAPIDPrivateKey,
+	}
+
+	if !s.TLSEnabled() {
+		env = append(env, "DISABLE_SSL=true")
+	}
+
+	if s.Resources.CPUs > 0 {
+---
+package docker
+
+import (
+	"strings"
+	"testing"
+
+	"github.com/moby/moby/api/types/mount"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+)
+
+func TestVolumeMountsStaticSource(t *testing.T) {
+	app := &Application{Settings: ApplicationSettings{
+		Source:     "/srv/my-site",
+		ServedPath: "/cache/once/sites/site.abc123/0123456789abcdef",
+	}}
+
+	mounts := app.volumeMounts(&ApplicationVolume{name: "once-app-my-site"})
+
+	assert.Len(t, mounts, len(AppVolumeMountTargets)+1)
+	assert.Contains(t, mounts, mount.Mount{
+		Type:     mount.TypeBind,
+		Source:   "/cache/once/sites/site.abc123/0123456789abcdef",
+		Target:   staticContentTarget,
+		ReadOnly: true,
+	})
+}
+
+func TestVolumeMountsStaticSourceWithoutServedCopy(t *testing.T) {
+	app := &Application{Settings: ApplicationSettings{Source: "/srv/my-site"}}
+
+	mounts := app.volumeMounts(&ApplicationVolume{name: "once-app-my-site"})
+
+	assert.Contains(t, mounts, mount.Mount{
+		Type:     mount.TypeBind,
+		Source:   "/srv/my-site",
+		Target:   staticContentTarget,
+		ReadOnly: true,
+	})
+}
+
+func TestContainerConfigStatic(t *testing.T) {
+	app := &Application{Settings: ApplicationSettings{Source: "/srv/my-site"}}
+
+	config := app.containerConfig(nil)
+
+	require.NotEmpty(t, config.Cmd)
+	configText := strings.Join(config.Cmd, " ")
+	assert.Contains(t, configText, "location = /up")
+	assert.Contains(t, configText, `location ~* \.md$`)
+	assert.Contains(t, configText, "default_type text/html")
+}
+
+func TestContainerConfigImage(t *testing.T) {
+	app := &Application{Settings: ApplicationSettings{Image: "image:latest"}}
+
+	config := app.containerConfig(nil)
+
+	assert.Empty(t, config.Cmd)
+}
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd internal/command && cat deploy_test.go; echo ---ROOT---; sed -n '1,120p' root.go
+package command
+
+import (
+	"os"
+	"path/filepath"
+	"strings"
+	"testing"
+
+	"github.com/spf13/cobra"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+
+	"github.com/basecamp/once/internal/docker"
+)
+
+func TestParseEnvVars(t *testing.T) {
+	t.Run("nil input", func(t *testing.T) {
+		f := &settingsFlags{}
+		result, err := f.parseEnvVars()
+		require.NoError(t, err)
+		assert.Nil(t, result)
+	})
+
+	t.Run("valid pairs", func(t *testing.T) {
+		f := &settingsFlags{env: []string{"FOO=bar", "BAZ=qux"}}
+		result, err := f.parseEnvVars()
+		require.NoError(t, err)
+		assert.Equal(t, map[string]string{"FOO": "bar", "BAZ": "qux"}, result)
+	})
+
+	t.Run("value containing equals", func(t *testing.T) {
+		f := &settingsFlags{env: []string{"DSN=postgres://host?opt=val"}}
+		result, err := f.parseEnvVars()
+		require.NoError(t, err)
+		assert.Equal(t, "postgres://host?opt=val", result["DSN"])
+	})
+
+	t.Run("missing equals", func(t *testing.T) {
+		f := &settingsFlags{env: []string{"INVALID"}}
+		_, err := f.parseEnvVars()
+		assert.ErrorContains(t, err, "must be in KEY=VALUE format")
+	})
+
+	t.Run("empty key", func(t *testing.T) {
+		f := &settingsFlags{env: []string{"=value"}}
+		_, err := f.parseEnvVars()
+		assert.ErrorContains(t, err, "key must not be empty")
+	})
+
+	t.Run("empty value is valid", func(t *testing.T) {
+		f := &settingsFlags{env: []string{"KEY="}}
+		result, err := f.parseEnvVars()
+		require.NoError(t, err)
+		assert.Equal(t, "", result["KEY"])
+	})
+
+	t.Run("duplicate keys last wins", func(t *testing.T) {
+		f := &settingsFlags{env: []string{"KEY=first", "KEY=second"}}
+		result, err := f.parseEnvVars()
+		require.NoError(t, err)
+		assert.Equal(t, "second", result["KEY"])
+	})
+}
+
+func TestDeployTarget(t *testing.T) {
+	t.Run("directory", func(t *testing.T) {
+		dir := t.TempDir()
+
+		image, source := deployTarget(dir)
+		assert.Equal(t, docker.StaticImage, image)
+		assert.Equal(t, dir, source)
+	})
+
+	t.Run("image reference", func(t *testing.T) {
+		image, source := deployTarget("ghcr.io/basecamp/once-campfire:main")
+		assert.Equal(t, "ghcr.io/basecamp/once-campfire:main", image)
+		assert.Empty(t, source)
+	})
+
+	t.Run("missing path", func(t *testing.T) {
+		image, source := deployTarget("/no/such/folder")
+		assert.Equal(t, "/no/such/folder", image)
+		assert.Empty(t, source)
+	})
+}
+
+func TestWithSourceHash(t *testing.T) {
+	t.Run("image deploy leaves the hash empty", func(t *testing.T) {
+		settings, err := withSourceHash(docker.ApplicationSettings{Image: "image:latest"}, "")
+		require.NoError(t, err)
+		assert.Empty(t, settings.SourceHash)
+	})
+
+	t.Run("folder deploy records the folder hash", func(t *testing.T) {
+		dir := t.TempDir()
+		require.NoError(t, os.WriteFile(filepath.Join(dir, "index.html"), []byte("hi"), 0o644))
+
+		settings, err := withSourceHash(docker.ApplicationSettings{Source: dir}, dir)
+		require.NoError(t, err)
+
+		hash, err := docker.HashSource(dir)
+		require.NoError(t, err)
+		assert.Equal(t, hash, settings.SourceHash)
+	})
+
+	t.Run("changed folder hashes differently", func(t *testing.T) {
+		dir := t.TempDir()
+		file := filepath.Join(dir, "index.html")
+		require.NoError(t, os.WriteFile(file, []byte("hi"), 0o644))
+
+		before, err := withSourceHash(docker.ApplicationSettings{Source: dir}, dir)
+		require.NoError(t, err)
+
+		require.NoError(t, os.WriteFile(file, []byte("bye"), 0o644))
+
+		after, err := withSourceHash(docker.ApplicationSettings{Source: dir}, dir)
+		require.NoError(t, err)
+		assert.NotEqual(t, before.SourceHash, after.SourceHash)
+	})
+
+	t.Run("missing folder returns an error", func(t *testing.T) {
+		_, err := withSourceHash(docker.ApplicationSettings{}, filepath.Join(t.TempDir(), "missing"))
+		assert.Error(t, err)
+	})
+}
+
+func TestSiteToReplace(t *testing.T) {
+	ns, err := docker.NewNamespace("once", docker.WithApplications(
+		docker.ApplicationSettings{Name: "site.abc123", Image: docker.StaticImage, Source: "/srv/site", Host: "site.localhost"},
+		docker.ApplicationSettings{Name: "app.def456", Image: "image:latest", Host: "app.localhost"},
+	))
+	require.NoError(t, err)
+
+	t.Run("unused host", func(t *testing.T) {
+		app, err := siteToReplace(ns, "new.localhost", "/srv/new")
+		require.NoError(t, err)
+		assert.Nil(t, app)
+	})
+
+	t.Run("deploying a folder over a static site", func(t *testing.T) {
+		app, err := siteToReplace(ns, "site.localhost", "/srv/site-v2")
+		require.NoError(t, err)
+		require.NotNil(t, app)
+		assert.Equal(t, "site.abc123", app.Settings.Name)
+	})
+
+	t.Run("deploying a folder over an application", func(t *testing.T) {
+		app, err := siteToReplace(ns, "app.localhost", "/srv/app")
+		assert.ErrorIs(t, err, docker.ErrHostnameInUse)
+		assert.Nil(t, app)
+	})
+
+	t.Run("deploying an image over an existing host", func(t *testing.T) {
+		app, err := siteToReplace(ns, "site.localhost", "")
+		assert.ErrorIs(t, err, docker.ErrHostnameInUse)
+		assert.Nil(t, app)
+	})
+}
+
+func TestRedeploySettings(t *testing.T) {
+	existing := docker.ApplicationSettings{
+		Name:       "site.abc123",
+		Image:      docker.StaticImage,
+		Source:     "/srv/site",
+		Host:       "site.example.com",
+		DisableTLS: false,
+		EnvVars:    map[string]string{"KEY": "value"},
+		Resources:  docker.ContainerResources{CPUs: 2, MemoryMB: 1024},
+		Keys:       docker.Keys{SecretKeyBase: "secret", VAPIDPublicKey: "pub", VAPIDPrivateKey: "priv"},
+	}
+
+	t.Run("keeps settings and swaps the source", func(t *testing.T) {
+		cmd := &cobra.Command{}
+		d := &deployCommand{}
+		d.flags.register(cmd)
+
+		result, err := d.redeploySettings(cmd, existing, docker.StaticImage, "/srv/site-v2")
+		require.NoError(t, err)
+
+		assert.Equal(t, existing.Name, result.Name)
+		assert.Equal(t, existing.Host, result.Host)
+		assert.Equal(t, existing.DisableTLS, result.DisableTLS)
+		assert.Equal(t, existing.EnvVars, result.EnvVars)
+		assert.Equal(t, existing.Resources, result.Resources)
+		assert.Equal(t, existing.Keys, result.Keys)
+		assert.Equal(t, docker.StaticImage, result.Image)
+		assert.Equal(t, "/srv/site-v2", result.Source)
+	})
+
+	t.Run("changed flags still apply", func(t *testing.T) {
+		cmd := &cobra.Command{}
+		d := &deployCommand{}
+		d.flags.register(cmd)
+		require.NoError(t, cmd.Flags().Set("memory", "2048"))
+
+		result, err := d.redeploySettings(cmd, existing, docker.StaticImage, "/srv/site-v2")
+		require.NoError(t, err)
+
+		assert.Equal(t, 2048, result.Resources.MemoryMB)
+		assert.Equal(t, existing.Resources.CPUs, result.Resources.CPUs)
+		assert.Equal(t, existing.Keys, result.Keys)
+	})
+
+	t.Run("invalid flags return an error", func(t *testing.T) {
+		cmd := &cobra.Command{}
+		d := &deployCommand{}
+		d.flags.register(cmd)
+		require.NoError(t, cmd.Flags().Set("env", "INVALID"))
+
+		_, err := d.redeploySettings(cmd, existing, docker.StaticImage, "/srv/site-v2")
+		assert.ErrorContains(t, err, "must be in KEY=VALUE format")
+	})
+}
+
+func TestBuildSettingsImageRequired(t *testing.T) {
+	f := &settingsFlags{}
+	_, err := f.buildSettings(&cobra.Command{}, "", "app.example.com")
+	assert.ErrorIs(t, err, docker.ErrImageRequired)
+}
+
+func TestBuildSettingsAutoBackupRequiresPath(t *testing.T) {
+	t.Run("auto-backup without path", func(t *testing.T) {
+		f := &settingsFlags{autoBackup: true}
+		_, err := f.buildSettings(&cobra.Command{}, "image:latest", "app.example.com")
+		assert.ErrorIs(t, err, docker.ErrAutoBackupWithoutPath)
+	})
+
+	t.Run("auto-backup with path", func(t *testing.T) {
+		f := &settingsFlags{autoBackup: true, backupPath: "/backups"}
+		_, err := f.buildSettings(&cobra.Command{}, "image:latest", "app.example.com")
+		require.NoError(t, err)
+	})
+}
+
+func TestBuildSettingsRegistry(t *testing.T) {
+	newCmd := func() (*cobra.Command, *settingsFlags) {
+		cmd := &cobra.Command{}
+		f := &settingsFlags{}
+		f.register(cmd)
+		return cmd, f
+	}
+
+	t.Run("no registry flags leaves registry empty", func(t *testing.T) {
+		cmd, f := newCmd()
+		s, err := f.buildSettings(cmd, "image:latest", "app.example.com")
+		require.NoError(t, err)
+		assert.True(t, s.Registry.Empty())
+	})
+
+	t.Run("username and password set the scoped credentials", func(t *testing.T) {
+		cmd, f := newCmd()
+		require.NoError(t, cmd.Flags().Set("registry-username", "user"))
+		require.NoError(t, cmd.Flags().Set("registry-password", "pass"))
+
+		s, err := f.buildSettings(cmd, "image:latest", "app.example.com")
+		require.NoError(t, err)
+		assert.Equal(t, docker.RegistrySettings{Host: "index.docker.io", Username: "user", Password: "pass"}, s.Registry)
+	})
+
+	t.Run("password from stdin trims the trailing newline", func(t *testing.T) {
+		cmd, f := newCmd()
+		cmd.SetIn(strings.NewReader("hunter2\n"))
+		require.NoError(t, cmd.Flags().Set("registry-username", "user"))
+		require.NoError(t, cmd.Flags().Set("registry-password-stdin", "true"))
+
+		s, err := f.buildSettings(cmd, "image:latest", "app.example.com")
+		require.NoError(t, err)
+		assert.Equal(t, "hunter2", s.Registry.Password)
+	})
+
+	t.Run("password without username", func(t *testing.T) {
+		cmd, f := newCmd()
+		require.NoError(t, cmd.Flags().Set("registry-password", "pass"))
+
+		_, err := f.buildSettings(cmd, "image:latest", "app.example.com")
+		assert.ErrorIs(t, err, docker.ErrRegistryPasswordWithoutUsername)
+	})
+
+	t.Run("username without password", func(t *testing.T) {
+		cmd, f := newCmd()
+		require.NoError(t, cmd.Flags().Set("registry-username", "user"))
+
+		_, err := f.buildSettings(cmd, "image:latest", "app.example.com")
+		assert.ErrorIs(t, err, docker.ErrRegistryUsernameWithoutPassword)
+	})
+
+	t.Run("password and password-stdin are mutually exclusive", func(t *testing.T) {
+		cmd, _ := newCmd()
+		require.NoError(t, cmd.Flags().Set("registry-password", "pass"))
+		require.NoError(t, cmd.Flags().Set("registry-password-stdin", "true"))
+
+		assert.Error(t, cmd.ValidateFlagGroups())
+	})
+}
+---ROOT---
+package command
+
+import (
+	"context"
+	"errors"
+	"fmt"
+
+	"github.com/spf13/cobra"
+
+	"github.com/basecamp/once/internal/docker"
+	"github.com/basecamp/once/internal/logging"
+	"github.com/basecamp/once/internal/ui"
+)
+
+type RootCommand struct {
+	cmd       *cobra.Command
+	namespace string
+
+	installImageRef string
+}
+
+func NewRootCommand() *RootCommand {
+	r := &RootCommand{}
+	r.cmd = &cobra.Command{
+		Use:           "once",
+		Short:         "Manage web applications from Docker images",
+		SilenceUsage:  true,
+		SilenceErrors: true,
+		CompletionOptions: cobra.CompletionOptions{
+			HiddenDefaultCmd: true,
+		},
+		RunE: WithNamespace(func(ctx context.Context, ns *docker.Namespace, cmd *cobra.Command, args []string) error {
+			return logging.ToLogFile(func() error {
+				return ui.Run(ns, r.installImageRef)
+			})
+		}),
+	}
+	r.cmd.PersistentFlags().StringVarP(&r.namespace, "namespace", "n", docker.DefaultNamespace, "namespace for containers")
+
+	r.cmd.Flags().StringVar(&r.installImageRef, "install", "", "Path to Docker image to install")
+
+	r.cmd.AddCommand(newBackgroundCommand().cmd)
+	r.cmd.AddCommand(newBackupCommand().cmd)
+	r.cmd.AddCommand(newDeployCommand().cmd)
+	r.cmd.AddCommand(newExecCommand().cmd)
+	r.cmd.AddCommand(newKeysCommand().cmd)
+	r.cmd.AddCommand(newListCommand().cmd)
+	r.cmd.AddCommand(newRemoveCommand().cmd)
+	r.cmd.AddCommand(newRestoreCommand().cmd)
+	r.cmd.AddCommand(newStartCommand().cmd)
+	r.cmd.AddCommand(newStopCommand().cmd)
+	r.cmd.AddCommand(newTeardownCommand().cmd)
+	r.cmd.AddCommand(newUpdateCommand().cmd)
+	r.cmd.AddCommand(newSelfUpdateCommand().cmd)
+	r.cmd.AddCommand(newVersionCommand().cmd)
+
+	return r
+}
+
+func (r *RootCommand) Execute() error {
+	return r.cmd.Execute()
+}
+
+// Helpers
+
+type NamespaceRunE func(ctx context.Context, ns *docker.Namespace, cmd *cobra.Command, args []string) error
+
+func findApplication(ns *docker.Namespace, host string) (*docker.Application, error) {
+	app := ns.ApplicationByHost(host)
+	if app == nil {
+		return nil, fmt.Errorf("no application found at host %q", host)
+	}
+	return app, nil
+}
+
+func withApplication(ns *docker.Namespace, host string, action string, fn func(*docker.Application) error) error {
+	app, err := findApplication(ns, host)
+	if err != nil {
+		return err
+	}
+
+	if err := fn(app); err != nil {
+		return fmt.Errorf("%s application: %w", action, err)
+	}
+
+	return nil
+}
+
+func WithNamespace(fn NamespaceRunE) func(*cobra.Command, []string) error {
+	return func(cmd *cobra.Command, args []string) error {
+		ctx := context.Background()
+
+		ns, err := docker.RestoreNamespace(ctx, namespaceFlag(cmd))
+		if err != nil {
+			return fmt.Errorf("restoring namespace: %w", err)
+		}
+
+		return fn(ctx, ns, cmd, args)
+	}
+}
+
+func namespaceFlag(cmd *cobra.Command) string {
+	namespace, _ := cmd.Root().PersistentFlags().GetString("namespace")
+	return namespace
+}
+
+type exitCoder interface {
+	error
+	ExitCode() int
+}
+
+func ExitCode(err error) (int, bool) {
+	if e, ok := errors.AsType[exitCoder](err); ok {
+		return e.ExitCode(), true
+	}
+	return 0, false
+}
+
+func IsExitError(err error) bool {
+	_, ok := ExitCode(err)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd internal/docker && cat site_test.go; echo ---SRC---; cat source_test.go; echo ---HELPERS---; sed -n '1,40p' helpers_test.go
+package docker
+
+import (
+	"os"
+	"path/filepath"
+	"strings"
+	"testing"
+	"time"
+
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+)
+
+func TestBuildServedSite(t *testing.T) {
+	source := t.TempDir()
+	dest := filepath.Join(t.TempDir(), "site")
+
+	modified := time.Date(2024, 5, 6, 7, 8, 0, 0, time.Local)
+	logo := filepath.Join(source, "logo.png")
+	require.NoError(t, os.WriteFile(logo, []byte("12345"), 0o600))
+	require.NoError(t, os.Chtimes(logo, modified, modified))
+	require.NoError(t, os.WriteFile(filepath.Join(source, "a & b.txt"), []byte("hi"), 0o644))
+
+	require.NoError(t, os.Mkdir(filepath.Join(source, "docs"), 0o755))
+	require.NoError(t, os.WriteFile(filepath.Join(source, "docs", "index.html"), []byte("docs home"), 0o644))
+
+	require.NoError(t, os.Mkdir(filepath.Join(source, "photos"), 0o755))
+	require.NoError(t, os.WriteFile(filepath.Join(source, "photos", "cat.jpg"), []byte("jpeg"), 0o644))
+
+	require.NoError(t, os.Mkdir(filepath.Join(source, "blank"), 0o755))
+
+	require.NoError(t, BuildServedSite(source, dest))
+
+	root, err := os.ReadFile(filepath.Join(dest, "index.html"))
+	require.NoError(t, err)
+	page := string(root)
+
+	assert.Contains(t, page, "<h1>"+filepath.Base(source)+"</h1>")
+	assert.Contains(t, page, "a &amp; b.txt")
+	assert.Contains(t, page, "logo.png")
+	assert.Contains(t, page, "5 B")
+	assert.Contains(t, page, "2 B")
+	assert.Contains(t, page, modified.Format("2006-01-02 15:04"))
+	assert.Contains(t, page, `<a href="docs/">docs</a>`)
+	assert.Contains(t, page, `<a href="photos/">photos</a>`)
+	assert.Contains(t, page, "5 entries")
+	assert.NotContains(t, page, `href="../"`)
+
+	assert.Less(t, strings.Index(page, ">docs<"), strings.Index(page, ">photos<"))
+	assert.Less(t, strings.Index(page, ">photos<"), strings.Index(page, ">a &amp; b.txt<"))
+
+	docs, err := os.ReadFile(filepath.Join(dest, "docs", "index.html"))
+	require.NoError(t, err)
+	assert.Equal(t, "docs home", string(docs))
+
+	photos, err := os.ReadFile(filepath.Join(dest, "photos", "index.html"))
+	require.NoError(t, err)
+	assert.Contains(t, string(photos), "cat.jpg")
+	assert.Contains(t, string(photos), `href="../"`)
+	assert.Contains(t, string(photos), "1 entry")
+
+	blank, err := os.ReadFile(filepath.Join(dest, "blank", "index.html"))
+	require.NoError(t, err)
+	assert.Contains(t, string(blank), "This folder is empty.")
+
+	info, err := os.Stat(filepath.Join(dest, "logo.png"))
+	require.NoError(t, err)
+	assert.Equal(t, os.FileMode(0o644), info.Mode().Perm())
+}
+
+func TestBuildServedSiteRendersMarkdown(t *testing.T) {
+	source := t.TempDir()
+	dest := filepath.Join(t.TempDir(), "site")
+
+	markdown := "# Guide\n\nSome **bold** text.\n\n| a | b |\n| - | - |\n| 1 | 2 |\n\n[Other](other.md)\n"
+	require.NoError(t, os.Mkdir(filepath.Join(source, "docs"), 0o755))
+	require.NoError(t, os.WriteFile(filepath.Join(source, "docs", "guide.md"), []byte(markdown), 0o644))
+	require.NoError(t, os.WriteFile(filepath.Join(source, "docs", "plain.md"), []byte("Just text."), 0o644))
+	require.NoError(t, os.WriteFile(filepath.Join(source, "docs", "notes.txt"), []byte("hi"), 0o644))
+
+	require.NoError(t, BuildServedSite(source, dest))
+
+	guide, err := os.ReadFile(filepath.Join(dest, "docs", "guide.md"))
+	require.NoError(t, err)
+	page := string(guide)
+
+	assert.Contains(t, page, "<title>Guide · ONCE</title>")
+	assert.Contains(t, page, `<h1 id="guide">Guide</h1>`)
+	assert.Contains(t, page, "<strong>bold</strong>")
+	assert.Contains(t, page, "<table>")
+	assert.Contains(t, page, `href="other.md"`)
+	assert.NotContains(t, page, "# Guide")
+
+	plain, err := os.ReadFile(filepath.Join(dest, "docs", "plain.md"))
+	require.NoError(t, err)
+	assert.Contains(t, string(plain), "<title>plain · ONCE</title>")
+
+	index, err := os.ReadFile(filepath.Join(dest, "docs", "index.html"))
+	require.NoError(t, err)
+	assert.Contains(t, string(index), `<a href="guide.md">guide.md</a>`)
+	assert.Contains(t, string(index), `<a href="plain.md">plain.md</a>`)
+}
+
+func TestBuildServedSiteMarkdownOnlyRoot(t *testing.T) {
+	source := t.TempDir()
+	dest := filepath.Join(t.TempDir(), "site")
+
+	require.NoError(t, os.WriteFile(filepath.Join(source, "b.md"), []byte("# Beta\n"), 0o644))
+	require.NoError(t, os.WriteFile(filepath.Join(source, "a.md"), []byte("# Alpha\n"), 0o644))
+
+	require.NoError(t, BuildServedSite(source, dest))
+
+	root, err := os.ReadFile(filepath.Join(dest, "index.html"))
+	require.NoError(t, err)
+	assert.Contains(t, string(root), `<h1 id="alpha">Alpha</h1>`)
+	assert.NotContains(t, string(root), "<table>")
+}
+
+func TestBuildServedSiteMarkdownOnlyFolder(t *testing.T) {
+	source := t.TempDir()
+	dest := filepath.Join(t.TempDir(), "site")
+
+	require.NoError(t, os.WriteFile(filepath.Join(source, "index.html"), []byte("home"), 0o644))
+	require.NoError(t, os.Mkdir(filepath.Join(source, "notes"), 0o755))
+	require.NoError(t, os.WriteFile(filepath.Join(source, "notes", "second.md"), []byte("# Second\n"), 0o644))
+	require.NoError(t, os.WriteFile(filepath.Join(source, "notes", "first.md"), []byte("# First\n"), 0o644))
+
+	require.NoError(t, BuildServedSite(source, dest))
+
+	notes, err := os.ReadFile(filepath.Join(dest, "notes", "index.html"))
+	require.NoError(t, err)
+	assert.Contains(t, string(notes), `<h1 id="first">First</h1>`)
+}
+
+func TestBuildServedSiteMissingSource(t *testing.T) {
+	err := BuildServedSite(filepath.Join(t.TempDir(), "missing"), filepath.Join(t.TempDir(), "site"))
+	assert.Error(t, err)
+}
+
+func TestServeSite(t *testing.T) {
+	t.Setenv("XDG_CACHE_HOME", t.TempDir())
+
+	source := t.TempDir()
+	require.NoError(t, os.WriteFile(filepath.Join(source, "note.txt"), []byte("hi"), 0o644))
+
+	path, err := ServeSite("site.abc123", source)
+	require.NoError(t, err)
+	assert.FileExists(t, filepath.Join(path, "index.html"))
+
+	next, err := ServeSite("site.abc123", source)
+	require.NoError(t, err)
+	assert.NotEqual(t, path, next)
+
+	require.NoError(t, RemoveServedCopy(path))
+	assert.NoDirExists(t, path)
+	assert.DirExists(t, next)
+
+	require.NoError(t, RemoveServedSite("site.abc123"))
+	assert.NoDirExists(t, filepath.Dir(next))
+}
+---SRC---
+package docker
+
+import (
+	"os"
+	"path/filepath"
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+)
+
+func TestHashSource(t *testing.T) {
+	dir := t.TempDir()
+	require.NoError(t, os.WriteFile(filepath.Join(dir, "index.html"), []byte("<h1>Hi</h1>"), 0o644))
+	require.NoError(t, os.Mkdir(filepath.Join(dir, "assets"), 0o755))
+	require.NoError(t, os.WriteFile(filepath.Join(dir, "assets", "app.css"), []byte("body {}"), 0o644))
+
+	hash, err := HashSource(dir)
+	require.NoError(t, err)
+	assert.Len(t, hash, 64)
+
+	again, err := HashSource(dir)
+	require.NoError(t, err)
+	assert.Equal(t, hash, again)
+}
+
+func TestHashSourceChangesWithContent(t *testing.T) {
+	dir := t.TempDir()
+	file := filepath.Join(dir, "index.html")
+	require.NoError(t, os.WriteFile(file, []byte("<h1>Hi</h1>"), 0o644))
+
+	before, err := HashSource(dir)
+	require.NoError(t, err)
+
+	require.NoError(t, os.WriteFile(file, []byte("<h1>Bye</h1>"), 0o644))
+
+	after, err := HashSource(dir)
+	require.NoError(t, err)
+	assert.NotEqual(t, before, after)
+}
+
+func TestHashSourceChangesWithFileSet(t *testing.T) {
+	dir := t.TempDir()
+	require.NoError(t, os.WriteFile(filepath.Join(dir, "index.html"), []byte("hi"), 0o644))
+
+	before, err := HashSource(dir)
+	require.NoError(t, err)
+
+	require.NoError(t, os.WriteFile(filepath.Join(dir, "app.js"), []byte("hi"), 0o644))
+
+	after, err := HashSource(dir)
+	require.NoError(t, err)
+	assert.NotEqual(t, before, after)
+}
+
+func TestHashSourceChangesWithFileName(t *testing.T) {
+	dir := t.TempDir()
+	require.NoError(t, os.WriteFile(filepath.Join(dir, "one.html"), []byte("hi"), 0o644))
+
+	before, err := HashSource(dir)
+	require.NoError(t, err)
+
+	require.NoError(t, os.Rename(filepath.Join(dir, "one.html"), filepath.Join(dir, "two.html")))
+
+	after, err := HashSource(dir)
+	require.NoError(t, err)
+	assert.NotEqual(t, before, after)
+}
+
+func TestHashSourceMissingDirectory(t *testing.T) {
+	_, err := HashSource(filepath.Join(t.TempDir(), "missing"))
+	assert.Error(t, err)
+}
+---HELPERS---
+package docker
+
+import (
+	"strings"
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
+
+func TestNameFromImageRef(t *testing.T) {
+	assert.Equal(t, "once-campfire", NameFromImageRef("ghcr.io/basecamp/once-campfire:main"))
+	assert.Equal(t, "once-campfire", NameFromImageRef("ghcr.io/basecamp/once-campfire"))
+	assert.Equal(t, "once-campfire", NameFromImageRef("ghcr.io/basecamp/once-campfire:latest"))
+}
+
+func TestNameFromPath(t *testing.T) {
+	assert.Equal(t, "my-site", NameFromPath("/srv/my-site"))
+	assert.Equal(t, "my-site", NameFromPath("/srv/My Site/"))
+	assert.Equal(t, "notes-v2", NameFromPath("/srv/notes.v2"))
+	assert.Equal(t, "site", NameFromPath("/"))
+	assert.Equal(t, "site", NameFromPath("."))
+
+	longName := strings.Repeat("a", 70)
+	assert.Equal(t, strings.Repeat("a", 63), NameFromPath("/srv/"+longName))
+}
+
+func TestIsLocalhost(t *testing.T) {
+	assert.True(t, IsLocalhost("localhost"))
+	assert.True(t, IsLocalhost("app.localhost"))
+	assert.False(t, IsLocalhost("example.com"))
+	assert.False(t, IsLocalhost("localhost.example.com"))
+}
+
+func TestCutLast(t *testing.T) {
+	before, after, found := cutLast("once-app-myapp-abc123", "-")
+	assert.True(t, found)
+	assert.Equal(t, "once-app-myapp", before)
+	assert.Equal(t, "abc123", after)
+
+	before, after, found = cutLast("nosep", "-")
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd internal/docker && grep -n "staticContentTarget\|containerConfig\|staticSite\|nginx" -r --include='*.go' . | head -40
+./application.go:55:	StaticImage         = "nginx:alpine-slim"
+./application.go:56:	staticContentTarget = "/usr/share/nginx/html"
+./application.go:390:		Config:     a.containerConfig(env),
+./application.go:509:			Target:   staticContentTarget,
+./application.go:547:func (a *Application) containerConfig(env []string) *container.Config {
+./application.go:566:	config := fmt.Sprintf(staticNginxConfig, HealthCheckPath, staticContentTarget, staticContentTarget)
+./application.go:567:	return []string{"sh", "-c", "cat > /etc/nginx/conf.d/default.conf <<'EOF'\n" + config + "EOF\nnginx -g 'daemon off;'\n"}
+./registry_auth_test.go:189:	host, err = RegistryHost("nginx")
+./application_static_test.go:24:		Target:   staticContentTarget,
+./application_static_test.go:37:		Target:   staticContentTarget,
+./application_static_test.go:45:	config := app.containerConfig(nil)
+./application_static_test.go:57:	config := app.containerConfig(nil)
+./site.go:125:// copySiteFile writes a world-readable copy, so nginx's worker user can serve
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd internal/docker && sed -n '540,620p' application.go; echo ---SCRAPER---; sed -n '160,210p' scraper.go
+for k, v := range s.EnvVars {
+		env = append(env, k+"="+v)
+	}
+
+	return env
+}
+
+func (a *Application) containerConfig(env []string) *container.Config {
+	config := &container.Config{
+		Image: a.Settings.Image,
+		Labels: map[string]string{
+			labelKey: a.Settings.Marshal(),
+		},
+		Env: env,
+	}
+
+	if a.Settings.Static() {
+		config.Cmd = staticNginxCommand()
+	}
+
+	return config
+}
+
+// Helpers
+
+func staticNginxCommand() []string {
+	config := fmt.Sprintf(staticNginxConfig, HealthCheckPath, staticContentTarget, staticContentTarget)
+	return []string{"sh", "-c", "cat > /etc/nginx/conf.d/default.conf <<'EOF'\n" + config + "EOF\nnginx -g 'daemon off;'\n"}
+}
+---SCRAPER---
+		}
+		for _, name := range c.Names {
+			name = strings.TrimPrefix(name, "/")
+			if after, ok := strings.CutPrefix(name, s.prefix); ok {
+				if appName, _, ok := cutLast(after, "-"); ok {
+					settings, _ := UnmarshalApplicationSettings(c.Labels[labelKey])
+					result[appName] = appContainer{id: c.ID, settings: settings}
+				}
+			}
+		}
+	}
+
+	return result, nil
+}
+
+// Private
+
+func (s *Scraper) updateStale(containers map[string]appContainer) {
+	stale := make(map[string]bool)
+
+	for appName, container := range containers {
+		settings := container.settings
+		if !settings.Static() || settings.SourceHash == "" {
+			continue
+		}
+
+		hash, err := HashSource(settings.Source)
+		if err != nil || hash != settings.SourceHash {
+			stale[appName] = true
+		}
+	}
+
+	s.mu.Lock()
+	defer s.mu.Unlock()
+	s.stale = stale
+}
+
+func (s *Scraper) updateStreams(ctx context.Context, containers map[string]appContainer) {
+	s.mu.Lock()
+	defer s.mu.Unlock()
+
+	// Start or restart streams for containers
+	for appName, container := range containers {
+		if stream, exists := s.streams[appName]; exists {
+			if stream.containerID == container.id {
+				continue
+			}
+			// Container ID changed (redeployed), restart stream
+			stream.cancel()
+		}
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/docker/markdown.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd internal/command && grep -n "func (f \*settingsFlags) buildSettings\|ErrImageRequired\|StaticImage" -r --include='*.go' . ../docker | head; sed -n '1,120p' settings_flags.go
+./deploy.go:210:	return docker.StaticImage, path
+./deploy_test.go:70:		assert.Equal(t, docker.StaticImage, image)
+./deploy_test.go:129:		docker.ApplicationSettings{Name: "site.abc123", Image: docker.StaticImage, Source: "/srv/site", Host: "site.localhost"},
+./deploy_test.go:163:		Image:      docker.StaticImage,
+./deploy_test.go:177:		result, err := d.redeploySettings(cmd, existing, docker.StaticImage, "/srv/site-v2")
+./deploy_test.go:186:		assert.Equal(t, docker.StaticImage, result.Image)
+./deploy_test.go:196:		result, err := d.redeploySettings(cmd, existing, docker.StaticImage, "/srv/site-v2")
+./deploy_test.go:210:		_, err := d.redeploySettings(cmd, existing, docker.StaticImage, "/srv/site-v2")
+./deploy_test.go:218:	assert.ErrorIs(t, err, docker.ErrImageRequired)
+./settings_flags.go:54:func (f *settingsFlags) buildSettings(cmd *cobra.Command, image, host string) (docker.ApplicationSettings, error) {
+package command
+
+import (
+	"fmt"
+	"io"
+	"path/filepath"
+	"strings"
+
+	"github.com/spf13/cobra"
+
+	"github.com/basecamp/once/internal/docker"
+)
+
+type settingsFlags struct {
+	host         string
+	disableTLS   bool
+	env          []string
+	smtpServer   string
+	smtpPort     string
+	smtpUsername string
+	smtpPassword string
+	smtpFrom     string
+	cpus         int
+	memory       int
+	autoUpdate   bool
+	backupPath   string
+	autoBackup   bool
+
+	registryUsername      string
+	registryPassword      string
+	registryPasswordStdin bool
+}
+
+func (f *settingsFlags) register(cmd *cobra.Command) {
+	cmd.Flags().StringVar(&f.host, "host", "", "hostname for the application")
+	cmd.Flags().BoolVar(&f.disableTLS, "disable-tls", false, "disable TLS for this application")
+	cmd.Flags().StringArrayVar(&f.env, "env", nil, "environment variable in KEY=VALUE format (can be repeated)")
+	cmd.Flags().StringVar(&f.smtpServer, "smtp-server", "", "SMTP server address")
+	cmd.Flags().StringVar(&f.smtpPort, "smtp-port", "", "SMTP server port")
+	cmd.Flags().StringVar(&f.smtpUsername, "smtp-username", "", "SMTP username")
+	cmd.Flags().StringVar(&f.smtpPassword, "smtp-password", "", "SMTP password")
+	cmd.Flags().StringVar(&f.smtpFrom, "smtp-from", "", "SMTP from address")
+	cmd.Flags().IntVar(&f.cpus, "cpus", 0, "CPU limit for the container")
+	cmd.Flags().IntVar(&f.memory, "memory", 0, "memory limit in MB for the container")
+	cmd.Flags().BoolVar(&f.autoUpdate, "auto-update", true, "automatically update the application")
+	cmd.Flags().StringVar(&f.backupPath, "backup-path", "", "path for backups")
+	cmd.Flags().BoolVar(&f.autoBackup, "auto-backup", false, "enable automatic backups")
+	cmd.Flags().StringVar(&f.registryUsername, "registry-username", "", "registry username for pulling the application image")
+	cmd.Flags().StringVar(&f.registryPassword, "registry-password", "", "registry password for pulling the application image")
+	cmd.Flags().BoolVar(&f.registryPasswordStdin, "registry-password-stdin", false, "read the registry password from stdin")
+	cmd.MarkFlagsMutuallyExclusive("registry-password", "registry-password-stdin")
+}
+
+func (f *settingsFlags) buildSettings(cmd *cobra.Command, image, host string) (docker.ApplicationSettings, error) {
+	envVars, err := f.parseEnvVars()
+	if err != nil {
+		return docker.ApplicationSettings{}, err
+	}
+
+	if f.backupPath != "" && !filepath.IsAbs(f.backupPath) {
+		return docker.ApplicationSettings{}, docker.ErrBackupPathRelative
+	}
+
+	s := docker.ApplicationSettings{
+		Image:      image,
+		Host:       host,
+		DisableTLS: f.disableTLS,
+		EnvVars:    envVars,
+		SMTP: docker.SMTPSettings{
+			Server:   f.smtpServer,
+			Port:     f.smtpPort,
+			Username: f.smtpUsername,
+			Password: f.smtpPassword,
+			From:     f.smtpFrom,
+		},
+		Resources: docker.ContainerResources{
+			CPUs:     f.cpus,
+			MemoryMB: f.memory,
+		},
+		AutoUpdate: f.autoUpdate,
+		Backup: docker.BackupSettings{
+			Path:       f.backupPath,
+			AutoBackup: f.autoBackup,
+		},
+	}
+
+	if f.registryUsername != "" || f.registryPassword != "" || f.registryPasswordStdin {
+		password, err := f.registryPasswordValue(cmd)
+		if err != nil {
+			return docker.ApplicationSettings{}, err
+		}
+		host, err := docker.RegistryHost(image)
+		if err != nil {
+			return docker.ApplicationSettings{}, err
+		}
+		s.Registry = docker.RegistrySettings{
+			Host:     host,
+			Username: f.registryUsername,
+			Password: password,
+		}
+	}
+
+	if err := s.Validate(); err != nil {
+		return docker.ApplicationSettings{}, err
+	}
+
+	return s, nil
+}
+
+func (f *settingsFlags) applyChanges(cmd *cobra.Command, existing docker.ApplicationSettings, image string) (docker.ApplicationSettings, error) {
+	s := existing
+
+	s.Image = image
+
+	if cmd.Flags().Changed("host") {
+		s.Host = f.host
+	}
+	if cmd.Flags().Changed("disable-tls") {
+		s.DisableTLS = f.disableTLS
+	}
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd internal && grep -rn "\.Source\b" --include='*.go' . | grep -v _test | grep -v "Settings.SourceHash"
+./command/deploy.go:65:	settings.Source = source
+./command/deploy.go:149:	settings.Source = source
+./docker/application.go:505:		source := cmp.Or(a.Settings.ServedPath, a.Settings.Source)
+./docker/application_settings.go:146:	return s.Source != ""
+./docker/application_settings.go:150:	if s.Name != other.Name || s.Image != other.Image || s.Source != other.Source || s.SourceHash != other.SourceHash || s.ServedPath != other.ServedPath || s.Host != other.Host || s.DisableTLS != other.DisableTLS {
+./docker/scraper.go:186:		hash, err := HashSource(settings.Source)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd internal && grep -rn "Source" --include='*.go' ui command | grep -v _test | head -40
+command/deploy.go:65:	settings.Source = source
+command/deploy.go:66:	settings, err = withSourceHash(settings, source)
+command/deploy.go:112:	settings, err = withSourceHash(settings, source)
+command/deploy.go:149:	settings.Source = source
+command/deploy.go:167:// withSourceHash records what the deployed folder contained, so later scrapes
+command/deploy.go:169:func withSourceHash(settings docker.ApplicationSettings, source string) (docker.ApplicationSettings, error) {
+command/deploy.go:174:	hash, err := docker.HashSource(source)
+command/deploy.go:179:	settings.SourceHash = hash
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd internal/docker && sed -n '270,365p' scraper_test.go
+require.NoError(t, os.RemoveAll(dir))
+
+	client := &mockStatsClient{
+		containers: []container.Summary{staticContainer("site", settings)},
+		stats:      map[string]container.StatsResponse{},
+	}
+
+	ctx := t.Context()
+
+	s := newTestScraper(client)
+	s.Scrape(ctx)
+	assert.True(t, s.Stale("site"))
+}
+
+func TestScraperIgnoresSourcesWithoutHash(t *testing.T) {
+	settings := ApplicationSettings{Name: "site", Image: StaticImage, Source: t.TempDir(), Host: "site.localhost"}
+	client := &mockStatsClient{
+		containers: []container.Summary{staticContainer("site", settings)},
+		stats:      map[string]container.StatsResponse{},
+	}
+
+	ctx := t.Context()
+
+	s := newTestScraper(client)
+	s.Scrape(ctx)
+	assert.False(t, s.Stale("site"))
+}
+
+func TestCalculateCPUPercent(t *testing.T) {
+	stats := &container.StatsResponse{
+		CPUStats: container.CPUStats{
+			CPUUsage:    container.CPUUsage{TotalUsage: 200000000},
+			SystemUsage: 1000000000,
+			OnlineCPUs:  4,
+		},
+		PreCPUStats: container.CPUStats{
+			CPUUsage:    container.CPUUsage{TotalUsage: 100000000},
+			SystemUsage: 500000000,
+		},
+	}
+
+	// CPU delta = 100000000, System delta = 500000000
+	// Percent = (100000000 / 500000000) * 4 * 100 = 80%
+	assert.Equal(t, 80.0, calculateCPUPercent(stats))
+}
+
+func TestCalculateCPUPercentZeroDelta(t *testing.T) {
+	stats := &container.StatsResponse{
+		CPUStats: container.CPUStats{
+			CPUUsage:    container.CPUUsage{TotalUsage: 100000000},
+			SystemUsage: 500000000,
+			OnlineCPUs:  4,
+		},
+		PreCPUStats: container.CPUStats{
+			CPUUsage:    container.CPUUsage{TotalUsage: 100000000},
+			SystemUsage: 500000000,
+		},
+	}
+
+	assert.Equal(t, 0.0, calculateCPUPercent(stats))
+}
+
+// Helpers
+
+func staticSettings(t *testing.T, name, dir string) ApplicationSettings {
+	t.Helper()
+
+	hash, err := HashSource(dir)
+	require.NoError(t, err)
+
+	return ApplicationSettings{
+		Name:       name,
+		Image:      StaticImage,
+		Source:     dir,
+		SourceHash: hash,
+		Host:       name + ".localhost",
+	}
+}
+
+func staticContainer(appName string, settings ApplicationSettings) container.Summary {
+	return container.Summary{
+		ID:     "abc123",
+		Names:  []string{"/test-app-" + appName + "-xyz"},
+		State:  "running",
+		Labels: map[string]string{labelKey: settings.Marshal()},
+	}
+}
+
+func addSample(s *Scraper, appName string, sample Sample) {
+	s.mu.Lock()
+	defer s.mu.Unlock()
+
+	data, ok := s.apps[appName]
+	if !ok {
+		data = &appData{
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd internal/docker && sed -n '235,300p' scraper_test.go
+samples = s.Fetch("myapp", 1)
+	require.Len(t, samples, 1)
+	assert.Equal(t, 75.0, samples[0].CPUPercent)
+	assert.Equal(t, uint64(2000), samples[0].MemoryBytes)
+}
+
+func TestScraperMarksChangedSourceStale(t *testing.T) {
+	dir := t.TempDir()
+	file := filepath.Join(dir, "index.html")
+	require.NoError(t, os.WriteFile(file, []byte("first"), 0o644))
+
+	settings := staticSettings(t, "site", dir)
+	client := &mockStatsClient{
+		containers: []container.Summary{staticContainer("site", settings)},
+		stats:      map[string]container.StatsResponse{},
+	}
+
+	ctx := t.Context()
+
+	s := newTestScraper(client)
+	s.Scrape(ctx)
+	assert.False(t, s.Stale("site"))
+
+	require.NoError(t, os.WriteFile(file, []byte("second"), 0o644))
+	s.Scrape(ctx)
+	assert.True(t, s.Stale("site"))
+
+	require.NoError(t, os.WriteFile(file, []byte("first"), 0o644))
+	s.Scrape(ctx)
+	assert.False(t, s.Stale("site"))
+}
+
+func TestScraperMarksMissingSourceStale(t *testing.T) {
+	dir := t.TempDir()
+	settings := staticSettings(t, "site", dir)
+
+	require.NoError(t, os.RemoveAll(dir))
+
+	client := &mockStatsClient{
+		containers: []container.Summary{staticContainer("site", settings)},
+		stats:      map[string]container.StatsResponse{},
+	}
+
+	ctx := t.Context()
+
+	s := newTestScraper(client)
+	s.Scrape(ctx)
+	assert.True(t, s.Stale("site"))
+}
+
+func TestScraperIgnoresSourcesWithoutHash(t *testing.T) {
+	settings := ApplicationSettings{Name: "site", Image: StaticImage, Source: t.TempDir(), Host: "site.localhost"}
+	client := &mockStatsClient{
+		containers: []container.Summary{staticContainer("site", settings)},
+		stats:      map[string]container.StatsResponse{},
+	}
+
+	ctx := t.Context()
+
+	s := newTestScraper(client)
+	s.Scrape(ctx)
+	assert.False(t, s.Stale("site"))
+}
+
+func TestCalculateCPUPercent(t *testing.T) {
+	stats := &container.StatsResponse{
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd internal && grep -rn "NameFromPath" --include='*.go' .
+./command/deploy.go:45:		baseName = docker.NameFromPath(source)
+./docker/helpers.go:32:func NameFromPath(path string) string {
+./docker/helpers_test.go:16:func TestNameFromPath(t *testing.T) {
+./docker/helpers_test.go:17:	assert.Equal(t, "my-site", NameFromPath("/srv/my-site"))
+./docker/helpers_test.go:18:	assert.Equal(t, "my-site", NameFromPath("/srv/My Site/"))
+./docker/helpers_test.go:19:	assert.Equal(t, "notes-v2", NameFromPath("/srv/notes.v2"))
+./docker/helpers_test.go:20:	assert.Equal(t, "site", NameFromPath("/"))
+./docker/helpers_test.go:21:	assert.Equal(t, "site", NameFromPath("."))
+./docker/helpers_test.go:24:	assert.Equal(t, strings.Repeat("a", 63), NameFromPath("/srv/"+longName))
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd internal && grep -rn "installImageRef\|StaticImage" --include='*.go' ui command | grep -v _test
+ui/app.go:73:	installImageRef string
+ui/app.go:76:func NewApp(ns *docker.Namespace, installImageRef string) *App {
+ui/app.go:110:	if len(apps) > 0 && installImageRef == "" {
+ui/app.go:113:		screen = NewInstall(ns, installImageRef)
+ui/app.go:127:		installImageRef: installImageRef,
+ui/app.go:268:func Run(ns *docker.Namespace, installImageRef string) error {
+ui/app.go:275:	app := NewApp(ns, installImageRef)
+command/deploy.go:210:	return docker.StaticImage, path
+command/root.go:19:	installImageRef string
+command/root.go:34:				return ui.Run(ns, r.installImageRef)
+command/root.go:40:	r.cmd.Flags().StringVar(&r.installImageRef, "install", "", "Path to Docker image to install")
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd internal && grep -rn "deploy <" --include='*.go' .; grep -rn "deploy" ../README.md | head -20
+./command/deploy.go:23:		Use:   "deploy <image|path>",
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgrep -n "deploy\|static" README.md | head -30; grep -rn "deploy" internal/command/root_test.go
+(no output)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/site.go
+Index: internal/docker/site.go
+===================================================================
+--- internal/docker/site.go
++++ internal/docker/site.go
+@@ -11,10 +11,19 @@
+ 	"slices"
+ 	"strings"
+ )
+ 
+-const siteIndexName = "index.html"
++const (
++	siteIndexName = "index.html"
++	siteHTMLExt   = ".html"
++)
+ 
++// IsSiteFile reports whether path names a single HTML file that can be served
++// as a site in its own right.
++func IsSiteFile(path string) bool {
++	return strings.EqualFold(filepath.Ext(path), siteHTMLExt)
++}
++
+ // ServeSite copies the folder at source into a fresh directory in the served
+ // site cache and returns its path. Folders without an index.html get a
+ // generated contents page in the copy, so the source folder is left untouched.
+ func ServeSite(name, source string) (string, error) {
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/site.go
+Index: internal/docker/site.go
+===================================================================
+--- internal/docker/site.go
++++ internal/docker/site.go
+@@ -68,19 +68,29 @@
+ 
+ // BuildServedSite copies the folder at source into dest. Markdown files are
+ // rendered as HTML documents, and every folder in the copy that has no
+ // index.html gets a generated contents page. A folder made up entirely of
+-// Markdown documents opens its first one instead.
++// Markdown documents opens its first one instead. A single file is served as
++// the site's index.html.
+ func BuildServedSite(source, dest string) error {
+ 	root, err := filepath.EvalSymlinks(source)
+ 	if err != nil {
+ 		return err
+ 	}
+ 
++	info, err := os.Stat(root)
++	if err != nil {
++		return err
++	}
++
+ 	if err := os.MkdirAll(dest, 0o755); err != nil {
+ 		return err
+ 	}
+ 
++	if !info.IsDir() {
++		return copySiteFile(root, filepath.Join(dest, siteIndexName))
++	}
++
+ 	if err := copyTree(root, dest); err != nil {
+ 		return err
+ 	}
+ 
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/source.go
+Index: internal/docker/source.go
+===================================================================
+--- internal/docker/source.go
++++ internal/docker/source.go
+@@ -22,9 +22,9 @@
+ 	err = filepath.WalkDir(root, func(path string, entry fs.DirEntry, err error) error {
+ 		if err != nil {
+ 			return err
+ 		}
+-		if path == root {
++		if path == root && entry.IsDir() {
+ 			return nil
+ 		}
+ 
+ 		rel, err := filepath.Rel(root, path)
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/helpers.go
+Index: internal/docker/helpers.go
+===================================================================
+--- internal/docker/helpers.go
++++ internal/docker/helpers.go
+@@ -29,9 +29,14 @@
+ 	return parts[len(parts)-1]
+ }
+ 
+ func NameFromPath(path string) string {
+-	name := pathSeparators.ReplaceAllString(strings.ToLower(filepath.Base(filepath.Clean(path))), "-")
++	base := filepath.Base(filepath.Clean(path))
++	if strings.EqualFold(filepath.Ext(base), siteHTMLExt) {
++		base = strings.TrimSuffix(base, filepath.Ext(base))
++	}
++
++	name := pathSeparators.ReplaceAllString(strings.ToLower(base), "-")
+ 	name = strings.Trim(name, "-")
+ 
+ 	if name == "" {
+ 		return "site"
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/command/deploy.go
+Index: internal/command/deploy.go
+===================================================================
+--- internal/command/deploy.go
++++ internal/command/deploy.go
+@@ -202,10 +202,14 @@
+ 		return arg, ""
+ 	}
+ 
+ 	info, err := os.Stat(path)
+-	if err != nil || !info.IsDir() {
++	if err != nil {
+ 		return arg, ""
+ 	}
+ 
+-	return docker.StaticImage, path
++	if info.IsDir() || (info.Mode().IsRegular() && docker.IsSiteFile(path)) {
++		return docker.StaticImage, path
++	}
++
++	return arg, ""
+ }
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/helpers_test.go
+Index: internal/docker/helpers_test.go
+===================================================================
+--- internal/docker/helpers_test.go
++++ internal/docker/helpers_test.go
+@@ -16,8 +16,11 @@
+ func TestNameFromPath(t *testing.T) {
+ 	assert.Equal(t, "my-site", NameFromPath("/srv/my-site"))
+ 	assert.Equal(t, "my-site", NameFromPath("/srv/My Site/"))
+ 	assert.Equal(t, "notes-v2", NameFromPath("/srv/notes.v2"))
++	assert.Equal(t, "my-site", NameFromPath("/srv/my-site.html"))
++	assert.Equal(t, "my-site", NameFromPath("/srv/My Site.HTML"))
++	assert.Equal(t, "notes-v2", NameFromPath("/srv/notes.v2.html"))
+ 	assert.Equal(t, "site", NameFromPath("/"))
+ 	assert.Equal(t, "site", NameFromPath("."))
+ 
+ 	longName := strings.Repeat("a", 70)
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/site_test.go
+Index: internal/docker/site_test.go
+===================================================================
+--- internal/docker/site_test.go
++++ internal/docker/site_test.go
+@@ -136,8 +136,43 @@
+ 	err := BuildServedSite(filepath.Join(t.TempDir(), "missing"), filepath.Join(t.TempDir(), "site"))
+ 	assert.Error(t, err)
+ }
+ 
++func TestBuildServedSiteSingleFile(t *testing.T) {
++	source := t.TempDir()
++	dest := filepath.Join(t.TempDir(), "site")
++
++	page := filepath.Join(source, "hello.html")
++	require.NoError(t, os.WriteFile(page, []byte("<!doctype html><h1>Hi</h1>"), 0o600))
++	require.NoError(t, os.WriteFile(filepath.Join(source, "sibling.txt"), []byte("nope"), 0o644))
++
++	require.NoError(t, BuildServedSite(page, dest))
++
++	index, err := os.ReadFile(filepath.Join(dest, "index.html"))
++	require.NoError(t, err)
++	assert.Equal(t, "<!doctype html><h1>Hi</h1>", string(index))
++	assert.NoFileExists(t, filepath.Join(dest, "hello.html"))
++	assert.NoFileExists(t, filepath.Join(dest, "sibling.txt"))
++
++	info, err := os.Stat(filepath.Join(dest, "index.html"))
++	require.NoError(t, err)
++	assert.Equal(t, os.FileMode(0o644), info.Mode().Perm())
++}
++
++func TestServeSiteSingleFile(t *testing.T) {
++	t.Setenv("XDG_CACHE_HOME", t.TempDir())
++
++	page := filepath.Join(t.TempDir(), "hello.html")
++	require.NoError(t, os.WriteFile(page, []byte("<h1>Hi</h1>"), 0o644))
++
++	path, err := ServeSite("hello.abc123", page)
++	require.NoError(t, err)
++
++	index, err := os.ReadFile(filepath.Join(path, "index.html"))
++	require.NoError(t, err)
++	assert.Equal(t, "<h1>Hi</h1>", string(index))
++}
++
+ func TestServeSite(t *testing.T) {
+ 	t.Setenv("XDG_CACHE_HOME", t.TempDir())
+ 
+ 	source := t.TempDir()
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/source_test.go
+Index: internal/docker/source_test.go
+===================================================================
+--- internal/docker/source_test.go
++++ internal/docker/source_test.go
+@@ -66,8 +66,27 @@
+ 	require.NoError(t, err)
+ 	assert.NotEqual(t, before, after)
+ }
+ 
++func TestHashSourceSingleFile(t *testing.T) {
++	page := filepath.Join(t.TempDir(), "hello.html")
++	require.NoError(t, os.WriteFile(page, []byte("<h1>Hi</h1>"), 0o644))
++
++	hash, err := HashSource(page)
++	require.NoError(t, err)
++	assert.Len(t, hash, 64)
++
++	again, err := HashSource(page)
++	require.NoError(t, err)
++	assert.Equal(t, hash, again)
++
++	require.NoError(t, os.WriteFile(page, []byte("<h1>Bye</h1>"), 0o644))
++
++	changed, err := HashSource(page)
++	require.NoError(t, err)
++	assert.NotEqual(t, hash, changed)
++}
++
+ func TestHashSourceMissingDirectory(t *testing.T) {
+ 	_, err := HashSource(filepath.Join(t.TempDir(), "missing"))
+ 	assert.Error(t, err)
+ }
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/command/deploy_test.go
+Index: internal/command/deploy_test.go
+===================================================================
+--- internal/command/deploy_test.go
++++ internal/command/deploy_test.go
+@@ -76,8 +76,26 @@
+ 		assert.Equal(t, "ghcr.io/basecamp/once-campfire:main", image)
+ 		assert.Empty(t, source)
+ 	})
+ 
++	t.Run("single HTML file", func(t *testing.T) {
++		file := filepath.Join(t.TempDir(), "my-site.html")
++		require.NoError(t, os.WriteFile(file, []byte("<h1>Hi</h1>"), 0o644))
++
++		image, source := deployTarget(file)
++		assert.Equal(t, docker.StaticImage, image)
++		assert.Equal(t, file, source)
++	})
++
++	t.Run("other file", func(t *testing.T) {
++		file := filepath.Join(t.TempDir(), "notes.txt")
++		require.NoError(t, os.WriteFile(file, []byte("hi"), 0o644))
++
++		image, source := deployTarget(file)
++		assert.Equal(t, file, image)
++		assert.Empty(t, source)
++	})
++
+ 	t.Run("missing path", func(t *testing.T) {
+ 		image, source := deployTarget("/no/such/folder")
+ 		assert.Equal(t, "/no/such/folder", image)
+ 		assert.Empty(t, source)
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgofmt -l internal/docker internal/command; make test 2>&1 | tail -40
+go test ./internal/...
+ok  	github.com/basecamp/once/internal/background	0.006s
+ok  	github.com/basecamp/once/internal/command	0.006s
+ok  	github.com/basecamp/once/internal/docker	0.030s
+ok  	github.com/basecamp/once/internal/fsutil	(cached)
+?   	github.com/basecamp/once/internal/logging	[no test files]
+ok  	github.com/basecamp/once/internal/metrics	0.007s
+ok  	github.com/basecamp/once/internal/mouse	(cached)
+?   	github.com/basecamp/once/internal/service	[no test files]
+ok  	github.com/basecamp/once/internal/system	(cached)
+ok  	github.com/basecamp/once/internal/ui	0.204s
+ok  	github.com/basecamp/once/internal/userstats	0.004s
+ok  	github.com/basecamp/once/internal/version	(cached)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mmake lint 2>&1 | tail -30
+golangci-lint run
+0 issues.
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0msed -n '1,100p' internal/docker/site.go; echo ---; sed -n '28,50p' internal/docker/helpers.go; echo ---; sed -n '195,220p' internal/command/deploy.go
+package docker
+
+import (
+	"fmt"
+	"html/template"
+	"io"
+	"io/fs"
+	"net/url"
+	"os"
+	"path/filepath"
+	"slices"
+	"strings"
+)
+
+const (
+	siteIndexName = "index.html"
+	siteHTMLExt   = ".html"
+)
+
+// IsSiteFile reports whether path names a single HTML file that can be served
+// as a site in its own right.
+func IsSiteFile(path string) bool {
+	return strings.EqualFold(filepath.Ext(path), siteHTMLExt)
+}
+
+// ServeSite copies the folder at source into a fresh directory in the served
+// site cache and returns its path. Folders without an index.html get a
+// generated contents page in the copy, so the source folder is left untouched.
+func ServeSite(name, source string) (string, error) {
+	dir, err := servedSiteDir(name)
+	if err != nil {
+		return "", err
+	}
+
+	if err := os.MkdirAll(dir, 0o755); err != nil {
+		return "", fmt.Errorf("creating served site directory: %w", err)
+	}
+
+	revision, err := randomID(8)
+	if err != nil {
+		return "", fmt.Errorf("generating served site id: %w", err)
+	}
+
+	dest := filepath.Join(dir, revision)
+	if err := BuildServedSite(source, dest); err != nil {
+		os.RemoveAll(dest)
+		return "", err
+	}
+
+	return dest, nil
+}
+
+// RemoveServedSite deletes every served copy belonging to name.
+func RemoveServedSite(name string) error {
+	dir, err := servedSiteDir(name)
+	if err != nil {
+		return err
+	}
+
+	return os.RemoveAll(dir)
+}
+
+// RemoveServedCopy deletes a single served copy, such as the previous version
+// of a site after a redeploy.
+func RemoveServedCopy(path string) error {
+	return os.RemoveAll(path)
+}
+
+// BuildServedSite copies the folder at source into dest. Markdown files are
+// rendered as HTML documents, and every folder in the copy that has no
+// index.html gets a generated contents page. A folder made up entirely of
+// Markdown documents opens its first one instead. A single file is served as
+// the site's index.html.
+func BuildServedSite(source, dest string) error {
+	root, err := filepath.EvalSymlinks(source)
+	if err != nil {
+		return err
+	}
+
+	info, err := os.Stat(root)
+	if err != nil {
+		return err
+	}
+
+	if err := os.MkdirAll(dest, 0o755); err != nil {
+		return err
+	}
+
+	if !info.IsDir() {
+		return copySiteFile(root, filepath.Join(dest, siteIndexName))
+	}
+
+	if err := copyTree(root, dest); err != nil {
+		return err
+	}
+
+	if err := renderMarkdownDocuments(root, dest); err != nil {
+		return err
+	}
+
+---
+	parts := strings.Split(path, "/")
+	return parts[len(parts)-1]
+}
+
+func NameFromPath(path string) string {
+	base := filepath.Base(filepath.Clean(path))
+	if strings.EqualFold(filepath.Ext(base), siteHTMLExt) {
+		base = strings.TrimSuffix(base, filepath.Ext(base))
+	}
+
+	name := pathSeparators.ReplaceAllString(strings.ToLower(base), "-")
+	name = strings.Trim(name, "-")
+
+	if name == "" {
+		return "site"
+	}
+
+	if len(name) > 63 {
+		name = strings.Trim(name[:63], "-")
+	}
+
+	return name
+}
+---
+
+	return existing, nil
+}
+
+func deployTarget(arg string) (imageRef, source string) {
+	path, err := filepath.Abs(arg)
+	if err != nil {
+		return arg, ""
+	}
+
+	info, err := os.Stat(path)
+	if err != nil {
+		return arg, ""
+	}
+
+	if info.IsDir() || (info.Mode().IsRegular() && docker.IsSiteFile(path)) {
+		return docker.StaticImage, path
+	}
+
+	return arg, ""
+}
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/helpers.go
+Index: internal/docker/helpers.go
+===================================================================
+--- internal/docker/helpers.go
++++ internal/docker/helpers.go
+@@ -30,10 +30,10 @@
+ }
+ 
+ func NameFromPath(path string) string {
+ 	base := filepath.Base(filepath.Clean(path))
+-	if strings.EqualFold(filepath.Ext(base), siteHTMLExt) {
+-		base = strings.TrimSuffix(base, filepath.Ext(base))
++	if ext := filepath.Ext(base); strings.EqualFold(ext, siteHTMLExt) {
++		base = strings.TrimSuffix(base, ext)
+ 	}
+ 
+ 	name := pathSeparators.ReplaceAllString(strings.ToLower(base), "-")
+ 	name = strings.Trim(name, "-")
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/site.go
+Index: internal/docker/site.go
+===================================================================
+--- internal/docker/site.go
++++ internal/docker/site.go
+@@ -22,11 +22,12 @@
+ func IsSiteFile(path string) bool {
+ 	return strings.EqualFold(filepath.Ext(path), siteHTMLExt)
+ }
+ 
+-// ServeSite copies the folder at source into a fresh directory in the served
+-// site cache and returns its path. Folders without an index.html get a
+-// generated contents page in the copy, so the source folder is left untouched.
++// ServeSite copies source into a fresh directory in the served site cache and
++// returns its path. Folders without an index.html get a generated contents
++// page in the copy, so the source is left untouched. A single HTML file is
++// served as the site's index.html.
+ func ServeSite(name, source string) (string, error) {
+ 	dir, err := servedSiteDir(name)
+ 	if err != nil {
+ 		return "", err
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/site.go
+Index: internal/docker/site.go
+===================================================================
+--- internal/docker/site.go
++++ internal/docker/site.go
+@@ -66,9 +66,9 @@
+ func RemoveServedCopy(path string) error {
+ 	return os.RemoveAll(path)
+ }
+ 
+-// BuildServedSite copies the folder at source into dest. Markdown files are
++// BuildServedSite builds the served copy of source in dest. Markdown files are
+ // rendered as HTML documents, and every folder in the copy that has no
+ // index.html gets a generated contents page. A folder made up entirely of
+ // Markdown documents opens its first one instead. A single file is served as
+ // the site's index.html.
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0msed -n '22,30p' internal/docker/site.go; gofmt -l internal/docker internal/command; make test 2>&1 | tail -15 && make lint 2>&1 | tail -5
+func IsSiteFile(path string) bool {
+	return strings.EqualFold(filepath.Ext(path), siteHTMLExt)
+}
+
+// ServeSite copies source into a fresh directory in the served site cache and
+// returns its path. Folders without an index.html get a generated contents
+// page in the copy, so the source is left untouched. A single HTML file is
+// served as the site's index.html.
+func ServeSite(name, source string) (string, error) {
+go test ./internal/...
+ok  	github.com/basecamp/once/internal/background	0.005s
+ok  	github.com/basecamp/once/internal/command	0.007s
+ok  	github.com/basecamp/once/internal/docker	0.034s
+ok  	github.com/basecamp/once/internal/fsutil	(cached)
+?   	github.com/basecamp/once/internal/logging	[no test files]
+ok  	github.com/basecamp/once/internal/metrics	(cached)
+ok  	github.com/basecamp/once/internal/mouse	(cached)
+?   	github.com/basecamp/once/internal/service	[no test files]
+ok  	github.com/basecamp/once/internal/system	(cached)
+ok  	github.com/basecamp/once/internal/ui	0.207s
+ok  	github.com/basecamp/once/internal/userstats	0.005s
+ok  	github.com/basecamp/once/internal/version	(cached)
+golangci-lint run
+0 issues.
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgit diff --stat; git diff
+internal/command/deploy.go      |  8 ++++++--
+ internal/command/deploy_test.go | 18 ++++++++++++++++++
+ internal/docker/helpers.go      |  7 ++++++-
+ internal/docker/helpers_test.go |  3 +++
+ internal/docker/site.go         | 32 ++++++++++++++++++++++++++------
+ internal/docker/site_test.go    | 35 +++++++++++++++++++++++++++++++++++
+ internal/docker/source.go       |  2 +-
+ internal/docker/source_test.go  | 19 +++++++++++++++++++
+ 8 files changed, 114 insertions(+), 10 deletions(-)
+diff --git i/internal/command/deploy.go w/internal/command/deploy.go
+index eae481a..2066647 100644
+--- i/internal/command/deploy.go
++++ w/internal/command/deploy.go
+@@ -203,9 +203,13 @@ func deployTarget(arg string) (imageRef, source string) {
+ 	}
+ 
+ 	info, err := os.Stat(path)
+-	if err != nil || !info.IsDir() {
++	if err != nil {
+ 		return arg, ""
+ 	}
+ 
+-	return docker.StaticImage, path
++	if info.IsDir() || (info.Mode().IsRegular() && docker.IsSiteFile(path)) {
++		return docker.StaticImage, path
++	}
++
++	return arg, ""
+ }
+diff --git i/internal/command/deploy_test.go w/internal/command/deploy_test.go
+index 986b076..b828a29 100644
+--- i/internal/command/deploy_test.go
++++ w/internal/command/deploy_test.go
+@@ -77,6 +77,24 @@ func TestDeployTarget(t *testing.T) {
+ 		assert.Empty(t, source)
+ 	})
+ 
++	t.Run("single HTML file", func(t *testing.T) {
++		file := filepath.Join(t.TempDir(), "my-site.html")
++		require.NoError(t, os.WriteFile(file, []byte("<h1>Hi</h1>"), 0o644))
++
++		image, source := deployTarget(file)
++		assert.Equal(t, docker.StaticImage, image)
++		assert.Equal(t, file, source)
++	})
++
++	t.Run("other file", func(t *testing.T) {
++		file := filepath.Join(t.TempDir(), "notes.txt")
++		require.NoError(t, os.WriteFile(file, []byte("hi"), 0o644))
++
++		image, source := deployTarget(file)
++		assert.Equal(t, file, image)
++		assert.Empty(t, source)
++	})
++
+ 	t.Run("missing path", func(t *testing.T) {
+ 		image, source := deployTarget("/no/such/folder")
+ 		assert.Equal(t, "/no/such/folder", image)
+diff --git i/internal/docker/helpers.go w/internal/docker/helpers.go
+index ee6ba75..2fd310a 100644
+--- i/internal/docker/helpers.go
++++ w/internal/docker/helpers.go
+@@ -30,7 +30,12 @@ func NameFromImageRef(imageRef string) string {
+ }
+ 
+ func NameFromPath(path string) string {
+-	name := pathSeparators.ReplaceAllString(strings.ToLower(filepath.Base(filepath.Clean(path))), "-")
++	base := filepath.Base(filepath.Clean(path))
++	if ext := filepath.Ext(base); strings.EqualFold(ext, siteHTMLExt) {
++		base = strings.TrimSuffix(base, ext)
++	}
++
++	name := pathSeparators.ReplaceAllString(strings.ToLower(base), "-")
+ 	name = strings.Trim(name, "-")
+ 
+ 	if name == "" {
+diff --git i/internal/docker/helpers_test.go w/internal/docker/helpers_test.go
+index 44d3415..af12102 100644
+--- i/internal/docker/helpers_test.go
++++ w/internal/docker/helpers_test.go
+@@ -17,6 +17,9 @@ func TestNameFromPath(t *testing.T) {
+ 	assert.Equal(t, "my-site", NameFromPath("/srv/my-site"))
+ 	assert.Equal(t, "my-site", NameFromPath("/srv/My Site/"))
+ 	assert.Equal(t, "notes-v2", NameFromPath("/srv/notes.v2"))
++	assert.Equal(t, "my-site", NameFromPath("/srv/my-site.html"))
++	assert.Equal(t, "my-site", NameFromPath("/srv/My Site.HTML"))
++	assert.Equal(t, "notes-v2", NameFromPath("/srv/notes.v2.html"))
+ 	assert.Equal(t, "site", NameFromPath("/"))
+ 	assert.Equal(t, "site", NameFromPath("."))
+ 
+diff --git i/internal/docker/site.go w/internal/docker/site.go
+index abf8de7..682bc94 100644
+--- i/internal/docker/site.go
++++ w/internal/docker/site.go
+@@ -12,11 +12,21 @@ import (
+ 	"strings"
+ )
+ 
+-const siteIndexName = "index.html"
++const (
++	siteIndexName = "index.html"
++	siteHTMLExt   = ".html"
++)
+ 
+-// ServeSite copies the folder at source into a fresh directory in the served
+-// site cache and returns its path. Folders without an index.html get a
+-// generated contents page in the copy, so the source folder is left untouched.
++// IsSiteFile reports whether path names a single HTML file that can be served
++// as a site in its own right.
++func IsSiteFile(path string) bool {
++	return strings.EqualFold(filepath.Ext(path), siteHTMLExt)
++}
++
++// ServeSite copies source into a fresh directory in the served site cache and
++// returns its path. Folders without an index.html get a generated contents
++// page in the copy, so the source is left untouched. A single HTML file is
++// served as the site's index.html.
+ func ServeSite(name, source string) (string, error) {
+ 	dir, err := servedSiteDir(name)
+ 	if err != nil {
+@@ -57,20 +67,30 @@ func RemoveServedCopy(path string) error {
+ 	return os.RemoveAll(path)
+ }
+ 
+-// BuildServedSite copies the folder at source into dest. Markdown files are
++// BuildServedSite builds the served copy of source in dest. Markdown files are
+ // rendered as HTML documents, and every folder in the copy that has no
+ // index.html gets a generated contents page. A folder made up entirely of
+-// Markdown documents opens its first one instead.
++// Markdown documents opens its first one instead. A single file is served as
++// the site's index.html.
+ func BuildServedSite(source, dest string) error {
+ 	root, err := filepath.EvalSymlinks(source)
+ 	if err != nil {
+ 		return err
+ 	}
+ 
++	info, err := os.Stat(root)
++	if err != nil {
++		return err
++	}
++
+ 	if err := os.MkdirAll(dest, 0o755); err != nil {
+ 		return err
+ 	}
+ 
++	if !info.IsDir() {
++		return copySiteFile(root, filepath.Join(dest, siteIndexName))
++	}
++
+ 	if err := copyTree(root, dest); err != nil {
+ 		return err
+ 	}
+diff --git i/internal/docker/site_test.go w/internal/docker/site_test.go
+index f7776c5..1bc0b30 100644
+--- i/internal/docker/site_test.go
++++ w/internal/docker/site_test.go
+@@ -137,6 +137,41 @@ func TestBuildServedSiteMissingSource(t *testing.T) {
+ 	assert.Error(t, err)
+ }
+ 
++func TestBuildServedSiteSingleFile(t *testing.T) {
++	source := t.TempDir()
++	dest := filepath.Join(t.TempDir(), "site")
++
++	page := filepath.Join(source, "hello.html")
++	require.NoError(t, os.WriteFile(page, []byte("<!doctype html><h1>Hi</h1>"), 0o600))
++	require.NoError(t, os.WriteFile(filepath.Join(source, "sibling.txt"), []byte("nope"), 0o644))
++
++	require.NoError(t, BuildServedSite(page, dest))
++
++	index, err := os.ReadFile(filepath.Join(dest, "index.html"))
++	require.NoError(t, err)
++	assert.Equal(t, "<!doctype html><h1>Hi</h1>", string(index))
++	assert.NoFileExists(t, filepath.Join(dest, "hello.html"))
++	assert.NoFileExists(t, filepath.Join(dest, "sibling.txt"))
++
++	info, err := os.Stat(filepath.Join(dest, "index.html"))
++	require.NoError(t, err)
++	assert.Equal(t, os.FileMode(0o644), info.Mode().Perm())
++}
++
++func TestServeSiteSingleFile(t *testing.T) {
++	t.Setenv("XDG_CACHE_HOME", t.TempDir())
++
++	page := filepath.Join(t.TempDir(), "hello.html")
++	require.NoError(t, os.WriteFile(page, []byte("<h1>Hi</h1>"), 0o644))
++
++	path, err := ServeSite("hello.abc123", page)
++	require.NoError(t, err)
++
++	index, err := os.ReadFile(filepath.Join(path, "index.html"))
++	require.NoError(t, err)
++	assert.Equal(t, "<h1>Hi</h1>", string(index))
++}
++
+ func TestServeSite(t *testing.T) {
+ 	t.Setenv("XDG_CACHE_HOME", t.TempDir())
+ 
+diff --git i/internal/docker/source.go w/internal/docker/source.go
+index 2e8b1ae..e281d17 100644
+--- i/internal/docker/source.go
++++ w/internal/docker/source.go
+@@ -23,7 +23,7 @@ func HashSource(dir string) (string, error) {
+ 		if err != nil {
+ 			return err
+ 		}
+-		if path == root {
++		if path == root && entry.IsDir() {
+ 			return nil
+ 		}
+ 
+diff --git i/internal/docker/source_test.go w/internal/docker/source_test.go
+index 5939eb5..9993294 100644
+--- i/internal/docker/source_test.go
++++ w/internal/docker/source_test.go
+@@ -67,6 +67,25 @@ func TestHashSourceChangesWithFileName(t *testing.T) {
+ 	assert.NotEqual(t, before, after)
+ }
+ 
++func TestHashSourceSingleFile(t *testing.T) {
++	page := filepath.Join(t.TempDir(), "hello.html")
++	require.NoError(t, os.WriteFile(page, []byte("<h1>Hi</h1>"), 0o644))
++
++	hash, err := HashSource(page)
++	require.NoError(t, err)
++	assert.Len(t, hash, 64)
++
++	again, err := HashSource(page)
++	require.NoError(t, err)
++	assert.Equal(t, hash, again)
++
++	require.NoError(t, os.WriteFile(page, []byte("<h1>Bye</h1>"), 0o644))
++
++	changed, err := HashSource(page)
++	require.NoError(t, err)
++	assert.NotEqual(t, hash, changed)
++}
++
+ func TestHashSourceMissingDirectory(t *testing.T) {
+ 	_, err := HashSource(filepath.Join(t.TempDir(), "missing"))
+ 	assert.Error(t, err)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/site.go
+Index: internal/docker/site.go
+===================================================================
+--- internal/docker/site.go
++++ internal/docker/site.go
+@@ -87,8 +87,11 @@
+ 		return err
+ 	}
+ 
+ 	if !info.IsDir() {
++		if !info.Mode().IsRegular() {
++			return fmt.Errorf("unsupported site source: %s", source)
++		}
+ 		return copySiteFile(root, filepath.Join(dest, siteIndexName))
+ 	}
+ 
+ 	if err := copyTree(root, dest); err != nil {
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mgofmt -l internal/docker internal/command; make test 2>&1 | tail -6 && make lint 2>&1 | tail -3
+ok  	github.com/basecamp/once/internal/mouse	(cached)
+?   	github.com/basecamp/once/internal/service	[no test files]
+ok  	github.com/basecamp/once/internal/system	(cached)
+ok  	github.com/basecamp/once/internal/ui	0.207s
+ok  	github.com/basecamp/once/internal/userstats	0.005s
+ok  	github.com/basecamp/once/internal/version	(cached)
+golangci-lint run
+0 issues.
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+Single-file sites now deploy like folders:
+
+- `deployTarget` accepts a regular `.html` file and uses the static image (`internal/command/deploy.go:199`).
+- `NameFromPath` drops the `.html` extension, so `my-site.html` → `my-site.localhost` (`internal/docker/helpers.go:32`).
+- `BuildServedSite` serves a lone file as `index.html` (`internal/docker/site.go:76`), and `HashSource` hashes files for stale detection (`internal/docker/source.go:26`).
+- Added tests for naming, deploy target detection, serving, and hashing.
+
+`make test` passes; `make lint` reports `0 issues`.

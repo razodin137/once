@@ -67,6 +67,25 @@ func TestHashSourceChangesWithFileName(t *testing.T) {
 	assert.NotEqual(t, before, after)
 }
 
+func TestHashSourceSingleFile(t *testing.T) {
+	page := filepath.Join(t.TempDir(), "hello.html")
+	require.NoError(t, os.WriteFile(page, []byte("<h1>Hi</h1>"), 0o644))
+
+	hash, err := HashSource(page)
+	require.NoError(t, err)
+	assert.Len(t, hash, 64)
+
+	again, err := HashSource(page)
+	require.NoError(t, err)
+	assert.Equal(t, hash, again)
+
+	require.NoError(t, os.WriteFile(page, []byte("<h1>Bye</h1>"), 0o644))
+
+	changed, err := HashSource(page)
+	require.NoError(t, err)
+	assert.NotEqual(t, hash, changed)
+}
+
 func TestHashSourceMissingDirectory(t *testing.T) {
 	_, err := HashSource(filepath.Join(t.TempDir(), "missing"))
 	assert.Error(t, err)

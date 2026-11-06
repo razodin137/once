@@ -77,6 +77,24 @@ func TestDeployTarget(t *testing.T) {
 		assert.Empty(t, source)
 	})
 
+	t.Run("single HTML file", func(t *testing.T) {
+		file := filepath.Join(t.TempDir(), "my-site.html")
+		require.NoError(t, os.WriteFile(file, []byte("<h1>Hi</h1>"), 0o644))
+
+		image, source := deployTarget(file)
+		assert.Equal(t, docker.StaticImage, image)
+		assert.Equal(t, file, source)
+	})
+
+	t.Run("other file", func(t *testing.T) {
+		file := filepath.Join(t.TempDir(), "notes.txt")
+		require.NoError(t, os.WriteFile(file, []byte("hi"), 0o644))
+
+		image, source := deployTarget(file)
+		assert.Equal(t, file, image)
+		assert.Empty(t, source)
+	})
+
 	t.Run("missing path", func(t *testing.T) {
 		image, source := deployTarget("/no/such/folder")
 		assert.Equal(t, "/no/such/folder", image)

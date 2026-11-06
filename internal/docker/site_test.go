@@ -137,6 +137,41 @@ func TestBuildServedSiteMissingSource(t *testing.T) {
 	assert.Error(t, err)
 }
 
+func TestBuildServedSiteSingleFile(t *testing.T) {
+	source := t.TempDir()
+	dest := filepath.Join(t.TempDir(), "site")
+
+	page := filepath.Join(source, "hello.html")
+	require.NoError(t, os.WriteFile(page, []byte("<!doctype html><h1>Hi</h1>"), 0o600))
+	require.NoError(t, os.WriteFile(filepath.Join(source, "sibling.txt"), []byte("nope"), 0o644))
+
+	require.NoError(t, BuildServedSite(page, dest))
+
+	index, err := os.ReadFile(filepath.Join(dest, "index.html"))
+	require.NoError(t, err)
+	assert.Equal(t, "<!doctype html><h1>Hi</h1>", string(index))
+	assert.NoFileExists(t, filepath.Join(dest, "hello.html"))
+	assert.NoFileExists(t, filepath.Join(dest, "sibling.txt"))
+
+	info, err := os.Stat(filepath.Join(dest, "index.html"))
+	require.NoError(t, err)
+	assert.Equal(t, os.FileMode(0o644), info.Mode().Perm())
+}
+
+func TestServeSiteSingleFile(t *testing.T) {
+	t.Setenv("XDG_CACHE_HOME", t.TempDir())
+
+	page := filepath.Join(t.TempDir(), "hello.html")
+	require.NoError(t, os.WriteFile(page, []byte("<h1>Hi</h1>"), 0o644))
+
+	path, err := ServeSite("hello.abc123", page)
+	require.NoError(t, err)
+
+	index, err := os.ReadFile(filepath.Join(path, "index.html"))
+	require.NoError(t, err)
+	assert.Equal(t, "<h1>Hi</h1>", string(index))
+}
+
 func TestServeSite(t *testing.T) {
 	t.Setenv("XDG_CACHE_HOME", t.TempDir())
 

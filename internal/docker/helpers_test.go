@@ -17,6 +17,9 @@ func TestNameFromPath(t *testing.T) {
 	assert.Equal(t, "my-site", NameFromPath("/srv/my-site"))
 	assert.Equal(t, "my-site", NameFromPath("/srv/My Site/"))
 	assert.Equal(t, "notes-v2", NameFromPath("/srv/notes.v2"))
+	assert.Equal(t, "my-site", NameFromPath("/srv/my-site.html"))
+	assert.Equal(t, "my-site", NameFromPath("/srv/My Site.HTML"))
+	assert.Equal(t, "notes-v2", NameFromPath("/srv/notes.v2.html"))
 	assert.Equal(t, "site", NameFromPath("/"))
 	assert.Equal(t, "site", NameFromPath("."))
 

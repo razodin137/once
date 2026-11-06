@@ -23,7 +23,7 @@ func HashSource(dir string) (string, error) {
 		if err != nil {
 			return err
 		}
-		if path == root {
+		if path == root && entry.IsDir() {
 			return nil
 		}
 

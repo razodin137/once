@@ -203,9 +203,13 @@ func deployTarget(arg string) (imageRef, source string) {
 	}
 
 	info, err := os.Stat(path)
-	if err != nil || !info.IsDir() {
+	if err != nil {
 		return arg, ""
 	}
 
-	return docker.StaticImage, path
+	if info.IsDir() || (info.Mode().IsRegular() && docker.IsSiteFile(path)) {
+		return docker.StaticImage, path
+	}
+
+	return arg, ""
 }
