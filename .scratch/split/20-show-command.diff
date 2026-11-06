@@ -1,0 +1,4 @@
+ go.mod                   | 1 +
+ go.sum                   | 2 ++
+ internal/command/root.go | 1 +
+ 3 files changed, 4 insertions(+)

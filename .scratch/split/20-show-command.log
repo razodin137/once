@@ -1,0 +1,1935 @@
+[0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m✱ [0mGlob ".opencode/**/*" [90m0 matches[0m
+[0m✱ [0mGlob "**/split*" [90m1 match[0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead scripts/split-serial.sh 
+[0m$ [0mls -la ~/.config/opencode/ 2>/dev/null; echo ---; ls -la ~/.config/opencode/command/ 2>/dev/null
+total 52
+drwxr-xr-x 1 mrjohn mrjohn   328 Nov  6 18:06 .
+drwxr-xr-x 1 mrjohn mrjohn  1464 Oct 27 23:00 ..
+drwxr-xr-x 1 mrjohn mrjohn    56 Nov  2 23:17 agent
+drwxr-xr-x 1 mrjohn mrjohn    92 Nov  6 17:40 agents
+-rw-r--r-- 1 mrjohn mrjohn  2028 Nov  4 17:30 AGENTS.md
+-rw------- 1 mrjohn mrjohn   995 Nov  2 22:57 cli.json
+-rw-r--r-- 1 mrjohn mrjohn    63 Sep 28 14:58 .gitignore
+drwxr-xr-x 1 mrjohn mrjohn   584 Sep 28 14:58 node_modules
+-rw-r--r-- 1 mrjohn mrjohn   114 Nov  5 19:44 opencode.json
+-rw-r--r-- 1 mrjohn mrjohn    50 Sep 28 14:58 opencode.jsonc
+-rw-r--r-- 1 mrjohn mrjohn    95 Sep 28 17:17 opencode.json.tui-migration.bak
+-rw-r--r-- 1 mrjohn mrjohn    65 Sep 28 14:58 package.json
+-rw-r--r-- 1 mrjohn mrjohn 14633 Sep 28 14:58 package-lock.json
+drwxr-xr-x 1 mrjohn mrjohn    30 Nov  6 18:06 scripts
+-rw------- 1 mrjohn mrjohn    64 Oct 15 22:57 service.json
+-rw-r--r-- 1 mrjohn mrjohn    68 Sep 28 17:17 tui.json
+---
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mls -la /home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/ 2>/dev/null; echo ---; find ~/.config/opencode -iname '*split*' 2>/dev/null; echo ---; find /home/mrjohn/Work/tries/2026-11-06-yo/once -maxdepth 3 -name '*.md' -path '*prompt*' 2>/dev/null
+total 204
+drwxr-xr-x 1 mrjohn mrjohn 2004 Nov  6 17:49 .
+drwxr-xr-x 1 mrjohn mrjohn  352 Nov  6 17:59 ..
+-rw-r--r-- 1 mrjohn mrjohn  474 Nov  6 17:49 00-overview.md
+-rw-r--r-- 1 mrjohn mrjohn  422 Nov  6 17:49 01-deploy-static-folder.md
+-rw-r--r-- 1 mrjohn mrjohn  416 Nov  6 17:49 02-serve-static-apps.md
+-rw-r--r-- 1 mrjohn mrjohn  367 Nov  6 17:49 03-redeploy-folder.md
+-rw-r--r-- 1 mrjohn mrjohn  364 Nov  6 17:49 04-stale-source-detection.md
+-rw-r--r-- 1 mrjohn mrjohn  393 Nov  6 17:49 05-folder-contents-fallback.md
+-rw-r--r-- 1 mrjohn mrjohn  324 Nov  6 17:49 06-markdown-pages.md
+-rw-r--r-- 1 mrjohn mrjohn  332 Nov  6 17:49 07-single-file-html-site.md
+-rw-r--r-- 1 mrjohn mrjohn  371 Nov  6 17:49 08-remove-static-app.md
+-rw-r--r-- 1 mrjohn mrjohn  419 Nov  6 17:49 09-contents-card.md
+-rw-r--r-- 1 mrjohn mrjohn  392 Nov  6 17:49 10-contents-screen.md
+-rw-r--r-- 1 mrjohn mrjohn  363 Nov  6 17:49 11-channels.md
+-rw-r--r-- 1 mrjohn mrjohn  341 Nov  6 17:49 12-channel-filter.md
+-rw-r--r-- 1 mrjohn mrjohn  346 Nov  6 17:49 13-favorites.md
+-rw-r--r-- 1 mrjohn mrjohn  297 Nov  6 17:49 14-drift.md
+-rw-r--r-- 1 mrjohn mrjohn  400 Nov  6 17:49 15-app-bar.md
+-rw-r--r-- 1 mrjohn mrjohn  376 Nov  6 17:49 16-bar-keys.md
+-rw-r--r-- 1 mrjohn mrjohn  372 Nov  6 17:49 17-bar-cross-fade.md
+-rw-r--r-- 1 mrjohn mrjohn  356 Nov  6 17:49 18-bar-hide.md
+-rw-r--r-- 1 mrjohn mrjohn  309 Nov  6 17:49 19-open-command.md
+-rw-r--r-- 1 mrjohn mrjohn  358 Nov  6 17:49 20-show-command.md
+-rw-r--r-- 1 mrjohn mrjohn  379 Nov  6 17:49 21-logs-command.md
+-rw-r--r-- 1 mrjohn mrjohn  385 Nov  6 17:49 22-status-command.md
+-rw-r--r-- 1 mrjohn mrjohn  352 Nov  6 17:49 23-list-json.md
+-rw-r--r-- 1 mrjohn mrjohn  335 Nov  6 17:49 24-restart-command.md
+-rw-r--r-- 1 mrjohn mrjohn  360 Nov  6 17:49 25-update-all.md
+-rw-r--r-- 1 mrjohn mrjohn  351 Nov  6 17:49 26-doctor-command.md
+-rw-r--r-- 1 mrjohn mrjohn  346 Nov  6 17:49 27-backups-list.md
+-rw-r--r-- 1 mrjohn mrjohn  358 Nov  6 17:49 28-screenshot-capture.md
+-rw-r--r-- 1 mrjohn mrjohn  380 Nov  6 17:49 29-card-thumbnails.md
+-rw-r--r-- 1 mrjohn mrjohn  343 Nov  6 17:49 30-route-map.md
+-rw-r--r-- 1 mrjohn mrjohn  336 Nov  6 17:49 31-page-weight.md
+-rw-r--r-- 1 mrjohn mrjohn  349 Nov  6 17:49 32-broken-links.md
+-rw-r--r-- 1 mrjohn mrjohn  340 Nov  6 17:49 33-meta-preview.md
+-rw-r--r-- 1 mrjohn mrjohn  375 Nov  6 17:49 34-deploy-diff.md
+-rw-r--r-- 1 mrjohn mrjohn  379 Nov  6 17:49 35-promote-on-evidence.md
+-rw-r--r-- 1 mrjohn mrjohn  357 Nov  6 17:49 36-error-capture.md
+-rw-r--r-- 1 mrjohn mrjohn  398 Nov  6 17:49 37-dashboard-filter.md
+-rw-r--r-- 1 mrjohn mrjohn  403 Nov  6 17:49 38-command-palette.md
+-rw-r--r-- 1 mrjohn mrjohn  363 Nov  6 17:49 39-toasts.md
+-rw-r--r-- 1 mrjohn mrjohn  416 Nov  6 17:49 40-chart-time-range.md
+-rw-r--r-- 1 mrjohn mrjohn  414 Nov  6 17:49 41-compact-layout.md
+-rw-r--r-- 1 mrjohn mrjohn  393 Nov  6 17:49 42-appearance-settings.md
+-rw-r--r-- 1 mrjohn mrjohn  370 Nov  6 17:49 43-app-details-view.md
+-rw-r--r-- 1 mrjohn mrjohn  427 Nov  6 17:49 44-mouse-on-cards.md
+-rw-r--r-- 1 mrjohn mrjohn  442 Nov  6 17:49 45-incremental-render.md
+-rw-r--r-- 1 mrjohn mrjohn  435 Nov  6 17:49 46-chart-performance.md
+-rw-r--r-- 1 mrjohn mrjohn  363 Nov  6 17:49 47-single-stats-stream.md
+-rw-r--r-- 1 mrjohn mrjohn  349 Nov  6 17:49 48-share-link.md
+-rw-r--r-- 1 mrjohn mrjohn  385 Nov  6 17:49 49-status-page.md
+-rw-r--r-- 1 mrjohn mrjohn  453 Nov  6 17:49 50-house-style-pass.md
+---
+/home/mrjohn/.config/opencode/scripts/split-serial.sh
+---
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt-v1/04-backups-command.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt-v1/06-dashboard-lifecycle-shortcuts.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt-v1/05-dashboard-filter.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt-v1/00-overview.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt-v1/03-restart-command.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt-v1/02-status-command.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt-v1/01-logs-command.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt-v1/07-update-all.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt-v1/12-logs-pause.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt-v1/13-appearance-settings.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt-v1/14-command-palette.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt-v1/08-health-checks.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt-v1/09-app-details.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt-v1/10-backup-restore.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt-v1/11-logs-stderr.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt-v1/15-toasts.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt-v1/19-chart-performance.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt-v1/18-incremental-render.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt-v1/17-compact-layout.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt-v1/16-chart-time-range.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt-v1/20-house-style.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/00-overview.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/01-deploy-static-folder.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/02-serve-static-apps.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/03-redeploy-folder.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/04-stale-source-detection.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/05-folder-contents-fallback.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/06-markdown-pages.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/07-single-file-html-site.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/08-remove-static-app.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/09-contents-card.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/10-contents-screen.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/11-channels.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/12-channel-filter.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/13-favorites.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/14-drift.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/15-app-bar.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/16-bar-keys.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/17-bar-cross-fade.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/18-bar-hide.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/19-open-command.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/20-show-command.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/21-logs-command.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/22-status-command.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/23-list-json.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/24-restart-command.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/25-update-all.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/26-doctor-command.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/27-backups-list.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/28-screenshot-capture.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/29-card-thumbnails.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/30-route-map.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/31-page-weight.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/32-broken-links.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/33-meta-preview.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/34-deploy-diff.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/35-promote-on-evidence.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/36-error-capture.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/37-dashboard-filter.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/38-command-palette.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/39-toasts.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/40-chart-time-range.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/41-compact-layout.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/42-appearance-settings.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/43-app-details-view.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/44-mouse-on-cards.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/45-incremental-render.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/46-chart-performance.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/47-single-stats-stream.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/48-share-link.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/49-status-page.md
+/home/mrjohn/Work/tries/2026-11-06-yo/once/prompt/50-house-style-pass.md
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead prompt/00-overview.md 
+[0m→ [0mRead prompt/20-show-command.md 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && ls -R --ignore=node_modules --ignore=.git | head -100 && echo --- && cat go.mod && echo --- && cat Makefile
+.:
+AGENTS.md
+bin
+cmd
+go.mod
+go.sum
+installer
+integration
+internal
+Makefile
+mise.toml
+MIT-LICENSE
+prompt
+prompt-v1
+README.md
+scripts
+
+./bin:
+once
+
+./cmd:
+once
+
+./cmd/once:
+main.go
+
+./installer:
+config
+Dockerfile
+go.mod
+go.sum
+main.go
+main_test.go
+templates
+
+./installer/config:
+deploy.yml
+
+./installer/templates:
+install.sh
+
+./integration:
+docker_test.go
+testapp
+ui_test.go
+
+./integration/testapp:
+Dockerfile
+go.mod
+main.go
+
+./internal:
+background
+browser
+command
+docker
+fsutil
+logging
+metrics
+mouse
+service
+system
+ui
+userstats
+version
+
+./internal/background:
+runner.go
+runner_test.go
+
+./internal/browser:
+browser.go
+browser_test.go
+
+./internal/command:
+background.go
+background_install.go
+background_remove.go
+background_run.go
+backup.go
+cli_progress.go
+deploy.go
+deploy_test.go
+exec.go
+exec_test.go
+keys.go
+keys_reset.go
+keys_set.go
+list.go
+open.go
+open_test.go
+remove.go
+restore.go
+root.go
+root_test.go
+self_update.go
+settings_flags.go
+start.go
+stop.go
+teardown.go
+---
+module github.com/basecamp/once
+
+go 1.27.0
+
+require (
+	charm.land/bubbles/v2 v2.2.1
+	charm.land/bubbletea/v2 v2.0.9
+	charm.land/lipgloss/v2 v2.0.6
+	github.com/axiomhq/hyperloglog v0.2.6
+	github.com/charmbracelet/colorprofile v0.4.3
+	github.com/charmbracelet/x/ansi v0.11.8
+	github.com/charmbracelet/x/term v0.2.2
+	github.com/containerd/errdefs v1.0.0
+	github.com/distribution/reference v0.6.0
+	github.com/google/go-containerregistry v0.22.1
+	github.com/lucasb-eyer/go-colorful v1.4.1
+	github.com/mattn/go-runewidth v0.0.29
+	github.com/moby/moby/api v1.56.0
+	github.com/moby/moby/client v0.6.0
+	github.com/prometheus/client_model v0.6.3
+	github.com/prometheus/common v0.71.0
+	github.com/shirou/gopsutil/v4 v4.26.8
+	github.com/spf13/cobra v1.10.2
+	github.com/stretchr/testify v1.12.1
+	github.com/yuin/goldmark v1.8.6
+)
+
+require (
+	github.com/Microsoft/go-winio v0.6.2 // indirect
+	github.com/atotto/clipboard v0.1.4 // indirect
+	github.com/cespare/xxhash/v2 v2.3.0 // indirect
+	github.com/charmbracelet/ultraviolet v0.0.0-20260811164956-006e29f97886 // indirect
+	github.com/charmbracelet/x/termios v0.1.1 // indirect
+	github.com/charmbracelet/x/windows v0.2.2 // indirect
+	github.com/clipperhouse/displaywidth v0.11.0 // indirect
+	github.com/clipperhouse/uax29/v2 v2.7.0 // indirect
+	github.com/containerd/errdefs/pkg v0.3.0 // indirect
+	github.com/dgryski/go-metro v0.0.0-20250106013310-edb8663e5e33 // indirect
+	github.com/docker/cli v29.7.2+incompatible // indirect
+	github.com/docker/docker-credential-helpers v0.9.8 // indirect
+	github.com/docker/go-connections v0.7.0 // indirect
+	github.com/docker/go-units v0.5.0 // indirect
+	github.com/ebitengine/purego v0.10.2 // indirect
+	github.com/felixge/httpsnoop v1.1.0 // indirect
+	github.com/go-logr/logr v1.4.3 // indirect
+	github.com/go-logr/stdr v1.2.2 // indirect
+	github.com/go-ole/go-ole v1.3.0 // indirect
+	github.com/inconshreveable/mousetrap v1.1.0 // indirect
+	github.com/kamstrup/intmap v0.5.2 // indirect
+	github.com/klauspost/compress v1.19.2 // indirect
+	github.com/lufia/plan9stats v0.0.0-20260330125221-c963978e514e // indirect
+	github.com/moby/docker-image-spec v1.3.1 // indirect
+	github.com/muesli/cancelreader v0.2.2 // indirect
+	github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822 // indirect
+	github.com/opencontainers/go-digest v1.0.0 // indirect
+	github.com/opencontainers/image-spec v1.1.1 // indirect
+	github.com/power-devops/perfstat v0.0.0-20240221224432-82ca36839d55 // indirect
+	github.com/rivo/uniseg v0.4.7 // indirect
+	github.com/sirupsen/logrus v1.9.4 // indirect
+	github.com/spf13/pflag v1.0.10 // indirect
+	github.com/tklauser/go-sysconf v0.4.0 // indirect
+	github.com/tklauser/numcpus v0.12.0 // indirect
+	github.com/xo/terminfo v0.0.0-20220910002029-abceb7e1c41e // indirect
+	github.com/yusufpapurcu/wmi v1.2.4 // indirect
+	go.opentelemetry.io/auto/sdk v1.2.1 // indirect
+	go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.69.0 // indirect
+	go.opentelemetry.io/otel v1.44.0 // indirect
+	go.opentelemetry.io/otel/metric v1.44.0 // indirect
+	go.opentelemetry.io/otel/trace v1.44.0 // indirect
+	go.yaml.in/yaml/v3 v3.0.5 // indirect
+	golang.org/x/sync v0.22.0 // indirect
+	golang.org/x/sys v0.47.0 // indirect
+	google.golang.org/protobuf v1.36.12 // indirect
+)
+---
+.PHONY: build test integration lint lint-actions coverage dist test-release
+
+PLATFORMS = linux darwin
+ARCHITECTURES = amd64 arm64
+VERSION := $(shell git describe --tags --always)
+LDFLAGS := -ldflags "-s -w -X 'github.com/basecamp/once/internal/version.Version=$(VERSION)'"
+
+TEST_RELEASE_TAG = v0.0.1-test
+
+build:
+	CGO_ENABLED=0 go build -trimpath $(LDFLAGS) -o bin/ ./cmd/...
+
+build-all:
+	@for os in $(PLATFORMS); do \
+		for arch in $(ARCHITECTURES); do \
+			echo "Building for $$os/$$arch..."; \
+			CGO_ENABLED=0 GOOS=$$os GOARCH=$$arch go build -trimpath $(LDFLAGS) -o bin/$$os-$$arch/ ./cmd/...; \
+		done; \
+	done
+
+test:
+	go test ./internal/...
+
+integration:
+	go test -v -count=1 -parallel 16 -timeout 30m ./integration/...
+
+check:
+	go vet ./...
+	govulncheck ./...
+
+lint:
+	golangci-lint run
+
+lint-actions:
+	actionlint
+	zizmor .
+
+coverage:
+	go test -coverprofile=coverage.out ./internal/...
+	go tool cover -html=coverage.out
+
+dist: build-all
+	mkdir -p dist
+	@for os in $(PLATFORMS); do \
+		for arch in $(ARCHITECTURES); do \
+			cp bin/$$os-$$arch/once dist/once-$$os-$$arch; \
+		done; \
+	done
+	cd dist && sha256sum once-* > checksums.txt
+
+test-release:
+	-gh release delete $(TEST_RELEASE_TAG) --yes --cleanup-tag
+	git tag -f $(TEST_RELEASE_TAG)
+	git push origin $(TEST_RELEASE_TAG) --force
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/command/list.go 
+[0m→ [0mRead internal/command/root.go 
+[0m→ [0mRead internal/command/open.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && ls internal/command internal/ui && echo --- && grep -rln "goldmark" --include=*.go . && echo --- && grep -rn "http.Get\|http.Client\|net/http" --include=*.go internal | head -30
+internal/command:
+background.go
+background_install.go
+background_remove.go
+background_run.go
+backup.go
+cli_progress.go
+deploy.go
+deploy_test.go
+exec.go
+exec_test.go
+keys.go
+keys_reset.go
+keys_set.go
+list.go
+open.go
+open_test.go
+remove.go
+restore.go
+root.go
+root_test.go
+self_update.go
+settings_flags.go
+start.go
+stop.go
+teardown.go
+update.go
+update_test.go
+version.go
+
+internal/ui:
+actions_menu.go
+actions_menu_test.go
+app.go
+channels.go
+chart.go
+chart_scale.go
+chart_scale_test.go
+chart_test.go
+component.go
+confirmation.go
+confirmation_test.go
+contents_card.go
+contents_card_test.go
+dashboard.go
+dashboard_header.go
+dashboard_header_test.go
+dashboard_panel.go
+dashboard_panel_test.go
+dashboard_test.go
+favorite.go
+form.go
+form_test.go
+helpers_test.go
+help.go
+help_test.go
+install_activity.go
+install_app_list.go
+install_app_list_test.go
+install.go
+install_hostname_form.go
+install_hostname_form_test.go
+install_image_form.go
+install_image_form_test.go
+install_test.go
+keys.go
+logo.go
+logs.go
+logs_test.go
+menu.go
+menu_test.go
+metric_card.go
+metric_card_test.go
+palette_detect.go
+palette_detect_test.go
+palette.go
+palette_test.go
+popup_help.go
+popup_help_test.go
+progress.go
+remove.go
+remove_test.go
+settings_form_application.go
+settings_form_backups.go
+settings_form_base.go
+settings_form_email.go
+settings_form_environment.go
+settings_form_registry.go
+settings_form_resources.go
+settings_form_test.go
+settings_form_updates.go
+settings.go
+settings_menu.go
+settings_menu_test.go
+settings_test.go
+starfield.go
+styles.go
+styles_test.go
+terminal_size_guard.go
+terminal_size_guard_test.go
+---
+./internal/docker/markdown.go
+---
+internal/docker/application.go:9:	"net/http"
+internal/docker/application.go:466:	client := &http.Client{Timeout: httpVerifyTimeout}
+internal/docker/application_test.go:5:	"net/http"
+internal/docker/application_test.go:6:	"net/http/httptest"
+internal/metrics/scraper.go:7:	"net/http"
+internal/metrics/scraper.go:45:	client   *http.Client
+internal/metrics/scraper.go:69:		client:   &http.Client{Timeout: httpTimeout},
+internal/metrics/scraper_test.go:6:	"net/http"
+internal/metrics/scraper_test.go:7:	"net/http/httptest"
+internal/version/updater.go:8:	"net/http"
+internal/version/updater.go:24:	client         *http.Client
+internal/version/updater.go:29:	u := newUpdater(Version, githubReleasesURL, &http.Client{Timeout: httpTimeout})
+internal/version/updater.go:34:func newUpdater(currentVersion, apiURL string, client *http.Client) *Updater {
+internal/version/updater_test.go:5:	"net/http"
+internal/version/updater_test.go:6:	"net/http/httptest"
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && grep -n "golang.org/x/net" go.sum | head -5; echo ---; go list -m all 2>/dev/null | grep -n "x/net" ; echo ---; cat internal/docker/markdown.go; echo ---; sed -n '440,500p' internal/docker/application.go
+---
+108:golang.org/x/net v0.58.0
+---
+package docker
+
+import (
+	"bytes"
+	"fmt"
+	"html/template"
+	"io/fs"
+	"os"
+	"path/filepath"
+	"strings"
+
+	"github.com/yuin/goldmark"
+	"github.com/yuin/goldmark/ast"
+	"github.com/yuin/goldmark/extension"
+	"github.com/yuin/goldmark/parser"
+	goldmarkhtml "github.com/yuin/goldmark/renderer/html"
+	"github.com/yuin/goldmark/text"
+)
+
+const siteMarkdownExt = ".md"
+
+var markdownParser = goldmark.New(
+	goldmark.WithExtensions(extension.GFM),
+	goldmark.WithParserOptions(parser.WithAutoHeadingID()),
+	goldmark.WithRendererOptions(goldmarkhtml.WithUnsafe()),
+)
+
+// renderMarkdownDocuments rewrites every Markdown file in the served copy as a
+// rendered HTML document, keeping its path so links to the .md file still work.
+func renderMarkdownDocuments(root, dest string) error {
+	return filepath.WalkDir(root, func(path string, entry fs.DirEntry, err error) error {
+		if err != nil {
+			return err
+		}
+		if !isMarkdownEntry(entry) {
+			return nil
+		}
+
+		rel, err := filepath.Rel(root, path)
+		if err != nil {
+			return err
+		}
+
+		return writeMarkdownPage(path, filepath.Join(dest, rel))
+	})
+}
+
+// firstMarkdownEntry returns the first entry of a folder that holds nothing
+// but Markdown documents. Entries must already be in display order.
+func firstMarkdownEntry(entries []fs.DirEntry) (fs.DirEntry, bool) {
+	if len(entries) == 0 {
+		return nil, false
+	}
+
+	for _, entry := range entries {
+		if !isMarkdownEntry(entry) {
+			return nil, false
+		}
+	}
+
+	return entries[0], true
+}
+
+// Helpers
+
+func isMarkdownEntry(entry fs.DirEntry) bool {
+	return entry.Type().IsRegular() && isMarkdownName(entry.Name())
+}
+
+func isMarkdownName(name string) bool {
+	return strings.EqualFold(filepath.Ext(name), siteMarkdownExt)
+}
+
+func writeMarkdownPage(source, target string) error {
+	content, err := os.ReadFile(source)
+	if err != nil {
+		return err
+	}
+
+	var body bytes.Buffer
+	if err := markdownParser.Convert(content, &body); err != nil {
+		return fmt.Errorf("rendering %s: %w", source, err)
+	}
+
+	page := markdownPage{
+		Title: markdownTitle(content, filepath.Base(source)),
+		Body:  template.HTML(body.String()),
+	}
+
+	file, err := os.OpenFile(target, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0o644)
+	if err != nil {
+		return err
+	}
+	defer file.Close()
+
+	return markdownTemplate.Execute(file, page)
+}
+
+func markdownTitle(content []byte, name string) string {
+	doc := markdownParser.Parser().Parse(text.NewReader(content))
+
+	title := markdownFirstHeading(doc, content)
+	if title == "" {
+		title = strings.TrimSuffix(name, filepath.Ext(name))
+	}
+
+	return title
+}
+
+func markdownFirstHeading(doc ast.Node, content []byte) string {
+	var heading ast.Node
+
+	ast.Walk(doc, func(node ast.Node, entering bool) (ast.WalkStatus, error) {
+		found, ok := node.(*ast.Heading)
+		if !ok || !entering || found.Level != 1 {
+			return ast.WalkContinue, nil
+		}
+
+		heading = found
+		return ast.WalkStop, nil
+	})
+
+	if heading == nil {
+		return ""
+	}
+
+	var title strings.Builder
+
+	ast.Walk(heading, func(node ast.Node, entering bool) (ast.WalkStatus, error) {
+		textNode, ok := node.(*ast.Text)
+		if !ok || !entering {
+			return ast.WalkContinue, nil
+		}
+
+		title.Write(textNode.Value(content))
+		return ast.WalkContinue, nil
+	})
+
+	return strings.TrimSpace(title.String())
+}
+
+type markdownPage struct {
+	Title string
+	Body  template.HTML
+}
+
+var markdownTemplate = template.Must(template.New("markdown").Parse(markdownPageHTML))
+
+const markdownPageHTML = `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{.Title}} · ONCE</title>
+<style>
+  :root {
+    color-scheme: light;
+    --paper: #f3ede1;
+    --card: #faf7f0;
+    --ink: #201d19;
+    --muted: #7d746a;
+    --rule: #ddd3c3;
+    --accent: #b4552f;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: clamp(1.5rem, 5vw, 4rem) 1.25rem;
+    background: var(--paper);
+    color: var(--ink);
+    font: 1rem/1.7 Georgia, "Iowan Old Style", "Times New Roman", serif;
+  }
+
+  main {
+    max-width: 46rem;
+    margin: 0 auto;
+    padding: clamp(1.5rem, 4vw, 2.75rem);
+    background: var(--card);
+    border: 1px solid var(--rule);
+    box-shadow: 0 1px 0 var(--rule);
+  }
+
+  article > :first-child { margin-top: 0; }
+  article > :last-child { margin-bottom: 0; }
+
+  h1, h2, h3, h4, h5, h6 {
+    margin: 2rem 0 0.75rem;
+    font-weight: 400;
+    line-height: 1.2;
+  }
+
+  h1 { font-size: clamp(1.75rem, 4vw, 2.25rem); }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.25rem; }
+
+  h1, h2 {
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  a { color: var(--accent); }
+
+  p, ul, ol, blockquote, pre, table { margin: 0 0 1.1rem; }
+
+  ul, ol { padding-left: 1.4rem; }
+
+  blockquote {
+    margin-left: 0;
+    padding: 0.1rem 0 0.1rem 1rem;
+    border-left: 3px solid var(--rule);
+    color: var(--muted);
+  }
+
+  code, pre {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.875em;
+  }
+
+  code {
+    padding: 0.1em 0.3em;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+  }
+
+  pre {
+    padding: 0.9rem 1rem;
+    overflow-x: auto;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+  }
+
+  pre code {
+    padding: 0;
+    background: none;
+    border: 0;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  th, td {
+    padding: 0.5rem 0.6rem;
+    text-align: left;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  th {
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  hr {
+    margin: 2rem 0;
+    border: 0;
+    border-top: 1px solid var(--rule);
+  }
+
+  img { max-width: 100%; height: auto; }
+
+  footer {
+    margin-top: 2rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--rule);
+    font: 0.6875rem/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body>
+<main>
+<article>
+{{.Body}}</article>
+<footer>ONCE · Markdown</footer>
+</main>
+</body>
+</html>
+`
+---
+		progress(DeployProgress{Stage: DeployStageFinished})
+	}
+
+	return nil
+}
+
+func (a *Application) ensureKeys(vol *ApplicationVolume) error {
+	// Older installs may still have keys stored on the volume label
+	keys := cmp.Or(a.Settings.Keys, vol.Settings.Keys)
+
+	if keys.Empty() {
+		if err := keys.Regenerate(true, true); err != nil {
+			return fmt.Errorf("generating keys: %w", err)
+		}
+	}
+
+	a.Settings.Keys = keys
+	return nil
+}
+
+func (a *Application) verifyHTTP(ctx context.Context) error {
+	url := a.URL()
+	if url == "" {
+		return nil
+	}
+
+	client := &http.Client{Timeout: httpVerifyTimeout}
+	req, err := http.NewRequestWithContext(ctx, http.MethodGet, url+HealthCheckPath, nil)
+	if err != nil {
+		return fmt.Errorf("%w: %w", ErrVerificationFailed, err)
+	}
+
+	resp, err := client.Do(req)
+	if err != nil {
+		return fmt.Errorf("%w: %w", ErrVerificationFailed, err)
+	}
+	defer resp.Body.Close()
+
+	if resp.StatusCode < 200 || resp.StatusCode > 299 {
+		return fmt.Errorf("%w: unexpected status %d from %s", ErrVerificationFailed, resp.StatusCode, url)
+	}
+
+	return nil
+}
+
+func (a *Application) removeContainersExcept(ctx context.Context, keep string) error {
+	containers, err := a.namespace.client.ContainerList(ctx, client.ContainerListOptions{All: true})
+	if err != nil {
+		return err
+	}
+
+	for _, c := range containers.Items {
+		if len(c.Names) == 0 {
+			continue
+		}
+		name := strings.TrimPrefix(c.Names[0], "/")
+		if a.namespace.containerAppName(name) == a.Settings.Name && name != keep {
+			if _, err := a.namespace.client.ContainerRemove(ctx, c.ID, client.ContainerRemoveOptions{Force: true}); err != nil {
+				return err
+			}
+		}
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/command/root_test.go 
+[0m→ [0mRead internal/command/open_test.go 
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && ls $(go env GOMODCACHE)/golang.org/x/ 2>/dev/null; echo ---; grep -n "once open\|## Commands\|once show" -n README.md | head -20
+crypto@v0.58.0
+exp@v0.0.0-20231006140011-7918f672742d
+image@v0.47.0
+mod@v0.42.0
+oauth2@v0.37.0
+sync@v0.22.0
+sync@v0.24.0
+sys@v0.47.0
+sys@v0.49.0
+telemetry@v0.0.0-20261010193011-f71dc92da45e
+text@v0.43.0
+time@v0.16.0
+tools@v0.52.0
+vuln@v1.9.0
+---
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && cat README.md | head -60; echo ===; git log --oneline -8; echo ===; git status --short
+# ONCE
+
+ONCE is a platform for installing and managing Docker-based web applications.
+Its goal is to make self-hosting applications as simple as possible.
+
+As well as simplifying the initial setup, ONCE also provides automatic updates, backups, and system information.
+It has a TUI interface with a dashboard for monitoring and operating your applications, as well as CLI commands for common operations should you (or your AI agent) prefer that.
+
+ONCE runs on Linux and macOS, and can be used to run applications on a variety of hardware: a physical server, a cloud VPS, a Raspberry Pi, or your laptop, are all suitable.
+
+ONCE comes with a set of 37signals apps built-in, but you can use it to install any compatible Docker image as well.
+
+![Demo](.github/media/install.gif)
+
+## Installing
+
+The simplest way to get started with ONCE is to use the install snippet to bootstrap the tool and choose an app to install:
+
+```sh
+curl https://get.once.com | sh
+```
+
+This will download the appropriate binary for your platform, install it and its corresponding background service, and then launch it so you can do your first application install.
+If the machine you're running this from doesn't already have Docker, it will install that too (on supported platforms).
+
+### Customizing the installer behaviour
+
+If you want to install `once` without launching it (for example, for a scripted install), you can use `ONCE_INTERACTIVE=false`:
+
+```sh
+curl https://get.once.com | ONCE_INTERACTIVE=false sh
+```
+
+### Installing manually
+
+If you prefer to set ONCE up yourself, you can download the appropriate binary from the GitHub Releases page.
+Then follow these steps to get it installed:
+
+- Install Docker (if it's not already installed) using your preferred package manager
+- Copy the `once` binary to wherever you'd like to run it from
+- Register the background service by running `sudo once background install`
+
+Then run `once` to install an app, or `once --help` to see what commands are available.
+
+Note that if you need to use `sudo` when running Docker commands (for example, if your user is not in the `docker` group) then you'll also need to use `sudo` whenever you run `once`.
+
+## Using ONCE to install and configure applications
+
+On first run, ONCE will prompt you to choose an application to install.
+You can pick from the built-in applications, or enter the path to a Docker image.
+
+When entering an image path you can pick any application that works with ONCE (more on this below), so you can run additional applications or even your own custom forks of the built-in ones.
+
+You'll need to enter a hostname for the application.
+If you're installing onto a machine on the public Internet (like a cloud VPS), and you have a domain name, then you can use that.
+It's a good idea to use a subdomain so that you can run multiple applications on the same domain.
+
+For example, if you own `example.com` you might install Writebook to `books.example.com`.
+
+Whatever hostname you choose, make sure you have a DNS entry for it which points to the machine you're installing to.
+===
+598da78 split: 19-open-command
+e4ca439 split: 18-bar-hide
+c903ba8 split: 17-bar-cross-fade
+926c88b split: 16-bar-keys
+1b1f9fd split: 16-bar-keys
+d826067 split: 15-app-bar
+d9aa468 split: 15-app-bar
+2a8c584 split: 14-drift
+===
+?? .scratch/split/20-show-command.log
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && timeout 60 go get golang.org/x/net@v0.58.0 2>&1 | tail -5; echo "exit=$?"; grep -n "x/net" go.mod
+go: downloading golang.org/x/net v0.58.0
+exit=0
+71:	golang.org/x/net v0.58.0 // indirect
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && grep -n "func (a \*Application) URL\|func (a \*Application) Running\|Settings.Host\|func (s ApplicationSettings)" -r internal/docker/*.go | head -20; echo ===; grep -n "func (a \*Application) URL" -A 12 internal/docker/application.go
+internal/docker/appbar.go:84:		if app.Settings.Host < a.Settings.Host {
+internal/docker/appbar.go:108:		if app.Settings.Name == a.Settings.Name || app.Settings.Host == "" || !app.Running {
+internal/docker/application.go:135:func (a *Application) URL() string {
+internal/docker/application.go:136:	if a.Settings.Host == "" {
+internal/docker/application.go:147:	base := scheme + "://" + a.Settings.Host
+internal/docker/application.go:230:	if a.Settings.Host == "" {
+internal/docker/application.go:424:		Host:    a.Settings.Host,
+internal/docker/application_settings.go:120:func (s ApplicationSettings) Marshal() string {
+internal/docker/application_settings.go:125:func (s ApplicationSettings) Validate() error {
+internal/docker/application_settings.go:141:func (s ApplicationSettings) TLSEnabled() bool {
+internal/docker/application_settings.go:145:func (s ApplicationSettings) Static() bool {
+internal/docker/application_settings.go:149:func (s ApplicationSettings) Equal(other ApplicationSettings) bool {
+internal/docker/application_settings_test.go:260:		s.Registry = RegistrySettings{Host: "docker.io", Username: "user", Password: "pass"}
+internal/docker/application_settings_test.go:266:		s.Registry = RegistrySettings{Host: "docker.io", Password: "pass"}
+internal/docker/application_settings_test.go:272:		s.Registry = RegistrySettings{Host: "docker.io", Username: "user"}
+internal/docker/application_settings_test.go:278:	base := ApplicationSettings{Name: "app", Registry: RegistrySettings{Host: "docker.io", Username: "user", Password: "pass"}}
+internal/docker/application_settings_test.go:296:		Registry: RegistrySettings{Host: "docker.io", Username: "user", Password: "pass"},
+internal/docker/application_test.go:23:		Settings: ApplicationSettings{Host: server.Listener.Addr().String(), DisableTLS: true},
+internal/docker/application_test.go:42:		Settings: ApplicationSettings{Host: server.Listener.Addr().String(), DisableTLS: true},
+internal/docker/application_test.go:56:		Settings: ApplicationSettings{Host: server.Listener.Addr().String(), DisableTLS: true},
+===
+135:func (a *Application) URL() string {
+136-	if a.Settings.Host == "" {
+137-		return ""
+138-	}
+139-
+140-	scheme := "http"
+141-	defaultPort := 80
+142-	if a.Settings.TLSEnabled() {
+143-		scheme = "https"
+144-		defaultPort = 443
+145-	}
+146-
+147-	base := scheme + "://" + a.Settings.Host
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && sed -n 125,175p internal/docker/application.go; echo ===; sed -n 1,40p internal/docker/application_test.go; echo ===; grep -n "type Namespace struct" -A 20 internal/docker/namespace.go
+if err == nil {
+		return vol, nil
+	}
+	if !errors.Is(err, ErrVolumeNotFound) {
+		return nil, err
+	}
+
+	return CreateVolume(ctx, a.namespace, a.Settings.Name, ApplicationLegacyVolumeSettings{})
+}
+
+func (a *Application) URL() string {
+	if a.Settings.Host == "" {
+		return ""
+	}
+
+	scheme := "http"
+	defaultPort := 80
+	if a.Settings.TLSEnabled() {
+		scheme = "https"
+		defaultPort = 443
+	}
+
+	base := scheme + "://" + a.Settings.Host
+
+	if a.namespace == nil {
+		return base
+	}
+
+	proxy := a.namespace.Proxy()
+	if proxy.Settings == nil {
+		return base
+	}
+
+	port := proxy.Settings.HTTPPort
+	if a.Settings.TLSEnabled() {
+		port = proxy.Settings.HTTPSPort
+	}
+
+	if port != 0 && port != defaultPort {
+		return base + ":" + strconv.Itoa(port)
+	}
+	return base
+}
+
+func (a *Application) Stop(ctx context.Context) error {
+	name, err := a.ContainerName(ctx)
+	if err != nil {
+		return err
+	}
+
+	_, err = a.namespace.client.ContainerStop(ctx, name, client.ContainerStopOptions{})
+===
+package docker
+
+import (
+	"context"
+	"net/http"
+	"net/http/httptest"
+	"slices"
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+)
+
+func TestVerifyHTTP_Success(t *testing.T) {
+	var requestPath string
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		requestPath = r.URL.Path
+		w.WriteHeader(http.StatusOK)
+	}))
+	defer server.Close()
+
+	app := &Application{
+		Settings: ApplicationSettings{Host: server.Listener.Addr().String(), DisableTLS: true},
+	}
+
+	err := app.verifyHTTP(context.Background())
+	assert.NoError(t, err)
+	assert.Equal(t, HealthCheckPath, requestPath)
+}
+
+func TestVerifyHTTP_RedirectToSuccess(t *testing.T) {
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if r.URL.Path == "/" {
+			http.Redirect(w, r, "/home", http.StatusFound)
+			return
+		}
+		w.WriteHeader(http.StatusOK)
+	}))
+	defer server.Close()
+
+===
+22:type Namespace struct {
+23-	name         string
+24-	client       *client.Client
+25-	proxy        *Proxy
+26-	applications []*Application
+27-}
+28-
+29-type NamespaceOption func(*Namespace)
+30-
+31-func WithApplications(apps ...ApplicationSettings) NamespaceOption {
+32-	return func(ns *Namespace) {
+33-		for _, s := range apps {
+34-			ns.addApplication(s)
+35-		}
+36-	}
+37-}
+38-
+39-func NewNamespace(name string, opts ...NamespaceOption) (*Namespace, error) {
+40-	if name == "" {
+41-		name = DefaultNamespace
+42-	}
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && sed -n 1,60p internal/docker/application_settings.go
+package docker
+
+import (
+	"crypto/ecdh"
+	"crypto/rand"
+	"encoding/base64"
+	"encoding/hex"
+	"encoding/json"
+	"fmt"
+	"strings"
+)
+
+type Keys struct {
+	SecretKeyBase   string `json:"secretKeyBase,omitempty"`
+	VAPIDPublicKey  string `json:"vapidPublicKey,omitempty"`
+	VAPIDPrivateKey string `json:"vapidPrivateKey,omitempty"`
+}
+
+func (k Keys) Empty() bool {
+	return k == Keys{}
+}
+
+func (k *Keys) SetVAPIDKey(privateKey string) error {
+	key, err := parseVAPIDPrivateKey(privateKey)
+	if err != nil {
+		return fmt.Errorf("invalid VAPID private key: %w", err)
+	}
+
+	k.VAPIDPublicKey = base64.RawURLEncoding.EncodeToString(key.PublicKey().Bytes())
+	k.VAPIDPrivateKey = base64.RawURLEncoding.EncodeToString(key.Bytes())
+
+	return nil
+}
+
+func (k *Keys) Regenerate(secretKeyBase, vapid bool) error {
+	if secretKeyBase {
+		skb, err := generateSecretKeyBase()
+		if err != nil {
+			return err
+		}
+		k.SecretKeyBase = skb
+	}
+
+	if vapid {
+		pub, priv, err := generateVAPIDKeyPair()
+		if err != nil {
+			return err
+		}
+		k.VAPIDPublicKey = pub
+		k.VAPIDPrivateKey = priv
+	}
+
+	return nil
+}
+
+type SMTPSettings struct {
+	Server   string `json:"server,omitempty"`
+	Port     string `json:"port,omitempty"`
+	Username string `json:"username,omitempty"`
+	Password string `json:"password,omitempty"`
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && grep -n "type ApplicationSettings struct" -A 30 internal/docker/application_settings.go; grep -n "func (s ApplicationSettings) TLSEnabled" -A 5 internal/docker/application_settings.go
+97:type ApplicationSettings struct {
+98-	Name       string             `json:"name"`
+99-	Image      string             `json:"image"`
+100-	Source     string             `json:"source,omitempty"`
+101-	SourceHash string             `json:"sourceHash,omitempty"`
+102-	ServedPath string             `json:"servedPath,omitempty"`
+103-	Host       string             `json:"host"`
+104-	DisableTLS bool               `json:"disableTLS"`
+105-	EnvVars    map[string]string  `json:"env"`
+106-	SMTP       SMTPSettings       `json:"smtp"`
+107-	Resources  ContainerResources `json:"resources"`
+108-	AutoUpdate bool               `json:"autoUpdate"`
+109-	Backup     BackupSettings     `json:"backup"`
+110-	Keys       Keys               `json:"keys"`
+111-	Registry   RegistrySettings   `json:"registry"`
+112-}
+113-
+114-func UnmarshalApplicationSettings(s string) (ApplicationSettings, error) {
+115-	var settings ApplicationSettings
+116-	err := json.Unmarshal([]byte(s), &settings)
+117-	return settings, err
+118-}
+119-
+120-func (s ApplicationSettings) Marshal() string {
+121-	b, _ := json.Marshal(s)
+122-	return string(b)
+123-}
+124-
+125-func (s ApplicationSettings) Validate() error {
+126-	if s.Image == "" {
+127-		return ErrImageRequired
+141:func (s ApplicationSettings) TLSEnabled() bool {
+142-	return s.Host != "" && !s.DisableTLS && !IsLocalhost(s.Host)
+143-}
+144-
+145-func (s ApplicationSettings) Static() bool {
+146-	return s.Source != ""
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && ls -a | head -20; echo ===; cat .golangci.yml 2>/dev/null || cat .golangci.yaml 2>/dev/null
+.
+..
+AGENTS.md
+bin
+.claude
+cmd
+.dockerignore
+.git
+.github
+.gitignore
+.golangci.yml
+go.mod
+go.sum
+installer
+integration
+internal
+Makefile
+mise.toml
+MIT-LICENSE
+prompt
+===
+version: "2"
+
+formatters:
+  enable:
+    - gofmt
+    - gci
+  settings:
+    gci:
+      sections:
+        - standard
+        - default
+        - localmodule
+
+linters:
+  enable:
+    - modernize
+  disable:
+    - errcheck
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mWrite internal/htmltext/htmltext.go
+Created file successfully: internal/htmltext/htmltext.go
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/htmltext/htmltext.go
+Index: internal/htmltext/htmltext.go
+===================================================================
+--- internal/htmltext/htmltext.go
++++ internal/htmltext/htmltext.go
+@@ -278,11 +278,13 @@
+ 	if !r.lineSet {
+ 		return
+ 	}
+ 
+-	line := strings.Join(strings.Fields(r.line.String()), " ")
++	var line string
+ 	if r.preserve {
+ 		line = strings.TrimRight(r.line.String(), " \t")
++	} else {
++		line = strings.Join(strings.Fields(r.line.String()), " ")
+ 	}
+ 
+ 	r.line.Reset()
+ 	r.lineSet = false
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && grep -rn "ServedPath" --include=*.go internal | head
+internal/command/deploy.go:82:		settings.ServedPath = served
+internal/command/deploy.go:122:		settings.ServedPath = served
+internal/command/deploy.go:131:			removeServedCopy(settings.ServedPath)
+internal/command/deploy.go:135:		if oldSettings.ServedPath != "" && oldSettings.ServedPath != settings.ServedPath {
+internal/command/deploy.go:136:			removeServedCopy(oldSettings.ServedPath)
+internal/docker/application.go:315:	if a.Settings.Static() || a.Settings.ServedPath != "" {
+internal/docker/application.go:517:		source := cmp.Or(a.Settings.ServedPath, a.Settings.Source)
+internal/docker/application_settings.go:102:	ServedPath string             `json:"servedPath,omitempty"`
+internal/docker/application_settings.go:150:	if s.Name != other.Name || s.Image != other.Image || s.Source != other.Source || s.SourceHash != other.SourceHash || s.ServedPath != other.ServedPath || s.Host != other.Host || s.DisableTLS != other.DisableTLS {
+internal/docker/application_static_test.go:15:		ServedPath: "/cache/once/sites/site.abc123/0123456789abcdef",
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mWrite internal/command/show.go
+Created file successfully: internal/command/show.go
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/command/root.go
+Index: internal/command/root.go
+===================================================================
+--- internal/command/root.go
++++ internal/command/root.go
+@@ -47,8 +47,9 @@
+ 	r.cmd.AddCommand(newListCommand().cmd)
+ 	r.cmd.AddCommand(newOpenCommand().cmd)
+ 	r.cmd.AddCommand(newRemoveCommand().cmd)
+ 	r.cmd.AddCommand(newRestoreCommand().cmd)
++	r.cmd.AddCommand(newShowCommand().cmd)
+ 	r.cmd.AddCommand(newStartCommand().cmd)
+ 	r.cmd.AddCommand(newStopCommand().cmd)
+ 	r.cmd.AddCommand(newTeardownCommand().cmd)
+ 	r.cmd.AddCommand(newUpdateCommand().cmd)
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mWrite internal/command/show_test.go
+Created file successfully: internal/command/show_test.go
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mWrite internal/htmltext/htmltext_test.go
+Created file successfully: internal/htmltext/htmltext_test.go
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/htmltext/htmltext.go
+Index: internal/htmltext/htmltext.go
+===================================================================
+--- internal/htmltext/htmltext.go
++++ internal/htmltext/htmltext.go
+@@ -120,9 +120,9 @@
+ 		r.image(n)
+ 	case "form":
+ 		r.form(n)
+ 	case "label":
+-		r.block()
++		r.flush()
+ 		r.walkChildren(n)
+ 		r.flush()
+ 	case "input":
+ 		r.control(n)
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && go mod tidy >/dev/null 2>&1; go test ./internal/htmltext/ ./internal/command/ 2>&1 | tail -60
+--- FAIL: TestRenderHeadingsLinksAndForms (0.00s)
+    htmltext_test.go:29: 
+        	Error Trace:	/home/mrjohn/Work/tries/2026-11-06-yo/once/internal/htmltext/htmltext_test.go:29
+        	Error:      	Not equal: 
+        	            	expected: "Welcome\n\nRead the about page <http://example.test/about> or go elsewhere <https://elsewhere.test/>.\n\nform GET http://example.test/search\n  Search\n  input \"q\" (search)\n  [x] \"exact\"\n  select \"scope\" (all, news)\n  button \"Go\"\n"
+        	            	actual  : "Welcome\n\nRead the about page <http://example.test/about> or go elsewhere <https://elsewhere.test/> .\n\nform GET http://example.test/search\n  Search\n  input \"q\" (search)\n  [x] \"exact\"\n  select \"scope\" (all, news)\n  button \"Go\"\n"
+        	            	
+        	            	Diff:
+        	            	--- Expected
+        	            	+++ Actual
+        	            	@@ -2,3 +2,3 @@
+        	            	 
+        	            	-Read the about page <http://example.test/about> or go elsewhere <https://elsewhere.test/>.
+        	            	+Read the about page <http://example.test/about> or go elsewhere <https://elsewhere.test/> .
+        	            	 
+        	Test:       	TestRenderHeadingsLinksAndForms
+--- FAIL: TestRenderLists (0.00s)
+    htmltext_test.go:45: 
+        	Error Trace:	/home/mrjohn/Work/tries/2026-11-06-yo/once/internal/htmltext/htmltext_test.go:45
+        	Error:      	Not equal: 
+        	            	expected: "- One\n- Two bold\n\n1. First\n2. Second\n"
+        	            	actual  : "  - One\n  - Two bold\n\n  1. First\n  2. Second\n"
+        	            	
+        	            	Diff:
+        	            	--- Expected
+        	            	+++ Actual
+        	            	@@ -1,6 +1,6 @@
+        	            	-- One
+        	            	-- Two bold
+        	            	+  - One
+        	            	+  - Two bold
+        	            	 
+        	            	-1. First
+        	            	-2. Second
+        	            	+  1. First
+        	            	+  2. Second
+        	            	 
+        	Test:       	TestRenderLists
+--- FAIL: TestRenderPreformattedText (0.00s)
+    htmltext_test.go:64: 
+        	Error Trace:	/home/mrjohn/Work/tries/2026-11-06-yo/once/internal/htmltext/htmltext_test.go:64
+        	Error:      	Not equal: 
+        	            	expected: "line one\n  line two\n"
+        	            	actual  : "line one\nline two\n"
+        	            	
+        	            	Diff:
+        	            	--- Expected
+        	            	+++ Actual
+        	            	@@ -1,3 +1,3 @@
+        	            	 line one
+        	            	-  line two
+        	            	+line two
+        	            	 
+        	Test:       	TestRenderPreformattedText
+FAIL
+FAIL	github.com/basecamp/once/internal/htmltext	0.003s
+ok  	github.com/basecamp/once/internal/command	0.008s
+FAIL
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/htmltext/htmltext.go
+Index: internal/htmltext/htmltext.go
+===================================================================
+--- internal/htmltext/htmltext.go
++++ internal/htmltext/htmltext.go
+@@ -92,8 +92,9 @@
+ 	case "pre":
+ 		r.block()
+ 		r.preserve = true
+ 		r.walkChildren(n)
++		r.flush()
+ 		r.preserve = false
+ 		r.block()
+ 	case "ul", "ol":
+ 		r.list(n)
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/htmltext/htmltext.go
+Index: internal/htmltext/htmltext.go
+===================================================================
+--- internal/htmltext/htmltext.go
++++ internal/htmltext/htmltext.go
+@@ -156,20 +156,20 @@
+ 
+ func (r *renderer) list(n *html.Node) {
+ 	r.block()
+ 	r.lists = append(r.lists, listState{ordered: n.Data == "ol"})
+-	r.indent++
+ 	r.walkChildren(n)
+-	r.indent--
+ 	r.lists = r.lists[:len(r.lists)-1]
+ 	r.block()
+ }
+ 
+ func (r *renderer) item(n *html.Node) {
+ 	r.flush()
+ 	r.write(r.marker())
++	r.indent++
+ 	r.walkChildren(n)
+ 	r.flush()
++	r.indent--
+ }
+ 
+ func (r *renderer) marker() string {
+ 	if len(r.lists) == 0 {
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/htmltext/htmltext.go
+Index: internal/htmltext/htmltext.go
+===================================================================
+--- internal/htmltext/htmltext.go
++++ internal/htmltext/htmltext.go
+@@ -189,29 +189,40 @@
+ 	label := plainText(n)
+ 	href := strings.TrimSpace(attr(n, "href"))
+ 
+ 	if href == "" || strings.HasPrefix(href, "javascript:") {
+-		r.write(label + " ")
++		r.inline(label)
+ 		return
+ 	}
+ 
+ 	target := r.resolve(href)
+ 	switch label {
+ 	case "":
+-		r.write("<" + target + "> ")
++		r.inline("<" + target + ">")
+ 	case target:
+-		r.write(target + " ")
++		r.inline(target)
+ 	default:
+-		r.write(label + " <" + target + "> ")
++		r.inline(label + " <" + target + ">")
+ 	}
+ }
+ 
+ func (r *renderer) image(n *html.Node) {
+ 	if alt := plainTextAttr(n, "alt"); alt != "" {
+-		r.write("[" + alt + "] ")
++		r.inline("[" + alt + "]")
+ 	}
+ }
+ 
++func (r *renderer) inline(s string) {
++	if s == "" {
++		return
++	}
++
++	if needsSpaceBefore(r.line.String()) {
++		r.write(" ")
++	}
++	r.write(s)
++}
++
+ func (r *renderer) form(n *html.Node) {
+ 	r.block()
+ 	r.write("form " + formMethod(n) + " " + r.formAction(n))
+ 	r.flush()
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/htmltext/htmltext.go
+Index: internal/htmltext/htmltext.go
+===================================================================
+--- internal/htmltext/htmltext.go
++++ internal/htmltext/htmltext.go
+@@ -346,8 +346,21 @@
+ }
+ 
+ // Helpers
+ 
++func needsSpaceBefore(line string) bool {
++	if line == "" {
++		return false
++	}
++
++	last, _ := utf8.DecodeLastRuneInString(line)
++	if unicode.IsSpace(last) {
++		return false
++	}
++
++	return unicode.IsLetter(last) || unicode.IsDigit(last) || strings.ContainsRune(".,;:!?)]}>\"'", last)
++}
++
+ func formMethod(n *html.Node) string {
+ 	method := strings.ToUpper(strings.TrimSpace(attr(n, "method")))
+ 	if method == "" {
+ 		return "GET"
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/htmltext/htmltext.go
+Index: internal/htmltext/htmltext.go
+===================================================================
+--- internal/htmltext/htmltext.go
++++ internal/htmltext/htmltext.go
+@@ -4,8 +4,10 @@
+ 	"fmt"
+ 	"io"
+ 	"net/url"
+ 	"strings"
++	"unicode"
++	"unicode/utf8"
+ 
+ 	"golang.org/x/net/html"
+ )
+ 
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && go test ./internal/htmltext/ ./internal/command/ 2>&1 | tail -40
+ok  	github.com/basecamp/once/internal/htmltext	0.007s
+ok  	github.com/basecamp/once/internal/command	0.024s
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && make test 2>&1 | tail -20
+go test ./internal/...
+ok  	github.com/basecamp/once/internal/background	(cached)
+ok  	github.com/basecamp/once/internal/browser	(cached)
+ok  	github.com/basecamp/once/internal/command	(cached)
+ok  	github.com/basecamp/once/internal/docker	0.072s
+ok  	github.com/basecamp/once/internal/fsutil	(cached)
+ok  	github.com/basecamp/once/internal/htmltext	(cached)
+?   	github.com/basecamp/once/internal/logging	[no test files]
+ok  	github.com/basecamp/once/internal/metrics	0.018s
+ok  	github.com/basecamp/once/internal/mouse	(cached)
+?   	github.com/basecamp/once/internal/service	[no test files]
+ok  	github.com/basecamp/once/internal/system	(cached)
+ok  	github.com/basecamp/once/internal/ui	(cached)
+ok  	github.com/basecamp/once/internal/userstats	(cached)
+ok  	github.com/basecamp/once/internal/version	(cached)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && make lint 2>&1 | tail -30
+golangci-lint run
+0 issues.
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && git status --short && echo === && git diff --stat && echo === && git diff go.mod
+M go.mod
+ M go.sum
+ M internal/command/root.go
+?? .scratch/split/20-show-command.log
+?? internal/command/show.go
+?? internal/command/show_test.go
+?? internal/htmltext/
+===
+ go.mod                   | 1 +
+ go.sum                   | 2 ++
+ internal/command/root.go | 1 +
+ 3 files changed, 4 insertions(+)
+===
+diff --git i/go.mod w/go.mod
+index 25e9d0c..da8338c 100644
+--- i/go.mod
++++ w/go.mod
+@@ -23,6 +23,7 @@ require (
+ 	github.com/spf13/cobra v1.10.2
+ 	github.com/stretchr/testify v1.12.1
+ 	github.com/yuin/goldmark v1.8.6
++	golang.org/x/net v0.58.0
+ )
+ 
+ require (
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/htmltext/htmltext.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m✗ [0mEdit internal/htmltext/htmltext.go failed
+[91m[1mError: [0mNo changes to apply: oldString and newString are identical.
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/htmltext/htmltext.go
+Index: internal/htmltext/htmltext.go
+===================================================================
+--- internal/htmltext/htmltext.go
++++ internal/htmltext/htmltext.go
+@@ -43,15 +43,15 @@
+ 	ordered bool
+ 	index   int
+ }
+ 
++// Private
++
+ func (r *renderer) string() string {
+ 	r.flush()
+ 	return strings.TrimLeft(r.buf.String(), "\n")
+ }
+ 
+-// Private
+-
+ func (r *renderer) walk(n *html.Node) {
+ 	switch n.Type {
+ 	case html.TextNode:
+ 		r.text(n.Data)
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/htmltext/htmltext.go
+Index: internal/htmltext/htmltext.go
+===================================================================
+--- internal/htmltext/htmltext.go
++++ internal/htmltext/htmltext.go
+@@ -129,14 +129,14 @@
+ 		r.flush()
+ 	case "input":
+ 		r.control(n)
+ 	case "textarea":
+-		r.write("textarea " + quoted(attr(n, "name")))
++		r.write(named("textarea", attr(n, "name")))
+ 		r.flush()
+ 	case "select":
+ 		r.selectControl(n)
+ 	case "button":
+-		r.write("button " + quoted(plainText(n)))
++		r.write(named("button", plainText(n)))
+ 		r.flush()
+ 	default:
+ 		r.walkChildren(n)
+ 	}
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/htmltext/htmltext.go
+Index: internal/htmltext/htmltext.go
+===================================================================
+--- internal/htmltext/htmltext.go
++++ internal/htmltext/htmltext.go
+@@ -250,19 +250,19 @@
+ 		label := attr(n, "value")
+ 		if label == "" {
+ 			label = strings.ToUpper(kind[:1]) + kind[1:]
+ 		}
+-		r.write("button " + quoted(label))
++		r.write(named("button", label))
+ 	case "checkbox", "radio":
+ 		mark := "[ ]"
+ 		if hasAttr(n, "checked") {
+ 			mark = "[x]"
+ 		}
+-		r.write(mark + " " + quoted(attr(n, "name")))
++		r.write(named(mark, attr(n, "name")))
+ 	case "text":
+-		r.write("input " + quoted(attr(n, "name")))
++		r.write(named("input", attr(n, "name")))
+ 	default:
+-		r.write("input " + quoted(attr(n, "name")) + " (" + kind + ")")
++		r.write(named("input", attr(n, "name")) + " (" + kind + ")")
+ 	}
+ 
+ 	r.flush()
+ }
+@@ -270,9 +270,9 @@
+ func (r *renderer) selectControl(n *html.Node) {
+ 	options := make([]string, 0, 4)
+ 	collectOptions(n, &options)
+ 
+-	control := "select " + quoted(attr(n, "name"))
++	control := named("select", attr(n, "name"))
+ 	if len(options) > 0 {
+ 		control += " (" + strings.Join(options, ", ") + ")"
+ 	}
+ 
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/htmltext/htmltext.go
+Index: internal/htmltext/htmltext.go
+===================================================================
+--- internal/htmltext/htmltext.go
++++ internal/htmltext/htmltext.go
+@@ -465,9 +465,13 @@
+ 	return false
+ }
+ 
+ func quoted(s string) string {
+-	if s == "" {
+-		return "(unnamed)"
+-	}
+ 	return "\"" + s + "\""
+ }
++
++func named(keyword, name string) string {
++	if name == "" {
++		return keyword
++	}
++	return keyword + " " + quoted(name)
++}
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && go test ./internal/htmltext/ ./internal/command/ 2>&1 | tail -20 && make lint 2>&1 | tail -5
+ok  	github.com/basecamp/once/internal/htmltext	0.041s
+ok  	github.com/basecamp/once/internal/command	0.035s
+golangci-lint run
+0 issues.
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && mkdir -p .scratch/showdemo && cat > .scratch/showdemo/main.go <<'EOF'
+package main
+
+import (
+	"fmt"
+	"net/url"
+	"os"
+	"strings"
+
+	"github.com/basecamp/once/internal/htmltext"
+)
+
+func main() {
+	page := `<html><body>
+<h1>Books</h1><p>A small <em>library</em> of <a href="/books">books</a> and <a href="#recent">recent arrivals</a>.</p>
+<h2>Search</h2>
+<form action="/search" method="get"><label>Query</label><input name="q" type="search" placeholder="Title"><label><input type="checkbox" name="title_only"> Titles only</label><button>Find</button></form>
+<h2>Recent</h2><ul><li>First book</li><li>Second book<ul><li>Nested</li></ul></li></ul>
+<blockquote><p>A quote.</p></blockquote>
+<table><tr><th>Title</th><th>Author</th></tr><tr><td>One</td><td>Ada</td></tr></table>
+<pre>func main() {
+	fmt.Println("hi")
+}</pre>
+<img src="cover.png" alt="Cover">
+</body></html>`
+
+	base, _ := url.Parse("http://books.localhost/")
+	out, err := htmltext.Render(strings.NewReader(page), base)
+	if err != nil {
+		fmt.Fprintln(os.Stderr, err)
+		os.Exit(1)
+	}
+	fmt.Print(out)
+}
+EOF
+go run ./.scratch/showdemo
+Books
+
+A small library of books <http://books.localhost/books> and recent arrivals <#recent>.
+
+Search
+
+form GET http://books.localhost/search
+  Query
+  input "q" (search)
+  [ ] "title_only"
+  Titles only
+  button "Find"
+
+Recent
+
+- First book
+- Second book
+
+  - Nested
+
+  A quote.
+
+Title | Author
+One | Ada
+
+func main() {
+	fmt.Println("hi")
+}
+
+[Cover]
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/htmltext/htmltext.go
+Index: internal/htmltext/htmltext.go
+===================================================================
+--- internal/htmltext/htmltext.go
++++ internal/htmltext/htmltext.go
+@@ -156,9 +156,9 @@
+ 	}
+ }
+ 
+ func (r *renderer) list(n *html.Node) {
+-	r.block()
++	r.flush()
+ 	r.lists = append(r.lists, listState{ordered: n.Data == "ol"})
+ 	r.walkChildren(n)
+ 	r.lists = r.lists[:len(r.lists)-1]
+ 	r.block()
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/htmltext/htmltext.go
+Index: internal/htmltext/htmltext.go
+===================================================================
+--- internal/htmltext/htmltext.go
++++ internal/htmltext/htmltext.go
+@@ -263,9 +263,11 @@
+ 	default:
+ 		r.write(named("input", attr(n, "name")) + " (" + kind + ")")
+ 	}
+ 
+-	r.flush()
++	if !within(n, "label") {
++		r.flush()
++	}
+ }
+ 
+ func (r *renderer) selectControl(n *html.Node) {
+ 	options := make([]string, 0, 4)
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/htmltext/htmltext.go
+Index: internal/htmltext/htmltext.go
+===================================================================
+--- internal/htmltext/htmltext.go
++++ internal/htmltext/htmltext.go
+@@ -466,8 +466,17 @@
+ 	}
+ 	return false
+ }
+ 
++func within(n *html.Node, name string) bool {
++	for parent := n.Parent; parent != nil; parent = parent.Parent {
++		if parent.Type == html.ElementNode && parent.Data == name {
++			return true
++		}
++	}
++	return false
++}
++
+ func quoted(s string) string {
+ 	return "\"" + s + "\""
+ }
+ 
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/htmltext/htmltext_test.go
+Index: internal/htmltext/htmltext_test.go
+===================================================================
+--- internal/htmltext/htmltext_test.go
++++ internal/htmltext/htmltext_test.go
+@@ -71,8 +71,16 @@
+   input "email"
+ `, render(t, page))
+ }
+ 
++func TestRenderLabelWrappingControl(t *testing.T) {
++	page := `<form action="/save"><label><input type="checkbox" name="notify"> Notify me</label></form>`
++
++	assert.Equal(t, `form GET http://example.test/save
++  [ ] "notify" Notify me
++`, render(t, page))
++}
++
+ func TestRenderTextNodesKeepWordBoundaries(t *testing.T) {
+ 	page := `<p><span>Hello</span> <span>world</span>, <span>again</span></p>`
+ 
+ 	assert.Equal(t, "Hello world, again\n", render(t, page))
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && go test ./internal/htmltext/ 2>&1 | tail -30 && go run ./.scratch/showdemo
+ok  	github.com/basecamp/once/internal/htmltext	0.006s
+Books
+
+A small library of books <http://books.localhost/books> and recent arrivals <#recent>.
+
+Search
+
+form GET http://books.localhost/search
+  Query
+  input "q" (search)
+  [ ] "title_only" Titles only
+  button "Find"
+
+Recent
+
+- First book
+- Second book
+  - Nested
+
+  A quote.
+
+Title | Author
+One | Ada
+
+func main() {
+	fmt.Println("hi")
+}
+
+[Cover]
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m✗ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && rm -rf .scratch/showdemo && grep -n "once list\|once ls\|CLI commands\|## Commands\|`once " README.md | head -20 failed
+[91m[1mError: [0mPortable shell scanner cannot analyze command: command-substitution
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && rm -rf .scratch/showdemo; grep -n "once list\|CLI commands\|## Commands" README.md | head -20
+7:It has a TUI interface with a dashboard for monitoring and operating your applications, as well as CLI commands for common operations should you (or your AI agent) prefer that.
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && make test 2>&1 | tail -6; echo "--- lint ---"; make lint 2>&1 | tail -3
+ok  	github.com/basecamp/once/internal/mouse	(cached)
+?   	github.com/basecamp/once/internal/service	[no test files]
+ok  	github.com/basecamp/once/internal/system	(cached)
+ok  	github.com/basecamp/once/internal/ui	(cached)
+ok  	github.com/basecamp/once/internal/userstats	(cached)
+ok  	github.com/basecamp/once/internal/version	(cached)
+--- lint ---
+golangci-lint run
+0 issues.
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+Added `once show <host>`.
+
+- `internal/command/show.go:1` — Cobra command, fetches `app.URL()` with a 15s timeout, rejects non-2xx and non-text responses.
+- `internal/htmltext/` — HTML→text renderer: headings, paragraphs, lists (nested), tables, links (resolved against the final URL), forms/controls, pre blocks; drops markup, scripts and styles.
+- Registered in `internal/command/root.go:50`; `golang.org/x/net/html` promoted to a direct dependency.
+- Tests cover the command (success, unknown host, unreachable app, 503, non-text) and the renderer (headings/links/forms, lists, tables, pre, scripts, labels).
+
+Lint command: `make lint` (golangci-lint) — 0 issues. `make test` — all packages pass.
