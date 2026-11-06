@@ -74,6 +74,14 @@ func (d *deployCommand) run(ctx context.Context, ns *docker.Namespace, cmd *cobr
 	}
 	settings.Name = name
 
+	if source != "" {
+		served, err := docker.ServeSite(name, source)
+		if err != nil {
+			return fmt.Errorf("preparing site contents: %w", err)
+		}
+		settings.ServedPath = served
+	}
+
 	app := docker.NewApplication(ns, settings)
 
 	return runWithProgress("Deploying "+host, func(progress docker.DeployProgressCallback) error {
@@ -106,13 +114,26 @@ func (d *deployCommand) redeploy(ctx context.Context, cmd *cobra.Command, app *d
 		return err
 	}
 
+	if source != "" {
+		served, err := docker.ServeSite(app.Settings.Name, source)
+		if err != nil {
+			return fmt.Errorf("preparing site contents: %w", err)
+		}
+		settings.ServedPath = served
+	}
+
 	oldSettings := app.Settings
 	app.Settings = settings
 
 	return runWithProgress("Deploying "+settings.Host, func(progress docker.DeployProgressCallback) error {
 		if err := app.Deploy(ctx, progress); err != nil {
 			app.Settings = oldSettings
+			removeServedCopy(settings.ServedPath)
 			return fmt.Errorf("%w: %w", docker.ErrDeployFailed, err)
+		}
+
+		if oldSettings.ServedPath != "" && oldSettings.ServedPath != settings.ServedPath {
+			removeServedCopy(oldSettings.ServedPath)
 		}
 
 		return nil
@@ -130,6 +151,18 @@ func (d *deployCommand) redeploySettings(cmd *cobra.Command, existing docker.App
 }
 
 // Helpers
+
+// removeServedCopy drops a served copy that is no longer in use, logging rather
+// than failing when it can't be cleaned up.
+func removeServedCopy(path string) {
+	if path == "" {
+		return
+	}
+
+	if err := docker.RemoveServedCopy(path); err != nil {
+		slog.Warn("Failed to remove served site copy", "path", path, "error", err)
+	}
+}
 
 // withSourceHash records what the deployed folder contained, so later scrapes
 // can tell whether it has changed since.

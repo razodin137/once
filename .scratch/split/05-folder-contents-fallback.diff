@@ -1,0 +1,5 @@
+ internal/command/deploy.go                 | 33 ++++++++++++++++++++++++++++++
+ internal/docker/application.go             |  9 +++++++-
+ internal/docker/application_settings.go    |  3 ++-
+ internal/docker/application_static_test.go | 18 +++++++++++++++-
+ 4 files changed, 60 insertions(+), 3 deletions(-)

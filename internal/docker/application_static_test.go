@@ -10,11 +10,27 @@ import (
 )
 
 func TestVolumeMountsStaticSource(t *testing.T) {
-	app := &Application{Settings: ApplicationSettings{Source: "/srv/my-site"}}
+	app := &Application{Settings: ApplicationSettings{
+		Source:     "/srv/my-site",
+		ServedPath: "/cache/once/sites/site.abc123/0123456789abcdef",
+	}}
 
 	mounts := app.volumeMounts(&ApplicationVolume{name: "once-app-my-site"})
 
 	assert.Len(t, mounts, len(AppVolumeMountTargets)+1)
+	assert.Contains(t, mounts, mount.Mount{
+		Type:     mount.TypeBind,
+		Source:   "/cache/once/sites/site.abc123/0123456789abcdef",
+		Target:   staticContentTarget,
+		ReadOnly: true,
+	})
+}
+
+func TestVolumeMountsStaticSourceWithoutServedCopy(t *testing.T) {
+	app := &Application{Settings: ApplicationSettings{Source: "/srv/my-site"}}
+
+	mounts := app.volumeMounts(&ApplicationVolume{name: "once-app-my-site"})
+
 	assert.Contains(t, mounts, mount.Mount{
 		Type:     mount.TypeBind,
 		Source:   "/srv/my-site",

@@ -298,6 +298,12 @@ func (a *Application) Destroy(ctx context.Context, destroyVolumes bool) error {
 		}
 	}
 
+	if a.Settings.Static() {
+		if err := RemoveServedSite(a.Settings.Name); err != nil {
+			return fmt.Errorf("removing served site: %w", err)
+		}
+	}
+
 	return nil
 }
 
@@ -490,9 +496,10 @@ func (a *Application) volumeMounts(vol *ApplicationVolume) []mount.Mount {
 	}
 
 	if a.Settings.Static() {
+		source := cmp.Or(a.Settings.ServedPath, a.Settings.Source)
 		mounts = append(mounts, mount.Mount{
 			Type:     mount.TypeBind,
-			Source:   a.Settings.Source,
+			Source:   source,
 			Target:   staticContentTarget,
 			ReadOnly: true,
 		})
