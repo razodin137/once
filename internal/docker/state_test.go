@@ -99,6 +99,23 @@ func TestRecordUpdate(t *testing.T) {
 	})
 }
 
+func TestRecordScreenshot(t *testing.T) {
+	t.Run("records successful screenshot", func(t *testing.T) {
+		s := &State{}
+		s.RecordScreenshot("myapp", nil)
+
+		assert.False(t, s.Apps["myapp"].LastScreenshot.At.IsZero())
+		assert.Empty(t, s.Apps["myapp"].LastScreenshot.Error)
+	})
+
+	t.Run("records failed screenshot", func(t *testing.T) {
+		s := &State{}
+		s.RecordScreenshot("myapp", errors.New("browser timed out"))
+
+		assert.Equal(t, "browser timed out", s.Apps["myapp"].LastScreenshot.Error)
+	})
+}
+
 func TestFavorites(t *testing.T) {
 	t.Run("not favorite without state", func(t *testing.T) {
 		s := &State{}

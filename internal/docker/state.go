@@ -8,9 +8,10 @@ type State struct {
 }
 
 type AppState struct {
-	Favorite   bool            `json:"favorite,omitempty"`
-	LastBackup OperationResult `json:"lastBackup"`
-	LastUpdate OperationResult `json:"lastUpdate"`
+	Favorite       bool            `json:"favorite,omitempty"`
+	LastBackup     OperationResult `json:"lastBackup"`
+	LastUpdate     OperationResult `json:"lastUpdate"`
+	LastScreenshot OperationResult `json:"lastScreenshot"`
 }
 
 func (as *AppState) LastBackupResult() *OperationResult {
@@ -76,6 +77,10 @@ func (s *State) RecordBackup(appName string, err error) {
 
 func (s *State) RecordUpdate(appName string, err error) {
 	s.ensureApp(appName).LastUpdate = newResult(err)
+}
+
+func (s *State) RecordScreenshot(appName string, err error) {
+	s.ensureApp(appName).LastScreenshot = newResult(err)
 }
 
 // Private

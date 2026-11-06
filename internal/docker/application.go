@@ -38,6 +38,7 @@ var (
 		description: "Could not pull the image. The image may not exist, or it may require registry credentials.",
 	}
 	ErrDeployFailed       = errors.New("deploy failed")
+	ErrScreenshotFailed   = errors.New("screenshot failed")
 	ErrVerificationFailed = &describedError{
 		msg:         "verification failed",
 		description: "The application couldn't be verified. Please check that you have a valid DNS record set up.",
@@ -92,6 +93,9 @@ type Application struct {
 	Running      bool
 	RunningSince time.Time
 	DeployedAt   time.Time
+
+	capture       func(context.Context, string) ([]byte, error)
+	screenshotDir string
 }
 
 func NewApplication(ns *Namespace, settings ApplicationSettings) *Application {
@@ -446,6 +450,10 @@ func (a *Application) deployWithVolume(ctx context.Context, vol *ApplicationVolu
 
 	if progress != nil {
 		progress(DeployProgress{Stage: DeployStageFinished})
+	}
+
+	if err := a.CaptureScreenshot(ctx); err != nil {
+		slog.Warn("Failed to capture screenshot", "app", a.Settings.Name, "error", err)
 	}
 
 	return nil
