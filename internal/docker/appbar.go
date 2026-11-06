@@ -1,35 +1,60 @@
 package docker
 
 import (
-	"html/template"
+	"encoding/json"
+	"os"
+	"path/filepath"
 	"strings"
 )
 
+const appBarScriptPath = "__once/bar.js"
+
 // appBarData is everything the bar over a served page needs to know.
 type appBarData struct {
-	Name     string
-	Back     string
-	Next     string
-	Contents string
-	Drift    []string
+	Name     string   `json:"name"`
+	Back     string   `json:"back,omitempty"`
+	Next     string   `json:"next,omitempty"`
+	Contents string   `json:"contents"`
+	Drift    []string `json:"drift"`
 }
 
 // Private
 
-// appBar renders the bar injected over every page the site serves. The markup
-// carries its own styles and script, so the page on disk is never touched. It
-// is embedded in the nginx config, which means the result must stay free of
-// single quotes and nginx variables.
+// appBar returns the tag that loads the bar for the served page. The bar
+// itself lives in a file inside the site copy, so its size is not limited by
+// the nginx config parser.
 func (a *Application) appBar() string {
-	var bar strings.Builder
-	_ = appBarTemplate.Execute(&bar, a.appBarData())
-	return bar.String()
+	return `<script src="/` + appBarScriptPath + `" defer></script>`
+}
+
+// writeAppBarScript writes the bar next to the served pages. The source folder
+// is never touched.
+func (a *Application) writeAppBarScript() error {
+	if a.Settings.ServedPath == "" {
+		return nil
+	}
+
+	path := filepath.Join(a.Settings.ServedPath, filepath.FromSlash(appBarScriptPath))
+	if err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {
+		return err
+	}
+
+	return os.WriteFile(path, []byte(a.appBarScript()), 0o644)
+}
+
+func (a *Application) appBarScript() string {
+	data, err := json.Marshal(a.appBarData())
+	if err != nil {
+		return ""
+	}
+	return strings.Replace(appBarScriptTemplate, "{{data}}", string(data), 1)
 }
 
 func (a *Application) appBarData() appBarData {
 	data := appBarData{
 		Name:     a.Settings.Name,
 		Contents: "/",
+		Drift:    []string{},
 	}
 
 	back, next := a.neighborApps()
@@ -91,50 +116,118 @@ func (a *Application) runningSiblings() []*Application {
 
 // Helpers
 
-var appBarTemplate = template.Must(template.New("appbar").Parse(appBarHTML))
+const appBarScriptTemplate = `(function () {
+  const data = {{data}}
+  const drift = data.drift || []
+  const links = {}
 
-const appBarHTML = `<div id="once-bar">
-<span class="once-bar-name">{{.Name}}</span>
-<nav class="once-bar-nav">
-{{if .Back}}<a href="{{.Back}}" rel="prev">Back</a>{{end}}
-{{if .Next}}<a href="{{.Next}}" rel="next">Next</a>{{end}}
-<a href="{{.Contents}}">Contents</a>
-{{if .Drift}}<a href="#" data-once="drift">Drift</a>{{end}}
-<a href="#" data-once="reload">Reload</a>
-<a href="#" data-once="hide">Hide</a>
-</nav>
-</div>
-<style>
+  const bar = document.createElement("div")
+  bar.id = "once-bar"
+
+  const name = document.createElement("span")
+  name.className = "once-bar-name"
+  name.textContent = data.name
+  bar.appendChild(name)
+
+  const nav = document.createElement("nav")
+  nav.className = "once-bar-nav"
+  bar.appendChild(nav)
+
+  const menu = document.createElement("div")
+  menu.id = "once-bar-menu"
+  menu.hidden = true
+  bar.appendChild(menu)
+
+  const actions = []
+  if (data.back) actions.push(["back", "Back", "[", data.back])
+  if (data.next) actions.push(["next", "Next", "]", data.next])
+  actions.push(["contents", "Contents", "C", data.contents])
+  if (drift.length > 0) actions.push(["drift", "Drift", "R", "#"])
+  actions.push(["reload", "Reload", "shift R", "#"], ["hide", "Hide", "H", "#"])
+
+  actions.forEach(([action, label, key, href]) => {
+    for (const target of [nav, menu]) {
+      const link = document.createElement("a")
+      link.textContent = label
+      link.href = href
+      link.dataset.once = action
+      if (target === nav) links[action] = link
+      if (target === menu) {
+        const hint = document.createElement("kbd")
+        hint.textContent = key
+        link.appendChild(hint)
+      }
+      target.appendChild(link)
+    }
+  })
+
+  const toggle = document.createElement("a")
+  toggle.textContent = "Menu"
+  toggle.href = "#"
+  toggle.dataset.once = "menu"
+  toggle.setAttribute("aria-haspopup", "true")
+  toggle.setAttribute("aria-expanded", "false")
+  nav.appendChild(toggle)
+
+  const style = document.createElement("style")
+  style.textContent = ` + "`" + `
 #once-bar{position:fixed;top:0;right:0;left:0;z-index:2147483647;display:flex;align-items:center;gap:1.25rem;height:40px;padding:0 1rem;box-sizing:border-box;background:rgba(17,17,19,.72);border-bottom:1px solid rgba(255,255,255,.14);color:#f3ede1;font:500 11px/40px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.12em;text-transform:uppercase;-webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%)}
 #once-bar .once-bar-name{margin-right:auto;overflow:hidden;font-weight:600;letter-spacing:.16em;white-space:nowrap;text-overflow:ellipsis}
 #once-bar .once-bar-nav{display:flex;align-items:center;gap:1.15rem}
 #once-bar a{color:inherit;text-decoration:none;opacity:.7}
 #once-bar a:hover,#once-bar a:focus-visible{opacity:1}
 #once-bar a:focus-visible{outline:1px solid rgba(255,255,255,.5);outline-offset:2px}
-@media (prefers-reduced-transparency:reduce){#once-bar{background:rgba(17,17,19,.96);-webkit-backdrop-filter:none;backdrop-filter:none}}
-</style>
-<script>
-(function () {
-  const bar = document.getElementById("once-bar")
-  if (!bar) return
-  const drift = {{.Drift}}
-  bar.addEventListener("click", (event) => {
-    const action = event.target.closest("[data-once]")
-    if (!action) return
-    switch (action.getAttribute("data-once")) {
-      case "reload":
-        location.reload()
-        break
-      case "hide":
-        bar.hidden = true
-        break
-      case "drift":
-        if (drift.length > 0) location.assign(drift[Math.floor(Math.random() * drift.length)])
-        break
-      default:
-        return
+#once-bar-menu{position:absolute;top:calc(100% + 6px);right:1rem;display:grid;gap:.1rem;min-width:13rem;padding:.35rem;background:rgba(17,17,19,.9);border:1px solid rgba(255,255,255,.14);border-radius:6px;box-shadow:0 12px 32px rgba(0,0,0,.35);-webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%)}
+#once-bar-menu[hidden]{display:none}
+#once-bar-menu a{display:flex;align-items:center;justify-content:space-between;gap:2rem;padding:.45rem .6rem;font:inherit;letter-spacing:.12em;opacity:.8}
+#once-bar-menu a:hover,#once-bar-menu a:focus-visible{background:rgba(255,255,255,.08);opacity:1}
+#once-bar-menu kbd{font:inherit;letter-spacing:.08em;opacity:.55}
+@media (prefers-reduced-transparency:reduce){#once-bar,#once-bar-menu{background:rgba(17,17,19,.96);-webkit-backdrop-filter:none;backdrop-filter:none}}
+` + "`" + `
+
+  function setMenu(open) {
+    menu.hidden = !open
+    toggle.setAttribute("aria-expanded", open ? "true" : "false")
+  }
+
+  function run(action) {
+    if (action === "menu") return setMenu(menu.hidden)
+    if (action === "hide") { setMenu(false); bar.hidden = true; return }
+    if (action === "reload") return location.reload()
+    if (action === "drift") {
+      if (drift.length > 0) location.assign(drift[Math.floor(Math.random() * drift.length)])
+      return
     }
+    if (links[action]) location.assign(links[action].href)
+  }
+
+  bar.addEventListener("click", (event) => {
+    const action = event.target.closest?.("[data-once]")
+    if (!action) return
+    run(action.dataset.once)
     event.preventDefault()
   })
+
+  document.addEventListener("click", (event) => {
+    if (!event.target.closest?.("#once-bar")) setMenu(false)
+  })
+
+  document.addEventListener("keydown", (event) => {
+    if (event.ctrlKey || event.metaKey || event.altKey) return
+    if (event.target.closest?.("input, textarea, select, [contenteditable]")) return
+    if (event.key === "Escape") return setMenu(false)
+    if (event.key.toLowerCase() === "r") {
+      event.preventDefault()
+      return run(event.shiftKey ? "reload" : "drift")
+    }
+    const bindings = {"/":"menu","[":"back","]":"next","c":"contents","h":"hide"}
+    const action = bindings[event.key.toLowerCase()]
+    if (!action) return
+    event.preventDefault()
+    run(action)
+  })
+
+  document.head.appendChild(style)
+  document.body.appendChild(bar)
 })()
-</script>`
+`

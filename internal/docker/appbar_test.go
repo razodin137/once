@@ -1,6 +1,8 @@
 package docker
 
 import (
+	"os"
+	"path/filepath"
 	"strings"
 	"testing"
 
@@ -8,28 +10,31 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func TestAppBar(t *testing.T) {
+func TestAppBarLoadsScriptFromServedCopy(t *testing.T) {
+	ns := namespaceWithApps(ApplicationSettings{Name: "only", Host: "only.localhost"})
+
+	tag := ns.Application("only").appBar()
+
+	assert.Equal(t, `<script src="/__once/bar.js" defer></script>`, tag)
+}
+
+func TestAppBarScriptCarriesNavigationData(t *testing.T) {
 	ns := namespaceWithApps(
 		ApplicationSettings{Name: "alpha", Host: "alpha.localhost"},
 		ApplicationSettings{Name: "beta", Host: "beta.localhost"},
 		ApplicationSettings{Name: "gamma", Host: "gamma.localhost"},
 	)
-	app := ns.Application("beta")
 
-	bar := app.appBar()
+	script := ns.Application("beta").appBarScript()
 
-	assert.Contains(t, bar, `<span class="once-bar-name">beta</span>`)
-	assert.Contains(t, bar, `href="http://alpha.localhost" rel="prev">Back</a>`)
-	assert.Contains(t, bar, `href="http://gamma.localhost" rel="next">Next</a>`)
-	assert.Contains(t, bar, `href="/">Contents</a>`)
-	assert.Contains(t, bar, ">Drift</a>")
-	assert.Contains(t, bar, ">Reload</a>")
-	assert.Contains(t, bar, ">Hide</a>")
-	assert.Contains(t, bar, "height:40px")
-	assert.Contains(t, bar, "backdrop-filter:blur")
+	assert.Contains(t, script, `"name":"beta"`)
+	assert.Contains(t, script, `"back":"http://alpha.localhost"`)
+	assert.Contains(t, script, `"next":"http://gamma.localhost"`)
+	assert.Contains(t, script, `"contents":"/"`)
+	assert.Contains(t, script, `"drift":["http://alpha.localhost","http://gamma.localhost"]`)
 }
 
-func TestAppBarWrapsNavigation(t *testing.T) {
+func TestAppBarScriptWrapsNavigation(t *testing.T) {
 	ns := namespaceWithApps(
 		ApplicationSettings{Name: "beta", Host: "beta.localhost"},
 		ApplicationSettings{Name: "gamma", Host: "gamma.localhost"},
@@ -39,24 +44,24 @@ func TestAppBarWrapsNavigation(t *testing.T) {
 		Settings:  ApplicationSettings{Name: "alpha", Host: "alpha.localhost"},
 	}
 
-	bar := app.appBar()
+	script := app.appBarScript()
 
-	assert.Contains(t, bar, `href="http://gamma.localhost" rel="prev">Back</a>`)
-	assert.Contains(t, bar, `href="http://beta.localhost" rel="next">Next</a>`)
+	assert.Contains(t, script, `"back":"http://gamma.localhost"`)
+	assert.Contains(t, script, `"next":"http://beta.localhost"`)
 }
 
-func TestAppBarWithoutSiblings(t *testing.T) {
+func TestAppBarScriptWithoutSiblings(t *testing.T) {
 	ns := namespaceWithApps(ApplicationSettings{Name: "only", Host: "only.localhost"})
 
-	bar := ns.Application("only").appBar()
+	script := ns.Application("only").appBarScript()
 
-	assert.NotContains(t, bar, ">Back</a>")
-	assert.NotContains(t, bar, ">Next</a>")
-	assert.NotContains(t, bar, ">Drift</a>")
-	assert.Contains(t, bar, ">Contents</a>")
+	assert.NotContains(t, script, `"back":`)
+	assert.NotContains(t, script, `"next":`)
+	assert.Contains(t, script, `"contents":"/"`)
+	assert.Contains(t, script, `"drift":[]`)
 }
 
-func TestAppBarIgnoresStoppedApps(t *testing.T) {
+func TestAppBarScriptIgnoresStoppedApps(t *testing.T) {
 	ns := namespaceWithApps(
 		ApplicationSettings{Name: "alpha", Host: "alpha.localhost"},
 		ApplicationSettings{Name: "beta", Host: "beta.localhost"},
@@ -65,36 +70,76 @@ func TestAppBarIgnoresStoppedApps(t *testing.T) {
 	ns.Application("alpha").Running = false
 	ns.Application("gamma").Running = false
 
-	bar := ns.Application("beta").appBar()
+	script := ns.Application("beta").appBarScript()
 
-	assert.NotContains(t, bar, "alpha.localhost")
-	assert.NotContains(t, bar, "gamma.localhost")
-	assert.NotContains(t, bar, ">Back</a>")
-	assert.NotContains(t, bar, ">Drift</a>")
+	assert.NotContains(t, script, "alpha.localhost")
+	assert.NotContains(t, script, "gamma.localhost")
+	assert.NotContains(t, script, `"back":`)
+	assert.Contains(t, script, `"drift":[]`)
 }
 
-func TestAppBarDriftOffersEveryOtherApp(t *testing.T) {
-	ns := namespaceWithApps(
-		ApplicationSettings{Name: "alpha", Host: "alpha.localhost"},
-		ApplicationSettings{Name: "beta", Host: "beta.localhost"},
-		ApplicationSettings{Name: "gamma", Host: "gamma.localhost"},
-	)
-
-	bar := ns.Application("beta").appBar()
-
-	assert.Contains(t, bar, `const drift = ["http://alpha.localhost","http://gamma.localhost"]`)
-}
-
-func TestAppBarCanBeEmbeddedInNginxConfig(t *testing.T) {
+func TestAppBarScriptBindsKeyboardShortcuts(t *testing.T) {
 	ns := namespaceWithApps(
 		ApplicationSettings{Name: "alpha", Host: "alpha.localhost"},
 		ApplicationSettings{Name: "beta", Host: "beta.localhost"},
 	)
 
-	bar := ns.Application("alpha").appBar()
+	script := ns.Application("beta").appBarScript()
 
-	assert.NotContains(t, bar, "'")
-	assert.NotContains(t, bar, "{{")
+	assert.Contains(t, script, `{"/":"menu","[":"back","]":"next","c":"contents","h":"hide"}`)
+	assert.Contains(t, script, `event.shiftKey ? "reload" : "drift"`)
+	assert.Contains(t, script, `event.key === "Escape"`)
+	assert.Contains(t, script, `event.target.closest?.("input, textarea, select, [contenteditable]")`)
+}
+
+func TestAppBarScriptShowsShortcutHints(t *testing.T) {
+	ns := namespaceWithApps(
+		ApplicationSettings{Name: "alpha", Host: "alpha.localhost"},
+		ApplicationSettings{Name: "beta", Host: "beta.localhost"},
+	)
+
+	script := ns.Application("beta").appBarScript()
+
+	assert.Contains(t, script, `["back", "Back", "[", data.back]`)
+	assert.Contains(t, script, `["next", "Next", "]", data.next]`)
+	assert.Contains(t, script, `["contents", "Contents", "C", data.contents]`)
+	assert.Contains(t, script, `["drift", "Drift", "R", "#"]`)
+	assert.Contains(t, script, `["reload", "Reload", "shift R", "#"]`)
+	assert.Contains(t, script, `["hide", "Hide", "H", "#"]`)
+	assert.Contains(t, script, `toggle.setAttribute("aria-expanded"`)
+}
+
+func TestWriteAppBarScript(t *testing.T) {
+	ns := namespaceWithApps(
+		ApplicationSettings{Name: "alpha", Host: "alpha.localhost"},
+		ApplicationSettings{Name: "beta", Host: "beta.localhost"},
+	)
+	served := t.TempDir()
+	app := ns.Application("beta")
+	app.Settings.ServedPath = served
+
+	require.NoError(t, app.writeAppBarScript())
+
+	written, err := os.ReadFile(filepath.Join(served, appBarScriptPath))
+	require.NoError(t, err)
+	assert.Equal(t, app.appBarScript(), string(written))
+}
+
+func TestWriteAppBarScriptWithoutServedCopy(t *testing.T) {
+	app := &Application{Settings: ApplicationSettings{Name: "site", Source: "/srv/site"}}
+
+	assert.NoError(t, app.writeAppBarScript())
+}
+
+func TestAppBarScriptCanBeServedAsIs(t *testing.T) {
+	ns := namespaceWithApps(ApplicationSettings{Name: "alpha", Host: "alpha.localhost"})
+
+	script := ns.Application("alpha").appBarScript()
+
+	assert.NotContains(t, script, "{{")
+	assert.Contains(t, script, `document.body.appendChild(bar)`)
+	assert.Contains(t, script, "height:40px")
+	assert.Contains(t, script, "backdrop-filter:blur")
 }
 
 func TestStaticNginxCommandInjectsAppBar(t *testing.T) {
@@ -107,18 +152,13 @@ func TestStaticNginxCommandInjectsAppBar(t *testing.T) {
 
 	command := strings.Join(app.staticNginxCommand(), " ")
 
-	assert.Contains(t, command, `sub_filter '</body>' '<div id="once-bar">`)
-	assert.Contains(t, command, `<span class="once-bar-name">site</span>`)
+	assert.Contains(t, command, `sub_filter '</body>' '<script src="/__once/bar.js" defer></script></body>'`)
 	assert.Contains(t, command, "sub_filter_types text/html")
+	assert.Contains(t, command, "location = /__once/bar.js")
 }
 
-func TestStaticNginxCommandEscapesDollarSigns(t *testing.T) {
-	app := &Application{Settings: ApplicationSettings{Name: "cost$site", Source: "/srv/site"}}
-
-	command := strings.Join(app.staticNginxCommand(), " ")
-
-	require.Contains(t, command, `cost\$site`)
-	assert.NotContains(t, command, "cost$site")
+func TestEscapeNginxVariables(t *testing.T) {
+	assert.Equal(t, `cost\$site`, escapeNginxVariables("cost$site"))
 }
 
 func namespaceWithApps(settings ...ApplicationSettings) *Namespace {

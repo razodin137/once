@@ -65,6 +65,10 @@ const staticNginxConfig = `server {
         access_log off;
         return 200 "ok";
     }
+    location = /__once/bar.js {
+        root {{root}};
+        add_header Cache-Control "no-store";
+    }
     location ~* \.md$ {
         root {{root}};
         charset utf-8;
@@ -375,6 +379,10 @@ func (a *Application) deployWithVolume(ctx context.Context, vol *ApplicationVolu
 
 	if err := a.ensureKeys(vol); err != nil {
 		return err
+	}
+
+	if err := a.writeAppBarScript(); err != nil {
+		return fmt.Errorf("writing app bar: %w", err)
 	}
 
 	env := a.BuildEnv()
