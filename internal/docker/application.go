@@ -304,7 +304,7 @@ func (a *Application) Destroy(ctx context.Context, destroyVolumes bool) error {
 		}
 	}
 
-	if a.Settings.Static() {
+	if a.Settings.Static() || a.Settings.ServedPath != "" {
 		if err := RemoveServedSite(a.Settings.Name); err != nil {
 			return fmt.Errorf("removing served site: %w", err)
 		}

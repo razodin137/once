@@ -51,14 +51,26 @@ func ServeSite(name, source string) (string, error) {
 	return dest, nil
 }
 
-// RemoveServedSite deletes every served copy belonging to name.
+// RemoveServedSite deletes every served copy belonging to name, along with any
+// generated pages, and prunes the site cache once it is empty.
 func RemoveServedSite(name string) error {
-	dir, err := servedSiteDir(name)
+	if name == "" {
+		return fmt.Errorf("served site name is required")
+	}
+
+	root, err := servedSiteRoot()
 	if err != nil {
 		return err
 	}
 
-	return os.RemoveAll(dir)
+	if err := os.RemoveAll(filepath.Join(root, "sites", name)); err != nil {
+		return err
+	}
+
+	removeIfEmpty(filepath.Join(root, "sites"))
+	removeIfEmpty(root)
+
+	return nil
 }
 
 // RemoveServedCopy deletes a single served copy, such as the previous version
@@ -107,13 +119,26 @@ func BuildServedSite(source, dest string) error {
 
 // Helpers
 
-func servedSiteDir(name string) (string, error) {
+func servedSiteRoot() (string, error) {
 	cache, err := os.UserCacheDir()
 	if err != nil {
 		return "", fmt.Errorf("determining cache directory: %w", err)
 	}
 
-	return filepath.Join(cache, "once", "sites", name), nil
+	return filepath.Join(cache, "once"), nil
+}
+
+func servedSiteDir(name string) (string, error) {
+	root, err := servedSiteRoot()
+	if err != nil {
+		return "", err
+	}
+
+	return filepath.Join(root, "sites", name), nil
+}
+
+func removeIfEmpty(path string) {
+	_ = os.Remove(path)
 }
 
 func copyTree(root, dest string) error {

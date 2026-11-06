@@ -193,3 +193,49 @@ func TestServeSite(t *testing.T) {
 	require.NoError(t, RemoveServedSite("site.abc123"))
 	assert.NoDirExists(t, filepath.Dir(next))
 }
+
+func TestRemoveServedSitePrunesCache(t *testing.T) {
+	cache := t.TempDir()
+	t.Setenv("XDG_CACHE_HOME", cache)
+
+	source := t.TempDir()
+	require.NoError(t, os.WriteFile(filepath.Join(source, "index.html"), []byte("hi"), 0o644))
+
+	path, err := ServeSite("site.abc123", source)
+	require.NoError(t, err)
+	require.DirExists(t, path)
+
+	require.NoError(t, RemoveServedSite("site.abc123"))
+	assert.NoDirExists(t, path)
+	assert.NoDirExists(t, filepath.Join(cache, "once"))
+}
+
+func TestRemoveServedSiteKeepsOtherSites(t *testing.T) {
+	cache := t.TempDir()
+	t.Setenv("XDG_CACHE_HOME", cache)
+
+	source := t.TempDir()
+	require.NoError(t, os.WriteFile(filepath.Join(source, "index.html"), []byte("hi"), 0o644))
+
+	first, err := ServeSite("first.abc123", source)
+	require.NoError(t, err)
+	second, err := ServeSite("second.abc123", source)
+	require.NoError(t, err)
+
+	require.NoError(t, RemoveServedSite("first.abc123"))
+	assert.NoDirExists(t, filepath.Dir(first))
+	assert.DirExists(t, filepath.Dir(second))
+	assert.DirExists(t, filepath.Join(cache, "once", "sites"))
+}
+
+func TestRemoveServedSiteMissing(t *testing.T) {
+	t.Setenv("XDG_CACHE_HOME", t.TempDir())
+
+	require.NoError(t, RemoveServedSite("missing.abc123"))
+}
+
+func TestRemoveServedSiteRequiresName(t *testing.T) {
+	t.Setenv("XDG_CACHE_HOME", t.TempDir())
+
+	require.Error(t, RemoveServedSite(""))
+}

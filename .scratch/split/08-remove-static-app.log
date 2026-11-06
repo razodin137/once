@@ -1,0 +1,2053 @@
+[0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m✱ [0mGlob "**/*remove-static*" [90m1 match[0m
+[0m$ [0mls -a; ls .opencode 2>/dev/null; ls ~/.config/opencode/command 2>/dev/null; ls .opencode/command 2>/dev/null
+.
+..
+AGENTS.md
+bin
+.claude
+cmd
+.dockerignore
+.git
+.github
+.gitignore
+.golangci.yml
+go.mod
+go.sum
+installer
+integration
+internal
+Makefile
+mise.toml
+MIT-LICENSE
+prompt
+prompt-v1
+README.md
+.scratch
+scripts
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead prompt/08-remove-static-app.md 
+[0m$ [0mls prompt prompt-v1 .claude
+.claude:
+CLAUDE.md
+
+prompt:
+00-overview.md
+01-deploy-static-folder.md
+02-serve-static-apps.md
+03-redeploy-folder.md
+04-stale-source-detection.md
+05-folder-contents-fallback.md
+06-markdown-pages.md
+07-single-file-html-site.md
+08-remove-static-app.md
+09-contents-card.md
+10-contents-screen.md
+11-channels.md
+12-channel-filter.md
+13-favorites.md
+14-drift.md
+15-app-bar.md
+16-bar-keys.md
+17-bar-cross-fade.md
+18-bar-hide.md
+19-open-command.md
+20-show-command.md
+21-logs-command.md
+22-status-command.md
+23-list-json.md
+24-restart-command.md
+25-update-all.md
+26-doctor-command.md
+27-backups-list.md
+28-screenshot-capture.md
+29-card-thumbnails.md
+30-route-map.md
+31-page-weight.md
+32-broken-links.md
+33-meta-preview.md
+34-deploy-diff.md
+35-promote-on-evidence.md
+36-error-capture.md
+37-dashboard-filter.md
+38-command-palette.md
+39-toasts.md
+40-chart-time-range.md
+41-compact-layout.md
+42-appearance-settings.md
+43-app-details-view.md
+44-mouse-on-cards.md
+45-incremental-render.md
+46-chart-performance.md
+47-single-stats-stream.md
+48-share-link.md
+49-status-page.md
+50-house-style-pass.md
+
+prompt-v1:
+00-overview.md
+01-logs-command.md
+02-status-command.md
+03-restart-command.md
+04-backups-command.md
+05-dashboard-filter.md
+06-dashboard-lifecycle-shortcuts.md
+07-update-all.md
+08-health-checks.md
+09-app-details.md
+10-backup-restore.md
+11-logs-stderr.md
+12-logs-pause.md
+13-appearance-settings.md
+14-command-palette.md
+15-toasts.md
+16-chart-time-range.md
+17-compact-layout.md
+18-incremental-render.md
+19-chart-performance.md
+20-house-style.md
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && grep -rn "static" --include=*.go -il . | head -50
+./integration/docker_test.go
+./internal/command/deploy.go
+./internal/command/deploy_test.go
+./internal/docker/application.go
+./internal/docker/application_settings.go
+./internal/docker/scraper.go
+./internal/docker/scraper_test.go
+./internal/docker/application_static_test.go
+./internal/ui/chart.go
+./internal/ui/form.go
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && git log --oneline -15 && git status --short && ls internal
+91e0ada split: 07-single-file-html-site
+54ed0bf split: 06-markdown-pages
+ea29c59 split: 05-folder-contents-fallback
+3c926ed split: 04-stale-source-detection
+3b00d24 split: 03-redeploy-folder
+8021ade split: 02-serve-static-apps
+c279c61 split: 01-deploy-static-folder
+dd1ea52 split: 01-deploy-static-folder
+fe93045 starting the script: Prompting scripts for upgrading
+864ec7c Use strings.CutLast in cutLast (#118)
+?? .scratch/split/08-remove-static-app.log
+background
+command
+docker
+fsutil
+logging
+metrics
+mouse
+service
+system
+ui
+userstats
+version
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && cat .scratch/split/08-remove-static-app.log; echo ---; ls .scratch/split
+[0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m✱ [0mGlob "**/*remove-static*" [90m1 match[0m
+[0m$ [0mls -a; ls .opencode 2>/dev/null; ls ~/.config/opencode/command 2>/dev/null; ls .opencode/command 2>/dev/null
+.
+..
+AGENTS.md
+bin
+.claude
+cmd
+.dockerignore
+.git
+.github
+.gitignore
+.golangci.yml
+go.mod
+go.sum
+installer
+integration
+internal
+Makefile
+mise.toml
+MIT-LICENSE
+prompt
+prompt-v1
+README.md
+.scratch
+scripts
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead prompt/08-remove-static-app.md 
+[0m$ [0mls prompt prompt-v1 .claude
+.claude:
+CLAUDE.md
+
+prompt:
+00-overview.md
+01-deploy-static-folder.md
+02-serve-static-apps.md
+03-redeploy-folder.md
+04-stale-source-detection.md
+05-folder-contents-fallback.md
+06-markdown-pages.md
+07-single-file-html-site.md
+08-remove-static-app.md
+09-contents-card.md
+10-contents-screen.md
+11-channels.md
+12-channel-filter.md
+13-favorites.md
+14-drift.md
+15-app-bar.md
+16-bar-keys.md
+17-bar-cross-fade.md
+18-bar-hide.md
+19-open-command.md
+20-show-command.md
+21-logs-command.md
+22-status-command.md
+23-list-json.md
+24-restart-command.md
+25-update-all.md
+26-doctor-command.md
+27-backups-list.md
+28-screenshot-capture.md
+29-card-thumbnails.md
+30-route-map.md
+31-page-weight.md
+32-broken-links.md
+33-meta-preview.md
+34-deploy-diff.md
+35-promote-on-evidence.md
+36-error-capture.md
+37-dashboard-filter.md
+38-command-palette.md
+39-toasts.md
+40-chart-time-range.md
+41-compact-layout.md
+42-appearance-settings.md
+43-app-details-view.md
+44-mouse-on-cards.md
+45-incremental-render.md
+46-chart-performance.md
+47-single-stats-stream.md
+48-share-link.md
+49-status-page.md
+50-house-style-pass.md
+
+prompt-v1:
+00-overview.md
+01-logs-command.md
+02-status-command.md
+03-restart-command.md
+04-backups-command.md
+05-dashboard-filter.md
+06-dashboard-lifecycle-shortcuts.md
+07-update-all.md
+08-health-checks.md
+09-app-details.md
+10-backup-restore.md
+11-logs-stderr.md
+12-logs-pause.md
+13-appearance-settings.md
+14-command-palette.md
+15-toasts.md
+16-chart-time-range.md
+17-compact-layout.md
+18-incremental-render.md
+19-chart-performance.md
+20-house-style.md
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && grep -rn "static" --include=*.go -il . | head -50
+./integration/docker_test.go
+./internal/command/deploy.go
+./internal/command/deploy_test.go
+./internal/docker/application.go
+./internal/docker/application_settings.go
+./internal/docker/scraper.go
+./internal/docker/scraper_test.go
+./internal/docker/application_static_test.go
+./internal/ui/chart.go
+./internal/ui/form.go
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && git log --oneline -15 && git status --short && ls internal
+91e0ada split: 07-single-file-html-site
+54ed0bf split: 06-markdown-pages
+ea29c59 split: 05-folder-contents-fallback
+3c926ed split: 04-stale-source-detection
+3b00d24 split: 03-redeploy-folder
+8021ade split: 02-serve-static-apps
+c279c61 split: 01-deploy-static-folder
+dd1ea52 split: 01-deploy-static-folder
+fe93045 starting the script: Prompting scripts for upgrading
+864ec7c Use strings.CutLast in cutLast (#118)
+?? .scratch/split/08-remove-static-app.log
+background
+command
+docker
+fsutil
+logging
+metrics
+mouse
+service
+system
+ui
+userstats
+version
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+---
+01-deploy-static-folder.check
+01-deploy-static-folder.diff
+01-deploy-static-folder.log
+02-serve-static-apps.check
+02-serve-static-apps.diff
+02-serve-static-apps.log
+03-redeploy-folder.check
+03-redeploy-folder.diff
+03-redeploy-folder.log
+04-stale-source-detection.check
+04-stale-source-detection.diff
+04-stale-source-detection.log
+05-folder-contents-fallback.check
+05-folder-contents-fallback.diff
+05-folder-contents-fallback.log
+06-markdown-pages.check
+06-markdown-pages.diff
+06-markdown-pages.log
+07-single-file-html-site.check
+07-single-file-html-site.diff
+07-single-file-html-site.log
+08-remove-static-app.log
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && ls internal/command internal/docker internal/service
+internal/command:
+background.go
+background_install.go
+background_remove.go
+background_run.go
+backup.go
+cli_progress.go
+deploy.go
+deploy_test.go
+exec.go
+exec_test.go
+keys.go
+keys_reset.go
+keys_set.go
+list.go
+remove.go
+restore.go
+root.go
+root_test.go
+self_update.go
+settings_flags.go
+start.go
+stop.go
+teardown.go
+update.go
+update_test.go
+version.go
+
+internal/docker:
+application_backup.go
+application_backup_test.go
+application.go
+application_settings.go
+application_settings_test.go
+application_static_test.go
+application_test.go
+container.go
+errors.go
+errors_test.go
+events.go
+helpers.go
+helpers_test.go
+logs.go
+logs_test.go
+markdown.go
+namespace.go
+namespace_test.go
+progress.go
+progress_test.go
+proxy.go
+proxy_test.go
+registry_auth.go
+registry_auth_test.go
+ring_buffer.go
+ring_buffer_test.go
+scraper.go
+scraper_test.go
+site.go
+site_test.go
+source.go
+source_test.go
+state.go
+state_test.go
+volume.go
+volume_test.go
+
+internal/service:
+launchd.go
+service.go
+systemd.go
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/command/remove.go 
+[0m→ [0mRead internal/docker/source.go 
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/docker/site.go 
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && grep -n "Remove\|func (a \*Application)" internal/docker/application.go | head -80
+96:func (a *Application) ContainerName(ctx context.Context) (string, error) {
+115:func (a *Application) Volume(ctx context.Context) (*ApplicationVolume, error) {
+127:func (a *Application) URL() string {
+161:func (a *Application) Stop(ctx context.Context) error {
+171:func (a *Application) Start(ctx context.Context) error {
+181:func (a *Application) Exec(ctx context.Context, cmd []string) error {
+197:func (a *Application) Update(ctx context.Context, progress DeployProgressCallback) (bool, error) {
+221:func (a *Application) Deploy(ctx context.Context, progress DeployProgressCallback) error {
+241:func (a *Application) UpdateSettings(ctx context.Context, settings ApplicationSettings, progress DeployProgressCallback) error {
+258:func (a *Application) VerifyHTTPOrRemove(ctx context.Context) error {
+260:		if cleanupErr := a.Remove(context.Background(), true); cleanupErr != nil {
+269:func (a *Application) Remove(ctx context.Context, removeData bool) error {
+270:	if err := a.namespace.Proxy().Remove(ctx, a.Settings.Name); err != nil {
+277:func (a *Application) Destroy(ctx context.Context, destroyVolumes bool) error {
+287:				if _, err := a.namespace.client.ContainerRemove(ctx, c.ID, client.ContainerRemoveOptions{Force: true}); err != nil {
+308:		if err := RemoveServedSite(a.Settings.Name); err != nil {
+318:func (a *Application) saveOperationResult(ctx context.Context, record func(*State)) {
+327:func (a *Application) pullImage(ctx context.Context, progress DeployProgressCallback) (bool, error) {
+348:func (a *Application) runningImageID(ctx context.Context) string {
+360:func (a *Application) deployWithVolume(ctx context.Context, vol *ApplicationVolume, progress DeployProgressCallback) error {
+403:		a.namespace.client.ContainerRemove(ctx, resp.ID, client.ContainerRemoveOptions{Force: true})
+415:		a.namespace.client.ContainerRemove(ctx, resp.ID, client.ContainerRemoveOptions{Force: true})
+434:func (a *Application) ensureKeys(vol *ApplicationVolume) error {
+448:func (a *Application) verifyHTTP(ctx context.Context) error {
+473:func (a *Application) removeContainersExcept(ctx context.Context, keep string) error {
+485:			if _, err := a.namespace.client.ContainerRemove(ctx, c.ID, client.ContainerRemoveOptions{Force: true}); err != nil {
+494:func (a *Application) volumeMounts(vol *ApplicationVolume) []mount.Mount {
+517:func (a *Application) BuildEnv() []string {
+547:func (a *Application) containerConfig(env []string) *container.Config {
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/docker/application.go [90m[offset=240, limit=90][0m
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && grep -rn "RemoveServedSite\|RemoveServedCopy\|ServeSite\|BuildServedSite" --include=*.go .
+./internal/command/deploy.go:78:		served, err := docker.ServeSite(name, source)
+./internal/command/deploy.go:118:		served, err := docker.ServeSite(app.Settings.Name, source)
+./internal/command/deploy.go:162:	if err := docker.RemoveServedCopy(path); err != nil {
+./internal/docker/application.go:308:		if err := RemoveServedSite(a.Settings.Name); err != nil {
+./internal/docker/site.go:26:// ServeSite copies source into a fresh directory in the served site cache and
+./internal/docker/site.go:30:func ServeSite(name, source string) (string, error) {
+./internal/docker/site.go:46:	if err := BuildServedSite(source, dest); err != nil {
+./internal/docker/site.go:54:// RemoveServedSite deletes every served copy belonging to name.
+./internal/docker/site.go:55:func RemoveServedSite(name string) error {
+./internal/docker/site.go:64:// RemoveServedCopy deletes a single served copy, such as the previous version
+./internal/docker/site.go:66:func RemoveServedCopy(path string) error {
+./internal/docker/site.go:70:// BuildServedSite builds the served copy of source in dest. Markdown files are
+./internal/docker/site.go:75:func BuildServedSite(source, dest string) error {
+./internal/docker/site_test.go:14:func TestBuildServedSite(t *testing.T) {
+./internal/docker/site_test.go:32:	require.NoError(t, BuildServedSite(source, dest))
+./internal/docker/site_test.go:71:func TestBuildServedSiteRendersMarkdown(t *testing.T) {
+./internal/docker/site_test.go:81:	require.NoError(t, BuildServedSite(source, dest))
+./internal/docker/site_test.go:104:func TestBuildServedSiteMarkdownOnlyRoot(t *testing.T) {
+./internal/docker/site_test.go:111:	require.NoError(t, BuildServedSite(source, dest))
+./internal/docker/site_test.go:119:func TestBuildServedSiteMarkdownOnlyFolder(t *testing.T) {
+./internal/docker/site_test.go:128:	require.NoError(t, BuildServedSite(source, dest))
+./internal/docker/site_test.go:135:func TestBuildServedSiteMissingSource(t *testing.T) {
+./internal/docker/site_test.go:136:	err := BuildServedSite(filepath.Join(t.TempDir(), "missing"), filepath.Join(t.TempDir(), "site"))
+./internal/docker/site_test.go:140:func TestBuildServedSiteSingleFile(t *testing.T) {
+./internal/docker/site_test.go:148:	require.NoError(t, BuildServedSite(page, dest))
+./internal/docker/site_test.go:161:func TestServeSiteSingleFile(t *testing.T) {
+./internal/docker/site_test.go:167:	path, err := ServeSite("hello.abc123", page)
+./internal/docker/site_test.go:175:func TestServeSite(t *testing.T) {
+./internal/docker/site_test.go:181:	path, err := ServeSite("site.abc123", source)
+./internal/docker/site_test.go:185:	next, err := ServeSite("site.abc123", source)
+./internal/docker/site_test.go:189:	require.NoError(t, RemoveServedCopy(path))
+./internal/docker/site_test.go:193:	require.NoError(t, RemoveServedSite("site.abc123"))
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && cat .scratch/split/07-single-file-html-site.check; echo ===; head -40 .scratch/split/07-single-file-html-site.diff; echo ===; cat .claude/CLAUDE.md
+go test ./internal/...
+ok  	github.com/basecamp/once/internal/background	(cached)
+ok  	github.com/basecamp/once/internal/command	(cached)
+ok  	github.com/basecamp/once/internal/docker	0.024s
+ok  	github.com/basecamp/once/internal/fsutil	(cached)
+?   	github.com/basecamp/once/internal/logging	[no test files]
+ok  	github.com/basecamp/once/internal/metrics	0.006s
+ok  	github.com/basecamp/once/internal/mouse	(cached)
+?   	github.com/basecamp/once/internal/service	[no test files]
+ok  	github.com/basecamp/once/internal/system	(cached)
+ok  	github.com/basecamp/once/internal/ui	(cached)
+ok  	github.com/basecamp/once/internal/userstats	(cached)
+ok  	github.com/basecamp/once/internal/version	(cached)
+golangci-lint run
+0 issues.
+===
+ internal/command/deploy.go      |  8 ++++++--
+ internal/command/deploy_test.go | 18 ++++++++++++++++++
+ internal/docker/helpers.go      |  7 ++++++-
+ internal/docker/helpers_test.go |  3 +++
+ internal/docker/site.go         | 35 +++++++++++++++++++++++++++++------
+ internal/docker/site_test.go    | 35 +++++++++++++++++++++++++++++++++++
+ internal/docker/source.go       |  2 +-
+ internal/docker/source_test.go  | 19 +++++++++++++++++++
+ 8 files changed, 117 insertions(+), 10 deletions(-)
+===
+@../AGENTS.md
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && cat prompt/01-deploy-static-folder.md prompt/02-serve-static-apps.md prompt/08-remove-static-app.md
+Your job is to go in and add a `once deploy <path>` form for plain folders here to this Go CLI/TUI app.
+
+Deploy already takes an image reference; when the argument is a directory, publish that directory as a site under a host derived from its name, and report the host the way an image deploy does.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+Your job is to go in and serve a deployed folder from a tiny static container here to this Go CLI/TUI app.
+
+Keep hosts, TLS, health checks and zero-downtime swaps identical to an app container; only the image and the mount differ, so a folder deploys through the same path as everything else.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+Your job is to go in and make `once remove` clean up a folder app completely here to this Go CLI/TUI app.
+
+Removing already tears down an app container; it should also drop the served copy and any generated pages, and leave nothing behind on disk.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/docker/application_settings.go 
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && git log --oneline -S "RemoveServedSite" -- internal/docker/application.go internal/docker/site.go && git log --oneline -S "Static()" -- internal/docker/application_settings.go
+ea29c59 split: 05-folder-contents-fallback
+dd1ea52 split: 01-deploy-static-folder
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && sed -n '1,220p' internal/command/deploy.go
+package command
+
+import (
+	"context"
+	"fmt"
+	"log/slog"
+	"os"
+	"path/filepath"
+
+	"github.com/spf13/cobra"
+
+	"github.com/basecamp/once/internal/docker"
+)
+
+type deployCommand struct {
+	cmd   *cobra.Command
+	flags settingsFlags
+}
+
+func newDeployCommand() *deployCommand {
+	d := &deployCommand{}
+	d.cmd = &cobra.Command{
+		Use:   "deploy <image|path>",
+		Short: "Deploy an application or static site",
+		Args:  cobra.ExactArgs(1),
+		RunE:  WithNamespace(d.run),
+	}
+
+	d.flags.register(d.cmd)
+
+	return d
+}
+
+// Private
+
+func (d *deployCommand) run(ctx context.Context, ns *docker.Namespace, cmd *cobra.Command, args []string) error {
+	imageRef, source := deployTarget(args[0])
+
+	if err := ns.Setup(ctx); err != nil {
+		return fmt.Errorf("%w: %w", docker.ErrSetupFailed, err)
+	}
+
+	baseName := docker.NameFromImageRef(imageRef)
+	if source != "" {
+		baseName = docker.NameFromPath(source)
+	}
+
+	host := d.flags.host
+	if host == "" {
+		host = baseName + ".localhost"
+	}
+
+	existing, err := siteToReplace(ns, host, source)
+	if err != nil {
+		return err
+	}
+	if existing != nil {
+		return d.redeploy(ctx, cmd, existing, imageRef, source)
+	}
+
+	settings, err := d.flags.buildSettings(cmd, imageRef, host)
+	if err != nil {
+		return err
+	}
+	settings.Source = source
+	settings, err = withSourceHash(settings, source)
+	if err != nil {
+		return err
+	}
+
+	name, err := ns.UniqueName(baseName)
+	if err != nil {
+		return fmt.Errorf("generating app name: %w", err)
+	}
+	settings.Name = name
+
+	if source != "" {
+		served, err := docker.ServeSite(name, source)
+		if err != nil {
+			return fmt.Errorf("preparing site contents: %w", err)
+		}
+		settings.ServedPath = served
+	}
+
+	app := docker.NewApplication(ns, settings)
+
+	return runWithProgress("Deploying "+host, func(progress docker.DeployProgressCallback) error {
+		if err := app.Deploy(ctx, progress); err != nil {
+			if cleanupErr := app.Destroy(context.Background(), true); cleanupErr != nil {
+				slog.Error("Failed to clean up after deploy failure", "app", name, "error", cleanupErr)
+			}
+			return fmt.Errorf("%w: %w", docker.ErrDeployFailed, err)
+		}
+
+		if err := app.VerifyHTTPOrRemove(ctx); err != nil {
+			return err
+		}
+
+		return nil
+	})
+}
+
+// redeploy replaces what an existing static site serves, keeping its host and
+// settings. A failed redeploy leaves the previous version in place, so unlike
+// a first deploy the app is never removed.
+func (d *deployCommand) redeploy(ctx context.Context, cmd *cobra.Command, app *docker.Application, image, source string) error {
+	settings, err := d.redeploySettings(cmd, app.Settings, image, source)
+	if err != nil {
+		return err
+	}
+
+	settings, err = withSourceHash(settings, source)
+	if err != nil {
+		return err
+	}
+
+	if source != "" {
+		served, err := docker.ServeSite(app.Settings.Name, source)
+		if err != nil {
+			return fmt.Errorf("preparing site contents: %w", err)
+		}
+		settings.ServedPath = served
+	}
+
+	oldSettings := app.Settings
+	app.Settings = settings
+
+	return runWithProgress("Deploying "+settings.Host, func(progress docker.DeployProgressCallback) error {
+		if err := app.Deploy(ctx, progress); err != nil {
+			app.Settings = oldSettings
+			removeServedCopy(settings.ServedPath)
+			return fmt.Errorf("%w: %w", docker.ErrDeployFailed, err)
+		}
+
+		if oldSettings.ServedPath != "" && oldSettings.ServedPath != settings.ServedPath {
+			removeServedCopy(oldSettings.ServedPath)
+		}
+
+		return nil
+	})
+}
+
+func (d *deployCommand) redeploySettings(cmd *cobra.Command, existing docker.ApplicationSettings, image, source string) (docker.ApplicationSettings, error) {
+	settings, err := d.flags.applyChanges(cmd, existing, image)
+	if err != nil {
+		return docker.ApplicationSettings{}, err
+	}
+
+	settings.Source = source
+	return settings, nil
+}
+
+// Helpers
+
+// removeServedCopy drops a served copy that is no longer in use, logging rather
+// than failing when it can't be cleaned up.
+func removeServedCopy(path string) {
+	if path == "" {
+		return
+	}
+
+	if err := docker.RemoveServedCopy(path); err != nil {
+		slog.Warn("Failed to remove served site copy", "path", path, "error", err)
+	}
+}
+
+// withSourceHash records what the deployed folder contained, so later scrapes
+// can tell whether it has changed since.
+func withSourceHash(settings docker.ApplicationSettings, source string) (docker.ApplicationSettings, error) {
+	if source == "" {
+		return settings, nil
+	}
+
+	hash, err := docker.HashSource(source)
+	if err != nil {
+		return settings, fmt.Errorf("hashing source folder: %w", err)
+	}
+
+	settings.SourceHash = hash
+	return settings, nil
+}
+
+// siteToReplace returns the static site already serving host, when deploying a
+// folder should replace it in place. Deploying an image, or deploying a folder
+// to a host owned by an application, is still a hostname conflict.
+func siteToReplace(ns *docker.Namespace, host, source string) (*docker.Application, error) {
+	existing := ns.ApplicationByHost(host)
+	if existing == nil {
+		return nil, nil
+	}
+
+	if source == "" || !existing.Settings.Static() {
+		return nil, docker.ErrHostnameInUse
+	}
+
+	return existing, nil
+}
+
+func deployTarget(arg string) (imageRef, source string) {
+	path, err := filepath.Abs(arg)
+	if err != nil {
+		return arg, ""
+	}
+
+	info, err := os.Stat(path)
+	if err != nil {
+		return arg, ""
+	}
+
+	if info.IsDir() || (info.Mode().IsRegular() && docker.IsSiteFile(path)) {
+		return docker.StaticImage, path
+	}
+
+	return arg, ""
+}
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && git branch -a && git log --all --oneline | head -20 && ls .scratch/split/*.diff | tail -3
+* main
+  remotes/origin/main
+  remotes/upstream/HEAD -> upstream/main
+  remotes/upstream/main
+91e0ada split: 07-single-file-html-site
+54ed0bf split: 06-markdown-pages
+ea29c59 split: 05-folder-contents-fallback
+3c926ed split: 04-stale-source-detection
+3b00d24 split: 03-redeploy-folder
+8021ade split: 02-serve-static-apps
+c279c61 split: 01-deploy-static-folder
+dd1ea52 split: 01-deploy-static-folder
+fe93045 starting the script: Prompting scripts for upgrading
+864ec7c Use strings.CutLast in cutLast (#118)
+.scratch/split/05-folder-contents-fallback.diff
+.scratch/split/06-markdown-pages.diff
+.scratch/split/07-single-file-html-site.diff
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/docker/application_static_test.go 
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && grep -n "Remove\|Destroy\|served\|Served" internal/docker/application_static_test.go internal/docker/application_test.go internal/docker/site_test.go | head -60
+internal/docker/application_static_test.go:15:		ServedPath: "/cache/once/sites/site.abc123/0123456789abcdef",
+internal/docker/application_static_test.go:29:func TestVolumeMountsStaticSourceWithoutServedCopy(t *testing.T) {
+internal/docker/site_test.go:14:func TestBuildServedSite(t *testing.T) {
+internal/docker/site_test.go:32:	require.NoError(t, BuildServedSite(source, dest))
+internal/docker/site_test.go:71:func TestBuildServedSiteRendersMarkdown(t *testing.T) {
+internal/docker/site_test.go:81:	require.NoError(t, BuildServedSite(source, dest))
+internal/docker/site_test.go:104:func TestBuildServedSiteMarkdownOnlyRoot(t *testing.T) {
+internal/docker/site_test.go:111:	require.NoError(t, BuildServedSite(source, dest))
+internal/docker/site_test.go:119:func TestBuildServedSiteMarkdownOnlyFolder(t *testing.T) {
+internal/docker/site_test.go:128:	require.NoError(t, BuildServedSite(source, dest))
+internal/docker/site_test.go:135:func TestBuildServedSiteMissingSource(t *testing.T) {
+internal/docker/site_test.go:136:	err := BuildServedSite(filepath.Join(t.TempDir(), "missing"), filepath.Join(t.TempDir(), "site"))
+internal/docker/site_test.go:140:func TestBuildServedSiteSingleFile(t *testing.T) {
+internal/docker/site_test.go:148:	require.NoError(t, BuildServedSite(page, dest))
+internal/docker/site_test.go:189:	require.NoError(t, RemoveServedCopy(path))
+internal/docker/site_test.go:193:	require.NoError(t, RemoveServedSite("site.abc123"))
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && sed -n '1,120p' internal/docker/application.go
+package docker
+
+import (
+	"cmp"
+	"context"
+	"errors"
+	"fmt"
+	"log/slog"
+	"net/http"
+	"strconv"
+	"strings"
+	"time"
+
+	"github.com/containerd/errdefs"
+	"github.com/moby/moby/api/types/container"
+	"github.com/moby/moby/api/types/mount"
+	"github.com/moby/moby/api/types/network"
+	"github.com/moby/moby/client"
+)
+
+var (
+	ErrApplicationExists     = errors.New("application already exists")
+	ErrHostnameInUse         = errors.New("hostname already in use")
+	ErrHostRequired          = errors.New("host is required")
+	ErrInvalidBackup         = errors.New("invalid backup archive")
+	ErrImageRequired         = errors.New("image is required")
+	ErrApplicationNotRunning = errors.New("the application is not running")
+	ErrBackupPathRelative    = errors.New("backup path must be absolute")
+	ErrBackupFileExists      = errors.New("backup file already exists")
+	ErrAutoBackupWithoutPath = errors.New("auto-backup requires a backup path")
+	ErrSetupFailed           = errors.New("setup failed")
+	ErrPullFailed            = &describedError{
+		msg:         "pull failed",
+		description: "Failed to download the application image. Check that the image name is correct and try again.",
+	}
+	ErrPullMaybeUnauthorized = &describedError{
+		msg:         "image missing or authentication required",
+		description: "Could not pull the image. The image may not exist, or it may require registry credentials.",
+	}
+	ErrDeployFailed       = errors.New("deploy failed")
+	ErrVerificationFailed = &describedError{
+		msg:         "verification failed",
+		description: "The application couldn't be verified. Please check that you have a valid DNS record set up.",
+	}
+	ErrUnpauseFailed                   = errors.New("failed to unpause container after backup")
+	ErrRegistryPasswordWithoutUsername = errors.New("registry password requires a username")
+	ErrRegistryUsernameWithoutPassword = errors.New("registry username requires a password")
+)
+
+const (
+	AutomaticTaskInterval = 24 * time.Hour
+	HealthCheckPath       = "/up"
+	httpVerifyTimeout     = 30 * time.Second
+
+	StaticImage         = "nginx:alpine-slim"
+	staticContentTarget = "/usr/share/nginx/html"
+)
+
+const staticNginxConfig = `server {
+    listen 80;
+    location = %s {
+        access_log off;
+        return 200 "ok";
+    }
+    location ~* \.md$ {
+        root %s;
+        charset utf-8;
+        types { }
+        default_type text/html;
+    }
+    location / {
+        root %s;
+        index index.html;
+    }
+}
+`
+
+// AppVolumeMountTargets defines the paths where the app data volume is mounted
+// inside the container. The first entry is the primary path used for backups.
+var AppVolumeMountTargets = []string{"/storage", "/rails/storage"}
+
+type Application struct {
+	namespace    *Namespace
+	Settings     ApplicationSettings
+	Running      bool
+	RunningSince time.Time
+}
+
+func NewApplication(ns *Namespace, settings ApplicationSettings) *Application {
+	return &Application{
+		namespace: ns,
+		Settings:  settings,
+	}
+}
+
+func (a *Application) ContainerName(ctx context.Context) (string, error) {
+	containers, err := a.namespace.client.ContainerList(ctx, client.ContainerListOptions{All: true})
+	if err != nil {
+		return "", err
+	}
+
+	for _, c := range containers.Items {
+		if len(c.Names) == 0 {
+			continue
+		}
+		name := strings.TrimPrefix(c.Names[0], "/")
+		if a.namespace.containerAppName(name) == a.Settings.Name {
+			return name, nil
+		}
+	}
+
+	return "", fmt.Errorf("no container found for app %s", a.Settings.Name)
+}
+
+func (a *Application) Volume(ctx context.Context) (*ApplicationVolume, error) {
+	vol, err := FindVolume(ctx, a.namespace, a.Settings.Name)
+	if err == nil {
+		return vol, nil
+	}
+	if !errors.Is(err, ErrVolumeNotFound) {
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && grep -rn "UserCacheDir\|cache" --include=*.go internal | grep -v _test
+internal/docker/site.go:26:// ServeSite copies source into a fresh directory in the served site cache and
+internal/docker/site.go:111:	cache, err := os.UserCacheDir()
+internal/docker/site.go:113:		return "", fmt.Errorf("determining cache directory: %w", err)
+internal/docker/site.go:116:	return filepath.Join(cache, "once", "sites", name), nil
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && cat prompt/00-overview.md | head -80
+These prompts change the ONCE Go CLI/TUI in this repository, one feature per file, run in order with a fresh agent for each.
+
+House style here is the project's own Go conventions plus `make lint`; the wider reference copy is at /home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+
+The last line of every file is the same, and it means `make test` and `make lint` both run clean.
+
+Each file is the whole instruction for its session. Read only the one you are running.
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && cat .scratch/split/05-folder-contents-fallback.diff
+internal/command/deploy.go                 | 33 ++++++++++++++++++++++++++++++
+ internal/docker/application.go             |  9 +++++++-
+ internal/docker/application_settings.go    |  3 ++-
+ internal/docker/application_static_test.go | 18 +++++++++++++++-
+ 4 files changed, 60 insertions(+), 3 deletions(-)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && git show ea29c59 --stat && git show ea29c59 -- internal/docker/application.go internal/command/deploy.go
+commit ea29c591feb69e60b16a6625594f8ce83765449e
+Author: razodin137 <razodin137@gmail.com>
+Date:   Fri Nov 6 18:22:35 2026 +0700
+
+    split: 05-folder-contents-fallback
+
+ .scratch/split/05-folder-contents-fallback.check |   15 +
+ .scratch/split/05-folder-contents-fallback.diff  |    5 +
+ .scratch/split/05-folder-contents-fallback.log   | 4360 ++++++++++++++++++++++
+ internal/command/deploy.go                       |   33 +
+ internal/docker/application.go                   |    9 +-
+ internal/docker/application_settings.go          |    3 +-
+ internal/docker/application_static_test.go       |   18 +-
+ internal/docker/site.go                          |  397 ++
+ internal/docker/site_test.go                     |   96 +
+ 9 files changed, 4933 insertions(+), 3 deletions(-)
+commit ea29c591feb69e60b16a6625594f8ce83765449e
+Author: razodin137 <razodin137@gmail.com>
+Date:   Fri Nov 6 18:22:35 2026 +0700
+
+    split: 05-folder-contents-fallback
+
+diff --git a/internal/command/deploy.go b/internal/command/deploy.go
+index a0a46cf..eae481a 100644
+--- a/internal/command/deploy.go
++++ b/internal/command/deploy.go
+@@ -74,6 +74,14 @@ func (d *deployCommand) run(ctx context.Context, ns *docker.Namespace, cmd *cobr
+ 	}
+ 	settings.Name = name
+ 
++	if source != "" {
++		served, err := docker.ServeSite(name, source)
++		if err != nil {
++			return fmt.Errorf("preparing site contents: %w", err)
++		}
++		settings.ServedPath = served
++	}
++
+ 	app := docker.NewApplication(ns, settings)
+ 
+ 	return runWithProgress("Deploying "+host, func(progress docker.DeployProgressCallback) error {
+@@ -106,15 +114,28 @@ func (d *deployCommand) redeploy(ctx context.Context, cmd *cobra.Command, app *d
+ 		return err
+ 	}
+ 
++	if source != "" {
++		served, err := docker.ServeSite(app.Settings.Name, source)
++		if err != nil {
++			return fmt.Errorf("preparing site contents: %w", err)
++		}
++		settings.ServedPath = served
++	}
++
+ 	oldSettings := app.Settings
+ 	app.Settings = settings
+ 
+ 	return runWithProgress("Deploying "+settings.Host, func(progress docker.DeployProgressCallback) error {
+ 		if err := app.Deploy(ctx, progress); err != nil {
+ 			app.Settings = oldSettings
++			removeServedCopy(settings.ServedPath)
+ 			return fmt.Errorf("%w: %w", docker.ErrDeployFailed, err)
+ 		}
+ 
++		if oldSettings.ServedPath != "" && oldSettings.ServedPath != settings.ServedPath {
++			removeServedCopy(oldSettings.ServedPath)
++		}
++
+ 		return nil
+ 	})
+ }
+@@ -131,6 +152,18 @@ func (d *deployCommand) redeploySettings(cmd *cobra.Command, existing docker.App
+ 
+ // Helpers
+ 
++// removeServedCopy drops a served copy that is no longer in use, logging rather
++// than failing when it can't be cleaned up.
++func removeServedCopy(path string) {
++	if path == "" {
++		return
++	}
++
++	if err := docker.RemoveServedCopy(path); err != nil {
++		slog.Warn("Failed to remove served site copy", "path", path, "error", err)
++	}
++}
++
+ // withSourceHash records what the deployed folder contained, so later scrapes
+ // can tell whether it has changed since.
+ func withSourceHash(settings docker.ApplicationSettings, source string) (docker.ApplicationSettings, error) {
+diff --git a/internal/docker/application.go b/internal/docker/application.go
+index dac12b3..403c84c 100644
+--- a/internal/docker/application.go
++++ b/internal/docker/application.go
+@@ -298,6 +298,12 @@ func (a *Application) Destroy(ctx context.Context, destroyVolumes bool) error {
+ 		}
+ 	}
+ 
++	if a.Settings.Static() {
++		if err := RemoveServedSite(a.Settings.Name); err != nil {
++			return fmt.Errorf("removing served site: %w", err)
++		}
++	}
++
+ 	return nil
+ }
+ 
+@@ -490,9 +496,10 @@ func (a *Application) volumeMounts(vol *ApplicationVolume) []mount.Mount {
+ 	}
+ 
+ 	if a.Settings.Static() {
++		source := cmp.Or(a.Settings.ServedPath, a.Settings.Source)
+ 		mounts = append(mounts, mount.Mount{
+ 			Type:     mount.TypeBind,
+-			Source:   a.Settings.Source,
++			Source:   source,
+ 			Target:   staticContentTarget,
+ 			ReadOnly: true,
+ 		})
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/docker/site_test.go [90m[offset=140][0m
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && sed -n '1,80p' internal/docker/site_test.go && grep -rn "func Test.*Remove\|withApplication" internal/command/*_test.go internal/command/*.go | head
+package docker
+
+import (
+	"os"
+	"path/filepath"
+	"strings"
+	"testing"
+	"time"
+
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+)
+
+func TestBuildServedSite(t *testing.T) {
+	source := t.TempDir()
+	dest := filepath.Join(t.TempDir(), "site")
+
+	modified := time.Date(2024, 5, 6, 7, 8, 0, 0, time.Local)
+	logo := filepath.Join(source, "logo.png")
+	require.NoError(t, os.WriteFile(logo, []byte("12345"), 0o600))
+	require.NoError(t, os.Chtimes(logo, modified, modified))
+	require.NoError(t, os.WriteFile(filepath.Join(source, "a & b.txt"), []byte("hi"), 0o644))
+
+	require.NoError(t, os.Mkdir(filepath.Join(source, "docs"), 0o755))
+	require.NoError(t, os.WriteFile(filepath.Join(source, "docs", "index.html"), []byte("docs home"), 0o644))
+
+	require.NoError(t, os.Mkdir(filepath.Join(source, "photos"), 0o755))
+	require.NoError(t, os.WriteFile(filepath.Join(source, "photos", "cat.jpg"), []byte("jpeg"), 0o644))
+
+	require.NoError(t, os.Mkdir(filepath.Join(source, "blank"), 0o755))
+
+	require.NoError(t, BuildServedSite(source, dest))
+
+	root, err := os.ReadFile(filepath.Join(dest, "index.html"))
+	require.NoError(t, err)
+	page := string(root)
+
+	assert.Contains(t, page, "<h1>"+filepath.Base(source)+"</h1>")
+	assert.Contains(t, page, "a &amp; b.txt")
+	assert.Contains(t, page, "logo.png")
+	assert.Contains(t, page, "5 B")
+	assert.Contains(t, page, "2 B")
+	assert.Contains(t, page, modified.Format("2006-01-02 15:04"))
+	assert.Contains(t, page, `<a href="docs/">docs</a>`)
+	assert.Contains(t, page, `<a href="photos/">photos</a>`)
+	assert.Contains(t, page, "5 entries")
+	assert.NotContains(t, page, `href="../"`)
+
+	assert.Less(t, strings.Index(page, ">docs<"), strings.Index(page, ">photos<"))
+	assert.Less(t, strings.Index(page, ">photos<"), strings.Index(page, ">a &amp; b.txt<"))
+
+	docs, err := os.ReadFile(filepath.Join(dest, "docs", "index.html"))
+	require.NoError(t, err)
+	assert.Equal(t, "docs home", string(docs))
+
+	photos, err := os.ReadFile(filepath.Join(dest, "photos", "index.html"))
+	require.NoError(t, err)
+	assert.Contains(t, string(photos), "cat.jpg")
+	assert.Contains(t, string(photos), `href="../"`)
+	assert.Contains(t, string(photos), "1 entry")
+
+	blank, err := os.ReadFile(filepath.Join(dest, "blank", "index.html"))
+	require.NoError(t, err)
+	assert.Contains(t, string(blank), "This folder is empty.")
+
+	info, err := os.Stat(filepath.Join(dest, "logo.png"))
+	require.NoError(t, err)
+	assert.Equal(t, os.FileMode(0o644), info.Mode().Perm())
+}
+
+func TestBuildServedSiteRendersMarkdown(t *testing.T) {
+	source := t.TempDir()
+	dest := filepath.Join(t.TempDir(), "site")
+
+	markdown := "# Guide\n\nSome **bold** text.\n\n| a | b |\n| - | - |\n| 1 | 2 |\n\n[Other](other.md)\n"
+	require.NoError(t, os.Mkdir(filepath.Join(source, "docs"), 0o755))
+	require.NoError(t, os.WriteFile(filepath.Join(source, "docs", "guide.md"), []byte(markdown), 0o644))
+	require.NoError(t, os.WriteFile(filepath.Join(source, "docs", "plain.md"), []byte("Just text."), 0o644))
+	require.NoError(t, os.WriteFile(filepath.Join(source, "docs", "notes.txt"), []byte("hi"), 0o644))
+
+internal/command/root_test.go:19:	err = withApplication(ns, "myapp.localhost", "testing", func(app *docker.Application) error {
+internal/command/root_test.go:33:	err = withApplication(ns, "missing.localhost", "testing", func(app *docker.Application) error {
+internal/command/root_test.go:48:	err = withApplication(ns, "myapp.localhost", "starting", func(app *docker.Application) error {
+internal/command/backup.go:40:	err = withApplication(ns, host, "backing up", func(app *docker.Application) error {
+internal/command/exec.go:36:	return withApplication(ns, host, "executing command in", func(app *docker.Application) error {
+internal/command/remove.go:35:	err := withApplication(ns, host, "removing", func(app *docker.Application) error {
+internal/command/root.go:76:func withApplication(ns *docker.Namespace, host string, action string, fn func(*docker.Application) error) error {
+internal/command/root_test.go:19:	err = withApplication(ns, "myapp.localhost", "testing", func(app *docker.Application) error {
+internal/command/root_test.go:33:	err = withApplication(ns, "missing.localhost", "testing", func(app *docker.Application) error {
+internal/command/root_test.go:48:	err = withApplication(ns, "myapp.localhost", "starting", func(app *docker.Application) error {
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && git log --oneline upstream/main -8 && git log --oneline origin/main -5 && git status -sb
+864ec7c Use strings.CutLast in cutLast (#118)
+dd1ea52 split: 01-deploy-static-folder
+fe93045 starting the script: Prompting scripts for upgrading
+864ec7c Use strings.CutLast in cutLast (#118)
+## main...origin/main [ahead 7]
+?? .scratch/split/08-remove-static-app.log
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && sed -n '60,120p' internal/command/root.go
+func (r *RootCommand) Execute() error {
+	return r.cmd.Execute()
+}
+
+// Helpers
+
+type NamespaceRunE func(ctx context.Context, ns *docker.Namespace, cmd *cobra.Command, args []string) error
+
+func findApplication(ns *docker.Namespace, host string) (*docker.Application, error) {
+	app := ns.ApplicationByHost(host)
+	if app == nil {
+		return nil, fmt.Errorf("no application found at host %q", host)
+	}
+	return app, nil
+}
+
+func withApplication(ns *docker.Namespace, host string, action string, fn func(*docker.Application) error) error {
+	app, err := findApplication(ns, host)
+	if err != nil {
+		return err
+	}
+
+	if err := fn(app); err != nil {
+		return fmt.Errorf("%s application: %w", action, err)
+	}
+
+	return nil
+}
+
+func WithNamespace(fn NamespaceRunE) func(*cobra.Command, []string) error {
+	return func(cmd *cobra.Command, args []string) error {
+		ctx := context.Background()
+
+		ns, err := docker.RestoreNamespace(ctx, namespaceFlag(cmd))
+		if err != nil {
+			return fmt.Errorf("restoring namespace: %w", err)
+		}
+
+		return fn(ctx, ns, cmd, args)
+	}
+}
+
+func namespaceFlag(cmd *cobra.Command) string {
+	namespace, _ := cmd.Root().PersistentFlags().GetString("namespace")
+	return namespace
+}
+
+type exitCoder interface {
+	error
+	ExitCode() int
+}
+
+func ExitCode(err error) (int, bool) {
+	if e, ok := errors.AsType[exitCoder](err); ok {
+		return e.ExitCode(), true
+	}
+	return 0, false
+}
+
+func IsExitError(err error) bool {
+	_, ok := ExitCode(err)
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && grep -rn "\.Destroy(\|\.Remove(ctx\|Remove(" --include=*.go internal | grep -v "_test"
+internal/command/background_remove.go:50:	if err := svc.Remove(ctx, serviceName); err != nil {
+internal/command/deploy.go:89:			if cleanupErr := app.Destroy(context.Background(), true); cleanupErr != nil {
+internal/command/deploy.go:95:		if err := app.VerifyHTTPOrRemove(ctx); err != nil {
+internal/command/remove.go:36:		return app.Remove(ctx, r.removeData)
+internal/docker/application.go:258:func (a *Application) VerifyHTTPOrRemove(ctx context.Context) error {
+internal/docker/application.go:260:		if cleanupErr := a.Remove(context.Background(), true); cleanupErr != nil {
+internal/docker/application.go:269:func (a *Application) Remove(ctx context.Context, removeData bool) error {
+internal/docker/application.go:270:	if err := a.namespace.Proxy().Remove(ctx, a.Settings.Name); err != nil {
+internal/docker/application.go:274:	return a.Destroy(ctx, removeData)
+internal/docker/application.go:287:				if _, err := a.namespace.client.ContainerRemove(ctx, c.ID, client.ContainerRemoveOptions{Force: true}); err != nil {
+internal/docker/application.go:301:			if err := vol.Destroy(ctx); err != nil {
+internal/docker/application.go:403:		a.namespace.client.ContainerRemove(ctx, resp.ID, client.ContainerRemoveOptions{Force: true})
+internal/docker/application.go:415:		a.namespace.client.ContainerRemove(ctx, resp.ID, client.ContainerRemoveOptions{Force: true})
+internal/docker/application.go:485:			if _, err := a.namespace.client.ContainerRemove(ctx, c.ID, client.ContainerRemoveOptions{Force: true}); err != nil {
+internal/docker/application_backup.go:71:			os.Remove(filePath)
+internal/docker/application_backup.go:107:			if err := os.Remove(filename); err != nil {
+internal/docker/application_backup.go:140:		vol.Destroy(ctx)
+internal/docker/application_backup.go:145:		vol.Destroy(ctx)
+internal/docker/application_backup.go:150:		vol.Destroy(ctx)
+internal/docker/application_backup.go:155:		vol.Destroy(ctx)
+internal/docker/application_backup.go:263:		a.namespace.client.ContainerRemove(removeCtx, resp.ID, client.ContainerRemoveOptions{Force: true})
+internal/docker/application_backup.go:299:		if _, err := a.namespace.client.ContainerRemove(removeCtx, resp.ID, client.ContainerRemoveOptions{Force: true}); err != nil {
+internal/docker/namespace.go:170:		if err := app.Destroy(ctx, destroyVolumes); err != nil {
+internal/docker/namespace.go:175:	if err := n.proxy.Destroy(ctx); err != nil {
+internal/docker/namespace.go:179:	if _, err := n.client.NetworkRemove(ctx, n.name, client.NetworkRemoveOptions{}); err != nil && !errdefs.IsNotFound(err) {
+internal/docker/namespace.go:250:		if cleanupErr := app.Destroy(context.Background(), true); cleanupErr != nil {
+internal/docker/proxy.go:158:	if _, err := p.namespace.client.ContainerRemove(ctx, containerName, client.ContainerRemoveOptions{Force: true}); err != nil {
+internal/docker/proxy.go:164:	if _, err := p.namespace.client.VolumeRemove(ctx, containerName, client.VolumeRemoveOptions{Force: true}); err != nil {
+internal/docker/proxy.go:182:func (p *Proxy) Remove(ctx context.Context, appName string) error {
+internal/docker/volume.go:41:	if _, err := v.namespace.client.VolumeRemove(ctx, v.name, client.VolumeRemoveOptions{Force: true}); err != nil {
+internal/service/launchd.go:62:func (l *Launchd) Remove(ctx context.Context, name string) error {
+internal/service/launchd.go:71:	if err := os.Remove(path); err != nil && !errors.Is(err, fs.ErrNotExist) {
+internal/service/service.go:12:	Remove(ctx context.Context, name string) error
+internal/service/systemd.go:56:func (s *Systemd) Remove(ctx context.Context, name string) error {
+internal/service/systemd.go:63:	if err := os.Remove(path); err != nil && !errors.Is(err, fs.ErrNotExist) {
+internal/ui/app.go:239:		return m, m.navigateTo(NewRemove(m.namespace, msg.App))
+internal/ui/install_activity.go:198:		if cleanupErr := app.Destroy(context.Background(), true); cleanupErr != nil {
+internal/ui/install_activity.go:207:	if err := app.VerifyHTTPOrRemove(ctx); err != nil {
+internal/ui/remove.go:34:func NewRemove(ns *docker.Namespace, app *docker.Application) Remove {
+internal/ui/remove.go:89:		return m, tea.Batch(m.progress.Init(), m.runRemove())
+internal/ui/remove.go:149:func (m Remove) runRemove() tea.Cmd {
+internal/ui/remove.go:151:		err := m.app.Remove(context.Background(), true)
+internal/version/updater.go:155:		os.Remove(dest)
+internal/version/updater.go:193:	os.Remove(oldPath)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && sed -n '1,80p' internal/docker/namespace.go && sed -n '150,200p' internal/docker/namespace.go
+package docker
+
+import (
+	"context"
+	"errors"
+	"fmt"
+	"io"
+	"log/slog"
+	"regexp"
+	"slices"
+	"strings"
+	"time"
+
+	"github.com/containerd/errdefs"
+	"github.com/moby/moby/client"
+)
+
+const DefaultNamespace = "once"
+
+var ErrInvalidNamespace = errors.New("invalid namespace: must contain only lowercase letters, digits, and hyphens, and must not start with a hyphen")
+
+type Namespace struct {
+	name         string
+	client       *client.Client
+	proxy        *Proxy
+	applications []*Application
+}
+
+type NamespaceOption func(*Namespace)
+
+func WithApplications(apps ...ApplicationSettings) NamespaceOption {
+	return func(ns *Namespace) {
+		for _, s := range apps {
+			ns.addApplication(s)
+		}
+	}
+}
+
+func NewNamespace(name string, opts ...NamespaceOption) (*Namespace, error) {
+	if name == "" {
+		name = DefaultNamespace
+	}
+
+	if !validNamespace.MatchString(name) {
+		return nil, fmt.Errorf("%w: %q", ErrInvalidNamespace, name)
+	}
+
+	c, err := client.New(client.FromEnv)
+	if err != nil {
+		return nil, err
+	}
+
+	ns := &Namespace{
+		name:   name,
+		client: c,
+	}
+	ns.proxy = NewProxy(ns)
+
+	for _, opt := range opts {
+		opt(ns)
+	}
+
+	return ns, nil
+}
+
+func RestoreNamespace(ctx context.Context, name string) (*Namespace, error) {
+	ns, err := NewNamespace(name)
+	if err != nil {
+		return nil, err
+	}
+
+	if err := ns.restoreState(ctx); err != nil {
+		return nil, err
+	}
+
+	return ns, nil
+}
+
+func (n *Namespace) Name() string {
+	return n.name
+func (n *Namespace) EnsureNetwork(ctx context.Context) error {
+	networks, err := n.client.NetworkList(ctx, client.NetworkListOptions{})
+	if err != nil {
+		return err
+	}
+
+	for _, net := range networks.Items {
+		if net.Name == n.name {
+			return nil
+		}
+	}
+
+	_, err = n.client.NetworkCreate(ctx, n.name, client.NetworkCreateOptions{
+		Driver: "bridge",
+	})
+	return err
+}
+
+func (n *Namespace) Teardown(ctx context.Context, destroyVolumes bool) error {
+	for _, app := range n.applications {
+		if err := app.Destroy(ctx, destroyVolumes); err != nil {
+			return err
+		}
+	}
+
+	if err := n.proxy.Destroy(ctx); err != nil {
+		return err
+	}
+
+	if _, err := n.client.NetworkRemove(ctx, n.name, client.NetworkRemoveOptions{}); err != nil && !errdefs.IsNotFound(err) {
+		return err
+	}
+	return nil
+}
+
+func (n *Namespace) Refresh(ctx context.Context) error {
+	n.applications = nil
+	return n.restoreState(ctx)
+}
+
+func (n *Namespace) DockerRootDir(ctx context.Context) (string, error) {
+	info, err := n.client.Info(ctx, client.InfoOptions{})
+	if err != nil {
+		return "", err
+	}
+	return info.Info.DockerRootDir, nil
+}
+
+func (n *Namespace) EventWatcher() *EventWatcher {
+	return NewEventWatcher(n.client, n.name)
+}
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && sed -n '1,120p' internal/docker/namespace_test.go
+package docker
+
+import (
+	"strings"
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+)
+
+func TestUniqueName(t *testing.T) {
+	ns := &Namespace{name: "test"}
+
+	name, err := ns.UniqueName("myapp")
+	require.NoError(t, err)
+	assert.True(t, strings.HasPrefix(name, "myapp."))
+	assert.Len(t, name, len("myapp.")+6)
+
+	name2, err := ns.UniqueName("myapp")
+	require.NoError(t, err)
+	assert.NotEqual(t, name, name2)
+}
+
+func TestApplicationLookup(t *testing.T) {
+	ns := &Namespace{name: "test"}
+	ns.applications = append(ns.applications, NewApplication(ns, ApplicationSettings{Name: "alpha"}))
+	ns.applications = append(ns.applications, NewApplication(ns, ApplicationSettings{Name: "beta"}))
+
+	assert.NotNil(t, ns.Application("alpha"))
+	assert.Equal(t, "alpha", ns.Application("alpha").Settings.Name)
+	assert.NotNil(t, ns.Application("beta"))
+	assert.Nil(t, ns.Application("missing"))
+}
+
+func TestApplicationByHost(t *testing.T) {
+	ns := &Namespace{name: "test"}
+	ns.applications = append(ns.applications,
+		NewApplication(ns, ApplicationSettings{Name: "app1", Host: "app1.localhost"}),
+		NewApplication(ns, ApplicationSettings{Name: "app2", Host: "app2.localhost"}),
+	)
+
+	app := ns.ApplicationByHost("app1.localhost")
+	require.NotNil(t, app)
+	assert.Equal(t, "app1", app.Settings.Name)
+
+	app = ns.ApplicationByHost("app2.localhost")
+	require.NotNil(t, app)
+	assert.Equal(t, "app2", app.Settings.Name)
+
+	assert.Nil(t, ns.ApplicationByHost("missing.localhost"))
+}
+
+func TestHostInUse(t *testing.T) {
+	ns := &Namespace{name: "test"}
+	ns.applications = append(ns.applications,
+		NewApplication(ns, ApplicationSettings{Name: "app1", Host: "app1.localhost"}),
+		NewApplication(ns, ApplicationSettings{Name: "app2", Host: "app2.localhost"}),
+	)
+
+	assert.True(t, ns.HostInUse("app1.localhost"))
+	assert.True(t, ns.HostInUse("app2.localhost"))
+	assert.False(t, ns.HostInUse("other.localhost"))
+}
+
+func TestHostInUseByAnother(t *testing.T) {
+	ns := &Namespace{name: "test"}
+	ns.applications = append(ns.applications,
+		NewApplication(ns, ApplicationSettings{Name: "app1", Host: "shared.localhost"}),
+		NewApplication(ns, ApplicationSettings{Name: "app2", Host: "unique.localhost"}),
+	)
+
+	assert.False(t, ns.HostInUseByAnother("shared.localhost", "app1"))
+	assert.True(t, ns.HostInUseByAnother("shared.localhost", "app2"))
+	assert.False(t, ns.HostInUseByAnother("other.localhost", "app1"))
+}
+
+func TestNewApplicationDoesNotAffectNamespace(t *testing.T) {
+	ns := &Namespace{name: "test"}
+	ns.addApplication(ApplicationSettings{Name: "existing", Host: "existing.localhost"})
+
+	// NewApplication creates a standalone app without adding it to the namespace
+	app := NewApplication(ns, ApplicationSettings{Name: "standalone", Host: "standalone.localhost"})
+
+	assert.Nil(t, ns.Application("standalone"))
+	assert.False(t, ns.HostInUse("standalone.localhost"))
+	assert.Len(t, ns.Applications(), 1)
+	assert.Equal(t, "standalone", app.Settings.Name)
+}
+
+func TestContainerAppName(t *testing.T) {
+	ns := &Namespace{name: "once"}
+
+	t.Run("standard app", func(t *testing.T) {
+		assert.Equal(t, "campfire", ns.containerAppName("once-app-campfire-a1b2c3"))
+	})
+
+	t.Run("dotted unique name", func(t *testing.T) {
+		assert.Equal(t, "campfire.a1b2c3", ns.containerAppName("once-app-campfire.a1b2c3-d4e5f6"))
+	})
+
+	t.Run("dashed app name", func(t *testing.T) {
+		assert.Equal(t, "my-app", ns.containerAppName("once-app-my-app-abcdef"))
+	})
+
+	t.Run("wrong namespace", func(t *testing.T) {
+		assert.Equal(t, "", ns.containerAppName("other-app-campfire-a1b2c3"))
+	})
+
+	t.Run("not a container name", func(t *testing.T) {
+		assert.Equal(t, "", ns.containerAppName("something-else"))
+	})
+
+	t.Run("no ID suffix", func(t *testing.T) {
+		assert.Equal(t, "", ns.containerAppName("once-app-campfire"))
+	})
+}
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && cat prompt/05-folder-contents-fallback.md prompt/06-markdown-pages.md prompt/07-single-file-html-site.md
+Your job is to go in and give a folder with no index.html a generated contents page here to this Go CLI/TUI app.
+
+List the files and subfolders with names, sizes and dates in the same card style as the rest of the app, instead of returning a directory listing or a 403.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+Your job is to go in and render Markdown from a served folder as a page here to this Go CLI/TUI app.
+
+A `.md` file opens as a readable document, and a folder holding only Markdown opens its first one.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+Your job is to go in and let one `.html` file be deployed as its own app here to this Go CLI/TUI app.
+
+No folder around it, the file is the site, and its host comes from its name the same way a folder's does.
+
+Done is when make test runs clean and so do house-style lints
+
+/home/mrjohn/Work/tries/2026-11-03-house-style/house-style
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && cat Makefile && cat .golangci.yml
+.PHONY: build test integration lint lint-actions coverage dist test-release
+
+PLATFORMS = linux darwin
+ARCHITECTURES = amd64 arm64
+VERSION := $(shell git describe --tags --always)
+LDFLAGS := -ldflags "-s -w -X 'github.com/basecamp/once/internal/version.Version=$(VERSION)'"
+
+TEST_RELEASE_TAG = v0.0.1-test
+
+build:
+	CGO_ENABLED=0 go build -trimpath $(LDFLAGS) -o bin/ ./cmd/...
+
+build-all:
+	@for os in $(PLATFORMS); do \
+		for arch in $(ARCHITECTURES); do \
+			echo "Building for $$os/$$arch..."; \
+			CGO_ENABLED=0 GOOS=$$os GOARCH=$$arch go build -trimpath $(LDFLAGS) -o bin/$$os-$$arch/ ./cmd/...; \
+		done; \
+	done
+
+test:
+	go test ./internal/...
+
+integration:
+	go test -v -count=1 -parallel 16 -timeout 30m ./integration/...
+
+check:
+	go vet ./...
+	govulncheck ./...
+
+lint:
+	golangci-lint run
+
+lint-actions:
+	actionlint
+	zizmor .
+
+coverage:
+	go test -coverprofile=coverage.out ./internal/...
+	go tool cover -html=coverage.out
+
+dist: build-all
+	mkdir -p dist
+	@for os in $(PLATFORMS); do \
+		for arch in $(ARCHITECTURES); do \
+			cp bin/$$os-$$arch/once dist/once-$$os-$$arch; \
+		done; \
+	done
+	cd dist && sha256sum once-* > checksums.txt
+
+test-release:
+	-gh release delete $(TEST_RELEASE_TAG) --yes --cleanup-tag
+	git tag -f $(TEST_RELEASE_TAG)
+	git push origin $(TEST_RELEASE_TAG) --force
+version: "2"
+
+formatters:
+  enable:
+    - gofmt
+    - gci
+  settings:
+    gci:
+      sections:
+        - standard
+        - default
+        - localmodule
+
+linters:
+  enable:
+    - modernize
+  disable:
+    - errcheck
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && grep -rn "sites\|cache" README.md | head
+(no output)
+[0m$ [0mls /home/mrjohn/Work/tries/2026-11-06-yo/ ; find /home/mrjohn/Work/tries -maxdepth 3 -name "*.diff" 2>/dev/null | head; ls /home/mrjohn/Work/tries/2026-11-03-house-style/ 2>/dev/null
+listmonk
+once
+house-style
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && git reflog --all | head -20; git fsck --lost-found 2>/dev/null | head -20
+91e0ada refs/heads/main@{0}: commit: split: 07-single-file-html-site
+91e0ada HEAD@{0}: commit: split: 07-single-file-html-site
+54ed0bf refs/heads/main@{1}: commit: split: 06-markdown-pages
+54ed0bf HEAD@{1}: commit: split: 06-markdown-pages
+ea29c59 refs/heads/main@{2}: commit: split: 05-folder-contents-fallback
+ea29c59 HEAD@{2}: commit: split: 05-folder-contents-fallback
+3c926ed refs/heads/main@{3}: commit: split: 04-stale-source-detection
+3c926ed HEAD@{3}: commit: split: 04-stale-source-detection
+3b00d24 refs/heads/main@{4}: commit: split: 03-redeploy-folder
+3b00d24 HEAD@{4}: commit: split: 03-redeploy-folder
+8021ade refs/heads/main@{5}: commit: split: 02-serve-static-apps
+8021ade HEAD@{5}: commit: split: 02-serve-static-apps
+c279c61 refs/heads/main@{6}: commit: split: 01-deploy-static-folder
+c279c61 HEAD@{6}: commit: split: 01-deploy-static-folder
+dd1ea52 refs/remotes/origin/main@{0}: update by push
+dd1ea52 refs/heads/main@{7}: commit: split: 01-deploy-static-folder
+dd1ea52 HEAD@{7}: commit: split: 01-deploy-static-folder
+fe93045 refs/remotes/origin/main@{1}: update by push
+fe93045 refs/heads/main@{8}: commit: starting the script:
+fe93045 HEAD@{8}: commit: starting the script:
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/docker/site.go [90m[limit=70, offset=26][0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/site.go
+Index: internal/docker/site.go
+===================================================================
+--- internal/docker/site.go
++++ internal/docker/site.go
+@@ -50,16 +50,28 @@
+ 
+ 	return dest, nil
+ }
+ 
+-// RemoveServedSite deletes every served copy belonging to name.
++// RemoveServedSite deletes every served copy belonging to name, along with any
++// generated pages, and prunes the site cache once it is empty.
+ func RemoveServedSite(name string) error {
+-	dir, err := servedSiteDir(name)
++	if name == "" {
++		return fmt.Errorf("served site name is required")
++	}
++
++	root, err := servedSiteRoot()
+ 	if err != nil {
+ 		return err
+ 	}
+ 
+-	return os.RemoveAll(dir)
++	if err := os.RemoveAll(filepath.Join(root, "sites", name)); err != nil {
++		return err
++	}
++
++	removeIfEmpty(filepath.Join(root, "sites"))
++	removeIfEmpty(root)
++
++	return nil
+ }
+ 
+ // RemoveServedCopy deletes a single served copy, such as the previous version
+ // of a site after a redeploy.
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/site.go
+Index: internal/docker/site.go
+===================================================================
+--- internal/docker/site.go
++++ internal/docker/site.go
+@@ -118,17 +118,32 @@
+ }
+ 
+ // Helpers
+ 
+-func servedSiteDir(name string) (string, error) {
++func servedSiteRoot() (string, error) {
+ 	cache, err := os.UserCacheDir()
+ 	if err != nil {
+ 		return "", fmt.Errorf("determining cache directory: %w", err)
+ 	}
+ 
+-	return filepath.Join(cache, "once", "sites", name), nil
++	return filepath.Join(cache, "once"), nil
+ }
+ 
++func servedSiteDir(name string) (string, error) {
++	root, err := servedSiteRoot()
++	if err != nil {
++		return "", err
++	}
++
++	return filepath.Join(root, "sites", name), nil
++}
++
++func removeIfEmpty(path string) {
++	if err := os.Remove(path); err != nil && !errors.Is(err, fs.ErrNotExist) {
++		slog.Debug("Served site cache directory not empty", "path", path, "error", err)
++	}
++}
++
+ func copyTree(root, dest string) error {
+ 	return filepath.WalkDir(root, func(path string, entry fs.DirEntry, err error) error {
+ 		if err != nil {
+ 			return err
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/site.go
+Index: internal/docker/site.go
+===================================================================
+--- internal/docker/site.go
++++ internal/docker/site.go
+@@ -137,11 +137,9 @@
+ 	return filepath.Join(root, "sites", name), nil
+ }
+ 
+ func removeIfEmpty(path string) {
+-	if err := os.Remove(path); err != nil && !errors.Is(err, fs.ErrNotExist) {
+-		slog.Debug("Served site cache directory not empty", "path", path, "error", err)
+-	}
++	_ = os.Remove(path)
+ }
+ 
+ func copyTree(root, dest string) error {
+ 	return filepath.WalkDir(root, func(path string, entry fs.DirEntry, err error) error {
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/application.go
+Index: internal/docker/application.go
+===================================================================
+--- internal/docker/application.go
++++ internal/docker/application.go
+@@ -303,9 +303,9 @@
+ 			}
+ 		}
+ 	}
+ 
+-	if a.Settings.Static() {
++	if a.Settings.Static() || a.Settings.ServedPath != "" {
+ 		if err := RemoveServedSite(a.Settings.Name); err != nil {
+ 			return fmt.Errorf("removing served site: %w", err)
+ 		}
+ 	}
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead internal/docker/site_test.go [90m[offset=160][0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m← [0mEdit internal/docker/site_test.go
+Index: internal/docker/site_test.go
+===================================================================
+--- internal/docker/site_test.go
++++ internal/docker/site_test.go
+@@ -192,4 +192,50 @@
+ 
+ 	require.NoError(t, RemoveServedSite("site.abc123"))
+ 	assert.NoDirExists(t, filepath.Dir(next))
+ }
++
++func TestRemoveServedSitePrunesCache(t *testing.T) {
++	cache := t.TempDir()
++	t.Setenv("XDG_CACHE_HOME", cache)
++
++	source := t.TempDir()
++	require.NoError(t, os.WriteFile(filepath.Join(source, "index.html"), []byte("hi"), 0o644))
++
++	path, err := ServeSite("site.abc123", source)
++	require.NoError(t, err)
++	require.DirExists(t, path)
++
++	require.NoError(t, RemoveServedSite("site.abc123"))
++	assert.NoDirExists(t, path)
++	assert.NoDirExists(t, filepath.Join(cache, "once"))
++}
++
++func TestRemoveServedSiteKeepsOtherSites(t *testing.T) {
++	cache := t.TempDir()
++	t.Setenv("XDG_CACHE_HOME", cache)
++
++	source := t.TempDir()
++	require.NoError(t, os.WriteFile(filepath.Join(source, "index.html"), []byte("hi"), 0o644))
++
++	first, err := ServeSite("first.abc123", source)
++	require.NoError(t, err)
++	second, err := ServeSite("second.abc123", source)
++	require.NoError(t, err)
++
++	require.NoError(t, RemoveServedSite("first.abc123"))
++	assert.NoDirExists(t, filepath.Dir(first))
++	assert.DirExists(t, filepath.Dir(second))
++	assert.DirExists(t, filepath.Join(cache, "once", "sites"))
++}
++
++func TestRemoveServedSiteMissing(t *testing.T) {
++	t.Setenv("XDG_CACHE_HOME", t.TempDir())
++
++	require.NoError(t, RemoveServedSite("missing.abc123"))
++}
++
++func TestRemoveServedSiteRequiresName(t *testing.T) {
++	t.Setenv("XDG_CACHE_HOME", t.TempDir())
++
++	require.Error(t, RemoveServedSite(""))
++}
+
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && grep -rn "os.WriteFile\|MkdirAll\|WriteFile" --include=*.go internal | grep -v _test
+internal/docker/site.go:36:	if err := os.MkdirAll(dir, 0o755); err != nil {
+internal/docker/site.go:98:	if err := os.MkdirAll(dest, 0o755); err != nil {
+internal/docker/site.go:158:			return os.MkdirAll(target, 0o755)
+internal/service/launchd.go:55:	if err := os.WriteFile(path, []byte(plistContent), 0o644); err != nil {
+internal/service/systemd.go:39:	if err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {
+internal/service/systemd.go:45:	if err := os.WriteFile(path, []byte(unitContent), 0o644); err != nil {
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && go build ./... && go test ./internal/docker/ -run 'TestRemoveServedSite|TestServeSite' -v 2>&1 | tail -30
+=== RUN   TestServeSiteSingleFile
+--- PASS: TestServeSiteSingleFile (0.00s)
+=== RUN   TestServeSite
+--- PASS: TestServeSite (0.00s)
+=== RUN   TestRemoveServedSitePrunesCache
+--- PASS: TestRemoveServedSitePrunesCache (0.00s)
+=== RUN   TestRemoveServedSiteKeepsOtherSites
+--- PASS: TestRemoveServedSiteKeepsOtherSites (0.00s)
+=== RUN   TestRemoveServedSiteMissing
+--- PASS: TestRemoveServedSiteMissing (0.00s)
+=== RUN   TestRemoveServedSiteRequiresName
+--- PASS: TestRemoveServedSiteRequiresName (0.00s)
+PASS
+ok  	github.com/basecamp/once/internal/docker	0.007s
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && make lint 2>&1 | tail -20
+golangci-lint run
+0 issues.
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && make test 2>&1 | tail -20
+go test ./internal/...
+ok  	github.com/basecamp/once/internal/background	0.025s
+ok  	github.com/basecamp/once/internal/command	0.013s
+ok  	github.com/basecamp/once/internal/docker	0.044s
+ok  	github.com/basecamp/once/internal/fsutil	(cached)
+?   	github.com/basecamp/once/internal/logging	[no test files]
+ok  	github.com/basecamp/once/internal/metrics	0.012s
+ok  	github.com/basecamp/once/internal/mouse	(cached)
+?   	github.com/basecamp/once/internal/service	[no test files]
+ok  	github.com/basecamp/once/internal/system	(cached)
+ok  	github.com/basecamp/once/internal/ui	0.242s
+ok  	github.com/basecamp/once/internal/userstats	0.019s
+ok  	github.com/basecamp/once/internal/version	(cached)
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && grep -n "Static\|static\|Remove\|site" integration/docker_test.go | head -40
+86:func TestStaticSiteDeployment(t *testing.T) {
+96:	ns := newTestNamespace(t, "once-static-test")
+102:		Name:   "staticapp",
+103:		Image:  docker.StaticImage,
+105:		Host:   "staticapp.localhost",
+108:	require.True(t, app.Settings.Static())
+111:	assertProxiedBody(t, ctx, base, "staticapp.localhost", "/", "hello from once")
+112:	assertProxiedBody(t, ctx, base, "staticapp.localhost", "/about.html", "about")
+113:	assertProxiedBody(t, ctx, base, "staticapp.localhost", "/up", "ok")
+116:func TestStaticSiteRedeploy(t *testing.T) {
+125:	ns := newTestNamespace(t, "once-static-redeploy-test")
+131:		Name:   "staticapp",
+132:		Image:  docker.StaticImage,
+134:		Host:   "staticapp.localhost",
+148:	redeployed := ns.Application("staticapp")
+151:	assert.Equal(t, "staticapp.localhost", redeployed.Settings.Host)
+160:	assertProxiedBody(t, ctx, base, "staticapp.localhost", "/", "version two")
+844:func TestRemoveApplication(t *testing.T) {
+864:	require.NoError(t, app.Remove(ctx, false))
+872:func TestVerifyHTTPOrRemoveAllowsRedeployWithSameHost(t *testing.T) {
+889:	err := app.VerifyHTTPOrRemove(ctx)
+902:func TestRemoveApplicationWithData(t *testing.T) {
+922:	require.NoError(t, app.Remove(ctx, true))
+1458:		c.ContainerRemove(context.Background(), resp.ID, client.ContainerRemoveOptions{Force: true})
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m→ [0mRead integration/docker_test.go [90m[offset=86, limit=80][0m
+[0m→ [0mRead integration/docker_test.go [90m[offset=840, limit=90][0m
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && git diff
+diff --git i/internal/docker/application.go w/internal/docker/application.go
+index 5eada0c..0b3cffd 100644
+--- i/internal/docker/application.go
++++ w/internal/docker/application.go
+@@ -304,7 +304,7 @@ func (a *Application) Destroy(ctx context.Context, destroyVolumes bool) error {
+ 		}
+ 	}
+ 
+-	if a.Settings.Static() {
++	if a.Settings.Static() || a.Settings.ServedPath != "" {
+ 		if err := RemoveServedSite(a.Settings.Name); err != nil {
+ 			return fmt.Errorf("removing served site: %w", err)
+ 		}
+diff --git i/internal/docker/site.go w/internal/docker/site.go
+index f8e5db4..74b4163 100644
+--- i/internal/docker/site.go
++++ w/internal/docker/site.go
+@@ -51,14 +51,26 @@ func ServeSite(name, source string) (string, error) {
+ 	return dest, nil
+ }
+ 
+-// RemoveServedSite deletes every served copy belonging to name.
++// RemoveServedSite deletes every served copy belonging to name, along with any
++// generated pages, and prunes the site cache once it is empty.
+ func RemoveServedSite(name string) error {
+-	dir, err := servedSiteDir(name)
++	if name == "" {
++		return fmt.Errorf("served site name is required")
++	}
++
++	root, err := servedSiteRoot()
+ 	if err != nil {
+ 		return err
+ 	}
+ 
+-	return os.RemoveAll(dir)
++	if err := os.RemoveAll(filepath.Join(root, "sites", name)); err != nil {
++		return err
++	}
++
++	removeIfEmpty(filepath.Join(root, "sites"))
++	removeIfEmpty(root)
++
++	return nil
+ }
+ 
+ // RemoveServedCopy deletes a single served copy, such as the previous version
+@@ -107,13 +119,26 @@ func BuildServedSite(source, dest string) error {
+ 
+ // Helpers
+ 
+-func servedSiteDir(name string) (string, error) {
++func servedSiteRoot() (string, error) {
+ 	cache, err := os.UserCacheDir()
+ 	if err != nil {
+ 		return "", fmt.Errorf("determining cache directory: %w", err)
+ 	}
+ 
+-	return filepath.Join(cache, "once", "sites", name), nil
++	return filepath.Join(cache, "once"), nil
++}
++
++func servedSiteDir(name string) (string, error) {
++	root, err := servedSiteRoot()
++	if err != nil {
++		return "", err
++	}
++
++	return filepath.Join(root, "sites", name), nil
++}
++
++func removeIfEmpty(path string) {
++	_ = os.Remove(path)
+ }
+ 
+ func copyTree(root, dest string) error {
+diff --git i/internal/docker/site_test.go w/internal/docker/site_test.go
+index 1bc0b30..b014dae 100644
+--- i/internal/docker/site_test.go
++++ w/internal/docker/site_test.go
+@@ -193,3 +193,49 @@ func TestServeSite(t *testing.T) {
+ 	require.NoError(t, RemoveServedSite("site.abc123"))
+ 	assert.NoDirExists(t, filepath.Dir(next))
+ }
++
++func TestRemoveServedSitePrunesCache(t *testing.T) {
++	cache := t.TempDir()
++	t.Setenv("XDG_CACHE_HOME", cache)
++
++	source := t.TempDir()
++	require.NoError(t, os.WriteFile(filepath.Join(source, "index.html"), []byte("hi"), 0o644))
++
++	path, err := ServeSite("site.abc123", source)
++	require.NoError(t, err)
++	require.DirExists(t, path)
++
++	require.NoError(t, RemoveServedSite("site.abc123"))
++	assert.NoDirExists(t, path)
++	assert.NoDirExists(t, filepath.Join(cache, "once"))
++}
++
++func TestRemoveServedSiteKeepsOtherSites(t *testing.T) {
++	cache := t.TempDir()
++	t.Setenv("XDG_CACHE_HOME", cache)
++
++	source := t.TempDir()
++	require.NoError(t, os.WriteFile(filepath.Join(source, "index.html"), []byte("hi"), 0o644))
++
++	first, err := ServeSite("first.abc123", source)
++	require.NoError(t, err)
++	second, err := ServeSite("second.abc123", source)
++	require.NoError(t, err)
++
++	require.NoError(t, RemoveServedSite("first.abc123"))
++	assert.NoDirExists(t, filepath.Dir(first))
++	assert.DirExists(t, filepath.Dir(second))
++	assert.DirExists(t, filepath.Join(cache, "once", "sites"))
++}
++
++func TestRemoveServedSiteMissing(t *testing.T) {
++	t.Setenv("XDG_CACHE_HOME", t.TempDir())
++
++	require.NoError(t, RemoveServedSite("missing.abc123"))
++}
++
++func TestRemoveServedSiteRequiresName(t *testing.T) {
++	t.Setenv("XDG_CACHE_HOME", t.TempDir())
++
++	require.Error(t, RemoveServedSite(""))
++}
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && grep -n "func newTestNamespace" -A 40 integration/docker_test.go
+1207:func newTestNamespace(t *testing.T, base string) *docker.Namespace {
+1208-	t.Helper()
+1209-	suffix := make([]byte, 4)
+1210-	_, err := rand.Read(suffix)
+1211-	require.NoError(t, err)
+1212-	ns, err := docker.NewNamespace(fmt.Sprintf("%s-%x", base, suffix))
+1213-	require.NoError(t, err)
+1214-	t.Cleanup(func() {
+1215-		ctx, cancel := context.WithTimeout(context.Background(), 2*time.Minute)
+1216-		defer cancel()
+1217-		assert.NoError(t, ns.Teardown(ctx, true), "namespace teardown failed")
+1218-	})
+1219-	return ns
+1220-}
+1221-
+1222-func pullImages(ctx context.Context, images ...string) error {
+1223-	c, err := client.New(client.FromEnv)
+1224-	if err != nil {
+1225-		return err
+1226-	}
+1227-	defer c.Close()
+1228-
+1229-	for _, img := range images {
+1230-		reader, err := c.ImagePull(ctx, img, client.ImagePullOptions{})
+1231-		if err != nil {
+1232-			return fmt.Errorf("pulling %s: %w", img, err)
+1233-		}
+1234-		_, err = io.Copy(io.Discard, reader)
+1235-		reader.Close()
+1236-		if err != nil {
+1237-			return fmt.Errorf("pulling %s: %w", img, err)
+1238-		}
+1239-	}
+1240-	return nil
+1241-}
+1242-
+1243-func getProxyPorts(t *testing.T) docker.ProxySettings {
+1244-	t.Helper()
+1245-	return docker.ProxySettings{
+1246-		HTTPPort:    getFreePort(t),
+1247-		HTTPSPort:   getFreePort(t),
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+[0m$ [0mcd /home/mrjohn/Work/tries/2026-11-06-yo/once && git status --short
+M internal/docker/application.go
+ M internal/docker/site.go
+ M internal/docker/site_test.go
+?? .scratch/split/08-remove-static-app.log
+> build-house-style · deepseek-v4.1-flash:1017-cloud
+Done. `once remove` now wipes the whole static-site footprint from the cache, not just the app dir.
+
+- `RemoveServedSite` deletes the site's served copies and generated pages, then prunes `sites/` and `once/` when empty, and rejects an empty name so it can never wipe the whole cache.
+- `Destroy` (used by CLI and TUI remove) now also cleans up when only a `ServedPath` is recorded.
+- Added unit tests for pruning, sibling sites, missing dirs, and the empty-name guard.
+
+`make test` passes; `make lint` (golangci-lint) reports 0 issues.

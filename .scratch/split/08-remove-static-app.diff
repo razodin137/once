@@ -1,0 +1,4 @@
+ internal/docker/application.go |  2 +-
+ internal/docker/site.go        | 35 +++++++++++++++++++++++++++-----
+ internal/docker/site_test.go   | 46 ++++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 77 insertions(+), 6 deletions(-)
