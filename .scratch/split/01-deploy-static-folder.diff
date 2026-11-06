@@ -1,0 +1,3 @@
+ .scratch/split/01-deploy-static-folder.check |   23 +-
+ .scratch/split/01-deploy-static-folder.log   | 3086 +++++---------------------
+ 2 files changed, 628 insertions(+), 2481 deletions(-)
