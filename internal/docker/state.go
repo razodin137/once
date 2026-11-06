@@ -8,6 +8,7 @@ type State struct {
 }
 
 type AppState struct {
+	Favorite   bool            `json:"favorite,omitempty"`
 	LastBackup OperationResult `json:"lastBackup"`
 	LastUpdate OperationResult `json:"lastUpdate"`
 }
@@ -44,6 +45,18 @@ func (s *State) AppState(appName string) *AppState {
 		return nil
 	}
 	return s.Apps[appName]
+}
+
+func (s *State) IsFavorite(appName string) bool {
+	if s == nil {
+		return false
+	}
+	app, ok := s.Apps[appName]
+	return ok && app.Favorite
+}
+
+func (s *State) SetFavorite(appName string, favorite bool) {
+	s.ensureApp(appName).Favorite = favorite
 }
 
 func (s *State) SelfUpdateDue() bool {

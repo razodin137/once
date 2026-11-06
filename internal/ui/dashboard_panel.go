@@ -66,7 +66,12 @@ func (p DashboardPanel) View(selected bool, toggling bool, active docker.Channel
 	url := Styles.Title.Hyperlink(p.app.URL()).Render(p.app.Settings.Host)
 	name := lipgloss.NewStyle().Foreground(Colors.Border).Render("(" + docker.NameFromImageRef(p.app.Settings.Image) + ")")
 	badge := p.renderHealthBadge(cards)
-	left := badge + " " + url + " " + name
+	starColor := Colors.Border
+	if p.favorite() {
+		starColor = Colors.Warning
+	}
+	star := lipgloss.NewStyle().Foreground(starColor).Render(favoriteStarText(p.favorite()))
+	left := star + " " + badge + " " + url + " " + name
 
 	chips := p.chips(cards, toggling)
 	right := renderChannelChips(chips, active)
@@ -186,6 +191,10 @@ func (p DashboardPanel) lastBackup() *docker.OperationResult {
 		return nil
 	}
 	return p.state.AppState(p.app.Settings.Name).LastBackupResult()
+}
+
+func (p DashboardPanel) favorite() bool {
+	return p.state.IsFavorite(p.app.Settings.Name)
 }
 
 func (p DashboardPanel) renderHealthBadge(cards [3]MetricCard) string {

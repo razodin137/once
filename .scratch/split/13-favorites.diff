@@ -1,0 +1,9 @@
+ internal/docker/state.go            | 13 +++++++++
+ internal/docker/state_test.go       | 31 ++++++++++++++++++++
+ internal/ui/contents_card.go        | 36 ++++++++++++++++++++++--
+ internal/ui/contents_card_test.go   | 39 ++++++++++++++++++++++----
+ internal/ui/dashboard.go            | 56 +++++++++++++++++++++++++++++++++++--
+ internal/ui/dashboard_panel.go      | 11 +++++++-
+ internal/ui/dashboard_panel_test.go | 14 ++++++++++
+ internal/ui/dashboard_test.go       | 22 +++++++++++++++
+ 8 files changed, 209 insertions(+), 13 deletions(-)

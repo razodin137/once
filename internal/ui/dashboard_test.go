@@ -312,6 +312,28 @@ func TestDashboard_EmptyFilterShowsMessage(t *testing.T) {
 	assert.Len(t, d.visibleIndices(d.computeScales()), 1)
 }
 
+func TestDashboard_FavoriteKeyTogglesAndSortsFirst(t *testing.T) {
+	d := testDashboard(3)
+	d.width = 80
+	d.height = 40
+	d.state = &docker.State{}
+	d.buildPanels()
+	d.updateViewportSize()
+	d.rebuildViewportContent()
+
+	d, _ = updateDashboard(d, keyPressMsg("down"))
+	d, _ = updateDashboard(d, keyPressMsg("f"))
+
+	assert.True(t, d.state.IsFavorite("app-1"))
+	assert.Equal(t, []int{1, 0, 2}, d.visibleIndices(d.computeScales()))
+	assert.Equal(t, 1, d.selectedIndex)
+
+	d, _ = updateDashboard(d, keyPressMsg("f"))
+
+	assert.False(t, d.state.IsFavorite("app-1"))
+	assert.Equal(t, []int{0, 1, 2}, d.visibleIndices(d.computeScales()))
+}
+
 // Helpers
 
 func testDashboard(numApps int) Dashboard {

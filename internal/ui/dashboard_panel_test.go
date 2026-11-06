@@ -173,6 +173,20 @@ func TestRenderBarZeroWidth(t *testing.T) {
 	assert.Empty(t, renderBar(50, 0, 100, Colors.Success, 0))
 }
 
+func TestDashboardPanelShowsFavoriteStar(t *testing.T) {
+	state := &docker.State{}
+	state.SetFavorite("test-app", true)
+	panel := testPanelWithState(true, state)
+
+	assert.Contains(t, ansi.Strip(panel.View(false, false, "", true, 120, DashboardScales{})), favoriteStar)
+}
+
+func TestDashboardPanelShowsUnfavoriteStar(t *testing.T) {
+	panel := testPanel(true)
+
+	assert.Contains(t, ansi.Strip(panel.View(false, false, "", true, 120, DashboardScales{})), unfavoriteStar)
+}
+
 // Helpers
 
 func testPanel(running bool) DashboardPanel {

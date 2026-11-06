@@ -26,7 +26,7 @@ func TestContentsCardShowsAppFacts(t *testing.T) {
 	}
 	backup := &docker.OperationResult{At: time.Date(2026, 11, 5, 3, 0, 0, 0, time.UTC)}
 
-	view := ansi.Strip(NewContentsCard(app, backup, 80).View())
+	view := ansi.Strip(NewContentsCard(app, backup, false, 80).View())
 
 	assert.Contains(t, view, "Writebook")
 	assert.Contains(t, view, "WR")
@@ -50,7 +50,7 @@ func TestContentsCardFolderApp(t *testing.T) {
 		},
 	}
 
-	view := ansi.Strip(NewContentsCard(app, nil, 80).View())
+	view := ansi.Strip(NewContentsCard(app, nil, false, 80).View())
 
 	assert.Contains(t, view, "My Site")
 	assert.Contains(t, view, "FOLDER")
@@ -66,7 +66,7 @@ func TestContentsCardFailedBackup(t *testing.T) {
 		Error: "disk full",
 	}
 
-	view := ansi.Strip(NewContentsCard(app, backup, 80).View())
+	view := ansi.Strip(NewContentsCard(app, backup, false, 80).View())
 
 	assert.Contains(t, view, "failed")
 }
@@ -80,7 +80,7 @@ func TestContentsCardFitsWidth(t *testing.T) {
 		},
 	}
 
-	view := NewContentsCard(app, nil, 50).View()
+	view := NewContentsCard(app, nil, false, 50).View()
 
 	for line := range strings.SplitSeq(ansi.Strip(view), "\n") {
 		assert.LessOrEqual(t, ansi.StringWidth(line), 50)
@@ -89,7 +89,7 @@ func TestContentsCardFitsWidth(t *testing.T) {
 
 func TestContentsCardFillsScreen(t *testing.T) {
 	app := &docker.Application{Settings: docker.ApplicationSettings{Name: "writebook"}}
-	card := NewContentsCard(app, nil, 120)
+	card := NewContentsCard(app, nil, false, 120)
 	updated, _ := card.Update(tea.WindowSizeMsg{Width: 120, Height: 40})
 	card = updated.(ContentsCard)
 
@@ -102,10 +102,37 @@ func TestContentsCardFillsScreen(t *testing.T) {
 }
 
 func TestContentsCardCloseKey(t *testing.T) {
-	card := NewContentsCard(&docker.Application{}, nil, 80)
+	card := NewContentsCard(&docker.Application{}, nil, false, 80)
 
 	_, cmd := card.Update(keyPressMsg("esc"))
 
 	assert.NotNil(t, cmd)
 	assert.IsType(t, ContentsCardCloseMsg{}, cmd())
+}
+
+func TestContentsCardShowsFavoriteStar(t *testing.T) {
+	app := &docker.Application{Settings: docker.ApplicationSettings{Name: "app"}}
+
+	favorite := ansi.Strip(NewContentsCard(app, nil, true, 80).View())
+	assert.Contains(t, favorite, favoriteStar)
+	assert.Contains(t, favorite, "unfavorite")
+
+	notFavorite := ansi.Strip(NewContentsCard(app, nil, false, 80).View())
+	assert.Contains(t, notFavorite, unfavoriteStar)
+	assert.Contains(t, notFavorite, "favorite")
+}
+
+func TestContentsCardFavoriteKey(t *testing.T) {
+	card := NewContentsCard(&docker.Application{Settings: docker.ApplicationSettings{Name: "app"}}, nil, false, 80)
+
+	updated, cmd := card.Update(keyPressMsg("f"))
+	card = updated.(ContentsCard)
+
+	assert.True(t, card.favorite)
+	assert.NotNil(t, cmd)
+
+	msg, ok := cmd().(ContentsCardFavoriteMsg)
+	assert.True(t, ok)
+	assert.Equal(t, "app", msg.AppName)
+	assert.True(t, msg.Favorite)
 }

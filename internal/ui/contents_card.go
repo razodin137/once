@@ -20,6 +20,7 @@ const (
 )
 
 var contentsCardCloseKey = WithHelp(NewKeyBinding("esc"), "esc", "back")
+var contentsCardFavoriteKey = WithHelp(NewKeyBinding("f"), "f", "favorite")
 
 var (
 	contentsPaper  = lipgloss.Color("#f4ecdc")
@@ -31,17 +32,24 @@ var (
 
 type ContentsCardCloseMsg struct{}
 
+type ContentsCardFavoriteMsg struct {
+	AppName  string
+	Favorite bool
+}
+
 type ContentsCard struct {
 	app        docker.Application
 	lastBackup *docker.OperationResult
+	favorite   bool
 	width      int
 	height     int
 }
 
-func NewContentsCard(app *docker.Application, lastBackup *docker.OperationResult, width int) ContentsCard {
+func NewContentsCard(app *docker.Application, lastBackup *docker.OperationResult, favorite bool, width int) ContentsCard {
 	return ContentsCard{
 		app:        *app,
 		lastBackup: lastBackup,
+		favorite:   favorite,
 		width:      width,
 	}
 }
@@ -55,6 +63,12 @@ func (c ContentsCard) Update(msg tea.Msg) (Component, tea.Cmd) {
 	case tea.WindowSizeMsg:
 		c.width, c.height = msg.Width, msg.Height
 	case tea.KeyPressMsg:
+		if key.Matches(msg, contentsCardFavoriteKey) {
+			c.favorite = !c.favorite
+			return c, func() tea.Msg {
+				return ContentsCardFavoriteMsg{AppName: c.app.Settings.Name, Favorite: c.favorite}
+			}
+		}
 		if key.Matches(msg, contentsCardCloseKey) {
 			return c, func() tea.Msg { return ContentsCardCloseMsg{} }
 		}
@@ -72,7 +86,7 @@ func (c ContentsCard) View() string {
 	lines = append(lines, "")
 	lines = append(lines, c.factLines(inner)...)
 	lines = append(lines, "")
-	lines = append(lines, contentsCell("esc  close", inner, contentsStyle(contentsMuted)))
+	lines = append(lines, contentsCell(c.footerText(), inner, contentsStyle(contentsMuted)))
 
 	card := c.frame(lines, inner)
 
@@ -95,7 +109,7 @@ func (c ContentsCard) headerLines(inner int) []string {
 	left := []string{
 		contentsCell("ONCE · CONTENTS", titleWidth, contentsStyle(contentsMuted)),
 		contentsCell("", titleWidth, contentsStyle(contentsPaper)),
-		contentsCell(c.displayName(), titleWidth, contentsStyle(contentsInk).Bold(true).Italic(true)),
+		c.titleLine(titleWidth),
 	}
 
 	stampLines := strings.Split(stamp, "\n")
@@ -114,6 +128,22 @@ func (c ContentsCard) headerLines(inner int) []string {
 	}
 
 	return lines
+}
+
+func (c ContentsCard) titleLine(width int) string {
+	starColor := contentsMuted
+	if c.favorite {
+		starColor = contentsAccent
+	}
+	star := contentsStyle(starColor).Render(favoriteStarText(c.favorite))
+	return star + contentsCell(" "+c.displayName(), width-1, contentsStyle(contentsInk).Bold(true).Italic(true))
+}
+
+func (c ContentsCard) footerText() string {
+	if c.favorite {
+		return "f  unfavorite    esc  close"
+	}
+	return "f  favorite    esc  close"
 }
 
 func (c ContentsCard) stamp() string {

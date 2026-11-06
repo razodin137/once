@@ -2,6 +2,7 @@ package ui
 
 import (
 	"context"
+	"log/slog"
 	"os"
 	"slices"
 	"strings"
@@ -27,6 +28,7 @@ var dashboardKeys = struct {
 	Down     key.Binding
 	Settings key.Binding
 	Actions  key.Binding
+	Favorite key.Binding
 	NewApp   key.Binding
 	Logs     key.Binding
 	Contents key.Binding
@@ -37,6 +39,7 @@ var dashboardKeys = struct {
 	Down:     WithHelp(NewKeyBinding("down", "j"), "↓/j", "down"),
 	Settings: WithHelp(NewKeyBinding("s"), "s", "settings"),
 	Actions:  WithHelp(NewKeyBinding("a"), "a", "actions"),
+	Favorite: WithHelp(NewKeyBinding("f"), "f", "favorite"),
 	NewApp:   WithHelp(NewKeyBinding("n"), "n", "new app"),
 	Logs:     WithHelp(NewKeyBinding("g"), "g", "logs"),
 	Contents: WithHelp(NewKeyBinding("C"), "C", "contents"),
@@ -177,12 +180,16 @@ func (m Dashboard) Update(msg tea.Msg) (Component, tea.Cmd) {
 			m.overlay, cmd = m.overlay.Update(tea.WindowSizeMsg{Width: m.width, Height: m.height})
 			return m, cmd
 		}
+		if key.Matches(msg, dashboardKeys.Favorite) && len(m.apps) > 0 {
+			m.toggleFavorite(m.apps[m.selectedIndex].Settings.Name)
+			return m, nil
+		}
 		if key.Matches(msg, dashboardKeys.Logs) && len(m.apps) > 0 {
 			return m, func() tea.Msg { return NavigateToLogsMsg{App: m.apps[m.selectedIndex]} }
 		}
 		if key.Matches(msg, dashboardKeys.Contents) && len(m.apps) > 0 {
 			app := m.apps[m.selectedIndex]
-			m.overlay = NewContentsCard(app, m.lastBackupFor(app), m.width)
+			m.overlay = NewContentsCard(app, m.lastBackupFor(app), m.isFavorite(app.Settings.Name), m.width)
 			var cmd tea.Cmd
 			m.overlay, cmd = m.overlay.Update(tea.WindowSizeMsg{Width: m.width, Height: m.height})
 			return m, cmd
@@ -208,6 +215,9 @@ func (m Dashboard) Update(msg tea.Msg) (Component, tea.Cmd) {
 
 	case ContentsCardCloseMsg:
 		m.overlay = nil
+
+	case ContentsCardFavoriteMsg:
+		m.setFavorite(msg.AppName, msg.Favorite)
 
 	case ActionsMenuSelectMsg:
 		m.overlay = nil
@@ -315,8 +325,8 @@ func (m Dashboard) helpBindings() []key.Binding {
 	if len(m.apps) > 0 {
 		return []key.Binding{
 			dashboardKeys.Up, dashboardKeys.Down, dashboardKeys.Actions,
-			dashboardKeys.Settings, dashboardKeys.Logs, dashboardKeys.Contents,
-			dashboardKeys.Details, dashboardKeys.NewApp, dashboardKeys.Quit,
+			dashboardKeys.Favorite, dashboardKeys.Settings, dashboardKeys.Logs,
+			dashboardKeys.Contents, dashboardKeys.Details, dashboardKeys.NewApp, dashboardKeys.Quit,
 		}
 	}
 	return []key.Binding{dashboardKeys.NewApp, dashboardKeys.Quit}
@@ -347,6 +357,32 @@ func (m Dashboard) lastBackupFor(app *docker.Application) *docker.OperationResul
 		return nil
 	}
 	return state.AppState(app.Settings.Name).LastBackupResult()
+}
+
+func (m Dashboard) isFavorite(appName string) bool {
+	return m.state.IsFavorite(appName)
+}
+
+func (m *Dashboard) toggleFavorite(appName string) {
+	m.setFavorite(appName, !m.isFavorite(appName))
+}
+
+func (m *Dashboard) setFavorite(appName string, favorite bool) {
+	if m.state == nil {
+		m.state = &docker.State{}
+	}
+
+	m.state.SetFavorite(appName, favorite)
+
+	if m.namespace != nil {
+		if err := m.namespace.SaveState(context.Background(), m.state); err != nil {
+			slog.Warn("Failed to save favorites", "error", err)
+		}
+	}
+
+	m.buildPanels()
+	m.rebuildViewportContent()
+	m.scrollToSelection()
 }
 
 func (m *Dashboard) selectPanel(index int) {
@@ -433,6 +469,20 @@ func (m *Dashboard) visibleIndices(scales DashboardScales) []int {
 			indices = append(indices, i)
 		}
 	}
+
+	slices.SortStableFunc(indices, func(a, b int) int {
+		aFavorite := m.isFavorite(m.panels[a].app.Settings.Name)
+		bFavorite := m.isFavorite(m.panels[b].app.Settings.Name)
+		switch {
+		case aFavorite == bFavorite:
+			return 0
+		case aFavorite:
+			return -1
+		default:
+			return 1
+		}
+	})
+
 	return indices
 }
 

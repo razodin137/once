@@ -1,6 +1,7 @@
 package docker
 
 import (
+	"encoding/json"
 	"errors"
 	"testing"
 	"time"
@@ -95,5 +96,35 @@ func TestRecordUpdate(t *testing.T) {
 		s.RecordUpdate("myapp", errors.New("pull failed"))
 
 		assert.Equal(t, "pull failed", s.Apps["myapp"].LastUpdate.Error)
+	})
+}
+
+func TestFavorites(t *testing.T) {
+	t.Run("not favorite without state", func(t *testing.T) {
+		s := &State{}
+		assert.False(t, s.IsFavorite("myapp"))
+	})
+
+	t.Run("set and clear favorite", func(t *testing.T) {
+		s := &State{}
+
+		s.SetFavorite("myapp", true)
+		assert.True(t, s.IsFavorite("myapp"))
+		assert.True(t, s.Apps["myapp"].Favorite)
+
+		s.SetFavorite("myapp", false)
+		assert.False(t, s.IsFavorite("myapp"))
+	})
+
+	t.Run("favorites survive a marshal round trip", func(t *testing.T) {
+		s := &State{}
+		s.SetFavorite("myapp", true)
+
+		data, err := json.Marshal(s)
+		assert.NoError(t, err)
+
+		var restored State
+		assert.NoError(t, json.Unmarshal(data, &restored))
+		assert.True(t, restored.IsFavorite("myapp"))
 	})
 }
